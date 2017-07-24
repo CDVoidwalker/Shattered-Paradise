@@ -1,0 +1,1699 @@
+#######################################################
+#GDI
+#######################################################
+
+GACTWR:
+	Inherits: ^Defense
+	-WithSpriteBody:
+	WithWallSpriteBody:
+		Type: wall
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Component Tower
+		Description: Modular tower for base defenses.
+	Building:
+	Selectable:
+		Bounds: 48, 36, 0, -6
+	DisabledOverlay:
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	DetectCloaked:
+		Range: 4c0
+		RequiresCondition: tower
+		ConditionMinEnabledLevel: 1
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+		RequiresCondition: tower
+		ConditionMinEnabledLevel: 1
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+	WithSpriteTurret@VULC:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+		Recoils: no
+		Sequence: turret-vulcan
+	WithSpriteTurret@ROCKET:
+		RequiresCondition: tower.rocket
+		ConditionMinEnabledLevel: 1
+		Recoils: no
+		Sequence: turret-rocket
+	WithSpriteTurret@SAM:
+		RequiresCondition: tower.sam
+		ConditionMinEnabledLevel: 1
+		Recoils: no
+		Sequence: turret-sam
+	Armament@VULCPRIMARY:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+		Weapon: VulcanTower
+		LocalOffset: 768,85,512
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@VULCSECONDARY:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+		Name: secondary
+		Weapon: VulcanTower
+		LocalOffset: 768,-85,512
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	Armament@ROCKET:
+		RequiresCondition: tower.rocket
+		ConditionMinEnabledLevel: 1
+		Weapon: RPGTower
+		LocalOffset: 512,-128,512
+	Armament@SAM:
+		RequiresCondition: tower.sam
+		ConditionMinEnabledLevel: 1
+		Weapon: GdiRedEye
+		LocalOffset: 512,0,512
+	WithMuzzleOverlay:
+		RequiresCondition: tower.vulcan
+		ConditionMinEnabledLevel: 1
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	LineBuildNode:
+		Types: turret
+	Power@base:
+		Amount: -10
+	Power@turrets:
+		RequiresCondition: tower
+		ConditionMinEnabledLevel: 1
+		Amount: -20
+	Power@samextra:
+		RequiresCondition: tower.sam
+		ConditionMinEnabledLevel: 1
+		Amount: -10
+	Pluggable:
+		Conditions:
+			tower.vulcan: tower, tower.vulcan
+			tower.rocket: tower, tower.rocket
+			tower.sam: tower, tower.sam
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 48, 48, 0, -12
+
+GAVULC:
+	Inherits: ^Defense
+	Inherits@1: ^TowerStealthDetection
+	WithSpriteBody:
+	# WithWallSpriteBody:
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Vulcan Tower
+	Buildable:
+		Description: Basic base defense.\n\n  Strong vs Infantry.\n  Weak vs Aircraft.
+		Queue: Defense
+		BuildPaletteOrder: 40
+		Prerequisites: gapile, ~structures.gdi
+	Building:
+	Selectable:
+		Bounds: 48, 36, 0, -6
+	DisabledOverlay:
+	RequiresPower:
+	Health:
+		HP: 30000
+	BodyOrientation:
+		QuantizedFacings: 32
+	DetectCloaked:
+		Range: 4c0
+		RequiresCondition: tower
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	CanPowerDown:
+	WithSpriteTurret@VULC:
+		Recoils: no
+	Armament@VULCPRIMARY:
+		Weapon: VulcanTower
+		LocalOffset: 768,85,512
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+	WithMuzzleOverlay:
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	LineBuildNode:
+		Types: turret
+	Power@base:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 48, 48, 0, -12
+	RenderSprites:
+
+GAROCK:
+	Inherits: ^Tier2
+	Inherits@1: ^TowerStealthDetection
+	Power:
+		Amount: -20
+	WithSpriteBody:
+	# WithWallSpriteBody:
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: RPG Tower
+	Buildable:
+		Description: GDI Advanced base defense.\n\n  Strong vs Vehicles.\n  Weak vs Aircraft.
+		Queue: Defense
+		BuildPaletteOrder: 40
+		Prerequisites: gapile, garadr, ~structures.gdi
+	DisabledOverlay:
+	RequiresPower:
+	Building:
+	Selectable:
+		Bounds: 48, 36, 0, -6
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	DetectCloaked:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	CanPowerDown:
+	WithSpriteTurret@ROCKET:
+		Recoils: no
+	Armament@ROCKET:
+		Weapon: RPGTower
+		LocalOffset: 512,-128,512
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	LineBuildNode:
+		Types: turret
+	Power@base:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 48, 48, 0, -12
+	RenderSprites:
+
+GACSAM:
+	Inherits: ^AntiAir
+	Inherits@1: ^TowerStealthDetection
+	Power:
+		Amount: -30
+	WithSpriteBody:
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: SAM Tower
+	Buildable:
+		Queue: Defense
+		Description: GDI Anti-Air base defense.\nStronger than average AA.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles.
+		BuildPaletteOrder: 40
+		Prerequisites: gapile, ~structures.gdi
+	DisabledOverlay:
+	RequiresPower:
+	Building:
+	Selectable:
+		Bounds: 48, 36, 0, -6
+	Health:
+		HP: 45000
+	BodyOrientation:
+		QuantizedFacings: 32
+	DetectCloaked:
+		Range: 4c0
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	CanPowerDown:
+	WithSpriteTurret@SAM:
+		Recoils: no
+	Armament@SAM:
+		Weapon: GdiRedEye
+		LocalOffset: 400,0,512
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	LineBuildNode:
+		Types: turret
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 48, 48, 0, -12
+	RenderSprites:
+
+GAPOWRUP:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Power Turbine
+	Buildable:
+		Description: Provides extra power generation. Place\nthem on the smokestack of the structure.
+		Queue: Defense
+		BuildPaletteOrder: 10
+		Prerequisites: gapowr, ~structures.gdi
+	Plug:
+		Type: powrup
+	Power:
+		Amount: 100
+
+GAPLUG2:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Drop pod Control
+	Buildable:
+		Description: Enables use of the drop pods.
+		Queue: Defense
+		BuildPaletteOrder: 1000
+		Prerequisites: gaplug, gatech, gaweap, ~structures.gdi
+	Plug:
+		Type: plug.hunterseeker
+	Power:
+		Amount: -50
+
+GAPLUG3:
+	Inherits: ^BuildingPlug
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Ion Cannon Uplink
+	Buildable:
+		Description: Enables use of the Ion Cannon.
+		Queue: Defense
+		BuildPaletteOrder: 1000
+		Prerequisites: gaplug, gatech, ~structures.gdi
+	Plug:
+		Type: plug.ioncannon
+	Power:
+		Amount: -100
+
+REPAIRTUR:
+	Inherits: ^Defense
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Maintenance Turret
+		Description: GDI utility structure, repairs\nnearby vehciles. Requires power to operate.\n  Unnarmed.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	Power:
+		Amount: -60
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+	Armament:
+		Weapon: Repair
+		LocalOffset: 512,0,512
+		TargetStances: Ally
+		ForceTargetStances: None
+
+GAFIRE:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Description: Support structure that generates a barrier around it when activated,\nit makes friendly units inside it harder to kill, deals damage\nto enemies in the border and consumes power when active.
+		Prerequisites: gatech, ~structures.gdi
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Firestorm Generator
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	WithRangeCircle:
+		Range: 12c0
+		Type: cloakgenerator
+	PowerMultiplier:
+		RequiresCondition: FirestormGen
+		Modifier: -600
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: FirestormGen
+		CooldownTicks: 3000
+		StartsFullyCharged: true
+		DeployedTicks: 300
+	ExplodeWeapon:
+		Weapon: FirestormWallCondition
+		RequiresCondition: FirestormGen
+		ConditionMinEnabledLevel: 1
+		ResetReloadWhenEnabled: false
+	ExplodeWeapon:
+		Weapon: FirestormSpawner
+		RequiresCondition: FirestormGen
+		ConditionMinEnabledLevel: 1
+		ResetReloadWhenEnabled: false
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	Health:
+		HP: 50000
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@1:
+		Sequence: idle1 #gtfire_a, gtfire_b, gtfire_c
+	WithIdleOverlay@2:
+		Sequence: idle2
+	Power:
+		Amount: 50
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4
+
+GUARDIANDEP:
+	Inherits: ^Building
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Landed Guardian Platform
+		Description: Makes the nearby units and\nstructures more resistant to\ndamage.
+	Selectable:
+		Bounds: 110,90
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithRangeCircle:
+		Range: 4c0
+		Type: cloakgenerator
+	ProximityExternalCondition@firestorm:
+		Condition: AuraRepair
+		Range: 5c0
+		AffectsParent: false
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	Health:
+		HP: 65000
+	RevealsShroud:
+		Range: 15c0
+	Voiced:
+		VoiceSet: GuardianVO
+		Volume: 3
+	Armament:
+		Weapon: NODRepair
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+	AttackTurreted:
+	Turreted:
+	AutoTarget:
+	Transforms:
+		IntoActor: guardian
+		Voice: Action2
+
+##############################################
+# NOD
+##############################################
+
+NALASR:
+	Inherits: ^Defense
+	Inherits@1: ^TowerStealthDetection
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Laser Turret
+	Buildable:
+		Description: Basic base defense.\nRequires power to operate.\n\n  Strong vs Ground units\n  Weak vs Aircraft
+		Queue: Defense
+		Prerequisites: nahand, ~structures.nod
+		BuildPaletteOrder: 50
+	Building:
+	Selectable:
+		Bounds: 40, 30, -8, -6
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 30000
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 300
+		Offset: 270,-165,330#298,-171,400
+	AttackTurreted:
+	Armament:
+		Weapon: TurretLaserFire
+		LocalOffset: 300, 0, 200
+	RenderVoxels:
+	WithVoxelTurret:
+	Power:
+		Amount: -30
+	SelectionDecorations:
+		VisualBounds: 40, 36, -8, -8
+
+NAOBEL:
+	Inherits: ^Tier2
+	Inherits@1: ^TowerStealthDetection
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Obelisk of Light
+	Buildable:
+		Description: Advanced base defense.\nRequires power to operate.\n\n  Strong vs Ground units\n  Weak vs Aircraft
+		Queue: Defense
+		BuildPaletteOrder: 90
+		Prerequisites: natech, ~structures.nod
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 42, 0, -6
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 70000
+	WithMuzzleOverlay:
+	Armament:
+		Weapon: ObeliskLaserFire
+		LocalOffset: 1400,210,700
+		MuzzleSequence: muzzle
+		MuzzlePalette: obelpal
+	AttackCharges:
+		ChargeAudio: obelpowr.aud
+		ReloadTime: 40
+		InitialChargeDelay: 40
+	WithChargeOverlay:
+		Sequence: active
+		Palette: player
+		IsPlayerPalette: true
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: -150
+	SelectionDecorations:
+		VisualBounds: 88, 72, 0, -12
+
+NASAM:
+	Inherits: ^AntiAir
+	Inherits@1: ^TowerStealthDetection
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: S.A.M. Site
+	Buildable:
+		Description: Nod Anti-Air base defense.\nRequires power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
+		Queue: Defense
+		Prerequisites: nahand, ~structures.nod
+		BuildPaletteOrder: 60
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: RedEye2
+		LocalOffset: 400,0,512
+	Power:
+		Amount: -30
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+
+NASTLH:
+	Inherits: ^Building
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Stealth Generator
+	Buildable:
+		BuildPaletteOrder: 80
+		Prerequisites: proc, natech, ~structures.nod
+		Description: Generates a cloaking field that hides\nnearby units and structures, Cloaked NOD units heal slowly.
+		Queue: Defense
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	WithIdleOverlay@pulse:
+		Sequence: pulse
+		PauseOnLowPower: true
+	WithRangeCircle:
+		Range: 12c0
+		Type: cloakgenerator
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		Range: 12c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: false
+	Cloak@CLOAKGENERATOR:
+        RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
+	Power:
+		Amount: -150
+	RequiresPower:
+	CanPowerDown:
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+		IndicatorPalette: mouse
+	Selectable:
+		Bounds: 106, 48, 8, -6
+	SelectionDecorations:
+		VisualBounds: 106, 60, 8, -15
+
+MASTL:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Deployed Stealth Generator
+	Health:
+		HP: 25000
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+	WithRangeCircle:
+		Range: 6c0
+		Type: cloakgenerator
+	Selectable:
+		Priority: 6
+	RevealsShroud:
+		Range: 5c0
+	BodyOrientation:
+		QuantizedFacings: 32
+	Transforms:
+		IntoActor: sgen
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		Range: 5c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: True
+
+DLIMPET:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Deployed Toxin Mine
+	Health:
+		HP: 10000
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+	RevealsShroud:
+		Range: 6c0
+	BodyOrientation:
+		QuantizedFacings: 32
+	Transforms:
+		IntoActor: limped
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	Cloak:
+		CloakSound:
+		UncloakSound:
+		IsPlayerPalette: true
+	WithRangeCircle:
+		Range: 3c0
+		Type: cloakgenerator
+	Selectable:
+		Bounds: 12, 30, 0, 0
+	ProximityExternalCondition@toxin:
+		Condition: AcidScaleDmg
+		ValidStances: Enemy
+		Range: 8c0
+	ExplodeWeapon:
+		Weapon: ToxinBerserk
+
+GAARTY:
+	Inherits@1: ^DeployedVehicle
+	Valued:
+		Cost: 975
+	Tooltip:
+		Name: Deployed Artillery
+	Health:
+		HP: 30000
+	RevealsShroud:
+		Range: 9c0
+	Turreted:
+		TurnSpeed: 5
+		InitialFacing: 128
+		Offset: 0,0,171
+	Armament:
+		Weapon: 155mm
+		LocalOffset: 811,0,0
+		MuzzleSequence: muzzle
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderVoxels:
+		LightAmbientColor: 0.4, 0.4, 0.4
+	WithVoxelBarrel:
+		LocalOffset: 0,0,-512
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+
+NATMPL:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 200
+		Prerequisites: natech, ~structures.nod
+		Description: NOD Tactical and religious center, allows the player to\nfire nuclear missiles.
+		BuildLimit: 1
+	ProvidesPrerequisite@buildingname:
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Temple of Nod
+	Building:
+		Adjacent: 3
+		Footprint: xxxx xxxx xxxx
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 134, 120, 12, -12
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	Power:
+		Amount: -150
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	RequiresPower:
+	DisabledOverlay:
+	NukePower@NodNuke:
+		Cursor: nuke
+		Icon: clustermissile
+		ChargeTime: 360
+		Description: Cluster Missile
+		LongDesc: Launches a conventional warhead\nat a target location.
+		BeginChargeSound:
+		EndChargeSound: 00-i154.aud
+		SelectTargetSound:
+		InsufficientPowerSound:
+		IncomingSound: 00-i150.aud
+		LaunchSound: icbm1.aud
+		MissileWeapon: ClusterMissile
+		SpawnOffset: 0,427,0
+		DisplayTimer: True
+		DisplayBeacon: True
+		DisplayRadarPing: True
+		MissilePalette: player
+		IsPlayerPalette: True
+		BeaconPoster:
+		OrderName: ClusterMissile
+		CameraActor: camera
+
+NAMISL:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: natech, ~structures.nod
+		Description: Allows the player to launch Missiles.\nRequires power to operate.
+		BuildLimit: 1
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Nod Missile Silo
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 75,48
+	Health:
+		HP: 100000
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: -150
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+	RequiresPower:
+	DisabledOverlay:
+	ProvidesPrerequisite@buildingname:
+	SupportPowerChargeBar:
+	NukePower@ToxinMissile:
+		Cursor: nuke
+		Icon: toxinmissile
+		ChargeTime: 120
+		Description: Toxin Missile
+		LongDesc: Launches a warhead filled with toxins,\n it spawns gas clouds and has\n a fast reaction time.
+		BeginChargeSound:
+		EndChargeSound: 00-i154.aud
+		SelectTargetSound:
+		InsufficientPowerSound:
+		IncomingSound: 00-i150.aud
+		LaunchSound: icbm1.aud
+		FlightDelay: 100
+		MissileWeapon: ToxinMissile
+		SpawnOffset: 0,427,0
+		DisplayTimer: True
+		DisplayBeacon: True
+		DisplayRadarPing: True
+		MissilePalette: player
+		IsPlayerPalette: True
+		OrderName: ToxinMissile
+		BeaconPoster:
+		CameraActor: camera
+	SelectionDecorations:
+		VisualBounds: 75,48
+
+##############################################
+# Mutants
+##############################################
+MUTWALL:
+	Inherits: ^Wall
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1001
+		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks\nMay make you sell your conyard\nIf you're not careful.
+		Prerequisites: ~structures.mut, !structures.cab
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Forgotten Wall
+	Health:
+		HP: 30000
+	-Cloak@CLOAKGENERATOR:
+	Armor:
+		Type: Concrete
+	RenderSprites:
+		Image: wall.mut
+	BlocksProjectiles:
+		Height: 640
+	Crushable:
+		CrushClasses: heavywall
+	LineBuild:
+		NodeTypes: wall, turret
+
+MUTGATE_A:
+	Inherits: ^Gate_A
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.mut
+	Tooltip:
+		Name: Forgotten Gate
+	Gate:
+		CloseDelay: 100
+
+MUTGATE_B:
+	Inherits: ^Gate_B
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.mut
+	Tooltip:
+		Name: Forgotten Gate
+	Gate:
+		CloseDelay: 100
+
+MUFLAK:
+	Inherits: ^AntiAir
+	Inherits@1: ^MutRender
+	Inherits@2: ^TowerStealthDetection
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Flak Station
+	Buildable:
+		Queue: Defense
+		Description: Anti-Air base defense. Doesn't require power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
+		Prerequisites: proc, murax, ~structures.mut
+		BuildPaletteOrder: 60
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	DisabledOverlay:
+	Health:
+		HP: 35000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	-CanPowerDown:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: FlakFire
+		MuzzleSequence: muzzle
+		MuzzlePalette: apgrey
+		LocalOffset: 450,0,300
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+MUBUNKR:
+	Inherits: ^Defense
+	Inherits@1: ^MutRender
+	Inherits@2: ^TowerStealthDetection
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Bunker
+	Buildable:
+		Description: Fortified position where infantry can fire from within.\nCan hold up to 6 soldiers, starts with a Marauder and\n a Skirmisher on it.\n\n  Strength depends on garrisoned units.\n  Cannot target air units.
+		Queue: Defense
+		BuildPaletteOrder: 30
+		Prerequisites: murax, proc, ~structures.mut
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 42, 0, -6
+	-CanPowerDown:
+	DisabledOverlay:
+	-EmitInfantryOnSell@gdi:
+	-EmitInfantryOnSell@nod:
+	-EmitInfantryOnSell@mut:
+	-EmitInfantryOnSell@cab:
+	-EmitInfantryOnSell@scr:
+	Health:
+		HP: 65000
+	RevealsShroud:
+		Range: 8c0
+	AutoTarget:
+	Cargo:
+		InitialUnits: e3, marauder
+		MaxWeight: 6
+		PipCount: 6
+		Types: Infantry
+		EjectOnDeath: true
+	AttackGarrisoned:
+		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 88, 88, 88, 88, 88, 887
+	SelectionDecorations:
+		VisualBounds: 88, 72, 0, -12
+
+MUTSW1:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 90
+		Prerequisites: muhall, ~structures.mut
+		Description: Allows the player to generate Ion Storms.
+		BuildLimit: 1
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Meditation Hall
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 116, 60, 3, -6
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 5c0
+	SelectionDecorations:
+		VisualBounds: 116, 78, 3, -8
+	SpawnActorPower@ionstorm:
+		Actor: ionstormgenerator
+		Icon: ionstorm
+		ChargeTime: 240
+		OrderName: IonStorm
+		DisplayTimer: True
+		DisplayBeacon: True
+		Description: Ion Storm
+		LongDesc: Summons an Ion Storm on the targetted area\nthe lightning rays will strike the nearest target\nwill not fire if there no targets are nearby.\nLasts 20 seconds. 
+
+MUTSW2:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 90
+		Prerequisites: muhall, ~structures.mut
+		Description: Allows the player to summon\nveinhole monsters on the battlefield.
+		BuildLimit: 1
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Mother Veinhole
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 130, 80, 0, -24
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 5c0
+	Power:
+		Amount: -150
+	SelectionDecorations:
+		VisualBounds: 130, 100, 0, -24
+	IonCannonPower:
+		Weapon: VeinholeSummonerWeapon
+		Effect: dot
+		Icon: veinholesw
+		ChargeTime: 240
+		OrderName: Veinhole
+		DisplayTimer: True
+		DisplayBeacon: True
+		Description: Veinhole summon
+		LongDesc: Spawns a veinhole monster\non the targetted location.
+
+MUWARD:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Forgotten Ward
+	Health:
+		HP: 5000
+	-AttackTurreted:
+	-AutoTarget:
+	-RenderRangeCircle:
+    Selectable:
+        Priority: 3
+	-Voiced:
+	RevealsShroud:
+		Range: 5c0
+	BodyOrientation:
+		QuantizedFacings: 32
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		InitialDelay: 50
+		CloakDelay: 50
+		CloakSound: 
+		UncloakSound:
+		Palette: cloakmut
+		IsPlayerPalette: true
+		CloakTypes: cloakgenerator
+		UncloakOn: Attack, Unload, Infiltrate, Demolish
+
+MUVENTI:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 95
+		Description: Releases tiberium toxins into the area, harming\nnon mutant infantry and healing any mutant\n in the area.\nDoesn't stop operating while in low power.
+		Prerequisites: ~structures.mut, muhall
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Tiberium Ventilator
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 75000
+	RequiresPower:
+	WithRangeCircle:
+		Range: 8c0
+		Type: cloakgenerator
+	ExplodeWeapon:
+		Weapon: VentilatorPoison
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	Power:
+		Amount: -100
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	DisabledOverlay:
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 90, 84, 0, -12
+
+##############################################
+# Scrin
+##############################################
+
+SCRWALL:
+	Inherits: ^Wall
+	Inherits@2: ^ScrinRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1001
+		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.\nMay make you sell your conyard\nIf you're not careful.
+		Prerequisites: ~structures.scr, !structures.cab
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	-Cloak@CLOAKGENERATOR:
+	Tooltip:
+		Name: Energy Wall
+	Health:
+		HP: 30000
+	Armor:
+		Type: Concrete
+	BlocksProjectiles:
+		Height: 640
+	Crushable:
+		CrushClasses: heavywall
+	LineBuild:
+		NodeTypes: wall, turret
+
+SCRGATE_A:
+	Inherits: ^Gate_A
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.scr
+	Tooltip:
+		Name: Energy Gate
+	Gate:
+		CloseDelay: 40
+
+SCRGATE_B:
+	Inherits: ^Gate_B
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.scr
+	Tooltip:
+		Name: Energy Gate
+	Gate:
+		CloseDelay: 40
+
+SCRNEEDLER:
+	Inherits: ^Defense
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^TowerStealthDetection
+	Inherits@4: ^ScrinDeathExplo
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Ichor Waste Turret
+	Buildable:
+		Queue: Defense
+		Description: Basic defense, cloaks when idle.\nRequires power to operate.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
+		Prerequisites: scrrax, ~structures.scr
+		BuildPaletteOrder: 30
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 50000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Cloak@CLOAKGENERATOR:
+		ConditionMinEnabledLevel: 0
+		Palette: cloakscrin
+		InitialDelay: 150
+		CloakDelay: 150
+		CloakSound:
+		UncloakSound:
+		IsPlayerPalette: true
+		UncloakOn: Move, Attack, Damage
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: yes
+	Armament:
+		Weapon: NeedlerAcid
+		LocalOffset: 512,0,400
+	Power:
+		Amount: -30
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+SCRTRACTOR:
+	Inherits: ^AntiAir
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^TowerStealthDetection
+	Inherits@4: ^ScrinDeathExplo
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Tractor Beam
+	Buildable:
+		Description: Scrin Anti-Air base defense, deals little damage\nbut slows down the targetted aircraft.\nRequires power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
+		Queue: Defense
+		Prerequisites: scrrax, ~structures.scr
+		BuildPaletteOrder: 40
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 35000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: yes
+	Armament:
+		Weapon: TractorBeam
+		LocalOffset: 512,0,512
+	Power:
+		Amount: -20
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+SCRDRONE:
+	Inherits: ^Tier2
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^TowerStealthDetection
+	Inherits@4: ^ScrinDeathExplo
+	Valued:
+		Cost: 1300
+	Tooltip:
+		Name: Visceroid Hive
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 60
+		Description: Advanced base defense.\nThrows Visceroids near the enemies.\nRequires power to operate.\n\n  Strong vs Ground Units.\n  Weak vs Aircraft.
+		Prerequisites: scrtech, ~structures.scr
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 42, 0, -6
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 12c0
+	AttackOmni:
+	Armament:
+		Weapon: DronePlane
+		ForceTargetStances: Enemy
+		LocalOffset: 0,0,1750
+	Power:
+		Amount: -75
+	SelectionDecorations:
+		VisualBounds: 88, 72, 0, -12
+
+SCREXTRACTOR:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Tiberium Extractor
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 60
+		Description: Low output extractor that passively seeds tiberium.
+		Prerequisites: scrtech, ~structures.scr
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 60000
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -125
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+	SeedsResource@asd:
+		ResourceType: Tiberium
+		Interval: 1
+		MaxRange: 1
+		RequiresCondition: Tiberium
+	GrantPeriodicCondition@asd:
+		Condition: Tiberium
+		CooldownDuration: 1500
+		ActiveDuration:  50
+		StartsGranted: true
+	ExternalCondition@asd:
+		Condition: Tiberium
+
+SCRSW1:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 90
+		Prerequisites: scrtech, ~structures.scr
+		Description: Allows the player to call in meteor storm strikes.
+		BuildLimit: 1
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Signal Transmiter
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	RequiresPower:
+	Selectable:
+		Bounds: 116, 60, 3, -6
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 5c0
+	Power:
+		Amount: -150
+	SelectionDecorations:
+		VisualBounds: 116, 78, 3, -8
+	# DetonateWeaponPower:
+		# Icon: meteor
+		# Description: Meteor Storm
+		# DisplayTimer: True
+		# DisplayBeacon: True
+		# LongDesc: Drags meteors from orbit dealing moderate \ndamage over a wide area.
+		# ChargeTime: 240
+		# Weapon: MeteorSpawner
+	FireArmamentPower:
+		Cursor: emp
+		Icon: meteor
+		ChargeTime: 240
+		Description: Meteor Storm
+		LongDesc: Drags meteors from orbit dealing moderate \ndamage over a wide area.
+		Prerequisites: MeteorSpawner
+		OrderName: MeteorSpawner
+	ProvidesPrerequisite@MeteorSpawner:
+		Prerequisite: MeteorSpawner
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	Armament:
+		Weapon: MeteorSpawner
+		Name: superweapon
+	Turreted:
+		TurnSpeed: 255
+		InitialFacing: 50
+	AttackTurreted:
+
+
+SCRSHIELD:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Stasis Field Generator
+	Buildable:
+		Queue: Defense
+		Description: Disables vehicles.\nRequires power to operate.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+		BuildPaletteOrder: 80
+		Prerequisites: scrradr, ~structures.scr
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 42, 0, -6
+	RequiresPower:
+	DisabledOverlay:
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 300
+	AttackTurreted:
+	Armament:
+		Weapon: EMPulseCannon
+		LocalOffset: 0,0,1800
+	Health:
+		HP: 40000
+	RevealsShroud:
+		Range: 8c0
+	Power:
+		Amount: -100
+	SelectionDecorations:
+		VisualBounds: 88, 72, 0, -12
+	ProvidesPrerequisite@gdi:
+		Prerequisite: emp.gdi
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	AttackOrderPower@nod:
+		Cursor: emp
+		Icon: emp
+		ChargeTime: 135
+		Description: E.M. Pulse
+		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
+		EndChargeSound: speech-nod|00-i158.aud
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites: emp.gdi
+		OrderName: Nodemp
+
+SCRMINE:
+	Inherits: ^ScrinRender
+	Inherits@1: MUMINE
+	Tooltip:
+		Name: Scrin Mine
+	-Buildable:
+
+##############################################
+# CABAL
+##############################################
+
+CABSENTRYTURRET:
+	Inherits: ^MiscTurret
+	Inherits@1: ^CabRender
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Artisan Turret
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	Health:
+		HP: 7500
+	-Sellable:
+	BodyOrientation:
+		QuantizedFacings: 32
+	-CanPowerDown:
+	-DetectCloaked:
+	-RenderDetectionCircle:
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	ExplodeWeapon:
+		Weapon: ArtisanDroneSpawn
+		LocalOffset: 0,0,500
+	Targetable@Seeker:
+		TargetTypes: Seeker
+	Armament@1:
+		Weapon: ArtisanTurretLasor
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+CABCANNON:
+	Inherits: ^Defense
+	Inherits@1: ^CabRender
+	Inherits@2:	^IncompleteSelfHeal
+	Inherits@3: ^TowerStealthDetection
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Cannon Turret
+	Buildable:
+		Queue: Defense
+		Description: Anti-Armor turret.\nRequires power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft.
+		Prerequisites: cabclaw, ~structures.cab
+		BuildPaletteOrder: 30
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 45000
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithMuzzleOverlay:
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: CTurretCannon
+		LocalOffset: 650,0,550
+		MuzzleSequence: muzzle
+	Power:
+		Amount: -20
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+CABRAIL:
+	Inherits: ^AntiAir
+	Inherits@1: ^CabRender
+	Inherits@2:	^IncompleteSelfHeal
+	Inherits@3: ^TowerStealthDetection
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Railgun Turret
+	Buildable:
+		Queue: Defense
+		Description: Anti-Air defence with low rate of fire.\nRequires power to operate.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles. 
+		Prerequisites: cabclaw, ~structures.cab
+		BuildPaletteOrder: 30
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 60000
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderRangeCircle:
+		RangeCircleType: aa
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: AARail
+		LocalOffset: 550,400,700
+	Armament@2:
+		Weapon: AARail
+		LocalOffset: 550,-400,700
+	Power:
+		Amount: -40
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+CABBLAST:
+	Inherits: ^Tier2
+	Inherits@1: ^CabRender
+	Inherits@2:	^IncompleteSelfHeal
+	Inherits@3: ^TowerStealthDetection
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Blaster Turret
+	Buildable:
+		Queue: Defense
+		Description: Artillery, fires plasma.\nHas a minimun range of fire.\nRequires power to operate.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft.
+		Prerequisites: cabtech, ~structures.cab
+		BuildPaletteOrder: 60
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 60000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: BlasterProton
+		LocalOffset: 512,0,512
+	Power:
+		Amount: -60
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+CABEYE:
+	Inherits: ^Building
+	Inherits@1: ^CabRender
+	Inherits@2:	^IncompleteSelfHeal
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 95
+		Description: Provides vision on a great area, stealth\ndetection and also shrouds the enemy vision\nif no enemy units are nearby.
+		Prerequisites: ~structures.cab, cabtech
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Eye of Cabal
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 75000
+	DetectCloaked:
+		Range: 9c0
+	WithRangeCircle:
+		Range: 9c0
+		Type: cabeye
+	CreatesShroud:
+		Range: 9c0
+	RevealsShroud:
+		Range: 19c0
+	Selectable:
+		Bounds: 90, 124, 0, -40
+	Power:
+		Amount: -50
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	DisabledOverlay:
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 90, 124, 0, -40
+
+CABSW1:
+	Inherits: ^Defense
+	Inherits@1: ^CabRender
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Iron Savior
+	Buildable:
+		Queue: Defense
+		Prerequisites: cabtech, ~structures.cab
+		Description: Super Weapon.
+		BuildPaletteOrder: 90
+		BuildLimit: 1
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 110, 70, 3, -20
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 35000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Armor:
+		Type: Wood
+	Turreted:
+		TurnSpeed: 2
+		InitialFacing: 50
+	AttackTurreted:
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: CabalCannon
+		LocalOffset: 1000,0,1500
+		Name: superweapon
+	-AutoTarget:
+	Power:
+		Amount: -200
+	SelectionDecorations:
+		VisualBounds: 110, 70, 3, -20
+	ProvidesPrerequisite@singularity:
+		Prerequisite: singularity
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	FireArmamentPower:
+		Cursor: emp
+		Icon: cabcannon
+		ChargeTime: 240
+		Description: Iron Savior
+		LongDesc: Fires a volley of bullets\nat the target location.
+		EndChargeSound: speech-nod|00-i158.aud
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites: singularity
+		OrderName: singularity
+
+cabobelisk:
+	Inherits: ^Building
+	Inherits@1: ^CabRender
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Nanomachine Core
+	Buildable:
+		Queue: Defense
+		Prerequisites: cabtech, ~structures.cab
+		Description: Allows you to create nanomachine swarms.
+		BuildPaletteOrder: 90
+		BuildLimit: 1
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 75,48
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 35000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Power:
+		Amount: -100
+	SelectionDecorations:
+		VisualBounds: 75,48
+	DetonateWeaponPower@nanomachinesson:
+		Cursor: ioncannon
+		Icon: nanomachineswarm
+		Description: Nanomachine Swarm
+		LongDesc: Fills an area with nanomachines\nhealing friendly units and turning\nany fallen units into workers.
+		OrderName: NanomachineSwarm
+		BeginChargeSound:
+		EndChargeSound: 00-i156.aud
+		DisplayTimer: True
+		DisplayBeacon: True
+		ChargeTime: 180
+		Weapon: NanoMachineBurst
+		DisplayRadarPing: True
+		CameraActor: camera
+

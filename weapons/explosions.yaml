@@ -1,0 +1,265 @@
+MineExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@1Dam: SpreadDamage
+		Spread: 320
+		Damage: 32000
+		Versus:
+			Mine: 5
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		InvalidTargets: Mine
+
+BuildingExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@1Dam: SpreadDamage
+		Spread: 762
+		Damage: 5000
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Versus:
+			None: 200
+			Wood: 150
+			Light: 100
+			Heavy: 75
+			Concrete: 40
+	Warhead@4EffAir: CreateEffect
+		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
+		ExplosionPalette: gensmkexploj
+		
+ScrinBuildingExplode:
+	Inherits: BuildingExplode
+	Warhead@4EffAir: CreateEffect
+		ExplosionPalette: gensmkexplojFblue
+
+ReactorExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@1Dam: SpreadDamage
+		Spread: 3c0
+		Damage: 50000
+		AffectsParent: true
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Versus:
+			None: 200
+			Wood: 150
+			Light: 100
+			Heavy: 75
+			Concrete: 40
+
+CyborgExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Medium_Bang
+
+SmallPlaneExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 2500
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+DroneExplode:
+	Inherits: ^ExploDefaults
+	Inherits@2: ^Large_twlt
+	Warhead@op: FireShrapnel
+		Weapon: SmallDebris
+		Amount: 1
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+UnitExplodeSmall:
+	Inherits@2: ^Small_Brnl
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 4000
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+UnitExplode:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+	Inherits@2: ^Medium_Brnl
+		Spread: 426
+		Damage: 8000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+BlackHandExplode:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 8000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ImpactSound: expnew09.aud
+	Warhead@AcidScaleDmg: GrantExternalCondition
+		Range: 300
+		Duration: 150
+		Condition: AcidScaleDmg
+		ValidTargets: Ground, Vehicle, Infantry, Building
+
+VeinholeExplosion:
+	Warhead@1Dam: SpreadDamage
+	Inherits@2: ^Large_twlt
+		Spread: 426
+		Damage: 5000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@3Veinholekill: DestroyResource
+		Size: 30,0
+
+ScrinUnitExplode:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 4000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinvehicleexplo1, scrinvehicleexplo2
+		ExplosionPalette: apolbluealpha
+		ImpactSound: expnew09.aud
+	
+ScrinUnitExplode2:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 5000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
+		ExplosionPalette: apolbluealpha
+		ImpactSound: expnew09.aud
+ 
+ScrinUnitExplode3:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 639
+		Damage: 7500
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 135
+			Wood: 113
+			Light: 90
+			Heavy: 38
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
+		ExplosionPalette: apolbluealpha
+		ImpactSound: expnew09.aud
+	
+ScrinUnitExplode4:
+	Inherits: ^ExploDefaults
+	Warhead@1Dam: SpreadDamage
+		Spread: 852
+		Damage: 10000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			None: 180
+			Wood: 150
+			Light: 120
+			Heavy: 50
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
+		ExplosionPalette: apolbluealpha
+		ImpactSound: expnew09.aud
+
+TiberiumExplosion:
+	Warhead@1Dam: SpreadDamage
+		Spread: 9
+		Damage: 1000
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+	Warhead@2Res: CreateResource
+		AddsResourceType: Tiberium
+		Size: 1,1
+	Warhead@3Eff: CreateEffect
+		Explosions: tibexp
+		ImpactSound: expnew09.aud
+
+ZombieExplosion:
+	Warhead@1Dam: SpreadDamage
+		Spread: 9
+		Damage: 1000
+		Versus:
+			None: 90
+			Wood: 75
+			Light: 60
+			Heavy: 25
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1
+		FallRate: 5000
+		Range: 3
+	Warhead@3Eff: CreateEffect
+		Explosions: tibexp
+		ImpactSound: expnew09.aud
+
+SmallDebris:
+	Inherits@2: ^Shrapnel
+	ReloadDelay: 60
+	Range: 4c0
+	Report:
+	Projectile: BulletAS
+		Speed: 50, 125
+		LaunchAngle: 91, 255
+		Image: dbrissm
+		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+		Shadow: true
+
+LargeDebris:
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 60
+	Range: 4c0
+	Report:
+	Projectile: BulletAS
+		Speed: 50, 125
+		LaunchAngle: 91, 255
+		Image: dbrislg
+		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+		Shadow: true

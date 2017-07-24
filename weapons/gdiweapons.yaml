@@ -1,0 +1,558 @@
+MarineRifle:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 70
+	Range: 4c512
+	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2000
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+Grenade:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^GreyExplo
+	ReloadDelay: 80
+	Range: 5c0
+	MinRange: 1c512
+	Report: grenadelauncherfire.wav
+	ValidTargets: Ground
+	Projectile: BulletAS # TODO: Add bounce effect
+		Speed: 320
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 45
+		Inaccuracy: 1c0
+		Image: DISCUS
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 2000
+		ValidTargets: Ground
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+
+JJCannon:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 40
+	Burst: 2
+	Range: 4c0
+	Report: jumpjet1.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1500
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+JJRocket:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 200
+	Range: 4c0
+	Burst: 2
+	Report: rketinf1.aud
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		MaximumLaunchSpeed: 213
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 128
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 8
+		RangeLimit: 12c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 2000
+		AffectsParent: true
+		ValidTargets: Ground, Air
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+JJBuff:
+	Inherits: ^NoDamage
+	ReloadDelay: 35
+	Range: 4c0
+	Projectile: InstantExplode
+	Warhead@Acid: GrantExternalCondition
+		Range: 64
+		Duration: 13
+		Condition: JJBuff
+		ValidStances: Ally
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		AffectsParent: True
+
+Heal:
+	ReloadDelay: 150
+	Range: 3c0
+	Report: healer1.aud
+	ValidTargets: Infantry, Jumpjet
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		DebugOverlayColor: 00FF00
+		Spread: 350
+		Damage: -5000
+		Versus:
+			Light: 60
+		ValidTargets: Infantry, Jumpjet
+		
+TrooperRail:
+	Inherits: ^FullDamage
+	ReloadDelay: 125
+	Range: 5c0
+	Report: railgunfire.wav
+	Projectile: LaserZap
+		BeamDuration: 20
+		Blockable: true
+		Width: 40
+		Color: 0008ED
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 4000
+		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
+		Versus:
+			Concrete: 5
+	Warhead@emp: GrantExternalCondition
+		Range: 1c0
+		Duration: 30
+		Condition: notmobile
+	Warhead@emp2: GrantExternalCondition
+		Range: 1c0
+		Duration: 30
+		Condition: empdisable
+
+#############################################
+# Vehicles
+#############################################		
+WolverineVulcan:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 20
+	Range: 6c0
+	Report: tsgun4.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 2500
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		
+Titan120mm:
+	Inherits: ^APWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 80
+	Range: 5c0
+	Report: 120mmf.aud
+	Projectile: BulletAS
+		Speed: 1c512
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 7000
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	
+HoverMissile:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 85
+	Burst: 2
+	Range: 7c512
+	Report: hovrmis1.aud
+	ValidTargets: Ground
+	Projectile: Missile
+		MaximumLaunchSpeed: 213
+		Arm: 2
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 128
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 8
+		RangeLimit: 15c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4500
+		ValidTargets: Ground
+		Versus:
+			None: 25
+			Wood: 65
+			Light: 75
+			Heavy: 100
+			Concrete: 60
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+HoverMissileAA:
+	Inherits: HoverMissile
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+		ValidTargets: Air
+
+JuggCannon:
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^Small_Clsn
+	Inherits@3: ^Small_Twlt
+	ReloadDelay: 100
+	Range: 15c0
+	MinRange: 5c0
+	Burst: 3
+	Report: jugger1.aud
+	Projectile: BulletAS
+		Speed: 150
+		Image: 120mm
+		LaunchAngle: 165
+		Shadow: true
+		Inaccuracy: 2c0
+		Blockable: false
+		ContrailLength: 10
+		ContrailUsePlayerColor: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 450
+		Damage: 5500
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
+SonicZap:
+	ReloadDelay: 60
+	Range: 5c0
+	Report: sonic4.aud
+	Projectile: AreaBeam
+		Speed: 0c200
+		Duration: 40
+		DamageInterval: 4 # Roughly 18 impacts.
+		Width: 384
+		Shape: Flat
+		ZOffset: 2047
+		BeyondTargetRange: 0c256
+		Blockable: true
+		Color: 50F5FF45
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 2000
+		AffectsParent: false
+		ValidStances: Neutral, Enemy
+		Versus:
+			Heavy: 80
+			Concrete: 60
+			Disruptor: 30
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50
+		Damage: 12
+		AffectsParent: false
+		ValidStances: Ally
+		Versus:
+			Heavy: 80
+			Concrete: 60
+			Disruptor: 30
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+MechRailgun:
+	ReloadDelay: 80
+	Range: 8c0
+	Burst: 2 # for alternating muzzle offsets, dmg/s identical to original
+	BurstDelay: 80
+	Report: railuse5.aud
+	Projectile: AreaBeam
+		Speed: 20c0
+		Duration: 3
+		DamageInterval: 2
+		Width: 20
+		BeyondTargetRange: 0c64
+		Blockable: true
+		Color: 0008ED
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 15000
+		Versus:
+			None: 200
+			Wood: 175
+			Light: 160
+			Heavy: 100
+			Concrete: 25
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+
+MechDummy:
+	Inherits: ^RifleWarhead
+	ReloadDelay: 20
+	Range: 8c0
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+	
+MammothTusk:
+	Inherits@2: ^Mediumtwlt
+	ReloadDelay: 80
+	Range: 7c0
+	Report: misl1.aud
+	ValidTargets: Ground, Vehicle, Building, Infantry, Air
+	Burst: 2
+	Projectile: Missile
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 128
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 10
+		MaximumLaunchSpeed: 213
+		RangeLimit: 15c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 200
+		Damage: 4500
+		ValidTargets: Ground, Vehicle, Building, Infantry, Air
+		Versus:
+		DamageTypes: Explosion
+
+#############################################
+# Aircraft
+#############################################				
+FighterHellfire:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 50
+	Range: 6c0
+	Report: orcamis1.aud
+	Burst: 2
+	ValidTargets: Ground, Vehicle, Building, Infantry
+	Projectile: Missile
+		Speed: 800
+		MaximumLaunchSpeed: 512
+		Arm: 2
+		Blockable: false
+		Shadow: true
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 8
+		RangeLimit: 15c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 85
+		Damage: 4000
+		ValidTargets: Ground, Vehicle, Building, Infantry
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+AAFighterHellfire:
+	Inherits@2: ^Mediumtwlt
+	ReloadDelay: 25
+	Range: 6c0
+	Report: orcamis1.aud
+	Burst: 2
+	ValidTargets: Air
+	Projectile: Missile
+		Speed: 250
+		Blockable: false
+		Shadow: true
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 20
+		RangeLimit: 15c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 110
+		Damage: 2500
+		ValidTargets: Air
+		Versus:
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+OBBomb:
+    Inherits: ^BombWarhead
+    Inherits@2: ^Large_Explosion
+    ReloadDelay: 30
+    Burst: 5
+    BurstDelay: 6
+    ValidTargets: Ground, Building, Infantry, Vehicle
+    Range: 1c512
+    Projectile: GravityBomb
+        Speed: 170
+        Image: 120mm
+        Shadow: true
+        Palette: ra
+    Warhead@1Dam: SpreadDamage
+        Falloff: 100, 80, 70, 60, 50
+        Spread: 400
+        Damage: 7000
+        ValidTargets: Ground, Building, Infantry, Vehicle
+        DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
+GuardianRail:
+	Inherits: ^FullDamage
+	ReloadDelay: 100
+	Range: 8c0
+	Report: biggun1.aud
+	Projectile: LaserZap
+		BeamWidth: 2
+		BeamDuration: 3
+		Blockable: true
+		Color: 0080FFC8		
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 7500
+		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
+		Versus:
+			None: 150
+			Concrete: 5
+
+GuardianClaw:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 50
+	Range: 7c0
+	Report: cygun1.aud
+	ValidTargets: Air
+	Projectile: BulletAS
+		Speed: 2c682
+		ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 6000
+		ValidTargets: Ground, Vehicle, Building, Infantry, Air
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
+GuardianRepair:
+	ReloadDelay: 150
+	Range: 5c0
+	Report: repair11.aud
+	ValidTargets: Repair
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		DebugOverlayColor: 00FF00
+		Spread: 175
+		Damage: -9000
+		ValidTargets: Repair
+
+#############################################
+# Defences
+#############################################		
+VulcanTower:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 26
+	Range: 6c768
+	Report: chaingn1.aud
+	Projectile: BulletAS
+		Speed: 1c682
+		Blockable: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 1500
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+		
+GdiRedEye:
+	Inherits@2: ^Small_Twlt
+	ReloadDelay: 40
+	Range: 8c0
+	Report: samshot1.aud
+	ValidTargets: Air
+	Projectile: Missile
+		MaximumLaunchSpeed: 384
+		Arm: 2
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 128
+		Image: DRAGON
+		TrailImage: small_smoke_trail
+		HorizontalRateOfTurn: 8
+		RangeLimit: 15c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4000
+		ValidTargets: Air
+		DamageTypes: SmallExplosionDeath
+
+RPGTower:
+	Inherits: ^APWarhead
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 90
+	Range: 6c768
+	Report: glnch4.aud
+	Projectile: BulletAS
+		Speed: 384
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 62
+		Image: canister
+		Palette: player
+	Warhead@1Dam: SpreadDamage
+		Spread: 194
+		Damage: 7500
+		DamageTypes: Prone70Percent, TriggerProne, SmallExplosionDeath
+
+RepairGun:
+	ReloadDelay: 60
+	Range: 4c0
+	Report: repair11.aud
+	ValidTargets: Repair
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: -5000
+		ValidTargets: Repair
+
+FirestormWallUpgrade:
+	Inherits: ^NoDamage
+	ReloadDelay: 50
+	Projectile: InstantExplode
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground
+	Warhead@Wall: GrantExternalCondition
+		Range: 12c0
+		Duration: 50
+		Condition: FirestormWallUpgrade
+
+FirestormSpawner:
+	Inherits: ^NoDamage
+	ReloadDelay: 1
+	Report: firstrm1.aud
+	Projectile: InstantExplode
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground
+	Warhead@op: FireShrapnel
+		Weapon: FirestormExplo
+		Amount: 24
+
+FirestormExplo:
+	Inherits: ^FullDamage
+	ReloadDelay: 5
+	Range: 12c0
+	MinRange: 12c0
+	Projectile: BulletAS
+		Speed: 100c0
+		Blockable: false
+	Warhead@3Dam_area: SpreadDamage
+		Spread: 300
+		Damage: 7500
+		ValidTargets: Ground, Air
+		ValidStances: Enemy, Neutral
+	Warhead@2Eff: CreateEffect
+		Explosions: fsidle, fsgrnd
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SmallScorch
+		InvalidTargets: Vehicle, Building, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: fire3, fire4
+		InvalidImpactTypes: Water, Air, AirHit
+
+FirestormExploWalls:
+	Inherits: FirestormExplo
+	ReloadDelay: 25
+	Warhead@3Dam_area: SpreadDamage
+		ValidStances: Enemy, Neutral
+	Warhead@2Eff: CreateEffect
+		Explosions: fsidlewall, fsgrndwall
+

@@ -1,0 +1,3 @@
+SharkJump:
+	Warhead@1Dam: SpreadDamage
+		DamageTypes: TriggerProne, TiberiumDeath

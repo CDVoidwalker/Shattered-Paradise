@@ -1,0 +1,50 @@
+120mm:
+	Inherits: ^APWarhead
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 80
+	Range: 6c768
+	Report: 120mmf.aud
+	Projectile: BulletAS
+		Speed: 1c512
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 5000
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+120mmx:
+	Inherits: ^APWarhead
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 80
+	Range: 6c768
+	Report: 120mmf.aud
+	Burst: 2
+	BurstDelay: 5
+	Projectile: BulletAS
+		Speed: 682
+		Image: 120mm
+		Shadow: true
+		LaunchAngle: 62
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 5000
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+155mm:
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 110
+	Range: 18c0
+	Report: 120mmf.aud
+	Projectile: BulletAS
+		Speed: 170
+		Image: 120mm
+		LaunchAngle: 165
+		Shadow: true
+		Blockable: false
+		Palette: ra
+	MinRange: 5c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 298
+		Damage: 15000
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath

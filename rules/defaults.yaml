@@ -1,0 +1,1811 @@
+^ExistsInWorld:
+	AppearsOnRadar:
+	UpdatesPlayerStatistics:
+	CombatDebugOverlay:
+	GivesExperience:
+		PlayerExperienceModifier: 1
+	ScriptTriggers:
+	ConditionManager:
+	RenderDebugState:
+
+^SpriteActor:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: False
+	QuantizeFacingsFromSequence:
+	AutoSelectionSize:
+	RenderSprites:
+
+^GainsExperience:
+#EXPERIENCE
+	GainsExperience:
+		Conditions:
+			400: rank
+			800: rank2
+	FirepowerMultiplier@EXPERIENCE:
+		RequiresCondition: rank
+		Modifier: 105
+	DamageMultiplier@EXPERIENCE:
+		RequiresCondition: rank
+		Modifier: 95
+	SpeedMultiplier@EXPERIENCE:
+		RequiresCondition: rank
+		Modifier: 105
+	ReloadDelayMultiplier@EXPERIENCE:
+		RequiresCondition: rank2
+		Modifier: 90
+	RangeMultiplier@EXPERIENCE:
+		RequiresCondition: rank2
+		Modifier: 120
+	SelfHealing@ELITE:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: selfheal
+	WithDecoration@VETERAN:
+		Image: rank
+		Sequence: veteran
+		Palette: ra
+		ReferencePoint: Bottom, Right
+		RequiresCondition: rank && !rank2
+		ZOffset: 256
+	WithDecoration@ELITE:
+		Image: rank
+		Sequence: elite
+		Palette: ra
+		ReferencePoint: Bottom, Right
+		RequiresCondition: rank2
+		ZOffset: 256
+
+^FireflyDebuff
+	SpeedMultiplier@firefly:
+		RequiresCondition: fireflystop
+		Modifier: 40
+		BaseLevel: 1
+	ReloadDelayMultiplier@firefly:
+		RequiresCondition: fireflystop
+		Modifier: 150
+		BaseLevel: 1
+	WithColoredOverlay@firefly:
+		RequiresCondition: fireflystop
+		ConditionMinEnabledLevel: 1
+		Palette: disabled
+	TimedConditionBar@firefly:
+		Condition: fireflystop
+		Color: FFFFFF
+^FirestormGenBuff:
+	DamageMultiplier@firestorm:
+		Modifier: 95#, 90
+		RequiresCondition: FirestormWallCondition
+	ExternalCondition@FirestormWallCondition:
+		Condition: FirestormWallCondition
+
+^TimeLineDebuff:
+	SpeedMultiplier@ScrinOrb:
+		RequiresCondition: ScrinOrb
+		Modifier: 40
+	ExternalCondition@ScrinOrb:
+		Condition: ScrinOrb
+	SpeedMultiplier@ScrinTimeline:
+		RequiresCondition: TimeLineTrolling || TimeLineTrollingMini
+		Modifier: -25#, -50
+	ReloadDelayMultiplier@ScrinTimeline:
+		RequiresCondition: TimeLineTrolling
+		Modifier: 1000#, 1250
+	ReloadDelayMultiplier@ScrinTimelineMini:
+		RequiresCondition: TimeLineTrollingMini
+		Modifier: 150#, 200
+	ExternalCondition@ScrinTimelineMini:
+		Condition: ScrinTimelineMini, TimeLineTrolling
+
+^HealthPercentageFirepowerMultiplier:
+	HealthPercentageFirepowerMultiplier:
+		RequiresCondition: AcidScaleDmg
+		ConditionMinEnabledLevel: 1
+	ExternalCondition@AcidScaleDmg:
+		Condition: AcidScaleDmg
+
+^CloudPoison:
+	SelfHealing@poisoncloud:
+		PercentageStep: -1
+		Step: 0
+		Delay: 12
+		RequiresCondition: Poison
+		HealIfBelow: 200
+		DamageTypes: TiberiumDeath
+	ExternalCondition@CloudPoison:
+		Condition: CloudPoison
+
+^Bounty:
+	GivesBounty@Cabal:
+		Percentage: 20
+		ValidStances: Enemy
+		DeathTypes: CabalDeathCrate
+	GivesProximityBounty@CabGrinder:
+		Percentage: 10
+
+^wiuwiuwiu:
+	SpawnActorOnDeath@burns:
+		Actor: fireactor
+		Probability: 100
+		OwnerType: Killer
+		RequiresLobbyCreeps: false
+		DeathType: MilitantFireDeath
+
+^ScrinEssence:
+	SpawnActorOnDeath@ScrinEssence:
+		Actor: scrinessencesmall
+		Probability: 100
+		OwnerType: Killer
+		DeathType: ScrinEssenceKill
+		RequiresLobbyCreeps: false
+
+^TemplarDebuff:
+	SpeedMultiplier@TemplarGrenade:
+		RequiresCondition: TemplarGrenade
+		Modifier: 90
+	ReloadDelayMultiplier@TemplarGrenade:
+		RequiresCondition: TemplarGrenade
+		Modifier: 70
+	Targetable@TemplarGrenade:
+		TargetTypes: TemplarGrenade
+		RequiresCondition: TemplarGrenade
+	ExternalCondition@TemplarGrenade:
+		Condition: TemplarGrenade
+
+^WolfBuffs:
+#WOLF BUFFS AND DEBUFFS
+	SpeedMultiplier@WolfBuff:
+		RequiresCondition: WolfBuff
+		Modifier: 90
+	ReloadDelayMultiplier@WolfBuff:
+		RequiresCondition: WolfBuff
+		Modifier: 90
+	SpeedMultiplier@WolfBuff2:
+		RequiresCondition: WolfBuff > 1
+		Modifier: 90
+	ReloadDelayMultiplier@WolfBuff2:
+		RequiresCondition: WolfBuff > 1
+		Modifier: 90
+	WithDecoration@tibicon:
+		Image: tibicon
+		Sequence: idle
+		ReferencePoint: Bottom, Left
+		Palette: mouse
+		ShowToEnemies: true
+		RequiresCondition: WolfBuff || ShowTibIcon
+	ExternalCondition@SeekerTarget:
+		Condition: WolfBuff
+
+^KillSelf:
+	KillsSelf:
+		RequiresCondition: KillSelf
+	ExternalCondition@KillSelf:
+		Condition: KillSelf
+
+^SeekerTracker:
+	Targetable@StalkerTracker:
+		TargetTypes: StalkerTracker
+		RequiresCondition: StalkerTracker
+	Targetable@SeekerTracker:
+		TargetTypes: SeekerTarget
+		RequiresCondition: SeekerTarget
+	ExternalCondition@StalkerTracker:
+		Condition: StalkerTracker
+	ExternalCondition@StalkerTracker:
+		Condition: StalkerTracker
+
+^Cloakable:
+	Cloak@CLOAKGENERATOR:
+		RequiresCondition: cloakgenerator || crate-cloak
+		InitialDelay: 75
+		CloakDelay: 150
+		IsPlayerPalette: true
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock
+	ExternalCondition@CLOAKGENERATOR:
+		Condition: cloakgenerator
+	ExternalCondition@crate-cloak:
+		Condition: crate-cloak
+
+^IncompleteSelfHeal:
+	SelfHealing@Incomplete:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 100
+		HealIfBelow: 60
+
+^PermanentSelfHeal:
+	SelfHealing@Permanent:
+		PercentageStep: 1
+		Step: 0
+		Delay: 100
+		DamageCooldown: 200
+		HealIfBelow: 105
+
+^GuardianPlatformSelfHeal:
+	SelfHealing@GuardianPlatformSelfHeal:
+		PercentageStep: 2
+		Step: 0
+		Delay: 200
+		DamageCooldown: 200
+		HealIfBelow: 105
+		RequiresCondition: AuraRepair
+	ExternalCondition@AuraRepair:
+		Condition: AuraRepair
+
+^NodCloakHealing:
+	GainsExperience:
+		Condition:
+			400: rank
+			800: rank2
+	SelfHealing@NodCloakHealing:
+		PercentageStep: 2
+		Step: 0
+		Delay: 100
+		DamageCooldown: 200
+		HealIfBelow: 105
+		RequiresCondition: cloakgenerator
+
+^BugPoison:
+	WithIdleOverlay@BugPoison:
+		Sequence: cloud
+		IsPlayerPalette: true
+		Palette: cloakscrin
+		RequiresCondition: BugPoison
+	ExplodeWeapon@BugPoison:
+		Weapon: PoisonGlaive
+		RequiresCondition: BugPoison
+	SelfHealing@BugPoison:
+		PercentageStep: -1
+		Step: 0
+		Delay: 200
+		HealIfBelow: 101
+		RequiresCondition: BugPoison
+	ExternalCondition@BugPoison:
+		Condition: BugPoison
+
+^NodVehicleRepair:
+	SelfHealing@NodVehicleRepair:
+		PercentageStep: 1
+		Step: 0
+		Delay: 10
+		HealIfBelow: 101
+		RequiresCondition: NodVehicleRepair
+	ExternalCondition@NodVehicleRepair:
+		Condition: NodVehicleRepair
+
+^RejectsOrdersBerkserk:
+	RejectsOrders@berserk:
+		RequiresCondition: berserk || ToxinTrooper || submerged
+	ExternalCondition@berserk:
+		Condition: berserk
+	ExternalCondition@ToxinTrooper:
+		Condition: ToxinTrooper
+
+^EmpDisable:
+	WithColoredOverlay@EMPDISABLE:
+		RequiresCondition: empdisable
+		Palette: disabled
+	DisableOnCondition@EMPDISABLE:
+		RequiresCondition: empdisable
+	TimedConditionBar@EMPDISABLE:
+		Condition: empdisable
+		Color: FFFFFF
+	WithIdleOverlay@EMPDISABLE:
+		Sequence: emp-overlay
+		Palette: effect
+		RequiresCondition: empdisable ||  fireflystop
+		ShowToEnemies: true
+		ZOffset: 512
+	PowerMultiplier@EMPDISABLE:
+		RequiresCondition: empdisable || notmobile
+		Modifier: 0
+	ExternalCondition@empdisable:
+		Condition: empdisable
+	ExternalCondition@notmobile:
+		Condition: notmobile
+
+^EmpDisableMobile:
+	Inherits: ^EmpDisable
+	Mobile:
+		RequiresCondition: !notmobile
+	ExternalCondition@empdisable:
+		Condition: empdisable
+	ExternalCondition@notmobile:
+		Condition: notmobile
+
+^WebDisable:
+	WithColoredOverlay@WebDisable:
+		RequiresCondition: WebDisable
+		Palette: disabled
+	DisableOnCondition@WebDisable:
+		RequiresCondition: WebDisable
+	TimedConditionBar@WebDisable:
+		Condition: WebDisable
+		Color: FFFFFF
+	Mobile:
+		RequiresCondition: !WebDisable
+	WithInfantryBody:
+		RequiresCondition: !WebDisable
+	WithIdleOverlay@web:
+		Sequence: webguy
+		Palette: player
+		RequiresCondition: WebDisable
+	ExternalCondition@WebDisable:
+		Condition: WebDisable
+
+^BurstRecovery:
+	SelfHealing@NanomachineBurst:
+		PercentageStep: 2
+		Step: 0
+		Delay: 25
+		HealIfBelow: 100
+		RequiresCondition: nanomachineburst
+	SpawnActorOnDeath@nanomachineburst:
+		Actor: KILLEDACTOR
+		Probability: 100
+		OwnerType: Killer
+		RequiresLobbyCreeps: false
+	ExternalCondition@nanomachineburst:
+		Condition: nanomachineburst
+
+^tractorstop:
+	SpeedMultiplier:
+		RequiresCondition: tractorstop
+		Modifier: 15
+	ReloadDelayMultiplier:
+		RequiresCondition: tractorstop
+		Modifier: 150
+	ExternalCondition@tractorstop:
+		Condition: tractorstop
+
+^DisplayVanguardShield:
+	WithIdleOverlay@shield:
+		Sequence: shield
+		IsPlayerPalette: true
+		Palette: cloakscrin
+		RequiresCondition: VanguardShield && !BreakShield > 7
+	ExternalCondition@VanguardShield:
+		Condition: VanguardShield
+	ExternalCondition@BreakShield:
+		Condition: BreakShield
+	Targetable@Shield:
+		TargetTypes: ShieldedUnit
+		RequiresCondition: VanguardShield
+	DamageMultiplier@Boarded6:
+		RequiresCondition: VanguardShield && !BreakShield > 7
+		Modifier: 0
+
+^GenericEffects:
+	Inherits: ^VisionWhenKilled
+	Inherits@0: ^KillSelf
+	Inherits@1: ^Cloakable
+	Inherits@2: ^Bounty
+	Inherits@3: ^ScrinEssence
+	Inherits@4: ^BurstRecovery
+	Inherits@5: ^FirestormGenBuff
+	Inherits@6: ^GuardianPlatformSelfHeal
+	RevealOnFire:
+
+^StructureEffects:
+	Inherits: ^GenericEffects
+	Inherits@1: ^CloudPoison
+	Inherits@2: ^EmpDisable
+
+^InfantryEffects:
+	Inherits: ^GenericEffects
+	Inherits@0: ^CloudPoison
+	Inherits@1: ^HealthPercentageFirepowerMultiplier
+	Inherits@2: ^SeekerTracker
+	Inherits@3: ^WolfBuffs
+	Inherits@4: ^BugPoison
+	Inherits@5: ^RejectsOrdersBerkserk
+	Inherits@6: ^WebDisable
+	Inherits@7: ^TemplarDebuff
+	Inherits@8: ^wiuwiuwiu
+	Inherits@9: ^TimeLineDebuff
+	Inherits@10: ^DisplayVanguardShield
+
+^VehicleEffects:
+	Inherits: ^GenericEffects
+	Inherits@0: ^CloudPoison
+	Inherits@1: ^HealthPercentageFirepowerMultiplier
+	Inherits@2: ^SeekerTracker
+	Inherits@3: ^WolfBuffs
+	Inherits@4: ^BugPoison
+	Inherits@5: ^RejectsOrdersBerkserk
+	Inherits@6: ^EmpDisableMobile
+	Inherits@7: ^TemplarDebuff
+	Inherits@8: ^wiuwiuwiu
+	Inherits@9: ^TimeLineDebuff
+	Inherits@10: ^FireflyDebuff
+	Inherits@11: ^DisplayVanguardShield
+	Inherits@12:^NodVehicleRepair
+	SpeedMultiplier@submerged:
+		Modifier: 60
+		RequiresCondition: submerged
+
+^AircraftEffects:
+	Inherits: ^GenericEffects
+	Inherits@0: ^tractorstop
+	Inherits@1: ^FireflyDebuff
+	Inherits@2:^NodVehicleRepair
+	Inherits@3: ^PermanentSelfHeal
+
+^BasicBuilding:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	WithTextControlGroupDecoration:
+	SelectionDecorations:
+		Palette: pips
+	Selectable:
+		Priority: 3
+	Valued:
+		Cost: 300
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+		BuildSounds: place2.aud
+		TerrainTypes: Clear, Road, DirtRoad, Rough
+		Adjacent: 4
+		RequiresBaseProvider: True
+	FrozenUnderFog:
+	SoundOnDamageTransition:
+		DamagedSounds: expnew01.aud
+		DestroyedSounds: crmble2.aud
+	WithSpriteBody:
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+		Type: Footprint
+	EngineerRepairable:
+	SelfHealing@poisoncloud:
+		PercentageStep: -2
+	ShakeOnDeath:
+	Guardable:
+		Range: 6c0
+	Health:
+		HP: 28000
+		Shape: Circle
+			Radius: 500
+	Demolishable:
+	SpawnActorOnDeath@tiberium2:
+		Actor: visc_lrg
+		Probability: 10
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@ScrinEssence:
+		Actor: SCRINESSENCESMALL
+
+^Building:
+	Inherits@1: ^BasicBuilding
+	Inherits@2: ^StructureEffects
+	Inherits@3: ^EmpDisable
+	GivesBuildableArea:
+	Capturable:
+	RepairableBuilding:
+		IndicatorPalette: mouse
+		RepairStep: 700
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	EmitInfantryOnSell@gdi:
+		ActorTypes: gdie1
+		Factions: gdi
+	EmitInfantryOnSell@nod:
+		ActorTypes: altnode1
+		Factions: nod
+	EmitInfantryOnSell@cab:
+		ActorTypes: worker
+		Factions: cab
+	EmitInfantryOnSell@mut:
+		ActorTypes: marauder
+		Factions: mut
+	EmitInfantryOnSell@scr:
+		ActorTypes: legio
+		Factions: scr
+	SpawnActorOnDeath@tiberium2:
+		Actor: visc_lrg
+		Probability: 5
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	CaptureNotification:
+	Sellable:
+		SellSounds: cashturn.aud
+	WithMakeAnimation:
+	ThrowsShrapnel:
+		Weapons: LargeDebris
+		Pieces: 3, 7
+		Range: 2c0, 5c0
+	GrantConditionOnDamageState@smoke:
+		Condition: smoketrail
+		ValidDamageStates: Critical, Heavy
+	ExplodeWeapon@smoke:
+		Weapon: SmokeShrapnel
+		RequiresCondition: smoketrail
+
+^CivBuilding:
+	Inherits: ^BasicBuilding
+	-UpdatesPlayerStatistics:
+	Health:
+		HP: 90000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Tooltip:
+		Description: Civilian Building
+	RenderSprites:
+		Palette: terraindecoration
+	ThrowsShrapnel:
+		Weapons: LargeDebris
+		Pieces: 3, 7
+		Range: 2c0, 5c0
+
+^TechBuilding:
+	Inherits: ^CivBuilding
+	RepairableBuilding:
+		IndicatorPalette: mouse
+		RepairStep: 700
+	Capturable:
+		CaptureThreshold: 100
+	RenderSprites:
+		-Palette: silo
+
+^CivBillboard:
+	Inherits: ^CivBuilding
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Selectable:
+		Bounds: 60, 60, 0, -18
+	Armor:
+		Type: heavy
+	Health:
+		HP: 40000
+	EditorTilesetFilter:
+		RequireTilesets: TEMPERATE
+
+^Crate:
+	HiddenUnderFog:
+	Tooltip:
+		Name: Crate
+	Crate:
+		Lifetime: 180
+		TerrainTypes: Clear, Rough, Sand, Road, DirtRoad, Tiberium, BlueTiberium, Veins, Green, Pavement
+	RenderSprites:
+		Palette: terraindecoration
+	WithCrateBody:
+		Images: crate
+	CustomSelectionSize:
+		CustomBounds: 24,24
+
+^BuildingPlug:
+	AlwaysVisible:
+	Building:
+		BuildSounds: place2.aud
+	KillsSelf:
+		RemoveInstead: true
+	RenderSprites:
+
+^Infantry:
+	Inherits@0: ^GainsExperience
+	Inherits@1: ^InfantryEffects
+	Inherits@2: ^ExistsInWorld
+	Inherits@3: ^SpriteActor
+	DrawLineToTarget:
+	WithTextControlGroupDecoration:
+	TemporaryOwnerManager:
+	Health:
+		HP: 5000
+		Shape: Circle
+			Radius: 128
+	SelfHealing@MineReam:
+		PercentageStep: 1
+		Step: 0
+		Delay: 50
+		RequiresCondition: MineReam
+		DamageCooldown: 200
+		HealIfBelow: 101
+	ExternalCondition@MineReam:
+		Condition: MineReam
+	Armor:
+		Type: None
+	Valued:
+		Cost: 10
+	RevealsShroud:
+		Range: 6c0
+		RequiresCondition: !inside-tunnel && !submerged
+	Mobile:
+		Voice: Move
+		Speed: 71
+		Crushes: crate
+		SharesCell: true
+		TerrainSpeeds:
+			Clear: 90
+			Road: 100
+			Rail: 90
+			DirtRoad: 100
+			Rough: 80
+			Bridge: 100
+			Tiberium: 90
+			BlueTiberium: 90
+			Veins: 50
+		TunnelCondition: inside-tunnel
+	SelectionDecorations:
+		Palette: pips
+	Selectable:
+		Bounds: 22,30,0,-10
+	Voiced:
+		VoiceSet: Infantry
+	IgnoresDisguise:
+	Targetable:
+		TargetTypes: Ground, Infantry
+		RequiresCondition: !ToxinTrooper || !inside-tunnel
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithInfantryBody:
+	WithDeathAnimation@normal:
+		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
+			BulletDeath: 1, 2
+			CabalDeath: 1, 2
+			CabalDeathCrate: 1, 2
+			BlackHandRfle: 3
+			HeadshotDeath: 3
+	WithDeathAnimation@tib:
+		DeathSequencePalette: apolra2galpha
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			TiberiumDeath: evaporate, melt, shatter, cristalize1, cristalize2
+			TiberiumDeathStrong: evaporate, melt, shatter, cristalize1, cristalize2
+	WithDeathAnimation@explosion:
+		DeathSequencePalette: gensmkexploj
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			SmallExplosionDeath: 4, 5, 7
+			ExplosionDeath: 4, 5, 7
+	WithDeathAnimation@energy:
+		DeathSequencePalette: ra
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes:
+			EnergyDeath: 6
+	WithDeathAnimation@body:
+		DeathSequencePalette: effect
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
+			BulletDeath: body1, body2, body3, body4, body5
+			CabalDeath: body1, body2, body3, body4, body5
+			CabalDeathCrate: body1, body2, body3, body4, body5
+			BlackHandRfle: body1, body2, body3, body4, body5
+			HeadshotDeath: body1, body2, body3, body4, body5
+			SmallExplosionDeath: body1, body2, body3, body4, body5
+			EnergyDeath: body1, body2, body3, body4, body5
+			ExplosionDeath: body1, body2, body3, body4, body5
+	AutoTarget:
+	AttackMove:
+		Voice: Move
+	Passenger:
+		CargoType: Infantry
+		Voice: Move
+	HiddenUnderFog:
+	ActorLostNotification:
+	Crushable:
+		WarnProbability: 50
+		CrushSound: squish6.aud
+	DamagedByTerrain:
+		Damage: 200
+		DamageInterval: 25
+		Terrain: Tiberium, BlueTiberium
+		DamageTypes: TiberiumDeath, TiberiumDeathStrong
+	SpawnActorOnDeath@FLAMEGUY:
+		Actor: FLAMEGUY
+		DeathType: FireDeath
+	SpawnActorOnDeath@FLAMEGUY2:
+		Actor: FLAMEGUY
+		DeathType: MilitantFireDeath
+	SpawnActorOnDeath@tiberium:
+		Actor: zombie
+		Probability: 10
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@tiberium2:
+		Actor: visc_lrg
+		Probability: 10
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@berserk:
+		Actor: berserker
+		Probability: 5
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@tiberium3:
+		Actor: zombie
+		Probability: 30
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeathStrong
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@tiberium4:
+		Actor: VISC_LRG
+		Probability: 30
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeathStrong
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@berserk2:
+		Actor: berserker
+		Probability: 10
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeathStrong
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@conversion:
+		Actor: worker
+		Probability: 80
+		OwnerType: Killer
+		DeathType: CabalDeath
+		RequiresLobbyCreeps: false
+	SpawnActorOnDeath@blackhand:
+		Actor: blackhanddummy
+		Probability: 100
+		OwnerType: Victim
+		DeathType: BlackHandRfle
+		RequiresLobbyCreeps: false
+	Guard:
+		Voice: Move
+	Guardable:
+	DeathSounds@NORMAL:
+		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, CabalDeath, CabalDeathCrate, BlackHandRfle, HeadshotDeath, SmallExplosionDeath, TiberiumDeath, TiberiumDeathStrong
+	DeathSounds@BURNED:
+		Voice: Burned
+		DeathTypes: FireDeath
+	DeathSounds@ZAPPED:
+		Voice: Zapped
+		DeathTypes: EnergyDeath
+
+^Soldier:
+	Inherits: ^Infantry
+	MustBeDestroyed:
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+			Prone60Percent: 60
+			Prone70Percent: 70
+			Prone100Percent: 100
+			Prone350Percent: 350
+		DamageTriggers: TriggerProne
+	WithInfantryBody:
+		IdleSequences: idle1,idle2
+		DefaultAttackSequence: shoot
+	WithDeathAnimation:
+		CrushedSequence: die-crushed
+		CrushedSequencePalette: player
+		CrushedPaletteIsPlayerPalette: true
+
+^Mutant:
+	Inherits: ^Soldier
+	Targetable@Mutant:
+		TargetTypes: Mutant
+	DamagedByTerrain:
+		Damage: -200
+		DamageInterval: 16
+		Terrain: Tiberium, BlueTiberium
+
+^Beast:
+	Inherits: ^Mutant
+	Inherits@1: ^RejectsOrdersBerkserk
+	-TakeCover:
+	GrantConditionOnDamageState@beastberserk:
+		Condition: berserk
+		ValidDamageStates: Heavy, Critical
+	SpawnActorOnDeath@tiberium2:
+		Probability: 20
+	-SpawnActorOnDeath@tiberium3:
+	SpawnActorOnDeath@tiberium4:
+	-SpawnActorOnDeath@berserk:
+		Probability: 40
+	-SpawnActorOnDeath@berserk2:
+	SpawnActorOnDeath@conversion:
+		Actor: cybdog
+		Probability: 100
+		OwnerType: Killer
+		DeathType: CabalDeathInfantry
+		RequiresLobbyCreeps: true
+	SpeedMultiplier@beastberserk:
+		RequiresCondition: beastdamaged
+		Modifier: 120
+	ReloadDelayMultiplier@beastberserk:
+		RequiresCondition: beastdamaged
+		Modifier: 80
+	DamageMultiplier@beastberserk:
+		Modifier: 120
+		RequiresCondition: beastdamaged
+	SelfHealing@BerserkBeast:
+		PercentageStep: 1
+		Step: 0
+		Delay: 30
+		DamageCooldown: 200
+		HealIfBelow: 60
+	WithDeathAnimation@normal:
+		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
+			TiberiumDeath: 1, 2
+			TiberiumDeathStrong: 1, 2
+			EnergyDeath: 1, 2
+	-WithDeathAnimation@body:
+	-WithDeathAnimation@tib:
+	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
+
+^ScrinSoldier:
+	Inherits: ^Soldier
+	Inherits@1: ^ScrinReaper
+	Inherits@2: ^ScrinRender
+	Voiced:
+		VoiceSet: Limpet
+	WithDeathAnimation@normal:
+		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
+	-DamagedByTerrain:
+	-SelfHealing@ELITE:
+
+^Cyborg:
+	Inherits@1: ^Infantry
+	Inherits@3:	^IncompleteSelfHeal
+	-SpawnActorOnDeath@conversion:
+	-Crushable:
+	-DamagedByTerrain:
+	ExplosionOnDamageTransition:
+		Weapon: CyborgExplode
+		DamageState: Critical
+		TriggerOnlyOnce: true
+	Explodes:
+		Weapon: CyborgExplode
+		EmptyWeapon: CyborgExplode
+	DeathSounds:
+	RevealsShroud:
+		Range: 4c0
+	MustBeDestroyed:
+	WithPermanentInjury:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		IdleSequences: idle1, idle2
+	GrantConditionOnDamageState@CRITICAL:
+		Condition: criticalspeed
+		ValidDamageStates: Critical
+		GrantPermanently: true
+	SpeedMultiplier@CRITICAL:
+		RequiresCondition: criticalspeed
+		Modifier: 50
+
+^CabalDroneInfantry:
+	Inherits@1: ^Infantry
+	Inherits@2:	^IncompleteSelfHeal
+	-WithDeathAnimation@normal:
+	-WithDeathAnimation@explosion:
+	-WithDeathAnimation@energy:
+	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@tiberium:
+	-SpawnActorOnDeath@tiberium2:
+	-SpawnActorOnDeath@tiberium3:
+	-SpawnActorOnDeath@tiberium4:
+	-SpawnActorOnDeath@conversion:
+	-DamagedByTerrain:
+	Voiced:
+		VoiceSet: Limpet
+	-Crushable:
+
+^CivilianInfantry:
+	Inherits: ^Infantry
+	Voiced:
+		VoiceSet: Civilian
+	Tooltip:
+		Name: Civilian
+	ScaredyCat:
+	WithDeathAnimation:
+		CrushedSequence: die-crushed
+		CrushedSequencePalette: player
+		CrushedPaletteIsPlayerPalette: true
+
+^Hologram:
+	Inherits: ^Soldier
+	RevealsShroud:
+		Range: 3c0
+	Health:
+		HP: 4500
+	-Armor:
+	-GainsExperience:
+	-GivesExperience:
+	-Passenger:
+	-DamagedByTerrain:
+	-ActorLostNotification:
+	AttackFrontal:
+	WithDecoration@holoicon:
+		Image: holoicon
+		Sequence: idle
+		ReferencePoint: Bottom, Right
+		Palette: mouse
+		ShowToEnemies: true
+	WithDeathAnimation@body:
+		DeathSequencePalette: apolra2i
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
+			BulletDeath: evaporate
+			CabalDeath: evaporate
+			CabalDeathCrate: evaporate
+			BlackHandRfle: evaporate
+			HeadshotDeath: evaporate
+			SmallExplosionDeath: evaporate
+			FireDeath: evaporate
+			TiberiumDeath: evaporate
+			TiberiumDeathStrong: evaporate
+			EnergyDeath: evaporate
+			ExplosionDeath: evaporate
+	FirepowerMultiplier@Hologram:
+		Modifier: 20
+		BaseLevel: 0
+	-WithDeathAnimation@normal:
+	-WithDeathAnimation@tib:
+	-WithDeathAnimation@explosion:
+	-WithDeathAnimation@energy:
+	-SpawnActorOnDeath@FLAMEGUY:
+	-SpawnActorOnDeath@FLAMEGUY2:
+	-SpawnActorOnDeath@tiberium:
+	-SpawnActorOnDeath@tiberium2:
+	-SpawnActorOnDeath@berserk:
+	-SpawnActorOnDeath@tiberium3:
+	-SpawnActorOnDeath@tiberium4:
+	-SpawnActorOnDeath@berserk2:
+	-SpawnActorOnDeath@conversion:
+	-SpawnActorOnDeath@blackhand:
+	-SpawnActorOnDeath@ScrinEssence:
+	GrantPeriodicCondition:
+		Condition: KillMe
+		CooldownDuration: 500
+	KillsSelf@KillMe:
+		RequiresCondition: KillMe
+	ExternalCondition@KillMe:
+		Condition: KillMe
+
+^Engineer:
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Engineer
+		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
+	Selectable:
+		Priority: 6
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 9500
+	MineImmune:
+	Minelayer:
+		AmmoPoolName: Mine
+		Mine: mumine
+		RearmBuildings:
+	AmmoPool:
+		Ammo: 3
+		Name: Mine
+		PipCount: 3
+		PipType: Ammo
+		SelfReloadDelay: 1000
+		SelfReloads: true
+		PipTypeEmpty: AmmoEmpty
+	ReloadAmmoWhenEnabled:
+		Name: Mine
+		RequiresCondition: MineReam
+		ReloadDelay: 100
+	Passenger:
+		PipType: Yellow
+	EngineerRepair:
+	RepairsBridges:
+	DetectCloaked:
+		CloakTypes: mine
+		Range: 4c0
+	Captures:
+		CaptureTypes: building
+		PlayerExperience: 50
+	Passenger:
+		GrantCondition: EngineerHologram
+	ExternalCondition@AcidScaleDmg@MineReam
+		Condition: MineReam
+
+^Vehicle:
+	Inherits@0: ^GainsExperience
+	Inherits@1: ^VehicleEffects
+	Inherits@2: ^ExistsInWorld
+	DrawLineToTarget:
+	TemporaryOwnerManager:
+	WithTextControlGroupDecoration:
+	Mobile:
+		Crushes: crate
+		TerrainSpeeds:
+			Clear: 70
+			Road: 100
+			Rail: 50
+			DirtRoad: 90
+			Rough: 40
+			Tiberium: 50
+			BlueTiberium: 50
+			Veins: 50
+		TunnelCondition: inside-tunnel
+		TurnSpeed: 7
+		Voice: Move
+	RevealsShroud:
+		Range: 9c0
+		RequiresCondition: !inside-tunnel && !submerged
+	RepairableNear:
+		Buildings: scrdepot
+	Selectable:
+		Bounds: 40,30
+	SelectionDecorations:
+		Palette: pips
+	SelfHealing@poisoncloud:
+		PercentageStep: -3
+	ExplodeWeapon@BugPoison:
+		Weapon: PoisonGlaive
+		RequiresCondition: BugPoison
+	WithIdleOverlay@BugPoison:
+		Sequence: cloud
+		IsPlayerPalette: true
+		Palette: cloakscrin
+		RequiresCondition: BugPoison
+	Armor:
+		Type: Light
+	DamagedByTerrain@veins:
+		Damage: 1500
+		DamageInterval: 12
+		Terrain: Veins
+	GrantConditionOnTerrain@VEINS:
+		TerrainTypes: Veins
+		Condition: veins
+	WithIdleOverlay@VEINS:
+		Sequence: veins
+		RequiresCondition: veins
+	GrantConditionOnDamageState@smoke:
+		Condition: smoketrail
+		ValidDamageStates: Critical
+	ExplodeWeapon@smoke:
+		Weapon: SmokeShrapnel
+		RequiresCondition: smoketrail
+	SpawnActorOnDeath@conversion:
+		Actor: PALADIN2
+		Probability: 100
+		OwnerType: Killer
+		DeathType: CabalDeath
+		RequiresLobbyCreeps: false
+	SpawnActorOnDeath@egg:
+		Actor: crab
+		Probability: 10
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType:  TiberiumDeath
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@berserk:
+		Actor: berserker
+		Probability: 10
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeath
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@egg2:
+		Actor: crab
+		Probability: 40
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType:  TiberiumDeathStrong
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@berserk2:
+		Actor: berserker
+		Probability: 40
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		DeathType: TiberiumDeathStrong
+		RequiresLobbyCreeps: true
+	SpawnActorOnDeath@ScrinEssence:
+		Actor: SCRINESSENCESMALL
+	Voiced:
+		VoiceSet: Vehicle
+	Targetable:
+		TargetTypes: Ground, Vehicle
+		RequiresCondition: !ToxinTrooper
+	Targetable@repair:
+		TargetTypes: repair
+	Repairable:
+		RepairBuildings: gadept
+		Voice: Move
+	Passenger:
+		CargoType: Vehicle
+		Voice: Move
+		Weight: 3
+	AttackMove:
+		Voice: Move
+	HiddenUnderFog:
+	ActorLostNotification:
+	Capturable:
+		Type: Vehicle
+		CaptureThreshold: 100
+		CancelActivity: True
+	Guard:
+		Voice: Move
+	Guardable:
+	BodyOrientation:
+		CameraPitch: 90
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	MustBeDestroyed:
+	RenderSprites:
+	ThrowsShrapnel:
+		Weapons: SmallDebris
+		Pieces: 3, 7
+		Range: 2c0, 5c0
+	Carryable:
+
+^Tank:
+	Inherits: ^Vehicle
+	Mobile:
+		Crushes: wall, crate, infantry
+		TerrainSpeeds:
+			Clear: 70
+			Road: 100
+			Rail: 100
+			DirtRoad: 90
+			Rough: 60
+			Tiberium: 70
+			BlueTiberium: 70
+			Veins: 70
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+
+^HoverVehicle:
+	Inherits: ^Vehicle
+	Hovers:
+	Mobile:
+		TerrainSpeeds:
+			Clear: 100
+			Road: 100
+			Rail: 100
+			DirtRoad: 100
+			Rough: 100
+			Tiberium: 100
+			BlueTiberium: 100
+			Veins: 100
+			Water: 80
+		Crushes: crate
+	-DamagedByTerrain@veins:
+	-GrantConditionOnTerrain@VEINS:
+	-WithIdleOverlay@VEINS:
+	LeavesTrails:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+		StationaryInterval: 18
+		MovingInterval: 6
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+
+^Walker:
+	Inherits: ^Vehicle
+	Mobile:
+		Crushes: wall, crate, infantry
+		TerrainSpeeds:
+			Clear: 90
+			Road: 100
+			Rail: 90
+			DirtRoad: 100
+			Rough: 80
+			Tiberium: 90
+			BlueTiberium: 90
+			Veins: 50
+	Carryable:
+		LocalOffset: 0,0,600
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+
+^ScrinVehicle:
+	Inherits@1: ^ScrinReaper
+	Inherits@2: ^ScrinRender
+	Explodes:
+		Weapon: ScrinUnitExplode
+		EmptyWeapon: ScrinUnitExplode
+	Voiced:
+		VoiceSet: Limpet
+
+^VoxelVehicle:
+	Inherits: ^Vehicle
+	BodyOrientation:
+		QuantizedFacings: 0
+	RenderVoxels:
+	WithVoxelBody:
+
+^VoxelTank:
+	Inherits: ^Tank
+	BodyOrientation:
+		QuantizedFacings: 0
+	RenderVoxels:
+	WithVoxelBody:
+
+^CivilianVoxelVehicle:
+	Inherits: ^VoxelVehicle
+	-MustBeDestroyed:
+
+^Aircraft:
+	Inherits@0: ^GainsExperience
+	Inherits@1: ^AircraftEffects
+	Inherits@2: ^ExistsInWorld
+	Inherits@5: ^PermanentSelfHeal
+	DrawLineToTarget:
+	WithTextControlGroupDecoration:
+	GrantConditionOnDamageState@smoke:
+		Condition: smoketrail
+		ValidDamageStates: Critical
+	ExplodeWeapon@smoke:
+		Weapon: SmokeShrapnel
+		RequiresCondition: smoketrail
+	RepairableNear:
+		Buildings: scrdepot
+	AppearsOnRadar:
+		UseLocation: yes
+	Targetable@GROUND:
+		TargetTypes: Vehicle
+		RequiresCondition: !airborne
+	Targetable@AIRBORNE:
+		TargetTypes: Air
+		RequiresCondition: airborne
+	Selectable:
+	SelectionDecorations:
+		Palette: pips
+	Aircraft:
+		AirborneCondition: airborne
+		CruisingCondition: cruising
+		RepairBuildings: gadept
+		RearmBuildings: gahpad, nahpad, muair
+		LandWhenIdle: false
+		Voice: Move
+		RepulsionSpeed: 40
+		CruiseAltitude: 2560
+		AltitudeVelocity: 250
+	Passenger:
+		CargoType: Aircraft
+	Voiced:
+		VoiceSet: Heli
+	HiddenUnderFog:
+		Type: CenterPosition
+	AttackMove:
+		Voice: Move
+	ActorLostNotification:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 90
+	Guard:
+		Voice: Move
+	Guardable:
+	MustBeDestroyed:
+	RenderVoxels:
+	WithVoxelBody:
+	SelfHealing@AircraftAutoRepair:
+		PercentageStep: 2
+		Step: 0
+		Delay: 50
+		DamageCooldown: 200
+		RequiresCondition: AircraftAutoRepair
+		HealIfBelow: 101
+	ExternalCondition@AircraftAutoRepair:
+		Condition: AircraftAutoRepair
+
+^Helicopter:
+	Inherits: ^Aircraft
+	RevealsShroud:
+		Range: 12c0
+		Type: CenterPosition
+	Aircraft:
+		LandWhenIdle: False
+		CruiseAltitude: 2048
+		CanHover: True
+		# LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Targetable@AIRBORNE:
+		TargetTypes: Air, Helicopter
+		RequiresCondition: airborne
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+
+^Plane:
+	Inherits: ^Aircraft
+	Aircraft:
+		LandWhenIdle: False
+		CruiseAltitude: 2560
+	ReturnOnIdle:
+	RevealsShroud:
+		Range: 8c0
+		Type: CenterPosition
+
+^AircraftHusk:
+	RenderVoxels:
+	RenderSprites:
+	WithVoxelBody:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 90
+	Aircraft:
+		AirborneCondition: airborne
+		CruisingCondition: cruising
+	Health:
+		HP: 28000
+	Armor:
+		Type: Heavy
+	HiddenUnderFog:
+		Type: CenterPosition
+	AutoTargetIgnore:
+	ScriptTriggers:
+	Tooltip:
+		GenericName: Destroyed Aircraft
+	FallsToEarth:
+		Spins: true
+		Moves: true
+		Velocity: 86
+
+^Visceroid:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	DrawLineToTarget:
+	Health:
+		Shape: Circle
+			Radius: 256
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 113
+		TurnSpeed: 16
+		Crushes: crate
+		SharesCell: no
+		TerrainSpeeds:
+			Clear: 90
+			Road: 100
+			Rail: 80
+			DirtRoad: 90
+			Rough: 70
+			Tiberium: 100
+			BlueTiberium: 100
+			Veins: 100
+		TunnelCondition: inside-tunnel
+	SelectionDecorations:
+		Palette: pips
+	Selectable:
+		Bounds: 26,26,0,-3
+	Targetable:
+		TargetTypes: Ground, NeutralTibCritter
+	AttackMove:
+	HiddenUnderFog:
+	DamagedByTerrain:
+		Damage: -200
+		DamageInterval: 16
+		Terrain: Tiberium, BlueTiberium
+	Guardable:
+	WithSpriteBody:
+
+^BlossomTree:
+	Inherits@1: ^SpriteActor
+	Tooltip:
+		Name: Blossom Tree
+	RenderSprites:
+		Palette: player
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	AppearsOnRadar:
+	WithIdleOverlay:
+		Sequence: light
+		Palette: gradgreen
+	RadarColorFromTerrain:
+		Terrain: Tiberium
+	FrozenUnderFog:
+		StartsRevealed: true
+	SeedsResource:
+		ResourceType: Tiberium
+		Interval: 75
+	WithIdleAnimation:
+
+^Tree:
+	Inherits@1: ^SpriteActor
+	HiddenUnderShroud:
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Tree
+	Tooltip:
+		Name: Tree
+
+^Rock:
+	Inherits@1: ^SpriteActor
+	HiddenUnderShroud:
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	AppearsOnRadar:
+	RadarColorFromTerrain:
+		Terrain: Rock
+	Tooltip:
+		Name: Rock
+
+^Decoration:
+	Inherits@1: ^SpriteActor
+	HiddenUnderShroud:
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+
+^Box:
+	Inherits: ^Decoration
+	Tooltip:
+		Name: Box
+
+^Drum:
+	Inherits: ^Decoration
+	Tooltip:
+		Name: Drum
+
+^Palette:
+	Inherits: ^Decoration
+	Tooltip:
+		Name: Palette
+
+^Defense:
+	Inherits: ^Building
+	-GivesBuildableArea:
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+	AutoTarget:
+	RenderRangeCircle:
+	Targetable@Defence:
+		TargetTypes: Defence
+	RenderDetectionCircle:
+	RevealsShroud:
+		Range: 10c0
+	DetectCloaked:
+		Range: 5c0
+	Armor:
+		Type: Heavy
+
+^AntiAir:
+	Inherits: ^Defense
+	RenderRangeCircle:
+		RangeCircleType: AA
+
+^Tier2:
+	Inherits: ^Defense
+	RenderRangeCircle:
+		RangeCircleType: Tier2
+
+^MiscTurret:
+	Inherits: ^Defense
+	RenderRangeCircle:
+		RangeCircleType: MiscTurret
+
+^DeployedVehicle:
+	Inherits: ^GenericEffects
+	Inherits@0: ^ExistsInWorld
+	Inherits@1: ^SpriteActor
+	Voiced:
+		VoiceSet: Vehicle
+	AttackTurreted:
+		Voice: Attack
+	AutoTarget:
+	RenderRangeCircle:
+	DrawLineToTarget:
+	Armor:
+		Type: Light
+	SelfHealing@poisoncloud:
+		PercentageStep: -3
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+		TerrainTypes: Clear, Road, DirtRoad, Rough
+	WithSpriteBody:
+	WithMakeAnimation:
+	SelectionDecorations:
+		Palette: pips
+	Selectable:
+	Targetable:
+		TargetTypes: Ground, Repair, DetonateAttack, MindControlInmune
+	Guardable:
+	HiddenUnderFog:
+	ActorLostNotification:
+
+^Train:
+	Inherits@1: ^EmpDisableMobile
+	Inherits@2: ^ExistsInWorld
+	RenderVoxels:
+	RenderSprites:
+	WithVoxelBody:
+	DrawLineToTarget:
+	Mobile:
+		TerrainSpeeds:
+			Clear: 90
+			Road: 100
+			Rail: 90
+			DirtRoad: 100
+			Rough: 80
+			Tiberium: 90
+			BlueTiberium: 90
+			Veins: 50
+		TurnSpeed: 5
+		Voice: Move
+		Speed: 113
+		TunnelCondition: inside-tunnel
+	Cargo:
+		Types: Vehicle
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+	Health:
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c0
+	Selectable:
+		Bounds: 40,24
+	SelectionDecorations:
+		Palette: pips
+	Voiced:
+		VoiceSet: Vehicle
+	Targetable:
+		TargetTypes: Ground, Vehicle
+	Passenger:
+		CargoType: Infantry
+		Voice: Move
+	HiddenUnderFog:
+	BodyOrientation:
+		CameraPitch: 90
+		QuantizedFacings: 0
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	ExternalCondition@cloakgenerator:
+		Condition: cloakgenerator
+	ThrowsShrapnel:
+		Weapons: SmallDebris
+		Pieces: 3, 7
+		Range: 2c0, 5c0
+
+^TerrainOverlay:
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: False
+	RenderSprites:
+		Palette: terraindecoration
+	WithSpriteBody:
+	BodyOrientation:
+		UseClassicPerspectiveFudge: False
+		QuantizedFacings: 1
+
+^Railway:
+	Inherits: ^TerrainOverlay
+	EditorOnlyTooltip:
+		Name: Railway
+	AutoSelectionSize:
+
+^Tunnel:
+	Inherits: ^TerrainOverlay
+	CustomSelectionSize:
+		CustomBounds: 220,220
+
+^Wall:
+	Inherits@1: ^SpriteActor
+	CombatDebugOverlay:
+	FrozenUnderFog:
+	AppearsOnRadar:
+	Valued:
+		Cost: 100
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+		BuildSounds: place2.aud
+		Adjacent: 7
+		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
+	SoundOnDamageTransition:
+		DamagedSounds: expnew01.aud
+		DestroyedSounds: crmble2.aud
+	Crushable:
+		CrushClasses: wall
+	LineBuild:
+		Range: 8
+		NodeTypes: wall
+	LineBuildNode:
+		Types: wall
+	Targetable:
+		TargetTypes: Ground, Wall, C4, DetonateAttack
+	WithWallSpriteBody:
+		Type: wall
+	AutoTargetIgnore:
+	Sellable:
+		SellSounds: cashturn.aud
+	Demolishable:
+	ScriptTriggers:
+	ConditionManager:
+	Health:
+		Shape: Circle
+			Radius: 363
+
+^Gate:
+	Inherits: ^Building
+	Valued:
+		Cost: 50
+	Health:
+		HP: 35000
+	Armor:
+		Type: Heavy
+	LineBuildNode:
+		Types: wall, gate
+	-WithDeathAnimation:
+	-Building:
+	-Capturable:
+	-GivesBuildableArea:
+	-MustBeDestroyed:
+	-WithSpriteBody:
+	WithGateSpriteBody:
+	Power:
+	CanPowerDown:
+		IndicatorPalette: mouse
+	Tooltip:
+		Description: Automated barrier that opens for allied units.
+	Gate:
+		Adjacent: 4
+		BuildSounds: place2.aud
+		OpeningSound: gateup1.aud
+		ClosingSound: gatedwn1.aud
+		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
+		BlocksProjectilesHeight: 640
+
+^Gate_A:
+	Inherits: ^Gate
+	Gate:
+		Dimensions: 3,1
+		Footprint: xxx
+	WithGateSpriteBody:
+		WallConnections: -1,0, 3,0
+	LineBuildNode:
+		Connections: -1,0, 1,0
+
+^Gate_B:
+	Inherits: ^Gate
+	Gate:
+		Dimensions: 1,3
+		Footprint: x x x
+	WithGateSpriteBody:
+		WallConnections: 0,-1, 0,3
+	LineBuildNode:
+		Connections: 0,-1, 0,1
+
+^ScrinRender:
+	Buildable:
+		IconPalette: chromescrin
+	RenderSprites:
+		PlayerPalette: playerscrin
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakscrin
+	ExternalCondition@cloakgenerator:
+		Condition: cloakgenerator
+	WithDeathAnimation:
+		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
+
+^MutRender:
+	RenderSprites:
+		PlayerPalette: playermut
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakmut
+	ExternalCondition@cloakgenerator:
+		Condition: cloakgenerator
+	WithDeathAnimation:
+		DeathSequencePalette: playermut
+		CrushedSequencePalette: playermut
+		CrushedPaletteIsPlayerPalette: true
+
+^CabRender:
+	RenderSprites:
+		PlayerPalette: playercab
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakcab
+	ExternalCondition@cloakgenerator:
+		Condition: cloakgenerator
+	WithDeathAnimation:
+		DeathSequencePalette: playercab
+		CrushedSequencePalette: playercab
+		CrushedPaletteIsPlayerPalette: true
+
+^BuildingCloak:
+	Cloak@CLOAKGENERATOR:
+		RequiresCondition: cloakgenerator
+	ExternalCondition@cloakgenerator:
+		Condition: cloakgenerator
+
+^Ra2vxl:
+	RenderVoxels:
+		LightAmbientColor: 0.5,0.5,0.5
+		LightDiffuseColor: 0.7,0.7,0.7
+		NormalsPalette: ra2normals
+
+^VisionWhenKilled:
+	SpawnActorOnDeath@vision:
+		Actor: VISIONACTOR
+		Probability: 100
+		OwnerType: victim
+		RequiresLobbyCreeps: false
+
+^ScrinReaper:
+	Targetable@Essence:
+		TargetTypes: ScrinUnit
+	DamagedByTerrain@ScrinDamage:
+		Damage: 0
+		DamageInterval: 0
+		Terrain: Clear, Road, Rail, Bridge, Impassable, Water, DirtRoad, Rough, Cliff, Veins, Tree, Rock
+		DamageThreshold: 60
+		StartOnThreshold: true
+	SpawnActorOnDeath@ScrinEssence:
+		DeathType:
+	Targetable@ScrinUnitBeingHealed:
+		TargetTypes: ScrinUnitBeingHealed
+		ConditionMinEnabledLevel: 1
+		RequiresCondition: batteryboost
+	SelfHealing@batteryboost:
+		PercentageStep: 1
+		Step: 0
+		Delay: 25
+		HealIfBelow: 101
+		RequiresCondition: batteryboost
+
+^SelfReloads:
+	AmmoPool:
+		Ammo: 999
+		PipCount: 0
+		SelfReloads: true
+		ReloadCount: 60
+		SelfReloadsTicks: 1
+		ResetOnFire: false
+
+^BasicStealthDetection:
+	DetectCloaked:
+		Range: 3c0
+	RenderDetectionCircle:
+
+^TowerStealthDetection:
+	DetectCloaked:
+		Range: 5c0

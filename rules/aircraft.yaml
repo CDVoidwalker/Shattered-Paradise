@@ -1,0 +1,1646 @@
+#######################################################
+#Neutral
+#######################################################
+CLOUD1:
+	Inherits: ^Helicopter
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Gas Cloud
+	-Selectable:
+	-SelectionDecorations:
+	AutoSelectionSize:
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-AppearsOnRadar:
+	Aircraft:
+		CruiseAltitude: 0
+		TurnSpeed: 6
+		Repulsable: false
+		AltitudeVelocity: 400#0c43
+		Speed: 20
+		MoveIntoShroud: true
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	-RevealsShroud:
+	-SpawnActorOnDeath@vision:
+	-Voiced:
+	Health:
+		HP: 9
+	SelfHealing:
+		Step: -1
+		Delay: 25
+		HealIfBelow: 200
+		DamageTypes: CloudDie
+	Armor:
+		Type: Wood
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithDeathAnimation:
+		UseDeathTypeSuffix: False
+		DeathSequencePalette: effectalpha
+		DeathPaletteIsPlayerPalette: false
+	RejectsOrders:
+	RenderSprites:
+		Image: cloud1
+		Palette: effectalpha
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	AttackWander:
+	WithDeathAnimation:
+		DeathSequence: die
+		UseDeathTypeSuffix: false
+	ExplodeWeapon:
+		Weapon: CloudDamage
+
+#######################################################
+#GDI
+#######################################################
+ORCA:
+	Inherits: ^Helicopter
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Orca Fighter
+	Buildable:
+		Description: Rapid Assault Gunship with\ndual missile launchers.\n\n  Strong vs Armored Targets.\n  Weak vs Infantry, Aircraft.
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~gahpad
+	Selectable:
+		Bounds: 30,24
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 186
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 12000
+	Armor:
+		Type: Wood
+	Armament:
+		Weapon: FighterHellfire
+	Armament@resr:
+		Weapon: AAFighterHellfire
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 8
+		PipCount: 4
+		PipType: Ammo
+		ReloadCount: 2
+		ReloadTicks: 75
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	RenderSprites:
+	SpawnActorOnDeath:
+		Actor: ORCA.Husk
+
+ORCAB:
+    Inherits: ^Plane
+    Valued:
+        Cost: 1500
+    Tooltip:
+        Name: Orca Bomber
+    Buildable:
+        Description: Heavy carpet Bomber.\nSlow but highly armored.\n\n  Strong vs Ground Units.\n  Weak vs Anti Air, Aircraft
+        Queue: Air
+        BuildPaletteOrder: 20
+        Prerequisites: ~gahpad, gatech
+    Selectable:
+        Bounds: 30,24
+    Aircraft:
+        CruiseAltitude: 3072
+        MaximumPitch: 120
+        TurnSpeed: 4
+        IdealSeparation: 256
+        Speed: 120
+        AirborneCondition: airborne
+        MoveIntoShroud: true
+        TakeoffSound: orcaup1.aud
+        LandingSound: orcadwn1.aud
+    Health:
+        HP: 17500
+    Armor:
+        Type: Heavy
+    Armament@primary:
+        Weapon: OBBomb
+    AttackTurreted:
+    Turreted:
+        TurnSpeed: 360
+    AmmoPool:
+        Ammo: 10
+        PipCount: 2
+        ReloadCount: 5
+        ReloadTicks: 200
+        PipType: Ammo
+        PipTypeEmpty: AmmoEmpty
+    AutoTarget:
+    RenderSprites:
+    Hovers@CRUISING:
+        RequiresCondition: cruising
+    SpawnActorOnDeath:
+        Actor: ORCAB.Husk
+
+TRNSPORT:
+	Inherits: ^Helicopter
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Carryall
+	Buildable:
+		Description: VTOL Aircraft capable of lifting\nand transporting Vehicles.\n\n  Unarmed
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~gahpad, gadept
+	Aircraft:
+		LandWhenIdle: yes
+		TurnSpeed: 5
+		Speed: 149
+		CruiseAltitude: 2800
+		InitialFacing: 0
+		TakeoffSound: dropup1.aud
+		LandingSound: dropdwn1.aud
+		MoveIntoShroud: false
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Health:
+		HP: 17500
+	Armor:
+		Type: Wood
+	RenderSprites:
+	Selectable:
+		Bounds: 44,32,0,-8
+	Carryall:
+		Voice: Move
+		LocalOffset: 0, 0, -224
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.Husk
+
+GUARDIAN:
+	Inherits: ^Helicopter
+	Inherits@3: ^BasicStealthDetection
+	Inherits@4: ^PermanentSelfHeal
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Guardian Platform
+	Buildable:
+		Description: Medium frigate, great for spotting targets.\nIt can land to repair nearby vehicles.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry, Heavy vehicles.
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~gahpad, gadept
+	Selectable:
+		Bounds: 110,90
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 50
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 65000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 15c0
+		Type: CenterPosition
+	Armament@primary:
+		Weapon: GuardianRail
+	Armament@secondary:
+		Weapon: GuardianClaw
+	AttackHeli:
+		FacingTolerance: 240
+		Voice: Attack
+	AmmoPool:
+		Ammo: 10
+		PipCount: 0
+		PipType: Ammo
+		SelfReloads: true
+		SelfReloadDelay: 20
+		PipTypeEmpty: AmmoEmpty
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithShadow:
+	RenderSprites:
+		PlayerPalette: playertemperate
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: GUARDIAN.Husk
+	Voiced:
+		VoiceSet: GuardianVO
+		Volume: 3
+	AnnounceOnBuildAS:
+		Voice: Build
+		OnlyToOwner: True
+	AnnounceOnKillAS:
+		Voice: Kill
+		Interval: 1000
+		OnlyToOwner: True
+	Transforms:
+		IntoActor: guardiandep
+		Voice: Action1
+
+#######################################################
+#Campaign Aircraft
+#######################################################
+DPOD:
+	Inherits: ^Helicopter
+	Valued:
+		Cost: 10
+	Tooltip:
+		Name: Drop Pod
+	Aircraft:
+		LandWhenIdle: yes
+		TurnSpeed: 5
+		Speed: 149
+		InitialFacing: 0
+	Health:
+		HP: 6000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 0
+		Type: CenterPosition
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		UnloadVoice: Move
+	Armament:
+		Weapon: Vulcan2
+	AttackHeli:
+		Voice: Attack
+	AmmoPool:
+		Ammo: 5
+		PipCount: 5
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+
+DSHP:
+	Inherits: ^Helicopter
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Dropship
+	Aircraft:
+		LandWhenIdle: yes
+		TurnSpeed: 5
+		Speed: 168
+		InitialFacing: 0
+		TakeoffSound: dropup1.aud
+		LandingSound: dropdwn1.aud
+	Health:
+		HP: 20000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 3c0
+		Type: CenterPosition
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadVoice: Move
+	SpawnActorOnDeath:
+		Actor: DSHP.Husk
+
+ORCATRAN:
+	Inherits: ^Helicopter
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Orca Transport
+	Buildable:
+		Queue: Air
+		BuildPaletteOrder: 10
+		Prerequisites: ~disabled
+	RenderSprites:
+	Aircraft:
+		LandWhenIdle: yes
+		TurnSpeed: 5
+		Speed: 84
+		InitialFacing: 0
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 2c0
+		Type: CenterPosition
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadVoice: Move
+	SpawnActorOnDeath:
+		Actor: ORCATRAN.Husk
+
+##########################################################
+# NOD
+##########################################################
+APACHE:
+	Inherits: ^Helicopter
+	Inherits@3: ^BasicStealthDetection
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Harpy
+	Buildable:
+		Description: Scout helicopter armed with dual chain guns.\nIncinirates infantry similar to the Flame warrior.\nDetects cloaked units.\nCloaks when idle.\nDetects cloaked units.\n\n  Strong vs Infantry, Aircraft\n  Weak vs Vehicles
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~nahpad
+	Selectable:
+		Bounds: 30,24
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 130
+		MoveIntoShroud: true
+	Health:
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 15c0
+		Type: CenterPosition
+	Armament:
+		Weapon: HarpyClaw
+	Armament@1:
+		Weapon: HarpyAA
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 20
+		PipCount: 6
+		ReloadCount: 5
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+		ReloadTicks: 50
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	WithIdleOverlay@ROTORAIR:
+		Offset: 85,0,384
+		Sequence: rotor
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTORGROUND:
+		Offset: 85,0,384
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	RenderSprites:
+	SpawnActorOnDeath:
+		Actor: APACHE.Husk
+
+APACHEHOLOGRAM:
+	Inherits: APACHE
+	-Buildable:
+	RenderSprites:
+		Image: apache
+	RenderVoxels:
+		Image: apache
+	WithDecoration@holoicon:
+		Image: holoicon
+		Sequence: idle
+		ReferencePoint: Bottom, Right
+		Palette: mouse
+	-SpawnActorOnDeath:
+	FirepowerMultiplier@Hologram:
+		Modifier: 20
+		BaseLevel: 0
+	WithDeathAnimation@body:
+		DeathSequencePalette: apolra2i
+		DeathPaletteIsPlayerPalette: False
+		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
+			BulletDeath: evaporate
+			CabalDeath: evaporate
+			CabalDeathCrate: evaporate
+			BlackHandRfle: evaporate
+			HeadshotDeath: evaporate
+			SmallExplosionDeath: evaporate
+			FireDeath: evaporate
+			TiberiumDeath: evaporate
+			TiberiumDeathStrong: evaporate
+			EnergyDeath: evaporate
+			ExplosionDeath: evaporate
+	GrantPeriodicCondition:
+		Condition: KillMe
+		CooldownDuration: 500
+	KillsSelf@KillMe:
+		RequiresCondition: KillMe
+	ExternalCondition@KillMe:
+		Condition: KillMe
+
+SCRIN:
+	Inherits: ^Plane
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Banshee Fighter
+	Buildable:
+		Description: Advanced fighter-bomber craft\nwith twin plasma cannons.\n\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~nahpad, natech
+	Selectable:
+		Bounds: 30,24
+	Voiced:
+		VoiceSet: Scrin
+	Contrail:
+		TrailLength: 50
+		TrailWidth: 0c10
+		Offset: -300,-100,0
+		ZOffset: 512
+	Contrail@2:
+		TrailLength: 50
+		TrailWidth: 0c10
+		Offset: -300,100,0
+		ZOffset: 512
+	Aircraft:
+		MaximumPitch: 90
+		TurnSpeed: 6
+		Speed: 180
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		TakeoffSound: dropup1.aud
+		LandingSound: dropdwn1.aud
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Armament@1:
+		Weapon: Proton
+	Armament@2:
+		Weapon: ProtonAA
+	AttackPlane:
+		Voice: Attack
+		FacingTolerance: 20
+	AmmoPool:
+		Ammo: 27
+		PipCount: 3
+		ReloadCount: 9
+		ReloadTicks: 100
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	RenderSprites:
+	DeathSounds:
+	SpawnActorOnDeath:
+		Actor: SCRIN.Husk
+
+CERBERUS:
+	Inherits: ^Helicopter
+	Inherits@3: ^BasicStealthDetection
+	Inherits@4: ^PermanentSelfHeal
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Cerberus
+	Buildable:
+		Description: NOD frigate, designed to cause confusion and intercept aerial targets.\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry, Heavy vehicles.
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~nahpad, natmpl
+	Selectable:
+		Bounds: 110,90
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 50
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 65000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+		Type: CenterPosition
+	Armament@primary:
+		Weapon: CerberusLazor
+		LocalOffset: 500,0,0
+	Armament@secondary:
+		Weapon: CerberusLasorSpawn
+		LocalOffset: 300,200,0, 300,-200,0, -300,200,0, -300,-200,0
+	AttackHeli:
+		FacingTolerance: 240
+		Voice: Attack
+	AmmoPool:
+		Ammo: 999
+		PipCount: 0
+		PipType: Ammo
+		SelfReloads: true
+		SelfReloadDelay: 1
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithShadow:
+	RenderSprites:
+		PlayerPalette: playertemperate
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: CERBERUS.Husk
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: HologramSpawn
+		CooldownTicks: 3000
+		DeployedTicks: 10
+		StartsFullyCharged: True
+	ExternalCondition@MineSpawn:
+		Condition: HologramSpawn
+	ExplodeWeapon:
+		Weapon: ApacheHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@1:
+		Weapon: BuggyHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@2:
+		Weapon: TickHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@3:
+		Weapon: FlameHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@4:
+		Weapon: FlameHoloShrapnel
+		RequiresCondition: HologramSpawn
+
+##########################################################
+# Mutants
+##########################################################
+
+MUTHELI:
+	Inherits: ^Helicopter
+	Inherits@1:	^Ra2vxl
+	Inherits@3: ^BasicStealthDetection
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Gargoyle
+	Buildable:
+		Description: Heavy assault gunship with dual\nmissile launchers.\n\n  Strong vs Infantry, Light Vehicles.\n  Weak vs Anti air.
+		Queue: Air
+		BuildPaletteOrder: 19
+		Prerequisites: ~muair
+	Selectable:
+		Bounds: 30,24
+	Aircraft:
+		TurnSpeed: 7
+		Speed: 75
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+		RearmBuildings: muair, gahpad, nahpad
+	Health:
+		HP: 18000
+	RenderVoxels:
+		Scale: 9
+	Armor:
+		Type: Light
+	WithIdleOverlay@ROTORAIR:
+		Offset: 85,0,384
+		Sequence: rotor
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTORGROUND:
+		Offset: 85,0,384
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	Armament@primary:
+		Weapon: GargoylVulcan
+	Armament@secondary:
+		Weapon: GargoylRocket
+	Armament@tertiary:
+		Weapon: GargoylRocketAA
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 30
+		PipCount: 7
+		ReloadCount: 20
+		ReloadTicks: 125
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	RenderSprites:
+	SpawnActorOnDeath:
+		Actor: MUTHELI.Husk
+
+WETP:
+	Inherits: ^Plane
+	Inherits@1:	^Ra2vxl
+	Valued:
+		Cost: 1300
+	Tooltip:
+		Name: Falcon
+	Buildable:
+		Description: Light Bomber, it deals damage on a small area\nwhile also spawns gas clouds.\n\n  Strong vs Ground units.\n  Weak vs Aircraft, Anti air units.
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~muair, muhall
+	Selectable:
+		Bounds: 30,24
+	Aircraft:
+		CruiseAltitude: 3072
+		MaximumPitch: 120
+		TurnSpeed: 6
+		Speed: 150
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 13000
+	Armor:
+		Type: Light
+	Armament:
+		Weapon: FalconPunch
+	Armament@1:
+		Weapon: FalconPunch
+	Armament@1:
+		Weapon: FalconPunch2
+	RenderVoxels:
+		Scale: 1
+	AttackPlane:
+		Voice: Attack
+		FacingTolerance: 20
+	AmmoPool:
+		Ammo: 12
+		PipCount: 2
+		ReloadCount: 20
+		ReloadTicks: 150
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+		RearmBuildings: muair, gahpad, nahpad
+	AutoTarget:
+		ScanRadius: 8
+	RenderSprites:
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+	SpawnActorOnDeath:
+		Actor: WETP.Husk
+
+MUTQUEEN:
+	Inherits: ^Helicopter
+	Inherits@1: ^SpriteActor
+	Inherits@2: ^MutRender
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Seeder Queen
+	Buildable:
+		Description: Scout unit, places crab eggs.\nTiberian Crabs are hostile to ANYONE.\n\n  Unnarmed.
+		Queue: Air
+		BuildPaletteOrder: 21
+		Prerequisites: ~muair, mustable, muhall
+	Selectable:
+		Bounds: 30,24
+		Priority: 6
+	Voiced:
+		VoiceSet: Fiend
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 100
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+		IdealSeparation: 1c0
+	RevealsShroud:
+		Range: 6c0
+	Health:
+		HP: 12500
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithShadow:
+	RenderSprites:
+	WithInfantryBody:
+		IdleSequences: run
+		StandSequences: run
+	BodyOrientation:
+		QuantizedFacings: 8
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		DeployAnimation: run
+		Facing: 160
+		AllowedTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	ExplodeWeapon:
+		Weapon: SpawnEggShrapnel
+		RequiresCondition: deployed
+	SpeedMultiplier:
+		Modifier: 30
+		RequiresCondition: deployed
+
+MUTBIRD:
+	Inherits@3: MUTQUEEN
+	Tooltip:
+		Name: Seeder Bird
+	-Buildable:
+
+WETPSW:
+	Inherits: WETP
+	-Buildable:
+	-Selectable:
+	Cargo:
+		MaxWeight: 10
+		Types: Infantry, Vehicle, Aircraft
+	ParaDrop:
+	-RevealsShroud:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	RenderVoxels:
+		Image: wetp
+##########################################################
+# Scrin
+##########################################################
+
+SCRPOD:
+	Inherits: ^Plane
+	Inherits@2: ^ScrinRender
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Transport Shuttle
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	-SelectionDecorations:
+	-AppearsOnRadar:
+	Selectable:
+		Bounds: 1,1
+	Aircraft:
+		MaximumPitch: 300
+		CruiseAltitude: 3000
+		TurnSpeed: 5
+		Speed: 500
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		TakeoffSound: dropup1.aud
+		LandingSound: dropdwn1.aud
+	Health:
+		HP: 30000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 0c0
+		Type: CenterPosition
+	-AttackMove:
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithFacingSpriteBody:
+	WithShadow:
+	FlyAwayOnIdle:
+	RejectsOrders:
+
+STORMRIDER:
+	Inherits: ^Plane
+	Inherits@2: ^SelfReloads
+	Valued:
+		Cost: 550
+	Tooltip:
+		Name: Storm Rider
+	Buildable:
+		Description: Scrin fighter equiped with a blaster turret\nCan fire while moving.\n\n  Strong vs Infantry, Aircraft\n  Weak vs Vehicles, Anti Air weapons.
+		Queue: Air
+		BuildPaletteOrder: 18
+		Prerequisites: ~scrair
+	Selectable:
+		Bounds: 30,24
+	Voiced:
+		VoiceSet: Limpet
+	Hovers:
+	Aircraft:
+		MaximumPitch: 90
+		TurnSpeed: 8
+		Speed: 160
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		TakeoffSound: dropup1.aud
+		LandingSound: dropdwn1.aud
+	Health:
+		HP: 7000
+	Armor:
+		Type: Light
+	Armament:
+		Weapon: StormRiderBlast
+	Armament@aa:
+		Weapon: StormRiderBlastAA
+	-ReturnOnIdle:
+	RenderVoxels:
+		Scale: 0.7
+	AttackTurreted:
+	Turreted:
+	AmmoPool:
+		Ammo: 15
+		PipCount: 0
+		ReloadCount: 5
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	RenderSprites:
+	DeathSounds:
+	SpawnActorOnDeath:
+		Actor: STORMRIDER.Husk
+
+drache:
+	Inherits: ^Helicopter
+	Inherits@2: ^ScrinRender
+	Buildable:
+		Queue: Air
+		BuildPaletteOrder: 110
+		Description: Deploys into another Construction Yard.\n\n  Unarmed
+		Prerequisites: ~scrair, scrdepot
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Scrin Host Station
+	Selectable:
+		Bounds: 144, 60, 0, -6
+		Priority: 4
+	Health:
+		HP: 60000
+	Voiced:
+		VoiceSet: Limpet
+	Armor:
+		Type: Light
+	Targetable@MindControlInmune:
+		TargetTypes: MindControlInmune
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 40
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	BaseBuilding:
+	Transforms:
+		IntoActor: drached
+		Offset: -1,-1
+		Facing: 96
+		TransformSounds: place2.aud
+		DeployCursor: deploy
+		NoTransformSounds:
+		Voice: Move
+	SelectionDecorations:
+		VisualBounds: 200,200
+	RenderSprites:
+	Hovers:
+	WithInfantryBody:
+	WithShadow:
+	-RenderVoxels:
+	-WithVoxelBody:
+	SpawnActorOnDeath:
+		Actor: DRACHE.Husk
+
+SCRGLYDER1:
+	Inherits: ^Helicopter
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^SelfReloads
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Glider
+	Buildable:
+		Description: Specialized weapons platform it can vary from a ground version and\naerial version. The aerial version attacks ground units and vice versa.\n\n Strong vs Armor.\n  Weak vs Light units.
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~scrair
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 40,30
+	Transforms:
+		IntoActor: scrglyder2
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 110
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Health:
+		HP: 15000
+	Armament:
+		Weapon: Glyder1Cannon
+		LocalOffset: 0,0,-100
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 5
+		PipCount: 0
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+	WithFacingSpriteBody:
+	WithShadow:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: GLYDER1.Husk
+
+SCRDESTROYER:
+	Inherits: ^Helicopter
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^SelfReloads
+	Inherits@4: ^IncompleteSelfHeal
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Destroyer
+	Buildable:
+		Description: Scrin light frigate, designed for long range harassment.\nEquivalent to an artillery unit.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Aircraft, Anti Air units.
+		Queue: Air
+		BuildPaletteOrder: 21
+		Prerequisites: ~scrair, scrradr
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 100,75,0,-20
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 50
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Targetable@Essence:
+		TargetTypes: ScrinUnit
+	Health:
+		HP: 30000
+	Armor:
+		Type: Light
+	Armament:
+		Weapon: DestroyerCannon
+		LocalOffset: 300,0,0
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 5
+		PipCount: 0
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+	WithFacingSpriteBody:
+	WithShadow:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: SCRDESTROYER.Husk
+
+SCRTRANS:
+	Inherits: ^Helicopter
+	Inherits@2: ^ScrinRender
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Scrin Transport
+	Buildable:
+		Description: Scrin equivalent to an APC.\nTransports infantry around the field.\n\n  Unarmed
+		Queue: Air
+		Prerequisites: ~scrair, scrdepot
+	Voiced:
+		VoiceSet: Limpet
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 15
+		PipCount: 15
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+	Selectable:
+		Bounds: 100,50
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 120
+		LandWhenIdle: true
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 7c0
+		Type: CenterPosition
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+	WithFacingSpriteBody:
+	WithShadow:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: SCRTRANS.Husk
+
+SCRBATTLESHIP:
+	Inherits: ^Helicopter
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^SelfReloads
+	Inherits@4: ^BasicStealthDetection
+	Inherits@5:	^PermanentSelfHeal
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Battlecruiser
+	Buildable:
+		Description: Scrin spacecraft designed for frontline combat.\nFires volleys at ground targets and rockets.\n\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft.
+		Queue: Air
+		BuildPaletteOrder: 21
+		Prerequisites: ~scrair, scrtech
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 140,100
+	Targetable@Essence:
+		TargetTypes: ScrinUnit
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 50
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 100000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 14c0
+		Type: CenterPosition
+	Armament:
+		Weapon: BattleshipCannon
+		LocalOffset: 0,0,0, 450,-200,0, -750,500,0, 600,-500,0, -750,0,300
+	Armament@2:
+		Weapon: BattleshipRocket
+		LocalOffset: 0,0,0
+	AttackTurreted:
+	Turreted:
+	AmmoPool:
+		Ammo: 25
+		PipCount: 0
+		ReloadTicks: 5
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+	WithFacingSpriteBody:
+	WithShadow:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: SCRBATTLESHIP.Husk
+
+SCRINCOUNCIL:
+	Inherits: ^Helicopter
+	Inherits@2: ^ScrinRender
+	Buildable:
+		Queue: Air
+		BuildPaletteOrder: 22
+		Prerequisites: ~scrair, scrtech
+		Description: Mobile Support Superweapon, it can constructs vehicles.\nAnd also slow down the flow of combat map wide.\n\n  Unarmed.
+		BuildLimit: 1
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Creation engine
+	Selectable:
+		Bounds: 100,90
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Priority: 6
+	Health:
+		HP: 70000
+	Armor:
+		Type: Light
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 60
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	DetonateWeaponPower:
+		Description: Reality destabilization
+		LongDesc: Creates a rift in space and time dirupting the behaviour of all\nthe units in the area, all units will move backwards and fire slower for 8 seconds,\nhostile powerplants will be disabled for 16 seconds, does not affect units\ncreated while in the duration of the effet.
+		Icon: mothershipicon
+		DisplayTimer: True
+		DisplayBeacon: True
+		ChargeTime: 240
+		OrderName: destabilization
+		ActivationSequence: idle
+		Weapon: EnergyAssimilator
+	WithSpriteBody:
+		Sequence: dummy
+	Production:
+		Produces: Vehicle
+	Exit@1:
+		SpawnOffset: 0,0,-50
+	ProductionQueue:
+		Type: Vehicle
+	RevealsShroud:
+		Range: 12c0
+		Type: CenterPosition
+	RenderSprites:
+	Hovers:
+	WithInfantryBody:
+	WithShadow:
+	-RenderVoxels:
+	-WithVoxelBody:
+	SpawnActorOnDeath:
+		Actor: SCRCOUNCIL.Husk
+
+MOTHERSHIP:
+	Inherits: ^Helicopter
+	Inherits@2: ^ScrinRender
+	Inherits@4: ^BasicStealthDetection
+	Inherits@5:	^PermanentSelfHeal
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Mothership
+	Buildable:
+		Description: Scrin Flagship, it sends fighters at enemies.\n\n Strong vs Ground Units.\n Weak vs Air units.
+		Queue: Air
+		BuildPaletteOrder: 21
+		Prerequisites: ~scrair, scrtech, ~!mothershipdep
+		BuildLimit: 1
+	Voiced:
+		VoiceSet: Limpet
+	Targetable@Essence:
+		TargetTypes: ScrinUnit
+	Selectable:
+		Bounds: 175,125
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 50
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 100000
+	RevealsShroud:
+		Range: 16c0
+		Type: CenterPosition
+	Targetable@GROUND:
+		TargetTypes: Vehicle, MindControlInmune, Mothership
+	Targetable@AIRBORNE:
+		TargetTypes: Air, MindControlInmune, Mothership
+	Armament:
+		Weapon: FighterSpawn
+		ForceTargetStances: Enemy
+	ProximityExternalCondition:
+		Range: 3c0
+		Condition: Return
+		ValidStances: Ally
+	ProximityExternalCondition@asd:
+		Range: 30c0
+		Condition: ForceReturn
+		ValidStances: Ally
+	AmmoPool:
+		Ammo: 4
+		PipCount: 4
+		SelfReloads: true
+		ReloadCount: 1
+		SelfReloadDelay: 200
+		ResetOnFire: false
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+		ChargeTime: 180
+	AttackTurreted:
+	Turreted:
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithInfantryBody:
+	RenderSprites:
+	WithShadow:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: MOTHERSHIP.Husk
+
+STORMRIDERSPAWN:
+	Inherits: STORMRIDER
+	Inherits@2: ^ScrinRender
+	Tooltip:
+		Name: Wyverm
+	-AttackTurreted:
+	-Buildable:
+	-DeathSounds:
+	Selectable:
+		Bounds: 30,24, 0, -75
+		Class: Stormrider
+	AttackPlane:
+		Voice: Attack
+		FacingTolerance: 20
+	Aircraft:
+		Repulsable: false
+		CruiseAltitude: 1c07
+	Armament:
+		Weapon: WyvermBlast
+		LocalOffset: 0,0,4000
+	-Armament@aa:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	WithShadow:
+	BodyOrientation:
+		QuantizedFacings: 32
+	Health:
+		HP: 9000
+	SelfHealing:
+		PercentageStep: -50
+		Step: 0
+		Delay: 300
+		HealIfBelow: 200
+	SelfHealing@ForceReturn:
+		PercentageStep: -100
+		Delay: 1
+		HealIfBelow: 101
+		RequiresCondition: !ForceReturn
+	-UpdatesPlayerStatistics:
+	-ActorLostNotification:
+	-AppearsOnRadar:
+	-RenderVoxels:
+	SpawnActorOnDeath:
+		Actor: STORMRIDERRETURN
+	RenderSprites:
+		Image: wyverm2
+	AutoTarget:
+		ScanRadius: 20
+		InitialStance: AttackAnything
+	ExternalCondition@Return:
+		Condition: ForceReturn
+
+STORMRIDERSPAWN2:
+	Inherits: STORMRIDERSPAWN
+	Aircraft:
+		InitialFacing: 120
+
+STORMRIDERSPAWN3:
+	Inherits: STORMRIDERSPAWN
+	Aircraft:
+		InitialFacing: 240
+
+STORMRIDERRETURN:
+	Inherits: STORMRIDERSPAWN
+	Aircraft:
+		InitialFacing: 360
+		Repulsable: False
+	SelfHealing:
+		PercentageStep: -5
+	RejectsOrders:
+	Armament:
+		Weapon: Return
+		TargetStances: Ally
+	Health:
+		HP: 3000
+	Armament@aa:
+		Weapon: Return
+		TargetStances: Ally
+		ForceTargetStances: Ally
+	-SelfHealing:
+	-SelfHealing@ForceReturn:
+	SelfHealing@Return:
+		PercentageStep: -100
+		Delay: 1
+		HealIfBelow: 101
+		RequiresCondition: Return
+	AutoTarget:
+		ScanRadius: 99
+		InitialStance: AttackAnything
+	SpawnActorOnDeath:
+		Actor: WYVERM2.Husk
+		DeathType: 	BulletDeath, TiberiumDeath,	CabalDeath, CabalDeathCrate, BlackHandRfle,	HeadshotDeath, SmallExplosionDeath, EnergyDeath, ExplosionDeath, FireDeath
+	ExternalCondition@Return:
+		Condition: Return
+
+##########################################################
+# CABAL
+##########################################################
+
+MINIWYVERM:
+	Inherits: WASP
+	Tooltip:
+		Name: Attack Drone
+	-Buildable:
+	-GainsExperience:
+	Valued:
+		Cost: 100
+	AutoSelectionSize:
+	-Selectable:
+	-AppearsOnRadar:
+	-SelectionDecorations:
+	-ActorLostNotification:
+	Health:
+		HP: 60
+	RevealsShroud:
+		Range: 5c0
+	SelfHealing:
+		PercentageStep: -50
+		Step: 0
+		Delay: 250
+		HealIfBelow: 200
+	Aircraft:
+		IdealSeparation: 300
+		Speed: 110
+	Targetable@Drone:
+		TargetTypes: AttackDrone
+	Targetable@GROUND:
+		TargetTypes: Vehicle
+		-RequiresCondition: airborne
+	-UpdatesPlayerStatistics:
+	-Targetable@AIRBORNE:
+	RejectsOrders:
+	AutoTarget:
+		ScanRadius: 20
+	-Armament@Secondary:
+	-Armament@TheRealThing:
+	-Armament@TheRealThingAA:
+	Armament@Primary:
+		Weapon: CombatDroneAproach
+		-LocalOffset:
+		TargetStances: Ally
+	ExplodeWeapon:
+		Weapon: CombatDroneLasorSpawn
+	AttackWander:
+		MinMoveDelay: 0
+		MaxMoveDelay: 10
+		WanderMoveRadius: 10
+	Explodes:
+		Weapon: ReturnDroneSummon
+		EmptyWeapon: ReturnDroneSummon
+	-SpawnActorOnDeath:
+
+MINIWYVERM2:
+	Inherits: MINIWYVERM
+	ExplodeWeapon:
+		Weapon: HealerDroneLasorSpawn
+	RenderSprites:
+		Image: miniwyverm
+
+WASP:
+	Inherits: ^Helicopter
+	Inherits@2: ^PermanentSelfHeal
+	Inherits@3: ^SelfReloads
+	Inherits@5: ^CabRender
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Wasp
+	Buildable:
+		Description: Aerial drone equiped with dual laser cannons.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry, Aircraft.
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~cabair
+	Selectable:
+		Bounds: 40,30
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 110
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 13000
+	Armor:
+		Type: Light
+	Voiced:
+		VoiceSet: Limpet
+	Armament@Primary:
+		Weapon: WaspLasor
+		LocalOffset: 200,350,-100
+	Armament@Secondary:
+		Weapon: WaspLasor
+		AmmoPoolName: Rocket
+		LocalOffset: 200,-350,-100
+	Armament@TheRealThing:
+		Weapon: WaspBullet
+	Armament@TheRealThingAA:
+		Weapon: WaspBulletAA
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		PipCount: 0
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithShadow:
+	RenderSprites:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: WASP.Husk
+
+FIREFLY:
+	Inherits: ^Helicopter
+	Inherits@3: ^SelfReloads
+	Inherits@4: ^BasicStealthDetection
+	Inherits@5: ^CabRender
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Firefly
+	Buildable:
+		Description: Support drone, reduces enemy attack speed.\nof targetted vehicles.\nDetects cloaked units.\n\n Unarmed.
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~cabair, cabradr
+	Selectable:
+		Bounds: 40,30
+	Voiced:
+		VoiceSet: Limpet
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 120
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 9c0
+		Type: CenterPosition
+	Armament@Primary:
+		Weapon: ecmwave
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 5
+		PipCount: 0
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithShadow:
+	RenderSprites:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: FIREFLY.Husk
+
+DEVOURER:
+	Inherits: ^Helicopter
+	Inherits@2: ^PermanentSelfHeal
+	Inherits@3: ^SelfReloads
+	Inherits@5: ^CabRender
+	Valued:
+		Cost: 2400
+	Tooltip:
+		Name: Devourer
+	Buildable:
+		Queue: Air
+		Description: Slow frigate designed for recovery operations, gives\nthe onwer part of the cost of any unit that dies near.\n\n Strong vs Structures.\n Weak vs Infantry, Vehicles, Aircraft.
+		BuildPaletteOrder: 21
+		Prerequisites: ~cabair, cabradr
+	Selectable:
+		Bounds: 120, 75, 0, -35
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 50
+		CruiseAltitude: 0c750
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 175000
+	Voiced:
+		VoiceSet: Limpet
+	Armament@Primary:
+		Weapon: DevourerGrinder
+	Armament@Secondary:
+		Weapon: DevourerBuff
+	Armament@Explos:
+		Weapon: DevourerExplo
+	ExplodeWeapon@MAQUINACONCHADETUMARE:
+		Weapon: DevourerDroneSpawn
+		LocalOffset: 0,0,2000
+	Targetable@Seeker:
+		TargetTypes: Seeker
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	ProximityBounty:
+		Delay: 200#1500
+		# BountyType: CabGrinder
+		Range: 6c0
+	WithRangeCircle:
+		Range: 6c0
+		Type: Bounty
+	AutoTarget:
+		ScanRadius: 5
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithShadow:
+	RenderSprites:
+	WithFacingSpriteBody@idle:
+		RequiresCondition: !DevoBuff
+		Sequence: idle
+	WithFacingSpriteBody@attack:
+		Sequence: shoot
+		RequiresCondition: DevoBuff
+	BodyOrientation:
+		QuantizedFacings: 8
+	SpawnActorOnDeath:
+		Actor: DEVOURER.Husk
+	ExternalCondition@DevoBuff:
+		Condition: DevoBuff
+
+BASILISK:
+	Inherits: ^Helicopter
+	Inherits@1: ^Ra2vxl
+	Inherits@3: ^SelfReloads
+	Inherits@5:	^PermanentSelfHeal
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Basilisk
+	Buildable:
+		Description: Light frigate, fires plasma shells and has\nfirestorm bombs.\n  Strong vs Infantry, Buildings.\n\n  Weak vs Aircraft, Vehicles.
+		Queue: Air
+		BuildPaletteOrder: 22
+		Prerequisites: ~cabair, cabtech
+	Selectable:
+		Bounds: 60,48
+	Voiced:
+		VoiceSet: Limpet
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 50
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	Armament:
+		Weapon: BasiliskProton
+		LocalOffset: 128,-300,0, 128,300,0
+	Armament@Secondary:
+		Weapon: BasiliskBomb
+		LocalOffset: 128,0,0
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 5
+		PipCount: 0
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	RenderSprites:
+	RenderVoxels:
+		Scale: 1
+	SpawnActorOnDeath:
+		Actor: BASILISK.Husk

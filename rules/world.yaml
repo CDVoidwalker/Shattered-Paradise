@@ -1,0 +1,162 @@
+^BaseWorld:
+	Inherits: ^Palettes
+	AlwaysVisible:
+	ScreenMap:
+	ActorMap:
+	MusicPlaylist:
+		VictoryMusic: score
+		DefeatMusic: maps
+	ShroudRenderer:
+		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
+		UseExtendedIndex: true
+		ShroudPalette: shroud
+		FogPalette: shroud
+	Faction@0:
+		Name: GDI
+		InternalName: gdi
+		Description: GDI\nBalanced Faction.\n\n + Has the means to keep units alive.\n + Gets advanced defences early.\n + Strong Infantry.\n\n - Lacks mobile anti air support until midgame.
+	Faction@1:
+		Name: Nod
+		InternalName: nod
+		Description: NOD\n Hit and run Faction.\n\n + Good speed and damage.\n + Units heal slowly when cloaked.\n\n -  Doesn't have many aerial units.\n -  Low Health.
+	Faction@2:
+		Name: Mutants
+		InternalName: mut
+		Description: Mutants\nInfantry faction.\n\n + Cheaper units thanks to tiberium immunity.\n + Infantry heals on tiberium.\n + Defences don't require power.\n\n - Units might mutate when killed.\n - Average damage, health and speed.
+	Faction@3:
+		Name: C.A.B.A.L.
+		InternalName: cab
+		Description: C.A.B.A.L.\nController Faction.\n\n + Can convert hostiles for money or soldiers.\n + Good health and damage.\n + All units self repair.\n\n -  Not immune to tiberium radiation.\n -  Expensive and slow units.
+	Faction@4:
+		Name: Scrin
+		InternalName: scr
+		Description: Scrin\nPower hungry Faction.\n\n + Infantry are immune to tiberium radiation.\n + Air units are strong and auto repair.\n + Ground units heal when killing hostiles.\n\n - Most vehicles can't crush infantry.
+	Faction@Random:
+		Name: Random
+		InternalName: Random
+		Description: Random\n Not everyone has a chance to choose his life.
+		RandomFactionMembers: gdi, nod, mut, cab, scr
+	ResourceType@Tiberium:
+		Type: Tiberium
+		Name: Tiberium
+		PipColor: Green
+		ResourceType: 1
+		Palette: greentiberium
+		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12, tib13, tib14, tib15, tib16, tib17, tib18, tib19, tib20
+		MaxDensity: 20
+		ValuePerUnit: 16
+		AllowedTerrainTypes: Clear, Rough, DirtRoad
+		AllowUnderActors: true
+		TerrainType: Tiberium
+	ResourceType@BlueTiberium:
+		Type: BlueTiberium
+		Name: BlueTiberium
+		ResourceType: 2
+		Palette: bluetiberium
+		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12, tib13, tib14, tib15, tib16, tib17, tib18, tib19, tib20
+		MaxDensity: 20
+		ValuePerUnit: 30
+		PipColor: Blue
+		AllowedTerrainTypes: Clear, Rough, DirtRoad
+		AllowUnderActors: true
+		TerrainType: BlueTiberium
+	ResourceType@Veins:
+		Type: Veins
+		ResourceType: 3
+		Palette: player
+		Sequences: veins
+		MaxDensity: 1
+		ValuePerUnit: 0
+		Name: Veins
+		PipColor: Red
+		AllowedTerrainTypes: Clear, Rough, DirtRoad
+		AllowUnderActors: true
+		TerrainType: Veins
+	TerrainGeometryOverlay:
+	CliffBackImpassabilityLayer:
+	SubterraneanActorLayer
+
+World:
+	Inherits: ^BaseWorld
+	ChatCommands:
+	DevCommands:
+	PlayerCommands:
+	HelpCommand:
+	BuildingInfluence:
+	ProductionQueueFromSelection:
+		ProductionPaletteWidget: PRODUCTION_PALETTE
+	DomainIndex:
+	BridgeLayer:
+	SmudgeLayer@SMALLSCORCH:
+		Type: SmallScorch
+		Sequence: smallscorches
+		SmokeType: smallfire
+		SmokePercentage: 50
+	SmudgeLayer@MEDIUMSCORCH:
+		Type: MediumScorch
+		Sequence: mediumscorches
+		SmokeType: mediumfire
+		SmokePercentage: 75
+	SmudgeLayer@LARGESCORCH:
+		Type: LargeScorch
+		Sequence: largescorches
+		SmokeType: largefire
+		SmokePercentage: 100
+	SmudgeLayer@SMALLCRATER:
+		Type: SmallCrater
+		SmokeType: smallsmoke
+		Sequence: smallcraters
+	SmudgeLayer@MEDIUMCRATER:
+		Type: MediumCrater
+		SmokeType: smallsmoke
+		Sequence: mediumcraters
+	SmudgeLayer@LARGECRATER:
+		Type: LargeCrater
+		SmokeType: largesmoke
+		Sequence: largecraters
+	ResourceLayer:
+	CustomTerrainDebugOverlay:
+	ResourceClaimLayer:
+	WarheadDebugOverlay:
+	MapCreeps:
+	SpawnMapActors:
+	MapBuildRadius:
+	MapOptions:
+	CreateMPPlayers:
+	MPStartUnits@MCV:
+		Class: none
+		ClassName: MCV Only
+		Factions: gdi, nod, cab, mut
+		BaseActor: mcv
+	MPStartUnits@MCVscr:
+		Class: none
+		ClassName: MCV Only
+		Factions: scr
+		BaseActor: drached
+	MPStartLocations:
+	SpawnMPUnits:
+	CrateSpawner:
+		Minimum: 5
+		Maximum: 20
+		SpawnInterval: 3000
+		WaterChance: 0
+		ValidGround: Clear, Rough, Road, DirtRoad, Tiberium, BlueTiberium
+		InitialSpawnDelay: 1500
+		Enabled: False
+	PathFinder:
+	ValidateOrder:
+	DebugPauseState:
+	ScreenShaker:
+	RadarPings:
+	StartGameNotification:
+	ObjectivesPanel:
+		PanelName: SKIRMISH_STATS
+	LoadWidgetAtGameStart:
+
+EditorWorld:
+	Inherits: ^BaseWorld
+	EditorActorLayer:
+	EditorResourceLayer:
+	EditorSelectionLayer:
+		Palette: placebuilding
+	LoadWidgetAtGameStart:

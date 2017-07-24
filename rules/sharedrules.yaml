@@ -1,0 +1,902 @@
+######################################################
+# Infantry
+######################################################
+E1:
+	Inherits: ^Soldier
+	Valued:
+		Cost: 120
+	Tooltip:
+		Name: Light Infantry
+		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Health:
+		HP: 12500
+	Mobile:
+		Speed: 71
+	Armament@PRIMARY:
+		Weapon: Minigun
+	AttackFrontal:
+		Voice: Attack
+	WithInfantryBody:
+		AttackSequence: shoot
+	ProducibleWithLevel:
+		Prerequisites: barracks.Conditiond
+	RenderSprites:
+		Image: e1.gdi
+		FactionImages:
+			gdi: e1.gdi
+			nod: e1.nod
+
+ENGINEER:
+	Inherits: ^Soldier
+	Inherits@2: ^NodCloakHealing
+	Inherits@3:	^Engineer
+	Tooltip:
+		Name: Engineer
+		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 8
+		Prerequisites: ~humanproc
+	Voiced:
+		VoiceSet: Engineer
+	RenderSprites:
+		Image: engineer.gdi
+		FactionImages:
+			gdi: engineer.gdi
+			nod: engineer.nod
+	-AutoTarget:
+	-GainsExperience:
+
+######################################################
+# Vehicles
+######################################################
+MCV:
+	Inherits: ^VoxelVehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		Prerequisites: ~factory, gadept
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Mobile Construction Vehicle
+		Description: Deploys into a Construction Yard.\n\n  Unarmed
+	Selectable:
+		Priority: 4
+	Health:
+		HP: 60000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 40
+		Crushes: wall, crate, infantry
+	RevealsShroud:
+		Range: 4c0
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	-Capturable:
+	BaseBuilding:
+	Transforms:
+		IntoActor: gacnst
+		Offset: -1,-1
+		Facing: 96
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+	SelectionDecorations:
+		VisualBounds: 42,42
+	RenderSprites:
+		Image: mcv.gdi
+		FactionImages:
+			gdi: mcv.gdi
+			nod: mcv.nod
+			mut: mcv.mut
+			cab: mcv.cab
+
+HARV:
+	Inherits: ^VoxelTank
+	Inherits@2: ^IncompleteSelfHeal
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Harvester
+		Description: Collects Tiberium for processing.\nIncompatible with scrin refineries.\nCan be sold if near a Service Depot.\n\n  Unarmed
+	-SpeedMultiplier@ScrinOrb:
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 99
+		Prerequisites: ~proc, ~!structures.scr, ~!structures.cab
+		InitialActivity: FindResources
+	Selectable:
+		Priority: 7
+		Bounds: 36,36
+		Class: HumanHarv
+	WithVoxelUnloadBody:
+		RequiresCondition: !inside-tunnel
+	Harvester:
+		Capacity: 10
+		DeliveryBuildings: proc, muproc, cabproc
+		Resources: Tiberium, BlueTiberium
+		UnloadTicksPerBale: 5
+		LoadTicksPerBale: 65
+		SearchFromProcRadius: 36
+		SearchFromOrderRadius: 18
+		HarvestVoice: Attack
+		DeliverVoice: Action
+	Sellable:
+		RequiresCondition: AuraRepair
+		ConditionMinEnabledLevel: 1
+	Mobile:
+		TurnSpeed: 10
+		Speed: 85
+		Crushes: wall, crate, infantry
+	Health:
+		HP: 37500
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	Armor:
+		Type: Heavy
+	-GainsExperience:
+	-WithVoxelBody:
+	Explodes:
+		Weapon: TiberiumExplosion
+	WithHarvestOverlay:
+		Offset: 384,0,0
+		Palette: effect
+	SelectionDecorations:
+		VisualBounds: 36,36
+	Capturable:
+		CaptureThreshold: 60
+	RenderSprites:
+		Image: harv.gdi
+		FactionImages:
+			gdi: harv.gdi
+			nod: harv.nod
+			mut: harv.mut
+			cab: cabharv
+	Voiced:
+		VoiceSet: HumanHarvesterVO
+		Volume: 4
+
+CabHarv:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~cabproc
+	RenderVoxels:
+		Image: cabharv
+
+SCRHARV:
+	Inherits: HARV
+	Inherits@1: ^ScrinVehicle
+	Inherits@3: ^HoverVehicle
+	Buildable:
+		Description: Collects Ichor for processing.\nIncompatible with human refineries.\nCan be sold if near a Service Depot.\n\n  Unarmed.
+		Queue: Vehicle
+		BuildPaletteOrder: 99
+		Prerequisites: ~scrweap, structures.scr
+		InitialActivity: FindResources
+	Selectable:
+		Priority: 7
+		Bounds: 36,36
+		Class: ScrinHarv
+	Targetable@MindControl:
+		TargetTypes: MindControlInmune
+	-SpeedMultiplier@ScrinOrb:
+	Harvester:
+		DeliveryBuildings: scrproc
+	-RenderVoxels:
+	-WithVoxelUnloadBody:
+	Mobile:
+		TurnSpeed: 10
+		Speed: 90
+	Capturable:
+		CaptureThreshold: 60
+	-GainsExperience:
+	WithHarvestOverlay:
+		Offset: 384,0,0
+		Palette: effect
+	SelectionDecorations:
+		VisualBounds: 36,36
+	RenderSprites:
+		-Image: harv.gdi
+		-FactionImages:
+	WithDockingAnimation:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32
+	-DamagedByTerrain@ScrinDamage:
+
+LPST:
+	Inherits: ^VoxelVehicle
+	-AppearsOnRadar:
+	-GainsExperience:
+	# Buildable:
+		# Queue: Vehicle
+		# BuildPaletteOrder: 100
+		# Prerequisites: ~factory, radar
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Mobile Sensor Array
+		Description: Can detect cloaked and subterranean\nunits when deployed.\n  Unarmed
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	Mobile:
+		Speed: 85
+		TurnSpeed: 5
+	RevealsShroud:
+		Range: 7c0
+	RenderSprites:
+		Image: lpst.gdi
+		FactionImages:
+			gdi: lpst.gdi
+			nod: lpst.nod
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed, notmobile
+		UndeployedCondition: undeployed
+		DeployAnimation: make
+		Facing: 160
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySound: place2.aud
+		UndeploySound: clicky1.aud
+	WithVoxelBody:
+		Image: lpst
+		RequiresCondition: undeployed
+		ConditionMinEnabledLevel: 1
+	WithSpriteBody@deployed:
+		RequiresCondition: undeployed
+		ConditionMaxEnabledLevel: 0
+	DetectCloaked:
+		RequiresCondition: deployed
+		ConditionMinEnabledLevel: 1
+		Range: 18c0
+	RenderDetectionCircle:
+		TrailCount: 3
+
+######################################################
+# Aircraft
+######################################################
+HUNTER:
+	Inherits@1: ^GenericEffects
+	Inherits@2: ^ExistsInWorld
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Hunter-Seeker Droid
+	Health:
+		HP: 50000
+	Armor:
+		Type: Light
+	AttackSuicides:
+	Explodes:
+		Weapon: SuicideBomb
+		EmptyWeapon: SuicideBomb
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 355
+		CruiseAltitude: 256
+		CanHover: True
+	Targetable:
+		TargetTypes: Ground, Vehicle
+	HiddenUnderFog:
+		Type: CenterPosition
+	BodyOrientation:
+		UseClassicPerspectiveFudge: False
+	RenderSprites:
+		Image: GGHUNT
+	WithFacingSpriteBody:
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+		ConditionMinEnabledLevel: 1
+	QuantizeFacingsFromSequence:
+	AutoSelectionSize:
+	DrawLineToTarget:
+	AppearsOnRadar:
+		UseLocation: yes
+	Selectable:
+	SelectionDecorations:
+		Palette: pips
+	ActorLostNotification:
+
+
+######################################################
+# Structures
+######################################################
+GACNST:
+	Inherits: ^Building
+	Building:
+		Footprint: xxx xxx xxx
+		BuildSounds: facbld1.aud
+		Dimensions: 3,3
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1000
+		Prerequisites: ~disabled
+	Health:
+		HP: 240000
+	RevealsShroud:
+		Range: 5c0
+	Production:
+		Produces: Building,Defense
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Construction Yard
+		Description: Builds base structures.
+	BaseProvider:
+		Range: 20c0
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, MindControlInmune
+	BaseBuilding:
+	Transforms:
+		IntoActor: mcv
+		Offset: 1,1
+		Facing: 96
+		DeployCursor: undeploy
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Defense:
+		ProductionType: Defense
+	WithIdleOverlay@TOP:
+		Sequence: idle-top
+	WithIdleOverlay@SIDE:
+		Sequence: idle-side
+	WithIdleOverlay@FRONT:
+		Sequence: idle-front
+	WithBuildingPlacedOverlay:
+	Power:
+		Amount: 0
+	Selectable:
+		Bounds: 144, 60, 0, -6
+	ProvidesPrerequisite@walls:
+		Factions: gdi, nod, cab
+		Prerequisite: sharedwall
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@humanstuff:
+		Factions: gdi, nod, cab, mut
+		Prerequisite: humanstuff
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@humanproc:
+		Factions: gdi, nod
+		Prerequisite: humanproc
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@gdi:
+		Factions: gdi
+		Prerequisite: structures.gdi
+	ProvidesPrerequisite@nod:
+		Factions: nod
+		Prerequisite: structures.nod
+	ProvidesPrerequisite@mut:
+		Factions: mut
+		Prerequisite: structures.mut
+	ProvidesPrerequisite@mut2:
+		Factions: mut
+		Prerequisite: forgproc
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@cab:
+		Factions: cab
+		Prerequisite: structures.cab
+	ProvidesPrerequisite@cab2:
+		Factions: cab
+		Prerequisite: cabproc
+		ResetOnOwnerChange: True
+	SelectionDecorations:
+		VisualBounds: 144, 80, 0, -12
+
+^Barracks:
+	Inherits: ^Building
+	Valued:
+		Cost: 500
+	ProvidesPrerequisite:
+		Prerequisite: barracks
+	ProximityExternalCondition:
+		Condition: MineReam
+		Range: 4c0
+	WithRangeCircle:
+		Range: 4c0
+		Type: Mines
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+		Offset: 2,3
+		Palette: mouse
+		IsPlayerPalette: false
+	Exit@1:
+		SpawnOffset: -256,1024,0
+		ExitCell: 2,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	ProductionBar:
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+
+PROC:
+	Inherits: ^Building
+	Valued:
+		Cost: 1500
+	CustomSellValue:
+		Value: 400
+	Tooltip:
+		Name: Tiberium Refinery
+		Description: Processes raw Tiberium into usable resources.\nIncompatible with scrin harvesters.
+	ProvidesPrerequisite:
+		Factions: gdi, cab, mut, nod
+		Prerequisite: proc
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 20
+		Prerequisites: ~humanproc, anypower
+	Building:
+		Footprint: xx== xx== xx==
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 134, 96, 0, -12
+	Health:
+		HP: 140000
+	RevealsShroud:
+		Range: 6c0
+	TiberianSunRefinery:
+		DockAngle: 160
+		DockOffset: 2,1
+		DiscardExcessResources: false
+	StoresResources:
+		PipColor: Green
+		PipCount: 15
+		Capacity: 1500
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 3,1
+		Facing: 160
+	Explodes:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	Explodes@1:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	FreeActor@1:
+		Actor: HARV
+		SpawnOffset: 3,1
+		Facing: 160
+	WithIdleOverlay@REDLIGHTS:
+		Sequence: idle-redlights
+	WithDockingOverlay@UNLOAD:
+	WithIdleOverlay@BIB:
+		Sequence: bib
+	WithDockedOverlay@flame:
+		Sequence: flame
+		Palette: effect
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@proc:
+		ProvidesPrerequisite: proc
+	SelectionDecorations:
+		VisualBounds: 134, 122, 0, -18
+	RenderSprites:
+		Image: proc.gdi
+		FactionImages:
+			gdi: proc.gdi
+			nod: proc.nod
+			mut: proc.mut
+			cab: proc.cab
+
+^Factory:
+	Inherits: ^Building
+	Valued:
+		Cost: 2000
+	ProvidesPrerequisite:
+		Prerequisite: factory
+	Building:
+		Footprint: xxx= xxx= xxx=
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 154, 96, -2, -12
+	Health:
+		HP: 208000
+	RallyPoint:
+		Offset: 4,1
+		Palette: mouse
+		IsPlayerPalette: false
+	Exit@1:
+		SpawnOffset: -384,-384,0
+		ExitCell: 3,1
+		ExitDelay: 5
+	Production:
+		Produces: Vehicle
+	RevealsShroud:
+		Range: 6c0
+	PrimaryBuilding:
+	ProductionBar:
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 154, 100, -2, -12
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+
+^Radar:
+	Inherits: ^Building
+	Valued:
+		Cost: 1000
+	ProvidesPrerequisite:
+		Prerequisite: radar
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 100000
+	RequiresPower:
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+	ProvidesRadar:
+	InfiltrateForExploration:
+	DetectCloaked:
+		Range: 10c0
+	RenderDetectionCircle:
+	RevealsShroud:
+		Range: 10c0
+	Targetable:
+		TargetTypes: Building, Ground, C4, SpyInfiltrate
+	Power:
+		Amount: -50
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 96, 118, 0, -38
+
+GADEPT:
+	Inherits: ^Building
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Service Depot
+		Description: Repairs vehicles.\nVehicles near it auto repair slowly.
+	Buildable:
+		BuildPaletteOrder: 80
+		Prerequisites:  ~humanstuff, factory
+		Queue: Building
+	Building:
+		Footprint: =x= xxx =x=
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 96, 64, -6, -6
+	Health:
+		HP: 110000
+	RevealsShroud:
+		Range: 5c0
+	Reservable:
+	RepairsUnits:
+		HpPerStep: 2000
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	RevealsShroud:
+		Range: 6c0
+	RepairsUnits:
+		FinishRepairingNotification: UnitRepaired
+		PlayerExperience: 15
+	WithIdleOverlay@LIGHT:
+		Sequence: idle-light
+	WithIdleOverlay@GROUND:
+		Sequence: ground
+	WithIdleOverlay@CIRCUITS:
+		Sequence: circuits
+	WithRepairOverlay@CRANE:
+		Sequence: crane
+	WithRepairOverlay@PLATFORM:
+		Sequence: platform
+	WithDeathAnimation@BIB:
+		DeathSequence: dead-ground
+		UseDeathTypeSuffix: false
+	ProximityExternalCondition:
+		Condition: AuraRepair
+		Range: 4c0
+	WithRangeCircle:
+		Range: 4c0
+		Type: Repair
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 98, 68, -6, -6
+	RenderSprites:
+		Image: gadept.gdi
+		FactionImages:
+			gdi: gadept.gdi
+			nod: gadept.nod	
+			mut: gadept.mut	
+			cab: gadept.cab
+
+^TechCenter:
+	Inherits: ^Building
+	Valued:
+		Cost: 2000
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 50000
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -150
+	ProvidesPrerequisite@buildingname:
+	
+GASILO:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 70
+		Prerequisites: ~humanstuff, proc
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Silo
+		Description: Stores excess Tiberium.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Selectable:
+		Bounds: 80, 48, -5, 0
+	Explodes:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	-GivesBuildableArea:
+	Health:
+		HP: 30000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	RenderSprites:
+		Image: gasilo.gdi
+		FactionImages:
+			gdi: gasilo.gdi
+			nod: gasilo.nod
+			mut: gasilo.mut
+			cab: gasilo.cab
+	WithSpriteBody:
+	WithSiloAnimation:
+	WithIdleOverlay@UNDERLAY:
+		Sequence: idle-underlay
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	StoresResources:
+		PipCount: 5
+		Capacity: 1500
+	Power:
+		Amount: -5
+	SelectionDecorations:
+		VisualBounds: 80, 48, -5, 0
+
+ANYPOWER:
+	AlwaysVisible:
+	Tooltip:
+		Name: Power Plant
+		Description: Power Plant
+
+BARRACKS:
+	AlwaysVisible:
+	Tooltip:
+		Name: Infantry Production
+		Description: Infantry Production
+
+FACTORY:
+	AlwaysVisible:
+	Tooltip:
+		Name: Vehicle Production
+		Description: Vehicle Production
+
+RADAR:
+	AlwaysVisible:
+	Tooltip:
+		Name: Radar
+		Description: Radar
+
+TECH:
+	AlwaysVisible:
+	Tooltip:
+		Name: Tech Center
+		Description: Tech Center
+
+######################################################
+# Defences
+######################################################
+SHAWALL:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1001
+		Prerequisites: ~sharedwall
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	-AppearsOnRadar:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Wall
+		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks\nMay make you sell your conyard\nIf you're not careful.
+	Health:
+		HP: 30000
+	Armor:
+		Type: Concrete
+	BlocksProjectiles:
+		Height: 640
+	Crushable:
+		CrushClasses: heavywall
+	LineBuild:
+		NodeTypes: wall, turret
+	RenderSprites:
+		Image: wall.gdi
+		FactionImages:
+			gdi: wall.gdi
+			nod: wall.nod
+	ExplodeWeapon@1:
+		Weapon: FirestormExploWalls
+		RequiresCondition: FirestormWallCondition
+		ConditionMinEnabledLevel: 1
+		ResetReloadWhenEnabled: false
+
+NAPULS:
+	Inherits: ^Defense
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: EMP Cannon
+		Description: Disables vehicles.\nRequires power to operate.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 90
+		Prerequisites: ~humanstuff, radar
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 78, 54, 0, -12
+	RequiresPower:
+	DisabledOverlay:
+	Health:
+		HP: 50000
+	Armor:
+		Type: Heavy
+	-AutoTarget:
+	RevealsShroud:
+		Range: 8c0
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 300
+	AttackTurreted:
+	Armament:
+		Weapon: EMPulseCannon
+		LocalOffset: 150,0,1250
+		LocalYaw: 0,100
+	WithSpriteTurret:
+		Sequence: turret
+	Power:
+		Amount: -150
+	SelectionDecorations:
+		VisualBounds: 78, 54, 0, -12
+	RenderSprites:
+		Image: napuls.gdi
+		FactionImages:
+			gdi: napuls.gdi
+			nod: napuls.nod
+			mut: napuls.mut
+			cab: napuls.cab
+	ProvidesPrerequisite@gdi:
+		Prerequisite: emp.gdi
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	AttackOrderPower@nod:
+		Cursor: emp
+		Icon: emp
+		ChargeTime: 135
+		Description: E.M. Pulse
+		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
+		EndChargeSound: speech-nod|00-i158.aud
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites: emp.gdi
+		OrderName: Nodemp
+
+GATE_A:
+	Inherits: ^Gate_A
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~sharedwall
+	-AppearsOnRadar:
+	-UpdatesPlayerStatistics:
+	Tooltip:
+		Name: Gate
+	RenderSprites:
+		Image: gate_a.gdi
+		FactionImages:
+			gdi: gate_a.gdi
+			nod: gate_a.nod
+			# mut: gate_a.mut
+			# cab: gate_a.cab
+			# scr: gate_a.scr
+
+GATE_B:
+	Inherits: ^Gate_B
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~sharedwall
+	-AppearsOnRadar:
+	-UpdatesPlayerStatistics:
+	Tooltip:
+		Name: Gate
+	RenderSprites:
+		Image: gate_b.gdi
+		FactionImages:
+			gdi: gate_b.gdi
+			nod: gate_b.nod
+			# mut: gate_b.mut
+			# cab: gate_b.cab
+			# scr: gate_b.scr
+
+MUMINE:
+	Inherits: ^DeployedVehicle
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Mine
+	Selectable:
+		Priority: 1
+	Health:
+		HP: 5000
+	-AttackTurreted:
+	-SpawnActorOnDeath@ScrinEssence:
+	-AutoTarget:
+	-RenderRangeCircle:
+	-ActorLostNotification:
+	-UpdatesPlayerStatistics:
+	-Voiced:
+	Armor:
+		Type: Mine
+	RevealsShroud:
+		Range: 1c0
+	Targetable:
+		TargetTypes: Ground, Repair, DetonateAttack, MindControlInmune, Mine
+	BodyOrientation:
+		QuantizedFacings: 32
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		CloakSound:
+		InitialDelay: 50
+		CloakDelay: 50
+		UncloakSound:
+		Palette: cloakmut
+		IsPlayerPalette: true
+		CloakTypes: mine
+		UncloakOn: Dock
+	Mine:
+		CrushClasses: crate
+		DetonateClasses: crate
+		AvoidFriendly: true
+	Explodes:
+		Weapon: MineExplode

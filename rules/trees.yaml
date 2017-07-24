@@ -1,0 +1,253 @@
+TIBTRE01:
+	Inherits: ^BlossomTree
+
+TIBTRE02:
+	Inherits: ^BlossomTree
+
+TIBTRE03:
+	Inherits: ^BlossomTree
+
+BIGBLUE:
+	Inherits: ^BlossomTree
+	Tooltip:
+		Name: Large Blue Tiberium Crystal
+	RenderSprites:
+		Palette: bluetiberium
+	WithIdleOverlay:
+		Sequence: light
+		Palette: tibcrystalpal
+	RadarColorFromTerrain:
+		Terrain: BlueTiberium
+	SeedsResource:
+		ResourceType: BlueTiberium
+		Interval: 130
+
+TREE01:
+	Inherits: ^Tree
+
+TREE02:
+	Inherits: ^Tree
+
+TREE03:
+	Inherits: ^Tree
+
+TREE04:
+	Inherits: ^Tree
+
+TREE05:
+	Inherits: ^Tree
+
+TREE06:
+	Inherits: ^Tree
+
+TREE07:
+	Inherits: ^Tree
+
+TREE08:
+	Inherits: ^Tree
+
+TREE09:
+	Inherits: ^Tree
+
+TREE10:
+	Inherits: ^Tree
+
+TREE11:
+	Inherits: ^Tree
+
+TREE12:
+	Inherits: ^Tree
+
+TREE13:
+	Inherits: ^Tree
+
+TREE14:
+	Inherits: ^Tree
+
+TREE15:
+	Inherits: ^Tree
+
+TREE16:
+	Inherits: ^Tree
+
+TREE17:
+	Inherits: ^Tree
+
+TREE18:
+	Inherits: ^Tree
+
+TREE19:
+	Inherits: ^Tree
+
+TREE20:
+	Inherits: ^Tree
+
+TREE21:
+	Inherits: ^Tree
+
+TREE22:
+	Inherits: ^Tree
+
+TREE23:
+	Inherits: ^Tree
+
+TREE24:
+	Inherits: ^Tree
+
+TREE25:
+	Inherits: ^Tree
+
+fona01:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona02:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona03:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona04:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona05:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona06:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona07:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona08:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona09:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona10:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona11:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona12:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona13:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona14:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+fona15:
+	Inherits: ^Tree
+	Tooltip:
+		Name: Fona
+
+# bigblue3:
+	# Inherits: ^Tree
+        # Tooltip:
+                # Name: Blue Tiberium Tree
+        # Building:
+                # Dimensions: 1,1
+                # Footprint: x
+        # RenderSprites:
+        # WithSpriteBody:
+        # AutoSelectionSize:
+        # BodyOrientation:
+                # UseClassicPerspectiveFudge: False
+                # QuantizedFacings: 1
+        # FrozenUnderFog:
+
+VEINHOLE:
+	Inherits: ^Building
+	RadarColorFromTerrain:
+		Terrain: Veins
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	BodyOrientation:
+		QuantizedFacings: 1
+	Tooltip:
+		Name: Veinhole Monster
+	-SelfHealing@poisoncloud:
+	SeedsResource:
+		Interval: 5
+		ResourceType: Veins
+		MaxRange: 24
+	RenderSprites:
+		Palette: player
+	SelfHealing:
+		PercentageStep: 1
+		HealIfBelow: 200
+		Delay: 25
+	WithSpriteBody:
+	AutoSelectionSize:
+	WithChargeOverlay:
+		Sequence: shoot
+		Palette: player
+		IsPlayerPalette: false
+	AttackCharges:
+		ChargeAudio:
+		ReloadDelay: 15
+		ChargeDelay: 1
+	Armament:
+		Weapon: VeinholeAttack
+		TargetStances: Enemy, Ally, Neutral
+		LocalOffset: 500, 0, 0
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AutoTarget:
+	Selectable:
+		Priority: 3
+		Bounds: 90, 54, 0, -12
+	ShakeOnDeath:
+	Targetable:
+		TargetTypes: Building, Ground, Veinhole
+	Health:
+		HP: 200000
+	Armor:
+		Type: Wood
+	Explodes:
+		Weapon: VeinholeExplosion
+		EmptyWeapon: VeinholeExplosion
+	-WithColoredOverlay@EMPDISABLE:
+	-DisableOnCondition@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLE:
+	-PowerMultiplier@EMPDISABLE:
+
+VEINHOLEFORG:
+	Inherits: VEINHOLE
+	RenderSprites:
+		Image: veinholeforg
+		Palette: player
+	

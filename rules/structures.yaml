@@ -1,0 +1,1377 @@
+#######################################################
+#GDI
+#######################################################
+GAPOWR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 0
+		Prerequisites: ~structures.gdi
+		Description: Provides power for other structures.
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: GDI Power Plant
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@PLUG:
+		Sequence: idle-plug
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	Power:
+		Amount: 100
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	DisabledOverlay:
+	Pluggable@pluga:
+		Conditions:
+			powrup: powrup.a
+	Power@pluga:
+		RequiresCondition: powrup.a
+		Amount: 100
+	WithIdleOverlay@pluga:
+		RequiresCondition: powrup.a
+		Sequence: idle-powrupa
+	WithIdleOverlay@plugb:
+		RequiresCondition: powrup.a
+		Sequence: idle-powrupb
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 90, 84, 0, -12
+
+GAPILE:
+	Inherits: ^Barracks
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Description: Produces infantry.
+		Prerequisites: anypower, ~structures.gdi
+	Tooltip:
+		Name: GDI Barracks
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 48, 0, -8
+	WithProductionOverlay@LIGHTS:
+		Sequence: production-lights
+	WithIdleOverlay@LIGHT:
+		Sequence: idle-light
+	WithIdleOverlay@FLAG:
+		Sequence: idle-flag
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 88, 56, 0, -8
+
+GAWEAP:
+	Inherits: ^Factory
+	Tooltip:
+		Name: GDI War Factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Description: Produces vehicles.
+		Prerequisites: proc, ~structures.gdi
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights-white
+	WithProductionOverlay@REDLIGHTS:
+		Sequence: production-lights-red
+	WithIdleOverlay@TURBINES:
+		Sequence: idle-turbines
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+GAHPAD:
+	Inherits: ^Building
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Helipad
+	Buildable:
+		BuildPaletteOrder: 60
+		Queue: Building
+		Description: Produces, rearms and\nrepairs helicopters.
+		Prerequisites: proc, garadr, ~structures.gdi
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	ProximityExternalCondition@AircraftAutoRepair:
+		Condition: AircraftAutoRepair
+		Range: 4c0
+	Health:
+		HP: 60000
+	RevealsShroud:
+		Range: 5c0
+	Exit@1:
+		SpawnOffset: 0,-256,0
+	ProductionFromMapEdge:
+		Produces: Air
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	PrimaryBuilding:
+	Reservable:
+	RepairsUnits:
+		Interval: 1
+	ProductionBar:
+	WithIdleOverlay@PLATFORM:
+		Sequence: idle-platform
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithDeathAnimation@BIB:
+		DeathSequence: dead-platform
+		UseDeathTypeSuffix: false
+	Power:
+		Amount: -10
+	Selectable:
+		Bounds: 88, 66, 0, -5
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 88, 66, 0, -5
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+		ConditionMinEnabledLevel: 1
+
+GARADR:
+	Inherits: ^Radar
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 90
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: proc, ~structures.gdi
+	Tooltip:
+		Name: GDI Radar
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+	Selectable:
+		Bounds: 96, 48, 0, -6
+	SelectionDecorations:
+		VisualBounds: 96, 118, 0, -38
+
+GATECH:
+	Inherits: ^TechCenter
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Description: Provides access to advanced G.D.I. technologies.
+		Prerequisites: gaweap, garadr, ~structures.gdi
+	Tooltip:
+		Name: GDI Tech Center
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4
+
+GAPLUG:
+	Inherits: ^Building
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: GDI Upgrade Center
+	Selectable:
+		Bounds: 115,72,0,-12
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: proc, gatech, ~structures.gdi
+		Description: Can be Conditiond for additional technology.
+		Queue: Building
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	RequiresPower:
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+	DisabledOverlay:
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@STRIP:
+		Sequence: idle-strip
+	Health:
+		HP: 200000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c0
+	DetonateWeaponPower@ioncannon:
+		Icon: ioncannon
+		Description: Ion Cannon Alpha Strike
+		DisplayTimer: True
+		DisplayBeacon: True
+		LongDesc: Fires many ion cannons on the targetted area.
+		ChargeTime: 360
+		ActivationSequence: idle
+		Weapon: IonCannonSpawner
+		OrderName: IonCannon2
+		Cursor: ioncannon
+		RequiresCondition: plug.ioncannona || plug.ioncannonb
+	DetonateWeaponPower@pods:
+		Icon: droppods
+		ActivationSequence: idle
+		DisplayTimer: True
+		DisplayBeacon: True
+		Description: Helldiver Drop
+		LongDesc: Deploys shock troopers at the targetted location.
+		OrderName: Droppod
+		Weapon: DroppodSpawner
+		RequiresCondition: plug.hunterseekera || plug.hunterseekerb
+		ChargeTime: 240
+	SupportPowerChargeBar:
+	Power:
+		Amount: -100
+	Power@ioncannon:
+		RequiresCondition: plug.ioncannona || plug.ioncannonb
+		Amount: -100
+	Power@hunterseeker:
+		RequiresCondition: plug.hunterseekera || plug.hunterseekerb
+		Amount: -50
+	Pluggable@pluga:
+		Offset: 0,2
+		Conditions:
+			plug.ioncannon: plug.ioncannona
+			plug.hunterseeker: plug.hunterseekera
+	WithIdleOverlay@ioncannona:
+		RequiresCondition: plug.ioncannona
+		Sequence: idle-ioncannona
+	WithIdleOverlay@hunterseekera:
+		RequiresCondition: plug.hunterseekera
+		Sequence: idle-hunterseekera
+	Pluggable@plugb:
+		Offset: 1,2
+		Conditions:
+			plug.ioncannon: plug.ioncannonb
+			plug.hunterseeker: plug.hunterseekerb
+	WithIdleOverlay@ioncannonb:
+		RequiresCondition: plug.ioncannonb
+		Sequence: idle-ioncannonb
+	WithIdleOverlay@hunterseekerb:
+		RequiresCondition: plug.hunterseekerb
+		Sequence: idle-hunterseekerb
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 115,104,0,-24
+
+#######################################################
+#Defences
+#######################################################
+GAWALL:
+	Inherits: ^Wall
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Wall
+	Health:
+		HP: 30000
+	Armor:
+		Type: Concrete
+	RenderSprites:
+		Image: wall.gdi
+	BlocksProjectiles:
+		Height: 640
+	Crushable:
+		CrushClasses: heavywall
+	LineBuild:
+		NodeTypes: wall, turret
+
+##########################################################
+# NOD
+##########################################################
+
+NAPOWR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 0
+		Description: Provides power for other structures.
+		Prerequisites: ~structures.nod
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Nod Power Plant
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 48, 2, -6
+	Health:
+		HP: 75000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: 100
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	DisabledOverlay:
+	SelectionDecorations:
+		VisualBounds: 88, 80, 2, -12
+
+NAAPWR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 5
+		Description: Provides twice as much power as\nthe normal Power Plant.
+		Prerequisites: naradr, ~structures.nod
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Advanced Power Plant
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 100, 54, 0, -4
+	Health:
+		HP: 90000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: 200
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	DisabledOverlay:
+	SelectionDecorations:
+		VisualBounds: 100, 74, 0, -12
+
+NAHAND:
+	Inherits: ^Barracks
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Description: Produces infantry.
+		Prerequisites: anypower, ~structures.nod
+	Tooltip:
+		Name: Hand of Nod
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 116, 60, 3, -6
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithProductionOverlay@LIGHT:
+		Sequence: production-light
+	SelectionDecorations:
+		VisualBounds: 116, 60, 3, -6
+
+NAWEAP:
+	Inherits: ^Factory
+	Tooltip:
+		Name: Nod War Factory
+	ProvidesPrerequisite:
+		Prerequisite: factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Description: Produces vehicles.
+		Prerequisites: proc, ~structures.nod
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithProductionOverlay@LIGHTS:
+		Sequence: production-lights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+NAHPAD:
+	Inherits: ^Building
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Helipad
+	Buildable:
+		BuildPaletteOrder: 60
+		Queue: Building
+		Description: Produces, rearms and\nrepairs helicopters.
+		Prerequisites: proc, naradr, ~structures.nod
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	ProductionFromMapEdge:
+		Produces: Air
+	ProximityExternalCondition@AircraftAutoRepair:
+		Condition: AircraftAutoRepair
+		Range: 4c0
+	Health:
+		HP: 60000
+	RevealsShroud:
+		Range: 5c0
+	Exit@1:
+		SpawnOffset: 0,-256,0
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	PrimaryBuilding:
+		Interval: 1
+	Reservable:
+	RepairsUnits:
+	ProductionBar:
+	WithIdleOverlay@PLATFORM:
+		Sequence: idle-platform
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithDeathAnimation@BIB:
+		DeathSequence: dead-platform
+		UseDeathTypeSuffix: false
+	Power:
+		Amount: -10
+	Selectable:
+		Bounds: 78, 48, 0, -6
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 78, 54, 0, -8
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+		ConditionMinEnabledLevel: 1
+
+NARADR:
+	Inherits: ^Radar
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 90
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: proc, ~structures.nod
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+	Tooltip:
+		Name: Nod Radar
+	Selectable:
+		Bounds: 96, 48, 0, -6
+	SelectionDecorations:
+		VisualBounds: 96, 72, 0, -12
+
+NATECH:
+	Inherits: ^TechCenter
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Description: Provides access to advanced Nod technologies.
+		Prerequisites: naweap, naradr, ~structures.nod
+	Tooltip:
+		Name: Nod Tech Center
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 86, 48, 0, -4
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	SelectionDecorations:
+		VisualBounds: 86, 58, 0, -4
+
+NAWAST:
+	Inherits: ^Building
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Waste Refinery
+		Description: Processes Veins\ninto useable resources.
+	Building:
+		Footprint: =x= xx= =x=
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 100, 60, 5, -5
+	Health:
+		HP: 40000
+	RevealsShroud:
+		Range: 6c0
+	TiberianSunRefinery:
+		DockAngle: 160
+		DockOffset: 2,1
+	StoresResources:
+		PipColor: Red
+		PipCount: 15
+		Capacity: 56
+	WithIdleOverlay@GLOW:
+		Sequence: idle-glow
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 100, 60, 5, -5
+	RenderSprites:
+
+##########################################################
+# Mutant
+##########################################################
+
+MUPOWR:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 0
+		Description: Provides power for other structures.
+		Prerequisites: ~structures.mut
+	Valued:
+		Cost: 230
+	Tooltip:
+		Name: Mutant Power Plant
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	Power:
+		Amount: 70
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	DisabledOverlay:
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 90, 84, 0, -12
+
+MURAX:
+	Inherits: ^Barracks
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Description: Forgotten Weapons stash, arms soldiers for battle.
+		Prerequisites: anypower, ~structures.mut
+	Tooltip:
+		Name: Mutant Armory
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	ProvidesPrerequisite:
+		Prerequisite: murax
+	Selectable:
+		Bounds: 88, 48, 0, -8
+	SelectionDecorations:
+		VisualBounds: 88, 56, 0, -8
+
+MUPROC:
+	Inherits: PROC
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 20
+		Description: Processes raw Tiberium\ninto usable resources.\nIncompatible with scrin harvesters.
+		Prerequisites: ~forgproc, anypower
+	Tooltip:
+		Name: Forgotten Refinery
+	Building:
+		Footprint: xx== xx== xx==
+		Dimensions: 4,3
+	TiberianSunRefinery:
+		DockOffset: 3,1
+	FreeActor:
+		SpawnOffset: 3,1
+	FreeActor@1:
+		SpawnOffset: 3,1
+	RenderSprites:
+		PlayerPalette: playermut
+		Image: muproc
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakmut
+	WithDeathAnimation:
+		DeathSequencePalette: playermut
+		CrushedSequencePalette: playermut
+		CrushedPaletteIsPlayerPalette: true
+
+MUWEAP:
+	Inherits: ^Factory
+	Tooltip:
+		Name: Mutant War Factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Description: Produces vehicles.
+		Prerequisites: proc, ~structures.mut
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+MUAIR:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Mutant Airstrip
+	Buildable:
+		BuildPaletteOrder: 60
+		Queue: Building
+		Description: Produces, rearms and\nrepairs helicopters and Jets.
+		Prerequisites: proc, muradr, ~structures.mut
+	Building:
+		Footprint: xxxx xxxx
+		Dimensions: 2,4
+	ProductionFromMapEdge:
+		Produces: Air
+	ProximityExternalCondition@AircraftAutoRepair:
+		Condition: AircraftAutoRepair
+		Range: 4c0
+	Health:
+		HP: 60000
+	RevealsShroud:
+		Range: 5c0
+	Exit@1:
+		SpawnOffset: 0,-256,250
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	PrimaryBuilding:
+	Reservable:
+	RepairsUnits:
+		Interval: 1
+	ProductionBar:
+	Power:
+		Amount: 0
+	Selectable:
+		Bounds: 88, 66, 0, -5
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 88, 66, 0, -5
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+		ConditionMinEnabledLevel: 1
+
+MURADR:
+	Inherits: ^Radar
+	Buildable:
+		Queue: Building
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		BuildPaletteOrder: 90
+		Prerequisites: proc, ~structures.mut
+	Tooltip:
+		Name: Dome Radar
+	Selectable:
+		Bounds: 96, 66, 0, -10
+	SelectionDecorations:
+		VisualBounds: 96, 66, 0, -13
+
+MUHALL:
+	Inherits: ^TechCenter
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Description: Provides access to contact with Forgotten Leaders.
+		Prerequisites: muweap, muradr, ~structures.mut
+	Tooltip:
+		Name: Forgotten Hall
+	Building:
+		Footprint: xxx xxx xxx xxx
+		Dimensions: 3,4
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4
+		
+MUSTABLE:
+	Inherits: ^Building
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Description: Allows beast herding.\nBeasts become stronger when hurt,\ngain regenerative capabilities but \nthey can't be ordered while in  this state.
+		Prerequisites: murax, ~structures.mut
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Training Grounds
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	Health:
+		HP: 23000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4
+
+##########################################################
+# SCRIN
+##########################################################
+^ScrinDeathExplo:
+	Explodes:
+		Weapon: ScrinBuildingExplode
+		EmptyWeapon: ScrinBuildingExplode
+		Type: Footprint
+
+drached:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Building:
+		Footprint: xxx xxx xxx
+		BuildSounds: facbld1.aud
+		Dimensions: 3,3
+	Health:
+		HP: 240000
+	RevealsShroud:
+		Range: 5c0
+	Production:
+		Produces: Building,Defense
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Deployed Host Station
+		Description: Builds base structures.
+	BaseBuilding:
+	Transforms:
+		IntoActor: drache
+		Offset: 1,1
+		Facing: 96
+		DeployCursor: undeploy
+	BaseProvider:
+		Range: 20c0
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, MindControlInmune
+	Power:
+		Amount: 0
+	RenderSprites:
+	Selectable:
+		Bounds: 144, 60, 0, -6
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Defense:
+		ProductionType: Defense
+	ProvidesPrerequisite@scr:
+		Prerequisite: structures.scr
+	SelectionDecorations:
+		VisualBounds: 144, 80, 0, -12
+
+SCRPOWR:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 0
+		Description: Provides power for other structures.
+		Prerequisites: ~structures.scr
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Scrin Generator
+	ProvidesPrerequisite:
+		Prerequisite: scrpowr
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 3,2
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	Power:
+		Amount: 150
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	DisabledOverlay:
+	SelectionDecorations:
+		VisualBounds: 90, 84, 0, -12
+
+SCRADVPOWR:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Prerequisites: scrweap, ~structures.scr
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Tiberium Reactor
+		Description: Provides power for other structures and also stores resources.
+	ProvidesPrerequisite:
+		Prerequisite: scrpowr
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 110000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	Power:
+		Amount: 300
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	ScalePowerWithHealth:
+	DisabledOverlay:
+	SelectionDecorations:
+		VisualBounds: 90, 84, 0, -12
+	StoresResources:
+		PipCount: 6
+		Capacity: 2000
+
+SCRRAX:
+	Inherits: ^Barracks
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Description: Allows the player to call in Scrin Infantry.
+		Prerequisites: scrpowr, ~structures.scr
+	Tooltip:
+		Name: Landing Zone
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 48, 0, -8
+	WithIdleOverlay@ship:
+		Sequence: ship
+	Power:
+		Amount: -5
+	SelectionDecorations:
+		VisualBounds: 88, 56, 0, -8
+
+SCRPROC:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Valued:
+		Cost: 1500
+	CustomSellValue:
+		Value: 400
+	Tooltip:
+		Name: Scrin Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 20
+		Description: Processes raw Ichor\ninto usable resources.\nIncompatible with human harvesters.
+		Prerequisites: scrpowr, ~structures.scr
+	Building:
+		Footprint: xx== xx== xx==
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 150, 122, -10, -18
+	Health:
+		HP: 144000
+	RevealsShroud:
+		Range: 6c0
+	Explodes:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	Explodes@1:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	Refinery:
+		DockAngle: 160
+		DockOffset: 3,1
+	StoresResources:
+		PipColor: Green
+		PipCount: 15
+		Capacity: 1500
+	FreeActor:
+		Actor: SCRHARV
+		SpawnOffset: 3,1
+		Facing: 160
+	FreeActor@1:
+		Actor: SCRHARV
+		SpawnOffset: 3,1
+		Facing: 160
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 150, 122, -10, -18
+	RenderSprites:
+
+SCRWEAP:
+	Inherits: ^Factory
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Scrin Forge
+	ProvidesPrerequisite:
+		Prerequisite: scrweap
+	Buildable:
+		Queue: Building
+		Description: Produces vehicles.
+		BuildPaletteOrder: 50
+		Prerequisites: scrproc, ~structures.scr
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights-white
+
+SCRAIR:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Stargate
+	Buildable:
+		BuildPaletteOrder: 60
+		Description: Warps in warships from the fleet.
+		Queue: Building
+		Prerequisites: scrproc, scrradr, ~structures.scr
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	ProximityExternalCondition@AircraftAutoRepair:
+		Condition: AircraftAutoRepair
+		Range: 4c0
+	Armor:
+		Type: Wood
+	Health:
+		HP: 60000
+	RevealsShroud:
+		Range: 5c0
+	Exit@1:
+		SpawnOffset: 0,-256,600
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	Production:
+		Produces: Air
+	PrimaryBuilding:
+	Reservable:
+	RepairsUnits:
+	ProductionBar:
+	WithIdleOverlay@PLATFORM:
+		Sequence: idle-platform
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: -60
+	Selectable:
+		Bounds: 120, 130, 0, -40
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 120, 130, 0, -40
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+		ConditionMinEnabledLevel: 1
+		
+SCRDEPOT:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Description: Allows the scrin commander to repair vehicles.\nVehicles near it auto repair slowly.
+		Prerequisites: scrweap, ~structures.scr
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Scrin Maintenance Depot
+	Building:
+		Footprint: _x_ xxx _x_
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RepairsUnits:
+		FinishRepairingNotification: UnitRepaired
+		HpPerStep: 2000
+		PlayerExperience: 15
+	ProximityExternalCondition:
+		Condition: AuraRepair
+		Range: 5c0
+	WithRangeCircle:
+		Range: 5c0
+		Type: Repair
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4
+
+SCRRADR:
+	Inherits: ^Radar
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 90
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: scrproc, ~structures.scr
+	Tooltip:
+		Name: Scrin Radar
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 120, 90, 0, -20
+	SelectionDecorations:
+		VisualBounds: 120, 90, 0, -20
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+
+SCRTECH:
+	Inherits: ^Building
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Description: Provides an area for surface sampling\nAllows the Scrin to adapt their most advanced units\nto the host planet.
+		Prerequisites: scrweap, scrradr, ~structures.scr
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Scrin Laboratory
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -150
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4
+
+##########################################################
+# CABAL
+##########################################################
+CABPOWR:
+	Inherits: ^Building
+	Inherits@1: ^CabRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 0
+		Description: Provides power for other structures.\nPower output does not decrease with damage.\nDamages itself when on critical health.
+		Prerequisites: ~structures.cab
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Firestorm Power Plant
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 120000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	Power:
+		Amount: 175
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
+	SelfHealing@reactorcritical:
+		Step: -5
+		Delay: 25
+		HealIfBelow: 20
+	DisabledOverlay:
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 90, 84, 0, -12
+
+CABCLAW:
+	Inherits: ^Barracks
+	Inherits@1: ^CabRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Description: Produces infantry.
+		Prerequisites: anypower, ~structures.cab
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 102, 70, 0, -24
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: idle-camera
+	SelectionDecorations:
+		VisualBounds: 102, 70, 0, -24
+
+CABPROC:
+	Inherits: PROC
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 20
+		Description: Processes raw Tiberium\ninto usable resources.\nIncompatible with scrin harvesters.
+		Prerequisites: anypower, ~structures.cab
+	Tooltip:
+		Name: C.A.B.A.L. Refinery
+	Building:
+		Footprint: xx== xx== xx==
+		Dimensions: 4,3
+	TiberianSunRefinery:
+		DockOffset: 3,1
+	FreeActor:
+		SpawnOffset: 3,1
+		Actor: CABHARV
+	FreeActor@1:
+		SpawnOffset: 3,1
+		Actor: CABHARV
+	RenderSprites:
+		PlayerPalette: playermut
+		Image: cabproc
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	-ProvidesPrerequisite@proc:
+	Cloak@CLOAKGENERATOR:
+		Palette: cloakmut
+	WithDeathAnimation:
+		DeathSequencePalette: playermut
+		CrushedSequencePalette: playermut
+		CrushedPaletteIsPlayerPalette: true
+
+CABWEAP:
+	Inherits: ^Factory
+	Inherits@1: ^CabRender
+	Tooltip:
+		Name: C.A.B.A.L. War Factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Description: Produces vehicles.
+		Prerequisites: proc, ~structures.cab
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+CABAIR:
+	Inherits: ^Building
+	Inherits@1: ^CabRender
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Air Factory
+	Buildable:
+		BuildPaletteOrder: 60
+		Queue: Building
+		Description: Produces aircraft, does not rearm\n or repair aerial units.
+		Prerequisites: proc, cabradr, ~structures.cab
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	ProximityExternalCondition@AircraftAutoRepair:
+		Condition: AircraftAutoRepair
+		Range: 4c0
+	Health:
+		HP: 60000
+	RevealsShroud:
+		Range: 5c0
+	Exit@1:
+		SpawnOffset: 0,-256,0
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: lights
+	Production:
+		Produces: Air
+	PrimaryBuilding:
+	Reservable:
+	RepairsUnits:
+	ProductionBar:
+	Power:
+		Amount: -40
+	Selectable:
+		Bounds: 88, 66, 0, -5
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 88, 66, 0, -5
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+		ConditionMinEnabledLevel: 1
+
+CABRADR:
+	Inherits: ^Radar
+	Inherits@1: ^CabRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 90
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: proc, ~structures.cab
+	Tooltip:
+		Name: C.A.B.A.L. Radar
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 102, 118, 0, -38
+	SelectionDecorations:
+		VisualBounds: 102, 118, 0, -38
+
+CABGRINDER:
+	Inherits: ^Building
+	Inherits@1: ^CabRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 71
+		Description: Storage site for cyborg canditates.\nIt allows you to refund CABAL\ninfantry for half its cost.
+		Prerequisites: cabclaw, ~structures.cab
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Stasis Chamber
+	ProvidesPrerequisite:
+		Prerequisite: tech
+	AcceptsSupplies:
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 2,3
+	Selectable:
+		Bounds: 120, 72, 0, -10
+	Health:
+		HP: 25000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -30
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 120, 72, 0, -10
+
+CABTECH:
+	Inherits: ^TechCenter
+	Inherits@1: ^CabRender
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Description: Provides access to advanced CABAL technologies.
+		Prerequisites: cabweap, cabradr, ~structures.cab
+	Tooltip:
+		Name: Supercomputer
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 110, 60, 3, -4
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4

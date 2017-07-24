@@ -1,0 +1,76 @@
+Shattered Paradise, a mod for OpenRA made by Alfredo Brandau (Nolt).
+
+#Special Thanks
+
+A warm thank you to the following folks.
+
+WestWood Studios Studios
+	
+OpenRA dev team for their effort in creating openra (no ORA, no SP).
+
+Scipción		: Got me into 3D modelling.
+Penev, abcdefg30	: Saved the mod from countless bugs.
+Graion Dilach		: Code wizzard, responsible for the code necessary for many features the mod offers.
+FiveAces		: Streaming.
+SchismNavigator		: Worked on SP for some time.
+4XS			: For his help with concept art. http://4-x-s.deviantart.com/
+Lucassss		: Testing and balancing.
+Murto The Ray		: Testing and Balancing.
+Voidwalker		: Testing and Balancing.
+ZxGanon			: Testing, Balancing and mapping.
+Skyhunter713		: Mapping.
+Apollo			: Knowledge about palettes and explosion making.
+
+#Images and Others.
+
+Nolt		: CABAL, Scrin and Mutant UI, skirmish faction logos.
+Scipción	: Shattered Paradise planet logo.
+Alex06		: Dev Blog image.
+
+If an asset doesn't have credit, then either it was made by WW or we missed it, let us know if we made any mistakes.
+
+#Game Art
+
+Agent Z		: GDI MRLS Voxel, CABAL Harvester.
+Nolt		: Everything that is not listed here or belongs to westwood.
+The_Dementor	: Cameos: Skirmisher, EMP pulse Icons, Harvester and MCV (mut and cab), 
+The_Dementor	: cyborg commando cameo, Wrench and Tiberium Icons.
+Gangster	: His template.
+Zoidzilla	: His template.	
+Zero18		: Gargoil vxl,	Quad Cannon vxl, Basilisk vxl,	Leonid tank vxl, Hologram Projector vxl.	
+ApolloTD	: Gradient Colored Palettes, Explosion Packs,				
+Moder.U		: Falcon vxl, Battle Fortress vxl, Beam Cannon vxl.
+Super Joe	: Marine shp, Militant shp.			
+Lin Kuei Ominae	: Tripod shp (Unit and Cameo).
+wirecase.com	: Guardian Platform model.				
+Hassan_2030	: Grinder vxl.
+Muldrake	: Twilight Mammoth Tank
+Jah		: Storm Rider vxl.				
+Sane Disruption	: Forgotten MRLS vxl.
+HG_Scipción	: Scrin powerplant and Cabal refinery model.
+Orac		: Forgotten Trike vxl.
+OverWatch (PPM User): Forgotten Battle Bus vxl.	
+GameMaster0000	: Tiberian Fiend Icon.
+CyborgCommandoKerem: Black Hand Sniper shp.				
+DonutArnold	: Basilisk torpedo explosion effect, scrin structure, scrin aircraft crash
+		 explosion effects and NOD nuke explosion effect.
+
+#Sounds
+Audiomicro.com	: Legio and Glyder sound effect.
+Introspectral	: Destroyer weapon sound effect.
+FXhome.com	: Battleship Sound effect.
+soundpacks.com	: Various sound effects.
+
+#Maps This spot is only used for missions as you can't see who made each of them
+#where as you can see who made each map on the map selection menu.
+
+Abc013		: Scrin mission 01
+abcdefg30	: Scrin mission 01
+
+#Voice Cast
+
+Comrade Crimson		: GDI Marine, Mutant Vehicle quotes.
+DrWhitePsyker		: Stealth Tank
+HiJinxy			: Harvester
+SchismNavigator		: Beam Cannon
+SkyHunter713		: Guardian Platform
