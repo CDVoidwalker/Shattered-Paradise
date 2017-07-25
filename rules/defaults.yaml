@@ -15,6 +15,64 @@
 	AutoSelectionSize:
 	RenderSprites:
 
+^AutoTargetGround:
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defense
+		InvalidTargets: NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything
+		ValidTargets: Infantry, Vehicle, Creep, Water, Structure, Defense
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetAir:
+	AutoTarget:
+	AutoTargetPriority@DEFAULT:
+		ValidTargets: Air
+		InvalidTargets: NoAutoTarget
+
+^AutoTargetAll:
+	AutoTarget:
+		AttackAnythingCondition: stance-attackanything
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defense
+		InvalidTargets: NoAutoTarget
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: stance-attackanything
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Structure, Defense
+		InvalidTargets: NoAutoTarget
+
+^1x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+
+^2x1Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1024, -512
+			BottomRight: 1024, 512
+
+^2x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 1024
+
+^3x2Shape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 1024
+
 ^GainsExperience:
 #EXPERIENCE
 	GainsExperience:
@@ -439,6 +497,7 @@
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
+	Inherits@3: ^1x1Shape
 	WithTextControlGroupDecoration:
 	SelectionDecorations:
 		Palette: pips
@@ -535,6 +594,8 @@
 	ExplodeWeapon@smoke:
 		Weapon: SmokeShrapnel
 		RequiresCondition: smoketrail
+	WithColoredOverlay@Disabled:
+		Palette: disabled
 
 ^CivBuilding:
 	Inherits: ^BasicBuilding
@@ -605,6 +666,7 @@
 	Inherits@1: ^InfantryEffects
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
+	Inherits@4: ^1x1Shape
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	TemporaryOwnerManager:
@@ -783,6 +845,7 @@
 
 ^Soldier:
 	Inherits: ^Infantry
+	Inherits@2: ^AutoTargetGround
 	MustBeDestroyed:
 	TakeCover:
 		DamageModifiers:
@@ -869,6 +932,7 @@
 
 ^Cyborg:
 	Inherits@1: ^Infantry
+	Inherits@2: ^AutoTargetGround
 	Inherits@3:	^IncompleteSelfHeal
 	-SpawnActorOnDeath@conversion:
 	-Crushable:
@@ -899,6 +963,7 @@
 ^CabalDroneInfantry:
 	Inherits@1: ^Infantry
 	Inherits@2:	^IncompleteSelfHeal
+	Inherits@3: ^AutoTargetGround
 	-WithDeathAnimation@normal:
 	-WithDeathAnimation@explosion:
 	-WithDeathAnimation@energy:
@@ -986,6 +1051,7 @@
 		Condition: KillMe
 
 ^Engineer:
+	Inherits@1: ^1x1Shape
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1033,9 +1099,11 @@
 	Inherits@0: ^GainsExperience
 	Inherits@1: ^VehicleEffects
 	Inherits@2: ^ExistsInWorld
+	Inherits@3: ^1x1Shape
 	DrawLineToTarget:
 	TemporaryOwnerManager:
 	WithTextControlGroupDecoration:
+	DockClient:
 	Mobile:
 		Crushes: crate
 		TerrainSpeeds:
@@ -1163,6 +1231,7 @@
 
 ^Tank:
 	Inherits: ^Vehicle
+	Inherits@1: ^AutoTargetGround
 	Mobile:
 		Crushes: wall, crate, infantry
 		TerrainSpeeds:
@@ -1208,6 +1277,7 @@
 
 ^Walker:
 	Inherits: ^Vehicle
+	Inherits@2: ^AutoTargetGround
 	Mobile:
 		Crushes: wall, crate, infantry
 		TerrainSpeeds:
@@ -1243,6 +1313,7 @@
 
 ^VoxelTank:
 	Inherits: ^Tank
+	Inherits@1: ^AutoTargetGround
 	BodyOrientation:
 		QuantizedFacings: 0
 	RenderVoxels:
@@ -1257,6 +1328,7 @@
 	Inherits@1: ^AircraftEffects
 	Inherits@2: ^ExistsInWorld
 	Inherits@5: ^PermanentSelfHeal
+	Inherits@6: ^1x1Shape
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	GrantConditionOnDamageState@smoke:
@@ -1278,6 +1350,7 @@
 	Selectable:
 	SelectionDecorations:
 		Palette: pips
+	DockClient:
 	Aircraft:
 		AirborneCondition: airborne
 		CruisingCondition: cruising
@@ -1334,6 +1407,7 @@
 
 ^Plane:
 	Inherits: ^Aircraft
+	Inherits@3: ^AutoTargetAir
 	Aircraft:
 		LandWhenIdle: False
 		CruiseAltitude: 2560
@@ -1343,6 +1417,7 @@
 		Type: CenterPosition
 
 ^AircraftHusk:
+	Inherits@1: ^1x1Shape
 	RenderVoxels:
 	RenderSprites:
 	WithVoxelBody:
@@ -1358,7 +1433,8 @@
 		Type: Heavy
 	HiddenUnderFog:
 		Type: CenterPosition
-	AutoTargetIgnore:
+	Targetable@Ignore:
+		TargetTypes: NoAutoTarget
 	ScriptTriggers:
 	Tooltip:
 		GenericName: Destroyed Aircraft
@@ -1370,6 +1446,8 @@
 ^Visceroid:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
+	Inherits@3: ^AutoTargetGround
+	Inherits@4: ^1x1Shape
 	DrawLineToTarget:
 	Health:
 		Shape: Circle
@@ -1522,6 +1600,7 @@
 	Inherits: ^GenericEffects
 	Inherits@0: ^ExistsInWorld
 	Inherits@1: ^SpriteActor
+	Inherits@3: ^1x1Shape
 	Voiced:
 		VoiceSet: Vehicle
 	AttackTurreted:
@@ -1551,6 +1630,7 @@
 ^Train:
 	Inherits@1: ^EmpDisableMobile
 	Inherits@2: ^ExistsInWorld
+	Inherits@3: ^1x1Shape
 	RenderVoxels:
 	RenderSprites:
 	WithVoxelBody:
@@ -1628,6 +1708,7 @@
 
 ^Wall:
 	Inherits@1: ^SpriteActor
+	Inherits@2: ^1x1Shape
 	CombatDebugOverlay:
 	FrozenUnderFog:
 	AppearsOnRadar:
@@ -1650,10 +1731,9 @@
 	LineBuildNode:
 		Types: wall
 	Targetable:
-		TargetTypes: Ground, Wall, C4, DetonateAttack
+		TargetTypes: Ground, Wall, C4, DetonateAttack, NoAutoTarget
 	WithWallSpriteBody:
 		Type: wall
-	AutoTargetIgnore:
 	Sellable:
 		SellSounds: cashturn.aud
 	Demolishable:

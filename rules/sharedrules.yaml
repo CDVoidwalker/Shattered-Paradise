@@ -96,7 +96,7 @@ MCV:
 			cab: mcv.cab
 
 HARV:
-	Inherits: ^VoxelTank
+	Inherits: ^VoxelVehicle
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
 		Cost: 500
@@ -125,6 +125,7 @@ HARV:
 		SearchFromOrderRadius: 18
 		HarvestVoice: Attack
 		DeliverVoice: Action
+	DockClient:
 	Sellable:
 		RequiresCondition: AuraRepair
 		ConditionMinEnabledLevel: 1
@@ -260,48 +261,6 @@ LPST:
 ######################################################
 # Aircraft
 ######################################################
-HUNTER:
-	Inherits@1: ^GenericEffects
-	Inherits@2: ^ExistsInWorld
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Hunter-Seeker Droid
-	Health:
-		HP: 50000
-	Armor:
-		Type: Light
-	AttackSuicides:
-	Explodes:
-		Weapon: SuicideBomb
-		EmptyWeapon: SuicideBomb
-	Aircraft:
-		TurnSpeed: 16
-		Speed: 355
-		CruiseAltitude: 256
-		CanHover: True
-	Targetable:
-		TargetTypes: Ground, Vehicle
-	HiddenUnderFog:
-		Type: CenterPosition
-	BodyOrientation:
-		UseClassicPerspectiveFudge: False
-	RenderSprites:
-		Image: GGHUNT
-	WithFacingSpriteBody:
-	Hovers@CRUISING:
-		RequiresCondition: cruising
-		ConditionMinEnabledLevel: 1
-	QuantizeFacingsFromSequence:
-	AutoSelectionSize:
-	DrawLineToTarget:
-	AppearsOnRadar:
-		UseLocation: yes
-	Selectable:
-	SelectionDecorations:
-		Palette: pips
-	ActorLostNotification:
-
 
 ######################################################
 # Structures
@@ -453,6 +412,8 @@ PROC:
 		DockAngle: 160
 		DockOffset: 2,1
 		DiscardExcessResources: false
+	DockManager:
+	Dock
 	StoresResources:
 		PipColor: Green
 		PipCount: 15
@@ -777,7 +738,6 @@ NAPULS:
 	Selectable:
 		Bounds: 78, 54, 0, -12
 	RequiresPower:
-	DisabledOverlay:
 	Health:
 		HP: 50000
 	Armor:

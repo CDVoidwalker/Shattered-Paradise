@@ -19,6 +19,7 @@
 
 ^DUMMYAIRCRAFT:
 	Inherits: ^SpriteActor
+	Inherits@2: ^1x1Shape
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -287,16 +288,10 @@ KILLEDACTOR:
 ###################################################################
 
 NANOMACHINEBURSTSPAWNER:
-	Inherits: ^Infantry
-	-Targetable:
-	-UpdatesPlayerStatistics:
+	Inherits: ^DUMMYAIRCRAFT
 	-AutoSelectionSize:
-	-SelectionDecorations:
-	-Selectable:
-	-AutoTarget:
 	RenderSprites:
 		Image: blackhanddummy
-	-ActorLostNotification:
 	SelfHealing:
 		Step: -10
 		HealIfBelow: 200
@@ -310,10 +305,9 @@ NANOMACHINEBURSTSPAWNER:
 		Probability: 100
 		RequiresLobbyCreeps: false
 		SkipMakeAnimations: false
-	-SpawnActorOnDeath@nanomachineburst:
 
 NANOMACHINEBURSTDUMMY:
-	Inherits: ^Tree
+	Inherits: ^DUMMYAIRCRAFT
 	SelfHealing:
 		Step: -1
 		Delay: 25

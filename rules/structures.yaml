@@ -36,7 +36,6 @@ GAPOWR:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
-	DisabledOverlay:
 	Pluggable@pluga:
 		Conditions:
 			powrup: powrup.a
@@ -212,7 +211,6 @@ GAPLUG:
 		IndicatorPalette: mouse
 		PowerupSpeech: EnablePower
 		PowerdownSpeech: DisablePower
-	DisabledOverlay:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 	WithIdleOverlay@LIGHTS:
@@ -345,7 +343,6 @@ NAPOWR:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
-	DisabledOverlay:
 	SelectionDecorations:
 		VisualBounds: 88, 80, 2, -12
 
@@ -382,7 +379,6 @@ NAAPWR:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
-	DisabledOverlay:
 	SelectionDecorations:
 		VisualBounds: 100, 74, 0, -12
 
@@ -591,7 +587,6 @@ MUPOWR:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
-	DisabledOverlay:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 90, 84, 0, -12
@@ -858,7 +853,6 @@ SCRPOWR:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
-	DisabledOverlay:
 	SelectionDecorations:
 		VisualBounds: 90, 84, 0, -12
 
@@ -897,7 +891,6 @@ SCRADVPOWR:
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
-	DisabledOverlay:
 	SelectionDecorations:
 		VisualBounds: 90, 84, 0, -12
 	StoresResources:
@@ -957,9 +950,13 @@ SCRPROC:
 	Explodes@1:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
-	Refinery:
+	DockManager:
+		ExternalDocks: true
+	Dock@0:
 		DockAngle: 160
 		DockOffset: 3,1
+		ExitOffset: 3,1
+		Order: 0
 	StoresResources:
 		PipColor: Green
 		PipCount: 15
@@ -1186,7 +1183,6 @@ CABPOWR:
 		Step: -5
 		Delay: 25
 		HealIfBelow: 20
-	DisabledOverlay:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 90, 84, 0, -12
@@ -1340,7 +1336,7 @@ CABGRINDER:
 		Name: Stasis Chamber
 	ProvidesPrerequisite:
 		Prerequisite: tech
-	AcceptsSupplies:
+	AcceptsDeliveredCash:
 	Building:
 		Footprint: xx xx xx
 		Dimensions: 2,3

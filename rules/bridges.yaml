@@ -17,6 +17,7 @@ CABHUT:
 	-Explodes:
 
 ^LowBridgeRamp:
+	Inherits@1: ^1x1Shape
 	AlwaysVisible:
 	RenderSprites:
 		Palette: terraindecoration

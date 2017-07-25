@@ -21,6 +21,7 @@ waypoint:
 		QuantizedFacings: 1
 
 CAMERA:
+	Inherits@1: ^1x1Shape
 	EditorOnlyTooltip:
 		Name: (reveals area to owner)
 	AlwaysVisible:
@@ -623,6 +624,8 @@ E2:
 		DeathType:
 	-AutoTarget:
 	-GainsExperience:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
 
 MUTFIEND:
 	Inherits: ^Beast
@@ -903,8 +906,10 @@ SHAPESHIFTER:
 	WithInfantryBody:
 		IdleSequences: idle1, idle2, idle3, idle4
 	RenderSprites:
-	-AutoTarget:
 	-GainsExperience:
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
 
 COLOSSI:
 	Inherits: ^ScrinSoldier
@@ -1140,7 +1145,7 @@ CYBORG:
 	SelfHealing@Permanent:
 		DamageCooldown: 0
 		Delay: 75
-	SupplyTruck
+	DeliversCash:
 		Payload: 175
 		Voice: Move
 	RevealsShroud:
@@ -1162,7 +1167,7 @@ PDRONE:
 	Inherits: ^CabalDroneInfantry
 	Valued:
 		Cost: 175
-	SupplyTruck
+	DeliversCash
 		Payload: 75
 		Voice: Move
 	Tooltip:
@@ -1231,7 +1236,7 @@ SWARMLING:
 		Queue: Infantry
 		BuildPaletteOrder: 13
 		Prerequisites: ~cabclaw
-	SupplyTruck
+	DeliversCash
 		Payload: 275
 		Voice: Move
 	Voiced:
@@ -1260,7 +1265,7 @@ MOTH:
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
-	SupplyTruck
+	DeliversCash
 		Payload: 250
 		Voice: Move
 	Voiced:
@@ -1339,7 +1344,7 @@ REAPERCAB:
 		Voice: Move
 	Selectable:
 		Bounds: 40,40,0,-10
-	SupplyTruck
+	DeliversCash
 		Payload: 300
 		Voice: Move
 	Armor:
@@ -1380,7 +1385,7 @@ GLAD:
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
 		Cost: 600
-	SupplyTruck
+	DeliversCash
 		Payload: 300
 		Voice: Move
 	Tooltip:
@@ -1435,7 +1440,7 @@ CYC2:
 	Repairable:
 		RepairBuildings: gadept
 		Voice: Move
-	SupplyTruck
+	DeliversCash
 		Payload: 600
 		Voice: Move
 	Voiced:
@@ -1471,7 +1476,7 @@ WORKER:
 		Speed: 56
 	Voiced:
 		VoiceSet: Cyborg
-	SupplyTruck
+	DeliversCash
 		Payload: 45
 		Voice: Move
 	Armor@worker:
@@ -1504,7 +1509,7 @@ PALADIN2:
 		Type: Worker
 	RevealsShroud:
 		Range: 8c0
-	SupplyTruck
+	DeliversCash
 		Payload: 350
 		Voice: Move
 	BodyOrientation:
@@ -1537,7 +1542,7 @@ cybdog:
 		Bounds: 16,31,0,-10
 	Voiced:
 		VoiceSet: Limpet
-	SupplyTruck
+	DeliversCash
 		Payload: 150
 		Voice: Move
 	Mobile:
@@ -1567,6 +1572,7 @@ cybdog:
 FLAMEGUY:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
+	Inherits@3: ^1x1Shape
 	Mobile:
 		Speed: 71
 		SharesCell: true

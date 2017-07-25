@@ -409,7 +409,7 @@ SUBAPCTRAIL:
 	Range: 10c0
 	Projectile: GravityBomb
 		Speed: -100c0
-		Acceleration: 100
+		Acceleration: 100, 0, 0
 	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
 	Warhead@2EffAir: CreateEffect
 		Explosions: dig

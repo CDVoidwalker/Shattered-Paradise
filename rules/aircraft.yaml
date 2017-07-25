@@ -3,6 +3,7 @@
 #######################################################
 CLOUD1:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -62,6 +63,7 @@ CLOUD1:
 #######################################################
 ORCA:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -104,6 +106,7 @@ ORCA:
 
 ORCAB:
     Inherits: ^Plane
+	Inherits@1: ^AutoTargetAir
     Valued:
         Cost: 1500
     Tooltip:
@@ -180,10 +183,11 @@ TRNSPORT:
 		Voice: Move
 		LocalOffset: 0, 0, -224
 	SpawnActorOnDeath:
-		Actor: TRNSPORT.Husk
+		Actor: TRNSPORT.Huskz
 
 GUARDIAN:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@3: ^BasicStealthDetection
 	Inherits@4: ^PermanentSelfHeal
 	Valued:
@@ -216,7 +220,7 @@ GUARDIAN:
 	Armament@secondary:
 		Weapon: GuardianClaw
 	AttackHeli:
-		FacingTolerance: 240
+		FacingTolerance: 64
 		Voice: Attack
 	AmmoPool:
 		Ammo: 10
@@ -355,6 +359,7 @@ ORCATRAN:
 ##########################################################
 APACHE:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@3: ^BasicStealthDetection
 	Valued:
 		Cost: 500
@@ -409,6 +414,7 @@ APACHE:
 
 APACHEHOLOGRAM:
 	Inherits: APACHE
+	Inherits@1: ^AutoTargetAir
 	-Buildable:
 	RenderSprites:
 		Image: apache
@@ -448,6 +454,7 @@ APACHEHOLOGRAM:
 
 SCRIN:
 	Inherits: ^Plane
+	Inherits@1: ^AutoTargetAir
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -505,6 +512,7 @@ SCRIN:
 
 CERBERUS:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@3: ^BasicStealthDetection
 	Inherits@4: ^PermanentSelfHeal
 	Valued:
@@ -539,7 +547,7 @@ CERBERUS:
 		Weapon: CerberusLasorSpawn
 		LocalOffset: 300,200,0, 300,-200,0, -300,200,0, -300,-200,0
 	AttackHeli:
-		FacingTolerance: 240
+		FacingTolerance: 64
 		Voice: Attack
 	AmmoPool:
 		Ammo: 999
@@ -589,6 +597,7 @@ CERBERUS:
 MUTHELI:
 	Inherits: ^Helicopter
 	Inherits@1:	^Ra2vxl
+	Inherits@2: ^AutoTargetAir
 	Inherits@3: ^BasicStealthDetection
 	Valued:
 		Cost: 700
@@ -646,6 +655,7 @@ MUTHELI:
 WETP:
 	Inherits: ^Plane
 	Inherits@1:	^Ra2vxl
+	Inherits@2: ^AutoTargetAir
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -814,6 +824,7 @@ SCRPOD:
 
 STORMRIDER:
 	Inherits: ^Plane
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^SelfReloads
 	Valued:
 		Cost: 550
@@ -919,6 +930,7 @@ drache:
 
 SCRGLYDER1:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
 	Valued:
@@ -970,6 +982,7 @@ SCRGLYDER1:
 
 SCRDESTROYER:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^IncompleteSelfHeal
@@ -1070,6 +1083,7 @@ SCRTRANS:
 
 SCRBATTLESHIP:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^BasicStealthDetection
@@ -1189,6 +1203,7 @@ SCRINCOUNCIL:
 
 MOTHERSHIP:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^BasicStealthDetection
 	Inherits@5:	^PermanentSelfHeal
@@ -1260,6 +1275,7 @@ MOTHERSHIP:
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Wyverm
@@ -1359,6 +1375,7 @@ STORMRIDERRETURN:
 
 MINIWYVERM:
 	Inherits: WASP
+	Inherits@1: ^AutoTargetAir
 	Tooltip:
 		Name: Attack Drone
 	-Buildable:
@@ -1419,6 +1436,7 @@ MINIWYVERM2:
 
 WASP:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
@@ -1477,6 +1495,7 @@ WASP:
 
 FIREFLY:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^BasicStealthDetection
 	Inherits@5: ^CabRender
@@ -1530,6 +1549,7 @@ FIREFLY:
 
 DEVOURER:
 	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAir
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
@@ -1598,9 +1618,10 @@ DEVOURER:
 
 BASILISK:
 	Inherits: ^Helicopter
-	Inherits@1: ^Ra2vxl
+	Inherits@1: ^AutoTargetAir
+	Inherits@2: ^Ra2vxl
 	Inherits@3: ^SelfReloads
-	Inherits@5:	^PermanentSelfHeal
+	Inherits@4:	^PermanentSelfHeal
 	Valued:
 		Cost: 1800
 	Tooltip:
