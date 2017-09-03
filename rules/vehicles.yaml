@@ -1107,7 +1107,7 @@ STRUCK:
 		PipCount: 4
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
-		# InitialUnits: mutfiend
+		InitialUnits: mutfiend
 	RenderVoxels:
 		Scale: 0.8
 		LightAmbientColor: 0.4, 0.4, 0.4

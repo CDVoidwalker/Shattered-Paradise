@@ -81,10 +81,15 @@ SHAKYSHAKYMINIMINI:
 IONBEAMTARGET:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits@2: ^VisionWhenKilled
+	Inherits@3: ^1x1Shape
 	Tooltip:
 		Name: Target
 	Health:
 		HP: 5000
+	SelfHealing:
+		Step: -10
+		Delay: 10
+		HealIfBelow: 200
 	Targetable:
 		TargetTypes: IonSpawner
 	ShakeOnDeath:
@@ -128,8 +133,11 @@ IONBEAMTARGET:
 
 IONBEAMMINI:
 	Inherits: ^DUMMYAIRCRAFT
+	Inherits@1: ^AutoTargetAll
 	RevealsShroud:
 		Range: 3c0
+	AutoTargetPriority@1432543:
+		ValidTargets: IonSpawner
 	Aircraft:
 		CruiseAltitude: 0
 		TurnSpeed: 6

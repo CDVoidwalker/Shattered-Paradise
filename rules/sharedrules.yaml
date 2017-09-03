@@ -44,8 +44,8 @@ ENGINEER:
 		FactionImages:
 			gdi: engineer.gdi
 			nod: engineer.nod
-	-AutoTarget:
 	-GainsExperience:
+	AttackFrontal:
 
 ######################################################
 # Vehicles
@@ -267,6 +267,7 @@ LPST:
 ######################################################
 GACNST:
 	Inherits: ^Building
+	Inherits@4: ^3x3Shape
 	Building:
 		Footprint: xxx xxx xxx
 		BuildSounds: facbld1.aud
@@ -413,7 +414,21 @@ PROC:
 		DockOffset: 2,1
 		DiscardExcessResources: false
 	DockManager:
-	Dock
+	Dock@2:
+		DockAngle: 64
+		DockOffset: 2,1
+		Order: 2
+		WaitingPlace: false
+	Dock@3:
+		DockAngle: 64
+		DockOffset: 3,1
+		Order: 3
+		WaitingPlace: true
+	Dock@4:
+		DockAngle: 64
+		DockOffset: 3,0
+		Order: 4
+		WaitingPlace: true
 	StoresResources:
 		PipColor: Green
 		PipCount: 15

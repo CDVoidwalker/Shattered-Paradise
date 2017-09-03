@@ -3,7 +3,7 @@
 #######################################################
 CLOUD1:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -63,7 +63,7 @@ CLOUD1:
 #######################################################
 ORCA:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -106,7 +106,7 @@ ORCA:
 
 ORCAB:
     Inherits: ^Plane
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
     Valued:
         Cost: 1500
     Tooltip:
@@ -187,7 +187,7 @@ TRNSPORT:
 
 GUARDIAN:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@3: ^BasicStealthDetection
 	Inherits@4: ^PermanentSelfHeal
 	Valued:
@@ -359,7 +359,7 @@ ORCATRAN:
 ##########################################################
 APACHE:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@3: ^BasicStealthDetection
 	Valued:
 		Cost: 500
@@ -414,7 +414,7 @@ APACHE:
 
 APACHEHOLOGRAM:
 	Inherits: APACHE
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	-Buildable:
 	RenderSprites:
 		Image: apache
@@ -454,7 +454,7 @@ APACHEHOLOGRAM:
 
 SCRIN:
 	Inherits: ^Plane
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -512,7 +512,7 @@ SCRIN:
 
 CERBERUS:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@3: ^BasicStealthDetection
 	Inherits@4: ^PermanentSelfHeal
 	Valued:
@@ -597,7 +597,7 @@ CERBERUS:
 MUTHELI:
 	Inherits: ^Helicopter
 	Inherits@1:	^Ra2vxl
-	Inherits@2: ^AutoTargetAir
+	Inherits@2: ^AutoTargetAll
 	Inherits@3: ^BasicStealthDetection
 	Valued:
 		Cost: 700
@@ -655,7 +655,7 @@ MUTHELI:
 WETP:
 	Inherits: ^Plane
 	Inherits@1:	^Ra2vxl
-	Inherits@2: ^AutoTargetAir
+	Inherits@2: ^AutoTargetAll
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -824,7 +824,7 @@ SCRPOD:
 
 STORMRIDER:
 	Inherits: ^Plane
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^SelfReloads
 	Valued:
 		Cost: 550
@@ -930,7 +930,7 @@ drache:
 
 SCRGLYDER1:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
 	Valued:
@@ -982,7 +982,7 @@ SCRGLYDER1:
 
 SCRDESTROYER:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^IncompleteSelfHeal
@@ -1083,7 +1083,7 @@ SCRTRANS:
 
 SCRBATTLESHIP:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^BasicStealthDetection
@@ -1203,7 +1203,7 @@ SCRINCOUNCIL:
 
 MOTHERSHIP:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^BasicStealthDetection
 	Inherits@5:	^PermanentSelfHeal
@@ -1242,24 +1242,12 @@ MOTHERSHIP:
 	Armament:
 		Weapon: FighterSpawn
 		ForceTargetStances: Enemy
-	ProximityExternalCondition:
-		Range: 3c0
-		Condition: Return
-		ValidStances: Ally
-	ProximityExternalCondition@asd:
-		Range: 30c0
-		Condition: ForceReturn
-		ValidStances: Ally
-	AmmoPool:
-		Ammo: 4
-		PipCount: 4
-		SelfReloads: true
-		ReloadCount: 1
-		SelfReloadDelay: 200
-		ResetOnFire: false
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
-		ChargeTime: 180
+	Spawner:
+		Count: 3
+		SpawnUnit: STORMRIDERSPAWN
+		RespawnTicks: 700
+		ReamTicks: 10
+		InstaRepair: true
 	AttackTurreted:
 	Turreted:
 	AutoTarget:
@@ -1275,7 +1263,7 @@ MOTHERSHIP:
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Wyverm
@@ -1302,16 +1290,8 @@ STORMRIDERSPAWN:
 		QuantizedFacings: 32
 	Health:
 		HP: 9000
-	SelfHealing:
-		PercentageStep: -50
-		Step: 0
-		Delay: 300
-		HealIfBelow: 200
-	SelfHealing@ForceReturn:
-		PercentageStep: -100
-		Delay: 1
-		HealIfBelow: 101
-		RequiresCondition: !ForceReturn
+	Spawned:
+		LandingDistance: 1c0
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
 	-AppearsOnRadar:
@@ -1326,56 +1306,13 @@ STORMRIDERSPAWN:
 	ExternalCondition@Return:
 		Condition: ForceReturn
 
-STORMRIDERSPAWN2:
-	Inherits: STORMRIDERSPAWN
-	Aircraft:
-		InitialFacing: 120
-
-STORMRIDERSPAWN3:
-	Inherits: STORMRIDERSPAWN
-	Aircraft:
-		InitialFacing: 240
-
-STORMRIDERRETURN:
-	Inherits: STORMRIDERSPAWN
-	Aircraft:
-		InitialFacing: 360
-		Repulsable: False
-	SelfHealing:
-		PercentageStep: -5
-	RejectsOrders:
-	Armament:
-		Weapon: Return
-		TargetStances: Ally
-	Health:
-		HP: 3000
-	Armament@aa:
-		Weapon: Return
-		TargetStances: Ally
-		ForceTargetStances: Ally
-	-SelfHealing:
-	-SelfHealing@ForceReturn:
-	SelfHealing@Return:
-		PercentageStep: -100
-		Delay: 1
-		HealIfBelow: 101
-		RequiresCondition: Return
-	AutoTarget:
-		ScanRadius: 99
-		InitialStance: AttackAnything
-	SpawnActorOnDeath:
-		Actor: WYVERM2.Husk
-		DeathType: 	BulletDeath, TiberiumDeath,	CabalDeath, CabalDeathCrate, BlackHandRfle,	HeadshotDeath, SmallExplosionDeath, EnergyDeath, ExplosionDeath, FireDeath
-	ExternalCondition@Return:
-		Condition: Return
-
 ##########################################################
 # CABAL
 ##########################################################
 
 MINIWYVERM:
 	Inherits: WASP
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Tooltip:
 		Name: Attack Drone
 	-Buildable:
@@ -1399,6 +1336,8 @@ MINIWYVERM:
 	Aircraft:
 		IdealSeparation: 300
 		Speed: 110
+		-TakeoffSound: orcaup1.aud
+		-LandingSound: orcadwn1.aud
 	Targetable@Drone:
 		TargetTypes: AttackDrone
 	Targetable@GROUND:
@@ -1436,7 +1375,7 @@ MINIWYVERM2:
 
 WASP:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
@@ -1495,7 +1434,7 @@ WASP:
 
 FIREFLY:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^BasicStealthDetection
 	Inherits@5: ^CabRender
@@ -1549,7 +1488,7 @@ FIREFLY:
 
 DEVOURER:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
@@ -1618,7 +1557,7 @@ DEVOURER:
 
 BASILISK:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAir
+	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^Ra2vxl
 	Inherits@3: ^SelfReloads
 	Inherits@4:	^PermanentSelfHeal

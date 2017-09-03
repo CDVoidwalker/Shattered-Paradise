@@ -759,11 +759,6 @@ FighterSpawn:
 		Spread: 400
 		Damage: 1
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-	Warhead@5Actor: SpawnActor
-		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN2, STORMRIDERSPAWN3
-		FallRate: 5000
-		Range: 3
-		ValidTargets: Infantry, Air, Vehicle, Building, Wall
 
 WyvermBlast:
 	Inherits: ^ArtilleryWarhead

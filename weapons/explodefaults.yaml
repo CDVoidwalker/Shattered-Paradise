@@ -1,26 +1,26 @@
 ^Piffs:	#Inherits@2: ^Piffs
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: ra
-		ValidImpactTypes: Water
+		ValidTargets: Water
 
 ^Small_Clsn:	#Inherits@2: ^Small_Clsn
 	Warhead@2Eff: CreateEffect
 		Explosions: jsclsn16, jsclsn16b, jexplosml, jexplosml
 		ImpactSound: expnew12.aud
 		ExplosionPalette: gensmkexploj
-		InvalidImpactTypes: Water, Air, AirHit
+		InValidTargets: Water, Air, AirHit
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4EffAir: CreateEffect
 		Explosions: small_twlt
 		ImpactSound: expnew12.aud
-		ValidImpactTypes: Air, AirHit
+		ValidTargets: Air, AirHit
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -30,12 +30,12 @@
 		Explosions: jsmkpuff, jsbrnl20, jsclsn30b, jxgrysml2
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew14.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -45,11 +45,11 @@
 		Explosions: jsclsn42, jsclsn42b, jsbang34, jsclsn58b
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew14.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -71,16 +71,16 @@
 		Explosions: jsbang16, jsbang16b, jsbang24
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew12.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4EffAir: CreateEffect
 		Explosions: small_twlt
 		ImpactSound: expnew12.aud
-		ValidImpactTypes: Air, AirHit
+		ValidTargets: Air, AirHit
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -93,7 +93,7 @@
 	Warhead@4EffAir: CreateEffect
 		Explosions: small_twlt
 		ImpactSound: expnew12.aud
-		ValidImpactTypes: Air, AirHit
+		ValidTargets: Air, AirHit
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -103,12 +103,12 @@
 		Explosions: jxgrymed2b, jxgrymed2, jxgrymed1b, jxgrymed1
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew13.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosion: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -118,12 +118,12 @@
 		Explosions: jtwlt036, jtwlt036b, jtwlt050
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew09.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -133,7 +133,7 @@
 		Explosions: jsbrnl20, jsbrnl20b, jsbrnl30, jsbrnl30b
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew12.aud
-		ValidImpactTypes: Air, AirHit
+		ValidTargets: Air, AirHit
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -141,7 +141,7 @@
 		Explosion: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash2.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -151,12 +151,12 @@
 		Explosions: jstumu22, jstumu22b, jstumu30, jstumu30b
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew07.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 
 ^Large_twlt:	#Inherits@2: ^Large_twlt
 	Warhead@2Eff: CreateEffect
@@ -167,7 +167,7 @@
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 
 ^FlameScorch:	#Inherits@2: ^FlameScorch
 	Warhead@2Smu: LeaveSmudge
@@ -175,21 +175,21 @@
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@3Eff: CreateEffect
 		Explosions: fire1, fire2
-		InvalidImpactTypes: Water, Air, AirHit
+		InValidTargets: Water, Air, AirHit
 
 ^Shrapnel:	#Inherits@2: ^Shrapnel
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1, infdeathexplo2,	infdeathexplo3
 		ImpactSound: expnew12.aud
 		ExplosionPalette: gensmkexploj
-		InvalidImpactTypes: Water, Air, AirHit
+		InValidTargets: Water, Air, AirHit
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4EffAir: CreateEffect
-		ValidImpactTypes: Air, AirHit
+		ValidTargets: Air, AirHit
 		Explosion: tiny_twlt
 		ImpactSound: expnew05.aud
 	Warhead@5Smu: LeaveSmudge
@@ -201,12 +201,12 @@
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinpulse3
 		ImpactSound: expnew12.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -216,12 +216,12 @@
 		Explosions: scrinexplo1
 		ExplosionPalette: apolbluealpha
 		ImpactSound: expnew14.aud
-		InvalidImpactTypes: Water
+		InValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall

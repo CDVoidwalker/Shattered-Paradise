@@ -289,6 +289,7 @@ GAPLUG3:
 
 REPAIRTUR:
 	Inherits: ^Defense
+	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -324,6 +325,7 @@ REPAIRTUR:
 
 GAFIRE:
 	Inherits: ^Building
+	Inherits@2: ^3x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
@@ -375,6 +377,7 @@ GAFIRE:
 
 GUARDIANDEP:
 	Inherits: ^Building
+	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -453,6 +456,7 @@ NALASR:
 NAOBEL:
 	Inherits: ^Tier2
 	Inherits@1: ^TowerStealthDetection
+	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -530,6 +534,7 @@ NASAM:
 
 NASTLH:
 	Inherits: ^Building
+	Inherits@2: ^3x2Shape
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -673,6 +678,7 @@ GAARTY:
 
 NATMPL:
 	Inherits: ^Building
+	Inherits@2: ^3x3Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 200
@@ -726,6 +732,7 @@ NATMPL:
 
 NAMISL:
 	Inherits: ^Building
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
@@ -882,6 +889,7 @@ MUBUNKR:
 	Inherits: ^Defense
 	Inherits@1: ^MutRender
 	Inherits@2: ^TowerStealthDetection
+	Inherits@3: ^2x2Shape
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -923,6 +931,7 @@ MUBUNKR:
 MUTSW1:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
+	Inherits@2: ^3x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
@@ -957,6 +966,7 @@ MUTSW1:
 MUTSW2:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
+	Inherits@2: ^3x3Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
@@ -1023,6 +1033,7 @@ MUWARD:
 MUVENTI:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 95
@@ -1204,6 +1215,7 @@ SCRDRONE:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
+	Inherits@5: ^2x2Shape
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -1277,6 +1289,7 @@ SCRSW1:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
@@ -1334,6 +1347,7 @@ SCRSHIELD:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^2x2Shape
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1543,6 +1557,7 @@ CABEYE:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
 	Inherits@2:	^IncompleteSelfHeal
+	Inherits@3: ^2x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 95
@@ -1579,6 +1594,7 @@ CABEYE:
 CABSW1:
 	Inherits: ^Defense
 	Inherits@1: ^CabRender
+	Inherits@2: ^3x3Shape
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -1634,6 +1650,7 @@ CABSW1:
 cabobelisk:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
+	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 2000
 	Tooltip:

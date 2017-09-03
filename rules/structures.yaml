@@ -3,6 +3,7 @@
 #######################################################
 GAPOWR:
 	Inherits: ^Building
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 0
@@ -54,6 +55,7 @@ GAPOWR:
 
 GAPILE:
 	Inherits: ^Barracks
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 30
@@ -78,6 +80,7 @@ GAPILE:
 
 GAWEAP:
 	Inherits: ^Factory
+	Inherits@4: ^3x3Shape
 	Tooltip:
 		Name: GDI War Factory
 	Buildable:
@@ -99,6 +102,7 @@ GAWEAP:
 
 GAHPAD:
 	Inherits: ^Building
+	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -120,6 +124,10 @@ GAHPAD:
 		Range: 5c0
 	Exit@1:
 		SpawnOffset: 0,-256,0
+	DockManager:
+	Dock:
+		DockOffset: 1,1
+		DockAngle: 160
 	ProductionFromMapEdge:
 		Produces: Air
 	RallyPoint:
@@ -154,6 +162,7 @@ GAHPAD:
 
 GARADR:
 	Inherits: ^Radar
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -171,6 +180,7 @@ GARADR:
 
 GATECH:
 	Inherits: ^TechCenter
+	Inherits@4: ^3x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -192,6 +202,7 @@ GATECH:
 
 GAPLUG:
 	Inherits: ^Building
+	Inherits@2: ^2x3Shape
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -312,6 +323,7 @@ GAWALL:
 
 NAPOWR:
 	Inherits: ^Building
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 0
@@ -348,6 +360,7 @@ NAPOWR:
 
 NAAPWR:
 	Inherits: ^Building
+	Inherits@2: ^2x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 5
@@ -384,6 +397,7 @@ NAAPWR:
 
 NAHAND:
 	Inherits: ^Barracks
+	Inherits@2: ^3x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 30
@@ -405,6 +419,7 @@ NAHAND:
 
 NAWEAP:
 	Inherits: ^Factory
+	Inherits@2: ^3x3Shape
 	Tooltip:
 		Name: Nod War Factory
 	ProvidesPrerequisite:
@@ -424,6 +439,7 @@ NAWEAP:
 
 NAHPAD:
 	Inherits: ^Building
+	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -445,6 +461,10 @@ NAHPAD:
 		HP: 60000
 	RevealsShroud:
 		Range: 5c0
+	DockManager:
+	Dock:
+		DockOffset: 1,1
+		DockAngle: 160
 	Exit@1:
 		SpawnOffset: 0,-256,0
 	RallyPoint:
@@ -479,6 +499,7 @@ NAHPAD:
 
 NARADR:
 	Inherits: ^Radar
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -496,6 +517,7 @@ NARADR:
 
 NATECH:
 	Inherits: ^TechCenter
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -517,6 +539,7 @@ NATECH:
 
 NAWAST:
 	Inherits: ^Building
+	Inherits@2: ^3x3Shape
 	Valued:
 		Cost: 1600
 	Tooltip:
@@ -556,6 +579,7 @@ NAWAST:
 MUPOWR:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 0
@@ -594,6 +618,7 @@ MUPOWR:
 MURAX:
 	Inherits: ^Barracks
 	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 30
@@ -613,6 +638,7 @@ MURAX:
 
 MUPROC:
 	Inherits: PROC
+	Inherits@2: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
@@ -643,6 +669,7 @@ MUPROC:
 
 MUWEAP:
 	Inherits: ^Factory
+	Inherits@2: ^3x3Shape
 	Tooltip:
 		Name: Mutant War Factory
 	Buildable:
@@ -659,6 +686,7 @@ MUWEAP:
 MUAIR:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
+	Inherits@2: ^2x3Shape
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -676,6 +704,13 @@ MUAIR:
 	ProximityExternalCondition@AircraftAutoRepair:
 		Condition: AircraftAutoRepair
 		Range: 4c0
+	DockManager:
+	Dock:
+		DockOffset: 1,1
+		DockAngle: 160
+	Dock:
+		DockOffset: 0,0
+		DockAngle: 160
 	Health:
 		HP: 60000
 	RevealsShroud:
@@ -707,6 +742,7 @@ MUAIR:
 
 MURADR:
 	Inherits: ^Radar
+	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
 		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
@@ -722,6 +758,7 @@ MURADR:
 MUHALL:
 	Inherits: ^TechCenter
 	Inherits@1: ^MutRender
+	Inherits@2: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -740,6 +777,7 @@ MUHALL:
 MUSTABLE:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
+	Inherits@2: ^2x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -781,6 +819,7 @@ drached:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
 	Building:
 		Footprint: xxx xxx xxx
 		BuildSounds: facbld1.aud
@@ -824,6 +863,7 @@ SCRPOWR:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@2: ^3x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 0
@@ -860,6 +900,7 @@ SCRADVPOWR:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 2
@@ -901,6 +942,7 @@ SCRRAX:
 	Inherits: ^Barracks
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 30
@@ -924,6 +966,7 @@ SCRPROC:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
 	Valued:
 		Cost: 1500
 	CustomSellValue:
@@ -950,16 +993,26 @@ SCRPROC:
 	Explodes@1:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
+	Refinery:
 	DockManager:
 		ExternalDocks: true
-	Dock@0:
-		DockAngle: 160
+	Dock@2:
+		DockAngle: 64
+		DockOffset: 3,2
+		Order: 2
+		WaitingPlace: false
+	Dock@3:
+		DockAngle: 64
 		DockOffset: 3,1
-		ExitOffset: 3,1
-		Order: 0
+		Order: 3
+		WaitingPlace: true
+	Dock@4:
+		DockAngle: 64
+		DockOffset: 3,0
+		Order: 4
+		WaitingPlace: true
 	StoresResources:
-		PipColor: Green
-		PipCount: 15
+		PipCount: 17
 		Capacity: 1500
 	FreeActor:
 		Actor: SCRHARV
@@ -980,6 +1033,7 @@ SCRWEAP:
 	Inherits: ^Factory
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
 	Tooltip:
 		Name: Scrin Forge
 	ProvidesPrerequisite:
@@ -998,6 +1052,7 @@ SCRAIR:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1053,6 +1108,7 @@ SCRDEPOT:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -1093,6 +1149,7 @@ SCRRADR:
 	Inherits: ^Radar
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -1115,6 +1172,7 @@ SCRTECH:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
+	Inherits@2: ^2x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -1149,6 +1207,7 @@ SCRTECH:
 CABPOWR:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
+	Inherits@4: ^2x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 0
@@ -1190,6 +1249,7 @@ CABPOWR:
 CABCLAW:
 	Inherits: ^Barracks
 	Inherits@1: ^CabRender
+	Inherits@2: ^2x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 30
@@ -1207,6 +1267,7 @@ CABCLAW:
 
 CABPROC:
 	Inherits: PROC
+	Inherits@4: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
@@ -1241,6 +1302,7 @@ CABPROC:
 CABWEAP:
 	Inherits: ^Factory
 	Inherits@1: ^CabRender
+	Inherits@4: ^3x3Shape
 	Tooltip:
 		Name: C.A.B.A.L. War Factory
 	Buildable:
@@ -1257,6 +1319,7 @@ CABWEAP:
 CABAIR:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
+	Inherits@4: ^3x3Shape
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1307,6 +1370,7 @@ CABAIR:
 CABRADR:
 	Inherits: ^Radar
 	Inherits@1: ^CabRender
+	Inherits@4: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 90
@@ -1325,6 +1389,7 @@ CABRADR:
 CABGRINDER:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
+	Inherits@2: ^2x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 71
@@ -1357,6 +1422,7 @@ CABGRINDER:
 CABTECH:
 	Inherits: ^TechCenter
 	Inherits@1: ^CabRender
+	Inherits@2: ^3x2Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100

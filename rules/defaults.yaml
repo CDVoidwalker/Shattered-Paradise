@@ -20,11 +20,11 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Structure, Air, Defense
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, uilding, Structure, Air, Defense
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetAir:
@@ -38,11 +38,11 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, uilding, Structure, Defense
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, uilding, Structure, Defense
 		InvalidTargets: NoAutoTarget
 
 ^1x1Shape:
@@ -61,17 +61,35 @@
 
 ^2x2Shape:
 	HitShape:
+		UseOccupiedCellsOffsets: true
 		UseTargetableCellsOffsets: true
 		Type: Rectangle
 			TopLeft: -1024, -1024
 			BottomRight: 1024, 1024
 
+^2x3Shape:
+	HitShape:
+		UseOccupiedCellsOffsets: true
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1024, -1536
+			BottomRight: 1024, 1536
+
 ^3x2Shape:
 	HitShape:
+		UseOccupiedCellsOffsets: true
 		UseTargetableCellsOffsets: true
 		Type: Rectangle
 			TopLeft: -1536, -1024
 			BottomRight: 1536, 1024
+
+^3x3Shape:
+	HitShape:
+		UseOccupiedCellsOffsets: true
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -1536
+			BottomRight: 1536, 1536
 
 ^GainsExperience:
 #EXPERIENCE
@@ -594,8 +612,8 @@
 	ExplodeWeapon@smoke:
 		Weapon: SmokeShrapnel
 		RequiresCondition: smoketrail
-	WithColoredOverlay@Disabled:
-		Palette: disabled
+	# WithColoredOverlay@Disabled:
+		# Palette: disabled
 
 ^CivBuilding:
 	Inherits: ^BasicBuilding

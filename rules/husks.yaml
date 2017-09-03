@@ -82,7 +82,7 @@ GUARDIAN.Husk:
 	BodyOrientation:
 		QuantizedFacings: 32	
 	RenderSprites:
-		Image: guardian	
+		Image: guardian
 	-RenderVoxels:
 	-WithVoxelBody:
 	
@@ -198,10 +198,11 @@ WASP.Husk:
 		TurnSpeed: 5
 		Speed: 149
 	Selectable:
-		Bounds: 1,1	
+		Bounds: 1,1
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	WithShadow:
 	WithFacingSpriteBody:
-	-Cloak@CLOAKGENERATOR:
 	BodyOrientation:
 		QuantizedFacings: 32	
 	RenderSprites:
@@ -224,6 +225,7 @@ DEVOURER.Husk:
 	WithShadow:
 	WithFacingSpriteBody:
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	BodyOrientation:
 		QuantizedFacings: 32	
 	RenderSprites:
@@ -243,6 +245,7 @@ FIREFLY.Husk:
 	WithShadow:
 	WithFacingSpriteBody:
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	BodyOrientation:
 		QuantizedFacings: 32			
 	Aircraft:
@@ -293,8 +296,7 @@ STORMRIDER.Husk:
 
 WYVERM2.Husk:		
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender	
-	-Cloak@CLOAKGENERATOR:
+	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Destroyer
 	Selectable:
@@ -312,13 +314,16 @@ WYVERM2.Husk:
 		Image: wyverm2
 	-RenderVoxels:
 	-WithVoxelBody:
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
 
 GLYDER1.Husk:		
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender	
+	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Destroyer
 	Selectable:
@@ -343,6 +348,7 @@ DRACHE.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Drache
 	FallsToEarth:
@@ -365,6 +371,7 @@ SCRDESTROYER.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender	
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Destroyer
 	FallsToEarth:
@@ -387,6 +394,7 @@ SCRBATTLESHIP.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Battlecruiser
 	FallsToEarth:
@@ -409,6 +417,7 @@ MOTHERSHIP.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Mothership
 	FallsToEarth:
@@ -429,8 +438,9 @@ MOTHERSHIP.Husk:
 
 SCRTRANS.Husk:		
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender	
+	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Scrin Transport
 	FallsToEarth:
@@ -451,8 +461,9 @@ SCRTRANS.Husk:
 
 SCRCOUNCIL.Husk:		
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender	
+	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Scrin Council
 	Selectable:

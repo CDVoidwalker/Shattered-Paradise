@@ -22,7 +22,7 @@ Player:
 		Type: Vehicle
 		LowPowerSlowdown: 3
 		QueuedAudio: Building
-		BuildDurationModifier: 120
+		BuildDurationModifier: 100
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 85, 75, 65, 55, 45, 37, 30
 	ClassicProductionQueue@Infantry:
@@ -34,7 +34,7 @@ Player:
 		BuildTimeSpeedReduction: 100, 93, 86, 79, 72, 65, 58, 51
 	ClassicProductionQueue@Air:
 		Type: Air
-		BuildDurationModifier: 120
+		BuildDurationModifier: 110
 		LowPowerSlowdown: 3
 		QueuedAudio: Building
 		SpeedUp: True
