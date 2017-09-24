@@ -519,7 +519,7 @@ BIKE:
 	AttackSuicides:
 
 SAPC:
-	Inherits: ^VoxelTank
+	Inherits: ^VoxelVehicle
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -820,7 +820,7 @@ LIMPED:
 	Hovers:
 
 SGEN:
-	Inherits: ^VoxelTank
+	Inherits: ^VoxelVehicle
 	Inherits@2: ^NodCloakHealing
 	Valued:
 		Cost: 1100
@@ -844,8 +844,7 @@ SGEN:
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
-
-
+	Carryable:
 
 ################################################
 # Mutant

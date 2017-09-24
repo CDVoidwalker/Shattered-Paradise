@@ -1231,8 +1231,8 @@ PDRONE:
 			EnergyDeath: 6
 
 SWARMLING:
-	Inherits: ^CabalDroneInfantry
-	Inherits@1:	^Engineer
+	Inherits: SHAPESHIFTER
+	Inherits@2: ^CabRender
 	Tooltip:
 		Name: Swarmling
 		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
@@ -1243,14 +1243,8 @@ SWARMLING:
 	DeliversCash
 		Payload: 275
 		Voice: Move
-	Voiced:
-		VoiceSet: Engineer
-	Mobile:
-		Speed: 60
-	Health:
-		HP: 8000
-	-AutoTarget:
-	-GainsExperience:
+	Minelayer:
+		Mine: mumine
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1337,6 +1331,7 @@ REAPERCAB:
 		Cost: 1300
 	Tooltip:
 		Name: Cyborg Reaper
+	DockClient:
 	Buildable:
 		Queue: Infantry
 		SharesCell: false
