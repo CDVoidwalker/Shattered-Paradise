@@ -47,6 +47,12 @@ add the remaining FS assets.
 Scrin ship husks.
 add floaters.
 Remove health bars on some props.
+remove playable and conquest maps
+
+
+Gatting tank for muts
+ifv for muts
+horde infantry for muts
 
 Update Fix:
 	Stat Changes.

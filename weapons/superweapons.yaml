@@ -458,9 +458,9 @@ EnergyAssimilator:
 		Delay: 15
 
 MeteorSpawner:
-	ReloadDelay: 6
+	ReloadDelay: 200
 	Burst: 6
-	BurstDelay: 35
+	BurstDelay: 25
 	Range: 999c0
 	Projectile: BulletAS
 		Speed: 9999
@@ -558,7 +558,6 @@ MeteorRainFast:
 	Inherits: MeteorRainNormal
 	Projectile: BulletAS
 		Speed: 450
-
 
 ##########################################################
 # CABAL

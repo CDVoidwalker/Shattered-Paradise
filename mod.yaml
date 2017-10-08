@@ -13,6 +13,7 @@ Packages:
 	./mods/common: common
 	$d2k: d2k
 	$sp: sp
+	$ts: ts
 	$as: as
 	$yupgi_alert: yupgi_alert
 # Tiberian Sun
@@ -155,7 +156,7 @@ ModelSequences:
 	sp|sequences/voxelsSP.yaml
 
 TileSets:
-	sp|tilesets/temperatefs.yaml
+	sp|tilesets/temperate.yaml
 	sp|tilesets/snow.yaml
 
 MapGrid:
@@ -184,18 +185,18 @@ ChromeLayout:
 	common|chrome/ingame-chat.yaml
 	common|chrome/ingame-fmvplayer.yaml
 	common|chrome/ingame-menu.yaml
-	sp|chrome/ingame-info.yaml
+	ts|chrome/ingame-info.yaml
 	common|chrome/ingame-infoscripterror.yaml
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
-	common|chrome/ingame-observer.yaml
-	sp|chrome/ingame-observerstats.yaml
-	sp|chrome/ingame-player.yaml
+	ts|chrome/ingame-observer.yaml
+	ts|chrome/ingame-observerstats.yaml
+	ts|chrome/ingame-player.yaml
 	common|chrome/ingame-perf.yaml
-	sp|chrome/ingame-debug.yaml
+	ts|chrome/ingame-debug.yaml
 	common|chrome/mainmenu.yaml
-	sp|chrome/mainmenu-prerelease-notification.yaml
+	ts|chrome/mainmenu-prerelease-notification.yaml
 	common|chrome/settings.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
@@ -205,7 +206,7 @@ ChromeLayout:
 	common|chrome/lobby-music.yaml
 	common|chrome/lobby-kickdialogs.yaml
 	common|chrome/lobby-globalchat.yaml
-	sp|chrome/color-picker.yaml
+	ts|chrome/color-picker.yaml
 	common|chrome/map-chooser.yaml
 	common|chrome/multiplayer.yaml
 	common|chrome/multiplayer-browser.yaml
@@ -214,13 +215,13 @@ ChromeLayout:
 	common|chrome/multiplayer-globalchat.yaml
 	common|chrome/connection.yaml
 	common|chrome/replaybrowser.yaml
-	sp|chrome/dropdowns.yaml
+	ts|chrome/dropdowns.yaml
 	common|chrome/musicplayer.yaml
 	common|chrome/tooltips.yaml
 	common|chrome/assetbrowser.yaml
 	common|chrome/missionbrowser.yaml
 	common|chrome/confirmation-dialogs.yaml
-	sp|chrome/editor.yaml
+	common|chrome/editor.yaml
 
 Voices:
 	sp|audio/voices.yaml

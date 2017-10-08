@@ -103,7 +103,7 @@
 		Explosions: jxgrymed2b, jxgrymed2, jxgrymed1b, jxgrymed1
 		ExplosionPalette: gensmkexploj
 		ImpactSound: expnew13.aud
-		InValidTargets: Water
+		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosion: small_watersplash
 		ExplosionPalette: player

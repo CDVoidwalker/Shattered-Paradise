@@ -208,6 +208,7 @@ GUARDIAN:
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 65000
 	Armor:
@@ -229,7 +230,6 @@ GUARDIAN:
 		SelfReloads: true
 		SelfReloadDelay: 20
 		PipTypeEmpty: AmmoEmpty
-		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	AutoTarget:
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -712,7 +712,7 @@ MUTQUEEN:
 	Inherits@1: ^SpriteActor
 	Inherits@2: ^MutRender
 	Valued:
-		Cost: 1000
+		Cost: 1300
 	Tooltip:
 		Name: Seeder Queen
 	Buildable:
@@ -736,7 +736,7 @@ MUTQUEEN:
 	RevealsShroud:
 		Range: 6c0
 	Health:
-		HP: 12500
+		HP: 17500
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithShadow:
@@ -752,11 +752,19 @@ MUTQUEEN:
 		DeployAnimation: run
 		Facing: 160
 		AllowedTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		CanUndeploy: False
+	SelfHealing@deployed:
+		PercentageStep: -2
+		Step: 0
+		Delay: 50
+		DamageCooldown: 200
+		RequiresCondition: deployed
+		HealIfBelow: 101
 	ExplodeWeapon:
 		Weapon: SpawnEggShrapnel
 		RequiresCondition: deployed
 	SpeedMultiplier:
-		Modifier: 30
+		Modifier: 0
 		RequiresCondition: deployed
 
 MUTBIRD:
@@ -937,11 +945,11 @@ SCRGLYDER1:
 		Cost: 700
 	Tooltip:
 		Name: Glider
-	Buildable:
-		Description: Specialized weapons platform it can vary from a ground version and\naerial version. The aerial version attacks ground units and vice versa.\n\n Strong vs Armor.\n  Weak vs Light units.
-		Queue: Air
-		BuildPaletteOrder: 20
-		Prerequisites: ~scrair
+	# Buildable:
+		# Description: Specialized weapons platform it can vary from a ground version and\naerial version. The aerial version attacks ground units and vice versa.\n\n Strong vs Armor.\n  Weak vs Light units.
+		# Queue: Air
+		# BuildPaletteOrder: 20
+		# Prerequisites: ~scrair
 	Voiced:
 		VoiceSet: Limpet
 	Selectable:
@@ -1296,8 +1304,6 @@ STORMRIDERSPAWN:
 	-ActorLostNotification:
 	-AppearsOnRadar:
 	-RenderVoxels:
-	SpawnActorOnDeath:
-		Actor: STORMRIDERRETURN
 	RenderSprites:
 		Image: wyverm2
 	AutoTarget:

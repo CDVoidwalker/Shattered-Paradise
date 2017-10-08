@@ -129,6 +129,7 @@ APC:
 
 HVR:
 	Inherits: ^VoxelVehicle
+	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^HoverVehicle
 	Inherits@3: ^BasicStealthDetection
 	Valued:
@@ -199,9 +200,54 @@ JUGGER:
 	Selectable:
 		Bounds: 30, 35, 0, -8
 
+G4TNK:
+	Inherits: ^VoxelTank
+	Inherits@2: ^IncompleteSelfHeal
+	Valued:
+		Cost: 1700
+	Tooltip:
+		Name: Mammoth Tank
+	Buildable:
+		Queue: Vehicle
+		Description: Armored Vehicle with a twin barrels and rocket launcherrs.\nAuto repairs up to half health.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry.
+		BuildPaletteOrder: 7
+		Prerequisites: ~gaweap, gatech
+	Mobile:
+		Speed: 56
+		TurnSpeed: 5
+		Crushes: wall, crate, infantry
+	Health:
+		HP: 60000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 3
+	Armament@PRIMARY:
+		Weapon: 4tnkgun
+		LocalOffset: 707,85,509, 707,-120,509
+		MuzzleSequence: muzzle
+	Armament@SECONDARY:
+		Weapon: MammothTusk
+		LocalOffset: 0,200,410, 0,-200,410
+	AttackTurreted:
+		Voice: Attack
+	AutoTarget:
+	SelfHealing:
+		PercentageStep: 1
+		Step: 0
+		HealIfBelow: 50
+		DamageCooldown: 200
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+	RenderVoxels:
+		Scale: 1
+
 SONIC:
 	Inherits: ^VoxelTank
 	Inherits@2: ^IncompleteSelfHeal
+	Inherits@3:	^Ra2vxl
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -211,6 +257,7 @@ SONIC:
 		Description: Armored Vehicle with a long range sonic cannon.\nResistant to sonic damage. Auto repairs up to half health.\n\n  Strong vs Ground units.\n  Weak vs Aircraft.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
+		BuildLimit: 3
 	-RejectsOrders@berserk:
 	Mobile:
 		TurnSpeed: 4
@@ -224,14 +271,16 @@ SONIC:
 		Type: Disruptor
 	Armament:
 		Weapon: SonicZap
-		LocalOffset: -50,0,410
+		LocalOffset: 0,0,800
 	AttackTurreted:
 		Voice: Attack
 	Turreted:
 		TurnSpeed: 4
-		Offset: -170,0,0
+		Offset: -200,0,500
 	AutoTarget:
 	WithVoxelTurret:
+	RenderVoxels:
+		Scale: 0.85
 
 HMEC:
 	Inherits: ^VoxelTank
@@ -240,12 +289,12 @@ HMEC:
 		Cost: 2000
 	Tooltip:
 		Name: Mammoth Mk. II
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 8
-		Prerequisites: ~gaweap, gatech
-		Description: Slow Heavy Walker armed with dual railguns.\n\n  Strong vs Ground Units.\n  Weak vs  Aircraft\nMaximum 1 can be built.
-		BuildLimit: 1
+	# Buildable:
+		# Queue: Vehicle
+		# BuildPaletteOrder: 8
+		# Prerequisites: ~gaweap, gatech
+		# Description: Slow Heavy Walker armed with dual railguns.\n\n  Strong vs Ground Units.\n  Weak vs  Aircraft\nMaximum 1 can be built.
+		# BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
 		Speed: 50
@@ -281,6 +330,7 @@ HMEC:
 ################################################
 BGGY:
 	Inherits: ^VoxelVehicle
+	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^NodCloakHealing
 	Inherits@3: ^BasicStealthDetection
 	Valued:
@@ -875,10 +925,10 @@ WOLF:
 		Weapon: BullAcid
 		LocalOffset: 128,0,400
 	Armament@Secondary:
-		Weapon: BullBuff
+		Weapon: BullAcidSpawn
 		LocalOffset: 0,0,500
 	Armament@Thertiary:
-		Weapon: BullShard
+		Weapon: BullBuff
 		LocalOffset: 0,0,500
 	Passenger:
 		CargoType: Vehicle
@@ -987,11 +1037,11 @@ TRIKE:
 		Cost: 250
 	Tooltip:
 		Name: Trike
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 25
-		Description: Light vehicle with room for a gunner, the vehicle will,\ninherit the weapon of whoever is inside.\n\n  Strong vs Structures, Infantry.\n  Weak vs Vehicles, Aircraft, Base defences.
-		Prerequisites: ~muweap
+	# Buildable:
+		# Queue: Vehicle
+		# BuildPaletteOrder: 25
+		# Description: Light vehicle with room for a gunner, the vehicle will,\ninherit the weapon of whoever is inside.\n\n  Strong vs Structures, Infantry.\n  Weak vs Vehicles, Aircraft, Base defences.
+		# Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 9
 		Speed: 110
@@ -1020,16 +1070,94 @@ TRIKE:
 		LightDiffuseColor: 0.6, 0.6, 0.6
 	AutoTarget:
 
+
+STRUCK:
+	Inherits: ^VoxelTank
+	Inherits@1:	^Ra2vxl
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Battle Bus
+	Buildable:
+		Description: Medium transport, can carry up to four soldiers which can fire from inside.\n  Strength varies depending on the infantry it carries.\n  Weak vs Aircraft.
+		Queue: Vehicle
+		BuildPaletteOrder: 25
+		Prerequisites: ~muweap
+	Mobile:
+		TurnSpeed: 9
+		Speed: 110
+		Crushes: wall, crate, infantry
+	Health:
+		HP: 25000
+	Armor:
+		Type: Heavy
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
+	Cargo:
+		Types: Infantry
+		MaxWeight: 4
+		PipCount: 4
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+		InitialUnits: mutfiend
+	RenderVoxels:
+		Scale: 0.8
+		LightAmbientColor: 0.4, 0.4, 0.4
+		LightDiffuseColor: 0.6, 0.6, 0.6
+	AutoTarget:
+	AttackGarrisoned:
+		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+		PortYaws: 0, 176, 341, 512, 682, 853#10, 10, 10, 10, 10, 10
+		PortCones: 1086, 86, 86, 86, 86, 86#10, 10, 10, 10, 10,
+
+STRUCKFULL:
+	Inherits: STRUCK
+	-Buildable:
+	Cargo:
+		InitialUnits: mutfiend, mutfiend, e3, e3
+	RenderVoxels:
+		Image: struck
+
+2STUG3:
+	Inherits: ^VoxelTank
+	Inherits@1:	^Ra2vxl
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Tank Destroyer
+	Buildable:
+		Queue: Vehicle
+		Description: Tank designed specifically to combat vehicles.\n\n Strong vs Vehicles\nWeak vs Everything else.
+		BuildPaletteOrder: 26
+		Prerequisites: ~muweap, muradr
+	Mobile:
+		TurnSpeed: 8
+		Speed: 60
+		Crushes: crate
+	Health:
+		HP: 27500
+	RevealsShroud:
+		Range: 7c0
+	Armament:
+		Weapon: StuggCannon
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	AutoTarget:
+	WithMuzzleOverlay:
+	RenderVoxels:
+		Scale: 0.8
+
 MUTQUAD:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
 	Valued:
-		Cost: 175
+		Cost: 675
 	Tooltip:
 		Name: Quad Cannon
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 26
+		BuildPaletteOrder: 27
 		Description: Heavy armored truck equiped with a quad cannon.\n\n  Strong vs Infantry, Aircraft\n  Weak vs Vehicles.
 		Prerequisites: ~muweap
 	Mobile:
@@ -1076,54 +1204,6 @@ MUTQUAD:
 		Offset: -300,0,0
 	AutoTarget:
 	WithVoxelTurret:
-
-STRUCK:
-	Inherits: ^VoxelTank
-	Inherits@1:	^Ra2vxl
-	Valued:
-		Cost: 600
-	Tooltip:
-		Name: Battle Bus
-	Buildable:
-		Description: Medium transport, can carry up to four soldiers which can fire from inside.\n  Strength varies depending on the infantry it carries.\n  Weak vs Aircraft.
-		Queue: Vehicle
-		BuildPaletteOrder: 27
-		Prerequisites: ~muweap, muradr
-	Mobile:
-		TurnSpeed: 7
-		Speed: 70
-		Crushes: wall, crate, infantry
-	Health:
-		HP: 45000
-	Armor:
-		Type: Heavy
-	Voiced:
-		VoiceSet: Trike
-		Volume: 3
-	Cargo:
-		Types: Infantry
-		MaxWeight: 4
-		PipCount: 4
-		UnloadVoice: Unload
-		LoadingCondition: notmobile
-		InitialUnits: mutfiend
-	RenderVoxels:
-		Scale: 0.8
-		LightAmbientColor: 0.4, 0.4, 0.4
-		LightDiffuseColor: 0.6, 0.6, 0.6
-	AutoTarget:
-	AttackGarrisoned:
-		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
-		PortYaws: 0, 176, 341, 512, 682, 853#10, 10, 10, 10, 10, 10
-		PortCones: 1086, 86, 86, 86, 86, 86#10, 10, 10, 10, 10,
-
-STRUCKFULL:
-	Inherits: STRUCK
-	-Buildable:
-	Cargo:
-		InitialUnits: mutfiend, mutfiend, e3, e3
-	RenderVoxels:
-		Image: struck
 
 MUTTANK:
 	Inherits: ^VoxelTank
@@ -1185,9 +1265,6 @@ MLRS:
 		Scale: 1
 	Armament:
 		Weapon: tiberianrocket
-		LocalOffset: 400,100,900, 400,-100,900
-	Armament@2:
-		Weapon: tiberianrocket2
 		LocalOffset: 400,100,900, 400,-100,900
 	AttackTurreted:
 		Voice: Attack
@@ -1310,6 +1387,7 @@ SCRSCORPION:
 
 SCRDRONEC:
 	Inherits: ^ScrinVehicle
+	Inherits@1: ^AutoTargetGround
 	Inherits@1: ^HoverVehicle
 	Inherits@2: ^PermanentSelfHeal
 	Buildable:
@@ -1384,6 +1462,7 @@ SCRDRONEC:
 SCRGLYDER2:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
+	Inherits@2: ^AutoTargetGround
 	Inherits@3: ^BasicStealthDetection
 	Buildable:
 		Queue: Vehicle
@@ -1398,8 +1477,8 @@ SCRGLYDER2:
 		HP: 22500
 	Mobile:
 		Speed: 91
-	Transforms:
-		IntoActor: scrglyder1
+	# Transforms:
+		# IntoActor: scrglyder1
 	-DamagedByTerrain@ScrinDamage:
 	Armament:
 		Weapon: Glyder2Cannon
@@ -1417,6 +1496,7 @@ SCRGLYDER2:
 SCRMOBMINE:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
+	Inherits@2: ^AutoTargetGround
 	Inherits@3: ^BasicStealthDetection
 	Buildable:
 		Queue: Vehicle
@@ -1452,6 +1532,7 @@ SCRMOBMINE:
 SCRMBT:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
+	Inherits@2: ^AutoTargetGround
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 32
@@ -1616,7 +1697,7 @@ DINO:
 	Voiced:
 		VoiceSet: Limpet
 	Health:
-		HP: 30000
+		HP: 22500
 	BodyOrientation:
 		QuantizedFacings: 32
 	WithMuzzleOverlay:

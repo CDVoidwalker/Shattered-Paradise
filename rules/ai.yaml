@@ -219,6 +219,7 @@ Player:
 #T2 Vehicle#
 			hvr: 8
 			ttnk: 8
+			2stug3: 8
 			subtank: 8
 			mutquad: 8
 			wolf: 8
@@ -239,7 +240,7 @@ Player:
 #T1 Air#
 			wasp: 10
 			stormrider: 5
-			scrglyder2: 5
+			# scrglyder2: 5
 #T2 Air#
 			scrdestroyer: 5
 #T3 Air#
@@ -295,6 +296,7 @@ Player:
 			hvr: 9%
 			ttnk: 9%
 			subtank: 9%
+			2stug3: 8%
 			mutquad: 9%
 			wolf: 9%
 			grinder: 9%
@@ -314,7 +316,7 @@ Player:
 #T1 Air#
 			wasp: 7%
 			stormrider: 7%
-			scrglyder2: 5%
+			# scrglyder2: 5%
 #T2 Air#
 			scrdestroyer: 3%
 #T3 Air#
@@ -540,6 +542,7 @@ Player:
 			subtank: 2
 			mutquad: 2
 			wolf: 2
+			2stug3: 2
 			grinder: 2
 			scrmbt: 2
 			scrrecharger: 2
@@ -557,7 +560,7 @@ Player:
 #T1 Air#
 			wasp: 3
 			stormrider: 1
-			scrglyder2: 1
+			# scrglyder2: 1
 #T2 Air#
 			scrdestroyer: 1
 #T3 Air#
@@ -602,6 +605,7 @@ Player:
 			smech: 7%
 			bggy: 5%
 			trike: 5%
+			2stug3: 2%
 			struck: 7%
 			dino: 5%
 			centurion: 7%
@@ -630,7 +634,7 @@ Player:
 #T1 Air#
 			wasp: 7%
 			stormrider: 7%
-			scrglyder2: 5%
+			# scrglyder2: 5%
 #T2 Air#
 			scrdestroyer: 3%
 #T3 Air#

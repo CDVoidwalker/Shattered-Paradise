@@ -61,7 +61,7 @@ ColossiTesla:
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: 7000
+		Damage: 10000
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
@@ -182,7 +182,7 @@ FloatGlaive:
 		ValidTargets: Infantry, Vehicle, Building, Ground, Wall, Air, AirHit
 	Warhead@Acid: GrantExternalCondition
 		Range: 96
-		Duration: 200
+		Duration: 300
 		Condition: BugPoison
 
 PoisonGlaive:
@@ -195,7 +195,7 @@ PoisonGlaive:
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
-		AimTargetStances: Ally, Neutral, Enemy
+		AimTargetStances: Ally, Neutral
 		ValidTargets: Infantry, Vehicle, Ground, Wall, Air, AirHit
 
 FloatGlaive10:

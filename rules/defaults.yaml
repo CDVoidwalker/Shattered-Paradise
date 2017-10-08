@@ -7,6 +7,8 @@
 	ScriptTriggers:
 	ConditionManager:
 	RenderDebugState:
+	EditorTilesetFilter:
+		Categories: Other
 
 ^SpriteActor:
 	BodyOrientation:
@@ -24,7 +26,7 @@
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, uilding, Structure, Air, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Structure, Air, Defense
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetAir:
@@ -38,11 +40,11 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, uilding, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Building, Structure, Defense
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, uilding, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Building, Structure, Defense
 		InvalidTargets: NoAutoTarget
 
 ^1x1Shape:
@@ -338,7 +340,7 @@
 	SelfHealing@BugPoison:
 		PercentageStep: -1
 		Step: 0
-		Delay: 200
+		Delay: 150
 		HealIfBelow: 101
 		RequiresCondition: BugPoison
 	ExternalCondition@BugPoison:
@@ -478,7 +480,6 @@
 	Inherits@1: ^HealthPercentageFirepowerMultiplier
 	Inherits@2: ^SeekerTracker
 	Inherits@3: ^WolfBuffs
-	Inherits@4: ^BugPoison
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^WebDisable
 	Inherits@7: ^TemplarDebuff
@@ -523,6 +524,8 @@
 		Priority: 3
 	Valued:
 		Cost: 300
+	Armor@Building:
+		Type: Structure
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack
 	Building:
@@ -561,6 +564,8 @@
 		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@ScrinEssence:
 		Actor: SCRINESSENCESMALL
+	EditorTilesetFilter:
+		Categories: Civ Building
 
 ^Building:
 	Inherits@1: ^BasicBuilding
@@ -614,6 +619,8 @@
 		RequiresCondition: smoketrail
 	# WithColoredOverlay@Disabled:
 		# Palette: disabled
+	EditorTilesetFilter:
+		Categories: Buildable Structure
 
 ^CivBuilding:
 	Inherits: ^BasicBuilding
@@ -632,6 +639,8 @@
 		Weapons: LargeDebris
 		Pieces: 3, 7
 		Range: 2c0, 5c0
+	EditorTilesetFilter:
+		Categories: Civilian Structure
 
 ^TechBuilding:
 	Inherits: ^CivBuilding
@@ -642,6 +651,8 @@
 		CaptureThreshold: 100
 	RenderSprites:
 		-Palette: silo
+	EditorTilesetFilter:
+		Categories: Tech Structure
 
 ^CivBillboard:
 	Inherits: ^CivBuilding
@@ -656,6 +667,8 @@
 		HP: 40000
 	EditorTilesetFilter:
 		RequireTilesets: TEMPERATE
+	EditorTilesetFilter:
+		Categories: Billboards
 
 ^Crate:
 	HiddenUnderFog:
@@ -688,6 +701,7 @@
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	TemporaryOwnerManager:
+	DockClient:
 	Health:
 		HP: 5000
 		Shape: Circle
@@ -860,6 +874,8 @@
 	DeathSounds@ZAPPED:
 		Voice: Zapped
 		DeathTypes: EnergyDeath
+	EditorTilesetFilter:
+		Categories: Infantry
 
 ^Soldier:
 	Inherits: ^Infantry
@@ -1246,6 +1262,8 @@
 		Pieces: 3, 7
 		Range: 2c0, 5c0
 	Carryable:
+	EditorTilesetFilter:
+		Categories: Vehicle
 
 ^Tank:
 	Inherits: ^Vehicle
@@ -1406,6 +1424,8 @@
 		HealIfBelow: 101
 	ExternalCondition@AircraftAutoRepair:
 		Condition: AircraftAutoRepair
+	EditorTilesetFilter:
+		Categories: Aircraft
 
 ^Helicopter:
 	Inherits: ^Aircraft
@@ -1524,6 +1544,8 @@
 		ResourceType: Tiberium
 		Interval: 75
 	WithIdleAnimation:
+	EditorTilesetFilter:
+		Categories: Blossom Tree
 
 ^Tree:
 	Inherits@1: ^SpriteActor
@@ -1539,6 +1561,8 @@
 		Terrain: Tree
 	Tooltip:
 		Name: Tree
+	EditorTilesetFilter:
+		Categories: Tree
 
 ^Rock:
 	Inherits@1: ^SpriteActor
@@ -1554,6 +1578,8 @@
 		Terrain: Rock
 	Tooltip:
 		Name: Rock
+	EditorTilesetFilter:
+		Categories: Rock and Roll
 
 ^Decoration:
 	Inherits@1: ^SpriteActor
@@ -1564,6 +1590,8 @@
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
+	EditorTilesetFilter:
+		Categories: Misc Deco
 
 ^Box:
 	Inherits: ^Decoration
@@ -1582,6 +1610,7 @@
 
 ^Defense:
 	Inherits: ^Building
+	Inherits@1: ^AutoTargetAll
 	-GivesBuildableArea:
 	CanPowerDown:
 		IndicatorPalette: mouse
@@ -1598,6 +1627,8 @@
 		Range: 5c0
 	Armor:
 		Type: Heavy
+	EditorTilesetFilter:
+		Categories: Defence
 
 ^AntiAir:
 	Inherits: ^Defense
@@ -1644,6 +1675,8 @@
 	Guardable:
 	HiddenUnderFog:
 	ActorLostNotification:
+	EditorTilesetFilter:
+		Categories: Deployed Vehicle
 
 ^Train:
 	Inherits@1: ^EmpDisableMobile
@@ -1701,6 +1734,8 @@
 		Weapons: SmallDebris
 		Pieces: 3, 7
 		Range: 2c0, 5c0
+	EditorTilesetFilter:
+		Categories: Trains
 
 ^TerrainOverlay:
 	AlwaysVisible:
@@ -1760,6 +1795,8 @@
 	Health:
 		Shape: Circle
 			Radius: 363
+	EditorTilesetFilter:
+		Categories: Defence
 
 ^Gate:
 	Inherits: ^Building
@@ -1790,6 +1827,8 @@
 		ClosingSound: gatedwn1.aud
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
 		BlocksProjectilesHeight: 640
+	EditorTilesetFilter:
+		Categories: Defence
 
 ^Gate_A:
 	Inherits: ^Gate

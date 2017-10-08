@@ -489,6 +489,7 @@ STALKERDUMMY:
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
+	Inherits@1: ^AutoTargetGround
 	SelfHealing:
 		PercentageStep: -50
 		Step: 0
@@ -501,7 +502,7 @@ SCRINESSENCESMALL:
 	Health:
 		HP: 10
 		NotifyAppliedDamage: False
-	AttackFrontal:
+	AttackTurreted:
 	Turreted:
 		TurnSpeed: 99
 	AutoTarget:

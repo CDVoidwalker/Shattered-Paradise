@@ -620,6 +620,10 @@ trike:
 	Inherits: ^EmpOverlay
 	icon: trikeicon
 
+2stug3:
+	Inherits: ^EmpOverlay
+	icon: stugicon
+
 struck:
 	Inherits: ^EmpOverlay
 	icon: battlebusicon

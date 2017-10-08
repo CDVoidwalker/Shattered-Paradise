@@ -653,8 +653,6 @@ MUPROC:
 		DockOffset: 3,1
 	FreeActor:
 		SpawnOffset: 3,1
-	FreeActor@1:
-		SpawnOffset: 3,1
 	RenderSprites:
 		PlayerPalette: playermut
 		Image: muproc
@@ -1018,10 +1016,6 @@ SCRPROC:
 		Actor: SCRHARV
 		SpawnOffset: 3,1
 		Facing: 160
-	FreeActor@1:
-		Actor: SCRHARV
-		SpawnOffset: 3,1
-		Facing: 160
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
@@ -1059,7 +1053,7 @@ SCRAIR:
 		Name: Stargate
 	Buildable:
 		BuildPaletteOrder: 60
-		Description: Warps in warships from the fleet.
+		Description: Warps in warships from a nomad galaxy.
 		Queue: Building
 		Prerequisites: scrproc, scrradr, ~structures.scr
 	Building:
@@ -1109,6 +1103,7 @@ SCRDEPOT:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x3Shape
+	DockManager:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 100
@@ -1281,9 +1276,6 @@ CABPROC:
 	TiberianSunRefinery:
 		DockOffset: 3,1
 	FreeActor:
-		SpawnOffset: 3,1
-		Actor: CABHARV
-	FreeActor@1:
 		SpawnOffset: 3,1
 		Actor: CABHARV
 	RenderSprites:

@@ -363,7 +363,7 @@ VISC_LRG_SCRIN:
 ZOMBIE:
 	Inherits: ^Mutant
 	Tooltip:
-		Name: Zombie
+		Name: Haunt
 	-GainsExperience:		
 	Health:
 		HP: 7500

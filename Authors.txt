@@ -1,4 +1,4 @@
-Shattered Paradise, a mod for OpenRA made by Alfredo Brandau (Nolt).
+	Shattered Paradise, a mod for OpenRA made by Alfredo Brandau (Nolt).
 
 #Special Thanks
 
@@ -45,7 +45,8 @@ Lin Kuei Ominae	: Tripod shp (Unit and Cameo).
 wirecase.com	: Guardian Platform model.				
 Hassan_2030	: Grinder vxl.
 Muldrake	: Twilight Mammoth Tank
-Jah		: Storm Rider vxl.				
+Jah		: Storm Rider vxl.	
+KALAPS S8 	: Forgotten Tank Destroyer			
 Sane Disruption	: Forgotten MRLS vxl.
 HG_Scipción	: Scrin powerplant and Cabal refinery model.
 Orac		: Forgotten Trike vxl.
@@ -63,9 +64,6 @@ soundpacks.com	: Various sound effects.
 
 #Maps This spot is only used for missions as you can't see who made each of them
 #where as you can see who made each map on the map selection menu.
-
-Abc013		: Scrin mission 01
-abcdefg30	: Scrin mission 01
 
 #Voice Cast
 

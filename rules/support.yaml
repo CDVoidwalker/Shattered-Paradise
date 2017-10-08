@@ -1342,7 +1342,6 @@ SCRSW1:
 		InitialFacing: 50
 	AttackTurreted:
 
-
 SCRSHIELD:
 	Inherits: ^Building
 	Inherits@2: ^ScrinRender

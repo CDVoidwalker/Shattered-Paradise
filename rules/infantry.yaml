@@ -105,7 +105,7 @@ GRENADIER:
 JUMPJET:
 	Inherits: ^Soldier
 	Valued:
-		Cost: 400
+		Cost: 350
 	Tooltip:
 		Name: Jumpjet Infantry
 	Voiced:
@@ -118,9 +118,6 @@ JUMPJET:
 		IntoActor: jumpjetair
 	Armament@1:
 		Weapon: JJCannon
-	Armament@2:
-		Weapon: JJRocket
-		LocalOffset: 0, 200, 500
 	Passenger:
 		PipType: Blue
 	AttackFrontal:
@@ -130,7 +127,7 @@ JUMPJETAIR:
 	Inherits: ^Aircraft
 	Inherits@2: ^AutoTargetAll
 	Valued:
-		Cost: 400
+		Cost: 350
 	Tooltip:
 		Name: Jumpjet Infantry
 		Description: Airborne Soldier, equipped with a chaingun and a rocket launcher rifle.\nnBug: Loses accumulated experience if ordered to alternate modes.\nStarts in airborne mode.\n\n  Strong vs Ground units.\n  Weak vs Aircraft, Anti air.
@@ -146,11 +143,10 @@ JUMPJETAIR:
 		HP: 13000
 	Armament@1:
 		Weapon: JJCannon
-	Armament@2:
-		Weapon: JJRocket
-		LocalOffset: 0, 200, 500
 	Transforms:
 		IntoActor: jumpjet
+	Armor:
+		Type: None
 	WithFacingSpriteBody@idle:
 		RequiresCondition: !JJBuff
 		Sequence: run
@@ -163,7 +159,7 @@ JUMPJETAIR:
 		RequiresCondition: cruising
 	Aircraft:
 		TurnSpeed: 10
-		Speed: 120
+		Speed: 130
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		CruiseAltitude: 2c500
@@ -1054,7 +1050,7 @@ BUG:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 30
-		Description: Special alien breed that focuses on infecting units. Infected\nunits take damage over time and spread their plague\nto other units that are nearby.\n\n  Strong vs Ground units.\n  Weak vs Aircraft.
+		Description: Special alien breed that focuses on infecting units. Infected\nunits take damage over time and spread their plague\nto other units that are nearby, only affects vehicles.\n\n  Strong vs Vehicles.\n  Weak vs Everything else.
 		Prerequisites: ~scrrax, scrtech
 	Valued:
 		Cost: 650
@@ -1234,7 +1230,7 @@ SWARMLING:
 	Inherits: SHAPESHIFTER
 	Inherits@2: ^CabRender
 	Tooltip:
-		Name: Swarmling
+		Name: Probe
 		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
 	Buildable:
 		Queue: Infantry

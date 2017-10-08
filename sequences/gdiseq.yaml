@@ -397,13 +397,16 @@ smech:
 		Facings: -8
 		ShadowStart: 240
 		Tick: 100
-
 	icon: smchicon
 
 hmec:
 	Inherits: ^EmpOverlay
 	icon: hmecicon
 
+g4tnk:
+	Inherits: ^EmpOverlay
+	icon: g4tnkicon
+	
 sonic:
 	Inherits: ^EmpOverlay
 	icon: soniicon

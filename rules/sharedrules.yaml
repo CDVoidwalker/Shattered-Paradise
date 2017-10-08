@@ -99,7 +99,7 @@ HARV:
 	Inherits: ^VoxelVehicle
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 500
+		Cost: 1000
 	Tooltip:
 		Name: Harvester
 		Description: Collects Tiberium for processing.\nIncompatible with scrin refineries.\nCan be sold if near a Service Depot.\n\n  Unarmed
@@ -134,7 +134,7 @@ HARV:
 		Speed: 85
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 37500
+		HP: 70000
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	Armor:
@@ -386,6 +386,7 @@ GACNST:
 
 PROC:
 	Inherits: ^Building
+	Inherits@4: ^3x3Shape
 	Valued:
 		Cost: 1500
 	CustomSellValue:
@@ -415,7 +416,7 @@ PROC:
 		DiscardExcessResources: false
 	DockManager:
 	Dock@2:
-		DockAngle: 64
+		DockAngle: 160
 		DockOffset: 2,1
 		Order: 2
 		WaitingPlace: false
@@ -443,10 +444,6 @@ PROC:
 	Explodes@1:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
-	FreeActor@1:
-		Actor: HARV
-		SpawnOffset: 3,1
-		Facing: 160
 	WithIdleOverlay@REDLIGHTS:
 		Sequence: idle-redlights
 	WithDockingOverlay@UNLOAD:
@@ -590,6 +587,13 @@ GADEPT:
 	WithRangeCircle:
 		Range: 4c0
 		Type: Repair
+	DockManager:
+		DeadlockDetectionEnabled: false
+		DockOnActor: true
+	Dock@center:
+		DockOffset: 1,1
+		ExitOffset: 2,0
+		Order: 1
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:

@@ -97,12 +97,12 @@ FiendShard2:
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
 		ExplosionPalette: apolgreenalpha
 		ImpactSound: expnew14.aud
-		InvalidImpactTypes: Water
+		InvalidTargets: Water
 
 SeerTesla:
 	ReloadDelay: 200
@@ -173,7 +173,7 @@ KnightAcid:
 		Explosions: tib_expsmall
 		ExplosionPalette: apolgreenalpha
 		ImpactSound: expnew14.aud
-		InvalidImpactTypes: Water
+		InvalidTargets: Water
 	Warhead@3Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 
@@ -305,11 +305,10 @@ BerserkerBlow:
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
 
 BullAcid:
-	Inherits: ^AcidWarhead
+	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 75
 	Range: 5c0
 	Report: flamtnk1.aud
-	ValidTargets: Infantry
 	Projectile: BulletAS
 		Speed: 100
 		Image: acidall32mini
@@ -319,36 +318,25 @@ BullAcid:
 	BurstDelay: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 500
+		Damage: 800
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
 		ExplosionPalette: apolgreenalpha
 		ImpactSound: expnew14.aud
-		InvalidImpactTypes: Water
+		InvalidTargets: Water
 	Warhead@3Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
 
-BullShard:
+BullAcidSpawn:
 	Inherits: BullAcid
-	Inherits: ^APWarhead
-	Burst: 3
-	Report: fiend2.aud
-	ValidTargets: Vehicle, Building
-	Projectile: BulletAS
-		Speed: 250
-		Image: tibshard
-		Inaccuracy: 384
-		Palette: apgreen
-		Shadow: True
-	Warhead@2Eff: CreateEffect
-		Explosions: tib_expsmall
-		ExplosionPalette: apgreen
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Damage: 1000
+	Burst: 1
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1
+		FallRate: 5000
+		Range: 3
 		
 BullBuff:
 	Inherits: ^NoDamage
@@ -430,7 +418,27 @@ LeonidCannon:
 		Spread: 128
 		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-		
+
+StuggCannon:
+	Inherits: ^APWarhead
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 75
+	Range: 6c0
+	Report: 120mmf.aud
+	Projectile: BulletAS
+		Speed: 1c512
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 7000
+		Versus:
+			None: 15
+			Wood: 25
+			Light: 100
+			Heavy: 200
+			Structure: 25
+			Concrete: 30
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
 QuadFire:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -478,7 +486,7 @@ TiberianRocket:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 225
 	Range: 12c0
-	Burst: 4
+	Burst: 8
 	Report: rketinf1.aud
 	ValidTargets: Ground
 	InvalidTargets: NeutralTibCritter
@@ -496,7 +504,7 @@ TiberianRocket:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
-		Damage: 2000
+		Damage: 4000
 		ValidTargets: Ground
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeathStrong
@@ -504,26 +512,14 @@ TiberianRocket:
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@6Eff: CreateEffect
 		Explosions: tib_expsmall
 		ImpactSound: expnew12.aud
-		InvalidImpactTypes: Water, Air, AirHit
-
-TiberianRocket2:
-	Inherits: TiberianRocket
-	Burst: 2
-	Delay: 20
-	BurstDelay: 20
-	Projectile: BulletAS
-		Inaccuracy: 2c0
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1
-		FallRate: 5000
-		Range: 3
+		InvalidTargets: Water, Air, AirHit
 
 MiniNuke:
 	ValidTargets: Ground, Water, Air
@@ -538,12 +534,12 @@ MiniNuke:
 	Warhead@2Eff: CreateEffect
 		Explosions: mininuke1, mininuke2
 		ImpactSound: expnew09.aud
-		InvalidImpactTypes: Water
+		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@10Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -615,7 +611,7 @@ FirestormExplo:
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@3Eff: CreateEffect
 		Explosions: fire3, fire4
-		InvalidImpactTypes: Water, Air, AirHit
+		InvalidTargets: Water, Air, AirHit
 
 GargoylVulcan:
 	Inherits: ^RifleWarhead
@@ -754,11 +750,11 @@ FlakFire:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
-		InvalidImpactTypes: Water, air, AirHit
+		InvalidTargets: Water, air, AirHit
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: ra
-		ValidImpactTypes: Water
+		ValidTargets: Water
 
 VentilatorPoison:
 	Inherits: ^RifleWarhead
