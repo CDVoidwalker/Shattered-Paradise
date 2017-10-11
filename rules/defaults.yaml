@@ -1799,6 +1799,8 @@
 			VerticalTopOffset: 768
 	EditorTilesetFilter:
 		Categories: Wall
+	Valued:
+		Cost: 50
 
 ^Gate:
 	Inherits: ^Building
