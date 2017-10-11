@@ -136,6 +136,7 @@ VeinholeExplosion:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@3Veinholekill: DestroyResource
 		Size: 30,0
+		ValidTargets: Veins
 
 ScrinUnitExplode:
 	Inherits: ^ExploDefaults

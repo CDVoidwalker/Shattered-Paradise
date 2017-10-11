@@ -1122,6 +1122,10 @@ SCRDEPOT:
 		HP: 50000
 	Armor:
 		Type: Wood
+	Dock@2:
+		DockAngle: 160
+		DockOffset: 2,1
+		Order: 2
 	RepairsUnits:
 		FinishRepairingNotification: UnitRepaired
 		HpPerStep: 2000

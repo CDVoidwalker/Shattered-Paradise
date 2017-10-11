@@ -116,7 +116,7 @@ TrooperRail:
 		Versus:
 			Concrete: 5
 	Warhead@emp: GrantExternalCondition
-		Range: 1c0
+		Range: 0c512
 		Duration: 30
 		Condition: notmobile
 	Warhead@emp2: GrantExternalCondition

@@ -132,26 +132,20 @@ IonScorch:
 	ReloadDelay: 1
 	Projectile: InstantExplode
 	ValidTargets: Ground, Air, IonSpawner
-	Warhead@1Dam_area: SpreadDamage
-		Spread: 250
-		Damage: 1200
-		Falloff: 100, 50, 25, 0
-		ValidTargets: Ground, Air
-		DamageTypes: SmallExplosionDeath
 	Warhead@2Eff_impact: CreateEffect
 		Explosions: ionscorch
 		ExplosionPalette: effectalpha
 		ImpactSound: ion1.aud
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 300
-		Damage: 1200
+		Damage: 3600
 		ValidTargets: IonSpawner
 		DamageTypes: SmallExplosionDeath
-	# Warhead@4op: FireShrapnel
-		# Weapon: SmallDebris
-		# Amount: 1
-		# AllowDirectHit: false
-		# ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+			None: 500
+			Wood: 100
+			Light: 50
+			Heavy: 25
+			Concrete: 5
 
 IonDrag:
 	ReloadDelay: 5

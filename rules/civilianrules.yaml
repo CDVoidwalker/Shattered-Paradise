@@ -192,6 +192,8 @@ TRATOS:
 	RevealsShroud:
 		Range: 4c0
 	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
 		AttackSequence: shoot
 
@@ -210,6 +212,8 @@ OXANNA:
 	RevealsShroud:
 		Range: 4c0
 	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
 		AttackSequence: shoot
 
@@ -228,6 +232,8 @@ SLAV:
 	RevealsShroud:
 		Range: 4c0
 	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
 	WithInfantryBody:
 		AttackSequence: shoot
 
@@ -2350,6 +2356,7 @@ WELL:
 
 BLOODDERRICK:
 	Inherits: ^TechBuilding
+	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Blood Derrick
 	Building:
@@ -2363,8 +2370,7 @@ BLOODDERRICK:
 		Weapon: TiberiumExplosion
 	RenderSprites:
 		PlayerPalette: playerscrin
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakscrin
+	-Cloak@CLOAKGENERATOR:
 	WithDeathAnimation:
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin

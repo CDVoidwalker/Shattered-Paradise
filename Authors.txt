@@ -40,6 +40,7 @@ Zoidzilla	: His template.
 Zero18		: Gargoil vxl,	Quad Cannon vxl, Basilisk vxl,	Leonid tank vxl, Hologram Projector vxl.	
 ApolloTD	: Gradient Colored Palettes, Explosion Packs,				
 Moder.U		: Falcon vxl, Battle Fortress vxl, Beam Cannon vxl.
+ErastusMercy	: Mammoth Tank and disruptor voxels.
 Super Joe	: Marine shp, Militant shp.			
 Lin Kuei Ominae	: Tripod shp (Unit and Cameo).
 wirecase.com	: Guardian Platform model.				

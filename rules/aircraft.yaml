@@ -612,7 +612,7 @@ MUTHELI:
 		Bounds: 30,24
 	Aircraft:
 		TurnSpeed: 7
-		Speed: 75
+		Speed: 85
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud

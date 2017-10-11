@@ -468,12 +468,7 @@ QuadFireAA:
 	Report: cygun1.aud
 	ValidTargets: Air
 	MinRange: 3c0
-	Projectile: Missile
-		Speed: 600
-		Image: 120mm
-		HorizontalRateOfTurn: 20
-		VerticalRateOfTurn: 20
-		Palette: ra
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 192
 		ValidTargets: Air
@@ -626,7 +621,7 @@ GargoylVulcan:
 		Innacuracy: 0c512
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 3000
+		Damage: 4000
 		ValidTargets: Infantry
 		Versus:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
@@ -651,7 +646,7 @@ GargoylRocket:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 85
-		Damage: 5000
+		Damage: 6000
 		ValidTargets: Ground, Vehicle, Building
 		InvalidTargets: Infantry	
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -676,7 +671,7 @@ GargoylRocketAA:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 110
-		Damage: 2000
+		Damage: 5000
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -736,13 +731,10 @@ FalconPunch2:
 FlakFire:
 	Inherits: ^FullDamage
 	ReloadDelay: 75
-	Range: 5c0
+	Range: 7c0
 	Report: cygun1.aud
 	ValidTargets: Air
-	Projectile: BulletAS
-		Speed: 100c0
-		Image: 120mm
-		Palette: ra
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		ValidTargets: Air

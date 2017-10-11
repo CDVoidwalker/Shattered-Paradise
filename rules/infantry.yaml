@@ -163,7 +163,7 @@ JUMPJETAIR:
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		CruiseAltitude: 2c500
-		IdealSeparation: 0c300
+		IdealSeparation: 0c500
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 		LandWhenIdle: False
 		CanHover: true
@@ -233,10 +233,8 @@ EAGLEGUARD:
 	Mobile:
 		Speed: 46
 	Health:
-		HP: 27500
+		HP: 35000
 	-DamagedByTerrain:
-	Armor:
-		Type: Light
 	Armament:
 		Weapon: TrooperRail
 		LocalOffset: 400,100,450

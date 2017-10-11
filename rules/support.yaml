@@ -1627,6 +1627,8 @@ CABSW1:
 		LocalOffset: 1000,0,1500
 		Name: superweapon
 	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
 	Power:
 		Amount: -200
 	SelectionDecorations:

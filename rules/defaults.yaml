@@ -1761,12 +1761,10 @@
 
 ^Wall:
 	Inherits@1: ^SpriteActor
-	Inherits@2: ^1x1Shape
+	Inherits@2: ^Cloakable
 	CombatDebugOverlay:
-	FrozenUnderFog:
+	HiddenUnderShroud:
 	AppearsOnRadar:
-	Valued:
-		Cost: 100
 	Building:
 		Dimensions: 1,1
 		Footprint: x
@@ -1784,7 +1782,7 @@
 	LineBuildNode:
 		Types: wall
 	Targetable:
-		TargetTypes: Ground, Wall, C4, DetonateAttack, NoAutoTarget
+		TargetTypes: Ground, Wall, C4
 	WithWallSpriteBody:
 		Type: wall
 	Sellable:
@@ -1793,10 +1791,14 @@
 	ScriptTriggers:
 	ConditionManager:
 	Health:
-		Shape: Circle
-			Radius: 363
+	HitShape:
+		Type: Rectangle
+			LocalYaw: 128
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+			VerticalTopOffset: 768
 	EditorTilesetFilter:
-		Categories: Defence
+		Categories: Wall
 
 ^Gate:
 	Inherits: ^Building
