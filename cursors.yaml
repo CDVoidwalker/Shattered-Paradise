@@ -81,6 +81,9 @@ Cursors:
 		attackmove:
 			Start: 58
 			Length: 5
+		assaultmove:
+			Start: 8
+			Length: 4
 		attackmove-minimap:
 			Start: 68
 			Length: 5

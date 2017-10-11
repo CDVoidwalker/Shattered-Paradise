@@ -15,7 +15,6 @@ Packages:
 	$sp: sp
 	$ts: ts
 	$as: as
-	$yupgi_alert: yupgi_alert
 # Tiberian Sun
 	~scores.mix
 	~sidenc01.mix
@@ -178,7 +177,7 @@ Assemblies:
 	common|OpenRA.Mods.Cnc.dll
 	d2k|OpenRA.Mods.D2k.dll
 	as|OpenRA.Mods.AS.dll
-	yupgi_alert|OpenRA.Mods.yupgi_alert.dll
+	./mods/common/OpenRA.Mods.yupgi_alert.dll
 
 ChromeLayout:
 	common|chrome/ingame.yaml

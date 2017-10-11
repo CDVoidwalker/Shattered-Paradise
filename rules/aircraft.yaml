@@ -1250,9 +1250,9 @@ MOTHERSHIP:
 	Armament:
 		Weapon: FighterSpawn
 		ForceTargetStances: Enemy
-	Spawner:
+	CarrierMaster:
 		Count: 3
-		SpawnUnit: STORMRIDERSPAWN
+		Actors: STORMRIDERSPAWN
 		RespawnTicks: 700
 		ReamTicks: 10
 		InstaRepair: true
@@ -1298,7 +1298,7 @@ STORMRIDERSPAWN:
 		QuantizedFacings: 32
 	Health:
 		HP: 9000
-	Spawned:
+	CarrierSlave:
 		LandingDistance: 1c0
 	-UpdatesPlayerStatistics:
 	-ActorLostNotification:
