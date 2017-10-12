@@ -947,47 +947,6 @@ WOLF:
 	ExternalCondition@berserk:
 		Condition: berserk
 
-DEATHCLAW:
-	Inherits: ^Beast
-	Inherits@1: ^MutRender
-	Inherits@2: ^PermanentSelfHeal
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 31
-		Description: Melee Beast, usefull as a shock unit.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
-		Prerequisites: ~muweap, mustable, muradr
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Ravager
-	Voiced:
-		VoiceSet: Fiend
-	Passenger:
-		CargoType: Vehicle
-		Voice: Move
-		Weight: 3
-	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark
-	AutoTarget:
-		ScanRadius: 8
-		InitialStance: AttackAnything
-	Health:
-		HP: 60000
-	WithInfantryBody:
-		IdleSequences: idle2, idle3
-	-Crushable:
-	Mobile:
-		Speed: 78
-		SharesCell: false
-	Armament:
-		Weapon: DeathclawBlow
-	Armament@1:
-		Weapon: DeathclawBlow2
-	AttackFrontal:
-		Voice: Attack
-	SelectionDecorations:
-		VisualBounds: 30,50,0,-20
-
 MUTAPC:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
@@ -1100,7 +1059,7 @@ STRUCK:
 		PipCount: 4
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
-		InitialUnits: mutfiend
+		InitialUnits: e3, e3
 	RenderVoxels:
 		Scale: 0.8
 		LightAmbientColor: 0.4, 0.4, 0.4
@@ -1115,7 +1074,7 @@ STRUCKFULL:
 	Inherits: STRUCK
 	-Buildable:
 	Cargo:
-		InitialUnits: mutfiend, mutfiend, e3, e3
+		InitialUnits: e3, e3, e3, e3
 	RenderVoxels:
 		Image: struck
 
@@ -1501,27 +1460,27 @@ SCRMOBMINE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
-		Description: Hover drone that carries mobile orb that attaches itself to nearby tanks or infantry\nOnce triggered it deals average damage to nearby units and slows them.\nDoes not slowdown harvesters.\n\n Strong vs Armor.\n  Weak vs Light units.
+		Description: Mind Control unit, can only take over infantry.\n\n Strong vs Infantry.\n  Weak vs Everything else.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Gravity Mine
+		Name: Subjugator
+	Mindcontroller:
+		Capacity: 4
+		Sound: sonpulse.aud
+		GiveCondition: mindcontrolled
+		ControllingCondition: slaving
+		Policy: DiscardOldest
+	Armament@PRIMARY:
+		Weapon: MindController
+		#RequiresCondition: slaving < 1
 	Health:
 		HP: 22500
-	Targetable@GravMine:
-		TargetTypes: GravMine
 	Mobile:
-		Speed: 91
+		Speed: 75
 	-DamagedByTerrain@ScrinDamage:
-	Armament:
-		Weapon: GravMineSuicide
-	ExternalCondition@GravMineSuicide:
-		Condition: GravMineSuicide
-	KillsSelf@GravMineSuicide:
-		RequiresCondition: GravMineSuicide
 	AutoTarget:
-		ScanRadius: 4
 	AttackFrontal:
 	RenderSprites:
 	WithFacingSpriteBody:
@@ -1793,6 +1752,7 @@ GRINDER:
 
 ECM:
 	Inherits: ^VoxelVehicle
+	Inherits@1: ^AutoTargetAll
 	Inherits@2:	^IncompleteSelfHeal
 	Inherits@1: ^Ra2vxl
 	Valued:
@@ -1813,18 +1773,13 @@ ECM:
 		Priority: 6
 	Health:
 		HP: 25000
+	AttackFrontal:
+	Armament:
+		Weapon: ecmwave
 	Armor:
 		Type: Light
 	RevealsShroud:
 		Range: 11c0
-	Minelayer:
-		Mine: cabsentryturret
-		RearmBuildings: gadept
-	AmmoPool:
-		Ammo: 5
-		PipCount: 5
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
 	ExplodeWeapon@MAQUINACONCHADETUMARE:
 		Weapon: EcmDroneSpawn
 		LocalOffset: 0,0,500

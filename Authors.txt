@@ -11,6 +11,7 @@ OpenRA dev team for their effort in creating openra (no ORA, no SP).
 Scipción		: Got me into 3D modelling.
 Penev, abcdefg30	: Saved the mod from countless bugs.
 Graion Dilach		: Code wizzard, responsible for the code necessary for many features the mod offers.
+BoolBada		: Another code wizzard, responsible for carrier logic and other fun stuff.
 FiveAces		: Streaming.
 SchismNavigator		: Worked on SP for some time.
 4XS			: For his help with concept art. http://4-x-s.deviantart.com/

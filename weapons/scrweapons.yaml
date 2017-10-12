@@ -324,6 +324,17 @@ ScorpAcid:
 		Condition: AcidScaleDmg
 		ValidTargets: Ground, Vehicle, Infantry, Building
 
+MindController:
+	ReloadDelay: 125
+	Range: 8c0
+	ValidTargets: Infantry
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 0
+		ValidTargets: Infantry
+		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MCImmune
+
 VanguardShrapnel:
 	ReloadDelay: 50
 	Range: 2c0
@@ -682,7 +693,7 @@ BattleshipCannon:
 		LaunchAngle: 15
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 5000
+		Damage: 10000
 		ValidTargets: Ground, Infantry, Vehicle, Air, water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 
@@ -750,11 +761,11 @@ DestroyerCannonOP:
 		
 FighterSpawn:
 	Inherits: ^ArtilleryWarhead
-	ReloadDelay: 100
-	Range: 10c0
+	ReloadDelay: 50
+	Range: 13c0
 	Report: dropup1.aud
 	Projectile: InstantExplode
-	ValidTargets: Infantry, Air, Vehicle, Building, Wall
+	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
 		Damage: 1
@@ -779,7 +790,7 @@ WyvermBlast:
 		Image: blueplasma
 	Warhead@1Dam: SpreadDamage
 		Spread: 171
-		Damage: 6000
+		Damage: 3000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 

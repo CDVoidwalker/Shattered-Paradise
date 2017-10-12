@@ -551,7 +551,6 @@ scrtrans:
 wyverm2:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Offset: 0,-75
 	idle:
 		Facings: -32
 	icon: scrbattleshipicon
@@ -560,20 +559,17 @@ scrbattleship:
 	Inherits: ^ScrinAircraft
 	icon: scrbattleshipicon
 
-mothership:
+scrcarrier:
 	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0,0,64
 	stand:
-		Length: 8
-		Facings: -16
+		Facings: 32
 	idle:
-		Length: 8
-		Facings: -16
+		Facings: 32
 	run:
-		Length: 8
-		Facings: -16
-	icon: mothershipicon
+		Facings: 32
+	icon: scrcarriericon
 
 scrincouncil:
 	Inherits: ^EmpOverlay

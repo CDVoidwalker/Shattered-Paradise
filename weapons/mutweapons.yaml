@@ -74,6 +74,17 @@ SkirmisherMortar:
 	-Warhead@4Smu: LeaveSmudge
 	-Warhead@5Smu: LeaveSmudge
 
+NexusTargeter:
+	Range: 5c0 # Doesn't matter too much, I think.
+	ReloadDelay: 30
+	Range: 12c0
+	ValidTargets: Ground, Water, Air
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 0
+		ValidTargets: Air, Ground, Water
+
 FiendShard2:
 	Inherits: ^APWarhead
 	ReloadDelay: 70

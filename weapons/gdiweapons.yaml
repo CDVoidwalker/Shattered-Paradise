@@ -130,7 +130,7 @@ TrooperRail:
 WolverineVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 20
+	ReloadDelay: 50
 	Range: 6c0
 	Report: tsgun4.aud
 	Projectile: BulletAS

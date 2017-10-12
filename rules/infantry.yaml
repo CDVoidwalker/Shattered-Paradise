@@ -625,15 +625,71 @@ E2:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 
-MUTFIEND:
-	Inherits: ^Beast
+FIENDNEXUS:
+	Inherits@1: ^ExistsInWorld
+	Inherits@4: ^SpriteActor
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	-AppearsOnRadar:
 	Tooltip:
-		Name: Tiberian Fiend
+		Name: Tiberian Fiend Horde
+	Valued:
+		Cost: 1000
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 19
 		Description: Tiberian Beast, fires tiberium shards at enemies.\nCannot be crushed.\n\n  Strong vs Vehicles, Helicopters.\n  Weak vs Infantry.
 		Prerequisites: ~murax, mustable
+	MobSpawnerMaster:
+		Actors: mobmutant, mutfiend, mutfiend, mutfiend
+		#InitialActorCount: # 0 or default == sames as Actors
+		RespawnTicks: 750 # 30 seconds
+		ExitByBudding: true
+		AggregateHealth: true
+		#SlavesHaveFreeWill: false
+	Health:
+		HP: 100
+	AttackOmni:
+	Armament@PRIMARY:
+		Weapon: NexusTargeter
+	Mobile:
+		Speed: 300
+		Crushes: mine, crate
+		SharesCell: true
+		OccupySpace: false
+		TerrainSpeeds:
+			Clear: 90
+			Road: 100
+			Rail: 90
+			DirtRoad: 100
+			Rough: 80
+			Bridge: 100
+			Tiberium: 90
+			BlueTiberium: 90
+			Veins: 50
+	Voiced:
+		VoiceSet: Fiend
+	SelectionDecorations:
+	Selectable:
+		Bounds: 24, 24
+	AttackMove:
+	HiddenUnderFog:
+	# Guard: Not supported yet
+	BodyOrientation:
+		UseClassicFacingFudge: True
+	HitShape:
+	EditorTilesetFilter:
+		Categories: Infantry
+	# Always invincible (preven nuke from killing this)
+	DamageMultiplier@invincible:
+		Modifier: 0
+
+MUTFIEND:
+	Inherits: ^Beast
+	Tooltip:
+		Name: Tiberian Fiend
+	MobSpawnerSlave:
+	-SelectionDecorations: # No HP bar
+	RejectsOrders@slaved:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 		Probability: 100
@@ -663,6 +719,14 @@ MUTFIEND:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
+
+MOBMUTANT:
+	Inherits: MUTANT
+	RenderSprites:
+		Image: mutant
+	MobSpawnerSlave:
+	-SelectionDecorations: # No HP bar
+	RejectsOrders@slaved:
 
 SEER:
 	Inherits: ^Mutant
@@ -709,14 +773,31 @@ SEER:
 		LoadedChance: 30
 		Chance: 30
 
+CLAWNEXUS:
+	Inherits: FIENDNEXUS
+	MobSpawnerMaster:
+		Actors: awarrior, deathclaw, deathclaw, deathclaw
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 31
+		Description: Squad compossed of a Forgotten knight and three ravagers.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
+		Prerequisites: ~murax, mustable, muradr, muhall
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Ravager Horde
+
 AWARRIOR:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 23
-		Description: Elite Infantry armed with gas throwers, they have a\nsmall change of turning into Ravagers when killed.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Aircraft, Vehicles.
-		Prerequisites: ~murax, muhall
+	# Buildable:
+		# Queue: Infantry
+		# BuildPaletteOrder: 23
+		# Description: Elite Infantry armed with gas throwers, they have a\nsmall change of turning into Ravagers when killed.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Aircraft, Vehicles.
+		# Prerequisites: ~murax, muhall
+	MobSpawnerSlave:
+	-SelectionDecorations: # No HP bar
+	RejectsOrders@slaved:
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -760,6 +841,49 @@ AWARRIOR:
 		Probability: 7
 		InternalOwner: Victim
 	WithMuzzleOverlay:
+
+DEATHCLAW:
+	Inherits: ^Beast
+	Inherits@1: ^MutRender
+	Inherits@2: ^PermanentSelfHeal
+	# Buildable:
+		# Queue: Vehicle
+		# BuildPaletteOrder: 31
+		# Description: Melee Beast, usefull as a shock unit.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
+		# Prerequisites: ~muweap, mustable, muradr
+	MobSpawnerSlave:
+	-SelectionDecorations: # No HP bar
+	RejectsOrders@slaved:
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Ravager
+	Voiced:
+		VoiceSet: Fiend
+	Passenger:
+		CargoType: Vehicle
+		Voice: Move
+		Weight: 3
+	Targetable:
+		TargetTypes: Ground, Infantry, Razorshark
+	AutoTarget:
+		ScanRadius: 8
+		InitialStance: AttackAnything
+	Health:
+		HP: 60000
+	WithInfantryBody:
+		IdleSequences: idle2, idle3
+	-Crushable:
+	Mobile:
+		Speed: 78
+	Armament:
+		Weapon: DeathclawBlow
+	Armament@1:
+		Weapon: DeathclawBlow2
+	AttackFrontal:
+		Voice: Attack
+	SelectionDecorations:
+		VisualBounds: 30,50,0,-20
 
 PSYKER:
 	Inherits: ^Mutant

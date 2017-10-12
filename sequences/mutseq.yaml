@@ -295,6 +295,16 @@ seer:
 		Facings: 8
 		ShadowStart: 860
 	icon: seericon
+
+fiendnexus:
+	idle: invis
+	icon: fiendicon
+		Offset: 0, 0
+
+clawnexus:
+	idle: invis
+	icon: deathclawicon
+		Offset: 0, 0
 	
 doggie:
 	Inherits@1: ^InfantryDeathAnims
@@ -340,8 +350,8 @@ doggie:
 		Tick: 800
 		ZOffset: -511
 	icon: fiendicon
-		Offset: 0, 0	
-	
+		Offset: 0, 0
+
 awarrior:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:

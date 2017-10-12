@@ -413,7 +413,7 @@ SCRBATTLESHIP.Husk:
 	-RenderVoxels:
 	-WithVoxelBody:
 
-MOTHERSHIP.Husk:		
+SCRCARRIER.Husk:		
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
@@ -432,7 +432,7 @@ MOTHERSHIP.Husk:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
-		Image: mothership
+		Image: scrcarrier
 	-RenderVoxels:
 	-WithVoxelBody:
 

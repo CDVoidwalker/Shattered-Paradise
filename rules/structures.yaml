@@ -552,6 +552,8 @@ NAWAST:
 		Bounds: 100, 60, 5, -5
 	Health:
 		HP: 40000
+	DockManager:
+	Dock:
 	RevealsShroud:
 		Range: 6c0
 	TiberianSunRefinery:

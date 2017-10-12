@@ -138,7 +138,7 @@ IonScorch:
 		ImpactSound: ion1.aud
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 300
-		Damage: 3600
+		Damage: 7200
 		ValidTargets: IonSpawner
 		DamageTypes: SmallExplosionDeath
 			None: 500

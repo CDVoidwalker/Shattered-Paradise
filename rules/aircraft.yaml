@@ -1089,67 +1089,6 @@ SCRTRANS:
 	SpawnActorOnDeath:
 		Actor: SCRTRANS.Husk
 
-SCRBATTLESHIP:
-	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAll
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^SelfReloads
-	Inherits@4: ^BasicStealthDetection
-	Inherits@5:	^PermanentSelfHeal
-	Valued:
-		Cost: 3000
-	Tooltip:
-		Name: Battlecruiser
-	Buildable:
-		Description: Scrin spacecraft designed for frontline combat.\nFires volleys at ground targets and rockets.\n\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft.
-		Queue: Air
-		BuildPaletteOrder: 21
-		Prerequisites: ~scrair, scrtech
-	Voiced:
-		VoiceSet: Limpet
-	Selectable:
-		Bounds: 140,100
-	Targetable@Essence:
-		TargetTypes: ScrinUnit
-	Aircraft:
-		TurnSpeed: 5
-		Speed: 50
-		Repulsable: true
-		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
-	Health:
-		HP: 100000
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 14c0
-		Type: CenterPosition
-	Armament:
-		Weapon: BattleshipCannon
-		LocalOffset: 0,0,0, 450,-200,0, -750,500,0, 600,-500,0, -750,0,300
-	Armament@2:
-		Weapon: BattleshipRocket
-		LocalOffset: 0,0,0
-	AttackTurreted:
-	Turreted:
-	AmmoPool:
-		Ammo: 25
-		PipCount: 0
-		ReloadTicks: 5
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
-	AutoTarget:
-	-RenderVoxels:
-	-WithVoxelBody:
-	RenderSprites:
-	WithFacingSpriteBody:
-	WithShadow:
-	BodyOrientation:
-		QuantizedFacings: 32
-	SpawnActorOnDeath:
-		Actor: SCRBATTLESHIP.Husk
-
 SCRINCOUNCIL:
 	Inherits: ^Helicopter
 	Inherits@2: ^ScrinRender
@@ -1209,22 +1148,21 @@ SCRINCOUNCIL:
 	SpawnActorOnDeath:
 		Actor: SCRCOUNCIL.Husk
 
-MOTHERSHIP:
+SCRCARRIER:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^BasicStealthDetection
 	Inherits@5:	^PermanentSelfHeal
 	Valued:
-		Cost: 3000
+		Cost: 2000
 	Tooltip:
-		Name: Mothership
+		Name: Assault Carrier
 	Buildable:
 		Description: Scrin Flagship, it sends fighters at enemies.\n\n Strong vs Ground Units.\n Weak vs Air units.
 		Queue: Air
 		BuildPaletteOrder: 21
-		Prerequisites: ~scrair, scrtech, ~!mothershipdep
-		BuildLimit: 1
+		Prerequisites: ~scrair, scrtech
 	Voiced:
 		VoiceSet: Limpet
 	Targetable@Essence:
@@ -1249,10 +1187,8 @@ MOTHERSHIP:
 		TargetTypes: Air, MindControlInmune, Mothership
 	Armament:
 		Weapon: FighterSpawn
-		ForceTargetStances: Enemy
 	CarrierMaster:
-		Count: 3
-		Actors: STORMRIDERSPAWN
+		Actors: STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN, STORMRIDERSPAWN
 		RespawnTicks: 700
 		ReamTicks: 10
 		InstaRepair: true
@@ -1267,7 +1203,7 @@ MOTHERSHIP:
 	BodyOrientation:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
-		Actor: MOTHERSHIP.Husk
+		Actor: SCRCARRIER.Husk
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
@@ -1279,17 +1215,15 @@ STORMRIDERSPAWN:
 	-Buildable:
 	-DeathSounds:
 	Selectable:
-		Bounds: 30,24, 0, -75
+		Bounds: 30,24
 		Class: Stormrider
 	AttackPlane:
 		Voice: Attack
 		FacingTolerance: 20
 	Aircraft:
 		Repulsable: false
-		CruiseAltitude: 1c07
 	Armament:
 		Weapon: WyvermBlast
-		LocalOffset: 0,0,4000
 	-Armament@aa:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -1304,6 +1238,7 @@ STORMRIDERSPAWN:
 	-ActorLostNotification:
 	-AppearsOnRadar:
 	-RenderVoxels:
+	RejectsOrders:
 	RenderSprites:
 		Image: wyverm2
 	AutoTarget:
@@ -1311,6 +1246,69 @@ STORMRIDERSPAWN:
 		InitialStance: AttackAnything
 	ExternalCondition@Return:
 		Condition: ForceReturn
+
+
+SCRBATTLESHIP:
+	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAll
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^SelfReloads
+	Inherits@4: ^BasicStealthDetection
+	Inherits@5:	^PermanentSelfHeal
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Battlecruiser
+	Buildable:
+		Description: Scrin spacecraft designed for frontline combat.\nFires volleys at ground targets and rockets.\n\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft.
+		Queue: Air
+		BuildPaletteOrder: 21
+		Prerequisites: ~scrair, scrtech
+		BuildLimit: 1
+	Voiced:
+		VoiceSet: Limpet
+	Selectable:
+		Bounds: 140,100
+	Targetable@Essence:
+		TargetTypes: ScrinUnit
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 50
+		Repulsable: true
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 200000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 14c0
+		Type: CenterPosition
+	Armament:
+		Weapon: BattleshipCannon
+		LocalOffset: 0,0,0, 450,-200,0, -750,500,0, 600,-500,0, -750,0,300
+	Armament@2:
+		Weapon: BattleshipRocket
+		LocalOffset: 0,0,0
+	AttackTurreted:
+	Turreted:
+	AmmoPool:
+		Ammo: 25
+		PipCount: 0
+		ReloadTicks: 5
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+	WithFacingSpriteBody:
+	WithShadow:
+	BodyOrientation:
+		QuantizedFacings: 32
+	SpawnActorOnDeath:
+		Actor: SCRBATTLESHIP.Husk
 
 ##########################################################
 # CABAL
@@ -1440,7 +1438,6 @@ WASP:
 
 FIREFLY:
 	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAll
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^BasicStealthDetection
 	Inherits@5: ^CabRender
@@ -1471,17 +1468,15 @@ FIREFLY:
 	RevealsShroud:
 		Range: 9c0
 		Type: CenterPosition
-	Armament@Primary:
-		Weapon: ecmwave
-	AttackHeli:
-		FacingTolerance: 20
-		Voice: Attack
+	Minelayer:
+		Mine: cabsentryturret
+		RearmBuildings: gadept
 	AmmoPool:
 		Ammo: 5
-		PipCount: 0
+		PipCount: 5
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
-	AutoTarget:
+		SelfReloadsTicks: 500
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithShadow:

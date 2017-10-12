@@ -192,14 +192,13 @@ Player:
 			grenadier: 9
 			medic: 9
 			templar: 9
-			mutfiend: 9
+			fiendnexus: 9
 			reapercab: 9
 			colossi: 9
 			seer: 9
 #T3 Inf#
 			eagleguard: 7
 			bhs: 1
-			awarrior: 7
 			psyker: 1
 			glad: 7
 			cyc2: 1
@@ -228,7 +227,7 @@ Player:
 			scrrecharger: 3
 #T3 Vehicle#
 			sonic: 7
-			deathclaw: 7
+			clawnexus: 7
 			paladin: 7
 			stnk: 7
 			tripod: 7
@@ -268,14 +267,13 @@ Player:
 			grenadier: 1.5%
 			medic: 1.5%
 			templar: 1.5%
-			mutfiend: 1.5%
+			fiendnexus: 1.5%
 			reapercab: 1.5%
 			colossi: 1.5%
 			seer: 5%
 #T3 Inf#
 			eagleguard: 2.5%
 			bhs: 2.5%
-			awarrior: 2.5%
 			psyker: 2.5%
 			glad: 2.5%
 			cyc2: 2.5%
@@ -309,7 +307,7 @@ Player:
 			armh: 12%
 			stnk: 12%
 			mrls: 12%
-			deathclaw: 12%
+			clawnexus: 12%
 			spiderarty: 12%
 			paladin: 12%
 			tripod: 12%
@@ -513,13 +511,12 @@ Player:
 			grenadier: 2
 			medic: 2
 			templar: 2
-			mutfiend: 2
+			fiendnexus: 2
 			reapercab: 2
 			colossi: 2
 #T3 Inf#
 			eagleguard: 1
 			bhs: 1
-			awarrior: 1
 			psyker: 1
 			glad: 1
 			cyc2: 1
@@ -548,7 +545,7 @@ Player:
 			scrrecharger: 2
 #T3 Vehicle#
 			sonic: 1
-			deathclaw: 1
+			clawnexus: 1
 			paladin: 1
 			stnk: 1
 			tripod: 1
@@ -588,13 +585,12 @@ Player:
 			grenadier: 1.5%
 			medic: 1.5%
 			templar: 1.5%
-			mutfiend: 1.5%
+			fiendnexus: 1.5%
 			reapercab: 1.5%
 			colossi: 1.5%
 #T3 Inf#
 			eagleguard: 2.5%
 			bhs: 2.5%
-			awarrior: 2.5%
 			psyker: 2.5%
 			glad: 2.5%
 			cyc2: 2.5%
@@ -627,7 +623,7 @@ Player:
 			armh: 12%
 			stnk: 12%
 			mrls: 12%
-			deathclaw: 12%
+			clawnexus: 12%
 			spiderarty: 12%
 			paladin: 12%
 			tripod: 12%

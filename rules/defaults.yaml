@@ -136,6 +136,23 @@
 		RequiresCondition: rank2
 		ZOffset: 256
 
+^Tractable:
+	Tractable:
+		TractingCondition: tracting
+		AirborneCondition: airborne
+		MinAirborneAltitude: 1024
+		RequiresCondition: !invulnerability
+		DamageFactor: 0
+	RejectsOrders@tracting:
+		RequiresCondition: tracting
+	Targetable@AIRBORNE:
+		TargetTypes: Air, Tractable
+		RequiresCondition: airborne
+	WithTractionShadow:
+		Offset: 43, 128, 0
+		ZOffset: -129
+		RequiresCondition: tracting
+
 ^FireflyDebuff
 	SpeedMultiplier@firefly:
 		RequiresCondition: fireflystop
@@ -158,6 +175,12 @@
 		RequiresCondition: FirestormWallCondition
 	ExternalCondition@FirestormWallCondition:
 		Condition: FirestormWallCondition
+
+^MindControllable:
+	WithMindcontrolArc:
+	Mindcontrollable:
+		RequiresCondition: !invulnerability
+		UnmindcontrolSound: bleep5.aud
 
 ^TimeLineDebuff:
 	SpeedMultiplier@ScrinOrb:
@@ -186,7 +209,7 @@
 
 ^CloudPoison:
 	SelfHealing@poisoncloud:
-		PercentageStep: -1
+		PercentageStep: -2
 		Step: 0
 		Delay: 12
 		RequiresCondition: Poison
@@ -480,6 +503,7 @@
 	Inherits@1: ^HealthPercentageFirepowerMultiplier
 	Inherits@2: ^SeekerTracker
 	Inherits@3: ^WolfBuffs
+	Inherits@4: ^MindControllable
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^WebDisable
 	Inherits@7: ^TemplarDebuff
@@ -502,6 +526,7 @@
 	Inherits@10: ^FireflyDebuff
 	Inherits@11: ^DisplayVanguardShield
 	Inherits@12:^NodVehicleRepair
+	# Inherits@13: ^Tractable
 	SpeedMultiplier@submerged:
 		Modifier: 60
 		RequiresCondition: submerged

@@ -274,6 +274,18 @@ SeekerBazookaAA:
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+MagnetronTract:
+	ReloadDelay: 15
+	Range: 10c0
+	ValidTargets: Vehicle
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Tract: Tractor
+		Spread: 0
+		ValidTargets: Vehicle
+		CruiseSpeedMultiplier: 0
+		DamageTypes: DefaultDeath
+
 ArtisanTurretLasor:
 	ReloadDelay: 50
 	Report: lastur1.aud

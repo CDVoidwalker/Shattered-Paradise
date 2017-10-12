@@ -104,9 +104,10 @@ CHAMSPY:
 	Infiltrates:
 		Types: SpyInfiltrate
 	-AutoTarget:
-	-WithInfantryBody:
-	WithDisguisingInfantryBody:
-		IdleSequences: idle1,idle2
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	WithInfantryBody:
+		AttackSequence: shoot
 
 MUTANT:
 	Inherits: ^Mutant
