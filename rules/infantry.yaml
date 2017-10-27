@@ -704,7 +704,7 @@ MUTFIEND:
 			Radius: 213
 	-Crushable:
 	Mobile:
-		Speed: 80
+		Speed: 73
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -727,6 +727,8 @@ MOBMUTANT:
 	MobSpawnerSlave:
 	-SelectionDecorations: # No HP bar
 	RejectsOrders@slaved:
+	Mobile:
+		Speed: 73
 
 SEER:
 	Inherits: ^Mutant

@@ -6,26 +6,26 @@
    the License, or (at your option) any later version. For more
    information, see COPYING.
 ]]
-NForce = { "e1", "e1", "e1", "e3", "cyborg", "cyborg" }
+NForce = { "e1", "e1", "e1", "crusader", "templar", "templar" }
 NForcePath = { NodW.Location, GDIBase.Location }
 NForceInterval = 5
 
-VNForce = { "bike", "bike", "bggy", "bggy", "e1", "e1", "e3" }
+VNForce = { "bggy", "bggy", "bggy", "bggy", "e1", "e1", "crusader" }
 VNForcePath = { South.Location, GDIBase.Location }
 VNForceInterval = 15
 
-GForce = { "e1", "e1", "e1", "e1", "e2", "e1", "e2" }
+GForce = { "e1", "e1", "e1", "e1", "grenadier", "e1", "grenadier" }
 GForcePath = { GDIW.Location, NodBase.Location }
 GForceInterval = 5
 
-VGForce = { "e2", "smech", "smech", "e1", "e1", "apc" }
+VGForce = { "grenadier", "smech", "smech", "e1", "e1", "apc" }
 VGForcePath = { North.Location, NodBase.Location }
 VGForceInterval = 15
 
 ProducedUnitTypes =
 {
-    { nodhand1, { "e1", "e3" } },
-    { gdibar1, { "e1", "e2" } }
+    { nodhand1, { "e1", "crusader" } },
+    { gdibar1, { "e1", "grenadier" } }
 }
 
 ProduceUnits = function(t)

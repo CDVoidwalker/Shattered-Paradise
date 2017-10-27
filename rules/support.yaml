@@ -329,7 +329,7 @@ GAFIRE:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Description: Support structure that generates a barrier around it when activated,\nit makes friendly units inside it harder to kill, deals damage\nto enemies in the border and consumes power when active.
+		Description: Support structure that generates a barrier around it when activated,\nit makes friendly units inside it harder to kill, deals damage\nto enemies in the border and consumes 300 when active.
 		Prerequisites: gatech, ~structures.gdi
 	Valued:
 		Cost: 2000

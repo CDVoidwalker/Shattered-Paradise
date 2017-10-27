@@ -8,6 +8,8 @@ Author: Marn
 
 Tileset: TEMPERATE
 
+SkyboxImage:
+
 MapSize: 60,120
 
 Bounds: 2,4,56,110
@@ -28,17 +30,17 @@ Players:
 		Enemies: Creeps, Nod, GDI
 	PlayerReference@Nod:
 		Name: Nod
+		LockFaction: True
 		Faction: nod
-		LockFaction: true
+		LockColor: True
 		Color: FE1100
-		LockColor: true
 		Enemies: GDI, Creeps
 	PlayerReference@GDI:
 		Name: GDI
+		LockFaction: True
 		Faction: gdi
-		LockFaction: true
+		LockColor: True
 		Color: EEEE66
-		LockColor: true
 		Enemies: Nod, Creeps
 
 Actors:
@@ -200,22 +202,6 @@ Actors:
 	Actor53: gasand
 		Owner: Nod
 		Location: 41,0
-	Actor54: gagate_a
-		Owner: GDI
-		Location: 81,-3
-	Actor55: gactwr
-		Owner: GDI
-		Location: 84,-1
-		TurretFacing: 92
-		Facing: 60
-		Plugs:
-			0,0: tower.vulcan
-	Actor56: gactwr
-		Owner: GDI
-		Location: 80,-3
-		Facing: 60
-		Plugs:
-			0,0: tower.vulcan
 	Actor57: gawall
 		Owner: GDI
 		Location: 79,-3
@@ -243,12 +229,6 @@ Actors:
 	Actor65: gawall
 		Owner: GDI
 		Location: 87,-1
-	Actor66: gactwr
-		Owner: GDI
-		Location: 84,-4
-		Facing: 60
-		Plugs:
-			0,0: tower.rocket
 	Actor67: gawall
 		Owner: GDI
 		Location: 88,-1
@@ -304,12 +284,6 @@ Actors:
 		Plugs:
 			0,1: powrup
 			1,1: powrup
-	Actor91: gactwr
-		Owner: GDI
-		Location: 85,-11
-		Facing: -40
-		Plugs:
-			0,0: tower.vulcan
 	Actor90: gasilo
 		Owner: GDI
 		Location: 79,-10
@@ -322,15 +296,6 @@ Actors:
 	Actor87: gawall
 		Owner: GDI
 		Location: 80,-11
-	Actor88: gactwr
-		Owner: GDI
-		Location: 81,-11
-		Facing: -40
-		Plugs:
-			0,0: tower.vulcan
-	Actor89: gagate_a
-		Owner: GDI
-		Location: 82,-11
 	Actor92: gawall
 		Owner: GDI
 		Location: 86,-11
@@ -1364,18 +1329,6 @@ Actors:
 		SubCell: 2
 		Facing: 92
 		TurretFacing: 92
-	Actor432: e2
-		Owner: GDI
-		Location: 83,-8
-		SubCell: 2
-		Facing: 92
-		TurretFacing: 92
-	Actor433: e2
-		Owner: GDI
-		Location: 83,-9
-		SubCell: 2
-		Facing: 92
-		TurretFacing: 92
 	Actor434: e1
 		Owner: Nod
 		Location: 39,6
@@ -1394,13 +1347,13 @@ Actors:
 		SubCell: 2
 		Facing: 92
 		TurretFacing: 92
-	Actor437: e3
+	Actor437: crusader
 		Owner: Nod
 		Location: 37,3
 		SubCell: 2
 		Facing: 92
 		TurretFacing: 92
-	Actor438: e3
+	Actor438: crusader
 		Owner: Nod
 		Location: 37,4
 		SubCell: 2
@@ -1418,6 +1371,44 @@ Actors:
 	NodBase: waypoint
 		Owner: Neutral
 		Location: 45,6
+	Actor430: gate_a
+		Owner: GDI
+		Location: 81,-3
+	Actor432: gate_a
+		Owner: GDI
+		Location: 82,-11
+	Actor433: gavulc
+		Owner: GDI
+		Location: 84,-4
+		TurretFacing: 92
+	Actor435: gavulc
+		Owner: GDI
+		Location: 84,-1
+		TurretFacing: 92
+	Actor441: gavulc
+		Owner: GDI
+		Location: 80,-3
+		TurretFacing: 92
+	Actor442: gavulc
+		Owner: GDI
+		Location: 81,-11
+		TurretFacing: 92
+	Actor443: gavulc
+		Owner: GDI
+		Location: 85,-11
+		TurretFacing: 92
+	Actor444: grenadier
+		Owner: GDI
+		Location: 83,-9
+		SubCell: 2
+		Facing: 92
+		TurretFacing: 92
+	Actor445: grenadier
+		Owner: GDI
+		Location: 83,-8
+		SubCell: 2
+		Facing: 92
+		TurretFacing: 92
 
 Rules:
 	Player:
@@ -1443,7 +1434,7 @@ Rules:
 		-Targetable:
 	APC:
 		Cargo:
-			InitialUnits: e1, e1, e2, e2, medic
+			InitialUnits: e1, e1, grenadier, grenadier, medic
 	GACTWR:
 		DamageMultiplier@UNKILLABLE:
 			RequiresCondition: unkillable
