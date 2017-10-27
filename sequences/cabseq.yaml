@@ -628,7 +628,17 @@ wasp:
 		Tick: 90
 		Facings: -32
 	icon: waspicon
-	
+
+cabdronejet:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: 32
+	stand:
+		Facings: 32
+	run:
+		Facings: 32
+	icon: waspicon
+
 firefly:
 	Inherits: ^EmpOverlay
 	idle:
@@ -1062,7 +1072,59 @@ cabcannon:
 		ShadowStart: 97
 	icon: cabcannonicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
+
+cabpit:
+	Defaults:
+		Offset: 0, -24, 24
+		UseTilesetCode: true
+	idle:
+		Start: 30
+		ShadowStart: 62
+	damaged-idle:
+		Start: 31
+		ShadowStart: 63
+	dead:
+		Start: 31
+		ShadowStart: 63
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive		
+	make:
+		Length: 30
+		ShadowStart: 32
+	icon: cabpiticon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+cabnexus:
+	Defaults:
+		Offset: 0, -18, 36
+		UseTilesetCode: true
+	idle:
+		Start: 30
+		ShadowStart: 62
+	damaged-idle:
+		Start: 31
+		ShadowStart: 63
+	dead:
+		Start: 31
+		ShadowStart: 63
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive		
+	make:
+		Length: 30
+		ShadowStart: 32
+	icon: cabnexusicon
+		Offset: 0, 0
+		UseTilesetCode: false
 
 cabblast:
 	Defaults:

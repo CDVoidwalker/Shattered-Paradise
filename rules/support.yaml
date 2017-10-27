@@ -852,7 +852,7 @@ MUFLAK:
 	Inherits@1: ^MutRender
 	Inherits@2: ^TowerStealthDetection
 	Valued:
-		Cost: 200
+		Cost: 350
 	Tooltip:
 		Name: Flak Station
 	Buildable:
@@ -882,6 +882,41 @@ MUFLAK:
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
 		LocalOffset: 450,0,300
+	SelectionDecorations:
+		VisualBounds: 40, 36, -3, -8
+
+MUCANNON:
+	Inherits: ^Defense
+	Inherits@1: ^MutRender
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Forgotten Cannon
+	Buildable:
+		Queue: Defense
+		Description: Anti Armor base defence. Doesn't require power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Everything Else.
+		Prerequisites: proc, murax, muradr, ~structures.mut
+		BuildPaletteOrder: 60
+	Building:
+	Selectable:
+		Bounds: 40, 30, -3, -8
+	Health:
+		HP: 35000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Turreted:
+		TurnSpeed: 3
+		InitialFacing: 50
+	AttackTurreted:
+	-CanPowerDown:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+		Recoils: no
+	Armament:
+		Weapon: LeonidCannon
+		MuzzleSequence: muzzle
+		LocalOffset: 1200,0,600
+		Recoil: 1c0
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
 
@@ -1446,11 +1481,11 @@ CABCANNON:
 		Cost: 500
 	Tooltip:
 		Name: Cannon Turret
-	Buildable:
-		Queue: Defense
-		Description: Anti-Armor turret.\nRequires power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft.
-		Prerequisites: cabclaw, ~structures.cab
-		BuildPaletteOrder: 30
+	# Buildable:
+		# Queue: Defense
+		# Description: Anti-Armor turret.\nRequires power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft.
+		# Prerequisites: cabclaw, ~structures.cab
+		# BuildPaletteOrder: 30
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
@@ -1475,19 +1510,63 @@ CABCANNON:
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
 
+CABPIT:
+	Inherits: ^Defense
+	Inherits@1: ^CabRender
+	Inherits@2: ^TowerStealthDetection
+	Inherits@3: ^2x2Shape
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Drone Pit
+	Buildable:
+		Description: Drone Hangar, launches small bomber drones.\nRequires power to operate.\n	Strong vs Infantry.\n	Weak vs Vehicles, Aircraft.\nDrones can be targeted as they are air units.
+		Queue: Defense
+		BuildPaletteOrder: 30
+		Prerequisites: cabclaw, ~structures.cab
+		IconPalette: playercab
+	Power:
+		Amount: -30
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	RequiresPower:
+	-EmitInfantryOnSell@gdi:
+	-EmitInfantryOnSell@nod:
+	-EmitInfantryOnSell@mut:
+	-EmitInfantryOnSell@cab:
+	-EmitInfantryOnSell@scr:
+	Health:
+		HP: 65000
+	RevealsShroud:
+		Range: 8c0
+	AutoTarget:
+	SelectionDecorations:
+		VisualBounds: 90, 48, 0, -6
+	AttackOmni:
+	Armament:
+		Weapon: FighterSpawn
+	CarrierMaster:
+		Actors: CABDRONEJET, CABDRONEJET, CABDRONEJET
+		RespawnTicks: 700
+		ReamTicks: 10
+		InstaRepair: true
+
 CABRAIL:
-	Inherits: ^AntiAir
+	Inherits: ^Defense
 	Inherits@1: ^CabRender
 	Inherits@2:	^IncompleteSelfHeal
 	Inherits@3: ^TowerStealthDetection
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Railgun Turret
 	Buildable:
 		Queue: Defense
-		Description: Anti-Air defence with low rate of fire.\nRequires power to operate.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles. 
-		Prerequisites: cabclaw, ~structures.cab
+		Description: Anti armor defence with low rate of fire.\nRequires power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft. 
+		Prerequisites: cabweap, ~structures.cab
 		BuildPaletteOrder: 30
 	Building:
 	Selectable:
@@ -1506,15 +1585,48 @@ CABRAIL:
 	WithSpriteTurret:
 		Recoils: no
 	Armament:
-		Weapon: AARail
+		Weapon: CABALRAIL
 		LocalOffset: 550,400,700
 	Armament@2:
-		Weapon: AARail
+		Weapon: CABALRAIL
 		LocalOffset: 550,-400,700
 	Power:
 		Amount: -40
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
+		
+CABNEXUS:
+	Inherits: ^Defense
+	Inherits@1: ^CabRender
+	Inherits@2: ^2x2Shape
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Obelisk Nexus
+	Buildable:
+		Queue: Defense
+		Prerequisites: cabradr, ~structures.cab
+		Description: Rapid fair anti air obelisk based defence.
+		BuildPaletteOrder: 90
+		IconPalette: playercab
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	RequiresPower:
+	Health:
+		HP: 15000
+	BodyOrientation:
+		QuantizedFacings: 32
+	Armament:
+		Weapon: CABNEXUSAA
+		LocalOffset: 0,0,1000
+	AttackOmni:
+	Power:
+		Amount: -20
+	SelectionDecorations:
+		VisualBounds: 90, 48, 0, -6
 
 CABBLAST:
 	Inherits: ^Tier2

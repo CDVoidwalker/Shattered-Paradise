@@ -942,8 +942,6 @@ WOLF:
 		Speed: 80
 		SharesCell: false
 	-WithDecoration@tibicon:
-	RejectsOrders@berserk:
-		RequiresCondition: berserk
 	ExternalCondition@berserk:
 		Condition: berserk
 

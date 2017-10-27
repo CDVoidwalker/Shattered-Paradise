@@ -419,11 +419,11 @@ LeonidCannon:
 	Inherits: ^APWarhead
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 75
-	Range: 4c0
-	Burst: 2
+	Range: 8c0
+	MinRange: 2c0
+	Burst: 1
 	Report: 120mmf.aud
-	Projectile: BulletAS
-		Speed: 1c512
+	Projectile: InstantHit
 		Innacuracy: 1c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 128

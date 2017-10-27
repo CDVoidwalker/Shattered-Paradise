@@ -80,7 +80,6 @@ GAPILE:
 
 GAWEAP:
 	Inherits: ^Factory
-	Inherits@4: ^3x3Shape
 	Tooltip:
 		Name: GDI War Factory
 	Buildable:
@@ -419,7 +418,6 @@ NAHAND:
 
 NAWEAP:
 	Inherits: ^Factory
-	Inherits@2: ^3x3Shape
 	Tooltip:
 		Name: Nod War Factory
 	ProvidesPrerequisite:
@@ -640,7 +638,6 @@ MURAX:
 
 MUPROC:
 	Inherits: PROC
-	Inherits@2: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
@@ -669,7 +666,6 @@ MUPROC:
 
 MUWEAP:
 	Inherits: ^Factory
-	Inherits@2: ^3x3Shape
 	Tooltip:
 		Name: Mutant War Factory
 	Buildable:
@@ -704,13 +700,23 @@ MUAIR:
 	ProximityExternalCondition@AircraftAutoRepair:
 		Condition: AircraftAutoRepair
 		Range: 4c0
+	Exit@1:
+		ExitCell: 1,1
+		Facing: 192
+		MoveIntoWorld: false
 	DockManager:
-	Dock:
-		DockOffset: 1,1
-		DockAngle: 160
-	Dock:
+		DockOnActor: true
+		DeadlockDetectionEnabled: false
+	Dock@0:
 		DockOffset: 0,0
-		DockAngle: 160
+	Dock@1:
+		DockOffset: 1,0
+		Dock@2:
+			DockOffset: 0,1
+		Dock@3:
+			DockOffset: 1,1
+	Power:
+		Amount: -20
 	Health:
 		HP: 60000
 	RevealsShroud:
@@ -964,9 +970,9 @@ SCRRAX:
 
 SCRPROC:
 	Inherits: ^Building
+	Inherits@1: ^4x3FactoryWithBibShape
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
 	Valued:
 		Cost: 1500
 	CustomSellValue:
@@ -994,11 +1000,12 @@ SCRPROC:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
 	Refinery:
+		DockOffset: 3,1
 	DockManager:
 		ExternalDocks: true
 	Dock@2:
-		DockAngle: 64
-		DockOffset: 3,2
+		DockAngle: 160
+		DockOffset: 2,1
 		Order: 2
 		WaitingPlace: false
 	Dock@3:
@@ -1029,7 +1036,6 @@ SCRWEAP:
 	Inherits: ^Factory
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
 	Tooltip:
 		Name: Scrin Forge
 	ProvidesPrerequisite:
@@ -1268,7 +1274,6 @@ CABCLAW:
 
 CABPROC:
 	Inherits: PROC
-	Inherits@4: ^3x3Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
@@ -1300,7 +1305,6 @@ CABPROC:
 CABWEAP:
 	Inherits: ^Factory
 	Inherits@1: ^CabRender
-	Inherits@4: ^3x3Shape
 	Tooltip:
 		Name: C.A.B.A.L. War Factory
 	Buildable:

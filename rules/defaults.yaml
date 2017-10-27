@@ -93,6 +93,12 @@
 			TopLeft: -1536, -1536
 			BottomRight: 1536, 1536
 
+^4x3FactoryWithBibShape:
+	HitShape:
+		Type: Rectangle
+			TopLeft: -2048, -2000
+			BottomRight: 1224, 1400
+
 ^GainsExperience:
 #EXPERIENCE
 	GainsExperience:
@@ -381,9 +387,7 @@
 
 ^RejectsOrdersBerkserk:
 	RejectsOrders@berserk:
-		RequiresCondition: berserk || ToxinTrooper || submerged
-	ExternalCondition@berserk:
-		Condition: berserk
+		RequiresCondition: ToxinTrooper || submerged
 	ExternalCondition@ToxinTrooper:
 		Condition: ToxinTrooper
 
@@ -966,6 +970,8 @@
 		Delay: 30
 		DamageCooldown: 200
 		HealIfBelow: 60
+	ExternalCondition@berserk:
+		Condition: berserk
 	WithDeathAnimation@normal:
 		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
 			TiberiumDeath: 1, 2

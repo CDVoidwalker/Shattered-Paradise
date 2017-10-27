@@ -386,7 +386,7 @@ GACNST:
 
 PROC:
 	Inherits: ^Building
-	Inherits@4: ^3x3Shape
+	Inherits@4: ^4x3FactoryWithBibShape
 	Valued:
 		Cost: 1500
 	CustomSellValue:
@@ -469,6 +469,7 @@ PROC:
 
 ^Factory:
 	Inherits: ^Building
+	Inherits@4: ^4x3FactoryWithBibShape
 	Valued:
 		Cost: 2000
 	ProvidesPrerequisite:

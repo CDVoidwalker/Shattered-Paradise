@@ -98,6 +98,8 @@ Packages:
 
 MapFolders:
 	sp|maps: System
+	sp|maps/ww: System
+	sp|maps/balanced: System
 	~^maps/sp/{DEV_VERSION}: User
 
 Rules:

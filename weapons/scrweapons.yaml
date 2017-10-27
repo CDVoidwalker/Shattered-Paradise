@@ -763,7 +763,6 @@ FighterSpawn:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 50
 	Range: 13c0
-	Report: dropup1.aud
 	Projectile: InstantExplode
 	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage

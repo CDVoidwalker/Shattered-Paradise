@@ -54,7 +54,7 @@ CyborgExplode:
 
 SmallPlaneExplode:
 	Inherits: ^ExploDefaults
-	Inherits@2: ^Large_twlt
+	Inherits@2: ^Mediuml_Clsn
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
 		Damage: 2500
@@ -68,7 +68,7 @@ SmallPlaneExplode:
 
 DroneExplode:
 	Inherits: ^ExploDefaults
-	Inherits@2: ^Large_twlt
+	Inherits@2: ^Small_Clsn
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
 		Amount: 1

@@ -633,7 +633,7 @@ FIENDNEXUS:
 	Tooltip:
 		Name: Tiberian Fiend Horde
 	Valued:
-		Cost: 1000
+		Cost: 600
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 19
@@ -783,7 +783,7 @@ CLAWNEXUS:
 		Description: Squad compossed of a Forgotten knight and three ravagers.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
 		Prerequisites: ~murax, mustable, muradr, muhall
 	Valued:
-		Cost: 2000
+		Cost: 1500
 	Tooltip:
 		Name: Ravager Horde
 
@@ -882,8 +882,6 @@ DEATHCLAW:
 		Weapon: DeathclawBlow2
 	AttackFrontal:
 		Voice: Attack
-	SelectionDecorations:
-		VisualBounds: 30,50,0,-20
 
 PSYKER:
 	Inherits: ^Mutant

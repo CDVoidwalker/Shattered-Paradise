@@ -26,6 +26,9 @@
 
 ^RocketWarhead:	#Inherits: ^RocketWarhead
 	Inherits: ^WeaponGenericUpgrades
+	Projectile: Missile
+		TerrainHeightAware: True
+		CruiseAltitude: 1024
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			None: 10

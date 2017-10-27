@@ -1147,7 +1147,27 @@ muflak:
 		Ticks: 5
 	icon: muflakicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
+
+mucannon:
+	Inherits: muflak
+	Inherits@2: ^EmpOverlay
+	turret:
+		Start: 25
+		Facings: 32
+		ShadowStart: 114
+		Offset: 0,-12
+	damaged-turret:
+		Start: 57
+		Facings: 32
+		ShadowStart: 146
+		Offset: 0,-12
+	make:
+		Length: 24
+		ShadowStart: 89
+		Offset: 0,-12
+	icon: mucannonicon
+		Offset: 0, 0
 		
 mubunkr:
 	Defaults:

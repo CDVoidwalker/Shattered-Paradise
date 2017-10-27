@@ -289,6 +289,7 @@ MechDummy:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	
 MammothTusk:
+	Inherits: ^RocketWarhead
 	Inherits@2: ^Mediumtwlt
 	ReloadDelay: 80
 	Range: 7c0
@@ -448,6 +449,7 @@ VulcanTower:
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 		
 GdiRedEye:
+	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Twlt
 	ReloadDelay: 40
 	Range: 8c0

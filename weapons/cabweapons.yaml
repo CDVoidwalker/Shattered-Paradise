@@ -717,6 +717,32 @@ CTurretCannon:
 		Damage: 2500
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+CabJetMiniBomb:
+    Inherits: ^RifleWarhead
+    Inherits@2: ^Mediuml_Clsn
+    ReloadDelay: 30
+    Burst: 5
+    BurstDelay: 6
+    ValidTargets: Ground, Building, Infantry, Vehicle
+    Range: 1c512
+    Projectile: GravityBomb
+        Speed: 170
+        Image: 120mm
+        Shadow: true
+        Palette: ra
+    Warhead@1Dam: SpreadDamage
+        Falloff: 100, 80, 70, 60, 50
+        Spread: 400
+        Damage: 2000
+		Versus:
+			None: 125
+			Wood: 40
+			Light: 10
+			Heavy: 5
+			Concrete: 1
+        ValidTargets: Ground, Building, Infantry, Vehicle
+        DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
 BlasterProton:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
@@ -739,12 +765,11 @@ BlasterProton:
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
-AARail:
-	Inherits: ^FullDamage
+CABALRAIL:
+	Inherits: ^APWarhead
 	ReloadDelay: 150
 	Range: 10c0
 	Report: biggun1.aud
-	ValidTargets: Air
 	Projectile: LaserZap
 		Speed: 20c0
 		Duration: 3
@@ -755,5 +780,21 @@ AARail:
 		Color: 0008ED
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
-		ValidTargets: Air
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+
+CABNEXUSAA:
+	Inherits: ^FullDamage
+	ReloadDelay: 300
+	Burst: 1
+	Range: 9c0
+	Report: obelray1.aud
+	ValidTargets: Air
+	Projectile: LaserZap
+		Width: 75
+		ZOffset: 2047
+		Color: 0008ED
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 20000
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		ValidTargets: Air

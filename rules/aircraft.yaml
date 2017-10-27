@@ -1247,6 +1247,25 @@ STORMRIDERSPAWN:
 	ExternalCondition@Return:
 		Condition: ForceReturn
 
+CABDRONEJET:
+	Inherits: STORMRIDERSPAWN
+	Inherits@1: ^CabRender
+	Armament:
+		Weapon: CabJetMiniBomb
+	Health:
+		HP: 5000
+	RenderSprites:
+		Image: cabdronejet
+	Aircraft:
+		MaximumPitch: 90
+		TurnSpeed: 8
+		Speed: 160
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		TakeoffSound: dropup1.aud
+		LandingSound: dropdwn1.aud
+	AttackPlane:
+		AttackTurnDelay: 25
 
 SCRBATTLESHIP:
 	Inherits: ^Helicopter
