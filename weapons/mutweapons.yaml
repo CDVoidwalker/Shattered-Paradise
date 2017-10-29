@@ -91,7 +91,7 @@ FiendShard2:
 	Burst: 2
 	Range: 4c0
 	Report: fiend2.aud
-	ValidTargets: Ground, Helicopter
+	ValidTargets: Ground, Air
 	Projectile: BulletAS
 		Speed: 250
 		Image: CRYSTAL4
@@ -102,7 +102,7 @@ FiendShard2:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1800
-		ValidTargets: Ground, Helicopter
+		ValidTargets: Ground, Air
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash

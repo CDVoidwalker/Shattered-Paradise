@@ -20,7 +20,7 @@ BIGBLUE:
 		Terrain: BlueTiberium
 	SeedsResource:
 		ResourceType: BlueTiberium
-		Interval: 130
+		Interval: 75
 
 TREE01:
 	Inherits: ^Tree

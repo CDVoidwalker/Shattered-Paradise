@@ -32,6 +32,32 @@ Grenade:
 		ValidTargets: Ground
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
+GrenadierBazookaAA:
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 100
+	Range: 6c600
+	MinRange: 2c0
+	Report: scifiexplo.wav
+	ValidTargets: Air
+	Projectile: Missile
+		Speed: 233
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 350
+		Image: DRAGON
+		MinimumLaunchAngle: 90
+		MaximumLaunchAngle: 270
+		TrailImage: small_smoke_trail
+		RateOfTurn: 8
+		RangeLimit: 15c0
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 5500
+		ValidTargets: Air
+		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
+
 JJCannon:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -291,7 +317,7 @@ MechDummy:
 MammothTusk:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Mediumtwlt
-	ReloadDelay: 80
+	ReloadDelay: 120
 	Range: 7c0
 	Report: misl1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry, Air

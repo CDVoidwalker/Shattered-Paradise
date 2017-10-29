@@ -30,10 +30,10 @@ MilitantExplode:
 		AffectsParent: True
 		Versus:
 			None: 600
-			Wood: 50
-			Light: 25
-			Heavy: 12
-			Concrete: 2
+			Wood: 1
+			Light: 1
+			Heavy: 1
+			Concrete: 1
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -84,6 +84,23 @@ CrusaderBazooka:
 		ValidTargets: Ground, Vehicle, Air, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
 
+TemplarFlame:
+	Inherits: ^FlameWarhead
+	Inherits@2: ^FlameScorch
+	ReloadDelay: 60
+	Range: 4c256
+	Report: flamtnk1.aud
+	Projectile: BulletAS
+		Speed: 130
+		Image: FLAMEALL
+		Inaccuracy: 1c3
+	Burst: 10
+	BurstDelay: 2
+	Warhead@1Dam: SpreadDamage
+		Spread: 200
+		Damage: 400
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
+
 TemplarLasor:
 	Inherits: ^FullDamage
 	Burst: 3
@@ -97,7 +114,7 @@ TemplarLasor:
 	Warhead@1Dam: SpreadDamage
 		Spread: 125
 		Damage: 1200
-		DamageTypes: Prone60Percent, TriggerProne, MilitantFireDeath
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 TemplarGrenade:
 	Inherits: ^GrenadeWarhead
@@ -573,7 +590,7 @@ ProtonAA:
 CerberusLazor:
 	Inherits: BCLazor
 	Inherits@2: ^Large_Explosion
-	ReloadDelay: 200
+	ReloadDelay: 125
 	Burst: 1
 	BurstDelay: 10
 	Range: 10c0

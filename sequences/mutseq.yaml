@@ -949,20 +949,19 @@ mustable:
 	icon: stableicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
-		
+
 muradr:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
 	idle:
-		Start: 24
+		Start: 25
 		ShadowStart: 52
 	damaged-idle:
-		Start: 25
+		Start: 26
 		ShadowStart: 53
 	dead:
-		Start: 2
+		Start: 26
 		ShadowStart: 53
 		Tick: 400
 	make:

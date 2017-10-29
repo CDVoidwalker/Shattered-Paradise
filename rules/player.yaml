@@ -4,7 +4,7 @@ Player:
 	GrantConditionOnPrerequisiteManager:
 	ClassicProductionQueue@Building:
 		Type: Building
-		LowPowerSlowdown: 3
+		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
@@ -12,30 +12,29 @@ Player:
 		BuildTimeSpeedReduction: 100, 80, 65, 50, 35, 30
 	ClassicProductionQueue@Defense:
 		Type: Defense
-		LowPowerSlowdown: 3
+		LowPowerSlowdown: 2
 		QueuedAudio: Building
-		BuildDurationModifier: 120
+		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 80, 65, 50, 35, 30
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
-		LowPowerSlowdown: 3
+		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		BuildDurationModifier: 100
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 85, 75, 65, 55, 45, 37, 30
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
-		LowPowerSlowdown: 3
+		LowPowerSlowdown: 2
 		QueuedAudio: Building
-		BuildDurationModifier: 120
 		SpeedUp: True
 		BuildTimeSpeedReduction: 100, 93, 86, 79, 72, 65, 58, 51
 	ClassicProductionQueue@Air:
 		Type: Air
-		BuildDurationModifier: 110
-		LowPowerSlowdown: 3
+		BuildDurationModifier: 100
+		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		SpeedUp: True
 	PlaceBuilding:

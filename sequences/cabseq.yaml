@@ -139,7 +139,49 @@ cabsentry:
 		Length: *
 		ZOffset: 512
 		BlendMode: Additive		
-	icon: cabsentryicon		
+	icon: cabsentryicon
+
+cborg:
+	Inherits@1: ^InfantryDeathAnims
+	Defaults:
+		Tick: 80
+		Offset: 0, 0, 16
+	stand:
+		Facings: 8
+		ShadowStart: 173
+	run:
+		Start: 8
+		Length: 9
+		Facings: 8
+		ShadowStart: 181
+	idle1:
+		Start: 80
+		Length: 19
+		ShadowStart: 253
+	idle2:
+		Start: 99
+		Length: 12
+		ShadowStart: 272
+	die1:
+		Start: 161
+		Length: 6
+		ShadowStart: 334
+	die2:
+		Start: 167
+		Length: 5
+		ShadowStart: 340
+	die3: infdie
+		Length: *
+	die4: s_bang34
+		Length: *
+	shoot:
+		Start: 113
+		Length: 6
+		Facings: 8
+		ShadowStart: 286
+	die6: electro
+		Length: *
+	icon: cborgicon
 	
 cyborg:
 	Inherits@1: ^InfantryDeathAnims
@@ -272,28 +314,6 @@ swarmling:
 		Tick: 800
 		ZOffset: -511
 	icon: swarmlingicon	
-	
-reapercab:
-	Inherits@1: ^InfantryDeathAnims
-	Defaults:
-		Tick: 80
-	stand:
-		Facings: -8
-		ShadowStart: 117
-	run:
-		Start: 8
-		Tick: 60
-		Length: 12
-		Facings: -8
-		ShadowStart: 125
-	die1:
-		Start: 104
-		Length: 13
-		ShadowStart: 221
-	shoot:
-		Facings: -8
-		ShadowStart: 117
-	icon: reapercabicon
 
 moth:
 	Inherits@1: ^InfantryDeathAnims
@@ -535,6 +555,28 @@ centurion:
 	shield: shieldlarge
 		Length: *
 	icon: centurionicon
+
+reapercab:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Tick: 80
+	stand:
+		Facings: -8
+		ShadowStart: 117
+	run:
+		Start: 8
+		Tick: 60
+		Length: 12
+		Facings: -8
+		ShadowStart: 125
+	die1:
+		Start: 104
+		Length: 13
+		ShadowStart: 221
+	shoot:
+		Facings: -8
+		ShadowStart: 117
+	icon: reapercabicon
 	
 cabapc:
 	Inherits: ^EmpOverlay

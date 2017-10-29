@@ -1109,7 +1109,7 @@
 	-SpawnActorOnDeath@ScrinEssence:
 	GrantPeriodicCondition:
 		Condition: KillMe
-		CooldownDuration: 500
+		CooldownDuration: 1000
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:

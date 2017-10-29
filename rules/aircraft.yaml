@@ -890,7 +890,7 @@ drache:
 		Description: Deploys into another Construction Yard.\n\n  Unarmed
 		Prerequisites: ~scrair, scrdepot
 	Valued:
-		Cost: 1500
+		Cost: 2500
 	Tooltip:
 		Name: Scrin Host Station
 	Selectable:
@@ -906,7 +906,7 @@ drache:
 		TargetTypes: MindControlInmune
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 40
+		Speed: 60
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
@@ -1266,6 +1266,8 @@ CABDRONEJET:
 		LandingSound: dropdwn1.aud
 	AttackPlane:
 		AttackTurnDelay: 25
+	RejectsOrders:
+	-SelectionDecorations:
 
 SCRBATTLESHIP:
 	Inherits: ^Helicopter
@@ -1457,7 +1459,6 @@ WASP:
 
 FIREFLY:
 	Inherits: ^Helicopter
-	Inherits@3: ^SelfReloads
 	Inherits@4: ^BasicStealthDetection
 	Inherits@5: ^CabRender
 	Valued:
@@ -1495,7 +1496,9 @@ FIREFLY:
 		PipCount: 5
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
-		SelfReloadsTicks: 500
+		SelfReloadsTicks: 2000
+		SelfReloads: true
+		ReloadCount: 5
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithShadow:

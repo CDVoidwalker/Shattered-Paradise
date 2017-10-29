@@ -249,7 +249,7 @@ SONIC:
 	Inherits@2: ^IncompleteSelfHeal
 	Inherits@3:	^Ra2vxl
 	Valued:
-		Cost: 1500
+		Cost: 1200
 	Tooltip:
 		Name: Disruptor
 	Buildable:
@@ -1642,11 +1642,11 @@ DINO:
 		Cost: 700
 	Tooltip:
 		Name: Seeker
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 18
-		Description: Basic Walker, equiped with long range missiles.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry.
-		Prerequisites: ~cabweap
+	# Buildable:
+		# Queue: Vehicle
+		# BuildPaletteOrder: 18
+		# Description: Basic Walker, equiped with long range missiles.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry.
+		# Prerequisites: ~cabweap
 	Mobile:
 		TurnSpeed: 12
 		Speed: 60
@@ -1672,6 +1672,59 @@ DINO:
 	Selectable:
 		Bounds: 40, 36, 0, -16
 
+
+REAPERCAB:
+	Inherits: ^Walker
+	Inherits@2: ^PermanentSelfHeal
+	Inherits@3: ^BasicStealthDetection
+	Valued:
+		Cost: 1300
+	Tooltip:
+		Name: Cyborg Reaper
+	DockClient:
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 17
+		Description: Cyborg construct, equipped with multi missiles\nand web launchers that can ensrane infantry.\nDetects cloaked units.\n\n Strong vs Vehicles, Aircraft\n Weak vs Infantry.
+		Prerequisites: ~cabweap, cabradr
+	Repairable:
+		RepairBuildings: gadept
+		Voice: Move
+	Selectable:
+		Bounds: 40,40,0,-10
+	DeliversCash
+		Payload: 300
+		Voice: Move
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 80
+		SharesCell: False
+		-RequiresCondition: WebDisable
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Health:
+		HP: 30000
+	Voiced:
+		VoiceSet: CyborgReap
+	Armament@primary:
+		Weapon: ReaperWeb
+		LocalOffset: 0,0,200
+	Armament@secondary:
+		Weapon: ReaperScythe
+		LocalOffset: 0,-200,500, 0,200,500
+	WithDeathAnimation@die:
+		DeathSequence: die1
+		DeathSequencePalette: player
+		DeathPaletteIsPlayerPalette: True
+		UseDeathTypeSuffix: False
+	AttackFrontal:
+		Voice: Attack
+	WithInfantryBody:
+	BodyOrientation:
+		QuantizedFacings: 8
+
 CENTURION:
 	Inherits: ^Walker
 	Inherits@2:	^PermanentSelfHeal
@@ -1681,7 +1734,7 @@ CENTURION:
 		Name: Centurion
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 19
+		BuildPaletteOrder: 16
 		Description: Heavy deployable mech, equipped withchainguns.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 		Prerequisites: ~cabweap
 	Mobile:

@@ -163,7 +163,7 @@ GAROCK:
 		Description: GDI Advanced base defense.\n\n  Strong vs Vehicles.\n  Weak vs Aircraft.
 		Queue: Defense
 		BuildPaletteOrder: 40
-		Prerequisites: gapile, garadr, ~structures.gdi
+		Prerequisites: gaweap, ~structures.gdi
 	RequiresPower:
 	Building:
 	Selectable:
@@ -209,7 +209,7 @@ GACSAM:
 		Queue: Defense
 		Description: GDI Anti-Air base defense.\nStronger than average AA.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles.
 		BuildPaletteOrder: 40
-		Prerequisites: gapile, ~structures.gdi
+		Prerequisites: garadr, ~structures.gdi
 	RequiresPower:
 	Building:
 	Selectable:
@@ -249,7 +249,7 @@ GAPOWRUP:
 		Description: Provides extra power generation. Place\nthem on the smokestack of the structure.
 		Queue: Defense
 		BuildPaletteOrder: 10
-		Prerequisites: gapowr, ~structures.gdi
+		Prerequisites: gapowr, garadr, ~structures.gdi
 	Plug:
 		Type: powrup
 	Power:
@@ -505,7 +505,7 @@ NASAM:
 	Buildable:
 		Description: Nod Anti-Air base defense.\nRequires power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
 		Queue: Defense
-		Prerequisites: nahand, ~structures.nod
+		Prerequisites: naradr, ~structures.nod
 		BuildPaletteOrder: 60
 	Building:
 	Selectable:
@@ -531,12 +531,11 @@ NASAM:
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
 
-
 NASTLH:
 	Inherits: ^Building
 	Inherits@2: ^3x2Shape
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Stealth Generator
 	Buildable:
@@ -568,7 +567,7 @@ NASTLH:
 	Cloak@CLOAKGENERATOR:
         RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	Power:
-		Amount: -150
+		Amount: -100
 	RequiresPower:
 	CanPowerDown:
 		PowerupSpeech: EnablePower
@@ -858,7 +857,7 @@ MUFLAK:
 	Buildable:
 		Queue: Defense
 		Description: Anti-Air base defense. Doesn't require power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
-		Prerequisites: proc, murax, ~structures.mut
+		Prerequisites: muradr, ~structures.mut
 		BuildPaletteOrder: 60
 	Building:
 	Selectable:
@@ -895,7 +894,7 @@ MUCANNON:
 	Buildable:
 		Queue: Defense
 		Description: Anti Armor base defence. Doesn't require power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Everything Else.
-		Prerequisites: proc, murax, muradr, ~structures.mut
+		Prerequisites: muweap, ~structures.mut
 		BuildPaletteOrder: 60
 	Building:
 	Selectable:
@@ -933,7 +932,7 @@ MUBUNKR:
 		Description: Fortified position where infantry can fire from within.\nCan hold up to 6 soldiers, starts with a Marauder and\n a Skirmisher on it.\n\n  Strength depends on garrisoned units.\n  Cannot target air units.
 		Queue: Defense
 		BuildPaletteOrder: 30
-		Prerequisites: murax, proc, ~structures.mut
+		Prerequisites: murax, ~structures.mut
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1219,7 +1218,7 @@ SCRTRACTOR:
 	Buildable:
 		Description: Scrin Anti-Air base defense, deals little damage\nbut slows down the targetted aircraft.\nRequires power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
 		Queue: Defense
-		Prerequisites: scrrax, ~structures.scr
+		Prerequisites: scrradr, ~structures.scr
 		BuildPaletteOrder: 40
 	Building:
 	Selectable:
@@ -1259,7 +1258,7 @@ SCRDRONE:
 		Queue: Defense
 		BuildPaletteOrder: 60
 		Description: Advanced base defense.\nThrows Visceroids near the enemies.\nRequires power to operate.\n\n  Strong vs Ground Units.\n  Weak vs Aircraft.
-		Prerequisites: scrtech, ~structures.scr
+		Prerequisites: scrweap, ~structures.scr
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1442,7 +1441,7 @@ CABSENTRYTURRET:
 	Inherits: ^MiscTurret
 	Inherits@1: ^CabRender
 	Valued:
-		Cost: 800
+		Cost: 300
 	Tooltip:
 		Name: Artisan Turret
 	Building:
@@ -1462,11 +1461,6 @@ CABSENTRYTURRET:
 	AttackTurreted:
 	WithSpriteTurret:
 		Recoils: no
-	ExplodeWeapon:
-		Weapon: ArtisanDroneSpawn
-		LocalOffset: 0,0,500
-	Targetable@Seeker:
-		TargetTypes: Seeker
 	Armament@1:
 		Weapon: ArtisanTurretLasor
 	SelectionDecorations:

@@ -49,7 +49,7 @@ GDIE1:
 		Description: General-Purpose Infantry.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~gapile
 	Valued:
-		Cost: 200
+		Cost: 150
 	Tooltip:
 		Name: Marine
 	Pluggable@pluga:
@@ -95,6 +95,9 @@ GRENADIER:
 	Armament:
 		Weapon: Grenade
 		LocalOffset: 0,0,555
+	Armament@PRIMARY:
+		Weapon: GrenadierBazookaAA
+		LocalOffset: 0,0,600
 	Voiced:
 		VoiceSet: Marine
 	AttackFrontal:
@@ -189,7 +192,7 @@ JUMPJETAIR:
 MEDIC:
 	Inherits: ^Soldier
 	Valued:
-		Cost: 300
+		Cost: 200
 	Tooltip:
 		Name: Medic
 	Buildable:
@@ -247,44 +250,44 @@ EAGLEGUARD:
 #NOD
 #######################################################
 ALTNODE1:
-    Inherits: ^Soldier
-    Inherits@2: ^NodCloakHealing
-    Buildable:
-        Queue: Infantry
-        BuildPaletteOrder: 6
+	Inherits: ^Soldier
+	Inherits@2: ^NodCloakHealing
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 6
 		Description: Light infantry variant. Fires inflamable bullets that incinerate\nunits, damaging units that are nearby the killed unit. They can\nbe ordered to suicide, setting any nearby unit ablaze, dealing\ndamage as mentioned before.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft
 		Prerequisites: ~nahand
-    Valued:
-        Cost: 140
-    Tooltip:
-        Name: Militant
-    Health:
-        HP: 10000
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Militant
+	Health:
+		HP: 10000
 	Targetable@FlameWarrior:
 		TargetTypes: FlameWarrior
-    Mobile:
-        Speed: 70
-    GrantConditionOnDeploy:
-        DeployedCondition: deployed
-        UndeployedCondition: undeployed
-        DeployAnimation:
-        Facing: 160
-        AllowedTerrainTypes:
+	Mobile:
+		Speed: 70
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		DeployAnimation:
+		Facing: 160
+		AllowedTerrainTypes:
 		CanDeployOnRamps: true
-        DeploySound:
-        UndeploySound:
-    -TakeCover:
-    Armament:
-        Weapon: MilitantRifle
-        RequiresCondition: !deployed
-    Armament@killsself:
-        Weapon: MilitantExplode
-        RequiresCondition: deployed
-    AttackFrontal:
-        Voice: Attack
-    ProducibleWithLevel:
-        Prerequisites: barracks.Conditiond
-    RenderSprites:
+		DeploySound:
+		UndeploySound:
+	-TakeCover:
+	Armament:
+		Weapon: MilitantRifle
+		RequiresCondition: !deployed
+	Armament@killsself:
+		Weapon: MilitantExplode
+		RequiresCondition: deployed
+	AttackFrontal:
+		Voice: Attack
+	ProducibleWithLevel:
+		Prerequisites: barracks.Conditiond
+	RenderSprites:
 	WithDecoration@bombicon:
 		Image: bombicon
 		Sequence: idle
@@ -304,7 +307,7 @@ CRUSADER:
 		Description: Anti Armour Infantry, equiped with a Rocket\nlauncher backpack, can fire while moving.\nCan also set units on fire.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry.
 		Prerequisites: ~nahand
 	Valued:
-		Cost: 275
+		Cost: 250
 	Tooltip:
 		Name: Crusader
 	Health:
@@ -343,10 +346,7 @@ TEMPLAR:
 	Mobile:
 		Speed: 55
 	Armament@1:
-		Weapon: TemplarLasor
-		LocalOffset: 200,50,320
-	Armament@2:
-		Weapon: TemplarGrenade
+		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
 	Crushable:
 		WarnProbability: 90
@@ -358,14 +358,64 @@ TEMPLAR:
 	Passenger:
 		GrantCondition: TemplarHologram
 
-MHIJACK:
-	Inherits: ^Mutant
+NCONF:
+	Inherits: ^Soldier
 	Inherits@2: ^NodCloakHealing
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 9
-		Description: NOD Agent, can steal enemy vehicles\nand infiltrate powerplants.\nCloaks when deployed but becomes immobile.\n\n  Unarmed
-		Prerequisites: ~nahand, naradr
+		BuildPaletteOrder: 8
+		Description: Cloaked infantry that can create hollograms\n\n  Deals full damage to ground units.\n  Weak vs Anti infantry weapons, Aircraft.
+		Prerequisites: ~nahand, natech
+		IconPalette: player
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Black Hand Trooper
+	Health:
+		HP: 22500
+	Mobile:
+		Speed: 60
+	Armament@1:
+		Weapon: TemplarLasor
+		LocalOffset: 362,0,778
+	Cloak@cloakgenerator:
+		RequiresCondition: !lawea
+		InitialDelay: 80
+		CloakDelay: 80
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	Crushable:
+		WarnProbability: 90
+	AttackFrontal:
+		Voice: Attack
+	ProducibleWithLevel:
+		Prerequisites: barracks.Condition
+	RenderSprites:
+	GrantTimedConditionOnDeploy:
+		DeployedCondition: HologramSpawn
+		CooldownTicks: 3000
+		DeployedTicks: 10
+		StartsFullyCharged: True
+	ExternalCondition@MineSpawn:
+		Condition: HologramSpawn
+	ExplodeWeapon@1:
+		Weapon: BuggyHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@2:
+		Weapon: TickHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@3:
+		Weapon: FlameHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@4:
+		Weapon: FlameHoloShrapnel
+		RequiresCondition: HologramSpawn
+
+MHIJACK:
+	Inherits: ^Mutant
+	Inherits@2: ^NodCloakHealing
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -411,7 +461,7 @@ BHS:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Toxin Trooper
+		Name: Toxin Commando
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
 	SelfHealing@NodCloakHealing:
@@ -569,7 +619,7 @@ E3:
 		Description: Siege Militia armed with mortars.\nExtremely strong in groups.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~murax
 	Valued:
-		Cost: 180
+		Cost: 150
 	Tooltip:
 		Name: Skirmisher
 	Voiced:
@@ -600,8 +650,6 @@ E3:
 E2:
 	Inherits: ^Mutant
 	Inherits@1:	^Engineer
-	Valued:
-		Cost: 400
 	Tooltip:
 		Name: Mutant Engineer
 		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
@@ -638,7 +686,7 @@ FIENDNEXUS:
 		Queue: Infantry
 		BuildPaletteOrder: 19
 		Description: Tiberian Beast, fires tiberium shards at enemies.\nCannot be crushed.\n\n  Strong vs Vehicles, Helicopters.\n  Weak vs Infantry.
-		Prerequisites: ~murax, mustable
+		Prerequisites: ~murax
 	MobSpawnerMaster:
 		Actors: mobmutant, mutfiend, mutfiend, mutfiend
 		#InitialActorCount: # 0 or default == sames as Actors
@@ -1254,7 +1302,7 @@ CABSENTRY:
 CYBORG:
 	Inherits: ^Cyborg
 	Valued:
-		Cost: 450
+		Cost: 300
 	Tooltip:
 		Name: Cyborg Infantry
 	Buildable:
@@ -1285,6 +1333,34 @@ CYBORG:
 	SelectionDecorations:
 		VisualBounds: 16,31,0,-10
 
+CBORG:
+	Inherits: ^Cyborg
+	Valued:
+		Cost: 250
+	Tooltip:
+		Name: Cannon Cyborg
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 11
+		Description: Anti armor unit. Auto repairs slowly up full to health even when under attack.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry.
+		Prerequisites: ~cabclaw
+		IconPalette: player
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 56
+	Voiced:
+		VoiceSet: Cyborg
+	DeliversCash
+		Payload: 45
+		Voice: Move
+	Armament@PRIMARY:
+		Weapon: CyborgRocket
+		LocalOffset: 424,198,1086
+	AttackFrontal:
+		Voice: Attack
+	RenderSprites:
+
 PDRONE:
 	Inherits: ^CabalDroneInfantry
 	Valued:
@@ -1298,7 +1374,7 @@ PDRONE:
 		Queue: Infantry
 		Description: Melee drone, soldiers killed by this unit will be turned into\nworkers. Can only target infantry.\n\n  Strong vs Infantry\n  Weak vs Everything else.
 		BuildPaletteOrder: 12
-		Prerequisites: ~cabclaw
+		Prerequisites: ~cabclaw, cabradr
 	Selectable:
 		Bounds: 22,32,0,0
 	Hovers:
@@ -1441,67 +1517,11 @@ MOTH:
 	AttackOmni:
 		RequiresCondition: deployed
 
-REAPERCAB:
-	Inherits: ^CabalDroneInfantry
-	Inherits@2: ^PermanentSelfHeal
-	Inherits@3: ^BasicStealthDetection
-	Valued:
-		Cost: 1300
-	Tooltip:
-		Name: Cyborg Reaper
-	DockClient:
-	Buildable:
-		Queue: Infantry
-		SharesCell: false
-		BuildPaletteOrder: 16
-		Description: Cyborg construct, equipped with multi missiles\nand web launchers that can ensrane infantry.\nDetects cloaked units.\n\n Strong vs Vehicles, Aircraft\n Weak vs Infantry.
-		Prerequisites: ~cabclaw, cabtech
-	Repairable:
-		RepairBuildings: gadept
-		Voice: Move
-	Selectable:
-		Bounds: 40,40,0,-10
-	DeliversCash
-		Payload: 300
-		Voice: Move
-	Armor:
-		Type: Light
-	Mobile:
-		Speed: 80
-		SharesCell: False
-		-RequiresCondition: WebDisable
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
-	Health:
-		HP: 30000
-	Voiced:
-		VoiceSet: CyborgReap
-	Armament@primary:
-		Weapon: ReaperWeb
-		LocalOffset: 0,0,200
-	Armament@secondary:
-		Weapon: ReaperScythe
-		LocalOffset: 0,-200,500, 0,200,500
-	WithDeathAnimation@die:
-		DeathSequence: die1
-		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: True
-		UseDeathTypeSuffix: False
-	AttackFrontal:
-		Voice: Attack
-	-WithColoredOverlay@WebDisable:
-	-DisableOnCondition@WebDisable:
-	-TimedConditionBar@WebDisable:
-	WithInfantryBody:
-		ConditionMaxEnabledLevel: 50	
-	-WithIdleOverlay@web:
-
 GLAD:
 	Inherits: ^Cyborg
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 600
+		Cost: 450
 	DeliversCash
 		Payload: 300
 		Voice: Move
@@ -1511,7 +1531,7 @@ GLAD:
 		Description: Advanced cyborg construct, extremely resilient\nand capable of piercing enemy armor.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft.
 		Queue: Infantry
 		BuildPaletteOrder: 14
-		Prerequisites: ~cabclaw, cabgrinder
+		Prerequisites: ~cabclaw, cabtech
 	Repairable:
 		RepairBuildings: gadept
 		Voice: Move
