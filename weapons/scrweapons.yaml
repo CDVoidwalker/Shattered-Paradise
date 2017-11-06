@@ -328,6 +328,7 @@ MindController:
 	ReloadDelay: 125
 	Range: 8c0
 	ValidTargets: Infantry
+	InvalidTargets: MCImmune
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 1

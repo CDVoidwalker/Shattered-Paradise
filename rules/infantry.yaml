@@ -78,7 +78,7 @@ GRENADIER:
 		Queue: Infantry
 		BuildPaletteOrder: 2
 		Prerequisites: ~gapile
-		Description: Anti armor infantry.\n\n  Strong vs Armor.\n  Weak vs Infantry, Armor.
+		Description: Anti armor infantry.\n\n  Strong vs Armor, aircraft.\n  Weak vs Infantry.
 	Valued:
 		Cost: 250
 	Tooltip:
@@ -133,7 +133,7 @@ JUMPJETAIR:
 		Cost: 350
 	Tooltip:
 		Name: Jumpjet Infantry
-		Description: Airborne Soldier, equipped with a chaingun and a rocket launcher rifle.\nnBug: Loses accumulated experience if ordered to alternate modes.\nStarts in airborne mode.\n\n  Strong vs Ground units.\n  Weak vs Aircraft, Anti air.
+		Description: Airborne Soldier, equipped with a chaingun.\nnBug: Loses accumulated experience if ordered to alternate modes.\nStarts in airborne mode.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft, Anti air.
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 3
@@ -335,7 +335,7 @@ TEMPLAR:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
-		Description: Heavy weapons soldier, good for supressing infantry, heals on Tiberium.\n\n  Deals full damage to ground units.\n  Weak vs Anti infantry weapons, Aircraft.
+		Description: Flame warrior, resurrected regenesis prototype. heals on Tiberium.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~nahand, naradr
 	Valued:
 		Cost: 450
@@ -364,7 +364,7 @@ NCONF:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
-		Description: Cloaked infantry that can create hollograms\n\n  Deals full damage to ground units.\n  Weak vs Anti infantry weapons, Aircraft.
+		Description: Cloaked infantry that can create hollograms\n\n  Deals full damage to ground units.\n  Weak vs Aircraft.
 		Prerequisites: ~nahand, natech
 		IconPalette: player
 	Valued:
@@ -455,7 +455,7 @@ BHS:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
-		Description: Nod Commando, sniper unit that cloaks when idle.\nCan demolish structures using C4.\nUnits that survive its attacks become confused for a short time.\nHeals near Tiberium.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
+		Description: Nod Commando, sniper unit that cloaks when idle.\nCan demolish structures using C4.\nSpreads toxins that confuse units hit.\nHeals on Tiberium.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
 	Valued:
@@ -652,7 +652,6 @@ E2:
 	Inherits@1:	^Engineer
 	Tooltip:
 		Name: Mutant Engineer
-		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 20
@@ -685,7 +684,7 @@ FIENDNEXUS:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 19
-		Description: Tiberian Beast, fires tiberium shards at enemies.\nCannot be crushed.\n\n  Strong vs Vehicles, Helicopters.\n  Weak vs Infantry.
+		Description: Tiberian Beast, fires tiberium shards at enemies.\nCannot be crushed.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry.
 		Prerequisites: ~murax
 	MobSpawnerMaster:
 		Actors: mobmutant, mutfiend, mutfiend, mutfiend
@@ -744,6 +743,8 @@ MUTFIEND:
 		OwnerType: Killer
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
 	Valued:
 		Cost: 325
 	Health:
@@ -777,6 +778,8 @@ MOBMUTANT:
 	RejectsOrders@slaved:
 	Mobile:
 		Speed: 73
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
 
 SEER:
 	Inherits: ^Mutant
@@ -891,6 +894,8 @@ AWARRIOR:
 		Probability: 7
 		InternalOwner: Victim
 	WithMuzzleOverlay:
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
 
 DEATHCLAW:
 	Inherits: ^Beast
@@ -932,6 +937,8 @@ DEATHCLAW:
 		Weapon: DeathclawBlow2
 	AttackFrontal:
 		Voice: Attack
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
 
 PSYKER:
 	Inherits: ^Mutant
@@ -940,7 +947,7 @@ PSYKER:
 		Queue: Infantry
 		BuildPaletteOrder: 24
 		Prerequisites: ~murax, muhall
-		Description: Forgotten Commando. Pure strain\nforgotten that can call down lightning.\nAttacks from afar.\n\n  Strong vs Vehicles, Aircraft, Buildings\n  Weak vs Infantry
+		Description: Forgotten Commando. Pure strain\nforgotten that can call down lightning.\nAttacks from afar.\n\n  Strong vs Vehicles, Aircraft, Buildings.\n  Weak vs Infantry.
 		BuildLimit: 1
 	Valued:
 		Cost: 900
@@ -977,10 +984,10 @@ shark:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 24
-		Description: Anti-infantry creature, can only target infantry.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Structures, Aircraft.
+		Description: Melee creature that tears down enemies.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Structures, Aircraft.
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 120
+		Cost: 100
 	Tooltip:
 		Name: Razorshark
 	Selectable:
@@ -1032,7 +1039,7 @@ LEGIO:
 		Description: Scrin Frontile trooper. Resistant\nto damage. Cannot be crushed.\n\n  Strong vs Vehicles, Buildings.\n  Weak vs Infantry.
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 300
+		Cost: 160
 	Tooltip:
 		Name: Legionnaire
 	Health:
@@ -1058,7 +1065,6 @@ SHAPESHIFTER:
 		Cost: 500
 	Tooltip:
 		Name: Shapeshifter
-		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 26
@@ -1086,7 +1092,7 @@ COLOSSI:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 27
-		Description: Heavy duty alien that can take lots of punishment\nand electrify its sorroundings when ordered to.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
+		Description: Heavy duty alien that can electrify \nits sorroundings when ordered to.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~scrrax, scrradr
 	Valued:
 		Cost: 600
@@ -1428,8 +1434,7 @@ SWARMLING:
 	Inherits: SHAPESHIFTER
 	Inherits@2: ^CabRender
 	Tooltip:
-		Name: Probe
-		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
+		Name: Swarmling
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 13
@@ -1521,7 +1526,7 @@ GLAD:
 	Inherits: ^Cyborg
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 450
+		Cost: 550
 	DeliversCash
 		Payload: 300
 		Voice: Move

@@ -9,7 +9,7 @@ SMECH:
 		Name: Wolverine
 	Buildable:
 		Queue: Vehicle
-		Description: Anti-Personnel Walker. Constant firing increases\n it's attack speed.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
+		Description: Anti-Personnel Walker.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
@@ -173,7 +173,7 @@ JUGGER:
 		Name: Juggernaut
 	Buildable:
 		Queue: Vehicle
-		Description: GDI Light Artillery.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft
+		Description: Light Artillery.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -254,7 +254,7 @@ SONIC:
 		Name: Disruptor
 	Buildable:
 		Queue: Vehicle
-		Description: Armored Vehicle with a long range sonic cannon.\nResistant to sonic damage. Auto repairs up to half health.\n\n  Strong vs Ground units.\n  Weak vs Aircraft.
+		Description: Armored Vehicle with a sonic cannon.\nResistant to sonic damage. Auto repairs up to half health.\n\n  Strong vs Ground units.\n  Weak vs Aircraft.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 		BuildLimit: 3
@@ -339,7 +339,7 @@ BGGY:
 		Name: Raider Buggy
 	Buildable:
 		Queue: Vehicle
-		Description: Fast scout designed for harassment.\n\n  Strong vs Infantry, Armor, Aircraft.\n  Weak vs Vehicles.
+		Description: Fast vehicle armed with machine guns and rocket launchers.\n\n  Strong vs Infantry, Armor, Aircraft.\n  Weak vs Vehicles.
 		BuildPaletteOrder: 9
 		Prerequisites: ~naweap
 	Mobile:
@@ -547,7 +547,7 @@ BIKE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 12
-		Description: Suicide Vehicle armed with an explosive warhead.\nExplodes its warhead when destroyed.\nCan be carried on subterranean APCs.\n\n Strong vs Light armored ground units.\n  Weak vs Structures.
+		Description: Suicide Vehicle.\nExplodes its warhead when destroyed.\nCan be carried on subterranean APCs.\n\n Strong vs Light armored ground units.\n  Weak vs Structures.
 		Prerequisites: ~naweap, naradr
 	-ActorLostNotification:
 	Mobile:
@@ -709,7 +709,7 @@ SUBTANK:
 		Name: Devil's Tongue
 	Buildable:
 		Queue: Vehicle
-		Description: Subterranean Flame Tank.\nIs able to move underground.\nWIP Unit, cannot burrow yet.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
+		Description: Subterranean Flame Tank.\nIs able to move underground.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
 		BuildPaletteOrder: 15
 		Prerequisites: ~naweap, naradr
 	Mobile:
@@ -730,10 +730,6 @@ SUBTANK:
 		HP: 30000
 	Armor:
 		Type: Heavy
-	# PortableChrono:
-		# ChargeDelay: 600
-		# TargetCursor: emp
-		# TargetBlockedCursor: emp-blocked
 	Armament:
 		Weapon: DevilsFlame
 		LocalOffset: 0,200,0
@@ -758,7 +754,7 @@ ARMH:
 		Name: Beam Cannon
 	Buildable:
 		Queue: Vehicle
-		Description: NOD Artillery, fires a laser beam at the target\nIt cannot fire continuosly for a long time.\n\n  Strong vs Ground units\n  Weak vs Aircraft
+		Description: NOD Artillery, fires a laser beam at the target\n\n  Strong vs Ground units\n  Weak vs Aircraft
 		BuildPaletteOrder: 16
 		Prerequisites: ~naweap, natech
 	Health:
@@ -798,7 +794,7 @@ STNK:
 	Buildable:
 		BuildPaletteOrder: 17
 		Prerequisites: ~naweap, natech
-		Description: Lightly armoured tank equipped with a personal\nstealth generator. Armed with missiles.\nCan be spotted by infantry at close range.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Light armoured tank equipped with a personal\nstealth generator. Armed with missiles.\nCan be detected by defences and AA units.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 		Queue: Vehicle
 	Mobile:
 		TurnSpeed: 9
@@ -905,7 +901,7 @@ WOLF:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 27
-		Description: Support Beast, expels toxins when attacking that\ndamage nearby units but increase their fighting\n capabilities.\n\n  Somewhat strong vs Ground Units.\n  Weak vs Aircraft, Defences.
+		Description: Tiberian Beast, spits toxic gas that gathers into clouds that harm nearby units.\n\n  Somewhat strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft, Defences.
 		Prerequisites: ~muweap, mustable, muradr
 	Valued:
 		Cost: 600
@@ -1036,7 +1032,7 @@ STRUCK:
 	Tooltip:
 		Name: Battle Bus
 	Buildable:
-		Description: Medium transport, can carry up to four soldiers which can fire from inside.\n  Strength varies depending on the infantry it carries.\n  Weak vs Aircraft.
+		Description: Transport, can carry up to four soldiers which can fire from inside.\n  Strength varies depending on the infantry it carries.\n  Weak vs Aircraft.
 		Queue: Vehicle
 		BuildPaletteOrder: 25
 		Prerequisites: ~muweap
@@ -1205,7 +1201,7 @@ MLRS:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
-		Description: Light artillery outfitted with Tiberium rockets.\ndeals damage on a wide area. Spawns \ngas clouds on impact.\n\n  Strong vs Infantry, Buildings\n  Weak vs Armored Targets.
+		Description: Light artillery outfitted with Tiberium rockets.\ndeals damage on a wide area.\n\n  Strong vs Infantry, Buildings\n  Weak vs Armored Targets.
 		Prerequisites: ~muweap, muhall
 	Mobile:
 		TurnSpeed: 10
@@ -1240,7 +1236,7 @@ HVRTRUK3:
 	Tooltip:
 		Name: Demo Truck
 	Buildable:
-		Description: Hovering demolitions truck.\nDetonates its warhead when destroyed.\nCan move across water.\n\n  Unarmed
+		Description: Hover demolitions truck.\nDetonates its warhead when destroyed.\nCan move across water.\n\n  Unarmed
 		Queue: Vehicle
 		BuildPaletteOrder: 29
 		Prerequisites: ~muweap, muhall
@@ -1424,7 +1420,7 @@ SCRGLYDER2:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
-		Description: Specialized weapons platform it can vary from a ground version and\naerial version. The aerial version attacks ground units and vice versa.\n\n Strong vs Armor.\n  Weak vs Light units.
+		Description: Anti air hover vehicle.\n\n Strong vs Aircraft.\n  Weak vs Everything else.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
 		Cost: 700
@@ -1522,7 +1518,6 @@ SCRMBT:
 		QuantizedFacings: 32
 	-SelfHealing@ELITE:
 
-
 SCRRECHARGER:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
@@ -1591,7 +1586,7 @@ TRIPOD:
 		Queue: Vehicle
 		BuildPaletteOrder: 35
 		Prerequisites: ~scrweap, scrtech
-		Description: Advanced Combat walker.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft.
+		Description: Advanced walker.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft.
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 8
@@ -1672,7 +1667,6 @@ DINO:
 	Selectable:
 		Bounds: 40, 36, 0, -16
 
-
 REAPERCAB:
 	Inherits: ^Walker
 	Inherits@2: ^PermanentSelfHeal
@@ -1735,7 +1729,7 @@ CENTURION:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 16
-		Description: Heavy deployable mech, equipped withchainguns.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: Heavy mech equipped with chainguns.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
 		Prerequisites: ~cabweap
 	Mobile:
 		TurnSpeed: 5
@@ -1813,7 +1807,7 @@ ECM:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 21
-		Description: Support vehicle that deploys turrets.\nBuilds new turrets over time.\n\n  Unarmed.
+		Description: Support vehicle that jams the targetting systems of enemy vehicles.\n\n  Unarmed.
 		Prerequisites: ~cabweap, cabradr
 	Mobile:
 		TurnSpeed: 6
@@ -1853,7 +1847,7 @@ CABAPC:
 		Name: Hover APC
 	Buildable:
 		Queue: Vehicle
-		Description: Armored infantry transport. Can move on water.\n\n  Unarmed
+		Description: Armored transport, Can move on water and load vehicles.\n\n  Unarmed
 		BuildPaletteOrder: 22
 		Prerequisites: ~cabweap, cabradr
 	Mobile:
@@ -1866,7 +1860,7 @@ CABAPC:
 	Turreted:
 		TurnSpeed: 10
 	Cargo:
-		Types: Infantry
+		Types: Infantry, Vehicle
 		MaxWeight: 8
 		PipCount: 8
 		UnloadVoice: Unload
@@ -1889,7 +1883,7 @@ SPIDERARTY:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 23
-		Description: Heavy Artillery that builds drones at the target area.\nConverts kills into cyborgs.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+		Description: Heavy Artillery that deploys drones at the target area.\nConverts kills into cyborgs.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
 		TurnSpeed: 12

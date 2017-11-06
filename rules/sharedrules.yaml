@@ -32,7 +32,7 @@ ENGINEER:
 	Inherits@3:	^Engineer
 	Tooltip:
 		Name: Engineer
-		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
+		Description: Captures enemy structures.\nRepair allied buildings instantly.\n\n  Unarmed.
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8

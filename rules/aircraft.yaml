@@ -1466,7 +1466,7 @@ FIREFLY:
 	Tooltip:
 		Name: Firefly
 	Buildable:
-		Description: Support drone, reduces enemy attack speed.\nof targetted vehicles.\nDetects cloaked units.\n\n Unarmed.
+		Description: Support drone, deploys turrets by pressing ctrl and right cliking on the area.\nDetects cloaked units.\n\n Unarmed.
 		Queue: Air
 		BuildPaletteOrder: 20
 		Prerequisites: ~cabair, cabradr
@@ -1589,7 +1589,7 @@ BASILISK:
 	Tooltip:
 		Name: Basilisk
 	Buildable:
-		Description: Light frigate, fires plasma shells and has\nfirestorm bombs.\n  Strong vs Infantry, Buildings.\n\n  Weak vs Aircraft, Vehicles.
+		Description: Light frigate, fires plasma and has\nfirestorm bombs.\n  Strong vs Infantry, Buildings.\n\n  Weak vs Aircraft, Vehicles.
 		Queue: Air
 		BuildPaletteOrder: 22
 		Prerequisites: ~cabair, cabtech
