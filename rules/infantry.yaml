@@ -149,7 +149,7 @@ JUMPJETAIR:
 	Transforms:
 		IntoActor: jumpjet
 	Armor:
-		Type: None
+		Type: AircraftArmor
 	WithFacingSpriteBody@idle:
 		RequiresCondition: !JJBuff
 		Sequence: run
@@ -344,7 +344,7 @@ TEMPLAR:
 	Health:
 		HP: 22500
 	Mobile:
-		Speed: 55
+		Speed: 65
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
@@ -401,16 +401,16 @@ NCONF:
 	ExternalCondition@MineSpawn:
 		Condition: HologramSpawn
 	ExplodeWeapon@1:
-		Weapon: BuggyHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@2:
-		Weapon: TickHoloShrapnel
+		Weapon: CrusaHoloShrapnel
 		RequiresCondition: HologramSpawn
 	ExplodeWeapon@3:
 		Weapon: FlameHoloShrapnel
 		RequiresCondition: HologramSpawn
-	ExplodeWeapon@4:
-		Weapon: FlameHoloShrapnel
+	ExplodeWeapon@1:
+		Weapon: BuggyHoloShrapnel
+		RequiresCondition: HologramSpawn
+	ExplodeWeapon@2:
+		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
 
 MHIJACK:
@@ -834,7 +834,7 @@ CLAWNEXUS:
 		Queue: Infantry
 		BuildPaletteOrder: 31
 		Description: Squad compossed of a Forgotten knight and three ravagers.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
-		Prerequisites: ~murax, mustable, muradr, muhall
+		Prerequisites: ~murax, muhall
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1246,8 +1246,6 @@ BUG:
 		OwnerType: Killer
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
-	Armor:
-		Type: none
 	Armament:
 		Weapon: FloatGlaive
 	AttackFrontal:
@@ -1263,8 +1261,6 @@ BUG:
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
-	Armor:
-		Type: None
 	Armor@worker:
 		Type: Worker
 	Valued:
@@ -1342,9 +1338,9 @@ CYBORG:
 CBORG:
 	Inherits: ^Cyborg
 	Valued:
-		Cost: 250
+		Cost: 350
 	Tooltip:
-		Name: Cannon Cyborg
+		Name: Missile Cyborg
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 11
@@ -1352,7 +1348,7 @@ CBORG:
 		Prerequisites: ~cabclaw
 		IconPalette: player
 	Health:
-		HP: 20000
+		HP: 30000
 	Mobile:
 		Speed: 56
 	Voiced:
@@ -1448,10 +1444,8 @@ SWARMLING:
 MOTH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
-	Armor:
-		Type: None
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: Abductor
 	Buildable:
@@ -1566,8 +1560,6 @@ GLAD:
 CYC2:
 	Inherits: ^Cyborg
 	Inherits@2: ^PermanentSelfHeal
-	Armor:
-		Type: Light
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -1643,8 +1635,6 @@ PALADIN2:
 		Speed: 56
 	Health:
 		HP: 10000
-	Armor:
-		Type: Heavy
 	Voiced:
 		VoiceSet: Limpet
 	Armor@worker:

@@ -16,11 +16,10 @@
 		Spread: 128
 		Damage: 20
 		Versus:
-			None: 125
-			Wood: 40
-			Light: 25
-			Heavy: 15
-			Concrete: 5
+			InfantryArmor: 125
+			BuildingArmor: 40
+			VehicleArmor: 25
+			ConcreteArmor: 5
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RifleWarhead
 
@@ -28,14 +27,28 @@
 	Inherits: ^WeaponGenericUpgrades
 	Projectile: Missile
 		TerrainHeightAware: True
-		CruiseAltitude: 1024
+		CruiseAltitude: 6000
+		MinimumLaunchAngle: 300
+		MaximumLaunchAngle: 300
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		Speed: 0c600
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 0c181
+		Image: missile01
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
+		RangeLimit: 28c291
+		Palette: effect
+		AllowSnapping: true
+		CloseEnough: 200
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 10
-			Wood: 75
-			Light: 100
-			Heavy: 100
-			Concrete: 60
+			InfantryArmor: 10
+			BuildingArmor: 75
+			VehicleArmor: 100
+			ConcreteArmor: 60
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RocketWarhead
 
@@ -43,11 +56,10 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 35
-			Wood: 50
-			Light: 100
-			Heavy: 130
-			Concrete: 45
+			InfantryArmor: 35
+			BuildingArmor: 50
+			VehicleArmor: 100
+			ConcreteArmor: 45
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: APWarhead
 
@@ -55,11 +67,10 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 600
-			Wood: 450
-			Light: 59
-			Heavy: 15
-			Concrete: 2
+			InfantryArmor: 300
+			BuildingArmor: 225
+			VehicleArmor: 30
+			ConcreteArmor: 1
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FlameWarhead
 
@@ -67,11 +78,10 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 100
-			Wood: 100
-			Light: 68
-			Heavy: 35
-			Concrete: 35
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 68
+			ConcreteArmor: 35
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
 	Warhead@ShieldUpgrade: GrantExternalCondition
@@ -85,11 +95,10 @@
 	Warhead@1Dam: SpreadDamage
 		Falloff: 300, 150, 100, 50, 0
 		Versus:
-			None: 150
-			Wood: 100
-			Light: 75
-			Heavy: 45
-			Concrete: 100
+			InfantryArmor: 150
+			BuildingArmor: 100
+			VehicleArmor: 75
+			ConcreteArmor: 100
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
 			
@@ -100,11 +109,10 @@
 		Damage: 40
 		ValidTargets: Ground
 		Versus:
-			None: 70
-			Wood: 100
-			Light: 40
-			Heavy: 15
-			Concrete: 28
+			InfantryArmor: 70
+			BuildingArmor: 100
+			VehicleArmor: 40
+			ConcreteArmor: 28
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
 
@@ -112,11 +120,10 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			None: 300
-			Wood: 148
-			Light: 80
-			Heavy: 60
-			Concrete: 2
+			InfantryArmor: 300
+			BuildingArmor: 148
+			VehicleArmor: 80
+			ConcreteArmor: 2
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FlameWarhead
 
@@ -130,11 +137,10 @@
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 100, 100, 100, 100
 		Versus:
-			None: 100
-			Wood: 100
-			Light: 100
-			Heavy: 100
-			Concrete: 25
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			ConcreteArmor: 25
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FullDamage
 

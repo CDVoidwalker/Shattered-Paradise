@@ -849,12 +849,17 @@ ufo:
 		AddExtension: false
 
 well:
+	Inherits: ^EmpOverlay
 	idle:
+		Offset: 0, -48, 60
+		UseTilesetCode: false
+	dead:
 		Offset: 0, -48, 60
 		UseTilesetCode: false
 	icon: sidebar-gdi|e1icon
 
 bloodderrick:
+	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0, -32, 60
 	idle: derrickidle
@@ -863,8 +868,12 @@ bloodderrick:
 	move: derrickmove
 		Length: *
 		UseTilesetCode: false
+	dead: derrickidle
+		Length: *
+		UseTilesetCode: false
 
 neutralradar:
+	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0, -24, 60
 	idle:
@@ -877,8 +886,12 @@ neutralradar:
 		Length: 26
 		Tick: 100
 		ShadowStart: 138
+	dead:
+		Start: 56
+		ShadowStart: 138
 
 neutralpowerplant:
+	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0, -36, 60
 	idle:
@@ -886,11 +899,17 @@ neutralpowerplant:
 	damaged-idle:
 		Start: 1
 		ShadowStart: 3
+	dead:
+		Start: 1
+		ShadowStart: 3        
 
 scrinreinfpad:
+	Inherits: ^EmpOverlay
 	Defaults:
 		Offset: 0, -36, 60
 	idle:
+		ShadowStart: 12
+	dead:
 		ShadowStart: 12
 	idle-roof:
 		Start: 1

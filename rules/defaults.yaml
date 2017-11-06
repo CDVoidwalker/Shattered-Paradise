@@ -159,7 +159,7 @@
 		ZOffset: -129
 		RequiresCondition: tracting
 
-^FireflyDebuff
+^FireflyDebuff:
 	SpeedMultiplier@firefly:
 		RequiresCondition: fireflystop
 		Modifier: 40
@@ -175,6 +175,7 @@
 	TimedConditionBar@firefly:
 		Condition: fireflystop
 		Color: FFFFFF
+
 ^FirestormGenBuff:
 	DamageMultiplier@firestorm:
 		Modifier: 95#, 90
@@ -542,6 +543,21 @@
 	Inherits@2:^NodVehicleRepair
 	Inherits@3: ^PermanentSelfHeal
 
+^ProducesStuff:
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+	PrimaryBuilding:
+		PrimaryCondition: primary
+	RallyPoint:
+		Offset: 2,3
+		Palette: mouse
+		IsPlayerPalette: false
+	ProductionBar:
+
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
@@ -554,7 +570,7 @@
 	Valued:
 		Cost: 300
 	Armor@Building:
-		Type: Structure
+		Type: BuildingArmor
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack
 	Building:
@@ -562,7 +578,7 @@
 		Footprint: x
 		BuildSounds: place2.aud
 		TerrainTypes: Clear, Road, DirtRoad, Rough
-		Adjacent: 4
+		Adjacent: 3
 		RequiresBaseProvider: True
 	FrozenUnderFog:
 	SoundOnDamageTransition:
@@ -601,7 +617,9 @@
 	Inherits@2: ^StructureEffects
 	Inherits@3: ^EmpDisable
 	GivesBuildableArea:
-	Capturable:
+	ExternalCapturable:
+		CaptureCompleteTime: 7
+	ExternalCapturableBar:
 	RepairableBuilding:
 		IndicatorPalette: mouse
 		RepairStep: 700
@@ -632,6 +650,9 @@
 		RequiresLobbyCreeps: true
 	MustBeDestroyed:
 		RequiredForShortGame: true
+	RevealsShroud:
+		Range: 6c0
+		RequiresCondition: !inside-tunnel && !submerged
 	CaptureNotification:
 	Sellable:
 		SellSounds: cashturn.aud
@@ -656,8 +677,6 @@
 	-UpdatesPlayerStatistics:
 	Health:
 		HP: 90000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 4c0
 	Tooltip:
@@ -672,14 +691,13 @@
 		Categories: Civilian Structure
 
 ^TechBuilding:
-	Inherits: ^CivBuilding
+	Inherits: ^Building
 	RepairableBuilding:
 		IndicatorPalette: mouse
 		RepairStep: 700
 	Capturable:
 		CaptureThreshold: 100
 	RenderSprites:
-		-Palette: silo
 	EditorTilesetFilter:
 		Categories: Tech Structure
 
@@ -690,8 +708,6 @@
 		Dimensions: 1, 1
 	Selectable:
 		Bounds: 60, 60, 0, -18
-	Armor:
-		Type: heavy
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -745,7 +761,7 @@
 	ExternalCondition@MineReam:
 		Condition: MineReam
 	Armor:
-		Type: None
+		Type: InfantryArmor
 	Valued:
 		Cost: 10
 	RevealsShroud:
@@ -764,7 +780,9 @@
 			Rough: 80
 			Bridge: 100
 			Tiberium: 90
+				PathingCost: 300
 			BlueTiberium: 90
+				PathingCost: 300
 			Veins: 50
 		TunnelCondition: inside-tunnel
 	SelectionDecorations:
@@ -934,6 +952,12 @@
 		Damage: -200
 		DamageInterval: 16
 		Terrain: Tiberium, BlueTiberium
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 90
+				PathingCost: 1
+			BlueTiberium: 90
+				PathingCost: 1
 
 ^Beast:
 	Inherits: ^Mutant
@@ -1061,7 +1085,6 @@
 		Range: 3c0
 	Health:
 		HP: 4500
-	-Armor:
 	-GainsExperience:
 	-GivesExperience:
 	-Passenger:
@@ -1152,8 +1175,9 @@
 	DetectCloaked:
 		CloakTypes: mine
 		Range: 4c0
-	Captures:
-		CaptureTypes: building
+	ExternalCaptures:
+		Type: building
+		ConsumeActor: true
 		PlayerExperience: 50
 	Passenger:
 		GrantCondition: EngineerHologram
@@ -1180,6 +1204,7 @@
 			Tiberium: 50
 			BlueTiberium: 50
 			Veins: 50
+				PathingCost: 300
 		TunnelCondition: inside-tunnel
 		TurnSpeed: 7
 		Voice: Move
@@ -1203,7 +1228,7 @@
 		Palette: cloakscrin
 		RequiresCondition: BugPoison
 	Armor:
-		Type: Light
+		Type: VehicleArmor
 	DamagedByTerrain@veins:
 		Damage: 1500
 		DamageInterval: 12
@@ -1418,6 +1443,8 @@
 	SelectionDecorations:
 		Palette: pips
 	DockClient:
+	Armor:
+		Type: AircraftArmor
 	Aircraft:
 		AirborneCondition: airborne
 		CruisingCondition: cruising
@@ -1499,7 +1526,7 @@
 	Health:
 		HP: 28000
 	Armor:
-		Type: Heavy
+		Type: AircraftArmor
 	HiddenUnderFog:
 		Type: CenterPosition
 	Targetable@Ignore:
@@ -1522,7 +1549,7 @@
 		Shape: Circle
 			Radius: 256
 	Armor:
-		Type: Light
+		Type: VehicleArmor
 	Mobile:
 		Speed: 113
 		TurnSpeed: 16
@@ -1657,7 +1684,7 @@
 	DetectCloaked:
 		Range: 5c0
 	Armor:
-		Type: Heavy
+		Type: BuildingArmor
 	EditorTilesetFilter:
 		Categories: Defence
 
@@ -1689,7 +1716,7 @@
 	RenderRangeCircle:
 	DrawLineToTarget:
 	Armor:
-		Type: Light
+		Type: VehicleArmor
 	SelfHealing@poisoncloud:
 		PercentageStep: -3
 	Building:
@@ -1738,7 +1765,7 @@
 	Health:
 		HP: 10000
 	Armor:
-		Type: Light
+		Type: VehicleArmor
 	RevealsShroud:
 		Range: 5c0
 	Selectable:
@@ -1831,21 +1858,21 @@
 	EditorTilesetFilter:
 		Categories: Wall
 	Valued:
-		Cost: 50
+		Cost: 100
 
 ^Gate:
 	Inherits: ^Building
 	Valued:
-		Cost: 50
+		Cost: 200
 	Health:
 		HP: 35000
 	Armor:
-		Type: Heavy
+		Type: BuildingArmor
 	LineBuildNode:
 		Types: wall, gate
 	-WithDeathAnimation:
 	-Building:
-	-Capturable:
+	-ExternalCapturable:
 	-GivesBuildableArea:
 	-MustBeDestroyed:
 	-WithSpriteBody:
@@ -1864,6 +1891,7 @@
 		BlocksProjectilesHeight: 640
 	EditorTilesetFilter:
 		Categories: Defence
+	-ExternalCapturableBar:
 
 ^Gate_A:
 	Inherits: ^Gate

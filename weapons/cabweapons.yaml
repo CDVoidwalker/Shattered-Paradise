@@ -32,7 +32,7 @@ CyborgRocket:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 2000
+		Damage: 4000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -129,18 +129,18 @@ GLAD120mm:
 LurkerHit:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 80
-	Range: 7c0
+	Range: 9c0
 	Report: lasershotgun.wav
-	Projectile: Missile
-		Speed: 100
+	Projectile: BulletAS
+		Speed: 200
 		TrailImage: lurkertrail
 		TrailPalette: playercab
 		HorizontalRateOfTurn: 8
-		RangeLimit: 7c204
+		RangeLimit: 10c0
 		MaximumLaunchSpeed: 213
 	Warhead@1Dam: SpreadDamage
 		Spread: 120
-		Damage: 4000
+		Damage: 5000
 		Versus:
 			Worker: 25
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
@@ -157,10 +157,7 @@ CyCannon:
 	ValidTargets: Ground
 	Projectile: Missile
 		Blockable: false
-		HorizontalRateOfTurn: 10
 		Speed: 250
-		MinimumLaunchSpeed: 10
-		# MaximunLaunchSpeed: 200
 		Acceleration: 50
 		Shadow: true
 		Image: TORPEDO
@@ -169,11 +166,10 @@ CyCannon:
 		Damage: 10000
 		ValidTargets: Ground
 		Versus:
-			None: 350
-			Wood: 260
-			Light: 205
-			Heavy: 150
-			Concrete: 80
+			InfantryArmor: 350
+			BuildingArmor: 260
+			VehicleArmor: 205
+			ConcreteArmor: 80
 		DamageTypes: Prone350Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_bang
@@ -513,8 +509,8 @@ ecmwave:
 
 PalaLazor:
 	Inherits: ^ArtilleryWarhead
-	ReloadDelay: 25
-	Range: 5c0
+	ReloadDelay: 75
+	Range: 7c0
 	Report: lastur1.aud
 	Projectile: LaserZap
 		Width: 60
@@ -522,7 +518,7 @@ PalaLazor:
 		Color: 0000FF
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: 2000
+		Damage: 6000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 ########################################################################
@@ -685,7 +681,7 @@ SentryTurretGun:
 		Spread: 128
 		Damage: 500
 		Versus:
-			Concrete: 60
+			ConcreteArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 CTurretCannon:
@@ -725,11 +721,10 @@ CabJetMiniBomb:
         Spread: 400
         Damage: 2000
 		Versus:
-			None: 125
-			Wood: 40
-			Light: 10
-			Heavy: 5
-			Concrete: 1
+			InfantryArmor: 125
+			BuildingArmor: 40
+			VehicleArmor: 10
+			ConcreteArmor: 1
         ValidTargets: Ground, Building, Infantry, Vehicle
         DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 

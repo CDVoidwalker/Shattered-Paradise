@@ -491,26 +491,34 @@ SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
 	Inherits@1: ^AutoTargetGround
 	SelfHealing:
-		PercentageStep: -50
-		Step: 0
-		Delay: 1000
+		Step: -1
+		Delay: 50
 		HealIfBelow: 200
 	Tooltip:
 		Name: Essence
 	Targetable@Esscence:
 		TargetTypes: ScrinEssence
+	AttackMove:
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 30
 	Health:
-		HP: 10
+		HP: 2
 		NotifyAppliedDamage: False
 	AttackTurreted:
 	Turreted:
 		TurnSpeed: 99
 	AutoTarget:
-	-RevealsShroud:
+	RevealsShroud:
 	RenderSprites:
 		Image: scrinessencesmall
 		Palette: apolra2ialpha
 		PlayerPalette: apolra2ialpha
+	Explodes:
+		Weapon: EssenceSmall
+		EmptyWeapon: EssenceSmall
+		LoadedChance: 100
+		Chance: 100
 	Armament:
 		Weapon: EssenceSmall
 		TargetStances: Ally

@@ -77,6 +77,8 @@ GAPILE:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 88, 56, 0, -8
+	ProvidesPrerequisite@SharedEngie:
+		Prerequisite: SharedEngie
 
 GAWEAP:
 	Inherits: ^Factory
@@ -100,7 +102,7 @@ GAWEAP:
 		Sequence: bib
 
 GAHPAD:
-	Inherits: ^Building
+	Inherits@1: ^Helipad
 	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 500
@@ -121,19 +123,6 @@ GAHPAD:
 		HP: 60000
 	RevealsShroud:
 		Range: 5c0
-	Exit@1:
-		SpawnOffset: 0,-256,0
-	DockManager:
-	Dock:
-		DockOffset: 1,1
-		DockAngle: 160
-	ProductionFromMapEdge:
-		Produces: Air
-	RallyPoint:
-		Palette: mouse
-		IsPlayerPalette: false
-	PrimaryBuilding:
-	Reservable:
 	RepairsUnits:
 		Interval: 1
 	ProductionBar:
@@ -151,13 +140,6 @@ GAHPAD:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 88, 66, 0, -5
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
-		ConditionMinEnabledLevel: 1
 
 GARADR:
 	Inherits: ^Radar
@@ -203,7 +185,7 @@ GAPLUG:
 	Inherits: ^Building
 	Inherits@2: ^2x3Shape
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: GDI Upgrade Center
 	Selectable:
@@ -228,7 +210,7 @@ GAPLUG:
 	WithIdleOverlay@STRIP:
 		Sequence: idle-strip
 	Health:
-		HP: 200000
+		HP: 300000
 	Armor:
 		Type: Wood
 	RevealsShroud:
@@ -415,6 +397,8 @@ NAHAND:
 		Sequence: production-light
 	SelectionDecorations:
 		VisualBounds: 116, 60, 3, -6
+	ProvidesPrerequisite@SharedEngie:
+		Prerequisite: SharedEngie
 
 NAWEAP:
 	Inherits: ^Factory
@@ -436,7 +420,7 @@ NAWEAP:
 		Sequence: bib
 
 NAHPAD:
-	Inherits: ^Building
+	Inherits@1: ^Helipad
 	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 500
@@ -450,8 +434,6 @@ NAHPAD:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	ProductionFromMapEdge:
-		Produces: Air
 	ProximityExternalCondition@AircraftAutoRepair:
 		Condition: AircraftAutoRepair
 		Range: 4c0
@@ -460,17 +442,8 @@ NAHPAD:
 	RevealsShroud:
 		Range: 5c0
 	DockManager:
-	Dock:
-		DockOffset: 1,1
-		DockAngle: 160
-	Exit@1:
-		SpawnOffset: 0,-256,0
-	RallyPoint:
-		Palette: mouse
-		IsPlayerPalette: false
 	PrimaryBuilding:
 		Interval: 1
-	Reservable:
 	RepairsUnits:
 	ProductionBar:
 	WithIdleOverlay@PLATFORM:
@@ -487,13 +460,6 @@ NAHPAD:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 78, 54, 0, -8
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
-		ConditionMinEnabledLevel: 1
 
 NARADR:
 	Inherits: ^Radar
@@ -680,30 +646,24 @@ MUWEAP:
 		Sequence: bib
 
 MUAIR:
-	Inherits: ^Building
 	Inherits@1: ^MutRender
 	Inherits@2: ^2x3Shape
+	Inherits@3: ^Helipad
 	Valued:
-		Cost: 300
+		Cost: 750
 	Tooltip:
 		Name: Mutant Airstrip
 	Buildable:
 		BuildPaletteOrder: 60
 		Queue: Building
-		Description: Produces, rearms and\nrepairs helicopters and Jets.
+		Description: Produces, rearms and repairs helicopters and Jets.\nCan serve up to four aircraft at a time.
 		Prerequisites: proc, muradr, ~structures.mut
 	Building:
 		Footprint: xxxx xxxx
 		Dimensions: 2,4
-	ProductionFromMapEdge:
-		Produces: Air
 	ProximityExternalCondition@AircraftAutoRepair:
 		Condition: AircraftAutoRepair
 		Range: 4c0
-	Exit@1:
-		ExitCell: 1,1
-		Facing: 192
-		MoveIntoWorld: false
 	DockManager:
 		DockOnActor: true
 		DeadlockDetectionEnabled: false
@@ -711,40 +671,24 @@ MUAIR:
 		DockOffset: 0,0
 	Dock@1:
 		DockOffset: 1,0
-		Dock@2:
-			DockOffset: 0,1
-		Dock@3:
-			DockOffset: 1,1
+	Dock@2:
+		DockOffset: 0,1
+	Dock@3:
+		DockOffset: 1,1
 	Power:
-		Amount: -20
+		Amount: -30
 	Health:
 		HP: 60000
 	RevealsShroud:
 		Range: 5c0
-	Exit@1:
-		SpawnOffset: 0,-256,250
-	RallyPoint:
-		Palette: mouse
-		IsPlayerPalette: false
-	PrimaryBuilding:
-	Reservable:
 	RepairsUnits:
 		Interval: 1
 	ProductionBar:
-	Power:
-		Amount: 0
 	Selectable:
 		Bounds: 88, 66, 0, -5
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 88, 66, 0, -5
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
-		ConditionMinEnabledLevel: 1
 
 MURADR:
 	Inherits: ^Radar
@@ -785,11 +729,11 @@ MUSTABLE:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
 	Inherits@2: ^2x3Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 100
-		Description: Allows beast herding.\nBeasts become stronger when hurt,\ngain regenerative capabilities but \nthey can't be ordered while in  this state.
-		Prerequisites: murax, ~structures.mut
+	# Buildable:
+		# Queue: Building
+		# BuildPaletteOrder: 100
+		# Description: Allows beast herding.\nBeasts become stronger when hurt,\ngain regenerative capabilities but \nthey can't be ordered while in  this state.
+		# Prerequisites: murax, ~structures.mut
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1057,7 +1001,7 @@ SCRAIR:
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x3Shape
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Stargate
 	Buildable:
@@ -1085,6 +1029,7 @@ SCRAIR:
 	Production:
 		Produces: Air
 	PrimaryBuilding:
+		PrimaryCondition: primary
 	Reservable:
 	RepairsUnits:
 	ProductionBar:
@@ -1187,7 +1132,7 @@ SCRTECH:
 		Description: Provides an area for surface sampling\nAllows the Scrin to adapt their most advanced units\nto the host planet.
 		Prerequisites: scrweap, scrradr, ~structures.scr
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Tooltip:
 		Name: Scrin Laboratory
 	ProvidesPrerequisite:
@@ -1241,7 +1186,7 @@ CABPOWR:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Power:
-		Amount: 175
+		Amount: 300
 	InfiltrateForPowerOutage:
 	AffectedByPowerOutage:
 	Targetable:
@@ -1289,7 +1234,7 @@ CABPROC:
 		DockOffset: 3,1
 	FreeActor:
 		SpawnOffset: 3,1
-		Actor: CABHARV
+		Actor: HARV
 	RenderSprites:
 		PlayerPalette: playermut
 		Image: cabproc
@@ -1352,6 +1297,7 @@ CABAIR:
 	Production:
 		Produces: Air
 	PrimaryBuilding:
+		PrimaryCondition: primary
 	Reservable:
 	RepairsUnits:
 	ProductionBar:
@@ -1368,7 +1314,6 @@ CABAIR:
 		Color: E0D048
 		ZOffset: 9999
 		RequiresCondition: primary
-		ConditionMinEnabledLevel: 1
 
 CABRADR:
 	Inherits: ^Radar

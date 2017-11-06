@@ -18,8 +18,6 @@ SMECH:
 		Crushes: crate
 	Health:
 		HP: 17500
-	Armor:
-		Type: light
 	AttackFrontal:
 		Voice: Attack
 	AutoTarget:
@@ -48,15 +46,13 @@ MMCH:
 		Queue: Vehicle
 		BuildPaletteOrder: 3
 		Description: Anti-Armor Walker.\n\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft.
-		Prerequisites: ~gaweap
+		Prerequisites: ~gaweap, gadept
 	Mobile:
 		TurnSpeed: 5
 		Speed: 70
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 40000
-	Armor:
-		Type: Heavy
 	BodyOrientation:
 		QuantizedFacings: 32
 	WithInfantryBody:
@@ -181,8 +177,6 @@ JUGGER:
 		Speed: 65
 	Health:
 		HP: 21000
-	Armor:
-		Type: Light
 	AttackFrontal:
 		Voice: Attack
 	AutoTarget:
@@ -218,8 +212,6 @@ G4TNK:
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 60000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
@@ -265,8 +257,6 @@ SONIC:
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 55000
-	Armor:
-		Type: Heavy
 	Armor@disruptor:
 		Type: Disruptor
 	Armament:
@@ -302,8 +292,6 @@ HMEC:
 	-RejectsOrders@berserk:
 	Health:
 		HP: 150000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 11c0
 	AttackFrontal:
@@ -410,6 +398,7 @@ BUGGYHOLOGRAM:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
 		Condition: KillMe
+	-ActorLostNotification:
 
 TTNK:
 	Inherits: ^VoxelTank
@@ -422,7 +411,7 @@ TTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 11
 		Description: Nod's main battle tank.\nCan deploy to gain extra protection.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft.
-		Prerequisites: ~naweap
+		Prerequisites: ~naweap, gadept
 	Mobile:
 		TurnSpeed: 5
 		Speed: 85
@@ -431,8 +420,10 @@ TTNK:
 	Health:
 		HP: 35000
 	Armor:
-		Type: Light
 		RequiresCondition: undeployed
+	Armor@deployed:
+		Type: ConcreteArmor
+		RequiresCondition: deployed
 	Armament@PRIMARY:
 		Weapon: Tick90mm
 		LocalOffset: 350,-0,400
@@ -477,9 +468,6 @@ TTNK:
 		RequiresCondition: deployed
 	AttackTurreted@deployed:
 		Voice: Attack
-		RequiresCondition: deployed
-	Armor@deployed:
-		Type: Concrete
 		RequiresCondition: deployed
 	AutoTarget:
 
@@ -536,6 +524,7 @@ TICKHOLOGRAM:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
 		Condition: KillMe
+	-ActorLostNotification:
 
 BIKE:
 	Inherits: ^VoxelVehicle
@@ -593,9 +582,7 @@ SAPC:
 		TerrainSpeeds:
 			Subterranean: 120
 	Health:
-		HP: 175
-	Armor:
-		Type: Heavy
+		HP: 17500
 	RevealsShroud:
 		RequiresCondition: !inside-tunnel && !submerged
 		Range: 5c0
@@ -711,7 +698,7 @@ SUBTANK:
 		Queue: Vehicle
 		Description: Subterranean Flame Tank.\nIs able to move underground.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
 		BuildPaletteOrder: 15
-		Prerequisites: ~naweap, naradr
+		Prerequisites: ~naweap, natech
 	Mobile:
 		TurnSpeed: 6
 		Speed: 81
@@ -728,8 +715,6 @@ SUBTANK:
 			Subterranean: 120
 	Health:
 		HP: 30000
-	Armor:
-		Type: Heavy
 	Armament:
 		Weapon: DevilsFlame
 		LocalOffset: 0,200,0
@@ -804,8 +789,6 @@ STNK:
 		HP: 27500
 	SelfHealing@NodCloakHealing:
 		Delay: 150
-	Armor:
-		Type: Light
 	Cloak@cloakgenerator:
 		RequiresCondition: !lawea
 		InitialDelay: 80
@@ -872,11 +855,11 @@ SGEN:
 		Cost: 1100
 	Tooltip:
 		Name: Mobile Stealth Generator
-	Buildable:
-		Queue: Vehicle
-		Description: High tech vehicle that can cloak nearby \nunits and structures when deployed.\n\nCloaked NOD units heal slowly.\n  Unarmed
-		BuildPaletteOrder: 19
-		Prerequisites: ~naweap, naradr
+	# Buildable:
+		# Queue: Vehicle
+		# Description: High tech vehicle that can cloak nearby \nunits and structures when deployed.\n\nCloaked NOD units heal slowly.\n  Unarmed
+		# BuildPaletteOrder: 19
+		# Prerequisites: ~naweap, naradr
 	Mobile:
 		TurnSpeed: 6
 		Speed: 80
@@ -902,7 +885,7 @@ WOLF:
 		Queue: Vehicle
 		BuildPaletteOrder: 27
 		Description: Tiberian Beast, spits toxic gas that gathers into clouds that harm nearby units.\n\n  Somewhat strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft, Defences.
-		Prerequisites: ~muweap, mustable, muradr
+		Prerequisites: ~muweap, muradr
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -932,8 +915,6 @@ WOLF:
 		Weight: 3
 	Health:
 		HP: 35000
-	Armor:
-		Type: Heavy
 	Mobile:
 		Speed: 80
 		SharesCell: false
@@ -949,18 +930,12 @@ MUTAPC:
 	Tooltip:
 		Name: IFV
 		Description: Light combat vehicle, can transport up to 3 soldiers.\n\n  Strong vs Infantry, Vehicles, Buildings\n  Weak vs Aircraft
-	# Buildable:
-		# Queue: Vehicle
-		# BuildPaletteOrder: 25
-		# Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 7
 		Speed: 130
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 19000
-	Armor:
-		Type: Light
 	Cargo:
 		Types: Infantry
 		MaxWeight: 4
@@ -990,11 +965,6 @@ TRIKE:
 		Cost: 250
 	Tooltip:
 		Name: Trike
-	# Buildable:
-		# Queue: Vehicle
-		# BuildPaletteOrder: 25
-		# Description: Light vehicle with room for a gunner, the vehicle will,\ninherit the weapon of whoever is inside.\n\n  Strong vs Structures, Infantry.\n  Weak vs Vehicles, Aircraft, Base defences.
-		# Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 9
 		Speed: 110
@@ -1004,8 +974,6 @@ TRIKE:
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
-	Armor:
-		Type: Light
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
@@ -1042,8 +1010,6 @@ STRUCK:
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 25000
-	Armor:
-		Type: Heavy
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
@@ -1083,7 +1049,7 @@ STRUCKFULL:
 		Queue: Vehicle
 		Description: Tank designed specifically to combat vehicles.\n\n Strong vs Vehicles\nWeak vs Everything else.
 		BuildPaletteOrder: 26
-		Prerequisites: ~muweap, muradr
+		Prerequisites: ~muweap, gadept
 	Mobile:
 		TurnSpeed: 8
 		Speed: 60
@@ -1112,15 +1078,13 @@ MUTQUAD:
 		Queue: Vehicle
 		BuildPaletteOrder: 27
 		Description: Heavy armored truck equiped with a quad cannon.\n\n  Strong vs Infantry, Aircraft\n  Weak vs Vehicles.
-		Prerequisites: ~muweap
+		Prerequisites: ~muweap, muradr
 	Mobile:
 		TurnSpeed: 7
 		Speed: 85
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 30000
-	Armor:
-		Type: Heavy
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
@@ -1165,19 +1129,12 @@ MUTTANK:
 		Cost: 550
 	Tooltip:
 		Name: Leonid Tank
-	# Buildable:
-		# Description: Light Tank, average quality but cheap.\n\n  Strong vs Vehicles, Buildings\n  Weak vs Infantry, Aircraft
-		# Queue: Vehicle
-		# BuildPaletteOrder: 26
-		# Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 8
 		Speed: 110
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 30000
-	Armor:
-		Type: Heavy
 	Armament:
 		Weapon: LeonidCannon
 		LocalOffset: 600,0,500
@@ -1263,11 +1220,6 @@ FORTRESS:
 		Cost: 1600
 	Tooltip:
 		Name: Battle Fortress
-	# Buildable:
-		# Description: Armored battle wagon.\nWorks as an APC.\nInfantry can fire from inside.\nCan move over water.\n  Weak vs anti armor weapons
-		# Queue: Vehicle
-		# BuildPaletteOrder: 30
-		# Prerequisites: ~muweap, muhall
 	Selectable:
 		Bounds: 80,60
 	Mobile:
@@ -1277,8 +1229,6 @@ FORTRESS:
 			Water: 60
 	Health:
 		HP: 50000
-	Armor:
-		Type: Heavy
 	RenderVoxels:
 		Scale: 1# 0.85
 	Cargo:
@@ -1323,8 +1273,6 @@ SCRSCORPION:
 		Crushes: crate
 	Health:
 		HP: 45000
-	Armor:
-		Type: Light
 	AttackFrontal:
 		Voice: Attack
 	AutoTarget:
@@ -1490,15 +1438,13 @@ SCRMBT:
 		Queue: Vehicle
 		BuildPaletteOrder: 32
 		Description: Light Tank, good for scouting, deals damage over an area.\n\n Strong vs Light, heavy armor\n  Weak vs Infantry, Aircraft\nBUG: This unit CANNOT break vanguard Shields.\n(It won't be fixed in a while).
-		Prerequisites: ~scrweap
+		Prerequisites: ~scrweap, scrdepot
 	Valued:
 		Cost: 900
 	Tooltip:
 		Name: Hover Tank
 	Health:
 		HP: 45000
-	Armor:
-		Type: Heavy
 	Mobile:
 		Speed: 100
 	Turreted:
@@ -1579,7 +1525,7 @@ TRIPOD:
 	Valued:
 		Cost: 1400
 	Tooltip:
-		Name: Anhilator Tripod
+		Name: Annihilator Tripod
 	Selectable:
 		Bounds: 50,100, 0, -30
 	Buildable:
@@ -1672,7 +1618,7 @@ REAPERCAB:
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 1300
+		Cost: 1200
 	Tooltip:
 		Name: Cyborg Reaper
 	DockClient:
@@ -1680,7 +1626,7 @@ REAPERCAB:
 		Queue: Vehicle
 		BuildPaletteOrder: 17
 		Description: Cyborg construct, equipped with multi missiles\nand web launchers that can ensrane infantry.\nDetects cloaked units.\n\n Strong vs Vehicles, Aircraft\n Weak vs Infantry.
-		Prerequisites: ~cabweap, cabradr
+		Prerequisites: ~cabweap, gadept
 	Repairable:
 		RepairBuildings: gadept
 		Voice: Move
@@ -1689,8 +1635,6 @@ REAPERCAB:
 	DeliversCash
 		Payload: 300
 		Voice: Move
-	Armor:
-		Type: Light
 	Mobile:
 		Speed: 80
 		SharesCell: False
@@ -1739,8 +1683,6 @@ CENTURION:
 		HP: 70000
 	Voiced:
 		VoiceSet: Cyborg
-	Armor:
-		Type: Heavy
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -1781,8 +1723,6 @@ GRINDER:
 		Speed: 100
 	Health:
 		HP: 35000
-	Armor:
-		Type: Light
 	Voiced:
 		VoiceSet: Cyborg
 	AttackFrontal:
@@ -1804,11 +1744,6 @@ ECM:
 		Cost: 1200
 	Tooltip:
 		Name: Artisan
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 21
-		Description: Support vehicle that jams the targetting systems of enemy vehicles.\n\n  Unarmed.
-		Prerequisites: ~cabweap, cabradr
 	Mobile:
 		TurnSpeed: 6
 		Speed: 75
@@ -1821,8 +1756,6 @@ ECM:
 	AttackFrontal:
 	Armament:
 		Weapon: ecmwave
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 11c0
 	ExplodeWeapon@MAQUINACONCHADETUMARE:
@@ -1842,7 +1775,7 @@ CABAPC:
 	Inherits@2: ^Ra2vxl	
 	Inherits@3: ^HoverVehicle
 	Valued:
-		Cost: 750
+		Cost: 600
 	Tooltip:
 		Name: Hover APC
 	Buildable:
@@ -1894,8 +1827,6 @@ SPIDERARTY:
 		VoiceSet: Limpet
 	Health:
 		HP: 45000
-	Armor:
-		Type: Light
 	BodyOrientation:
 		QuantizedFacings: 32
 	WithMuzzleOverlay:
@@ -1932,6 +1863,9 @@ PALADIN:
 		TurnSpeed: 6
 		Speed: 60
 		Crushes: wall, crate, infantry
+	RevealsShroud:
+		Range: 11c0
+		RequiresCondition: !inside-tunnel && !submerged
 	-RejectsOrders@berserk:
 	SelfHealing@Permanent:
 		DamageCooldown: 0
@@ -1940,8 +1874,6 @@ PALADIN:
 		HP: 90000
 	Voiced:
 		VoiceSet: Cyborg
-	Armor:
-		Type: Heavy
 	BodyOrientation:
 		QuantizedFacings: 32
 	WithInfantryBody:

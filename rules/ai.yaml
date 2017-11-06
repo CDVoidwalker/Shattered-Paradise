@@ -35,6 +35,9 @@ Player:
 		CheckForNewBasesDelay: 1500
 		NewProductionCashThreshold: 90000
 		BuildingLimits:
+#SHARED#
+			gadept: 1
+			scrdepot: 1
 #PRODUCTION#
 			proc: 5
 			scrproc: 5
@@ -104,6 +107,9 @@ Player:
 			scrair: 2
 			cabair: 2
 		BuildingFractions:
+#SHARED#
+			gadept: 100%
+			scrdepot: 100%
 #PRODUCTION#
 			proc: 99%
 			scrproc: 99%
@@ -239,6 +245,7 @@ Player:
 #T1 Air#
 			wasp: 10
 			stormrider: 5
+			scrcarrier: 4
 			# scrglyder2: 5
 #T2 Air#
 			scrdestroyer: 5
@@ -321,6 +328,7 @@ Player:
 			guardian: 3%
 			basilisk: 3%
 			scrbattleship: 1%
+			scrcarrier: 4%
 
 	HackyAI@ICI:
 		Name: Easy AI

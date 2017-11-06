@@ -13,9 +13,8 @@ FiendShard:
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		Versus:
-			Light: 60
-			Heavy: 40
-			Concrete: 20
+			VehicleArmor: 60
+			ConcreteArmor: 20
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -112,9 +111,8 @@ SlimeAttack:
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000
 		Versus:
-			Light: 60
-			Heavy: 40
-			Concrete: 20
+			VehicleArmor: 60
+			ConcreteArmor: 20
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
 VeinholeAttack:

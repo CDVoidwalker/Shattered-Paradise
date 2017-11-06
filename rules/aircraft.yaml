@@ -19,7 +19,7 @@ CLOUD1:
 		TurnSpeed: 6
 		Repulsable: false
 		AltitudeVelocity: 400#0c43
-		Speed: 20
+		Speed: 10
 		MoveIntoShroud: true
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
@@ -33,8 +33,6 @@ CLOUD1:
 		Delay: 25
 		HealIfBelow: 200
 		DamageTypes: CloudDie
-	Armor:
-		Type: Wood
 	AttackHeli:
 		FacingTolerance: 20
 		Voice: Attack
@@ -83,8 +81,6 @@ ORCA:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 12000
-	Armor:
-		Type: Wood
 	Armament:
 		Weapon: FighterHellfire
 	Armament@resr:
@@ -105,51 +101,46 @@ ORCA:
 		Actor: ORCA.Husk
 
 ORCAB:
-    Inherits: ^Plane
+	Inherits: ^Plane
 	Inherits@1: ^AutoTargetAll
-    Valued:
-        Cost: 1500
-    Tooltip:
-        Name: Orca Bomber
-    Buildable:
-        Description: Heavy carpet Bomber.\nSlow but highly armored.\n\n  Strong vs Ground Units.\n  Weak vs Anti Air, Aircraft
-        Queue: Air
-        BuildPaletteOrder: 20
-        Prerequisites: ~gahpad, gatech
-    Selectable:
-        Bounds: 30,24
-    Aircraft:
-        CruiseAltitude: 3072
-        MaximumPitch: 120
-        TurnSpeed: 4
-        IdealSeparation: 256
-        Speed: 120
-        AirborneCondition: airborne
-        MoveIntoShroud: true
-        TakeoffSound: orcaup1.aud
-        LandingSound: orcadwn1.aud
-    Health:
-        HP: 17500
-    Armor:
-        Type: Heavy
-    Armament@primary:
-        Weapon: OBBomb
-    AttackTurreted:
-    Turreted:
-        TurnSpeed: 360
-    AmmoPool:
-        Ammo: 10
-        PipCount: 2
-        ReloadCount: 5
-        ReloadTicks: 200
-        PipType: Ammo
-        PipTypeEmpty: AmmoEmpty
-    AutoTarget:
-    RenderSprites:
-    Hovers@CRUISING:
-        RequiresCondition: cruising
-    SpawnActorOnDeath:
-        Actor: ORCAB.Husk
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Orca Bomber
+	Buildable:
+		Description: Heavy carpet Bomber.\nSlow but highly armored.\n\n  Strong vs Ground Units.\n  Weak vs Anti Air, Aircraft
+		Queue: Air
+		BuildPaletteOrder: 20
+		Prerequisites: ~gahpad, gatech
+	Selectable:
+		Bounds: 30,24   
+	Aircraft:
+		CruiseAltitude: 3072
+		MaximumPitch: 120
+		TurnSpeed: 4
+		IdealSeparation: 256
+		Speed: 120
+		AirborneCondition: airborne
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 17500
+	Armament@primary:
+		Weapon: OBBomb
+	AttackPlane:
+	AmmoPool:
+		Ammo: 10
+		PipCount: 2
+		ReloadCount: 5
+		ReloadTicks: 200
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	RenderSprites:
+	Hovers@CRUISING:
+		RequiresCondition: cruising
+	SpawnActorOnDeath:
+		Actor: ORCAB.Husk
 
 TRNSPORT:
 	Inherits: ^Helicopter
@@ -174,8 +165,6 @@ TRNSPORT:
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 17500
-	Armor:
-		Type: Wood
 	RenderSprites:
 	Selectable:
 		Bounds: 44,32,0,-8
@@ -211,8 +200,6 @@ GUARDIAN:
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 65000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 15c0
 		Type: CenterPosition
@@ -271,8 +258,6 @@ DPOD:
 		InitialFacing: 0
 	Health:
 		HP: 6000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 0
 		Type: CenterPosition
@@ -307,8 +292,6 @@ DSHP:
 		LandingSound: dropdwn1.aud
 	Health:
 		HP: 20000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 3c0
 		Type: CenterPosition
@@ -341,8 +324,6 @@ ORCATRAN:
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 20000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 2c0
 		Type: CenterPosition
@@ -378,8 +359,6 @@ APACHE:
 		MoveIntoShroud: true
 	Health:
 		HP: 10000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 15c0
 		Type: CenterPosition
@@ -451,6 +430,7 @@ APACHEHOLOGRAM:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
 		Condition: KillMe
+	-ActorLostNotification:
 
 SCRIN:
 	Inherits: ^Plane
@@ -488,8 +468,6 @@ SCRIN:
 		LandingSound: dropdwn1.aud
 	Health:
 		HP: 20000
-	Armor:
-		Type: Light
 	Armament@1:
 		Weapon: Proton
 	Armament@2:
@@ -535,8 +513,6 @@ CERBERUS:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 65000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 7c0
 		Type: CenterPosition
@@ -567,28 +543,18 @@ CERBERUS:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: CERBERUS.Husk
-	GrantTimedConditionOnDeploy:
-		DeployedCondition: HologramSpawn
-		CooldownTicks: 3000
-		DeployedTicks: 10
-		StartsFullyCharged: True
-	ExternalCondition@MineSpawn:
-		Condition: HologramSpawn
-	ExplodeWeapon:
-		Weapon: ApacheHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@1:
-		Weapon: BuggyHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@2:
-		Weapon: TickHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@3:
-		Weapon: FlameHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@4:
-		Weapon: FlameHoloShrapnel
-		RequiresCondition: HologramSpawn
+	ProximityExternalCondition:
+		Condition: cloakgenerator
+		Range: 4c0
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		AffectsParent: False
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@CLOAKGENERATOR:
+	-ExternalCondition@crate-cloak:
+	WithRangeCircle:
+		Range: 4c0
+		Type: cloakgenerator
 
 ##########################################################
 # Mutants
@@ -621,8 +587,6 @@ MUTHELI:
 		HP: 18000
 	RenderVoxels:
 		Scale: 9
-	Armor:
-		Type: Light
 	WithIdleOverlay@ROTORAIR:
 		Offset: 85,0,384
 		Sequence: rotor
@@ -678,8 +642,6 @@ WETP:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 13000
-	Armor:
-		Type: Light
 	Armament:
 		Weapon: FalconPunch
 	Armament@1:
@@ -814,8 +776,6 @@ SCRPOD:
 		LandingSound: dropdwn1.aud
 	Health:
 		HP: 30000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 0c0
 		Type: CenterPosition
@@ -858,8 +818,6 @@ STORMRIDER:
 		LandingSound: dropdwn1.aud
 	Health:
 		HP: 7000
-	Armor:
-		Type: Light
 	Armament:
 		Weapon: StormRiderBlast
 	Armament@aa:
@@ -900,8 +858,6 @@ drache:
 		HP: 60000
 	Voiced:
 		VoiceSet: Limpet
-	Armor:
-		Type: Light
 	Targetable@MindControlInmune:
 		TargetTypes: MindControlInmune
 	Aircraft:
@@ -1018,8 +974,6 @@ SCRDESTROYER:
 		TargetTypes: ScrinUnit
 	Health:
 		HP: 30000
-	Armor:
-		Type: Light
 	Armament:
 		Weapon: DestroyerCannon
 		LocalOffset: 300,0,0
@@ -1074,8 +1028,6 @@ SCRTRANS:
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 50000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 7c0
 		Type: CenterPosition
@@ -1110,8 +1062,6 @@ SCRINCOUNCIL:
 		Priority: 6
 	Health:
 		HP: 70000
-	Armor:
-		Type: Light
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 60
@@ -1301,8 +1251,6 @@ SCRBATTLESHIP:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 200000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 14c0
 		Type: CenterPosition
@@ -1424,8 +1372,6 @@ WASP:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 13000
-	Armor:
-		Type: Light
 	Voiced:
 		VoiceSet: Limpet
 	Armament@Primary:
@@ -1483,8 +1429,6 @@ FIREFLY:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 10000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 9c0
 		Type: CenterPosition
@@ -1605,8 +1549,6 @@ BASILISK:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 50000
-	Armor:
-		Type: Light
 	Armament:
 		Weapon: BasiliskProton
 		LocalOffset: 128,-300,0, 128,300,0

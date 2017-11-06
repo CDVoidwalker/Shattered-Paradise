@@ -8,10 +8,9 @@ Minigun:
 		Spread: 128
 		Damage: 800
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -31,10 +30,9 @@ M1Carbine:
 		Spread: 128
 		Damage: 1500
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -54,10 +52,9 @@ Vulcan:
 		Spread: 128
 		Damage: 2000
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -78,11 +75,10 @@ Vulcan2:
 		Spread: 128
 		Damage: 5000
 		Versus:
-			None: 100
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			InfantryArmor: 100
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -103,10 +99,9 @@ Vulcan3:
 		Spread: 128
 		Damage: 1000
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -127,10 +122,9 @@ JumpCannon:
 		Spread: 128
 		Damage: 1500
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -150,10 +144,9 @@ AssaultCannon:
 		Spread: 128
 		Damage: 2000
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -175,10 +168,9 @@ RaiderCannon:
 		Spread: 128
 		Damage: 4000
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -198,10 +190,9 @@ Pistola:
 		Spread: 128
 		Damage: 200
 		Versus:
-			Wood: 60
-			Light: 40
-			Heavy: 25
-			Concrete: 10
+			BuildingArmor: 60
+			VehicleArmor: 40
+			ConcreteArmor: 10
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
@@ -221,9 +212,8 @@ Sniper:
 		Spread: 42
 		Damage: 15000
 		Versus:
-			None: 100
-			Wood: 5
-			Light: 5
-			Heavy: 5
-			Concrete: 5
+			InfantryArmor: 100
+			BuildingArmor: 5
+			VehicleArmor: 5
+			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, HeadshotDeath

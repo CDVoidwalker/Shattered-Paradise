@@ -17,11 +17,10 @@ MultiCluster:
 		Damage: 6500
 		ValidTargets: Ground
 		Versus:
-			None: 25
-			Wood: 65
-			Light: 75
-			Heavy: 100
-			Concrete: 60
+			InfantryArmor: 25
+			BuildingArmor: 65
+			VehicleArmor: 75
+			ConcreteArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_explosion
@@ -46,16 +45,15 @@ SuicideBomb:
 		Damage: 11000
 		Falloff: 10000, 3680, 1350, 500, 180, 70, 0
 		Versus:
-			None: 90
-			Light: 60
-			Heavy: 25
-			Concrete: 50
+			InfantryArmor: 90
+			VehicleArmor: 60
+			ConcreteArmor: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	# Warhead@2Res: DestroyResource
 	
 EMPulseCannon:
 	ReloadDelay: 300
-	Range: 15c0
+	Range: 20c0
 	MinRange: 3c0
 	Report: PLSECAN2.AUD
 	ValidTargets: Vehicle, Building, Ground
@@ -141,11 +139,10 @@ IonScorch:
 		Damage: 7200
 		ValidTargets: IonSpawner
 		DamageTypes: SmallExplosionDeath
-			None: 500
-			Wood: 100
-			Light: 50
-			Heavy: 25
-			Concrete: 5
+			InfantryArmor: 500
+			BuildingArmor: 100
+			VehicleArmor: 50
+			ConcreteArmor: 5
 
 IonDrag:
 	ReloadDelay: 5
@@ -299,7 +296,7 @@ ClusterMissile:
 		Falloff: 500, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water, Air
 		Versus:
-			Concrete: 25
+			ConcreteArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@ClusterDamage3: SpreadDamage
 		Spread: 2c0
@@ -308,11 +305,10 @@ ClusterMissile:
 		Delay: 15
 		ValidTargets: Ground, Water, Air
 		Versus:
-			None: 500
-			Wood: 100
-			Light: 50
-			Heavy: 25
-			Concrete: 5
+			InfantryArmor: 500
+			BuildingArmor: 100
+			VehicleArmor: 50
+			ConcreteArmor: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: nuke1, nuke2, nuke3
@@ -393,7 +389,7 @@ ToxinMissile:
 		Falloff: 500, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water, Air
 		Versus:
-			Concrete: 25
+			ConcreteArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: large_explosion

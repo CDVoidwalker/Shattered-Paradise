@@ -122,7 +122,7 @@ Heal:
 		Spread: 350
 		Damage: -5000
 		Versus:
-			Light: 60
+			VehicleArmor: 60
 		ValidTargets: Infantry, Jumpjet
 		
 TrooperRail:
@@ -140,7 +140,7 @@ TrooperRail:
 		Damage: 4000
 		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
 		Versus:
-			Concrete: 5
+			ConcreteArmor: 5
 	Warhead@emp: GrantExternalCondition
 		Range: 0c512
 		Duration: 30
@@ -195,19 +195,16 @@ HoverMissile:
 		Inaccuracy: 128
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 4500
 		ValidTargets: Ground
 		Versus:
-			None: 25
-			Wood: 65
-			Light: 75
-			Heavy: 100
-			Concrete: 60
+			InfantryArmor: 25
+			BuildingArmor: 65
+			VehicleArmor: 75
+			ConcreteArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 HoverMissileAA:
@@ -262,8 +259,8 @@ SonicZap:
 		AffectsParent: false
 		ValidStances: Neutral, Enemy
 		Versus:
-			Heavy: 80
-			Concrete: 60
+			VehicleArmor: 80
+			ConcreteArmor: 60
 			Disruptor: 30
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Dam: SpreadDamage
@@ -273,8 +270,8 @@ SonicZap:
 		AffectsParent: false
 		ValidStances: Ally
 		Versus:
-			Heavy: 80
-			Concrete: 60
+			VehicleArmor: 80
+			ConcreteArmor: 60
 			Disruptor: 30
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
@@ -296,11 +293,10 @@ MechRailgun:
 		Spread: 42
 		Damage: 15000
 		Versus:
-			None: 200
-			Wood: 175
-			Light: 160
-			Heavy: 100
-			Concrete: 25
+			InfantryArmor: 200
+			BuildingArmor: 175
+			VehicleArmor: 160
+			ConcreteArmor: 25
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 
 MechDummy:
@@ -425,8 +421,8 @@ GuardianRail:
 		Damage: 7500
 		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
 		Versus:
-			None: 150
-			Concrete: 5
+			InfantryArmor: 150
+			ConcreteArmor: 5
 
 GuardianClaw:
 	Inherits: ^RifleWarhead

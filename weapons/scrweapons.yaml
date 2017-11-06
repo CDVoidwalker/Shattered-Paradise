@@ -36,18 +36,15 @@ LegioNeedler:
 	Report: photon1.wav
 	ValidTargets: Ground, Air
 	Projectile: Missile
-		Speed: 250
 		Blockable: false
 		Shadow: true
 		Palette: apblue
 		Image: blueballminitrail
-		RateOfTurn: 8
-		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
 		Damage: 3000
 		Versus:
-			None: 30
+			InfantryArmor: 30
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 
@@ -88,11 +85,10 @@ ColossiBlast:
 		Spread: 1500
 		Damage: 800
 		Versus:
-			None: 100
-			Wood: 30
-			Light: 2
-			Heavy: 2
-			Concrete: 2 
+			InfantryArmor: 100
+			BuildingArmor: 30
+			VehicleArmor: 2
+			ConcreteArmor: 2 
 		DamageTypes: FireDeath, ScrinEssenceKill
 		InvalidTargets: Colossi
 	Warhead@2Eff: CreateEffect
@@ -397,11 +393,10 @@ BounceExplosion:
 		Damage: 2000
 		ValidTargets: Ground
 		Versus:
-			None: 15
-			Wood: 100
-			Light: 10
-			Heavy: 5
-			Concrete: 28
+			InfantryArmor: 15
+			BuildingArmor: 100
+			VehicleArmor: 10
+			ConcreteArmor: 28
 	Warhead@op: FireShrapnel
 		Weapon: BounceTesla
 		Amount: 3
@@ -419,11 +414,10 @@ BounceTesla:
 		Damage: 1500
 		ValidTargets: Ground
 		Versus:
-			None: 15
-			Wood: 100
-			Light: 10
-			Heavy: 5
-			Concrete: 28
+			InfantryArmor: 15
+			BuildingArmor: 100
+			VehicleArmor: 10
+			ConcreteArmor: 28
 	Warhead@TractorStop: GrantExternalCondition
 		Range: 250
 		Duration: 8
@@ -824,7 +818,7 @@ CouncilSteal:
 		Damage: 1
 		ValidTargets: Infantry, Vehicle
 		Versus:
-			Concrete: 30
+			ConcreteArmor: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@4OwnerChange: ChangeOwner
 		Range: 1c512
@@ -882,7 +876,7 @@ TractorBeam:
 
 DronePlane:
 	Inherits: ^BombWarhead
-	ReloadDelay: 150
+	ReloadDelay: 200
 	Range: 8c0
 	MinRange: 2c0
 	# Report: 120mmf.aud
@@ -923,9 +917,9 @@ EssenceSmall:
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 50
+		Damage: -1
 		AffectsParent: True
-		ValidTargets: ScrinEssence
+		ValidTargets: ScrinUnit
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
 		Amount: 1
@@ -941,16 +935,10 @@ EssenceMissile:
 	Range: 10c0
 	ValidTargets: ScrinUnit
 	Projectile: Missile
-		Speed: 150
-		Blockable: False
-		Shadow: true
-		RateOfTurn: 8
-		RangeLimit: 99c0
 		Image: essencetrail
 		TrailImage: essencetrailmini
 		TrailPalette: apolra2ialpha
 		TrailInterval: 1
-		Jammable: False
 		Palette: apolra2ialpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
@@ -989,9 +977,8 @@ HealScrin:
 		Damage: -10000
 		AffectsParent: True
 		Versus:
-			None: 50
-			Light: 75
-			Heavy: 100
+			InfantryArmor: 50
+			VehicleArmor: 100
 		ValidTargets: ScrinUnit
 	Warhead@emp: GrantExternalCondition
 		Range: 200

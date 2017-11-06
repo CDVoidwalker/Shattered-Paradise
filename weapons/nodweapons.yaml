@@ -29,11 +29,10 @@ MilitantExplode:
 		Damage: 130000
 		AffectsParent: True
 		Versus:
-			None: 600
-			Wood: 1
-			Light: 1
-			Heavy: 1
-			Concrete: 1
+			InfantryArmor: 600
+			BuildingArmor: 1
+			VehicleArmor: 1
+			ConcreteArmor: 1
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -72,17 +71,12 @@ CrusaderBazooka:
 		Shadow: true
 		Inaccuracy: 350
 		Image: DRAGON
-		MinimumLaunchAngle: 90
-		MaximumLaunchAngle: 270
-		TrailImage: small_smoke_trail
-		RateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 2700
 		ValidTargets: Ground, Vehicle, Air, Building, Infantry
-		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 TemplarFlame:
 	Inherits: ^FlameWarhead
@@ -159,11 +153,10 @@ BHRifle:
 		Damage: 7500
 		ValidTargets: Infantry, Vehicle, Ground
 		Versus:
-			None: 400
-			Wood: 5
-			Light: 5
-			Heavy: 5
-			Concrete: 5
+			InfantryArmor: 400
+			BuildingArmor: 5
+			VehicleArmor: 5
+			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: hallugren
@@ -203,7 +196,7 @@ CouncilSteal:
 		Damage: 1
 		ValidTargets: Infantry, Vehicle
 		Versus:
-			Concrete: 30
+			ConcreteArmor: 30
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 ##################################################
@@ -237,9 +230,6 @@ BikeMissile:
 		Inaccuracy: 128
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
-		MaximumLaunchSpeed: 213
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
@@ -267,7 +257,7 @@ BikeExplo:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		Versus:
 			Bike: 1
-			Wood: 200
+			BuildingArmor: 200
 
 Tick90mm:
 	Inherits: ^APWarhead
@@ -360,7 +350,7 @@ FlameHologram:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
 	Range: 5c0
-	Report: dropup1.aud
+	Report: cloak5.aud
 	Projectile: BulletAS
 		Speed: 100c0
 	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
@@ -486,15 +476,12 @@ StealthRocket:
 	Report: misl1.aud
 	ValidTargets: Ground
 	Projectile: Missile
-		MaximumLaunchSpeed: 171
 		Arm: 2
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 0c512
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
@@ -571,7 +558,7 @@ Proton:
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			Wood: 75
+			BuildingArmor: 75
 		Spread: 250
 		Damage: 2500
 		ValidTargets: Ground, water, Infantry, Vehicle, Building

@@ -12,11 +12,10 @@ FireballLauncher:
 		Spread: 341
 		Damage: 2500
 		Versus:
-			None: 600
-			Wood: 148
-			Light: 59
-			Heavy: 6
-			Concrete: 2
+			InfantryArmor: 600
+			BuildingArmor: 148
+			VehicleArmor: 59
+			ConcreteArmor: 2
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -44,11 +43,10 @@ Hellfire:
 		Damage: 3000
 		ValidTargets: Ground
 		Versus:
-			None: 30
-			Wood: 65
-			Light: 150
-			Heavy: 100
-			Concrete: 30
+			InfantryArmor: 30
+			BuildingArmor: 65
+			VehicleArmor: 150
+			ConcreteArmor: 30
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: small_clsn
@@ -191,11 +189,10 @@ LTrail:
 		AffectsParent: false
 		ValidStances: Neutral, Enemy
 		Versus:
-			None: 100
-			Wood: 130
-			Light: 150
-			Heavy: 110
-			Concrete: 5
+			InfantryArmor: 100
+			BuildingArmor: 130
+			VehicleArmor: 150
+			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 32
@@ -205,11 +202,10 @@ LTrail:
 		AffectsParent: false
 		ValidStances: Ally
 		Versus:
-			None: 100
-			Wood: 130
-			Light: 150
-			Heavy: 110
-			Concrete: 5
+			InfantryArmor: 100
+			BuildingArmor: 130
+			VehicleArmor: 150
+			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
 
 4tnkgun:

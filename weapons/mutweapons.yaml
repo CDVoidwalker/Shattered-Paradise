@@ -128,11 +128,10 @@ SeerTesla:
 		Spread: 30
 		Damage: 7000
 		Versus:
-			None: 50
-			Wood: 75
-			Light: 85
-			Heavy: 100
-			Concrete: 30
+			InfantryArmor: 50
+			BuildingArmor: 75
+			VehicleArmor: 85
+			ConcreteArmor: 30
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 
@@ -442,12 +441,11 @@ StuggCannon:
 		Spread: 128
 		Damage: 7000
 		Versus:
-			None: 15
-			Wood: 25
-			Light: 100
-			Heavy: 200
+			InfantryArmor: 15
+			BuildingArmor: 25
+			VehicleArmor: 100
 			Structure: 25
-			Concrete: 30
+			ConcreteArmor: 30
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 QuadFire:
@@ -485,7 +483,7 @@ QuadFireAA:
 		ValidTargets: Air
 		Damage: 3000
 		Versus:
-			Concrete: 5
+			ConcreteArmor: 5
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		
 TiberianRocket:
@@ -534,7 +532,7 @@ MiniNuke:
 		Damage: 90000
 		ValidTargets: Ground, Water, Air
 		Versus:
-			Concrete: 25
+			ConcreteArmor: 25
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeathStrong
 	Warhead@2Eff: CreateEffect
@@ -665,9 +663,8 @@ GargoylRocket:
 GargoylRocketAA:
 	Inherits: ^FullDamage
 	Inherits@2: ^Small_Bang
-	ReloadDelay: 100
+	ReloadDelay: 90
 	Range: 6c0
-	Burst: 3
 	Report: orcamis1.aud
 	ValidTargets:  Air
 	Projectile: Missile
@@ -682,7 +679,7 @@ GargoylRocketAA:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 110
-		Damage: 5000
+		Damage: 7000
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -695,20 +692,18 @@ CloudDamage:
 		Damage: 650
 		DamageTypes: BulletDeath
 		Versus:
-			Wood: 10
-			Light: 7
-			Heavy: 5
-			Concrete: 1
+			BuildingArmor: 10
+			VehicleArmor: 7
+			ConcreteArmor: 1
 		ValidStances: Enemy, Neutral
 	Warhead@2Dam: SpreadDamage
 		Spread: 164
 		Damage: 325
 		DamageTypes: BulletDeath
 		Versus:
-			Wood: 10
-			Light: 7
-			Heavy: 5
-			Concrete: 1
+			BuildingArmor: 10
+			VehicleArmor: 7
+			ConcreteArmor: 1
 		ValidStances: Ally
 
 FalconPunch:
@@ -778,9 +773,8 @@ VentilatorPoison:
 		Falloff: 300, 150, 100, 50, 0
 		Damage: -1000
 		Versus:
-			None: 125
-			Wood: 25
-			Light: 25
-			Heavy: 15
-			Concrete: 5
+			InfantryArmor: 125
+			BuildingArmor: 25
+			VehicleArmor: 25
+			ConcreteArmor: 5
 		DamageTypes: TiberiumDeath

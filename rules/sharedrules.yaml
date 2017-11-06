@@ -36,7 +36,7 @@ ENGINEER:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
-		Prerequisites: ~humanproc
+		Prerequisites: ~SharedEngie
 	Voiced:
 		VoiceSet: Engineer
 	RenderSprites:
@@ -107,7 +107,7 @@ HARV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 99
-		Prerequisites: ~proc, ~!structures.scr, ~!structures.cab
+		Prerequisites: ~proc
 		InitialActivity: FindResources
 	Selectable:
 		Priority: 7
@@ -125,7 +125,7 @@ HARV:
 		SearchFromOrderRadius: 18
 		HarvestVoice: Attack
 		DeliverVoice: Action
-        PipCount: 7
+		PipCount: 7
 	DockClient:
 	Sellable:
 		RequiresCondition: AuraRepair
@@ -161,13 +161,6 @@ HARV:
 	Voiced:
 		VoiceSet: HumanHarvesterVO
 		Volume: 4
-
-CabHarv:
-	Inherits: HARV
-	Buildable:
-		Prerequisites: ~cabproc
-	RenderVoxels:
-		Image: cabharv
 
 SCRHARV:
 	Inherits: HARV
@@ -350,6 +343,7 @@ GACNST:
 
 ^Barracks:
 	Inherits: ^Building
+	Inherits@1: ^ProducesStuff
 	Valued:
 		Cost: 500
 	ProvidesPrerequisite:
@@ -364,26 +358,15 @@ GACNST:
 		HP: 80000
 	RevealsShroud:
 		Range: 5c0
-	RallyPoint:
-		Offset: 2,3
-		Palette: mouse
-		IsPlayerPalette: false
 	Exit@1:
 		SpawnOffset: -256,1024,0
 		ExitCell: 2,2
 	Production:
 		Produces: Infantry
 	PrimaryBuilding:
-	ProductionBar:
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
 
 PROC:
 	Inherits: ^Building
@@ -426,11 +409,6 @@ PROC:
 		DockOffset: 3,1
 		Order: 3
 		WaitingPlace: true
-	Dock@4:
-		DockAngle: 64
-		DockOffset: 3,0
-		Order: 4
-		WaitingPlace: true
 	StoresResources:
 		PipColor: Green
 		PipCount: 15
@@ -470,6 +448,7 @@ PROC:
 
 ^Factory:
 	Inherits: ^Building
+	Inherits@1: ^ProducesStuff
 	Inherits@4: ^4x3FactoryWithBibShape
 	Valued:
 		Cost: 2000
@@ -501,17 +480,33 @@ PROC:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 154, 100, -2, -12
-	WithTextDecoration@primary:
-		Text: PRIMARY
-		ReferencePoint: Top
-		Color: E0D048
-		ZOffset: 9999
-		RequiresCondition: primary
+
+^Helipad:
+	Inherits: ^Building
+	Inherits@1: ^ProducesStuff
+	Inherits@2: ^2x2Shape
+	Exit@1:
+		SpawnOffset: 0,-256,0
+	DockManager:
+	Dock:
+		DockOffset: 0,0
+		DockAngle: 160
+	ProductionFromMapEdge:
+		Produces: Air
+	RallyPoint:
+		Palette: mouse
+		IsPlayerPalette: false
+	PrimaryBuilding:
+		PrimaryCondition: primary
+	Reservable:
+	RepairsUnits:
+		Interval: 1
+	ProductionBar:
 
 ^Radar:
 	Inherits: ^Building
 	Valued:
-		Cost: 1000
+		Cost: 1500
 	ProvidesPrerequisite:
 		Prerequisite: radar
 	Building:

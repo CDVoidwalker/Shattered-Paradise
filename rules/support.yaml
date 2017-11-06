@@ -258,7 +258,7 @@ GAPOWRUP:
 GAPLUG2:
 	Inherits: ^BuildingPlug
 	Valued:
-		Cost: 1000
+		Cost: 1500
 	Tooltip:
 		Name: Drop pod Control
 	Buildable:
@@ -274,7 +274,7 @@ GAPLUG2:
 GAPLUG3:
 	Inherits: ^BuildingPlug
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	Tooltip:
 		Name: Ion Cannon Uplink
 	Buildable:
@@ -686,7 +686,7 @@ NATMPL:
 		BuildLimit: 1
 	ProvidesPrerequisite@buildingname:
 	Valued:
-		Cost: 2500
+		Cost: 3000
 	Tooltip:
 		Name: Temple of Nod
 	Building:
@@ -739,7 +739,7 @@ NAMISL:
 		Description: Allows the player to launch Missiles.\nRequires power to operate.
 		BuildLimit: 1
 	Valued:
-		Cost: 2000
+		Cost: 2500
 	Tooltip:
 		Name: Nod Missile Silo
 	ProvidesPrerequisite:
@@ -925,7 +925,7 @@ MUBUNKR:
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
 	Valued:
-		Cost: 900
+		Cost: 300
 	Tooltip:
 		Name: Bunker
 	Buildable:
@@ -950,7 +950,6 @@ MUBUNKR:
 		Range: 8c0
 	AutoTarget:
 	Cargo:
-		InitialUnits: e3, marauder
 		MaxWeight: 6
 		PipCount: 6
 		Types: Infantry
@@ -973,7 +972,7 @@ MUTSW1:
 		Description: Allows the player to generate Ion Storms.
 		BuildLimit: 1
 	Valued:
-		Cost: 2500
+		Cost: 3000
 	Tooltip:
 		Name: Meditation Hall
 	Building:
@@ -1008,7 +1007,7 @@ MUTSW2:
 		Description: Allows the player to summon\nveinhole monsters on the battlefield.
 		BuildLimit: 1
 	Valued:
-		Cost: 2000
+		Cost: 2500
 	Tooltip:
 		Name: Mother Veinhole
 	Building:
@@ -1046,8 +1045,8 @@ MUWARD:
 	-AttackTurreted:
 	-AutoTarget:
 	-RenderRangeCircle:
-    Selectable:
-        Priority: 3
+	Selectable:
+		Priority: 3
 	-Voiced:
 	RevealsShroud:
 		Range: 5c0
@@ -1331,7 +1330,7 @@ SCRSW1:
 		Description: Allows the player to call in meteor storm strikes.
 		BuildLimit: 1
 	Valued:
-		Cost: 2500
+		Cost: 3000
 	Tooltip:
 		Name: Signal Transmiter
 	Building:
@@ -1669,7 +1668,7 @@ CABEYE:
 		Description: Provides vision on a great area, stealth\ndetection and also shrouds the enemy vision\nif no enemy units are nearby.
 		Prerequisites: ~structures.cab, cabtech
 	Valued:
-		Cost: 900
+		Cost: 600
 	Tooltip:
 		Name: Eye of Cabal
 	Building:
@@ -1701,7 +1700,7 @@ CABSW1:
 	Inherits@1: ^CabRender
 	Inherits@2: ^3x3Shape
 	Valued:
-		Cost: 2500
+		Cost: 3000
 	Tooltip:
 		Name: Iron Savior
 	Buildable:
@@ -1759,7 +1758,7 @@ cabobelisk:
 	Inherits@1: ^CabRender
 	Inherits@2: ^2x2Shape
 	Valued:
-		Cost: 2000
+		Cost: 2500
 	Tooltip:
 		Name: Nanomachine Core
 	Buildable:
