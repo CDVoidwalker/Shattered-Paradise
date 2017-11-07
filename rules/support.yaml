@@ -424,7 +424,7 @@ NALASR:
 	Inherits: ^Defense
 	Inherits@1: ^TowerStealthDetection
 	Valued:
-		Cost: 300
+		Cost: 500
 	Tooltip:
 		Name: Laser Turret
 	Buildable:
@@ -549,7 +549,7 @@ NASTLH:
 	Health:
 		HP: 60000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 6c0
 	WithIdleOverlay@pulse:
@@ -698,7 +698,7 @@ NATMPL:
 	Health:
 		HP: 100000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 6c0
 	Power:
@@ -1440,9 +1440,9 @@ CABSENTRYTURRET:
 	Inherits: ^MiscTurret
 	Inherits@1: ^CabRender
 	Valued:
-		Cost: 300
+		Cost: 50
 	Tooltip:
-		Name: Artisan Turret
+		Name: Firefly Turret
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
@@ -1720,7 +1720,7 @@ CABSW1:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Turreted:
 		TurnSpeed: 2
 		InitialFacing: 50

@@ -219,7 +219,7 @@ LPST:
 	Health:
 		HP: 60000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Mobile:
 		Speed: 85
 		TurnSpeed: 5
@@ -644,7 +644,7 @@ GASILO:
 	Health:
 		HP: 30000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	RenderSprites:

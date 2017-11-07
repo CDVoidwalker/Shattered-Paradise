@@ -21,7 +21,7 @@ GAPOWR:
 	Health:
 		HP: 75000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -212,7 +212,7 @@ GAPLUG:
 	Health:
 		HP: 300000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 6c0
 	DetonateWeaponPower@ioncannon:
@@ -324,7 +324,7 @@ NAPOWR:
 	Health:
 		HP: 75000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -361,7 +361,7 @@ NAAPWR:
 	Health:
 		HP: 90000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -552,7 +552,7 @@ MUPOWR:
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.mut
 	Valued:
-		Cost: 230
+		Cost: 300
 	Tooltip:
 		Name: Mutant Power Plant
 	ProvidesPrerequisite:
@@ -563,7 +563,7 @@ MUPOWR:
 	Health:
 		HP: 50000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -571,7 +571,7 @@ MUPOWR:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Power:
-		Amount: 70
+		Amount: 100
 	InfiltrateForPowerOutage:
 	AffectedByPowerOutage:
 	Targetable:
@@ -748,7 +748,7 @@ MUSTABLE:
 	Health:
 		HP: 23000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	Power:
@@ -832,7 +832,7 @@ SCRPOWR:
 	Health:
 		HP: 100000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	Selectable:
@@ -869,7 +869,7 @@ SCRADVPOWR:
 	Health:
 		HP: 110000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -1016,7 +1016,7 @@ SCRAIR:
 		Condition: AircraftAutoRepair
 		Range: 4c0
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 60000
 	RevealsShroud:
@@ -1075,7 +1075,7 @@ SCRDEPOT:
 	Health:
 		HP: 50000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Dock@2:
 		DockAngle: 160
 		DockOffset: 2,1
@@ -1145,7 +1145,7 @@ SCRTECH:
 	Health:
 		HP: 50000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	Power:
@@ -1178,7 +1178,7 @@ CABPOWR:
 	Health:
 		HP: 120000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -1186,7 +1186,7 @@ CABPOWR:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Power:
-		Amount: 300
+		Amount: 200
 	InfiltrateForPowerOutage:
 	AffectedByPowerOutage:
 	Targetable:
@@ -1203,6 +1203,8 @@ CABCLAW:
 	Inherits: ^Barracks
 	Inherits@1: ^CabRender
 	Inherits@2: ^2x3Shape
+	Tooltip:
+		Name: Cabal Claw
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 30
@@ -1358,7 +1360,7 @@ CABGRINDER:
 	Health:
 		HP: 25000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	Power:

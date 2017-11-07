@@ -322,7 +322,7 @@ BGGY:
 	Inherits@2: ^NodCloakHealing
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 600
+		Cost: 450
 	Tooltip:
 		Name: Raider Buggy
 	Buildable:
@@ -393,7 +393,7 @@ BUGGYHOLOGRAM:
 			ExplosionDeath: evaporate
 	GrantPeriodicCondition:
 		Condition: KillMe
-		CooldownDuration: 500
+		CooldownDuration: 1000
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
@@ -519,7 +519,7 @@ TICKHOLOGRAM:
 		-RequiresCondition: undeployed
 	GrantPeriodicCondition:
 		Condition: KillMe
-		CooldownDuration: 500
+		CooldownDuration: 1000
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
@@ -783,7 +783,7 @@ STNK:
 		Queue: Vehicle
 	Mobile:
 		TurnSpeed: 9
-		Speed: 100
+		Speed: 125
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 27500

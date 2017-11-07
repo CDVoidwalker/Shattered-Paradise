@@ -700,6 +700,7 @@
 	RenderSprites:
 	EditorTilesetFilter:
 		Categories: Tech Structure
+	-Sellable:
 
 ^CivBillboard:
 	Inherits: ^CivBuilding
@@ -843,7 +844,7 @@
 	HiddenUnderFog:
 	ActorLostNotification:
 	Crushable:
-		WarnProbability: 50
+		WarnProbability: 0
 		CrushSound: squish6.aud
 	DamagedByTerrain:
 		Damage: 200

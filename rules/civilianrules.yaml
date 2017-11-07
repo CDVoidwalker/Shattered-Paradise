@@ -301,7 +301,7 @@ VISC_LRG:
 	Health:
 		HP: 20000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Armament:
 		Weapon: SlimeAttack
 	AutoTarget:
@@ -336,7 +336,7 @@ VISC_LRG_SCRIN:
 	Health:
 		HP: 15000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Armament:
 		Weapon: SlimeAttack
 	-DamagedByTerrain:
@@ -992,7 +992,7 @@ ABAN01:
 		Footprint: xx xx xx xx xx xx
 		Dimensions: 2, 6
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 600
 	EditorTilesetFilter:
@@ -1020,7 +1020,7 @@ ABAN03:
 		Footprint: xx xx xx xx xx
 		Dimensions: 2, 5
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 50000
 	EditorTilesetFilter:
@@ -1050,7 +1050,7 @@ ABAN05:
 	Selectable:
 		Bounds: 110, 60, 3, -4
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 50000
 	EditorTilesetFilter:
@@ -1066,7 +1066,7 @@ ABAN06:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 50000
 	EditorTilesetFilter:
@@ -1130,7 +1130,7 @@ ABAN10:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 50000
 	EditorTilesetFilter:
@@ -1146,7 +1146,7 @@ ABAN11:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1162,7 +1162,7 @@ ABAN12:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1176,7 +1176,7 @@ ABAN13:
 		Footprint: x
 		Dimensions: 1, 1
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1220,7 +1220,7 @@ ABAN16:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1234,7 +1234,7 @@ ABAN17:
 		Footprint: x
 		Dimensions: 1, 1
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1248,7 +1248,7 @@ ABAN18:
 		Footprint: x
 		Dimensions: 1, 1
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1837,7 +1837,7 @@ CITY01:
 	Selectable:
 		Bounds: 110, 108, 0, -27
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1878,7 +1878,7 @@ CITY03:
 CITY04:
 	Inherits: ^CivBuilding
 	Tooltip:
-		Name: WestWood Stock Exchange
+		Name: WestBuildingArmor Stock Exchange
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3, 2
@@ -1933,7 +1933,7 @@ CITY07:
 	Selectable:
 		Bounds: 128, 108, 0, -36
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -1965,7 +1965,7 @@ CITY09:
 	Selectable:
 		Bounds: 80, 72, 0, -24
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -2029,7 +2029,7 @@ CITY13:
 	Selectable:
 		Bounds: 90, 102, 0, -39
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 50000
 	EditorTilesetFilter:
@@ -2077,7 +2077,7 @@ CITY16:
 	Selectable:
 		Bounds: 108, 120, 0, -40
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 50000
 	EditorTilesetFilter:
@@ -2093,7 +2093,7 @@ CITY17:
 	Selectable:
 		Bounds: 164, 132, 0, -50
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 30000
 	EditorTilesetFilter:
@@ -2125,7 +2125,7 @@ CITY19:
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 50000
 	EditorTilesetFilter:
@@ -2139,7 +2139,7 @@ CITY20:
 		Footprint: x
 		Dimensions: 1, 1
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 25000
 	EditorTilesetFilter:
@@ -2501,7 +2501,7 @@ GASAND:
 	Health:
 		HP: 25000
 	Armor:
-		Type: wood
+		Type: BuildingArmor
 	LineBuild:
 		NodeTypes: sandbags
 	LineBuildNode:
@@ -2526,7 +2526,7 @@ GASPOT:
 	Power:
 		Amount: -10
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	RevealsShroud:
@@ -2554,7 +2554,7 @@ GALITE:
 	Health:
 		HP: 60000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 2c0
 	Power:
@@ -2589,7 +2589,7 @@ GAICBM:
 	Health:
 		HP: 40000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 5c0
 	Transforms:
@@ -2772,7 +2772,7 @@ EGGS:
 		Footprint: x
 		Dimensions: 1, 1
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	-ThrowsShrapnel:

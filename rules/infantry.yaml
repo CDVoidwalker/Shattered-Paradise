@@ -680,7 +680,7 @@ FIENDNEXUS:
 	Tooltip:
 		Name: Tiberian Fiend Horde
 	Valued:
-		Cost: 600
+		Cost: 400
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 19
@@ -1039,7 +1039,7 @@ LEGIO:
 		Description: Scrin Frontile trooper. Resistant\nto damage. Cannot be crushed.\n\n  Strong vs Vehicles, Buildings.\n  Weak vs Infantry.
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 160
+		Cost: 250
 	Tooltip:
 		Name: Legionnaire
 	Health:

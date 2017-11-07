@@ -236,7 +236,7 @@ VEINHOLE:
 	Health:
 		HP: 200000
 	Armor:
-		Type: Wood
+		Type: BuildingArmor
 	Explodes:
 		Weapon: VeinholeExplosion
 		EmptyWeapon: VeinholeExplosion

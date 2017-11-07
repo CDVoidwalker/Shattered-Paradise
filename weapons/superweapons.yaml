@@ -2,7 +2,7 @@ MultiCluster:
 	ReloadDelay: 80
 	Range: 6c0
 	Report: MISL1.AUD
-	ValidTargets: Ground
+	ValidTargets: Ground, Air
 	Projectile: Missile
 		MaximumLaunchSpeed: 170
 		Arm: 2
@@ -15,7 +15,7 @@ MultiCluster:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 6500
-		ValidTargets: Ground
+		ValidTargets: Ground, Air
 		Versus:
 			InfantryArmor: 25
 			BuildingArmor: 65
@@ -103,7 +103,7 @@ IonCannonSpawner:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground
+		ValidTargets: Ground, Air
 	Warhead@op: FireShrapnel
 		Weapon: IonBeamCreator
 		Amount: 20
@@ -121,7 +121,7 @@ IonBeamCreator:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground
+		ValidTargets: Ground, Air
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeammini
 		Range: 15
@@ -226,7 +226,7 @@ droppod1:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 3
 	Range: 3c0
-	ValidTargets: Ground, Vehicle, Building, Infantry, Water
+	ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
 	Projectile: BulletAS
 		Speed: 350
 		Image: gdidroppod
@@ -502,7 +502,7 @@ MeteorRainNormal:
 	Inherits@2: ^Small_Twlt
 	ReloadDelay: 8
 	Range: 1c0
-	ValidTargets: Ground, Vehicle, Building, Infantry, Water
+	ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
 	Projectile: BulletAS
 		Speed: 350
 		Image: meteor2
@@ -515,7 +515,7 @@ MeteorRainNormal:
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
 		Damage: 7500
-		ValidTargets: Ground, Vehicle, Building, Infantry, Water
+		ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -692,12 +692,12 @@ VeinholeSummonerWeapon:
 	Inherits: ^BombWarhead
 	ReloadDelay: 8
 	Range: 3c0
-	ValidTargets: Ground, Vehicle, Building, Infantry, Water
+	ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
 	Warhead@1Dam: SpreadDamage
 		Spread: 650
 		Damage: 1
 		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
-		ValidTargets: Ground, Vehicle, Building, Infantry, Water
+		ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
 		DamageTypes:
 	Warhead@5Actor: SpawnActor
 		Actors: VEINHOLESPAWNERDUMMY

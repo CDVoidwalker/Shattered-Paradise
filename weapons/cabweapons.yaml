@@ -754,7 +754,7 @@ CABALRAIL:
 	Inherits: ^APWarhead
 	ReloadDelay: 150
 	Range: 10c0
-	Report: biggun1.aud
+	Report: railgunfire.wav
 	Projectile: LaserZap
 		Speed: 20c0
 		Duration: 3
