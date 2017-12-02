@@ -668,7 +668,7 @@ IonRay:
 		Inaccuracy: 5c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 25000
+		Damage: 12500
 	Warhead@2Eff: CreateEffect
 		Explosions: large_explosion
 		ImpactSound: expnew09.aud
@@ -678,11 +678,6 @@ IonRay:
 	Warhead@4: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
-	# Warhead@5op: FireShrapnel
-		# Weapon: SmallDebris
-		# Amount: 2
-		# AllowDirectHit: false
-		# ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@6Eff: CreateEffect
 		Explosions: fire1, fire2, fire3, fire4
 		ImpactSound: expnew09.aud

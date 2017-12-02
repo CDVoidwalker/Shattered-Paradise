@@ -20,8 +20,6 @@ GAPOWR:
 		Dimensions: 2,2
 	Health:
 		HP: 75000
-	Armor:
-		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -184,6 +182,7 @@ GATECH:
 GAPLUG:
 	Inherits: ^Building
 	Inherits@2: ^2x3Shape
+	Inherits@3: ^SuperWeapon
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -221,12 +220,14 @@ GAPLUG:
 		DisplayTimer: True
 		DisplayBeacon: True
 		LongDesc: Fires many ion cannons on the targetted area.
-		ChargeTime: 360
+		ChargeTime: 150
 		ActivationSequence: idle
 		Weapon: IonCannonSpawner
 		OrderName: IonCannon2
 		Cursor: ioncannon
 		RequiresCondition: plug.ioncannona || plug.ioncannonb
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled
 	DetonateWeaponPower@pods:
 		Icon: droppods
 		ActivationSequence: idle
@@ -237,6 +238,8 @@ GAPLUG:
 		OrderName: Droppod
 		Weapon: DroppodSpawner
 		RequiresCondition: plug.hunterseekera || plug.hunterseekerb
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled
 		ChargeTime: 240
 	SupportPowerChargeBar:
 	Power:
@@ -323,8 +326,6 @@ NAPOWR:
 		Bounds: 88, 48, 2, -6
 	Health:
 		HP: 75000
-	Armor:
-		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -562,8 +563,6 @@ MUPOWR:
 		Dimensions: 2,2
 	Health:
 		HP: 50000
-	Armor:
-		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -821,7 +820,7 @@ SCRPOWR:
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.scr
 	Valued:
-		Cost: 400
+		Cost: 450
 	Tooltip:
 		Name: Scrin Generator
 	ProvidesPrerequisite:
@@ -831,8 +830,6 @@ SCRPOWR:
 		Dimensions: 3,2
 	Health:
 		HP: 100000
-	Armor:
-		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	Selectable:
@@ -1177,8 +1174,6 @@ CABPOWR:
 		Dimensions: 2,2
 	Health:
 		HP: 120000
-	Armor:
-		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:

@@ -123,11 +123,11 @@ GLAD120mm:
 		Speed: 1c512
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 4000
+		Damage: 6000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 LurkerHit:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^FullDamage
 	ReloadDelay: 80
 	Range: 9c0
 	Report: lasershotgun.wav
@@ -140,7 +140,7 @@ LurkerHit:
 		MaximumLaunchSpeed: 213
 	Warhead@1Dam: SpreadDamage
 		Spread: 120
-		Damage: 5000
+		Damage: 8000
 		Versus:
 			Worker: 25
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
@@ -543,7 +543,7 @@ WaspBulletAA:
 	Inherits: WaspBullet
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 2500
 		ValidTargets: Air
 
 WaspLasor:
@@ -704,29 +704,29 @@ CTurretCannon:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 CabJetMiniBomb:
-    Inherits: ^RifleWarhead
-    Inherits@2: ^Mediuml_Clsn
-    ReloadDelay: 30
-    Burst: 5
-    BurstDelay: 6
-    ValidTargets: Ground, Building, Infantry, Vehicle
-    Range: 1c512
-    Projectile: GravityBomb
-        Speed: 170
-        Image: 120mm
-        Shadow: true
-        Palette: ra
-    Warhead@1Dam: SpreadDamage
-        Falloff: 100, 80, 70, 60, 50
-        Spread: 400
-        Damage: 2000
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Mediuml_Clsn
+	ReloadDelay: 30
+	Burst: 5
+	BurstDelay: 6
+	ValidTargets: Ground, Building, Infantry, Vehicle
+	Range: 1c512
+	Projectile: GravityBomb
+		Speed: 170
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 80, 70, 60, 50
+		Spread: 400
+		Damage: 2000
 		Versus:
 			InfantryArmor: 125
 			BuildingArmor: 40
 			VehicleArmor: 10
 			ConcreteArmor: 1
-        ValidTargets: Ground, Building, Infantry, Vehicle
-        DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+		ValidTargets: Ground, Building, Infantry, Vehicle
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
 BlasterProton:
 	Inherits: ^ArtilleryWarhead
@@ -783,3 +783,11 @@ CABNEXUSAA:
 		Damage: 20000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 		ValidTargets: Air
+
+LaserFence:
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		DebugOverlayColor: FF0000
+		Damage: 99999
+		DamageTypes: FireDeath

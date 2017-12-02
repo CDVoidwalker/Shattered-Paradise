@@ -4,7 +4,7 @@
 SMECH:
 	Inherits: ^Walker
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Wolverine
 	Buildable:
@@ -22,7 +22,7 @@ SMECH:
 		Voice: Attack
 	AutoTarget:
 	Armament:
-		Weapon: WolverineVulcan
+		Weapon: WolverineGrenade
 	Voiced:
 		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
@@ -161,7 +161,7 @@ HVR:
 		LightAmbientColor: 0.4, 0.4, 0.4
 		LightDiffuseColor: 0.6, 0.6, 0.6
 
-JUGGER:
+JUG:
 	Inherits: ^Walker
 	Valued:
 		Cost: 900
@@ -173,6 +173,40 @@ JUGGER:
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, gatech
 	Mobile:
+		Speed: 45
+	Health:
+		HP: 21000
+	AttackFrontal:
+		Voice: Attack
+		Armaments: primary, secondary
+	AutoTarget:
+	Armament:
+		Weapon: JuggCannon
+		LocalOffset: 600, 200, 2650
+	Armament@1:
+		Weapon: JuggCannon
+		LocalOffset: 600, -200, 2650
+		Name: secondary
+	Voiced:
+		VoiceSet: Mech
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithAttackAnimation:
+		AttackSequence: shoot
+	WithMoveAnimation:
+		MoveSequence: run
+	Selectable:
+		Bounds: 40, 60, 0, -20
+
+JUGGER:
+	Inherits: ^Walker
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Juggernaut
+	Mobile:
 		TurnSpeed: 6
 		Speed: 65
 	Health:
@@ -182,7 +216,10 @@ JUGGER:
 	AutoTarget:
 	Armament:
 		Weapon: JuggCannon
-		LocalOffset: 600, 0, 750, 600, 150, 750, 600, -150, 750
+		LocalOffset: 600, 600, 6000
+	Armament@1:
+		Weapon: JuggCannon
+		LocalOffset: 600, -600, 6000
 	Voiced:
 		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
@@ -218,11 +255,13 @@ G4TNK:
 		TurnSpeed: 3
 	Armament@PRIMARY:
 		Weapon: 4tnkgun
-		LocalOffset: 707,85,509, 707,-120,509
+		LocalOffset: 1200,120,650, 1200,-120,650
 		MuzzleSequence: muzzle
+		Recoil: 127
+		RecoilRecovery: 26
 	Armament@SECONDARY:
 		Weapon: MammothTusk
-		LocalOffset: 0,200,410, 0,-200,410
+		LocalOffset: 100,200,650, 100,-200,650
 	AttackTurreted:
 		Voice: Attack
 	AutoTarget:
@@ -232,6 +271,7 @@ G4TNK:
 		HealIfBelow: 50
 		DamageCooldown: 200
 	WithVoxelTurret:
+	WithVoxelBarrel:
 	WithMuzzleOverlay:
 	RenderVoxels:
 		Scale: 1
@@ -404,7 +444,7 @@ TTNK:
 	Inherits: ^VoxelTank
 	Inherits@2: ^NodCloakHealing
 	Valued:
-		Cost: 950
+		Cost: 850
 	Tooltip:
 		Name: Tick Tank
 	Buildable:
@@ -622,70 +662,6 @@ REPAIR:
 		ForceTargetStances: None
 	AttackFrontal:
 		Voice: Attack
-
-HOLOGRAMPROJECTOR:
-	Inherits: ^VoxelTank
-	Inherits@2:	^Ra2vxl
-	Inherits@3: ^NodCloakHealing
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Hologram Projector
-	Health:
-		HP: 20000
-	Selectable:
-		Priority: 7
-	Mobile:
-		Speed: 85
-		TurnSpeed: 5
-	RevealsShroud:
-		Range: 5c0
-	RenderVoxels:
-		Scale: 0.7
-	Cargo:
-		Types: Infantry
-		MaxWeight: 1
-		PipCount: 1
-		UnloadVoice: Unload
-		LoadingCondition: notmobile
-		EjectOnDeath: true
-		PassengerConditions:
-			altnode1: FlameWarriorHologram
-			crusader: CrusaderHologram
-			engineer: EngineerHologram
-			templar: TemplarHologram
-			mhijack: HijackerHologram
-			bhs: HandHologram
-	ExplodeWeapon@Flame:
-		Weapon: FlameHoloShrapnel
-		RequiresCondition: FlameWarriorHologram
-	ExplodeWeapon@Crusa:
-		Weapon: CrusaHoloShrapnel
-		RequiresCondition: CrusaderHologram
-	ExplodeWeapon@Engineer:
-		Weapon: EngineerHoloShrapnel
-		RequiresCondition: EngineerHologram
-	ExplodeWeapon@Templar:
-		Weapon: TemplarHoloShrapnel
-		RequiresCondition: TemplarHologram
-	ExplodeWeapon@Hijacker:
-		Weapon: HijackerHoloShrapnel
-		RequiresCondition: HijackerHologram
-	ExplodeWeapon@Hand:
-		Weapon: FlameHoloShrapnel
-		RequiresCondition: HandHologram
-	ExternalCondition@FlameWarriorHologram:
-		Condition: FlameWarriorHologram
-	ExternalCondition@CrusaderHologram:
-		Condition: CrusaderHologram
-	ExternalCondition@EngineerHologram:
-		Condition: EngineerHologram
-	ExternalCondition@TemplarHologram:
-		Condition: TemplarHologram
-	ExternalCondition@HijackerHologram:
-		Condition: HijackerHologram
-	ExternalCondition@HandHologram:
-		Condition: HandHologram
 
 SUBTANK:
 	Inherits: ^VoxelTank
@@ -1042,7 +1018,7 @@ STRUCKFULL:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
 	Valued:
-		Cost: 900
+		Cost: 800
 	Tooltip:
 		Name: Tank Destroyer
 	Buildable:
@@ -1371,7 +1347,7 @@ SCRGLYDER2:
 		Description: Anti air hover vehicle.\n\n Strong vs Aircraft.\n  Weak vs Everything else.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
-		Cost: 700
+		Cost: 500
 	Tooltip:
 		Name: Glider
 	Health:
@@ -1618,7 +1594,7 @@ REAPERCAB:
 	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 1200
+		Cost: 1000
 	Tooltip:
 		Name: Cyborg Reaper
 	DockClient:
@@ -1667,7 +1643,7 @@ CENTURION:
 	Inherits: ^Walker
 	Inherits@2:	^PermanentSelfHeal
 	Valued:
-		Cost: 1000
+		Cost: 850
 	Tooltip:
 		Name: Centurion
 	Buildable:

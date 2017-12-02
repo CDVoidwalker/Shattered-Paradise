@@ -11,35 +11,14 @@ MarineRifle:
 		Damage: 2000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
-Grenade:
-	Inherits: ^RocketWarhead
-	Inherits@2: ^GreyExplo
-	ReloadDelay: 80
-	Range: 5c0
-	MinRange: 1c512
-	Report: grenadelauncherfire.wav
-	ValidTargets: Ground
-	Projectile: BulletAS # TODO: Add bounce effect
-		Speed: 320
-		Blockable: false
-		Shadow: true
-		LaunchAngle: 45
-		Inaccuracy: 1c0
-		Image: DISCUS
-	Warhead@1Dam: SpreadDamage
-		Spread: 300
-		Damage: 2000
-		ValidTargets: Ground
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-
-GrenadierBazookaAA:
+GrenadierBazooka:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 100
 	Range: 6c600
 	MinRange: 2c0
 	Report: scifiexplo.wav
-	ValidTargets: Air
+	ValidTargets: Ground, Air
 	Projectile: Missile
 		Speed: 233
 		Blockable: false
@@ -55,7 +34,7 @@ GrenadierBazookaAA:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 5500
-		ValidTargets: Air
+		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
 
 JJCannon:
@@ -137,7 +116,7 @@ TrooperRail:
 		Color: 0008ED
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
-		Damage: 4000
+		Damage: 6000
 		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
 		Versus:
 			ConcreteArmor: 5
@@ -152,7 +131,30 @@ TrooperRail:
 
 #############################################
 # Vehicles
-#############################################		
+#############################################
+
+WolverineGrenade:
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^GreyExplo
+	ReloadDelay: 80
+	Range: 5c0
+	Burst: 2
+	MinRange: 1c512
+	Report: grenadelauncherfire.wav
+	ValidTargets: Ground
+	Projectile: BulletAS # TODO: Add bounce effect
+		Speed: 320
+		Blockable: false
+		Shadow: true
+		LaunchAngle: 45
+		Inaccuracy: 1c0
+		Image: DISCUS
+	Warhead@1Dam: SpreadDamage
+		Spread: 300
+		Damage: 2000
+		ValidTargets: Ground
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+
 WolverineVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -200,11 +202,6 @@ HoverMissile:
 		Spread: 128
 		Damage: 4500
 		ValidTargets: Ground
-		Versus:
-			InfantryArmor: 25
-			BuildingArmor: 65
-			VehicleArmor: 75
-			ConcreteArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 HoverMissileAA:
@@ -218,10 +215,9 @@ JuggCannon:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
 	Inherits@3: ^Small_Twlt
-	ReloadDelay: 100
+	ReloadDelay: 66
 	Range: 15c0
 	MinRange: 5c0
-	Burst: 3
 	Report: jugger1.aud
 	Projectile: BulletAS
 		Speed: 150

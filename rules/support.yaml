@@ -258,7 +258,7 @@ GAPOWRUP:
 GAPLUG2:
 	Inherits: ^BuildingPlug
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Drop pod Control
 	Buildable:
@@ -332,7 +332,7 @@ GAFIRE:
 		Description: Support structure that generates a barrier around it when activated,\nit makes friendly units inside it harder to kill, deals damage\nto enemies in the border and consumes 300 when active.
 		Prerequisites: gatech, ~structures.gdi
 	Valued:
-		Cost: 2000
+		Cost: 1500
 	Tooltip:
 		Name: Firestorm Generator
 	Building:
@@ -477,7 +477,7 @@ NAOBEL:
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: ObeliskLaserFire
-		LocalOffset: 1400,210,700
+		LocalOffset: 1400,270,1000
 		MuzzleSequence: muzzle
 		MuzzlePalette: obelpal
 	AttackCharges:
@@ -565,7 +565,7 @@ NASTLH:
 		DisableSound: cloak5.aud
 		AffectsParent: false
 	Cloak@CLOAKGENERATOR:
-        RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
+		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	Power:
 		Amount: -100
 	RequiresPower:
@@ -678,6 +678,7 @@ GAARTY:
 NATMPL:
 	Inherits: ^Building
 	Inherits@2: ^3x3Shape
+	Inherits@3: ^SuperWeapon
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 200
@@ -720,6 +721,7 @@ NATMPL:
 		LaunchSound: icbm1.aud
 		MissileWeapon: ClusterMissile
 		SpawnOffset: 0,427,0
+		DisplayTimerStances: Ally, Neutral, Enemy
 		DisplayTimer: True
 		DisplayBeacon: True
 		DisplayRadarPing: True
@@ -728,10 +730,15 @@ NATMPL:
 		BeaconPoster:
 		OrderName: ClusterMissile
 		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
+		PauseOnCondition: disabled
 
 NAMISL:
 	Inherits: ^Building
 	Inherits@2: ^2x2Shape
+	Inherits@3: ^SuperWeapon
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
@@ -739,7 +746,7 @@ NAMISL:
 		Description: Allows the player to launch Missiles.\nRequires power to operate.
 		BuildLimit: 1
 	Valued:
-		Cost: 2500
+		Cost: 1500
 	Tooltip:
 		Name: Nod Missile Silo
 	ProvidesPrerequisite:
@@ -787,6 +794,7 @@ NAMISL:
 		OrderName: ToxinMissile
 		BeaconPoster:
 		CameraActor: camera
+		PauseOnCondition: disabled
 	SelectionDecorations:
 		VisualBounds: 75,48
 
@@ -965,6 +973,7 @@ MUTSW1:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
 	Inherits@2: ^3x2Shape
+	Inherits@3: ^SuperWeapon
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
@@ -995,11 +1004,15 @@ MUTSW1:
 		DisplayBeacon: True
 		Description: Ion Storm
 		LongDesc: Summons an Ion Storm on the targetted area\nthe lightning rays will strike the nearest target\nwill not fire if there no targets are nearby.\nLasts 20 seconds. 
+		DisplayTimerStances: Ally, Neutral, Enemy
+		DisplayRadarPing: True
+		PauseOnCondition: disabled
 
 MUTSW2:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
 	Inherits@2: ^3x3Shape
+	Inherits@3: ^SuperWeapon
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
@@ -1007,7 +1020,7 @@ MUTSW2:
 		Description: Allows the player to summon\nveinhole monsters on the battlefield.
 		BuildLimit: 1
 	Valued:
-		Cost: 2500
+		Cost: 1500
 	Tooltip:
 		Name: Mother Veinhole
 	Building:
@@ -1033,6 +1046,8 @@ MUTSW2:
 		DisplayBeacon: True
 		Description: Veinhole summon
 		LongDesc: Spawns a veinhole monster\non the targetted location.
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled
 
 MUWARD:
 	Inherits: ^DeployedVehicle
@@ -1323,6 +1338,7 @@ SCRSW1:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x2Shape
+	Inherits@5: ^SuperWeapon
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 90
@@ -1347,22 +1363,16 @@ SCRSW1:
 		Amount: -150
 	SelectionDecorations:
 		VisualBounds: 116, 78, 3, -8
-	# DetonateWeaponPower:
-		# Icon: meteor
-		# Description: Meteor Storm
-		# DisplayTimer: True
-		# DisplayBeacon: True
-		# LongDesc: Drags meteors from orbit dealing moderate \ndamage over a wide area.
-		# ChargeTime: 240
-		# Weapon: MeteorSpawner
 	FireArmamentPower:
 		Cursor: emp
 		Icon: meteor
-		ChargeTime: 240
+		ChargeTime: 300
 		Description: Meteor Storm
 		LongDesc: Drags meteors from orbit dealing moderate \ndamage over a wide area.
 		Prerequisites: MeteorSpawner
 		OrderName: MeteorSpawner
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled
 	ProvidesPrerequisite@MeteorSpawner:
 		Prerequisite: MeteorSpawner
 		Factions: gdi, mut, nod, cab, scr
@@ -1417,13 +1427,14 @@ SCRSHIELD:
 	AttackOrderPower@nod:
 		Cursor: emp
 		Icon: emp
-		ChargeTime: 135
+		ChargeTime: 120
 		Description: E.M. Pulse
 		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
 		EndChargeSound: speech-nod|00-i158.aud
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: emp.gdi
 		OrderName: Nodemp
+		PauseOnCondition: disabled
 
 SCRMINE:
 	Inherits: ^ScrinRender
@@ -1626,6 +1637,7 @@ CABBLAST:
 	Inherits@1: ^CabRender
 	Inherits@2:	^IncompleteSelfHeal
 	Inherits@3: ^TowerStealthDetection
+	Inherits@4: ^SuperWeapon
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -1695,10 +1707,121 @@ CABEYE:
 	SelectionDecorations:
 		VisualBounds: 90, 124, 0, -40
 
+NAPOST:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 150
+		Prerequisites: cabpowr, ~structures.cab
+		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Laser Fence
+	Health:
+		HP: 30000
+	Armor:
+		Type: ConcreteArmor
+	Building:
+		Adjacent: 7
+	LineBuild:
+		Range: 10
+		NodeTypes: laserfencenode
+		SegmentType: nafnce
+		SegmentsRequireNode: true
+	WithMakeAnimation:
+		Condition: make-animation-playing
+	Selectable:
+		Bounds: 42, 44, 0, -12
+	LineBuildNode:
+		Types: laserfencenode
+	Power:
+		Amount: -15
+	RevealsShroud:
+		Range: 4c0
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !disabled
+		Sequence: lights
+	WithIdleOverlay@CHAINOFLIGHTS:
+		RequiresCondition: !disabled
+		Sequence: chainoflights
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+	RequiresPower:
+	LineBuildSegmentExternalCondition:
+		RequiresCondition: !disabled && !make-animation-playing
+		Condition: active-posts
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: disabled
+		Palette: disabled
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled
+
+NAFNCE:
+	Inherits: ^Wall
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Laser Fence
+	LineBuild:
+		NodeTypes: laserfence
+	LineBuildNode:
+		Types: laserfence
+	-Crushable:
+	-Sellable:
+	-Targetable:
+	-Building:
+	EnergyWall:
+		ActiveCondition: active-posts == 2
+		Weapon: LaserFence
+	GrantConditionOnLineBuildDirection@X:
+		Direction: X
+		Condition: laserfence-direction-x
+	GrantConditionOnLineBuildDirection@Y:
+		Direction: Y
+		Condition: laserfence-direction-y
+	-WithWallSpriteBody:
+	CustomSelectionSize:
+		CustomBounds: 48, 24
+	ExternalCondition@ACTIVE:
+		Condition: active-posts
+	WithWallSpriteBody@XENABLED:
+		RequiresCondition: laserfence-direction-x && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-x
+	WithWallSpriteBody@YENABLED:
+		RequiresCondition: laserfence-direction-y && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-y
+	WithSpriteBody@XDISABLED:
+		RequiresCondition: laserfence-direction-x && active-posts < 2
+		Sequence: disabled-x
+	WithSpriteBody@YDISABLED:
+		RequiresCondition: laserfence-direction-y && active-posts < 2
+		Sequence: disabled-y
+	BlocksProjectiles:
+		RequiresCondition: active-posts == 2
+		Height: 768
+	DamageMultiplier: # Prevent all normal damage, but still allows direct kills from the post
+		Modifier: 0
+	Explodes:
+		Weapon: BuildingExplode
+		EmptyWeapon: BuildingExplode
+		Type: Footprint
+	ThrowsShrapnel@SMALL:
+		Weapons: SmallDebris
+		Pieces: 0, 1
+		Range: 2c0, 5c0
+
 CABSW1:
 	Inherits: ^Defense
 	Inherits@1: ^CabRender
 	Inherits@2: ^3x3Shape
+	Inherits@3: ^SuperWeapon
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -1745,20 +1868,22 @@ CABSW1:
 	FireArmamentPower:
 		Cursor: emp
 		Icon: cabcannon
-		ChargeTime: 240
+		ChargeTime: 180
 		Description: Iron Savior
 		LongDesc: Fires a volley of bullets\nat the target location.
 		EndChargeSound: speech-nod|00-i158.aud
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: singularity
 		OrderName: singularity
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled
 
 cabobelisk:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
 	Inherits@2: ^2x2Shape
 	Valued:
-		Cost: 2500
+		Cost: 1500
 	Tooltip:
 		Name: Nanomachine Core
 	Buildable:
@@ -1795,4 +1920,5 @@ cabobelisk:
 		Weapon: NanoMachineBurst
 		DisplayRadarPing: True
 		CameraActor: camera
-
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled

@@ -183,11 +183,11 @@ GUARDIAN:
 		Cost: 2500
 	Tooltip:
 		Name: Guardian Platform
-	Buildable:
-		Description: Medium frigate, great for spotting targets.\nIt can land to repair nearby vehicles.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry, Heavy vehicles.
-		Queue: Air
-		BuildPaletteOrder: 20
-		Prerequisites: ~gahpad, gadept
+#	Buildable:
+#		Description: Medium frigate, great for spotting targets.\nIt can land to repair nearby vehicles.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry, Heavy vehicles.
+#		Queue: Air
+#		BuildPaletteOrder: 20
+#		Prerequisites: ~gahpad, gadept
 	Selectable:
 		Bounds: 110,90
 	Aircraft:

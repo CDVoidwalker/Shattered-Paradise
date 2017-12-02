@@ -30,8 +30,7 @@ GHOST:
 	WithInfantryBody:
 		AttackSequence: shoot
 	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
-
+		Prerequisites: barracks.Condition
 
 WEEDGUY:
 	Inherits: ^Soldier

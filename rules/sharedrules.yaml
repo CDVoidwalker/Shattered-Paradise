@@ -32,7 +32,6 @@ ENGINEER:
 	Inherits@3:	^Engineer
 	Tooltip:
 		Name: Engineer
-		Description: Captures enemy structures.\nRepair allied buildings instantly.\n\n  Unarmed.
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8

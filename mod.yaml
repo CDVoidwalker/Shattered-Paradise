@@ -186,18 +186,18 @@ ChromeLayout:
 	common|chrome/ingame-chat.yaml
 	common|chrome/ingame-fmvplayer.yaml
 	common|chrome/ingame-menu.yaml
-	ts|chrome/ingame-info.yaml
+	sp|chrome/ingame-info.yaml
 	common|chrome/ingame-infoscripterror.yaml
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
-	ts|chrome/ingame-observer.yaml
-	ts|chrome/ingame-observerstats.yaml
-	ts|chrome/ingame-player.yaml
+	sp|chrome/ingame-observer.yaml
+	sp|chrome/ingame-observerstats.yaml
+	sp|chrome/ingame-player.yaml
 	common|chrome/ingame-perf.yaml
-	ts|chrome/ingame-debug.yaml
+	sp|chrome/ingame-debug.yaml
 	common|chrome/mainmenu.yaml
-	ts|chrome/mainmenu-prerelease-notification.yaml
+	sp|chrome/mainmenu-prerelease-notification.yaml
 	common|chrome/settings.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
@@ -207,7 +207,7 @@ ChromeLayout:
 	common|chrome/lobby-music.yaml
 	common|chrome/lobby-kickdialogs.yaml
 	common|chrome/lobby-globalchat.yaml
-	ts|chrome/color-picker.yaml
+	sp|chrome/color-picker.yaml
 	common|chrome/map-chooser.yaml
 	common|chrome/multiplayer.yaml
 	common|chrome/multiplayer-browser.yaml
@@ -216,7 +216,7 @@ ChromeLayout:
 	common|chrome/multiplayer-globalchat.yaml
 	common|chrome/connection.yaml
 	common|chrome/replaybrowser.yaml
-	ts|chrome/dropdowns.yaml
+	sp|chrome/dropdowns.yaml
 	common|chrome/musicplayer.yaml
 	common|chrome/tooltips.yaml
 	common|chrome/assetbrowser.yaml

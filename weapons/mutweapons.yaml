@@ -443,7 +443,7 @@ StuggCannon:
 		Versus:
 			InfantryArmor: 15
 			BuildingArmor: 25
-			VehicleArmor: 100
+			VehicleArmor: 150
 			Structure: 25
 			ConcreteArmor: 30
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -526,6 +526,7 @@ TiberianRocket:
 		InvalidTargets: Water, Air, AirHit
 
 MiniNuke:
+	Range: 3c0
 	ValidTargets: Ground, Water, Air
 	Warhead@4Dam_areanuke1: SpreadDamage
 		Spread: 2c0

@@ -16,10 +16,11 @@
 		Spread: 128
 		Damage: 20
 		Versus:
-			InfantryArmor: 125
-			BuildingArmor: 40
-			VehicleArmor: 25
-			ConcreteArmor: 5
+			InfantryArmor: 100
+			BuildingArmor: 25
+			VehicleArmor: 10
+			AircraftArmor: 100
+			ConcreteArmor: 40
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RifleWarhead
 
@@ -45,10 +46,11 @@
 		CloseEnough: 200
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			InfantryArmor: 10
-			BuildingArmor: 75
-			VehicleArmor: 100
-			ConcreteArmor: 60
+			InfantryArmor: 30
+			BuildingArmor: 85
+			VehicleArmor: 70
+			AircraftArmor: 100
+			ConcreteArmor: 30
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RocketWarhead
 
@@ -56,10 +58,11 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			InfantryArmor: 35
-			BuildingArmor: 50
+			InfantryArmor: 10
+			BuildingArmor: 60
 			VehicleArmor: 100
-			ConcreteArmor: 45
+			AircraftArmor: 100
+			ConcreteArmor: 30
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: APWarhead
 
@@ -67,9 +70,10 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			InfantryArmor: 300
-			BuildingArmor: 225
-			VehicleArmor: 30
+			InfantryArmor: 100
+			BuildingArmor: 200
+			VehicleArmor: 25
+			AircraftArmor: 100
 			ConcreteArmor: 1
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FlameWarhead
@@ -79,8 +83,8 @@
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 68
+			BuildingArmor: 75
+			VehicleArmor: 50
 			ConcreteArmor: 35
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
@@ -95,10 +99,11 @@
 	Warhead@1Dam: SpreadDamage
 		Falloff: 300, 150, 100, 50, 0
 		Versus:
-			InfantryArmor: 150
-			BuildingArmor: 100
-			VehicleArmor: 75
-			ConcreteArmor: 100
+			InfantryArmor: 100
+			BuildingArmor: 33
+			VehicleArmor: 50
+			AircraftArmor: 100
+			ConcreteArmor: 20
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
 			
@@ -112,6 +117,7 @@
 			InfantryArmor: 70
 			BuildingArmor: 100
 			VehicleArmor: 40
+			AircraftArmor: 100
 			ConcreteArmor: 28
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
@@ -120,9 +126,10 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
-			InfantryArmor: 300
-			BuildingArmor: 148
-			VehicleArmor: 80
+			InfantryArmor: 100
+			BuildingArmor: 50
+			VehicleArmor: 50
+			AircraftArmor: 100
 			ConcreteArmor: 2
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FlameWarhead

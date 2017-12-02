@@ -93,10 +93,7 @@ GRENADIER:
 		LoadedChance: 100
 		Chance: 5
 	Armament:
-		Weapon: Grenade
-		LocalOffset: 0,0,555
-	Armament@PRIMARY:
-		Weapon: GrenadierBazookaAA
+		Weapon: GrenadierBazooka
 		LocalOffset: 0,0,600
 	Voiced:
 		VoiceSet: Marine
@@ -395,7 +392,7 @@ NCONF:
 	RenderSprites:
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: HologramSpawn
-		CooldownTicks: 3000
+		CooldownTicks: 2000
 		DeployedTicks: 10
 		StartsFullyCharged: True
 	ExternalCondition@MineSpawn:
@@ -950,9 +947,9 @@ PSYKER:
 		Description: Forgotten Commando. Pure strain\nforgotten that can call down lightning.\nAttacks from afar.\n\n  Strong vs Vehicles, Aircraft, Buildings.\n  Weak vs Infantry.
 		BuildLimit: 1
 	Valued:
-		Cost: 900
+		Cost: 1100
 	Tooltip:
-		Name: Mind Walker
+		Name: Lyra The Storm Caller
 	Voiced:
 		VoiceSet: Umagon
 	Health:
@@ -1012,10 +1009,8 @@ shark:
 	-SpawnActorOnDeath@berserk2:
 	RevealsShroud:
 		Range: 5c0
-	Armament@1:
+	Armament:
 		Weapon: SharkJump
-	Armament@2:
-		Weapon: SharkJump2
 	AttackFrontal:
 		Voice: Attack
 	AttackMove:
@@ -1030,6 +1025,7 @@ shark:
 	DetectCloaked:
 		CloakTypes: Cloak, Hijacker
 	-TakeCover:
+    -Crushable:
 
 LEGIO:
 	Inherits: ^ScrinSoldier
@@ -1187,7 +1183,7 @@ FLOAT:
 	Selectable:
 		Class: FLoat
 	Valued:
-		Cost: 550  
+		Cost: 400  
 	-Crushable:
 	Tooltip:
 		Name: Purifier
@@ -1515,6 +1511,7 @@ MOTH:
 		RequiresCondition: deployed
 	AttackOmni:
 		RequiresCondition: deployed
+    RenderRangeCircle:
 
 GLAD:
 	Inherits: ^Cyborg

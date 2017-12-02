@@ -1,31 +1,19 @@
 SharkJump:
 	Inherits: ^RifleWarhead
-	ValidTargets: Infantry, Vehicle
+	ValidTargets: Ground
 	ReloadDelay: 20
-	Range: 1c0
+	Range: 1c512
 	Report: fiend2.aud
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 32
-		Damage: 1000
-		ValidTargets: Ground, Infantry, Vehicle
-		ValidStances: Enemy, Neutral
-		DamageTypes: TriggerProne, BulletDeath, ScrinEssenceKill
-
-SharkJump2:
-	Inherits: ^RifleWarhead
-	ValidTargets: Building, Defence
-	ReloadDelay: 20
-	Range: 1c0
-	Report: fiend2.aud
-	Projectile: BulletAS
-		Speed: 100c0
-	Warhead@1Dam: SpreadDamage
-		Spread: 32
-		Damage: 1000
-		ValidTargets: Building, Defence
-		ValidStances: Enemy, Neutral
+		Damage: 2000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 25
+			VehicleArmor: 50
+			ConcreteArmor: 10
 		DamageTypes: TriggerProne, BulletDeath, ScrinEssenceKill
 
 LegioNeedler:
@@ -577,6 +565,11 @@ TripodLaser:
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 4000
+        Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 50
+			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: TripodProton

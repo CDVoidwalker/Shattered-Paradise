@@ -304,6 +304,15 @@
 	ExternalCondition@StalkerTracker:
 		Condition: StalkerTracker
 
+^SuperWeapon:
+	RequiresPower:
+	RevealsShroud@revealhimself:
+		ValidStances: Neutral, Enemy
+		MaxHeightDelta: 3
+		Range: 2c0
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled
+
 ^Cloakable:
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: cloakgenerator || crate-cloak
@@ -667,8 +676,6 @@
 	ExplodeWeapon@smoke:
 		Weapon: SmokeShrapnel
 		RequiresCondition: smoketrail
-	# WithColoredOverlay@Disabled:
-		# Palette: disabled
 	EditorTilesetFilter:
 		Categories: Buildable Structure
 
@@ -1146,6 +1153,9 @@
 	Tooltip:
 		Name: Engineer
 		Description: Utility unit that can captures enemy structures. Detect\nand place mines, repair allied buildings instantly. Mines\nream automatically but do so faster near a barracks.\n\n  Unarmed.
+	Buildable:
+		BuildPaletteOrder: 100
+		Description: Captures enemy structures.\nRepairs allied buildings instantly.\n\n  Unarmed.
 	Selectable:
 		Priority: 6
 	Mobile:

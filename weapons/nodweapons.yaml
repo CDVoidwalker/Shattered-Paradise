@@ -71,6 +71,7 @@ CrusaderBazooka:
 		Shadow: true
 		Inaccuracy: 350
 		Image: DRAGON
+		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
@@ -308,41 +309,24 @@ FlameHoloShrapnel:
 
 CrusaHoloShrapnel:
 	Inherits: FlameHoloShrapnel
+	Burst: 4
 	Warhead@op: FireShrapnel
 		Weapon: CrusaHologram
-
-EngineerHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Warhead@op: FireShrapnel
-		Weapon: EngineerHologram
 
 TemplarHoloShrapnel:
 	Inherits: FlameHoloShrapnel
 	Warhead@op: FireShrapnel
 		Weapon: TemplarHologram
 
-HijackerHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Warhead@op: FireShrapnel
-		Weapon: HijackerHologram
-
-HandHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Warhead@op: FireShrapnel
-		Weapon: HandHologram
-
-ApacheHoloShrapnel:
-	Inherits: FlameHoloShrapnel
-	Warhead@op: FireShrapnel
-		Weapon: ApacheHologram
-
 BuggyHoloShrapnel:
 	Inherits: FlameHoloShrapnel
+	Burst: 3
 	Warhead@op: FireShrapnel
 		Weapon: BuggyHologram
 
 TickHoloShrapnel:
 	Inherits: FlameHoloShrapnel
+	Burst: 1
 	Warhead@op: FireShrapnel
 		Weapon: TickHologram
 
@@ -373,42 +357,20 @@ CrusaHologram:
 	Warhead@5Actor: SpawnActor
 		Actors: CRUSAHOLOGRAM
 
-EngineerHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: ENGINEERHOLOGRAM
-
 TemplarHologram:
 	Inherits: FlameHologram
 	Warhead@5Actor: SpawnActor
 		Actors: TEMPLARHOLOGRAM
 
-HijackerHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: HIJACKERHOLOGRAM
-
-HandHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: HANDHOLOGRAM
-
 BuggyHologram:
 	Inherits: FlameHologram
 	Warhead@5Actor: SpawnActor
 		Actors: BUGGYHOLOGRAM
-		Amount: 3
 
 TickHologram:
 	Inherits: FlameHologram
 	Warhead@5Actor: SpawnActor
 		Actors: TICKHOLOGRAM
-		Amount: 1
-
-ApacheHologram:
-	Inherits: FlameHologram
-	Warhead@5Actor: SpawnActor
-		Actors: APACHEHOLOGRAM
 
 SUBAPCTRAIL:
 	Inherits: ^NoDamage
@@ -471,7 +433,7 @@ StealthRocket:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 125
-	Range: 6c0
+	Range: 7c0
 	Burst: 7
 	Report: misl1.aud
 	ValidTargets: Ground
