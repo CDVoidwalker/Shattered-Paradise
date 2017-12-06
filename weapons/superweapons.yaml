@@ -130,14 +130,14 @@ IonScorch:
 	ReloadDelay: 1
 	Projectile: InstantExplode
 	ValidTargets: Ground, Air, IonSpawner
-	Warhead@2Eff_impact: CreateEffect
+	Warhead@1Eff_impact: CreateEffect
 		Explosions: ionscorch
 		ExplosionPalette: effectalpha
 		ImpactSound: ion1.aud
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 300
-		Damage: 7200
-		ValidTargets: IonSpawner
+		Damage: 2400
+		InvalidTargets: IonBeam
 		DamageTypes: SmallExplosionDeath
 			InfantryArmor: 500
 			BuildingArmor: 100
@@ -146,7 +146,7 @@ IonScorch:
 
 IonDrag:
 	ReloadDelay: 5
-	Range: 10
+	Range: 5
 	ValidTargets: IonSpawner
 	Projectile: Missile
 	Warhead@1Dam: SpreadDamage
@@ -694,6 +694,24 @@ VeinholeSummonerWeapon:
 		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
 		ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
 		DamageTypes:
+	Warhead@5Actor: SpawnActor
+		Actors: VEINHOLESPAWNERDUMMY
+		FallRate: 5000
+		Range: 3
+	Warhead@4Sharpnel: FireShrapnel
+		Weapon: VeinholeShrapnel
+		Amount: 3
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+VeinholeShrapnel:
+	Range: 5c0
+	MinRange: 4c0
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@5Actor: SpawnActor
 		Actors: VEINHOLESPAWNERDUMMY
 		FallRate: 5000

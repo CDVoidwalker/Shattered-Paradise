@@ -17,7 +17,6 @@ Bazooka:
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 2500
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath

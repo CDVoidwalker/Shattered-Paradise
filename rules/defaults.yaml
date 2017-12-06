@@ -217,7 +217,7 @@
 ^CloudPoison:
 	SelfHealing@poisoncloud:
 		PercentageStep: -2
-		Step: 0
+		Step: -5000
 		Delay: 12
 		RequiresCondition: Poison
 		HealIfBelow: 200
@@ -312,6 +312,10 @@
 		Range: 2c0
 	GrantConditionOnDisabled@IDISABLE:
 		Condition: disabled
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
 
 ^Cloakable:
 	Cloak@CLOAKGENERATOR:
@@ -366,6 +370,24 @@
 		DamageCooldown: 200
 		HealIfBelow: 105
 		RequiresCondition: cloakgenerator
+
+^VeinholePoisonVehicle: 
+	SelfHealing@veinholedrain:
+		PercentageStep: 0
+		Step: -500
+		Delay: 10
+		HealIfBelow: 105
+		RequiresCondition: veinholedrain
+	ExternalCondition@veinholedrain:
+		Condition: veinholedrain
+	WithIdleOverlay@veinholedrain:
+		Sequence: veins
+		IsPlayerPalette: true
+		Palette: player
+		RequiresCondition: veinholedrain
+	GrantConditionOnTerrain@VEINS:
+		TerrainTypes: Veins
+		Condition: veinholedrain
 
 ^BugPoison:
 	WithIdleOverlay@BugPoison:
@@ -483,7 +505,7 @@
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrin
-		RequiresCondition: VanguardShield && !BreakShield > 7
+		RequiresCondition: VanguardShield && BreakShield <= 7
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
 	ExternalCondition@BreakShield:
@@ -492,7 +514,7 @@
 		TargetTypes: ShieldedUnit
 		RequiresCondition: VanguardShield
 	DamageMultiplier@Boarded6:
-		RequiresCondition: VanguardShield && !BreakShield > 7
+		RequiresCondition: VanguardShield && BreakShield <= 7
 		Modifier: 0
 
 ^GenericEffects:
@@ -540,6 +562,7 @@
 	Inherits@10: ^FireflyDebuff
 	Inherits@11: ^DisplayVanguardShield
 	Inherits@12:^NodVehicleRepair
+	Inherits@13: ^VeinholePoisonVehicle
 	# Inherits@13: ^Tractable
 	SpeedMultiplier@submerged:
 		Modifier: 60
@@ -620,11 +643,12 @@
 		Actor: SCRINESSENCESMALL
 	EditorTilesetFilter:
 		Categories: Civ Building
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled
 
 ^Building:
 	Inherits@1: ^BasicBuilding
 	Inherits@2: ^StructureEffects
-	Inherits@3: ^EmpDisable
 	GivesBuildableArea:
 	ExternalCapturable:
 		CaptureCompleteTime: 7
@@ -698,7 +722,7 @@
 		Categories: Civilian Structure
 
 ^TechBuilding:
-	Inherits: ^Building
+	Inherits: ^BasicBuilding
 	RepairableBuilding:
 		IndicatorPalette: mouse
 		RepairStep: 700
@@ -707,7 +731,6 @@
 	RenderSprites:
 	EditorTilesetFilter:
 		Categories: Tech Structure
-	-Sellable:
 
 ^CivBillboard:
 	Inherits: ^CivBuilding
@@ -755,6 +778,8 @@
 	WithTextControlGroupDecoration:
 	TemporaryOwnerManager:
 	DockClient:
+	Chronoshiftable:
+		ReturnToOrigin: false
 	Health:
 		HP: 5000
 		Shape: Circle
@@ -1204,6 +1229,8 @@
 	TemporaryOwnerManager:
 	WithTextControlGroupDecoration:
 	DockClient:
+	Chronoshiftable:
+		ReturnToOrigin: false
 	Mobile:
 		Crushes: crate
 		TerrainSpeeds:
@@ -1240,16 +1267,6 @@
 		RequiresCondition: BugPoison
 	Armor:
 		Type: VehicleArmor
-	DamagedByTerrain@veins:
-		Damage: 1500
-		DamageInterval: 12
-		Terrain: Veins
-	GrantConditionOnTerrain@VEINS:
-		TerrainTypes: Veins
-		Condition: veins
-	WithIdleOverlay@VEINS:
-		Sequence: veins
-		RequiresCondition: veins
 	GrantConditionOnDamageState@smoke:
 		Condition: smoketrail
 		ValidDamageStates: Critical
@@ -1365,18 +1382,17 @@
 			Veins: 100
 			Water: 80
 		Crushes: crate
-	-DamagedByTerrain@veins:
-	-GrantConditionOnTerrain@VEINS:
-	-WithIdleOverlay@VEINS:
 	LeavesTrails:
 		Image: wake
 		Palette: effect
 		TerrainTypes: Water
 		StationaryInterval: 18
 		MovingInterval: 6
-	Explodes:
-		Weapon: UnitExplode
-		EmptyWeapon: UnitExplode
+	-Explodes:
+	-SelfHealing@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
 
 ^Walker:
 	Inherits: ^Vehicle
@@ -1549,6 +1565,7 @@
 		Spins: true
 		Moves: true
 		Velocity: 86
+		Explosion: SmallPlaneExplode
 
 ^Visceroid:
 	Inherits@1: ^ExistsInWorld
@@ -1615,6 +1632,8 @@
 	WithIdleAnimation:
 	EditorTilesetFilter:
 		Categories: Blossom Tree
+	CustomSelectionSize
+		CustomBounds:  600,600
 
 ^Tree:
 	Inherits@1: ^SpriteActor
@@ -1689,11 +1708,8 @@
 	RenderRangeCircle:
 	Targetable@Defence:
 		TargetTypes: Defence
-	RenderDetectionCircle:
 	RevealsShroud:
 		Range: 10c0
-	DetectCloaked:
-		Range: 5c0
 	Armor:
 		Type: BuildingArmor
 	EditorTilesetFilter:
@@ -1874,7 +1890,7 @@
 ^Gate:
 	Inherits: ^Building
 	Valued:
-		Cost: 200
+		Cost: 50
 	Health:
 		HP: 35000
 	Armor:
@@ -2020,3 +2036,4 @@
 ^TowerStealthDetection:
 	DetectCloaked:
 		Range: 5c0
+	RenderDetectionCircle:

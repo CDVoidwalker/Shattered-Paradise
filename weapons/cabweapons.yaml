@@ -11,7 +11,6 @@ CyborgVulcan:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1200
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
@@ -31,7 +30,6 @@ CyborgRocket:
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 4000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -47,7 +45,6 @@ SentryGun:
 		Shadow: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 60
 		Damage: 800
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
 
@@ -97,6 +94,8 @@ ReaperScythe:
 		Damage: 3500
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 128
 
 ProcessingHuman:
 	Inherits: ^RifleWarhead
@@ -107,7 +106,6 @@ ProcessingHuman:
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 4500
 		ValidTargets: Infantry
 		ValidStances: Enemy, Neutral
@@ -122,7 +120,6 @@ GLAD120mm:
 	Projectile: BulletAS
 		Speed: 1c512
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 6000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -139,7 +136,6 @@ LurkerHit:
 		RangeLimit: 10c0
 		MaximumLaunchSpeed: 213
 	Warhead@1Dam: SpreadDamage
-		Spread: 120
 		Damage: 8000
 		Versus:
 			Worker: 25
@@ -162,7 +158,6 @@ CyCannon:
 		Shadow: true
 		Image: TORPEDO
 	Warhead@1Dam: SpreadDamage
-		Spread: 120
 		Damage: 10000
 		ValidTargets: Ground
 		Versus:
@@ -195,7 +190,6 @@ WorkerMinigun:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 500
 		DamageTypes: Prone70Percent, TriggerProne
 
@@ -218,7 +212,6 @@ Dogzooka:
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -246,7 +239,6 @@ SeekerBazooka:
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 5000
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -255,7 +247,6 @@ SeekerBazookaAA:
 	Inherits: SeekerBazooka
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 3000
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -282,7 +273,6 @@ ArtisanTurretLasor:
 		BeamDuration: 5
 		Color: 0dc7b8
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1400
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -338,7 +328,6 @@ CombatDroneLasorSpawn:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: -1
-		ValidTargets: SeekerTarget
 	Warhead@op: FireShrapnel
 		Weapon: CombatDroneLasor
 		Amount: 1
@@ -348,6 +337,7 @@ CombatDroneLasorSpawn:
 		ValidTargets: Infantry, Building, Vehicle, Defence, Air, Airhit
 
 CombatDroneLasor:
+	Inherits: ^FullDamage
 	ReloadDelay: 50
 	Report: lastur1.aud
 	Range: 8c0
@@ -357,7 +347,6 @@ CombatDroneLasor:
 		BeamDuration: 5
 		Color: 0dc7b8
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1300
 		ValidStances: Enemy
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -439,7 +428,6 @@ CenturionVulcan:
 		Speed: 1c682
 		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1700
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath		
 		
@@ -452,7 +440,6 @@ TermitaGrinder:
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 3500
 		Versus:
 		DamageTypes: Prone100Percent, TriggerProne, CabalDeathCrate
@@ -503,12 +490,11 @@ ecmwave:
 		Condition: fireflystop
 		ValidTargets: Vehicle
 	Warhead@3Dam: SpreadDamage
-		Spread: 128
 		Damage: 1
 		ValidTargets: Vehicle
 
 PalaLazor:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^FullDamage
 	ReloadDelay: 75
 	Range: 7c0
 	Report: lastur1.aud
@@ -517,7 +503,6 @@ PalaLazor:
 		BeamDuration: 7
 		Color: 0000FF
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 6000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
@@ -534,7 +519,6 @@ WaspBullet:
 	Projectile:	Bullet
 		Speed: 100c0		
 	Warhead@1Dam: SpreadDamage
-		Spread: 125
 		Damage: 3500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 		ValidTargets: Ground
@@ -556,7 +540,6 @@ WaspLasor:
 		BeamDuration: 5
 		Color: 0dc7b8
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -565,7 +548,6 @@ DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 35
 	Range: 300
-	# Report: repair11.aud
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
@@ -618,7 +600,6 @@ BasiliskProton:
 		Image: TORPEDO
 		RangeLimit: 35
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 2500
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -665,7 +646,7 @@ BasiliskBomb:
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 ########################################################################
-# Building
+# Defences
 ########################################################################
 SentryTurretGun:
 	Inherits@2: ^Mediuml_Clsn
@@ -684,6 +665,17 @@ SentryTurretGun:
 			ConcreteArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+CabPitFighterSpawn:
+	Inherits: ^ArtilleryWarhead
+	ReloadDelay: 50
+	Range: 6c768
+	Projectile: InstantExplode
+	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+	Warhead@1Dam: SpreadDamage
+		Spread: 400
+		Damage: 1
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
 CTurretCannon:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
@@ -699,7 +691,6 @@ CTurretCannon:
 		LaunchAngle: 62
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 2500
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -733,7 +724,7 @@ BlasterProton:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 150
 	Burst: 6
-	Range: 10c0
+	Range: 9c0
 	Report: hovrmis1.aud
 	ValidTargets: Ground, Vehicle, Infantry, water
 	Projectile: BulletAS
@@ -753,7 +744,7 @@ BlasterProton:
 CABALRAIL:
 	Inherits: ^APWarhead
 	ReloadDelay: 150
-	Range: 10c0
+	Range: 6c768
 	Report: railgunfire.wav
 	Projectile: LaserZap
 		Speed: 20c0
@@ -771,7 +762,7 @@ CABNEXUSAA:
 	Inherits: ^FullDamage
 	ReloadDelay: 300
 	Burst: 1
-	Range: 9c0
+	Range: 8c0
 	Report: obelray1.aud
 	ValidTargets: Air
 	Projectile: LaserZap
@@ -779,7 +770,6 @@ CABNEXUSAA:
 		ZOffset: 2047
 		Color: 0008ED
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 20000
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 		ValidTargets: Air

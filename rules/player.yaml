@@ -37,6 +37,7 @@ Player:
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 93, 86, 79, 72, 65, 58, 51
 	PlaceBuilding:
 		Palette: placebuilding
 	SupportPowerManager:

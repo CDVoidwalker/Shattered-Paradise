@@ -6,14 +6,14 @@
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Condition: BreakShield
 		Range: 64
-		Duration: 500
+		Duration: 400
 
 ^RifleWarhead:	#Inherits: ^RifleWarhead
 	Inherits: ^WeaponGenericUpgrades
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
+		Spread: 0c181
 		Damage: 20
 		Versus:
 			InfantryArmor: 100
@@ -45,10 +45,11 @@
 		AllowSnapping: true
 		CloseEnough: 200
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
 		Versus:
 			InfantryArmor: 30
-			BuildingArmor: 85
-			VehicleArmor: 70
+			BuildingArmor: 100
+			VehicleArmor: 100
 			AircraftArmor: 100
 			ConcreteArmor: 30
 	Warhead@BounceUpgrade: GrantExternalCondition
@@ -57,9 +58,10 @@
 ^APWarhead:	#Inherits: ^APWarhead , Tanks, Wasps and Gladiators use this.
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c181
 		Versus:
 			InfantryArmor: 10
-			BuildingArmor: 60
+			BuildingArmor: 100
 			VehicleArmor: 100
 			AircraftArmor: 100
 			ConcreteArmor: 30
@@ -83,7 +85,7 @@
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 75
+			BuildingArmor: 150
 			VehicleArmor: 50
 			ConcreteArmor: 35
 	Warhead@BounceUpgrade: GrantExternalCondition
@@ -104,21 +106,6 @@
 			VehicleArmor: 50
 			AircraftArmor: 100
 			ConcreteArmor: 20
-	Warhead@BounceUpgrade: GrantExternalCondition
-		Condition: ArtilleryWarhead
-			
-^GrenadeWarhead:	#Inherits: ^GrenadeWarhead , Used by grenadiers and Battleships.
-	Inherits: ^WeaponGenericUpgrades
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 40
-		ValidTargets: Ground
-		Versus:
-			InfantryArmor: 70
-			BuildingArmor: 100
-			VehicleArmor: 40
-			AircraftArmor: 100
-			ConcreteArmor: 28
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
 
@@ -143,6 +130,7 @@
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 100, 100, 100, 100
+		Spread: 0c181
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 100

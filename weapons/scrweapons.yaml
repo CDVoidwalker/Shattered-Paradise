@@ -7,7 +7,6 @@ SharkJump:
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 32
 		Damage: 2000
 		Versus:
 			InfantryArmor: 100
@@ -29,7 +28,6 @@ LegioNeedler:
 		Palette: apblue
 		Image: blueballminitrail
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
 		Damage: 3000
 		Versus:
 			InfantryArmor: 30
@@ -45,7 +43,6 @@ ColossiTesla:
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 10000
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
@@ -127,7 +124,6 @@ FloatTesla:
 	Projectile: TeslaZap
 		Palette: apolredalpha
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 3000
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
@@ -151,7 +147,6 @@ FloatGlaive:
 		Palette: apollightbluealpha
 		Image: glaive
 	Warhead@1Dam: SpreadDamage
-		Spread: 96
 		-Falloff:
 		Damage: 1000
 		Versus:
@@ -291,7 +286,6 @@ ScorpAcid:
 		Palette: apolgreenalpha
 	BurstDelay: 3
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1300
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
@@ -334,7 +328,7 @@ ScrMbtCannon:
 	Inherits: ^APWarhead
 	ReloadDelay: 25
 	Range: 5c0
-	# Report: sonic4.aud
+	Report: sonic4.aud
 	Projectile: AreaBeam
 		Speed: 450
 		Duration: 30
@@ -601,13 +595,13 @@ TripodProton:
 # Aircraft
 #################################################
 StormRiderBlast:
-	Inherits: ^RifleWarhead
+	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 100
 	Range: 6c512
 	Report: laserpistol.wav
 	ValidTargets: Ground
-	Projectile: BulletAS # TODO: Add bounce effect
+	Projectile: BulletAS
 		Speed: 600
 		Blockable: false
 		Shadow: true
@@ -618,20 +612,17 @@ StormRiderBlast:
 		Inaccuracy: 384
 		Image: blueplasma
 	Warhead@1Dam: SpreadDamage
-		Spread: 120
 		Damage: 6000
 		ValidTargets: Ground
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
 StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
-	Inherits: ^FullDamage
 	ReloadDelay: 75
 	ValidTargets: Air
-	Projectile: BulletAS # TODO: Add bounce effect
+	Projectile: BulletAS
 		Speed: 800
 	Warhead@1Dam: SpreadDamage
-		Spread: 171
 		Damage: 1500
 		ValidTargets: Air
 
@@ -662,7 +653,7 @@ Glyder2Cannon:
 		ValidTargets: Air
 
 BattleshipCannon:
-	Inherits: ^GrenadeWarhead
+	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 45
 	Range: 5c768
@@ -680,7 +671,6 @@ BattleshipCannon:
 		Palette: playerscrin
 		LaunchAngle: 15
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 10000
 		ValidTargets: Ground, Infantry, Vehicle, Air, water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
@@ -703,7 +693,6 @@ BattleshipRocket:
 		Palette: playerscrin
 		ContrailColor: 0B124D
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 4000
 		ValidTargets: Air, Airhit
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
@@ -776,7 +765,6 @@ WyvermBlast:
 		Inaccuracy: 384
 		Image: blueplasma
 	Warhead@1Dam: SpreadDamage
-		Spread: 171
 		Damage: 3000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
@@ -857,8 +845,7 @@ TractorBeam:
 		Shadow: true
 		Palette: pips
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1040
+		Damage: 2000
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@TractorStop: GrantExternalCondition
@@ -870,7 +857,7 @@ TractorBeam:
 DronePlane:
 	Inherits: ^BombWarhead
 	ReloadDelay: 200
-	Range: 8c0
+	Range: 6c768
 	MinRange: 2c0
 	# Report: 120mmf.aud
 	ValidTargets: Infantry, Vehicle, Building

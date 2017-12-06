@@ -10,7 +10,6 @@ MilitantRifle:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@3Eff: CreateEffect
@@ -74,7 +73,6 @@ CrusaderBazooka:
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 2700
 		ValidTargets: Ground, Vehicle, Air, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
@@ -92,7 +90,7 @@ TemplarFlame:
 	Burst: 10
 	BurstDelay: 2
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
+		Spread: 250
 		Damage: 400
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 
@@ -107,12 +105,11 @@ TemplarLasor:
 		BeamDuration: 2
 		Inaccuracy: 150
 	Warhead@1Dam: SpreadDamage
-		Spread: 125
-		Damage: 1200
+		Damage: 2400
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 TemplarGrenade:
-	Inherits: ^GrenadeWarhead
+	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^GreyExplo
 	ReloadDelay: 150
 	Range: 4c512
@@ -150,7 +147,6 @@ BHRifle:
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 7500
 		ValidTargets: Infantry, Vehicle, Ground
 		Versus:
@@ -180,26 +176,6 @@ BHRifle:
 		ValidStances: Enemy, Neutral
 		InvalidTargets: Building, Defence
 
-CouncilSteal:
-	ReloadDelay: 150
-	Range: 6c0
-	Report:
-	ValidTargets: Infantry, Vehicle
-	InvalidTargets: MindControlInmune
-	Projectile: BulletAS
-		Speed: 1c682
-		Image: 120mm
-		# Inaccuracy: 1
-		ValidTargets: Infantry, Vehicle
-		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1
-		ValidTargets: Infantry, Vehicle
-		Versus:
-			ConcreteArmor: 30
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-
 ##################################################
 # Vehicles
 ##################################################
@@ -212,7 +188,6 @@ BuggyCannon:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 2000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
@@ -233,7 +208,6 @@ BikeMissile:
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 256
 		Damage: 4000
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -273,7 +247,6 @@ Tick90mm:
 		LaunchAngle: 75
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 4000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
@@ -446,7 +419,6 @@ StealthRocket:
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 3000
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -473,10 +445,11 @@ HarpyClaw:
 		Speed: 1c682
 		ValidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 4000
 		ValidTargets: Ground, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, MilitantFireDeath
+		Versus:
+			BuildingArmor: 100
 
 HarpyAA:
 	Inherits: ^RocketWarhead
@@ -497,7 +470,6 @@ HarpyAA:
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 5000
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -542,7 +514,7 @@ CerberusLazor:
 	ReloadDelay: 125
 	Burst: 1
 	BurstDelay: 10
-	Range: 10c0
+	Range: 11c0
 	Report: laserchaingunfire.wav
 	MinRange: 3c0
 	Warhead@1Dam: SpreadDamage
@@ -578,7 +550,6 @@ TurretLaserFire:
 		BeamDuration: 5
 		ZOffset: 2047
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 3500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
@@ -601,7 +572,6 @@ RedEye2:
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 8000
 		ValidTargets: Air
 		DamageTypes: SmallExplosionDeath
@@ -615,7 +585,6 @@ ObeliskLaserFire:
 		Width: 75
 		ZOffset: 2047
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 16500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 

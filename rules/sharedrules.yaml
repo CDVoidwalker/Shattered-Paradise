@@ -138,7 +138,7 @@ HARV:
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	Armor:
-		Type: Heavy
+		Type: VehicleArmor
 	-GainsExperience:
 	-WithVoxelBody:
 	Explodes:
@@ -201,6 +201,8 @@ SCRHARV:
 	BodyOrientation:
 		QuantizedFacings: 32
 	-DamagedByTerrain@ScrinDamage:
+	Voiced:
+		Volume: 1
 
 LPST:
 	Inherits: ^VoxelVehicle
@@ -306,8 +308,12 @@ GACNST:
 	Selectable:
 		Bounds: 144, 60, 0, -6
 	ProvidesPrerequisite@walls:
-		Factions: gdi, nod, cab
+		Factions: gdi, cab
 		Prerequisite: sharedwall
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@nodgate:
+		Factions: nod, cab, gdi
+		Prerequisite: nodgate
 		ResetOnOwnerChange: True
 	ProvidesPrerequisite@humanstuff:
 		Factions: gdi, nod, cab, mut
@@ -411,7 +417,7 @@ PROC:
 	StoresResources:
 		PipColor: Green
 		PipCount: 15
-		Capacity: 1500
+		Capacity: 700
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 3,1
@@ -490,7 +496,7 @@ PROC:
 	Dock:
 		DockOffset: 0,0
 		DockAngle: 160
-	ProductionFromMapEdge:
+	Production:
 		Produces: Air
 	RallyPoint:
 		Palette: mouse
@@ -535,6 +541,7 @@ PROC:
 
 GADEPT:
 	Inherits: ^Building
+	Inherits: ^3x3Shape
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -627,7 +634,7 @@ GASILO:
 		BuildPaletteOrder: 70
 		Prerequisites: ~humanstuff, proc
 	Valued:
-		Cost: 100
+		Cost: 200
 	Tooltip:
 		Name: Silo
 		Description: Stores excess Tiberium.
@@ -661,9 +668,9 @@ GASILO:
 		Sequence: idle-lights
 	StoresResources:
 		PipCount: 5
-		Capacity: 1500
+		Capacity: 1000
 	Power:
-		Amount: -5
+		Amount: -10
 	SelectionDecorations:
 		VisualBounds: 80, 48, -5, 0
 
@@ -705,7 +712,7 @@ SHAWALL:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 1001
-		Prerequisites: ~sharedwall
+		Prerequisites: barracks, ~sharedwall
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -730,6 +737,7 @@ SHAWALL:
 		FactionImages:
 			gdi: wall.gdi
 			nod: wall.nod
+			cab: wall.nod
 	ExplodeWeapon@1:
 		Weapon: FirestormExploWalls
 		RequiresCondition: FirestormWallCondition
@@ -790,7 +798,7 @@ NAPULS:
 	AttackOrderPower@nod:
 		Cursor: emp
 		Icon: emp
-		ChargeTime: 135
+		ChargeTime: 120
 		Description: E.M. Pulse
 		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
 		EndChargeSound: speech-nod|00-i158.aud
@@ -803,7 +811,7 @@ GATE_A:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~sharedwall
+		Prerequisites: ~nodgate
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
@@ -822,7 +830,7 @@ GATE_B:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~sharedwall
+		Prerequisites: ~nodgate
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:

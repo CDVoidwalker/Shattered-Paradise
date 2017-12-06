@@ -22,7 +22,7 @@ SMECH:
 		Voice: Attack
 	AutoTarget:
 	Armament:
-		Weapon: WolverineGrenade
+		Weapon: WolverineVulcan
 	Voiced:
 		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
@@ -129,7 +129,7 @@ HVR:
 	Inherits@2: ^HoverVehicle
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 1000
+		Cost: 1100
 	Tooltip:
 		Name: Hover MLRS
 	Buildable:
@@ -142,7 +142,7 @@ HVR:
 		TurnSpeed: 9
 		TerrainSpeeds:
 	Health:
-		HP: 27000
+		HP: 22000
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
@@ -235,7 +235,7 @@ G4TNK:
 	Inherits: ^VoxelTank
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 1700
+		Cost: 1900
 	Tooltip:
 		Name: Mammoth Tank
 	Buildable:
@@ -289,7 +289,6 @@ SONIC:
 		Description: Armored Vehicle with a sonic cannon.\nResistant to sonic damage. Auto repairs up to half health.\n\n  Strong vs Ground units.\n  Weak vs Aircraft.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
-		BuildLimit: 3
 	-RejectsOrders@berserk:
 	Mobile:
 		TurnSpeed: 4
@@ -1069,18 +1068,6 @@ MUTQUAD:
 		LightAmbientColor: 0.4, 0.4, 0.4
 		LightDiffuseColor: 0.6, 0.6, 0.6
 	WithMuzzleOverlay:
-	Minelayer:
-		Mine: muward
-		RearmBuildings:
-		AmmoPoolName: Ward
-	AmmoPool:
-		Ammo: 1
-		Name: Ward
-		PipCount: 1
-		PipType: Ammo
-		SelfReloadDelay: 500
-		SelfReloads: true
-		PipTypeEmpty: AmmoEmpty
 	Armament@primary:
 		Weapon: QuadFire
 		MuzzleSequence: muzzle
@@ -1188,6 +1175,47 @@ HVRTRUK3:
 	RenderVoxels:
 		Scale: 1
 	WithVoxelBody:
+
+
+DEATHCLAW:
+	Inherits: ^Beast
+	Inherits@1: ^MutRender
+	Inherits@2: ^PermanentSelfHeal
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 31
+		Description: Melee Beast, usefull as a shock unit.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
+		Prerequisites: ~muweap, muhall
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Ravager
+	Voiced:
+		VoiceSet: Fiend
+	Passenger:
+		CargoType: Vehicle
+		Voice: Move
+		Weight: 3
+	Targetable:
+		TargetTypes: Ground, Infantry, Razorshark
+	AutoTarget:
+		ScanRadius: 8
+		InitialStance: AttackAnything
+	Health:
+		HP: 60000
+	WithInfantryBody:
+		IdleSequences: idle2, idle3
+	-Crushable:
+	Mobile:
+		Speed: 78
+	Armament:
+		Weapon: DeathclawBlow
+	Armament@1:
+		Weapon: DeathclawBlow2
+	AttackFrontal:
+		Voice: Attack
+	SelectionDecorations:
+		VisualBounds: 30,50,0,-20
 
 FORTRESS:
 	Inherits: ^VoxelVehicle
@@ -1300,6 +1328,9 @@ SCRDRONEC:
 		Condition: VanguardShield
 		Range: 2c0
 		AffectsParent: false
+	WithRangeCircle:
+		Range: 2c0
+		Type: VanguardShield
 	Targetable:
 		TargetTypes: Ground, Vehicle
 	AutoTarget:
@@ -1813,9 +1844,9 @@ SPIDERARTY:
 		Weapon: DroneHostShell
 		LocalOffset: -500,-150,900, -300,150,1200, -500,150,900, -300,-150,1200
 		MuzzleSequence: muzzle
-	ExplodeWeapon:
-		Weapon: DevourerDroneSpawn
-		LocalOffset: 0,0,500
+        # ExplodeWeapon:
+            # Weapon: DevourerDroneSpawn
+            # LocalOffset: 0,0,500
 	Targetable@Seeker:
 		TargetTypes: Seeker
 	AutoTarget:

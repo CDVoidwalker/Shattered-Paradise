@@ -117,7 +117,7 @@ JUMPJET:
 	Transforms:
 		IntoActor: jumpjetair
 	Armament@1:
-		Weapon: JJCannon
+		Weapon: JJGrenade
 	Passenger:
 		PipType: Blue
 	AttackFrontal:
@@ -142,7 +142,7 @@ JUMPJETAIR:
 	Health:
 		HP: 13000
 	Armament@1:
-		Weapon: JJCannon
+		Weapon: JJGrenade
 	Transforms:
 		IntoActor: jumpjet
 	Armor:
@@ -176,6 +176,7 @@ JUMPJETAIR:
 		TargetTypes: Air, Helicopter, Jumpjet
 		RequiresCondition: airborne
 	AttackHeli:
+		FacingTolerance: 20
 	-RenderVoxels:
 	-WithVoxelBody:
 	Armament@SelfBuff:
@@ -335,7 +336,7 @@ TEMPLAR:
 		Description: Flame warrior, resurrected regenesis prototype. heals on Tiberium.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~nahand, naradr
 	Valued:
-		Cost: 450
+		Cost: 250
 	Tooltip:
 		Name: Templar
 	Health:
@@ -345,8 +346,6 @@ TEMPLAR:
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
-	Crushable:
-		WarnProbability: 90
 	AttackFrontal:
 		Voice: Attack
 	ProducibleWithLevel:
@@ -363,13 +362,13 @@ NCONF:
 		BuildPaletteOrder: 8
 		Description: Cloaked infantry that can create hollograms\n\n  Deals full damage to ground units.\n  Weak vs Aircraft.
 		Prerequisites: ~nahand, natech
-		IconPalette: player
+		IconPalette: UnittemIcon
 	Valued:
 		Cost: 650
 	Tooltip:
 		Name: Black Hand Trooper
 	Health:
-		HP: 22500
+		HP: 19125
 	Mobile:
 		Speed: 60
 	Armament@1:
@@ -383,8 +382,6 @@ NCONF:
 		UncloakSound: cloak5.aud
 		IsPlayerPalette: true
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
-	Crushable:
-		WarnProbability: 90
 	AttackFrontal:
 		Voice: Attack
 	ProducibleWithLevel:
@@ -392,7 +389,7 @@ NCONF:
 	RenderSprites:
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: HologramSpawn
-		CooldownTicks: 2000
+		CooldownTicks: 4000
 		DeployedTicks: 10
 		StartsFullyCharged: True
 	ExternalCondition@MineSpawn:
@@ -464,8 +461,6 @@ BHS:
 	SelfHealing@NodCloakHealing:
 		Delay: 150
 	-RejectsOrders@berserk:
-	Crushable:
-		WarnProbability: 85
 	-TakeCover:
 	Health:
 		HP: 25000
@@ -678,11 +673,11 @@ FIENDNEXUS:
 		Name: Tiberian Fiend Horde
 	Valued:
 		Cost: 400
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 19
-		Description: Tiberian Beast, fires tiberium shards at enemies.\nCannot be crushed.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry.
-		Prerequisites: ~murax
+	# Buildable:
+		# Queue: Infantry
+		# BuildPaletteOrder: 19
+		# Description: Tiberian Beast, fires tiberium shards at enemies.\nCannot be crushed.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry.
+		# Prerequisites: ~murax
 	MobSpawnerMaster:
 		Actors: mobmutant, mutfiend, mutfiend, mutfiend
 		#InitialActorCount: # 0 or default == sames as Actors
@@ -731,9 +726,11 @@ MUTFIEND:
 	Inherits: ^Beast
 	Tooltip:
 		Name: Tiberian Fiend
-	MobSpawnerSlave:
-	-SelectionDecorations: # No HP bar
-	RejectsOrders@slaved:
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 19
+		Description: Tiberian Beast, fires tiberium shards at enemies.\nCannot be crushed.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry.
+		Prerequisites: ~murax
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 		Probability: 100
@@ -743,7 +740,7 @@ MUTFIEND:
 	Targetable@MCImmune:
 		TargetTypes: MCImmune
 	Valued:
-		Cost: 325
+		Cost: 150
 	Health:
 		HP: 18000
 		Shape: Circle
@@ -827,11 +824,11 @@ CLAWNEXUS:
 	Inherits: FIENDNEXUS
 	MobSpawnerMaster:
 		Actors: awarrior, deathclaw, deathclaw, deathclaw
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 31
-		Description: Squad compossed of a Forgotten knight and three ravagers.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
-		Prerequisites: ~murax, muhall
+	# Buildable:
+		# Queue: Infantry
+		# BuildPaletteOrder: 31
+		# Description: Squad compossed of a Forgotten knight and three ravagers.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
+		# Prerequisites: ~murax, muhall
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -894,49 +891,6 @@ AWARRIOR:
 	Targetable@MCImmune:
 		TargetTypes: MCImmune
 
-DEATHCLAW:
-	Inherits: ^Beast
-	Inherits@1: ^MutRender
-	Inherits@2: ^PermanentSelfHeal
-	# Buildable:
-		# Queue: Vehicle
-		# BuildPaletteOrder: 31
-		# Description: Melee Beast, usefull as a shock unit.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
-		# Prerequisites: ~muweap, mustable, muradr
-	MobSpawnerSlave:
-	-SelectionDecorations: # No HP bar
-	RejectsOrders@slaved:
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Ravager
-	Voiced:
-		VoiceSet: Fiend
-	Passenger:
-		CargoType: Vehicle
-		Voice: Move
-		Weight: 3
-	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark
-	AutoTarget:
-		ScanRadius: 8
-		InitialStance: AttackAnything
-	Health:
-		HP: 60000
-	WithInfantryBody:
-		IdleSequences: idle2, idle3
-	-Crushable:
-	Mobile:
-		Speed: 78
-	Armament:
-		Weapon: DeathclawBlow
-	Armament@1:
-		Weapon: DeathclawBlow2
-	AttackFrontal:
-		Voice: Attack
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
-
 PSYKER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
@@ -955,8 +909,6 @@ PSYKER:
 	Health:
 		HP: 15000
 	-RejectsOrders@berserk:
-	Crushable:
-		WarnProbability: 85
 	Mobile:
 		Speed: 75
 	Targetable@MindControlImmunity:
@@ -1342,11 +1294,13 @@ CBORG:
 		BuildPaletteOrder: 11
 		Description: Anti armor unit. Auto repairs slowly up full to health even when under attack.\n\n  Strong vs Vehicles, Aircraft.\n  Weak vs Infantry.
 		Prerequisites: ~cabclaw
-		IconPalette: player
+		IconPalette: UnittemIcon
 	Health:
 		HP: 30000
 	Mobile:
 		Speed: 56
+	RevealsShroud:
+		Range: 8c0
 	Voiced:
 		VoiceSet: Cyborg
 	DeliversCash
@@ -1372,7 +1326,7 @@ PDRONE:
 		Queue: Infantry
 		Description: Melee drone, soldiers killed by this unit will be turned into\nworkers. Can only target infantry.\n\n  Strong vs Infantry\n  Weak vs Everything else.
 		BuildPaletteOrder: 12
-		Prerequisites: ~cabclaw, cabradr
+		Prerequisites: ~cabclaw
 	Selectable:
 		Bounds: 22,32,0,0
 	Hovers:
@@ -1471,7 +1425,7 @@ MOTH:
 			Water: 80
 		RequiresCondition: !deployed
 	Health:
-		HP: 15000
+		HP: 25000
 	Selectable:
 		Priority: 7
 	SelectionDecorations:
@@ -1479,7 +1433,7 @@ MOTH:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		# DeployAnimation: make
+		DeployAnimation: make
 		Facing: 160
 		AllowedTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green
 		DeploySound: place2.aud
@@ -1492,17 +1446,7 @@ MOTH:
 		StartSequence: dot
 		Sequence: dot
 		RequiresCondition: deployed
-	Cloak@asd:
-		Palette: cloakcab
-		IsPlayerPalette: true
-		RequiresCondition: deployed
-		WhileCloakedCondition: armor
-		UncloakOn: Demolish
 	-WithIdleOverlay@web:
-	DamageMultiplier@abudctorarmor:
-		RequiresCondition: deployed
-		BaseLevel: 1
-		Modifier: 75
 	WithIdleOverlay:
 		Sequence: idle
 		RequiresCondition: deployed

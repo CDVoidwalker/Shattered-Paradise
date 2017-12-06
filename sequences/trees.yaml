@@ -166,7 +166,6 @@ fona14:
 fona15:
 	Inherits: ^TreeArt
 
-
 veinhole:
 	Defaults: veinhole
 		UseTilesetExtension: true
@@ -184,3 +183,23 @@ veinhole:
 
 veinholeforg:
 	Inherits: veinhole
+
+minivein:
+	defaults:
+		UseTilesetExtension: false
+		ZOffset: -512
+	idle:
+		Length: 39
+	dead: sushimake
+		Start: 30
+		Length: -29
+		Facings: 1
+	stand:
+		Length: 39
+	make: sushimake
+		Length: 29
+	shoot:
+		Length: 39
+	sushi1: sushimake
+		ZOffset: -2048
+		Start: 30

@@ -209,9 +209,60 @@ VEINHOLE:
 	SelfHealing:
 		PercentageStep: 1
 		HealIfBelow: 200
+		DamageCooldown: 50
 		Delay: 25
 	WithSpriteBody:
 	AutoSelectionSize:
+	Selectable:
+		Priority: 3
+		Bounds: 90, 54, 0, -12
+	ShakeOnDeath:
+	Targetable:
+		TargetTypes: Building, Ground, Veinhole
+	Health:
+		HP: 200000
+	Armor:
+		Type: BuildingArmor
+	-WithColoredOverlay@EMPDISABLE:
+	-DisableOnCondition@EMPDISABLE:
+	-TimedConditionBar@EMPDISABLE:
+	-WithIdleOverlay@EMPDISABLE:
+	PowerMultiplier@EMPDISABLE:
+	EditorTilesetFilter:
+		Categories: Tree
+
+VEINHOLEFORG:
+	Inherits: VEINHOLE
+	RenderSprites:
+		Image: veinholeforg
+		Palette: player
+    
+MINIVEIN:
+	Inherits: VEINHOLE
+	Inherits@2: ^1x1Shape
+	Building:
+		Footprint: x
+		Dimensions: 1, 1
+	Tooltip:
+		Name: Mini Veinhole
+	WithIdleOverlay@sushi:
+		Sequence: sushi1
+	WithDeathAnimation:
+		UseDeathTypeSuffix: false
+	-Explodes:
+	-SeedsResource:
+	Selectable:
+		Priority: 3
+		Bounds: 25, 25, 0, 0
+	WithRangeCircle:
+		Range: 4c0
+		Type: cloakgenerator
+	ProximityExternalCondition:
+		Condition: veinholedrain
+		Range: 4c0
+		AffectsParent: false
+		ValidStances: Ally, Enemy, Neutral
+	WithMakeAnimation:
 	WithChargeOverlay:
 		Sequence: shoot
 		Palette: player
@@ -225,30 +276,4 @@ VEINHOLE:
 		TargetStances: Enemy, Ally, Neutral
 		LocalOffset: 500, 0, 0
 		MuzzleSequence: muzzle
-	WithMuzzleOverlay:
 	AutoTarget:
-	Selectable:
-		Priority: 3
-		Bounds: 90, 54, 0, -12
-	ShakeOnDeath:
-	Targetable:
-		TargetTypes: Building, Ground, Veinhole
-	Health:
-		HP: 200000
-	Armor:
-		Type: BuildingArmor
-	Explodes:
-		Weapon: VeinholeExplosion
-		EmptyWeapon: VeinholeExplosion
-	-WithColoredOverlay@EMPDISABLE:
-	-DisableOnCondition@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	-PowerMultiplier@EMPDISABLE:
-
-VEINHOLEFORG:
-	Inherits: VEINHOLE
-	RenderSprites:
-		Image: veinholeforg
-		Palette: player
-	

@@ -1141,6 +1141,7 @@ cabpit:
 	icon: cabpiticon
 		Offset: 0, 0
 		UseTilesetCode: false
+		AllowModifiers: false
 
 cabnexus:
 	Defaults:
@@ -1167,6 +1168,7 @@ cabnexus:
 	icon: cabnexusicon
 		Offset: 0, 0
 		UseTilesetCode: false
+		AllowModifiers: false
 
 cabblast:
 	Defaults:

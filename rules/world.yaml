@@ -121,6 +121,8 @@ World:
 	MapCreeps:
 	SpawnMapActors:
 	MapBuildRadius:
+	RadioactivityLayer:
+		Color: 00FF00
 	MapOptions:
 	CreateMPPlayers:
 	MPStartUnits@MCV:

@@ -4,7 +4,15 @@ overlay:
 		ZRamp: 1
 	build-valid-snow:
 	build-valid-temperate:
+	build-valid:
+	build-valid-:
 	build-invalid:
+		Start: 1
+	build-invalid-:
+		Start: 1
+	build-invalid-snow:
+		Start: 1
+	build-invalid-temperate:
 		Start: 1
 	target-select:
 
@@ -630,6 +638,12 @@ viscproj:
 		Offset: 0,6
 		Length: *
 		ZOffset: 1023
+
+eggproj:
+	idle:
+		Length: 10
+		ZOffset: 1023
+		Facings: 8
 
 cabswproj:
 	idle:

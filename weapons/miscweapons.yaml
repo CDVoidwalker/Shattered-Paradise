@@ -117,7 +117,7 @@ SlimeAttack:
 
 VeinholeAttack:
 	ReloadDelay: 1
-	Range: 7c0
+	Range: 5c0
 	Report:
 	Projectile: InstantExplode
 	InvalidTargets: Veinhole

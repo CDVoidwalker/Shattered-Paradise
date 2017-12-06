@@ -928,7 +928,54 @@ gaplug2:
 	icon: rad2icon
 
 gaplug3:
-	icon: rad3icon		
+	icon: rad3icon
+
+gtdrop:
+	Defaults:
+		Offset: 12, -30
+		UseTilesetCode: false
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	idle-dish: gtdrop_a
+		Length: 20
+		Tick: 120
+	damaged-idle-dish: gtdrop_a
+		Start: 20
+		Length: 20
+		Tick: 120
+	idle-lights: gtdrop_b
+		Length: 20
+		Tick: 120
+	damaged-idle-lights: gtdrop_b
+		Start: 20
+		Length: 20
+		Tick: 120
+	idle-strip: gtplug_c
+		Length: 8
+		Tick: 120
+	damaged-idle-strip: gtplug_c
+		Start: 8
+		Length: 8
+		Tick: 120
+	make: gtdropmk
+		Length: 17
+		ShadowStart: 17
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: gbayicon
+		Offset: 0, 0
+		UseTilesetCode: false
 ##########################################################
 # Defences
 ##########################################################

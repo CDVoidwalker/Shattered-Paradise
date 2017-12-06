@@ -19,10 +19,6 @@ GACTWR:
 		HP: 50000
 	BodyOrientation:
 		QuantizedFacings: 32
-	DetectCloaked:
-		Range: 4c0
-		RequiresCondition: tower
-		ConditionMinEnabledLevel: 1
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -121,9 +117,6 @@ GAVULC:
 		HP: 30000
 	BodyOrientation:
 		QuantizedFacings: 32
-	DetectCloaked:
-		Range: 4c0
-		RequiresCondition: tower
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -152,9 +145,8 @@ GAROCK:
 	Inherits: ^Tier2
 	Inherits@1: ^TowerStealthDetection
 	Power:
-		Amount: -20
+		Amount: -30
 	WithSpriteBody:
-	# WithWallSpriteBody:
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -172,8 +164,6 @@ GAROCK:
 		HP: 50000
 	BodyOrientation:
 		QuantizedFacings: 32
-	DetectCloaked:
-		Range: 4c0
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -188,8 +178,6 @@ GAROCK:
 		Sequence: idle-lights
 	LineBuildNode:
 		Types: turret
-	Power@base:
-		Amount: -30
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 48, 48, 0, -12
@@ -197,7 +185,6 @@ GAROCK:
 
 GACSAM:
 	Inherits: ^AntiAir
-	Inherits@1: ^TowerStealthDetection
 	Power:
 		Amount: -30
 	WithSpriteBody:
@@ -218,8 +205,6 @@ GACSAM:
 		HP: 45000
 	BodyOrientation:
 		QuantizedFacings: 32
-	DetectCloaked:
-		Range: 4c0
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -261,11 +246,6 @@ GAPLUG2:
 		Cost: 1000
 	Tooltip:
 		Name: Drop pod Control
-	Buildable:
-		Description: Enables use of the drop pods.
-		Queue: Defense
-		BuildPaletteOrder: 1000
-		Prerequisites: gaplug, gatech, gaweap, ~structures.gdi
 	Plug:
 		Type: plug.hunterseeker
 	Power:
@@ -277,11 +257,6 @@ GAPLUG3:
 		Cost: 2000
 	Tooltip:
 		Name: Ion Cannon Uplink
-	Buildable:
-		Description: Enables use of the Ion Cannon.
-		Queue: Defense
-		BuildPaletteOrder: 1000
-		Prerequisites: gaplug, gatech, ~structures.gdi
 	Plug:
 		Type: plug.ioncannon
 	Power:
@@ -416,6 +391,111 @@ GUARDIANDEP:
 		IntoActor: guardian
 		Voice: Action2
 
+GAPLUG:
+	Inherits: ^Building
+	Inherits@2: ^2x3Shape
+	Inherits@3: ^SuperWeapon
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Ion Cannon Control Center
+	Selectable:
+		Bounds: 115,72,0,-12
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: proc, gatech, ~structures.gdi
+		Description: Can be Conditiond for additional technology.
+		Queue: Defense
+		BuildLimit: 1
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 2,3
+	RequiresPower:
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithIdleOverlay@STRIP:
+		Sequence: idle-strip
+	Health:
+		HP: 300000
+	Armor:
+		Type: BuildingArmor
+	RevealsShroud:
+		Range: 6c0
+	DetonateWeaponPower@ioncannon:
+		Icon: ioncannon
+		Description: Ion Cannon Alpha Strike
+		DisplayTimer: True
+		DisplayBeacon: True
+		LongDesc: Fires many ion cannons on the targetted area.
+		ChargeTime: 150
+		ActivationSequence: idle
+		Weapon: IonCannonSpawner
+		OrderName: IonCannon2
+		Cursor: ioncannon
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled
+	SupportPowerChargeBar:
+	Power:
+		Amount: -150
+	WithIdleOverlay@ioncannona:
+		Sequence: idle-ioncannona
+	WithIdleOverlay@hunterseekerb:
+		Sequence: idle-hunterseekerb
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 115,104,0,-24
+
+GTDROP:
+	Inherits: ^Building
+	Inherits@2: ^3x3Shape
+	Inherits@3: ^SuperWeapon
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 111
+		Prerequisites: gatech, ~structures.gdi
+		BuildLimit: 1
+		Description: Provides access to drop pod support.
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Dropship-Bay
+	ProvidesPrerequisite:
+		Prerequisite: factory
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 144, 80, 8, -12
+	Health:
+		HP: 3360
+	RevealsShroud:
+		Range: 7c73
+	Power:
+		Amount: -150
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	ProvidesPrerequisite@buildingname:
+	DetonateWeaponPower@pods:
+		Icon: droppods
+		ActivationSequence: idle
+		DisplayTimer: True
+		DisplayBeacon: True
+		Description: Helldiver Drop
+		LongDesc: Deploys shock troopers at the targetted location.
+		OrderName: Droppod
+		Weapon: DroppodSpawner
+		DisplayTimerStances: Ally, Neutral, Enemy
+		PauseOnCondition: disabled
+		ChargeTime: 240
+
 ##############################################
 # NOD
 ##############################################
@@ -424,7 +504,7 @@ NALASR:
 	Inherits: ^Defense
 	Inherits@1: ^TowerStealthDetection
 	Valued:
-		Cost: 500
+		Cost: 450
 	Tooltip:
 		Name: Laser Turret
 	Buildable:
@@ -449,7 +529,7 @@ NALASR:
 	RenderVoxels:
 	WithVoxelTurret:
 	Power:
-		Amount: -30
+		Amount: -50
 	SelectionDecorations:
 		VisualBounds: 40, 36, -8, -8
 
@@ -491,13 +571,12 @@ NAOBEL:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	Power:
-		Amount: -150
+		Amount: -100
 	SelectionDecorations:
 		VisualBounds: 88, 72, 0, -12
 
 NASAM:
 	Inherits: ^AntiAir
-	Inherits@1: ^TowerStealthDetection
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -564,6 +643,7 @@ NASTLH:
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
 		AffectsParent: false
+		RequiresCondition: !disabled
 	Cloak@CLOAKGENERATOR:
 		RequiresCondition: HolaSoyVinceConSlapShopMiraLaPapaUnCorteNoSePuedeCortar
 	Power:
@@ -711,7 +791,7 @@ NATMPL:
 		Cursor: nuke
 		Icon: clustermissile
 		ChargeTime: 360
-		Description: Cluster Missile
+		Description: Atomic Bomb
 		LongDesc: Launches a conventional warhead\nat a target location.
 		BeginChargeSound:
 		EndChargeSound: 00-i154.aud
@@ -785,6 +865,7 @@ NAMISL:
 		LaunchSound: icbm1.aud
 		FlightDelay: 100
 		MissileWeapon: ToxinMissile
+		DisplayTimerStances: Ally, Neutral, Enemy
 		SpawnOffset: 0,427,0
 		DisplayTimer: True
 		DisplayBeacon: True
@@ -808,7 +889,7 @@ MUTWALL:
 		Queue: Defense
 		BuildPaletteOrder: 1001
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks\nMay make you sell your conyard\nIf you're not careful.
-		Prerequisites: ~structures.mut, !structures.cab
+		Prerequisites: barracks, ~structures.mut
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -857,7 +938,6 @@ MUTGATE_B:
 MUFLAK:
 	Inherits: ^AntiAir
 	Inherits@1: ^MutRender
-	Inherits@2: ^TowerStealthDetection
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -933,7 +1013,7 @@ MUBUNKR:
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
 	Valued:
-		Cost: 300
+		Cost: 200
 	Tooltip:
 		Name: Bunker
 	Buildable:
@@ -990,7 +1070,7 @@ MUTSW1:
 	Selectable:
 		Bounds: 116, 60, 3, -6
 	Health:
-		HP: 80000
+		HP: 100000
 	RevealsShroud:
 		Range: 5c0
 	SelectionDecorations:
@@ -1007,6 +1087,8 @@ MUTSW1:
 		DisplayTimerStances: Ally, Neutral, Enemy
 		DisplayRadarPing: True
 		PauseOnCondition: disabled
+	Power:
+		Amount: -100
 
 MUTSW2:
 	Inherits: ^Building
@@ -1033,7 +1115,7 @@ MUTSW2:
 	RevealsShroud:
 		Range: 5c0
 	Power:
-		Amount: -150
+		Amount: -100
 	SelectionDecorations:
 		VisualBounds: 130, 100, 0, -24
 	IonCannonPower:
@@ -1045,7 +1127,7 @@ MUTSW2:
 		DisplayTimer: True
 		DisplayBeacon: True
 		Description: Veinhole summon
-		LongDesc: Spawns a veinhole monster\non the targetted location.
+		LongDesc: Spawns a cluster of baby veinholes\non the targetted location.
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
 
@@ -1102,6 +1184,7 @@ MUVENTI:
 		Type: cloakgenerator
 	ExplodeWeapon:
 		Weapon: VentilatorPoison
+		RequiresCondition: disabled
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -1127,7 +1210,7 @@ SCRWALL:
 		Queue: Defense
 		BuildPaletteOrder: 1001
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.\nMay make you sell your conyard\nIf you're not careful.
-		Prerequisites: ~structures.scr, !structures.cab
+		Prerequisites: barracks, ~structures.scr
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -1179,7 +1262,7 @@ SCRNEEDLER:
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Ichor Waste Turret
 	Buildable:
@@ -1223,7 +1306,6 @@ SCRNEEDLER:
 SCRTRACTOR:
 	Inherits: ^AntiAir
 	Inherits@2: ^ScrinRender
-	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
 		Cost: 450
@@ -1265,14 +1347,14 @@ SCRDRONE:
 	Inherits@4: ^ScrinDeathExplo
 	Inherits@5: ^2x2Shape
 	Valued:
-		Cost: 1300
+		Cost: 1000
 	Tooltip:
 		Name: Visceroid Hive
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 60
 		Description: Advanced base defense.\nThrows Visceroids near the enemies.\nRequires power to operate.\n\n  Strong vs Ground Units.\n  Weak vs Aircraft.
-		Prerequisites: scrweap, ~structures.scr
+		Prerequisites: scrradr, ~structures.scr
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1289,7 +1371,7 @@ SCRDRONE:
 		ForceTargetStances: Enemy
 		LocalOffset: 0,0,1750
 	Power:
-		Amount: -75
+		Amount: -50
 	SelectionDecorations:
 		VisualBounds: 88, 72, 0, -12
 
@@ -1300,38 +1382,38 @@ SCREXTRACTOR:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Tiberium Extractor
+		Name: Shield Generator
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 60
-		Description: Low output extractor that passively seeds tiberium.
+		Description: Negates the first x hits nearby units receive.
 		Prerequisites: scrtech, ~structures.scr
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Selectable:
 		Bounds: 40, 30, -3, -8
+	CanPowerDown:
+		IndicatorPalette: mouse
+		PowerupSpeech: EnablePower
+		PowerdownSpeech: DisablePower
 	RequiresPower:
 	Health:
 		HP: 60000
 	RevealsShroud:
 		Range: 4c0
 	Power:
-		Amount: -125
+		Amount: -50
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
-	SeedsResource@asd:
-		ResourceType: Tiberium
-		Interval: 1
-		MaxRange: 1
-		RequiresCondition: Tiberium
-	GrantPeriodicCondition@asd:
-		Condition: Tiberium
-		CooldownDuration: 1500
-		ActiveDuration:  50
-		StartsGranted: true
-	ExternalCondition@asd:
-		Condition: Tiberium
+	ProximityExternalCondition@VanguardShield:
+		Condition: VanguardShield
+		Range: 5c0
+		AffectsParent: false
+		RequiresCondition: !disabled
+	WithRangeCircle:
+		Range: 5c0
+		Type: VanguardShield
 
 SCRSW1:
 	Inherits: ^Building
@@ -1356,7 +1438,7 @@ SCRSW1:
 	Selectable:
 		Bounds: 116, 60, 3, -6
 	Health:
-		HP: 80000
+		HP: 100000
 	RevealsShroud:
 		Range: 5c0
 	Power:
@@ -1463,8 +1545,6 @@ CABSENTRYTURRET:
 	BodyOrientation:
 		QuantizedFacings: 32
 	-CanPowerDown:
-	-DetectCloaked:
-	-RenderDetectionCircle:
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -1520,7 +1600,7 @@ CABPIT:
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
 	Valued:
-		Cost: 600
+		Cost: 500
 	Tooltip:
 		Name: Drone Pit
 	Buildable:
@@ -1528,7 +1608,7 @@ CABPIT:
 		Queue: Defense
 		BuildPaletteOrder: 30
 		Prerequisites: cabclaw, ~structures.cab
-		IconPalette: playercab
+		IconPalette: UnittemIconCab
 	Power:
 		Amount: -30
 	Building:
@@ -1551,7 +1631,7 @@ CABPIT:
 		VisualBounds: 90, 48, 0, -6
 	AttackOmni:
 	Armament:
-		Weapon: FighterSpawn
+		Weapon: CabPitFighterSpawn
 	CarrierMaster:
 		Actors: CABDRONEJET, CABDRONEJET, CABDRONEJET
 		RespawnTicks: 700
@@ -1595,7 +1675,7 @@ CABRAIL:
 		Weapon: CABALRAIL
 		LocalOffset: 550,-400,700
 	Power:
-		Amount: -40
+		Amount: -30
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
 		
@@ -1604,7 +1684,7 @@ CABNEXUS:
 	Inherits@1: ^CabRender
 	Inherits@2: ^2x2Shape
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Obelisk Nexus
 	Buildable:
@@ -1612,7 +1692,7 @@ CABNEXUS:
 		Prerequisites: cabradr, ~structures.cab
 		Description: Anti air obelisk of light.\nRequires power to operate.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles. 
 		BuildPaletteOrder: 90
-		IconPalette: playercab
+		IconPalette: UnittemIconCab
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1628,7 +1708,7 @@ CABNEXUS:
 		LocalOffset: 0,0,1000
 	AttackOmni:
 	Power:
-		Amount: -40
+		Amount: -50
 	SelectionDecorations:
 		VisualBounds: 90, 48, 0, -6
 
@@ -1637,7 +1717,6 @@ CABBLAST:
 	Inherits@1: ^CabRender
 	Inherits@2:	^IncompleteSelfHeal
 	Inherits@3: ^TowerStealthDetection
-	Inherits@4: ^SuperWeapon
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -1665,7 +1744,7 @@ CABBLAST:
 		Weapon: BlasterProton
 		LocalOffset: 512,0,512
 	Power:
-		Amount: -60
+		Amount: -50
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
 
@@ -1712,10 +1791,10 @@ NAPOST:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 150
-		Prerequisites: cabpowr, ~structures.cab
+		Prerequisites: barracks, ~structures.nod
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	Valued:
-		Cost: 200
+		Cost: 100
 	Tooltip:
 		Name: Laser Fence
 	Health:
@@ -1736,7 +1815,7 @@ NAPOST:
 	LineBuildNode:
 		Types: laserfencenode
 	Power:
-		Amount: -15
+		Amount: -20
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -1839,7 +1918,7 @@ CABSW1:
 		Bounds: 110, 70, 3, -20
 	RequiresPower:
 	Health:
-		HP: 35000
+		HP: 100000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armor:
@@ -1899,7 +1978,7 @@ cabobelisk:
 		Bounds: 75,48
 	RequiresPower:
 	Health:
-		HP: 35000
+		HP: 75000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Power:

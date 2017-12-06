@@ -469,16 +469,17 @@ CRAB:
 		Name: Crab
 	-GainsExperience:		
 	Health:
-		HP: 10000
+		HP: 20000
 		Shape: Circle
 			Radius: 213
 	Valued:
 		Cost: 100
 	Armor:
-		Type: None
+		Type: InfantryArmor
 	RevealsShroud:
 		Range: 5c0
-	-SpawnActorOnDeath@conversion:		
+	-SpawnActorOnDeath@conversion:
+	-Crushable:
 	Mobile:
 		Speed: 100
 		Crushes: nada
@@ -500,13 +501,6 @@ CRAB:
 		ReduceMoveRadiusDelay: 5
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
-	GrantPeriodicCondition:
-		Condition: KillMe
-		CooldownDuration: 750
-	KillsSelf@KillMe:
-		RequiresCondition: KillMe
-	ExternalCondition@KillMe:
-		Condition: KillMe
 
 FLOATER:
 	Inherits: ^HoverVehicle
@@ -2335,7 +2329,7 @@ GAOLDCC6:
 
 WELL:
 	Inherits: ^TechBuilding
-	Inherits@2: ^2x3Shape
+	Inherits@2: ^3x3Shape
 	Tooltip:
 		Name: Tiberium Well
 	Building:
@@ -2570,6 +2564,8 @@ GALITE:
 	SelectionDecorations:
 		VisualBounds: 25, 35, 0, -12
 	-Cloak@CLOAKGENERATOR:
+	CustomSelectionSize
+		CustomBounds:  600,600
 
 TSTLAMP:
 	Inherits: GALITE
@@ -2577,6 +2573,8 @@ TSTLAMP:
 		Image: galite
 	Tooltip:
 		Description: light post with alpha blending
+	CustomSelectionSize
+		CustomBounds:  600,600
 
 GAICBM:
 	Inherits: ^Building
@@ -2774,19 +2772,28 @@ EGGS:
 		Type: BuildingArmor
 	RevealsShroud:
 		Range: 4c0
-	-ThrowsShrapnel:
 	Health:
 		HP: 75000
 	RenderSprites:
 		Palette: playermut
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack, NeutralTibCritter
+	-ThrowsShrapnel:
 	-Explodes:
+	-SoundOnDamageTransition:
+	-ShakeOnDeath:
+	-SpawnActorOnDeath@ScrinEssence:
+	ExternalCondition@SpawnCrabs:
+		Condition: SpawnCrabs
+	GrantPeriodicCondition:
+		Condition: SpawnCrabs
+		CooldownDuration: 500
 	SelfHealing@crab:
-		PercentageStep: -50
+		PercentageStep: -100
 		Step: 0
-		Delay: 500
+		Delay: 50
 		HealIfBelow: 150
+		RequiresCondition: SpawnCrabs
 		DamageTypes: SpawnCrabs
 	SpawnActorOnDeath@crab1:
 		Actor: crab
@@ -2798,13 +2805,6 @@ EGGS:
 	SpawnActorOnDeath@crab2:
 		Actor: crab
 		Probability: 50
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: SpawnCrabs
-		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@crab3:
-		Actor: crab
-		Probability: 10
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: SpawnCrabs

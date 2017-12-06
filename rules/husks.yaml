@@ -24,8 +24,6 @@ ORCA.Husk:
 		Image: orca
 	RenderVoxels:
 		Image: orca
-	FallsToEarth:
-		Explosion: SmallPlaneExplode
 
 ORCAB.Husk:
 	Inherits: ^AircraftHusk
@@ -140,6 +138,8 @@ CERBERUS.Husk:
 		Image: cerberus	
 	-RenderVoxels:
 	-WithVoxelBody:
+	FallsToEarth:
+		Explosion: BattleshipExplode
 
 ############################################################
 #		MUT
@@ -233,7 +233,7 @@ DEVOURER.Husk:
 	-RenderVoxels:
 	-WithVoxelBody:
 	FallsToEarth:
-		Explosion: SmallPlaneExplode
+		Explosion: BattleshipExplode
 	
 FIREFLY.Husk:		
 	Inherits: ^AircraftHusk
@@ -255,8 +255,6 @@ FIREFLY.Husk:
 		Image: firefly
 	-RenderVoxels:
 	-WithVoxelBody:
-	FallsToEarth:
-		Explosion: SmallPlaneExplode
 	
 BASILISK.Husk:
 	Inherits: ^AircraftHusk
@@ -271,6 +269,9 @@ BASILISK.Husk:
 	RenderVoxels:
 		Image: basilisk
 		Scale: 1
+	FallsToEarth:
+		Explosion: BattleshipExplode
+
 ############################################################
 #		SCRIN
 ############################################################	
@@ -292,7 +293,7 @@ STORMRIDER.Husk:
 		Moves: true
 		Spins: false
 	FallsToEarth:
-		Explosion: SmallPlaneExplode
+		Explosion: StormriderExplode
 
 WYVERM2.Husk:		
 	Inherits: ^AircraftHusk
@@ -389,6 +390,8 @@ SCRDESTROYER.Husk:
 		Image: scrdestroyer
 	-RenderVoxels:
 	-WithVoxelBody:
+	FallsToEarth:
+		Explosion: BattleshipExplode
 
 SCRBATTLESHIP.Husk:		
 	Inherits: ^AircraftHusk
@@ -412,6 +415,8 @@ SCRBATTLESHIP.Husk:
 		Image: scrbattleship
 	-RenderVoxels:
 	-WithVoxelBody:
+	FallsToEarth:
+		Explosion: BattleshipExplode
 
 SCRCARRIER.Husk:		
 	Inherits: ^AircraftHusk
@@ -435,6 +440,8 @@ SCRCARRIER.Husk:
 		Image: scrcarrier
 	-RenderVoxels:
 	-WithVoxelBody:
+	FallsToEarth:
+		Explosion: BattleshipExplode
 
 SCRTRANS.Husk:		
 	Inherits: ^AircraftHusk
@@ -480,4 +487,6 @@ SCRCOUNCIL.Husk:
 	RenderSprites:
 		Image: scrincouncil
 	-RenderVoxels:
-	-WithVoxelBody:	
+	-WithVoxelBody:
+	FallsToEarth:
+		Explosion: BattleshipExplode

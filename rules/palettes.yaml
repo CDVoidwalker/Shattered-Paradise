@@ -262,7 +262,7 @@
 	PaletteFromFile@cameoscrin:
 		Name: cameoscrin
 		Filename: cameoscrin.pal	
-		AllowModifiers: true				
+		AllowModifiers: true		
 	PlayerColorPalette@playerscrin:
 		BasePalette: playerscrin
 		BaseName: playerscrin
@@ -301,6 +301,14 @@
 		Name: playertemperate
 		Filename: unittem.pal
 		ShadowIndex: 1
+	PaletteFromFile@IconFromUnittem:
+		Name: UnittemIcon
+		Filename: unittem.pal
+		AllowModifiers: false
+	PaletteFromFile@IconFromPlayercab:
+		Name: UnittemIconCab
+		Filename: unitcab.pal
+		AllowModifiers: false
 	PlayerColorPalette@playertemonly:
 		BasePalette: playertemperate
 		BaseName: playertemperate

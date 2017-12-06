@@ -7,7 +7,6 @@ MarauderShotgun:
 		Image: 120mm
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@op: FireShrapnel
@@ -43,7 +42,6 @@ SkirmisherRocket:
 		RangeLimit: 12c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 2000
 		AffectsParent: true
 		ValidTargets: Ground, Air
@@ -93,14 +91,13 @@ FiendShard2:
 	Report: fiend2.aud
 	ValidTargets: Ground, Air
 	Projectile: BulletAS
-		Speed: 250
+		Speed: 300
 		Image: CRYSTAL4
 		Inaccuracy: 512
 		Shadow: true
 		LaunchAngle: 60
 		Palette: greentiberium
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 1800
 		ValidTargets: Ground, Air
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
@@ -125,7 +122,6 @@ SeerTesla:
 		Palette: apolbluealpha
 		Duration: 10
 	Warhead@1Dam: SpreadDamage
-		Spread: 30
 		Damage: 7000
 		Versus:
 			InfantryArmor: 50
@@ -140,7 +136,6 @@ SeerTeslaAA:
 	ReloadDelay: 100
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
-		Spread: 8
 		Damage: 3000
 		ValidTargets: Air
 
@@ -159,7 +154,6 @@ SeerTeslaSpark:
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
-		Spread: 30
 		Damage: 3000
 
 KnightAcid:
@@ -191,23 +185,6 @@ KnightAcid2:
 	Inherits: KnightAcid
 	Projectile: BulletAS
 		Innacuracy: 256
-	# Inherits: ^AcidWarhead
-	# ReloadDelay: 75
-	# Range: 2c0
-	# Report: chemweaponfire.wav#flamtnk1.aud
-	# ValidTargets: Ground
-	# Projectile: BulletAS
-		# Speed: 100c0
-		# Inaccuracy: 384
-		# Palette: apolgreenalpha
-	# Warhead@1Dam: SpreadDamage
-		# Spread: 128
-		# Damage: 2000
-		# ValidTargets: Ground	
-		# DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
-	# Warhead@2Smu: LeaveSmudge
-		# SmudgeType: SmallScorch
-		# InvalidTargets: Vehicle, Building, Wall
 
 PsykerRay:
 	Inherits: ^FullDamage
@@ -259,38 +236,14 @@ GSkirmisherMortar:
 GSeerTesla:
 	Inherits: SeerTesla
 	Range: 6c768
-	Warhead@1Dam: SpreadDamage
-		Spread: 30
-		Damage: 2500
 
 GKnightAcid:
 	Inherits: KnightAcid
 	Range: 6c768
+
 GKnightAcid2:
 	Inherits: KnightAcid2
 	Range: 6c768
-
-	# Inherits: ^GrenadeWarhead
-	# ReloadDelay: 60
-	# Range: 6c768
-	# Report: rketinf1.aud
-	# ValidTargets: Ground
-	# Projectile: BulletAS
-		# Speed: 300
-		# Shadow: true
-		# Inaccuracy: 1c500
-		# Image: DISCUS
-	# Warhead@1Dam: SpreadDamage
-		# Spread: 125
-		# Damage: 3000
-		# ValidTargets: Ground
-		# DamageTypes: Prone50Percent, TriggerProne, TiberiumDeathStrong
-	# Warhead@2Eff: CreateEffect
-		# Explosions: tib_expsmall
-		# ImpactSound: expnew12.aud
-	# Warhead@5Smu: LeaveSmudge
-		# SmudgeType: SmallCrater
-		# InvalidTargets: Vehicle, Building, Wall
 
 GPsykerRay:
 	Inherits: PsykerRay
@@ -309,13 +262,12 @@ BerserkerBlow:
 		Speed: 5c682
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 4000
 		ValidTargets: Ground	
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
 
 BullAcid:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^AcidWarhead
 	ReloadDelay: 75
 	Range: 5c0
 	Report: flamtnk1.aud
@@ -376,7 +328,6 @@ DeathclawBlow:
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 4000
 		ValidStances: Enemy, Neutral
 		ValidTargets: Vehicle, Defence, Infantry
@@ -391,7 +342,6 @@ DeathclawBlow2:
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
 		Damage: 4000
 		ValidStances: Enemy, Neutral
 		ValidTargets: Building
@@ -410,24 +360,8 @@ IFVulcan:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 2500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
-
-LeonidCannon:
-	Inherits: ^APWarhead
-	Inherits@2: ^Large_Clsn
-	ReloadDelay: 75
-	Range: 8c0
-	MinRange: 2c0
-	Burst: 1
-	Report: 120mmf.aud
-	Projectile: InstantHit
-		Innacuracy: 1c0
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 4000
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 StuggCannon:
 	Inherits: ^APWarhead
@@ -438,7 +372,6 @@ StuggCannon:
 	Projectile: BulletAS
 		Speed: 1c512
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 7000
 		Versus:
 			InfantryArmor: 15
@@ -465,7 +398,6 @@ QuadFire:
 		Innacuracy: 0c512
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		ValidTargets: Ground
 		InvalidTargets: Air
 		Damage: 1750
@@ -479,7 +411,6 @@ QuadFireAA:
 	MinRange: 3c0
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Spread: 192
 		ValidTargets: Air
 		Damage: 3000
 		Versus:
@@ -512,18 +443,23 @@ TiberianRocket:
 		ValidTargets: Ground
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeathStrong
-	Warhead@3EffWater: CreateEffect
+	Warhead@2EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
 		ValidTargets: Water
-	Warhead@5Smu: LeaveSmudge
+	Warhead@3Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@6Eff: CreateEffect
+	Warhead@4Eff: CreateEffect
 		Explosions: tib_expsmall
 		ImpactSound: expnew12.aud
 		InvalidTargets: Water, Air, AirHit
+	Warhead@1Radio: CreateRadioactivity
+		Range: 1, 2, 3, 4
+		Level: 100
+		Falloff: 100, 90, 50, 0
+		MaxLevel: 500
 
 MiniNuke:
 	Range: 3c0
@@ -555,26 +491,55 @@ MiniNuke:
 #################################################################
 # Aircraft
 #################################################################
+QueenShard:
+	Inherits: ^APWarhead
+	ReloadDelay: 70
+	Burst: 1
+	Range: 7c0
+	Report: fiend2.aud
+	ValidTargets: Ground
+	Projectile: BulletAS
+		Speed: 200
+		Image: tibshard
+		Shadow: true
+		LaunchAngle: 60
+		Palette: apgreen
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		ValidTargets: Ground
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ExplosionPalette: player
+		ImpactSound: ssplash3.aud
+		ValidTargets: Water
+	Warhead@2Eff: CreateEffect
+		Explosions: tib_expsmall
+		ExplosionPalette: apolgreenalpha
+		ImpactSound: expnew14.aud
+		InvalidTargets: Water
+
 SpawnEggShrapnel:
 	Inherits: CombatDroneLasorSpawn
 	ReloadDelay: 500
 	Warhead@op: FireShrapnel
-		Weapon: SpawnGravBomb
+		Weapon: EggElevator
 		Amount: 1
 
-SpawnGravBomb:
+EggElevator:
 	Inherits: ^NoDamage
-	Projectile: GravityBomb
-		Speed: 100c0
+	ReloadDelay: 3
+	Projectile: AthenaProjectile
+		Altitude: 2560
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
-		InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
 		Amount: 1
-		InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
 SpawnEgg:
 	Inherits: ^FullDamage
@@ -582,19 +547,23 @@ SpawnEgg:
 	Range: 2c0
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff
 	Projectile: BulletAS
-		Speed: 100c0
+		Speed: 150
 		Blockable: false
+		Image: eggproj
+		Palette: playermut
+		Shadow: True
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
 		ValidStances: Enemy, Neutral
-		InvalidTargets: Infantry, Vehicle, Building, Water, Cliff
+		InvalidTargets: Water, Cliff
+		ValidTargets: Ground, Air
 	Warhead@5Actor: SpawnActor
 		Actors: EGGSPAWNER
 		FallRate: 5000
 		Range: 2
-		ValidTargets: Ground
-		InvalidTargets: Infantry, Vehicle, Building, Water, Cliff
+		InvalidTargets: Water, Cliff
+		ValidTargets: Ground, Air
 
 FirestormExplo:
 	Inherits: ^FullDamage
@@ -630,7 +599,6 @@ GargoylVulcan:
 		Speed: 1c682
 		Innacuracy: 0c512
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 4000
 		ValidTargets: Infantry
 		Versus:
@@ -655,7 +623,6 @@ GargoylRocket:
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 85
 		Damage: 6000
 		ValidTargets: Ground, Vehicle, Building
 		InvalidTargets: Infantry	
@@ -679,7 +646,6 @@ GargoylRocketAA:
 		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 110
 		Damage: 7000
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -735,15 +701,29 @@ FalconPunch2:
 #################################################################
 # Structures
 #################################################################
+
+LeonidCannon:
+	Inherits: ^APWarhead
+	Inherits@2: ^Large_Clsn
+	ReloadDelay: 75
+	Range: 6c768
+	MinRange: 2c0
+	Burst: 1
+	Report: 120mmf.aud
+	Projectile: InstantHit
+		Innacuracy: 1c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
 FlakFire:
 	Inherits: ^FullDamage
 	ReloadDelay: 75
-	Range: 7c0
+	Range: 8c0
 	Report: cygun1.aud
 	ValidTargets: Air
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		ValidTargets: Air
 		Damage: 3000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath

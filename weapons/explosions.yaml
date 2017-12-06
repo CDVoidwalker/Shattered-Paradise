@@ -50,18 +50,35 @@ CyborgExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Medium_Bang
 
-SmallPlaneExplode:
+StormriderExplode:
 	Inherits: ^ExploDefaults
+	Inherits: ^FullDamage
 	Inherits@2: ^Mediuml_Clsn
 	Warhead@1Dam: SpreadDamage
-		Spread: 426
-		Damage: 2500
+		Spread: 0c724
+		Damage: 5000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			InfantryArmor: 90
-			BuildingArmor: 75
-			VehicleArmor: 60
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+
+SmallPlaneExplode:
+	Inherits: ^ExploDefaults
+	Inherits: ^FullDamage
+	Inherits@2: ^Mediuml_Clsn
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c724
+		Damage: 20000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+
+BattleshipExplode:
+	Inherits: ^ExploDefaults
+	Inherits: ^FullDamage
+	Inherits@2: ^Mediuml_Clsn
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 20000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
 DroneExplode:
 	Inherits: ^ExploDefaults
