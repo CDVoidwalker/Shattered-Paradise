@@ -8,19 +8,21 @@ WestWood Studios Studios
 	
 OpenRA dev team for their effort in creating openra (no ORA, no SP).
 
-Scipción		: Got me into 3D modelling.
+Apollo				: Knowledge about palettes and explosion making.
+Scipción			: Got me into 3D modelling.
 Penev, abcdefg30	: Saved the mod from countless bugs.
 Graion Dilach		: Code wizzard, responsible for the code necessary for many features the mod offers.
-BoolBada		: Another code wizzard, responsible for carrier logic and other fun stuff.
-FiveAces		: Streaming.
+BoolBada			: Another code wizzard, responsible for carrier logic and other fun stuff.
+FiveAces			: Streaming.
 SchismNavigator		: Worked on SP for some time.
-4XS			: For his help with concept art. http://4-x-s.deviantart.com/
-Lucassss		: Testing and balancing.
+4XS					: For his help with concept art. http://4-x-s.deviantart.com/
+Lucassss			: Testing and balancing.
 Murto The Ray		: Testing and Balancing.
-Voidwalker		: Testing and Balancing.
-ZxGanon			: Testing, Balancing and mapping.
-Skyhunter713		: Mapping.
-Apollo			: Knowledge about palettes and explosion making.
+Voidwalker			: Testing and Balancing.
+ZxGanon				: Balance Design.
+Skyhunter713		: Voice Acting.
+Trempler			: Mapping.
+
 
 #Images and Others.
 
@@ -32,6 +34,7 @@ If an asset doesn't have credit, then either it was made by WW or we missed it, 
 
 #Game Art
 
+Astor		: Veterancy Chevrons (I guess its Astor :/)
 Agent Z		: GDI MRLS Voxel, CABAL Harvester.
 Nolt		: Everything that is not listed here or belongs to westwood.
 The_Dementor	: Cameos: Skirmisher, EMP pulse Icons, Harvester and MCV (mut and cab), 

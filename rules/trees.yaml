@@ -9,8 +9,6 @@ TIBTRE03:
 
 BIGBLUE:
 	Inherits: ^BlossomTree
-	Tooltip:
-		Name: Large Blue Tiberium Crystal
 	RenderSprites:
 		Palette: bluetiberium
 	WithIdleOverlay:

@@ -408,10 +408,13 @@ crate-effects:
 	levelup: veteran
 
 rank:
-	veteran: pips
-		Start: 7
-	elite: pips
-		Start: 8
+	rank-veteran-1: newpips
+	rank-veteran-2: newpips
+		Start: 1
+	rank-veteran-3: newpips
+		Start: 2
+	rank-elite: newpips
+		Start: 3
 
 dig:
 	idle:
@@ -435,6 +438,12 @@ lgrysmk1:
 sgrysmk1:
 	idle:
 		Length: *
+		Tick: 100
+
+htrkpuff:
+	idle:
+		Length: *
+		ZOffset: 1023
 
 meteor:
 	idle:

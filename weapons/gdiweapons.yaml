@@ -1,7 +1,7 @@
 MarineRifle:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 70
+	ReloadDelay: 35
 	Range: 4c512
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Projectile: BulletAS
@@ -39,12 +39,10 @@ JJGrenade:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^GreyExplo
 	ReloadDelay: 80
-	Range: 5c0
-	Burst: 2
-	MinRange: 1c512
+	Range: 4c0
 	Report: grenadelauncherfire.wav
 	ValidTargets: Ground
-	Projectile: BulletAS # TODO: Add bounce effect
+	Projectile: BulletAS
 		Speed: 320
 		Blockable: false
 		Shadow: true
@@ -53,13 +51,13 @@ JJGrenade:
 		Image: DISCUS
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
-		Damage: 2000
+		Damage: 5000
 		ValidTargets: Ground
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 JJBuff:
 	Inherits: ^NoDamage
-	ReloadDelay: 150
+	ReloadDelay: 80
 	Range: 4c0
 	Projectile: InstantExplode
 	Warhead@Acid: GrantExternalCondition
@@ -96,6 +94,7 @@ TrooperRail:
 		Width: 40
 		Color: 0008ED
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
 		Damage: 6000
 		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
 		Versus:
@@ -123,7 +122,7 @@ WolverineVulcan:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 2500
+		Damage: 3750
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		
 Titan120mm:
@@ -133,7 +132,6 @@ Titan120mm:
 	Range: 5c0
 	Report: 120mmf.aud
 	Projectile: BulletAS
-		Speed: 1c512
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -339,9 +337,9 @@ OBBomb:
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 30
 	Burst: 5
-	BurstDelay: 6
+	BurstDelay: 3
 	ValidTargets: Ground, Building, Infantry, Vehicle
-	Range: 1c512
+	Range: 3c0
 	Projectile: GravityBomb
 		Speed: 170
 		Image: 120mm
@@ -350,7 +348,28 @@ OBBomb:
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 80, 70, 60, 50
 		Spread: 400
-		Damage: 7000
+		Damage: 15000
+		ValidTargets: Ground, Building, Infantry, Vehicle
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
+OBBombFrontal:
+	Inherits: ^BombWarhead
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 30
+	Burst: 5
+	BurstDelay: 1
+	ValidTargets: Ground, Building, Infantry, Vehicle
+	Range: 2c0
+	Projectile: BulletAS
+		Speed: 170
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+		Inaccuracy: 512
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 80, 70, 60, 50
+		Spread: 300
+		Damage: 15000
 		ValidTargets: Ground, Building, Infantry, Vehicle
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
@@ -411,7 +430,7 @@ VulcanTower:
 		Speed: 1c682
 		Blockable: False
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 3300
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 		
 GdiRedEye:

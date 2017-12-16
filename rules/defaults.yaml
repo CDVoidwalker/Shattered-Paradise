@@ -47,6 +47,20 @@
 		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Building, Structure, Defense
 		InvalidTargets: NoAutoTarget
 
+^InfantryShape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -128, -128
+			BottomRight: 128, 128
+
+^VehicleShape:
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -340, -340
+			BottomRight: 340, 340
+
 ^1x1Shape:
 	HitShape:
 		UseTargetableCellsOffsets: true
@@ -74,8 +88,8 @@
 		UseOccupiedCellsOffsets: true
 		UseTargetableCellsOffsets: true
 		Type: Rectangle
-			TopLeft: -1024, -1536
-			BottomRight: 1024, 1536
+			TopLeft: -1600, -1836
+			BottomRight: 1524, 1536
 
 ^3x2Shape:
 	HitShape:
@@ -100,46 +114,108 @@
 			BottomRight: 1224, 1400
 
 ^GainsExperience:
-#EXPERIENCE
 	GainsExperience:
 		Conditions:
-			400: rank
-			800: rank2
-	FirepowerMultiplier@EXPERIENCE:
-		RequiresCondition: rank
-		Modifier: 105
-	DamageMultiplier@EXPERIENCE:
-		RequiresCondition: rank
+			200: rank-veteran
+			400: rank-veteran
+			800: rank-veteran
+			1600: rank-veteran
+	GrantCondition@RANK-ELITE:
+		RequiresCondition: rank-veteran >= 4
+		Condition: rank-elite
+	DamageMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
 		Modifier: 95
-	SpeedMultiplier@EXPERIENCE:
-		RequiresCondition: rank
-		Modifier: 105
-	ReloadDelayMultiplier@EXPERIENCE:
-		RequiresCondition: rank2
+	DamageMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
 		Modifier: 90
-	RangeMultiplier@EXPERIENCE:
-		RequiresCondition: rank2
+	DamageMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 85
+	DamageMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 75
+	FirepowerMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 105
+	FirepowerMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 110
+	FirepowerMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
 		Modifier: 120
+	FirepowerMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 130
+	SpeedMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 105
+	SpeedMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 110
+	SpeedMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 120
+	SpeedMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 140
+	ReloadDelayMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 95
+	ReloadDelayMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 90
+	ReloadDelayMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 85
+	ReloadDelayMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 75
+	InaccuracyMultiplier@RANK-1:
+		RequiresCondition: rank-veteran == 1
+		Modifier: 90
+	InaccuracyMultiplier@RANK-2:
+		RequiresCondition: rank-veteran == 2
+		Modifier: 80
+	InaccuracyMultiplier@RANK-3:
+		RequiresCondition: rank-veteran == 3
+		Modifier: 70
+	InaccuracyMultiplier@RANK-ELITE:
+		RequiresCondition: rank-elite
+		Modifier: 50
 	SelfHealing@ELITE:
-		PercentageStep: 1
-		Step: 0
+		Step: 2
 		Delay: 100
 		HealIfBelow: 100
 		DamageCooldown: 125
-		RequiresCondition: selfheal
-	WithDecoration@VETERAN:
+		RequiresCondition: rank-elite
+	WithDecoration@RANK-1:
 		Image: rank
-		Sequence: veteran
-		Palette: ra
+		Sequence: rank-veteran-1
+		Palette: pips
 		ReferencePoint: Bottom, Right
-		RequiresCondition: rank && !rank2
+		RequiresCondition: rank-veteran == 1
 		ZOffset: 256
-	WithDecoration@ELITE:
+	WithDecoration@RANK-2:
 		Image: rank
-		Sequence: elite
-		Palette: ra
+		Sequence: rank-veteran-2
+		Palette: pips
 		ReferencePoint: Bottom, Right
-		RequiresCondition: rank2
+		RequiresCondition: rank-veteran == 2
+		ZOffset: 256
+	WithDecoration@RANK-3:
+		Image: rank
+		Sequence: rank-veteran-3
+		Palette: pips
+		ReferencePoint: Bottom, Right
+		RequiresCondition: rank-veteran == 3
+		ZOffset: 256
+	WithDecoration@RANK-ELITE:
+		Image: rank
+		Sequence: rank-elite
+		Palette: pips
+		ReferencePoint: Bottom, Right
+		RequiresCondition: rank-elite
 		ZOffset: 256
 
 ^Tractable:
@@ -170,7 +246,6 @@
 		BaseLevel: 1
 	WithColoredOverlay@firefly:
 		RequiresCondition: fireflystop
-		ConditionMinEnabledLevel: 1
 		Palette: disabled
 	TimedConditionBar@firefly:
 		Condition: fireflystop
@@ -316,6 +391,12 @@
 		IndicatorPalette: mouse
 		PowerupSpeech: EnablePower
 		PowerdownSpeech: DisablePower
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
+	Power:
+		Amount: -150
+	SupportPowerChargeBar:
 
 ^Cloakable:
 	Cloak@CLOAKGENERATOR:
@@ -395,15 +476,15 @@
 		IsPlayerPalette: true
 		Palette: cloakscrin
 		RequiresCondition: BugPoison
-	ExplodeWeapon@BugPoison:
-		Weapon: PoisonGlaive
-		RequiresCondition: BugPoison
 	SelfHealing@BugPoison:
-		PercentageStep: -1
+		PercentageStep: -3
 		Step: 0
-		Delay: 150
+		Delay: 25
 		HealIfBelow: 101
 		RequiresCondition: BugPoison
+	ReloadDelayMultiplier@BugPoison:
+		RequiresCondition: BugPoison
+		Modifier: 150
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
 
@@ -505,7 +586,7 @@
 		Sequence: shield
 		IsPlayerPalette: true
 		Palette: cloakscrin
-		RequiresCondition: VanguardShield && BreakShield <= 7
+		RequiresCondition: VanguardShield && BreakShield <= 4
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
 	ExternalCondition@BreakShield:
@@ -514,8 +595,23 @@
 		TargetTypes: ShieldedUnit
 		RequiresCondition: VanguardShield
 	DamageMultiplier@Boarded6:
-		RequiresCondition: VanguardShield && BreakShield <= 7
+		RequiresCondition: VanguardShield && BreakShield <= 4
 		Modifier: 0
+
+^SpawnSmoke:
+	GrantConditionOnDamageState@smoke:
+		Condition: smoketrail
+		ValidDamageStates: Critical, Heavy
+	SmokeParticleEmitter:
+		RequiresCondition: smoketrail
+		Sequence: idle
+		SpawnFrequency: 3, 10
+		Gravity: -32,-32,48, 32,32,48
+		Offset: -384,-384,0, 384,384,0
+		Image: sgrysmk1
+		Palette: effectalpha
+	ExternalCondition@smoketrail:
+		Condition: smoketrail
 
 ^GenericEffects:
 	Inherits: ^VisionWhenKilled
@@ -532,6 +628,7 @@
 	Inherits: ^GenericEffects
 	Inherits@1: ^CloudPoison
 	Inherits@2: ^EmpDisable
+	Inherits@3: ^SpawnSmoke
 
 ^InfantryEffects:
 	Inherits: ^GenericEffects
@@ -543,7 +640,7 @@
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^WebDisable
 	Inherits@7: ^TemplarDebuff
-	Inherits@8: ^wiuwiuwiu
+ 	Inherits@8: ^BugPoison
 	Inherits@9: ^TimeLineDebuff
 	Inherits@10: ^DisplayVanguardShield
 
@@ -556,8 +653,7 @@
 	Inherits@4: ^BugPoison
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^EmpDisableMobile
-	Inherits@7: ^TemplarDebuff
-	Inherits@8: ^wiuwiuwiu
+	Inherits@7: ^SpawnSmoke
 	Inherits@9: ^TimeLineDebuff
 	Inherits@10: ^FireflyDebuff
 	Inherits@11: ^DisplayVanguardShield
@@ -574,6 +670,7 @@
 	Inherits@1: ^FireflyDebuff
 	Inherits@2:^NodVehicleRepair
 	Inherits@3: ^PermanentSelfHeal
+	Inherits@4: ^SpawnSmoke
 
 ^ProducesStuff:
 	WithTextDecoration@primary:
@@ -694,12 +791,6 @@
 		Weapons: LargeDebris
 		Pieces: 3, 7
 		Range: 2c0, 5c0
-	GrantConditionOnDamageState@smoke:
-		Condition: smoketrail
-		ValidDamageStates: Critical, Heavy
-	ExplodeWeapon@smoke:
-		Weapon: SmokeShrapnel
-		RequiresCondition: smoketrail
 	EditorTilesetFilter:
 		Categories: Buildable Structure
 
@@ -709,7 +800,8 @@
 	Health:
 		HP: 90000
 	RevealsShroud:
-		Range: 4c0
+		Range: 6c0
+		RequiresCondition: !inside-tunnel && !submerged
 	Tooltip:
 		Description: Civilian Building
 	RenderSprites:
@@ -726,11 +818,24 @@
 	RepairableBuilding:
 		IndicatorPalette: mouse
 		RepairStep: 700
+	RevealsShroud:
+		Range: 4c0
 	Capturable:
 		CaptureThreshold: 100
 	RenderSprites:
 	EditorTilesetFilter:
 		Categories: Tech Structure
+	ExternalCapturable:
+		CaptureCompleteTime: 7
+	ExternalCapturableBar:
+	RepairableBuilding:
+		IndicatorPalette: mouse
+		RepairStep: 700
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+	Targetable@NoAutoTarget:
+		TargetTypes: NoAutoTarget
 
 ^CivBillboard:
 	Inherits: ^CivBuilding
@@ -773,7 +878,7 @@
 	Inherits@1: ^InfantryEffects
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
-	Inherits@4: ^1x1Shape
+	Inherits@4: ^InfantryShape
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	TemporaryOwnerManager:
@@ -806,17 +911,18 @@
 		Crushes: crate
 		SharesCell: true
 		TerrainSpeeds:
-			Clear: 90
-			Road: 100
+			Clear: 100
+			Road: 120
 			Rail: 90
-			DirtRoad: 100
+			DirtRoad: 120
 			Rough: 80
-			Bridge: 100
-			Tiberium: 90
+				PathingCost: 150
+			Bridge: 120
+			Tiberium: 80
 				PathingCost: 300
-			BlueTiberium: 90
+			BlueTiberium: 80
 				PathingCost: 300
-			Veins: 50
+			Veins: 80
 		TunnelCondition: inside-tunnel
 	SelectionDecorations:
 		Palette: pips
@@ -983,7 +1089,7 @@
 		TargetTypes: Mutant
 	DamagedByTerrain:
 		Damage: -200
-		DamageInterval: 16
+		DamageInterval: 48
 		Terrain: Tiberium, BlueTiberium
 	Mobile:
 		TerrainSpeeds:
@@ -996,9 +1102,6 @@
 	Inherits: ^Mutant
 	Inherits@1: ^RejectsOrdersBerkserk
 	-TakeCover:
-	GrantConditionOnDamageState@beastberserk:
-		Condition: berserk
-		ValidDamageStates: Heavy, Critical
 	SpawnActorOnDeath@tiberium2:
 		Probability: 20
 	-SpawnActorOnDeath@tiberium3:
@@ -1012,23 +1115,6 @@
 		OwnerType: Killer
 		DeathType: CabalDeathInfantry
 		RequiresLobbyCreeps: true
-	SpeedMultiplier@beastberserk:
-		RequiresCondition: beastdamaged
-		Modifier: 120
-	ReloadDelayMultiplier@beastberserk:
-		RequiresCondition: beastdamaged
-		Modifier: 80
-	DamageMultiplier@beastberserk:
-		Modifier: 120
-		RequiresCondition: beastdamaged
-	SelfHealing@BerserkBeast:
-		PercentageStep: 1
-		Step: 0
-		Delay: 30
-		DamageCooldown: 200
-		HealIfBelow: 60
-	ExternalCondition@berserk:
-		Condition: berserk
 	WithDeathAnimation@normal:
 		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
 			TiberiumDeath: 1, 2
@@ -1146,7 +1232,7 @@
 			EnergyDeath: evaporate
 			ExplosionDeath: evaporate
 	FirepowerMultiplier@Hologram:
-		Modifier: 20
+		Modifier: 2
 		BaseLevel: 0
 	-WithDeathAnimation@normal:
 	-WithDeathAnimation@tib:
@@ -1184,26 +1270,28 @@
 	Selectable:
 		Priority: 6
 	Mobile:
-		Speed: 60
+		Speed: 45
 	Health:
 		HP: 9500
-	MineImmune:
-	Minelayer:
-		AmmoPoolName: Mine
-		Mine: mumine
-		RearmBuildings:
-	AmmoPool:
-		Ammo: 3
-		Name: Mine
-		PipCount: 3
-		PipType: Ammo
-		SelfReloadDelay: 1000
-		SelfReloads: true
-		PipTypeEmpty: AmmoEmpty
-	ReloadAmmoWhenEnabled:
-		Name: Mine
-		RequiresCondition: MineReam
-		ReloadDelay: 100
+	# MineImmune:
+	# Minelayer:
+		# AmmoPoolName: Mine
+		# Mine: mumine
+		# RearmBuildings:
+	# AmmoPool:
+		# Ammo: 3
+		# Name: Mine
+		# PipCount: 3
+		# PipType: Ammo
+		# SelfReloadDelay: 1000
+		# SelfReloads: true
+		# PipTypeEmpty: AmmoEmpty
+	# ReloadAmmoWhenEnabled:
+		# Name: Mine
+		# RequiresCondition: MineReam
+		# ReloadDelay: 100
+	# ExternalCondition@MineReam
+		# Condition: MineReam
 	Passenger:
 		PipType: Yellow
 	EngineerRepair:
@@ -1215,16 +1303,12 @@
 		Type: building
 		ConsumeActor: true
 		PlayerExperience: 50
-	Passenger:
-		GrantCondition: EngineerHologram
-	ExternalCondition@AcidScaleDmg@MineReam
-		Condition: MineReam
 
 ^Vehicle:
 	Inherits@0: ^GainsExperience
 	Inherits@1: ^VehicleEffects
 	Inherits@2: ^ExistsInWorld
-	Inherits@3: ^1x1Shape
+	Inherits@3: ^VehicleShape
 	DrawLineToTarget:
 	TemporaryOwnerManager:
 	WithTextControlGroupDecoration:
@@ -1234,14 +1318,15 @@
 	Mobile:
 		Crushes: crate
 		TerrainSpeeds:
-			Clear: 70
-			Road: 100
-			Rail: 50
-			DirtRoad: 90
-			Rough: 40
-			Tiberium: 50
-			BlueTiberium: 50
-			Veins: 50
+			Clear: 100
+			Road: 120
+			Rail: 100
+			DirtRoad: 120
+			Rough: 80
+				PathingCost: 150
+			Tiberium: 80
+			BlueTiberium: 80
+			Veins: 80
 				PathingCost: 300
 		TunnelCondition: inside-tunnel
 		TurnSpeed: 7
@@ -1257,9 +1342,6 @@
 		Palette: pips
 	SelfHealing@poisoncloud:
 		PercentageStep: -3
-	ExplodeWeapon@BugPoison:
-		Weapon: PoisonGlaive
-		RequiresCondition: BugPoison
 	WithIdleOverlay@BugPoison:
 		Sequence: cloud
 		IsPlayerPalette: true
@@ -1267,12 +1349,6 @@
 		RequiresCondition: BugPoison
 	Armor:
 		Type: VehicleArmor
-	GrantConditionOnDamageState@smoke:
-		Condition: smoketrail
-		ValidDamageStates: Critical
-	ExplodeWeapon@smoke:
-		Weapon: SmokeShrapnel
-		RequiresCondition: smoketrail
 	SpawnActorOnDeath@conversion:
 		Actor: PALADIN2
 		Probability: 100
@@ -1354,15 +1430,6 @@
 	Inherits@1: ^AutoTargetGround
 	Mobile:
 		Crushes: wall, crate, infantry
-		TerrainSpeeds:
-			Clear: 70
-			Road: 100
-			Rail: 100
-			DirtRoad: 90
-			Rough: 60
-			Tiberium: 70
-			BlueTiberium: 70
-			Veins: 70
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
@@ -1399,15 +1466,6 @@
 	Inherits@2: ^AutoTargetGround
 	Mobile:
 		Crushes: wall, crate, infantry
-		TerrainSpeeds:
-			Clear: 90
-			Road: 100
-			Rail: 90
-			DirtRoad: 100
-			Rough: 80
-			Tiberium: 90
-			BlueTiberium: 90
-			Veins: 50
 	Carryable:
 		LocalOffset: 0,0,600
 	Explodes:
@@ -1461,7 +1519,7 @@
 	AppearsOnRadar:
 		UseLocation: yes
 	Targetable@GROUND:
-		TargetTypes: Vehicle
+		TargetTypes: Vehicle, Ground
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
 		TargetTypes: Air
@@ -1610,8 +1668,6 @@
 
 ^BlossomTree:
 	Inherits@1: ^SpriteActor
-	Tooltip:
-		Name: Blossom Tree
 	RenderSprites:
 		Palette: player
 	WithSpriteBody:
@@ -1700,14 +1756,17 @@
 	Inherits: ^Building
 	Inherits@1: ^AutoTargetAll
 	-GivesBuildableArea:
-	CanPowerDown:
-		IndicatorPalette: mouse
-		PowerupSpeech: EnablePower
-		PowerdownSpeech: DisablePower
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
 	AutoTarget:
+	-MustBeDestroyed:
 	RenderRangeCircle:
 	Targetable@Defence:
 		TargetTypes: Defence
+	CanPowerDown:
+		IndicatorPalette: mouse
+	RequiresPower:
 	RevealsShroud:
 		Range: 10c0
 	Armor:
@@ -1861,6 +1920,14 @@
 		DestroyedSounds: crmble2.aud
 	Crushable:
 		CrushClasses: wall
+	Health:
+		HP: 30000
+	BlocksProjectiles:
+		Height: 640
+	Armor:
+		Type: ConcreteArmor
+	Crushable:
+		CrushClasses: heavywall
 	LineBuild:
 		Range: 8
 		NodeTypes: wall
@@ -2000,20 +2067,13 @@
 ^ScrinReaper:
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
-	DamagedByTerrain@ScrinDamage:
-		Damage: 0
-		DamageInterval: 0
-		Terrain: Clear, Road, Rail, Bridge, Impassable, Water, DirtRoad, Rough, Cliff, Veins, Tree, Rock
-		DamageThreshold: 60
-		StartOnThreshold: true
 	SpawnActorOnDeath@ScrinEssence:
 		DeathType:
 	Targetable@ScrinUnitBeingHealed:
 		TargetTypes: ScrinUnitBeingHealed
-		ConditionMinEnabledLevel: 1
 		RequiresCondition: batteryboost
 	SelfHealing@batteryboost:
-		PercentageStep: 1
+		PercentageStep: 3
 		Step: 0
 		Delay: 25
 		HealIfBelow: 101

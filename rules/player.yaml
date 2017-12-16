@@ -9,7 +9,7 @@ Player:
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 90, 75, 50
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Defense:
 		Type: Defense
 		LowPowerSlowdown: 2
@@ -17,7 +17,7 @@ Player:
 		BuildDurationModifier: 100
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 90, 75, 50
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
 		LowPowerSlowdown: 2
@@ -30,14 +30,14 @@ Player:
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 93, 86, 79, 72, 65, 58, 51
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	ClassicProductionQueue@Air:
 		Type: Air
 		BuildDurationModifier: 100
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 93, 86, 79, 72, 65, 58, 51
+		BuildTimeSpeedReduction: 100, 91, 82, 73, 64, 55, 50
 	PlaceBuilding:
 		Palette: placebuilding
 	SupportPowerManager:

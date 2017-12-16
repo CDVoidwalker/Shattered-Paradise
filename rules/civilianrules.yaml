@@ -469,7 +469,7 @@ CRAB:
 		Name: Crab
 	-GainsExperience:		
 	Health:
-		HP: 20000
+		HP: 10000
 		Shape: Circle
 			Radius: 213
 	Valued:
@@ -477,7 +477,7 @@ CRAB:
 	Armor:
 		Type: InfantryArmor
 	RevealsShroud:
-		Range: 5c0
+		Range: 40c0
 	-SpawnActorOnDeath@conversion:
 	-Crushable:
 	Mobile:
@@ -486,7 +486,7 @@ CRAB:
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter
+		TargetTypes: Infantry, Ground, NeutralTibCritter, MCImmune
 	Armament:
 		Weapon: CrabAcid
 	WithInfantryBody:
@@ -497,10 +497,10 @@ CRAB:
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
-		WanderMoveRadius: 75
-		ReduceMoveRadiusDelay: 5
-		MinMoveDelay: 100
-		MaxMoveDelay: 200
+		WanderMoveRadius: 5
+		ReduceMoveRadiusDelay: 1
+		MinMoveDelay: 25
+		MaxMoveDelay: 100
 
 FLOATER:
 	Inherits: ^HoverVehicle
@@ -2474,7 +2474,7 @@ SCRINREINFPADENABLED:
 	RenderSprites:
 		Image: scrinreinfpad
 	PeriodicProducer:
-		Actors: gtwimam
+		Actors: 2stug3
 		Type: Vehicle
 		ChargeDuration: 3000
 
@@ -2773,7 +2773,7 @@ EGGS:
 	RevealsShroud:
 		Range: 4c0
 	Health:
-		HP: 75000
+		HP: 50000
 	RenderSprites:
 		Palette: playermut
 	Targetable:

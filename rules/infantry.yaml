@@ -1,43 +1,3 @@
-mpspawn:
-	EditorOnlyTooltip:
-		Name: (multiplayer player starting point)
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	RenderSpritesEditorOnly:
-	WithSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 1
-
-waypoint:
-	EditorOnlyTooltip:
-		Name: (waypoint for scripted behavior)
-	AlwaysVisible:
-	Immobile:
-		OccupiesSpace: false
-	RenderSpritesEditorOnly:
-	WithSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 1
-
-CAMERA:
-	Inherits@1: ^1x1Shape
-	EditorOnlyTooltip:
-		Name: (reveals area to owner)
-	AlwaysVisible:
-	RenderSpritesEditorOnly:
-	WithSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 1
-	Immobile:
-		OccupiesSpace: false
-	Health:
-		HP: 1000
-	RevealsShroud:
-		Range: 10c0
-		Type: CenterPosition
-	DetectCloaked:
-		Range: 10c0
 #######################################################
 #Infantry
 #######################################################
@@ -80,7 +40,7 @@ GRENADIER:
 		Prerequisites: ~gapile
 		Description: Anti armor infantry.\n\n  Strong vs Armor, aircraft.\n  Weak vs Infantry.
 	Valued:
-		Cost: 250
+		Cost: 300
 	Tooltip:
 		Name: Grenadier
 	Health:
@@ -186,6 +146,9 @@ JUMPJETAIR:
 		Type: CenterPosition
 	ExternalCondition@JJBuff:
 		Condition: JJBuff
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 MEDIC:
 	Inherits: ^Soldier
@@ -265,22 +228,22 @@ ALTNODE1:
 		TargetTypes: FlameWarrior
 	Mobile:
 		Speed: 70
-	GrantConditionOnDeploy:
-		DeployedCondition: deployed
-		UndeployedCondition: undeployed
-		DeployAnimation:
-		Facing: 160
-		AllowedTerrainTypes:
-		CanDeployOnRamps: true
-		DeploySound:
-		UndeploySound:
+	# GrantConditionOnDeploy:
+		# DeployedCondition: deployed
+		# UndeployedCondition: undeployed
+		# DeployAnimation:
+		# Facing: 160
+		# AllowedTerrainTypes:
+		# CanDeployOnRamps: true
+		# DeploySound:
+		# UndeploySound:
 	-TakeCover:
 	Armament:
 		Weapon: MilitantRifle
 		RequiresCondition: !deployed
-	Armament@killsself:
-		Weapon: MilitantExplode
-		RequiresCondition: deployed
+	# Armament@killsself:
+		# Weapon: MilitantExplode
+		# RequiresCondition: deployed
 	AttackFrontal:
 		Voice: Attack
 	ProducibleWithLevel:
@@ -305,7 +268,7 @@ CRUSADER:
 		Description: Anti Armour Infantry, equiped with a Rocket\nlauncher backpack, can fire while moving.\nCan also set units on fire.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry.
 		Prerequisites: ~nahand
 	Valued:
-		Cost: 250
+		Cost: 325
 	Tooltip:
 		Name: Crusader
 	Health:
@@ -336,7 +299,7 @@ TEMPLAR:
 		Description: Flame warrior, resurrected regenesis prototype. heals on Tiberium.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~nahand, naradr
 	Valued:
-		Cost: 250
+		Cost: 300
 	Tooltip:
 		Name: Templar
 	Health:
@@ -364,11 +327,11 @@ NCONF:
 		Prerequisites: ~nahand, natech
 		IconPalette: UnittemIcon
 	Valued:
-		Cost: 650
+		Cost: 750
 	Tooltip:
 		Name: Black Hand Trooper
 	Health:
-		HP: 19125
+		HP: 14500
 	Mobile:
 		Speed: 60
 	Armament@1:
@@ -609,7 +572,7 @@ E3:
 		Queue: Infantry
 		BuildPaletteOrder: 21
 		Description: Siege Militia armed with mortars.\nExtremely strong in groups.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft.
-		Prerequisites: ~murax
+		Prerequisites: ~murax, muradr
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -737,10 +700,8 @@ MUTFIEND:
 		OwnerType: Killer
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
 	Valued:
-		Cost: 150
+		Cost: 250
 	Health:
 		HP: 18000
 		Shape: Circle
@@ -763,25 +724,13 @@ MUTFIEND:
 		Voice: Attack
 		Armaments: OnFoot
 
-MOBMUTANT:
-	Inherits: MUTANT
-	RenderSprites:
-		Image: mutant
-	MobSpawnerSlave:
-	-SelectionDecorations: # No HP bar
-	RejectsOrders@slaved:
-	Mobile:
-		Speed: 73
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
-
 SEER:
 	Inherits: ^Mutant
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 22
 		Description: Psychic mutant that is able to fire lightning\nat hostile units, can detect cloaked units.\n\n  Strong vs Vehicles, Aircraft.\n Weak vs Infantry.
-		Prerequisites: ~murax, muradr
+		Prerequisites: ~murax, muhall
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -928,7 +877,7 @@ PSYKER:
 # Scrin
 ############################################
 
-shark:
+SHARK:
 	Inherits: ^ScrinSoldier
 	Buildable:
 		Queue: Infantry
@@ -942,7 +891,7 @@ shark:
 	Selectable:
 		Class: Shark
 	Health:
-		HP: 14000
+		HP: 11000
 	Mobile:
 		Speed: 90
 		Voice: Move
@@ -977,7 +926,8 @@ shark:
 	DetectCloaked:
 		CloakTypes: Cloak, Hijacker
 	-TakeCover:
-    -Crushable:
+	# Crushable:
+		# CrushClasses: RazorShark
 
 LEGIO:
 	Inherits: ^ScrinSoldier
@@ -987,12 +937,12 @@ LEGIO:
 		Description: Scrin Frontile trooper. Resistant\nto damage. Cannot be crushed.\n\n  Strong vs Vehicles, Buildings.\n  Weak vs Infantry.
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 250
+		Cost: 300
 	Tooltip:
 		Name: Legionnaire
 	Health:
-		HP: 22500
-	-Crushable:
+		HP: 11250
+	# -Crushable:
 	Mobile:
 		Speed: 55
 	Passenger:
@@ -1023,10 +973,8 @@ SHAPESHIFTER:
 	Selectable:
 		Priority: 6
 	-TakeCover:
-	Minelayer:
-		Mine: SCRMINE
-	Mobile:
-		Speed: 65
+	# Minelayer:
+		# Mine: SCRMINE
 	WithInfantryBody:
 		IdleSequences: idle1, idle2, idle3, idle4
 	RenderSprites:
@@ -1034,66 +982,6 @@ SHAPESHIFTER:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
-
-COLOSSI:
-	Inherits: ^ScrinSoldier
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 27
-		Description: Heavy duty alien that can electrify \nits sorroundings when ordered to.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
-		Prerequisites: ~scrrax, scrradr
-	Valued:
-		Cost: 600
-	Tooltip:
-		Name: Colossus
-	Targetable@Colossi:
-		TargetTypes: Colossi
-	Selectable:
-		Bounds: 26,30,0,-10
-	Health:
-		HP: 70000
-	Mobile:
-		Speed: 60
-		SharesCell: False
-		RequiresCondition: !deployed
-	SpawnActorOnDeath@FLAMEGUY:
-	SpawnActorOnDeath@conversion:
-		Actor: cybdog
-		Probability: 100
-		OwnerType: Killer
-		DeathType: CabalDeath
-		RequiresLobbyCreeps: true
-	Armament:
-		Weapon: ColossiTesla
-		LocalOffset: 300,0,1000
-		RequiresCondition: undeployed
-	-Crushable:
-	-TakeCover:
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
-	GrantConditionOnDeploy:
-		DeployedCondition: deployed
-		UndeployedCondition: undeployed
-		DeployAnimation: make
-		Facing: 160
-		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
-		DeploySound:
-		UndeploySound:
-	WithInfantryBody:
-		RequiresCondition: undeployed ||  WebDisable
-	WithSpriteBody@deployed:
-		StandSequences: dummy
-		Sequence: dummy
-		RequiresCondition: !undeployed
-	WithIdleOverlay@anim:
-		Sequence: deployed
-		RequiresCondition: !undeployed
-	AttackFrontal:
-		Voice: Attack
-		RequiresCondition: undeployed
-	ExplodeWeapon:
-		Weapon: ColossiBlast
-		RequiresCondition: deployed
 
 STALKER:
 	Inherits: ^ScrinSoldier
@@ -1140,7 +1028,7 @@ FLOAT:
 	Tooltip:
 		Name: Purifier
 	Health:
-		HP: 27000
+		HP: 16875
 	Mobile:
 		Speed: 65
 		TerrainSpeeds:
@@ -1161,21 +1049,19 @@ FLOAT:
 		ForceTargetStances: Enemy
 	# Targetable@EssenceBattery:
 		# TargetTypes: EssenceBattery
-	DamagedByTerrain@ScrinDamage:
-		DamageThreshold: 40
 	AttackFrontal:
 		Voice: Attack
 	-TakeCover:
 	ProducibleWithLevel:
 		Prerequisites: barracks.Conditiond
-		
+
 BUG:
 	Inherits: ^ScrinSoldier
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 27
 		Description: Special alien breed that focuses on infecting units. Infected\nunits take damage over time and spread their plague\nto other units that are nearby, only affects vehicles.\n\n  Strong vs Vehicles.\n  Weak vs Everything else.
-		Prerequisites: ~scrrax, scrtech
+		Prerequisites: ~scrrax, scrradr
 	Valued:
 		Cost: 650
 	Tooltip:
@@ -1185,7 +1071,7 @@ BUG:
 	Selectable:
 		Bounds: 26,30,0,-10
 	Health:
-		HP: 17500
+		HP: 10100
 	Mobile:
 		Speed: 60
 	SpawnActorOnDeath@conversion:
@@ -1202,6 +1088,66 @@ BUG:
 	ProducibleWithLevel:
 		Prerequisites: barracks.Conditiond
 
+COLOSSI:
+	Inherits: ^ScrinSoldier
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 30
+		Description: Heavy duty alien that can electrify \nits sorroundings when ordered to.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
+		Prerequisites: ~scrrax, scrtech
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Colossus
+	Targetable@Colossi:
+		TargetTypes: Colossi
+	Selectable:
+		Bounds: 26,30,0,-10
+	Health:
+		HP: 43750
+	Mobile:
+		Speed: 60
+		SharesCell: False
+		RequiresCondition: !deployed
+	SpawnActorOnDeath@FLAMEGUY:
+	SpawnActorOnDeath@conversion:
+		Actor: cybdog
+		Probability: 100
+		OwnerType: Killer
+		DeathType: CabalDeath
+		RequiresLobbyCreeps: true
+	Armament:
+		Weapon: ColossiTesla
+		LocalOffset: 300,0,1000
+		RequiresCondition: undeployed
+	-Crushable:
+	-TakeCover:
+	ProducibleWithLevel:
+		Prerequisites: barracks.Conditiond
+	GrantConditionOnDeploy:
+		DeployedCondition: deployed
+		UndeployedCondition: undeployed
+		DeployAnimation: make
+		Facing: 160
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		DeploySound:
+		UndeploySound:
+	WithInfantryBody:
+		RequiresCondition: undeployed ||  WebDisable
+	WithSpriteBody@deployed:
+		StandSequences: dummy
+		Sequence: dummy
+		RequiresCondition: !undeployed
+	WithIdleOverlay@anim:
+		Sequence: deployed
+		RequiresCondition: !undeployed
+	AttackFrontal:
+		Voice: Attack
+		RequiresCondition: undeployed
+	ExplodeWeapon:
+		Weapon: ColossiBlast
+		RequiresCondition: deployed
+
 ############################################
 # CABAL
 ############################################
@@ -1212,7 +1158,7 @@ CABSENTRY:
 	Armor@worker:
 		Type: Worker
 	Valued:
-		Cost: 90
+		Cost: 30
 	Tooltip:
 		Name: Sentry Drone
 	Explodes:
@@ -1286,7 +1232,7 @@ CYBORG:
 CBORG:
 	Inherits: ^Cyborg
 	Valued:
-		Cost: 350
+		Cost: 375
 	Tooltip:
 		Name: Missile Cyborg
 	Buildable:
@@ -1395,7 +1341,7 @@ MOTH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
 	Valued:
-		Cost: 900
+		Cost: 800
 	Tooltip:
 		Name: Abductor
 	Buildable:
@@ -1455,13 +1401,13 @@ MOTH:
 		RequiresCondition: deployed
 	AttackOmni:
 		RequiresCondition: deployed
-    RenderRangeCircle:
+	RenderRangeCircle:
 
 GLAD:
 	Inherits: ^Cyborg
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 550
+		Cost: 800
 	DeliversCash
 		Payload: 300
 		Voice: Move
@@ -1486,7 +1432,7 @@ GLAD:
 		Speed: 45
 		SharesCell: False
 	Health:
-		HP: 50000
+		HP: 65000
 	Armament@primary:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle

@@ -4,7 +4,7 @@
 MilitantRifle:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 45
+	ReloadDelay: 25
 	Range: 4c0
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Projectile: BulletAS
@@ -25,11 +25,11 @@ MilitantExplode:
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
-		Damage: 130000
+		Damage: 90000
 		AffectsParent: True
 		Versus:
 			InfantryArmor: 600
-			BuildingArmor: 1
+			BuildingArmor: 100
 			VehicleArmor: 1
 			ConcreteArmor: 1
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
@@ -105,6 +105,7 @@ TemplarLasor:
 		BeamDuration: 2
 		Inaccuracy: 150
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
 		Damage: 2400
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
@@ -271,7 +272,7 @@ FlameHoloShrapnel:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
 	Range: 3c0
-	Burst: 5
+	Burst: 3
 	BurstDelay: 2
 	Warhead@op: FireShrapnel
 		Weapon: FlameHologram
@@ -282,7 +283,7 @@ FlameHoloShrapnel:
 
 CrusaHoloShrapnel:
 	Inherits: FlameHoloShrapnel
-	Burst: 4
+	Burst: 2
 	Warhead@op: FireShrapnel
 		Weapon: CrusaHologram
 
@@ -293,7 +294,7 @@ TemplarHoloShrapnel:
 
 BuggyHoloShrapnel:
 	Inherits: FlameHoloShrapnel
-	Burst: 3
+	Burst: 2
 	Warhead@op: FireShrapnel
 		Weapon: BuggyHologram
 
@@ -373,7 +374,7 @@ NODRepair:
 		ValidImpactTypes: Air, AirHit
 
 BCLazor:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^FullDamage
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 200
 	Burst: 4
@@ -437,8 +438,9 @@ StealthRocketAA:
 HarpyClaw:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 50
+	ReloadDelay: 30
 	Range: 5c0
+	InvalidTargets: Air
 	Report: cygun1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: BulletAS
@@ -447,32 +449,27 @@ HarpyClaw:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
 		ValidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, MilitantFireDeath
 		Versus:
 			BuildingArmor: 100
 
-HarpyAA:
-	Inherits: ^RocketWarhead
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 60
-	Range: 6c0
-	Report: misl1.aud
+HarpyClawAA:
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 65
 	ValidTargets: Air
-	Projectile: Missile
-		MaximumLaunchSpeed: 171
-		Arm: 2
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 0c512
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
-		RangeLimit: 15c0
-		Palette: ra
+	Range: 5c0
+	Report: cygun1.aud
+	InvalidTargets: Ground, Vehicle, Building, Infantry
+	Projectile: BulletAS
+		Speed: 1c682
+		ValidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
-		Damage: 5000
+		Damage: 4000
 		ValidTargets: Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		InvalidTargets: Ground, Vehicle, Building, Infantry
+		DamageTypes: Prone70Percent, TriggerProne, MilitantFireDeath
 
 Proton:
 	Inherits: ^APWarhead
@@ -488,6 +485,7 @@ Proton:
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 128
+		Palette: effect
 		Image: TORPEDO
 		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
@@ -511,15 +509,13 @@ ProtonAA:
 CerberusLazor:
 	Inherits: BCLazor
 	Inherits@2: ^Large_Explosion
-	ReloadDelay: 125
-	Burst: 1
-	BurstDelay: 10
-	Range: 11c0
+	ReloadDelay: 75
+	Range: 6c0
 	Report: laserchaingunfire.wav
 	MinRange: 3c0
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
-		Damage: 13500
+		Damage: 4500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 CerberusLasorSpawn:
@@ -550,6 +546,7 @@ TurretLaserFire:
 		BeamDuration: 5
 		ZOffset: 2047
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
 		Damage: 3500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 

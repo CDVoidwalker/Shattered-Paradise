@@ -1,3 +1,49 @@
+mpspawn:
+	EditorOnlyTooltip:
+		Name: (multiplayer player starting point)
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	RenderSpritesEditorOnly:
+	WithSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 1
+	EditorTilesetFilter:
+		Categories: Other
+
+waypoint:
+	EditorOnlyTooltip:
+		Name: (waypoint for scripted behavior)
+	AlwaysVisible:
+	Immobile:
+		OccupiesSpace: false
+	RenderSpritesEditorOnly:
+	WithSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 1
+	EditorTilesetFilter:
+		Categories: Other
+
+CAMERA:
+	Inherits@1: ^1x1Shape
+	EditorOnlyTooltip:
+		Name: (reveals area to owner)
+	AlwaysVisible:
+	RenderSpritesEditorOnly:
+	WithSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 1
+	Immobile:
+		OccupiesSpace: false
+	Health:
+		HP: 1000
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	DetectCloaked:
+		Range: 10c0
+	EditorTilesetFilter:
+		Categories: Other
 
 ^mmch.colorpicker:
 	Inherits: MMCH

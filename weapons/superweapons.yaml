@@ -52,8 +52,8 @@ SuicideBomb:
 	# Warhead@2Res: DestroyResource
 	
 EMPulseCannon:
-	ReloadDelay: 300
-	Range: 20c0
+	ReloadDelay: 50
+	Range: 25c0
 	MinRange: 3c0
 	Report: PLSECAN2.AUD
 	ValidTargets: Vehicle, Building, Ground
@@ -65,10 +65,15 @@ EMPulseCannon:
 		Image: pulsball
 	Warhead@1Eff: CreateEffect
 		Explosions: pulse_explosion
-	Warhead@berserk: GrantExternalCondition
+	Warhead@1: GrantExternalCondition
 		Range: 4c0
 		Duration: 250
-		Condition: empdisable, notmobile
+		Condition: empdisable
+		ValidTargets: Vehicle, Building
+	Warhead@2: GrantExternalCondition
+		Range: 4c0
+		Duration: 250
+		Condition: notmobile
 		ValidTargets: Vehicle, Building
 
 ########################################################
@@ -80,7 +85,7 @@ IonCannon:
 	Projectile: InstantExplode
 	Warhead@1Dam_area: SpreadDamage
 		Spread: 1c0
-		Damage: 45000
+		Damage: 1
 		Falloff: 100, 50, 25, 0
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
@@ -135,8 +140,8 @@ IonScorch:
 		ExplosionPalette: effectalpha
 		ImpactSound: ion1.aud
 	Warhead@3Dam_area: SpreadDamage
-		Spread: 300
-		Damage: 2400
+		Spread: 200
+		Damage: 650
 		InvalidTargets: IonBeam
 		DamageTypes: SmallExplosionDeath
 			InfantryArmor: 500
@@ -293,15 +298,15 @@ ClusterMissile:
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
 		Damage: 14000
-		Falloff: 500, 368, 135, 50, 18, 7, 0
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water, Air
 		Versus:
 			ConcreteArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@ClusterDamage3: SpreadDamage
-		Spread: 2c0
 		Damage: 21000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Spread: 2c512
+		Falloff: 1000, 700, 500, 300, 150, 50, 0
 		Delay: 15
 		ValidTargets: Ground, Water, Air
 		Versus:
@@ -310,6 +315,32 @@ ClusterMissile:
 			VehicleArmor: 50
 			ConcreteArmor: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Spread: 3c768
+		Damage: 5000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 6
+		ValidTargets: Ground, Air, Trees
+		AffectsParent: True
+		Versus:
+			InfantryArmor: 500
+			BuildingArmor: 100
+			VehicleArmor: 50
+			ConcreteArmor: 5
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@10Dam_areanukec: SpreadDamage
+		Spread: 5c0
+		Damage: 2000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Delay: 9
+		ValidTargets: Ground, Air, Trees
+		AffectsParent: True
+		Versus:
+			InfantryArmor: 500
+			BuildingArmor: 100
+			VehicleArmor: 50
+			ConcreteArmor: 5
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: nuke1, nuke2, nuke3
 		ExplosionPalette: effect
@@ -385,7 +416,7 @@ ToxinMissile:
 	ValidTargets: Ground, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
-		Damage: 3000
+		Damage: 10000
 		Falloff: 500, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water, Air
 		Versus:
@@ -404,12 +435,6 @@ ToxinMissile:
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-	Warhead@emp: GrantExternalCondition
-		Range: 4c0
-		Duration: 200
-		Condition: berserk
-		ValidTargets: Infantry, Vehicle
-		ValidStances: Ally, Enemy, Neutral
 	Warhead@5Actor: SpawnActor
 		Actors: CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1, CLOUD1
 		FallRate: 5000
@@ -513,8 +538,8 @@ MeteorRainNormal:
 		TrailPalette: effectalpha
 		TrailInterval: 1
 	Warhead@1Dam: SpreadDamage
-		Spread: 350
-		Damage: 7500
+		Spread: 300
+		Damage: 3500
 		ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
@@ -574,7 +599,7 @@ CabalCannon:
 		TrailPalette: apolcyanalpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
-		Damage: 12000
+		Damage: 30000
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -667,8 +692,8 @@ IonRay:
 		Speed: 100c0
 		Inaccuracy: 5c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 12500
+		Spread: 256
+		Damage: 7500
 	Warhead@2Eff: CreateEffect
 		Explosions: large_explosion
 		ImpactSound: expnew09.aud

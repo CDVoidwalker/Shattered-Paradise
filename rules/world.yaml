@@ -14,23 +14,23 @@
 	Faction@0:
 		Name: GDI
 		InternalName: gdi
-		Description: GDI\nBalanced Faction.\n\n + Has the means to keep units alive.\n + Gets advanced defences early.\n + Strong Infantry.\n\n - Lacks mobile anti air support until midgame.
+		Description: GDI\nBalanced Faction.
 	Faction@1:
 		Name: Nod
 		InternalName: nod
-		Description: NOD\n Hit and run Faction.\n\n + Good speed and damage.\n + Units heal slowly when cloaked.\n\n -  Doesn't have many aerial units.\n -  Low Health.
+		Description: NOD\n Hit and run Faction.
 	Faction@2:
 		Name: Mutants
 		InternalName: mut
-		Description: Mutants\nInfantry faction.\n\n + Cheaper units thanks to tiberium immunity.\n + Infantry heals on tiberium.\n + Defences don't require power.\n\n - Units might mutate when killed.\n - Average damage, health and speed.
+		Description: Mutants\nSwarmer faction.
 	Faction@3:
 		Name: C.A.B.A.L.
 		InternalName: cab
-		Description: C.A.B.A.L.\nController Faction.\n\n + Can convert hostiles for money or soldiers.\n + Good health and damage.\n + All units self repair.\n\n -  Not immune to tiberium radiation.\n -  Expensive and slow units.
+		Description: C.A.B.A.L.\nSteamroller Faction.
 	Faction@4:
 		Name: Scrin
 		InternalName: scr
-		Description: Scrin\nPower hungry Faction.\n\n + Infantry are immune to tiberium radiation.\n + Air units are strong and auto repair.\n + Ground units heal when killing hostiles.\n\n - Most vehicles can't crush infantry.
+		Description: Scrin\n Air power Faction.
 	Faction@Random:
 		Name: Random
 		InternalName: Random
@@ -134,7 +134,7 @@ World:
 		Class: none
 		ClassName: MCV Only
 		Factions: scr
-		BaseActor: drached
+		BaseActor: drache
 	MPStartLocations:
 	SpawnMPUnits:
 	CrateSpawner:

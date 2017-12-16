@@ -1,13 +1,13 @@
 MarauderShotgun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 60
+	ReloadDelay: 30
 	Range: 3c512
 	Report: shotfire.wav
 		Image: 120mm
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 2000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@op: FireShrapnel
 		Weapon: MarauderShotgunInnacurate
@@ -56,7 +56,7 @@ SkirmisherMortar:
 	MinRange: 1c0
 	Report: 120mmf.aud
 	Projectile: BulletAS
-		Speed: 130
+		Speed: 140
 		Image: 120mm
 		LaunchAngle: 165
 		Shadow: true
@@ -66,7 +66,7 @@ SkirmisherMortar:
 		ContrailUsePlayerColor: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 384
+		Spread: 0c210
 		Damage: 3500
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	-Warhead@4Smu: LeaveSmudge
@@ -196,7 +196,7 @@ PsykerRay:
 		Speed: 4c6824
 		Inaccuracy: 3c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 298
+		Spread: 150
 		Damage: 7000
 		DamageTypes: Prone70Percent, TriggerProne, EnergyDeath
 	Warhead@3Eff: CreateEffect
@@ -220,12 +220,10 @@ GMarauderShotgun:
 GSkirmisherRocket:
 	Inherits: SkirmisherRocket
 	Range: 6c768
-	InvalidTargets: Air
 
 GFiendShard2:
 	Inherits: FiendShard2
 	Range: 6c768
-	InvalidTargets: Air
 	Projectile: BulletAS
 		Inaccuracy: 1c500
 
@@ -276,7 +274,7 @@ BullAcid:
 		Image: acidall32mini
 		Inaccuracy: 384
 		Palette: apolgreenalpha
-	Burst: 8
+	Burst: 7
 	BurstDelay: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
@@ -294,7 +292,7 @@ BullAcid:
 
 BullAcidSpawn:
 	Inherits: BullAcid
-	Burst: 1
+	Burst: 2
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1
 		FallRate: 5000
@@ -320,21 +318,21 @@ BullBuff:
 		ValidStances: Ally
 
 DeathclawBlow:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^FullDamage
 	ReloadDelay: 30
-	Range: 1c0
+	Range: 1c512
 	Report: fiend2.aud
 	ValidTargets: Vehicle, Defence, Infantry
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c090
 		Damage: 4000
-		ValidStances: Enemy, Neutral
 		ValidTargets: Vehicle, Defence, Infantry
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 
 DeathclawBlow2:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^FullDamage
 	ReloadDelay: 60
 	Range: 2c0
 	Report: fiend2.aud
@@ -342,10 +340,10 @@ DeathclawBlow2:
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c090
 		Damage: 4000
-		ValidStances: Enemy, Neutral
 		ValidTargets: Building
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong			
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath			
 
 ###############################################################		
 # Vehicle
@@ -363,22 +361,14 @@ IFVulcan:
 		Damage: 2500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
 
-StuggCannon:
+LynxCannon:
 	Inherits: ^APWarhead
-	Inherits@2: ^Large_Clsn
+	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 75
 	Range: 6c0
 	Report: 120mmf.aud
-	Projectile: BulletAS
-		Speed: 1c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 7000
-		Versus:
-			InfantryArmor: 15
-			BuildingArmor: 25
-			VehicleArmor: 150
-			Structure: 25
-			ConcreteArmor: 30
+		Damage: 4500
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 QuadFire:
@@ -455,11 +445,11 @@ TiberianRocket:
 		Explosions: tib_expsmall
 		ImpactSound: expnew12.aud
 		InvalidTargets: Water, Air, AirHit
-	Warhead@1Radio: CreateRadioactivity
-		Range: 1, 2, 3, 4
-		Level: 100
-		Falloff: 100, 90, 50, 0
-		MaxLevel: 500
+	# Warhead@1Radio: CreateRadioactivity
+		# Range: 1, 2, 3, 4
+		# Level: 100
+		# Falloff: 100, 90, 50, 0
+		# MaxLevel: 500
 
 MiniNuke:
 	Range: 3c0
@@ -505,7 +495,7 @@ QueenShard:
 		LaunchAngle: 60
 		Palette: apgreen
 	Warhead@1Dam: SpreadDamage
-		Damage: 5000
+		Damage: 10000
 		ValidTargets: Ground
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
 	Warhead@3EffWater: CreateEffect
@@ -528,7 +518,7 @@ SpawnEggShrapnel:
 
 EggElevator:
 	Inherits: ^NoDamage
-	ReloadDelay: 3
+	ReloadDelay: 5
 	Projectile: AthenaProjectile
 		Altitude: 2560
 	InvalidTargets: Infantry, Vehicle, Building, Water, Cliff, Defence
@@ -586,6 +576,22 @@ FirestormExplo:
 	Warhead@3Eff: CreateEffect
 		Explosions: fire3, fire4
 		InvalidTargets: Water, Air, AirHit
+
+GargoylACannon:
+	Inherits: ^FullDamage
+	Inherits@2: ^Small_Clsn
+	ReloadDelay: 15
+	Range: 6c0
+	Report: 120mmf.aud
+	ValidTargets: Ground, Air
+	Projectile: BulletAS
+		Speed: 1c682
+		Innacuracy: 0c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 1400
+		ValidTargets: Ground, Air
+		Versus:
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
 
 GargoylVulcan:
 	Inherits: ^RifleWarhead
@@ -671,6 +677,7 @@ CloudDamage:
 			BuildingArmor: 10
 			VehicleArmor: 7
 			ConcreteArmor: 1
+			BullArmor: 1
 		ValidStances: Ally
 
 FalconPunch:
@@ -678,17 +685,34 @@ FalconPunch:
 	Inherits@2: ^Small_Clsn
 	ValidTargets: Ground, Water
 	ReloadDelay: 1
-	Range: 4c0
-	Burst: 6
-	Projectile: BulletAS
-		Speed: 200
-		Image: 120mm
-		Inaccuracy: 1c0
+	Range: 5c0
+	Projectile: Missile
+		TerrainHeightAware: True
+		CruiseAltitude: 6000
+		MinimumLaunchAngle: 300
+		MaximumLaunchAngle: 300
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		Speed: 0c600
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 0c181
+		Image: DRAGON
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
+		RangeLimit: 28c291
+		Palette: effect
+		AllowSnapping: true
+		CloseEnough: 200
 	Warhead@1Dam: SpreadDamage
-		Spread: 200
-		Damage: 500
+		Spread: 300
+		Damage: 15000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeathStrong
+	Warhead@5Actor: SpawnActor
+		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
+		FallRate: 5000
+		Range: 3
 
 FalconPunch2:
 	Inherits: FalconPunch

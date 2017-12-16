@@ -15,6 +15,7 @@ GAPOWR:
 		Name: GDI Power Plant
 	ProvidesPrerequisite:
 		Prerequisite: anypower
+	ProvidesPrerequisite@buildingname:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -47,7 +48,6 @@ GAPOWR:
 	WithIdleOverlay@plugb:
 		RequiresCondition: powrup.a
 		Sequence: idle-powrupb
-	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 90, 84, 0, -12
 
@@ -550,10 +550,9 @@ MUWEAP:
 
 MUAIR:
 	Inherits@1: ^MutRender
-	Inherits@2: ^2x3Shape
 	Inherits@3: ^Helipad
 	Valued:
-		Cost: 750
+		Cost: 500
 	Tooltip:
 		Name: Mutant Airstrip
 	Buildable:
@@ -562,8 +561,8 @@ MUAIR:
 		Description: Produces, rearms and repairs helicopters and Jets.\nCan serve up to four aircraft at a time.
 		Prerequisites: proc, muradr, ~structures.mut
 	Building:
-		Footprint: xxxx xxxx
-		Dimensions: 2,4
+		Footprint: xx xx
+		Dimensions: 2,2
 	ProximityExternalCondition@AircraftAutoRepair:
 		Condition: AircraftAutoRepair
 		Range: 4c0
@@ -572,14 +571,8 @@ MUAIR:
 		DeadlockDetectionEnabled: false
 	Dock@0:
 		DockOffset: 0,0
-	Dock@1:
-		DockOffset: 1,0
-	Dock@2:
-		DockOffset: 0,1
-	Dock@3:
-		DockOffset: 1,1
 	Power:
-		Amount: -30
+		Amount: -10
 	Health:
 		HP: 60000
 	RevealsShroud:
@@ -627,6 +620,12 @@ MUHALL:
 		Bounds: 110, 60, 3, -4
 	SelectionDecorations:
 		VisualBounds: 110, 60, 3, -4
+	HitShape:
+		UseOccupiedCellsOffsets: true
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -2000, -2000
+			BottomRight: 2000, 2000
 		
 MUSTABLE:
 	Inherits: ^Building
@@ -712,6 +711,19 @@ drached:
 		Prerequisite: structures.scr
 	SelectionDecorations:
 		VisualBounds: 144, 80, 0, -12
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	ProvidesAIPrerequisite@AImoney:
+		Prerequisite: AImoney
+	GrantConditionOnPrerequisite@AImoney:
+		Condition: money
+		Prerequisites: AImoney
+	CashTrickler@AImoney:
+		Interval: 1000
+		Amount: 10000
+		ShowTicks: False
+		RequiresCondition: money
 
 SCRPOWR:
 	Inherits: ^Building
@@ -747,48 +759,9 @@ SCRPOWR:
 	ScalePowerWithHealth:
 	SelectionDecorations:
 		VisualBounds: 90, 84, 0, -12
-
-SCRADVPOWR:
-	Inherits: ^Building
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 2
-		Prerequisites: scrweap, ~structures.scr
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Tiberium Reactor
-		Description: Provides power for other structures and also stores resources.
-	ProvidesPrerequisite:
-		Prerequisite: scrpowr
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
-	Health:
-		HP: 110000
-	Armor:
-		Type: BuildingArmor
-	RevealsShroud:
-		Range: 4c0
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-	Selectable:
-		Bounds: 90, 48, 0, -6
-	Power:
-		Amount: 300
-	InfiltrateForPowerOutage:
-	AffectedByPowerOutage:
-	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
-	ScalePowerWithHealth:
-	SelectionDecorations:
-		VisualBounds: 90, 84, 0, -12
-	StoresResources:
-		PipCount: 6
-		Capacity: 2000
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRRAX:
 	Inherits: ^Barracks
@@ -810,9 +783,12 @@ SCRRAX:
 	WithIdleOverlay@ship:
 		Sequence: ship
 	Power:
-		Amount: -5
+		Amount: -20
 	SelectionDecorations:
 		VisualBounds: 88, 56, 0, -8
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRPROC:
 	Inherits: ^Building
@@ -845,7 +821,8 @@ SCRPROC:
 	Explodes@1:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
-	Refinery:
+	TiberianSunRefinery:
+		DockAngle: 160
 		DockOffset: 3,1
 	DockManager:
 		ExternalDocks: true
@@ -866,17 +843,20 @@ SCRPROC:
 		WaitingPlace: true
 	StoresResources:
 		PipCount: 17
-		Capacity: 1500
+		Capacity: 9999
 	FreeActor:
 		Actor: SCRHARV
 		SpawnOffset: 3,1
 		Facing: 160
 	Power:
-		Amount: -20
+		Amount: -40
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 150, 122, -10, -18
 	RenderSprites:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRWEAP:
 	Inherits: ^Factory
@@ -895,6 +875,9 @@ SCRWEAP:
 		Sequence: idle-roof
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: production-lights-white
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRAIR:
 	Inherits: ^Building
@@ -952,6 +935,9 @@ SCRAIR:
 		ZOffset: 9999
 		RequiresCondition: primary
 		ConditionMinEnabledLevel: 1
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 		
 SCRDEPOT:
 	Inherits: ^Building
@@ -998,6 +984,9 @@ SCRDEPOT:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 110, 60, 3, -4
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRRADR:
 	Inherits: ^Radar
@@ -1021,9 +1010,12 @@ SCRRADR:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnLowPower: yes
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRTECH:
-	Inherits: ^Building
+	Inherits: ^TechCenter
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@2: ^2x3Shape
@@ -1043,17 +1035,12 @@ SCRTECH:
 		Dimensions: 2,3
 	Selectable:
 		Bounds: 110, 60, 3, -4
-	Health:
-		HP: 50000
-	Armor:
-		Type: BuildingArmor
-	RevealsShroud:
-		Range: 4c0
-	Power:
-		Amount: -150
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 110, 60, 3, -4
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 ##########################################################
 # CABAL

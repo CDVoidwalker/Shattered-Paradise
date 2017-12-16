@@ -56,18 +56,18 @@ MCV:
 		BuildPaletteOrder: 110
 		Prerequisites: ~factory, gadept
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Tooltip:
 		Name: Mobile Construction Vehicle
 		Description: Deploys into a Construction Yard.\n\n  Unarmed
 	Selectable:
 		Priority: 4
 	Health:
-		HP: 60000
+		HP: 300000
 	Armor:
-		Type: Light
+		Type: VehicleArmor
 	Mobile:
-		Speed: 60
+		Speed: 45
 		Crushes: wall, crate, infantry
 	RevealsShroud:
 		Range: 4c0
@@ -116,7 +116,7 @@ HARV:
 		RequiresCondition: !inside-tunnel
 	Harvester:
 		Capacity: 20
-		DeliveryBuildings: proc, muproc, cabproc
+		DeliveryBuildings: proc, muproc, cabproc, scrproc
 		Resources: Tiberium, BlueTiberium
 		UnloadTicksPerBale: 3
 		LoadTicksPerBale: 6
@@ -130,11 +130,19 @@ HARV:
 		RequiresCondition: AuraRepair
 		ConditionMinEnabledLevel: 1
 	Mobile:
-		TurnSpeed: 10
-		Speed: 85
-		Crushes: wall, crate, infantry
+		Speed: 70
+		Crushes: wall, crate, infantry, RazorShark
+		TerrainSpeeds:
+			Clear: 100
+			Road: 100
+			Rail: 100
+			DirtRoad: 100
+			Rough: 100
+			Tiberium: 100
+			BlueTiberium: 100
+			Veins: 100
 	Health:
-		HP: 70000
+		HP: 60000
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	Armor:
@@ -169,7 +177,7 @@ SCRHARV:
 		Description: Collects Ichor for processing.\nIncompatible with human refineries.\nCan be sold if near a Service Depot.\n\n  Unarmed.
 		Queue: Vehicle
 		BuildPaletteOrder: 99
-		Prerequisites: ~scrweap, structures.scr
+		Prerequisites: ~scrproc
 		InitialActivity: FindResources
 	Selectable:
 		Priority: 7
@@ -179,12 +187,7 @@ SCRHARV:
 		TargetTypes: MindControlInmune
 	-SpeedMultiplier@ScrinOrb:
 	Harvester:
-		DeliveryBuildings: scrproc
-	-RenderVoxels:
-	-WithVoxelUnloadBody:
-	Mobile:
-		TurnSpeed: 10
-		Speed: 90
+		DeliveryBuildings: scrproc, cabproc, muproc, proc
 	Capturable:
 		CaptureThreshold: 60
 	-GainsExperience:
@@ -200,9 +203,11 @@ SCRHARV:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
-	-DamagedByTerrain@ScrinDamage:
 	Voiced:
 		Volume: 1
+	RenderVoxels:
+		Scale: 0.00001
+		Image: cube
 
 LPST:
 	Inherits: ^VoxelVehicle
@@ -345,6 +350,16 @@ GACNST:
 		ResetOnOwnerChange: True
 	SelectionDecorations:
 		VisualBounds: 144, 80, 0, -12
+	ProvidesAIPrerequisite@AImoney:
+		Prerequisite: AImoney
+	GrantConditionOnPrerequisite@AImoney:
+		Condition: money
+		Prerequisites: AImoney
+	CashTrickler@AImoney:
+		Interval: 1000
+		Amount: 10000
+		ShowTicks: False
+		RequiresCondition: money
 
 ^Barracks:
 	Inherits: ^Building
@@ -437,7 +452,7 @@ PROC:
 		Sequence: flame
 		Palette: effect
 	Power:
-		Amount: -20
+		Amount: -40
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
@@ -494,7 +509,7 @@ PROC:
 		SpawnOffset: 0,-256,0
 	DockManager:
 	Dock:
-		DockOffset: 0,0
+		DockOffset: 1,1
 		DockAngle: 160
 	Production:
 		Produces: Air
@@ -620,7 +635,7 @@ GADEPT:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
-		HP: 50000
+		HP: 300000
 	RevealsShroud:
 		Range: 4c0
 	Power:
@@ -648,7 +663,7 @@ GASILO:
 		EmptyWeapon: TiberiumExplosion
 	-GivesBuildableArea:
 	Health:
-		HP: 30000
+		HP: 10000
 	Armor:
 		Type: BuildingArmor
 	RevealsShroud:
@@ -722,14 +737,6 @@ SHAWALL:
 	Tooltip:
 		Name: Wall
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks\nMay make you sell your conyard\nIf you're not careful.
-	Health:
-		HP: 30000
-	Armor:
-		Type: Concrete
-	BlocksProjectiles:
-		Height: 640
-	Crushable:
-		CrushClasses: heavywall
 	LineBuild:
 		NodeTypes: wall, turret
 	RenderSprites:
@@ -746,6 +753,7 @@ SHAWALL:
 
 NAPULS:
 	Inherits: ^Defense
+	Inherits@4: ^2x2Shape
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -762,9 +770,7 @@ NAPULS:
 		Bounds: 78, 54, 0, -12
 	RequiresPower:
 	Health:
-		HP: 50000
-	Armor:
-		Type: Heavy
+		HP: 150000
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
@@ -781,7 +787,7 @@ NAPULS:
 	WithSpriteTurret:
 		Sequence: turret
 	Power:
-		Amount: -150
+		Amount: -100
 	SelectionDecorations:
 		VisualBounds: 78, 54, 0, -12
 	RenderSprites:
@@ -805,13 +811,14 @@ NAPULS:
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: emp.gdi
 		OrderName: Nodemp
+		PauseOnCondition: disabled
 
 GATE_A:
 	Inherits: ^Gate_A
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~nodgate
+		Prerequisites: barracks, ~nodgate
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
@@ -822,15 +829,18 @@ GATE_A:
 			gdi: gate_a.gdi
 			nod: gate_a.nod
 			# mut: gate_a.mut
-			# cab: gate_a.cab
+			cab: gate_a.nod
 			# scr: gate_a.scr
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 GATE_B:
 	Inherits: ^Gate_B
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~nodgate
+		Prerequisites: barracks, ~nodgate
 	-AppearsOnRadar:
 	-UpdatesPlayerStatistics:
 	Tooltip:
@@ -841,8 +851,11 @@ GATE_B:
 			gdi: gate_b.gdi
 			nod: gate_b.nod
 			# mut: gate_b.mut
-			# cab: gate_b.cab
+			cab: gate_b.nod
 			# scr: gate_b.scr
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 MUMINE:
 	Inherits: ^DeployedVehicle

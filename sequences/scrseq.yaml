@@ -908,11 +908,11 @@ scrdepot:
 		UseTilesetCode: true
 	idle:
 		Start: 29
-		Length: 10
+		Length: 1
 		ShadowStart: 81
 	damaged-idle:
 		Start: 41
-		Length: 10
+		Length: 1
 		ShadowStart: 93
 	dead:
 		Start: 41

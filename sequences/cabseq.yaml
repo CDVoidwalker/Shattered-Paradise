@@ -697,9 +697,11 @@ devourer:
 	idle:
 		Stride: 30
 		Facings: 8
+		ZOffset: 1024
 	shoot:
 		Facings: 8
 		Length: 30
+		ZOffset: 1024
 	icon: devourericon
 
 basilisk:

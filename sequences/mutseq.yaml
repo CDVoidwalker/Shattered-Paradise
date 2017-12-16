@@ -615,16 +615,58 @@ deathclaw:
 mutapc:
 	Inherits: ^EmpOverlay
 	Defaults:
-		Length: *
+	idle: tdtank
+		Facings: -32
+		ShadowStart: 64
+	turret: tdtank
+		Start: 32
+		Facings: -32
 	muzzle0: mgun-n
+		Length: *
 	muzzle1: mgun-nw
+		Length: *
 	muzzle2: mgun-w
+		Length: *
 	muzzle3: mgun-sw
+		Length: *
 	muzzle4: mgun-s
+		Length: *
 	muzzle5: mgun-se
+		Length: *
 	muzzle6: mgun-e
+		Length: *
 	muzzle7: mgun-ne
-	icon: mutapcicon	
+		Length: *
+	icon: mutapcicon
+
+lynx:
+	Inherits: ^EmpOverlay
+	Defaults:
+	idle:
+		Facings: -32
+		ShadowStart: 64
+		UseTilesetCode: False
+	turret:
+		Start: 32
+		Facings: -32
+		UseTilesetCode: False
+	muzzle0: mgun-n
+		Length: *
+	muzzle1: mgun-nw
+		Length: *
+	muzzle2: mgun-w
+		Length: *
+	muzzle3: mgun-sw
+		Length: *
+	muzzle4: mgun-s
+		Length: *
+	muzzle5: mgun-se
+		Length: *
+	muzzle6: mgun-e
+		Length: *
+	muzzle7: mgun-ne
+		Length: *
+	icon: lynxicon	
 
 trike:
 	Inherits: ^EmpOverlay
@@ -889,29 +931,24 @@ muweap:
 
 muair:
 	Defaults:
-		Offset: 24, -36, 36
+		Offset: 0, -24, 24
 		ZOffset: -32	
 		UseTilesetCode: true
 	active:
-		Start: 35
-		ShadowStart: 72
+		Start: 30
 		ZOffset: -1c511		
 	idle:
-		Start: 35
-		ShadowStart: 72
+		Start: 30
 		ZOffset: -1c511	
 	damaged-idle:
-		Start: 36
-		ShadowStart: 73
+		Start: 31
 		ZOffset: -1c511
 	dead:
-		Start: 36
-		ShadowStart: 73
+		Start: 31
 		ZOffset: -1c511
 		Tick: 400
 	make:
-		Length: 34
-		ShadowStart: 37
+		Length: 30
 		ZOffset: -1c511
 	emp-overlay: emp_fx01
 		Length: *

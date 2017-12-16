@@ -1,6 +1,10 @@
 Container@OBSERVER_WIDGETS:
 	Logic: MenuButtonsChromeLogic
 	Children:
+		SupportPowerTimer@SUPPORT_POWER_TIMER:
+			X: 10
+			Y: 40
+			Order: Descending
 		MenuButton@OPTIONS_BUTTON:
 			Width: 160
 			Height: 25
@@ -70,8 +74,8 @@ Container@OBSERVER_WIDGETS:
 						Image@FLAG:
 							Width: 23
 							Height: 23
-							X: 2
-							Y: 5
+							X: 4
+							Y: 2
 						Label@LABEL:
 							X: 34
 							Width: 60

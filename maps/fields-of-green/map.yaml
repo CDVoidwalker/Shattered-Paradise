@@ -1409,6 +1409,24 @@ Actors:
 		SubCell: 2
 		Facing: 92
 		TurretFacing: 92
+	Actor446: gapowr
+		Owner: GDI
+		Location: 106,0
+	Actor447: gapowr
+		Owner: GDI
+		Location: 104,-1
+	Actor448: gapowr
+		Owner: GDI
+		Location: 103,-3
+	Actor449: gapowr
+		Owner: GDI
+		Location: 102,-1
+	Actor450: gapowr
+		Owner: GDI
+		Location: 103,-6
+	Actor451: gapowr
+		Owner: GDI
+		Location: 103,3
 
 Rules:
 	Player:

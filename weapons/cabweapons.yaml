@@ -11,7 +11,7 @@ CyborgVulcan:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 1200
+		Damage: 2400
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 CyborgRocket:
@@ -25,7 +25,6 @@ CyborgRocket:
 		Speed: 213
 		Blockable: false
 		Shadow: true
-		Inaccuracy: 1c0
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		Palette: ra
@@ -85,7 +84,6 @@ ReaperScythe:
 		Speed: 213
 		Blockable: false
 		Shadow: true
-		Inaccuracy: 1c0
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		Palette: ra
@@ -120,7 +118,7 @@ GLAD120mm:
 	Projectile: BulletAS
 		Speed: 1c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 6000
+		Damage: 8000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 LurkerHit:
@@ -447,7 +445,7 @@ TermitaGrinder:
 DroneHostShell:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 250
+	ReloadDelay: 150
 	Range: 14c0
 	Burst: 4
 	BurstDelay: 15
@@ -466,7 +464,7 @@ DroneHostShell:
 		RangeLimit: 25
 	Warhead@1Dam: SpreadDamage
 		Spread: 210
-		Damage: 1000
+		Damage: 1500
 		Versus:
 			Worker: 25
 		ValidTargets: Ground, Vehicle, Infantry, water
@@ -503,7 +501,8 @@ PalaLazor:
 		BeamDuration: 7
 		Color: 0000FF
 	Warhead@1Dam: SpreadDamage
-		Damage: 6000
+		Spread: 0c045
+		Damage: 5100
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 ########################################################################
@@ -548,24 +547,21 @@ DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 35
 	Range: 300
-	Projectile: BulletAS
-		Speed: 5c682
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Spread: 42
+		Spread: 90
 		Damage: 9000
 		Versus:
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@5Actor: SpawnActor
 		Actors: SHAKYSHAKYMINI
 		FallRate: 5000
-		Range: 3
+		Range: 6
 
 DevourerExplo:
 	ReloadDelay: 3
-	Range: 200
-	Projectile: BulletAS
-		Speed: 5c682
-		Inaccuracy: 200
+	Range: 300
+	Projectile: InstantHit
 	Warhead@2Eff: CreateEffect
 		Explosions: cabspark
 		ExplosionPalette: apolra2
@@ -665,17 +661,6 @@ SentryTurretGun:
 			ConcreteArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
-CabPitFighterSpawn:
-	Inherits: ^ArtilleryWarhead
-	ReloadDelay: 50
-	Range: 6c768
-	Projectile: InstantExplode
-	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
-	Warhead@1Dam: SpreadDamage
-		Spread: 400
-		Damage: 1
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-
 CTurretCannon:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
@@ -694,23 +679,32 @@ CTurretCannon:
 		Damage: 2500
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+CabPitFighterSpawn:
+	Inherits: ^ArtilleryWarhead
+	ReloadDelay: 50
+	Range: 7c768
+	Projectile: InstantExplode
+	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+	Warhead@1Dam: SpreadDamage
+		Spread: 400
+		Damage: 1
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
 CabJetMiniBomb:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 30
-	Burst: 5
-	BurstDelay: 6
 	ValidTargets: Ground, Building, Infantry, Vehicle
 	Range: 1c512
-	Projectile: GravityBomb
+	Projectile: BulletAS
 		Speed: 170
 		Image: 120mm
 		Shadow: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 80, 70, 60, 50
-		Spread: 400
-		Damage: 2000
+		Spread: 200
+		Damage: 3000
 		Versus:
 			InfantryArmor: 125
 			BuildingArmor: 40
@@ -720,23 +714,23 @@ CabJetMiniBomb:
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
 BlasterProton:
-	Inherits: ^ArtilleryWarhead
+	Inherits: ^FullDamage
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 150
 	Burst: 6
-	Range: 9c0
+	Range: 11c0
 	Report: hovrmis1.aud
 	ValidTargets: Ground, Vehicle, Infantry, water
 	Projectile: BulletAS
 		Speed: 341
 		Blockable: false
 		Shadow: true
-		Inaccuracy: 2c0
+		Inaccuracy: 1c0
 		Image: TORPEDO
 		RangeLimit: 35
 	Warhead@1Dam: SpreadDamage
 		Spread: 150
-		Damage: 3000
+		Damage: 5850
 		ValidTargets: Ground, Vehicle, Infantry, water
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -757,6 +751,22 @@ CABALRAIL:
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+
+CABRAILAA:
+	Inherits: ^FullDamage
+	ReloadDelay: 300
+	Range: 8c0
+	Report: railgunfire.wav
+	ValidTargets: Air
+	Projectile: LaserZap
+		Width: 75
+		ZOffset: 2047
+		Color: 0008ED
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 10000
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+		ValidTargets: Air
 
 CABNEXUSAA:
 	Inherits: ^FullDamage

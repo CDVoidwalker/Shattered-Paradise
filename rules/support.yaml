@@ -98,10 +98,10 @@ GACTWR:
 GAVULC:
 	Inherits: ^Defense
 	Inherits@1: ^TowerStealthDetection
-	WithSpriteBody:
-	# WithWallSpriteBody:
+	# WithSpriteBody:
+	WithWallSpriteBody:
 	Valued:
-		Cost: 350
+		Cost: 600
 	Tooltip:
 		Name: Vulcan Tower
 	Buildable:
@@ -121,7 +121,6 @@ GAVULC:
 		TurnSpeed: 10
 		InitialFacing: 50
 	AttackTurreted:
-	CanPowerDown:
 	WithSpriteTurret@VULC:
 		Recoils: no
 	Armament@VULCPRIMARY:
@@ -146,9 +145,10 @@ GAROCK:
 	Inherits@1: ^TowerStealthDetection
 	Power:
 		Amount: -30
-	WithSpriteBody:
+	# WithSpriteBody:
+	WithWallSpriteBody:
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: RPG Tower
 	Buildable:
@@ -187,7 +187,8 @@ GACSAM:
 	Inherits: ^AntiAir
 	Power:
 		Amount: -30
-	WithSpriteBody:
+	# WithSpriteBody:
+	WithWallSpriteBody:
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -202,7 +203,7 @@ GACSAM:
 	Selectable:
 		Bounds: 48, 36, 0, -6
 	Health:
-		HP: 45000
+		HP: 50000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -396,7 +397,7 @@ GAPLUG:
 	Inherits@2: ^2x3Shape
 	Inherits@3: ^SuperWeapon
 	Valued:
-		Cost: 3000
+		Cost: 2500
 	Tooltip:
 		Name: Ion Cannon Control Center
 	Selectable:
@@ -410,30 +411,19 @@ GAPLUG:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 2,3
-	RequiresPower:
-	CanPowerDown:
-		IndicatorPalette: mouse
-		PowerupSpeech: EnablePower
-		PowerdownSpeech: DisablePower
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	WithIdleOverlay@STRIP:
 		Sequence: idle-strip
-	Health:
-		HP: 300000
-	Armor:
-		Type: BuildingArmor
-	RevealsShroud:
-		Range: 6c0
 	DetonateWeaponPower@ioncannon:
 		Icon: ioncannon
 		Description: Ion Cannon Alpha Strike
 		DisplayTimer: True
 		DisplayBeacon: True
 		LongDesc: Fires many ion cannons on the targetted area.
-		ChargeTime: 150
+		ChargeTime: 180
 		ActivationSequence: idle
 		Weapon: IonCannonSpawner
 		OrderName: IonCannon2
@@ -441,8 +431,6 @@ GAPLUG:
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
 	SupportPowerChargeBar:
-	Power:
-		Amount: -150
 	WithIdleOverlay@ioncannona:
 		Sequence: idle-ioncannona
 	WithIdleOverlay@hunterseekerb:
@@ -450,6 +438,8 @@ GAPLUG:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 115,104,0,-24
+	Health:
+		HP: 300000
 
 GTDROP:
 	Inherits: ^Building
@@ -458,7 +448,7 @@ GTDROP:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 111
-		Prerequisites: gatech, ~structures.gdi
+		Prerequisites: gatech, ~kistructures.gdi
 		BuildLimit: 1
 		Description: Provides access to drop pod support.
 	Valued:
@@ -472,12 +462,6 @@ GTDROP:
 		Dimensions: 3,3
 	Selectable:
 		Bounds: 144, 80, 8, -12
-	Health:
-		HP: 3360
-	RevealsShroud:
-		Range: 7c73
-	Power:
-		Amount: -150
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 	WithIdleOverlay@LIGHTS:
@@ -495,6 +479,8 @@ GTDROP:
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
 		ChargeTime: 240
+	Health:
+		HP: 300000
 
 ##############################################
 # NOD
@@ -504,7 +490,7 @@ NALASR:
 	Inherits: ^Defense
 	Inherits@1: ^TowerStealthDetection
 	Valued:
-		Cost: 450
+		Cost: 900
 	Tooltip:
 		Name: Laser Turret
 	Buildable:
@@ -767,7 +753,11 @@ NATMPL:
 		BuildLimit: 1
 	ProvidesPrerequisite@buildingname:
 	Valued:
-		Cost: 3000
+		Cost: 2500
+	HitShape:
+		Type: Rectangle
+			TopLeft: -2000, -2000
+			BottomRight: 2000, 2000
 	Tooltip:
 		Name: Temple of Nod
 	Building:
@@ -776,17 +766,8 @@ NATMPL:
 		Dimensions: 4,3
 	Selectable:
 		Bounds: 134, 120, 12, -12
-	Health:
-		HP: 100000
-	Armor:
-		Type: BuildingArmor
-	RevealsShroud:
-		Range: 6c0
-	Power:
-		Amount: -150
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
-	RequiresPower:
 	NukePower@NodNuke:
 		Cursor: nuke
 		Icon: clustermissile
@@ -814,6 +795,8 @@ NATMPL:
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
 		PauseOnCondition: disabled
+	Health:
+		HP: 300000
 
 NAMISL:
 	Inherits: ^Building
@@ -836,21 +819,13 @@ NAMISL:
 		Dimensions: 2,2
 	Selectable:
 		Bounds: 75,48
-	Health:
-		HP: 100000
-	RevealsShroud:
-		Range: 4c0
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
-	Power:
-		Amount: -150
 	CanPowerDown:
 		IndicatorPalette: mouse
 		PowerupSpeech: EnablePower
 		PowerdownSpeech: DisablePower
-	RequiresPower:
 	ProvidesPrerequisite@buildingname:
-	SupportPowerChargeBar:
 	NukePower@ToxinMissile:
 		Cursor: nuke
 		Icon: toxinmissile
@@ -878,6 +853,8 @@ NAMISL:
 		PauseOnCondition: disabled
 	SelectionDecorations:
 		VisualBounds: 75,48
+	Health:
+		HP: 300000
 
 ##############################################
 # Mutants
@@ -897,17 +874,9 @@ MUTWALL:
 		Value: 0
 	Tooltip:
 		Name: Forgotten Wall
-	Health:
-		HP: 30000
 	-Cloak@CLOAKGENERATOR:
-	Armor:
-		Type: Concrete
 	RenderSprites:
 		Image: wall.mut
-	BlocksProjectiles:
-		Height: 640
-	Crushable:
-		CrushClasses: heavywall
 	LineBuild:
 		NodeTypes: wall, turret
 
@@ -917,7 +886,7 @@ MUTGATE_A:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~structures.mut
+		Prerequisites: barracks, ~structures.mut
 	Tooltip:
 		Name: Forgotten Gate
 	Gate:
@@ -929,7 +898,7 @@ MUTGATE_B:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~structures.mut
+		Prerequisites: barracks, ~structures.mut
 	Tooltip:
 		Name: Forgotten Gate
 	Gate:
@@ -961,6 +930,7 @@ MUFLAK:
 		InitialFacing: 50
 	AttackTurreted:
 	-CanPowerDown:
+	-RequiresPower:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 		Recoils: no
@@ -975,8 +945,9 @@ MUFLAK:
 MUCANNON:
 	Inherits: ^Defense
 	Inherits@1: ^MutRender
+	Inherits@2: ^TowerStealthDetection
 	Valued:
-		Cost: 600
+		Cost: 750
 	Tooltip:
 		Name: Forgotten Cannon
 	Buildable:
@@ -988,7 +959,7 @@ MUCANNON:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	Health:
-		HP: 35000
+		HP: 40000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -996,6 +967,7 @@ MUCANNON:
 		InitialFacing: 50
 	AttackTurreted:
 	-CanPowerDown:
+	-RequiresPower:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 		Recoils: no
@@ -1026,12 +998,13 @@ MUBUNKR:
 		Dimensions: 2,2
 	Selectable:
 		Bounds: 88, 42, 0, -6
-	-CanPowerDown:
 	-EmitInfantryOnSell@gdi:
 	-EmitInfantryOnSell@nod:
 	-EmitInfantryOnSell@mut:
 	-EmitInfantryOnSell@cab:
 	-EmitInfantryOnSell@scr:
+	-CanPowerDown:
+	-RequiresPower:
 	Health:
 		HP: 65000
 	RevealsShroud:
@@ -1061,7 +1034,7 @@ MUTSW1:
 		Description: Allows the player to generate Ion Storms.
 		BuildLimit: 1
 	Valued:
-		Cost: 3000
+		Cost: 2500
 	Tooltip:
 		Name: Meditation Hall
 	Building:
@@ -1069,16 +1042,12 @@ MUTSW1:
 		Dimensions: 3,2
 	Selectable:
 		Bounds: 116, 60, 3, -6
-	Health:
-		HP: 100000
-	RevealsShroud:
-		Range: 5c0
 	SelectionDecorations:
 		VisualBounds: 116, 78, 3, -8
 	SpawnActorPower@ionstorm:
 		Actor: ionstormgenerator
 		Icon: ionstorm
-		ChargeTime: 240
+		ChargeTime: 360
 		OrderName: IonStorm
 		DisplayTimer: True
 		DisplayBeacon: True
@@ -1087,8 +1056,8 @@ MUTSW1:
 		DisplayTimerStances: Ally, Neutral, Enemy
 		DisplayRadarPing: True
 		PauseOnCondition: disabled
-	Power:
-		Amount: -100
+	Health:
+		HP: 300000
 
 MUTSW2:
 	Inherits: ^Building
@@ -1110,12 +1079,6 @@ MUTSW2:
 		Dimensions: 3,3
 	Selectable:
 		Bounds: 130, 80, 0, -24
-	Health:
-		HP: 80000
-	RevealsShroud:
-		Range: 5c0
-	Power:
-		Amount: -100
 	SelectionDecorations:
 		VisualBounds: 130, 100, 0, -24
 	IonCannonPower:
@@ -1130,6 +1093,8 @@ MUTSW2:
 		LongDesc: Spawns a cluster of baby veinholes\non the targetted location.
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
+	Health:
+		HP: 300000
 
 MUWARD:
 	Inherits: ^DeployedVehicle
@@ -1184,11 +1149,16 @@ MUVENTI:
 		Type: cloakgenerator
 	ExplodeWeapon:
 		Weapon: VentilatorPoison
-		RequiresCondition: disabled
+		RequiresCondition: !disabled
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled
 	Selectable:
 		Bounds: 90, 48, 0, -6
 	Power:
@@ -1219,14 +1189,6 @@ SCRWALL:
 	-Cloak@CLOAKGENERATOR:
 	Tooltip:
 		Name: Energy Wall
-	Health:
-		HP: 30000
-	Armor:
-		Type: Concrete
-	BlocksProjectiles:
-		Height: 640
-	Crushable:
-		CrushClasses: heavywall
 	LineBuild:
 		NodeTypes: wall, turret
 
@@ -1237,11 +1199,14 @@ SCRGATE_A:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~structures.scr
+		Prerequisites: barracks, ~structures.scr
 	Tooltip:
 		Name: Energy Gate
 	Gate:
 		CloseDelay: 40
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRGATE_B:
 	Inherits: ^Gate_B
@@ -1250,11 +1215,14 @@ SCRGATE_B:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: ~structures.scr
+		Prerequisites: barracks, ~structures.scr
 	Tooltip:
 		Name: Energy Gate
 	Gate:
 		CloseDelay: 40
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRNEEDLER:
 	Inherits: ^Defense
@@ -1262,7 +1230,7 @@ SCRNEEDLER:
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
-		Cost: 400
+		Cost: 800
 	Tooltip:
 		Name: Ichor Waste Turret
 	Buildable:
@@ -1275,7 +1243,7 @@ SCRNEEDLER:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 50000
+		HP: 65000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -1302,13 +1270,16 @@ SCRNEEDLER:
 		Amount: -30
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRTRACTOR:
 	Inherits: ^AntiAir
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
-		Cost: 450
+		Cost: 550
 	Tooltip:
 		Name: Tractor Beam
 	Buildable:
@@ -1321,7 +1292,7 @@ SCRTRACTOR:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 35000
+		HP: 45000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -1339,6 +1310,9 @@ SCRTRACTOR:
 		Amount: -20
 	SelectionDecorations:
 		VisualBounds: 40, 36, -3, -8
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRDRONE:
 	Inherits: ^Tier2
@@ -1374,6 +1348,9 @@ SCRDRONE:
 		Amount: -50
 	SelectionDecorations:
 		VisualBounds: 88, 72, 0, -12
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCREXTRACTOR:
 	Inherits: ^Building
@@ -1397,6 +1374,9 @@ SCREXTRACTOR:
 		IndicatorPalette: mouse
 		PowerupSpeech: EnablePower
 		PowerdownSpeech: DisablePower
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
 	RequiresPower:
 	Health:
 		HP: 60000
@@ -1408,12 +1388,15 @@ SCREXTRACTOR:
 		VisualBounds: 40, 36, -3, -8
 	ProximityExternalCondition@VanguardShield:
 		Condition: VanguardShield
-		Range: 5c0
+		Range: 6c0
 		AffectsParent: false
 		RequiresCondition: !disabled
 	WithRangeCircle:
-		Range: 5c0
+		Range: 6c0
 		Type: VanguardShield
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRSW1:
 	Inherits: ^Building
@@ -1428,28 +1411,21 @@ SCRSW1:
 		Description: Allows the player to call in meteor storm strikes.
 		BuildLimit: 1
 	Valued:
-		Cost: 3000
+		Cost: 2500
 	Tooltip:
 		Name: Signal Transmiter
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	RequiresPower:
 	Selectable:
 		Bounds: 116, 60, 3, -6
-	Health:
-		HP: 100000
-	RevealsShroud:
-		Range: 5c0
-	Power:
-		Amount: -150
 	SelectionDecorations:
 		VisualBounds: 116, 78, 3, -8
 	FireArmamentPower:
 		Cursor: emp
 		Icon: meteor
 		ChargeTime: 300
-		Description: Meteor Storm
+		Description: Wrath of the Creator
 		LongDesc: Drags meteors from orbit dealing moderate \ndamage over a wide area.
 		Prerequisites: MeteorSpawner
 		OrderName: MeteorSpawner
@@ -1466,9 +1442,65 @@ SCRSW1:
 		TurnSpeed: 255
 		InitialFacing: 50
 	AttackTurreted:
+	Health:
+		HP: 300000
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+
+SCRADVPOWR:
+	Inherits: ^Building
+	Inherits@1: ^SuperWeapon
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 91
+		Prerequisites: scrtech, ~structures.scr
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Reality destabilizer
+		Description: Allows unit teleportation.
+	ProvidesPrerequisite:
+		Prerequisite: scrpowr
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Selectable:
+		Bounds: 90, 48, 0, -6
+	SelectionDecorations:
+		VisualBounds: 90, 84, 0, -12
+	ChronoshiftPower@chronoshift:
+		OrderName: Chronoshift
+		PauseOnCondition: disabled
+		Icon: mothershipicon
+		ChargeTime: 120
+		Description: Reality destabilization
+		LongDesc: Creates a rift in space and time dirupting the behaviour of all\nthe units in the area, all units will move backwards and fire slower for 8 seconds,\nhostile powerplants will be disabled for 16 seconds, does not affect units\ncreated while in the duration of the effet.
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		Duration: 20
+		KillCargo: no
+		DisplayRadarPing: True
+		SelectionCursor: emp
+		TargetCursor: emp
+		ValidTileSequencePrefix: build-valid-
+		InvalidTileSequence: build-invalid-
+		SourceTileSequence: build-valid-
+		DisplayTimerStances: Ally, Neutral, Enemy
+	Health:
+		HP: 300000
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRSHIELD:
-	Inherits: ^Building
+	Inherits: ^Defense
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^2x2Shape
@@ -1494,8 +1526,23 @@ SCRSHIELD:
 	Armament:
 		Weapon: EMPulseCannon
 		LocalOffset: 0,0,1800
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	CanPowerDown:
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
+	ExternalCondition@disabled:
+		Condition: disabled
+	RequiresPower:
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled
 	Health:
-		HP: 40000
+		HP: 150000
 	RevealsShroud:
 		Range: 8c0
 	Power:
@@ -1517,6 +1564,9 @@ SCRSHIELD:
 		Prerequisites: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRMINE:
 	Inherits: ^ScrinRender
@@ -1544,7 +1594,6 @@ CABSENTRYTURRET:
 	-Sellable:
 	BodyOrientation:
 		QuantizedFacings: 32
-	-CanPowerDown:
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -1600,7 +1649,7 @@ CABPIT:
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
 	Valued:
-		Cost: 500
+		Cost: 800
 	Tooltip:
 		Name: Drone Pit
 	Buildable:
@@ -1642,15 +1691,14 @@ CABRAIL:
 	Inherits: ^Defense
 	Inherits@1: ^CabRender
 	Inherits@2:	^IncompleteSelfHeal
-	Inherits@3: ^TowerStealthDetection
 	Valued:
-		Cost: 700
+		Cost: 900
 	Tooltip:
 		Name: Railgun Turret
 	Buildable:
 		Queue: Defense
 		Description: Anti armor defence with low rate of fire.\nRequires power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft. 
-		Prerequisites: cabweap, ~structures.cab
+		Prerequisites: cabradr, ~structures.cab
 		BuildPaletteOrder: 30
 	Building:
 	Selectable:
@@ -1669,10 +1717,10 @@ CABRAIL:
 	WithSpriteTurret:
 		Recoils: no
 	Armament:
-		Weapon: CABALRAIL
+		Weapon: CABRAILAA
 		LocalOffset: 550,400,700
 	Armament@2:
-		Weapon: CABALRAIL
+		Weapon: CABRAILAA
 		LocalOffset: 550,-400,700
 	Power:
 		Amount: -30
@@ -1687,12 +1735,12 @@ CABNEXUS:
 		Cost: 700
 	Tooltip:
 		Name: Obelisk Nexus
-	Buildable:
-		Queue: Defense
-		Prerequisites: cabradr, ~structures.cab
-		Description: Anti air obelisk of light.\nRequires power to operate.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles. 
-		BuildPaletteOrder: 90
-		IconPalette: UnittemIconCab
+	# Buildable:
+		# Queue: Defense
+		# Prerequisites: cabradr, ~structures.cab
+		# Description: Anti air obelisk of light.\nRequires power to operate.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles. 
+		# BuildPaletteOrder: 90
+		# IconPalette: UnittemIconCab
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
@@ -1724,14 +1772,14 @@ CABBLAST:
 	Buildable:
 		Queue: Defense
 		Description: Artillery, fires plasma.\nHas a minimun range of fire.\nRequires power to operate.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft.
-		Prerequisites: cabtech, ~structures.cab
+		Prerequisites: cabradr, ~structures.cab
 		BuildPaletteOrder: 60
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 60000
+		HP: 40000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -1756,7 +1804,7 @@ CABEYE:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 95
-		Description: Provides vision on a great area, stealth\ndetection and also shrouds the enemy vision\nif no enemy units are nearby.
+		Description: Provides vision on a great area, and\ndalso shrouds the enemy vision\nif no enemy units are nearby.
 		Prerequisites: ~structures.cab, cabtech
 	Valued:
 		Cost: 600
@@ -1767,19 +1815,28 @@ CABEYE:
 		Dimensions: 2,2
 	Health:
 		HP: 75000
-	DetectCloaked:
-		Range: 9c0
 	WithRangeCircle:
 		Range: 9c0
 		Type: cabeye
 	CreatesShroud:
-		Range: 9c0
-	RevealsShroud:
-		Range: 19c0
+		Range: 8c0
+		RequiresCondition: !disabled
+	RevealsShroud@asd:
+		Range: 20c0
+		RequiresCondition: !disabled
+	CanPowerDown:
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
+	ExternalCondition@disabled:
+		Condition: disabled
+	RequiresPower:
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled
 	Selectable:
 		Bounds: 90, 124, 0, -40
 	Power:
-		Amount: -50
+		Amount: -30
 	Targetable:
 		TargetTypes: Building, Ground, C4, DetonateAttack
 	ProvidesPrerequisite@buildingname:
@@ -1902,7 +1959,7 @@ CABSW1:
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
 	Valued:
-		Cost: 3000
+		Cost: 2500
 	Tooltip:
 		Name: Iron Savior
 	Buildable:
@@ -1916,9 +1973,6 @@ CABSW1:
 		Dimensions: 3,3
 	Selectable:
 		Bounds: 110, 70, 3, -20
-	RequiresPower:
-	Health:
-		HP: 100000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Armor:
@@ -1936,8 +1990,6 @@ CABSW1:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
-	Power:
-		Amount: -200
 	SelectionDecorations:
 		VisualBounds: 110, 70, 3, -20
 	ProvidesPrerequisite@singularity:
@@ -1947,7 +1999,7 @@ CABSW1:
 	FireArmamentPower:
 		Cursor: emp
 		Icon: cabcannon
-		ChargeTime: 180
+		ChargeTime: 240
 		Description: Iron Savior
 		LongDesc: Fires a volley of bullets\nat the target location.
 		EndChargeSound: speech-nod|00-i158.aud
@@ -1956,11 +2008,14 @@ CABSW1:
 		OrderName: singularity
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
+	Health:
+		HP: 300000
 
 cabobelisk:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
 	Inherits@2: ^2x2Shape
+	Inherits@3: ^SuperWeapon
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1976,13 +2031,8 @@ cabobelisk:
 		Dimensions: 2,2
 	Selectable:
 		Bounds: 75,48
-	RequiresPower:
-	Health:
-		HP: 75000
 	BodyOrientation:
 		QuantizedFacings: 32
-	Power:
-		Amount: -100
 	SelectionDecorations:
 		VisualBounds: 75,48
 	DetonateWeaponPower@nanomachinesson:
@@ -2001,3 +2051,5 @@ cabobelisk:
 		CameraActor: camera
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
+	Health:
+		HP: 300000

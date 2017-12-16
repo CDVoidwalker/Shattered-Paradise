@@ -8,12 +8,8 @@ SharkJump:
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
-		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 25
-			VehicleArmor: 50
-			ConcreteArmor: 10
-		DamageTypes: TriggerProne, BulletDeath, ScrinEssenceKill
+		Spread: 0c030
+		DamageTypes: BulletDeath, ScrinEssenceKill
 
 LegioNeedler:
 	Inherits: ^RocketWarhead
@@ -28,7 +24,7 @@ LegioNeedler:
 		Palette: apblue
 		Image: blueballminitrail
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 4000
 		Versus:
 			InfantryArmor: 30
 		ValidTargets: Ground, Air
@@ -147,7 +143,6 @@ FloatGlaive:
 		Palette: apollightbluealpha
 		Image: glaive
 	Warhead@1Dam: SpreadDamage
-		-Falloff:
 		Damage: 1000
 		Versus:
 		ValidTargets: Ground, Air
@@ -286,6 +281,7 @@ ScorpAcid:
 		Palette: apolgreenalpha
 	BurstDelay: 3
 	Warhead@1Dam: SpreadDamage
+		Spread: 250
 		Damage: 1300
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
@@ -307,6 +303,7 @@ MindController:
 	Range: 8c0
 	ValidTargets: Infantry
 	InvalidTargets: MCImmune
+	Report: iyurat1a.wav
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
@@ -323,6 +320,22 @@ VanguardShrapnel:
 		Spread: 24
 		Damage: -1
 		ValidTargets: ShieldedUnit
+
+SCRMBTLASOR:
+	Inherits: ^FullDamage
+	Inherits@2: ^Scrin_Explo
+	ReloadDelay: 75
+	Range: 5c0
+	Report: laserpistol.wav
+	Projectile: LaserZap
+		Width: 50
+		BeamDuration: 5
+		ZOffset: 2047
+		Color: f442f4
+	Warhead@1Dam: SpreadDamage
+		Spread: 0c045
+		Damage: 7000
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 
 ScrMbtCannon:
 	Inherits: ^APWarhead
@@ -559,7 +572,7 @@ TripodLaser:
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 4000
-        Versus:
+		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 100
 			VehicleArmor: 50
@@ -612,9 +625,11 @@ StormRiderBlast:
 		Inaccuracy: 384
 		Image: blueplasma
 	Warhead@1Dam: SpreadDamage
-		Damage: 6000
+		Damage: 4500
 		ValidTargets: Ground
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 96
 
 StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
@@ -629,28 +644,44 @@ StormRiderBlastAA:
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Scrin_Pulse
-	ReloadDelay: 100
-	Range: 6c0
-	Burst: 5
+	ReloadDelay: 25
+	Range: 5c0
 	Report: photon1.wav
-	ValidTargets: Ground
-	Projectile: Missile
-		Speed: 350
+	ValidTargets: Ground, Air
+	Projectile: BulletAS
+		Speed: 200
 		Image: torpedo
-		Inaccuracy: 1c0
+		Inaccuracy: 0c256
 		Shadow: true
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
-		Spread: 350
-		Damage: 1700
-		ValidTargets: Ground
+		Spread: 90
+		Damage: 1000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 100
+			ConcreteArmor: 25
+		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 Glyder2Cannon:
-	Inherits: Glyder1Cannon
+	Inherits: ^RocketWarhead
+	Inherits@2: ^Scrin_Pulse
+	ReloadDelay: 25
+	Range: 12c0
+	Report: photon1.wav
 	ValidTargets: Air
+	Projectile: Missile
+		Speed: 200
+		Image: torpedo
+		Palette: apblue
 	Warhead@1Dam: SpreadDamage
+		Spread: 90
+		Damage: 2000
 		ValidTargets: Air
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@1Dam: SpreadDamage
 
 BattleshipCannon:
 	Inherits: ^FullDamage
@@ -765,6 +796,7 @@ WyvermBlast:
 		Inaccuracy: 384
 		Image: blueplasma
 	Warhead@1Dam: SpreadDamage
+		Spread: 0c180
 		Damage: 3000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
@@ -809,8 +841,8 @@ CouncilSteal:
 # Defences
 #################################################
 NeedlerAcid:
-	Inherits: ^FlameWarhead
-	ReloadDelay: 100
+	Inherits: ^AcidWarhead
+	ReloadDelay: 50
 	Range: 6c768
 	Burst: 7
 	Report: flamtnk1.aud
@@ -821,8 +853,8 @@ NeedlerAcid:
 		Palette: apolgreenalpha
 	BurstDelay: 4
 	Warhead@1Dam: SpreadDamage
-		Spread: 80
-		Damage: 1000
+		Spread: 250
+		Damage: 800
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -914,22 +946,23 @@ EssenceMissile:
 	ReloadDelay: 45
 	Range: 10c0
 	ValidTargets: ScrinUnit
-	Projectile: Missile
+	Projectile: BulletAS
 		Image: essencetrail
 		TrailImage: essencetrailmini
 		TrailPalette: apolra2ialpha
+		Speed: 300
 		TrailInterval: 1
 		Palette: apolra2ialpha
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: -1000
+		Damage: -2000
 		ValidTargets: ScrinUnit
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolra2ialpha
 	Warhead@emp: GrantExternalCondition
 		Range: 150
-		Duration: 500
+		Duration: 400
 		Condition: batteryboost
 	Warhead@emp: GrantExternalCondition
 		Range: 200

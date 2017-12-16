@@ -104,9 +104,9 @@ crusader:
 		ShadowStart: 532
 		Tick: 80
 	die-crushed:
-		Start: 159
-		Length: 5
-		ShadowStart: 451
+		Start: 164
+		Length: 2
+		ShadowStart: 502
 		Tick: 800
 		ZOffset: -511
 	shoot:

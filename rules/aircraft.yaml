@@ -128,11 +128,14 @@ ORCAB:
 		HP: 17500
 	Armament@primary:
 		Weapon: OBBomb
+	Armament@secondary:
+		Weapon: OBBombFrontal
 	AttackPlane:
+		FacingTolerance: 20
 	AmmoPool:
-		Ammo: 10
+		Ammo: 20
 		PipCount: 2
-		ReloadCount: 5
+		ReloadCount: 10
 		ReloadTicks: 200
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
@@ -364,13 +367,13 @@ APACHE:
 		Type: CenterPosition
 	Armament:
 		Weapon: HarpyClaw
-	Armament@1:
-		Weapon: HarpyAA
+	Armament@432:
+		Weapon: HarpyClawAA
 	AttackHeli:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
-		Ammo: 20
+		Ammo: 8
 		PipCount: 6
 		ReloadCount: 5
 		PipType: Ammo
@@ -519,9 +522,9 @@ CERBERUS:
 	Armament@primary:
 		Weapon: CerberusLazor
 		LocalOffset: 500,0,0
-	Armament@secondary:
-		Weapon: CerberusLasorSpawn
-		LocalOffset: 300,200,0, 300,-200,0, -300,200,0, -300,-200,0
+	# Armament@secondary:
+		# Weapon: CerberusLasorSpawn
+		# LocalOffset: 300,200,0, 300,-200,0, -300,200,0, -300,-200,0
 	AttackHeli:
 		FacingTolerance: 64
 		Voice: Attack
@@ -588,27 +591,25 @@ MUTHELI:
 	RenderVoxels:
 		Scale: 9
 	WithIdleOverlay@ROTORAIR:
-		Offset: 85,0,384
+		Offset: 250,0,450
 		Sequence: rotor
 		RequiresCondition: airborne
 	WithIdleOverlay@ROTORGROUND:
-		Offset: 85,0,384
+		Offset: 250,0,450
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
 	Armament@primary:
-		Weapon: GargoylVulcan
-	Armament@secondary:
-		Weapon: GargoylRocket
-	Armament@tertiary:
-		Weapon: GargoylRocketAA
+		Weapon: GargoylACannon
+		MuzzleSequence: muzzle
+		LocalOffset: 900,0,0
+	WithMuzzleOverlay:
 	AttackHeli:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
-		Ammo: 15
+		Ammo: 24
 		PipCount: 7
-		ReloadCount: 20
-		ReloadTicks: 125
+		ReloadCount: 3
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 	AutoTarget:
@@ -621,7 +622,7 @@ WETP:
 	Inherits@1:	^Ra2vxl
 	Inherits@2: ^AutoTargetAll
 	Valued:
-		Cost: 1300
+		Cost: 1000
 	Tooltip:
 		Name: Falcon
 	Buildable:
@@ -635,7 +636,7 @@ WETP:
 		CruiseAltitude: 3072
 		MaximumPitch: 120
 		TurnSpeed: 6
-		Speed: 150
+		Speed: 160
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
@@ -644,20 +645,15 @@ WETP:
 		HP: 13000
 	Armament:
 		Weapon: FalconPunch
-	Armament@1:
-		Weapon: FalconPunch
-	Armament@1:
-		Weapon: FalconPunch2
 	RenderVoxels:
 		Scale: 1
 	AttackPlane:
-		Voice: Attack
 		FacingTolerance: 20
 	AmmoPool:
-		Ammo: 12
-		PipCount: 2
-		ReloadCount: 20
-		ReloadTicks: 150
+		Ammo: 1
+		PipCount: 1
+		ReloadCount: 1
+		ReloadTicks: 250
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 		RearmBuildings: muair, gahpad, nahpad
@@ -682,10 +678,9 @@ MUTQUEEN:
 		Description: Harasser and Mutator, places crab eggs when deployed.\nTiberian Crabs are hostile to ANYONE.\n\n  Effective against tanks.
 		Queue: Air
 		BuildPaletteOrder: 21
-		Prerequisites: ~muair, mustable, muhall
+		Prerequisites: ~muair, muhall
 	Selectable:
 		Bounds: 30,24
-		Priority: 6
 	Voiced:
 		VoiceSet: Fiend
 	Aircraft:
@@ -728,19 +723,6 @@ MUTBIRD:
 		Name: Seeder Bird
 	-Buildable:
 
-WETPSW:
-	Inherits: WETP
-	-Buildable:
-	-Selectable:
-	Cargo:
-		MaxWeight: 10
-		Types: Infantry, Vehicle, Aircraft
-	ParaDrop:
-	-RevealsShroud:
-	-Targetable@GROUND:
-	-Targetable@AIRBORNE:
-	RenderVoxels:
-		Image: wetp
 ##########################################################
 # Scrin
 ##########################################################
@@ -838,24 +820,24 @@ drache:
 	Buildable:
 		Queue: Air
 		BuildPaletteOrder: 110
-		Description: Deploys into another Construction Yard.\n\n  Unarmed
-		Prerequisites: ~scrair, scrdepot
+		Description: Deploys into a Host Station.\n\n  Unarmed
+		Prerequisites: ~scrair
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Tooltip:
 		Name: Scrin Host Station
 	Selectable:
 		Bounds: 144, 60, 0, -6
 		Priority: 4
 	Health:
-		HP: 60000
+		HP: 300000
 	Voiced:
 		VoiceSet: Limpet
 	Targetable@MindControlInmune:
 		TargetTypes: MindControlInmune
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 60
+		Speed: 45
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
@@ -944,7 +926,7 @@ SCRDESTROYER:
 	Inherits@3: ^SelfReloads
 	Inherits@4: ^IncompleteSelfHeal
 	Valued:
-		Cost: 1750
+		Cost: 1500
 	Tooltip:
 		Name: Destroyer
 	Buildable:
@@ -1041,10 +1023,10 @@ SCRINCOUNCIL:
 		Queue: Air
 		BuildPaletteOrder: 22
 		Prerequisites: ~scrair, scrtech
-		Description: Mobile Support Superweapon, it can constructs vehicles.\nAnd also slow down the flow of combat map wide.\n\n  Unarmed.
+		Description: Mobile factory, it can construct vehicles.\n\n  Unarmed.
 		BuildLimit: 1
 	Valued:
-		Cost: 3000
+		Cost: 2250
 	Tooltip:
 		Name: Creation engine
 	Selectable:
@@ -1061,31 +1043,6 @@ SCRINCOUNCIL:
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
-	ChronoshiftPower@chronoshift:
-		OrderName: Chronoshift
-		PauseOnCondition: disabled
-		Icon: mothershipicon
-		ChargeTime: 120
-		Description: Reality destabilization
-		LongDesc: Creates a rift in space and time dirupting the behaviour of all\nthe units in the area, all units will move backwards and fire slower for 8 seconds,\nhostile powerplants will be disabled for 16 seconds, does not affect units\ncreated while in the duration of the effet.
-		SelectTargetSpeechNotification: SelectTarget
-		InsufficientPowerSpeechNotification: InsufficientPower
-		Duration: 20
-		KillCargo: no
-		DisplayRadarPing: True
-		ValidTileSequencePrefix: build-valid-
-		InvalidTileSequence: build-invalid-
-		SourceTileSequence: build-valid-
-	# DetonateWeaponPower:
-		# Description: Reality destabilization
-		# LongDesc: Creates a rift in space and time dirupting the behaviour of all\nthe units in the area, all units will move backwards and fire slower for 8 seconds,\nhostile powerplants will be disabled for 16 seconds, does not affect units\ncreated while in the duration of the effet.
-		# Icon: mothershipicon
-		# DisplayTimer: True
-		# DisplayBeacon: True
-		# ChargeTime: 240
-		# OrderName: destabilization
-		# ActivationSequence: idle
-		# Weapon: EnergyAssimilator
 	WithSpriteBody:
 		Sequence: dummy
 	Production:
@@ -1169,6 +1126,8 @@ STORMRIDERSPAWN:
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Wyverm
+	Valued:
+		Cost: 30
 	-AttackTurreted:
 	-Buildable:
 	-DeathSounds:
@@ -1180,6 +1139,7 @@ STORMRIDERSPAWN:
 		FacingTolerance: 20
 	Aircraft:
 		Repulsable: false
+		TurnSpeed: 20
 	Armament:
 		Weapon: WyvermBlast
 	-Armament@aa:
@@ -1204,19 +1164,23 @@ STORMRIDERSPAWN:
 		InitialStance: AttackAnything
 	ExternalCondition@Return:
 		Condition: ForceReturn
+	SpawnActorOnDeath:
+		Actor: WYVERM2.Husk
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
 	Inherits@1: ^CabRender
 	Armament:
 		Weapon: CabJetMiniBomb
+	Valued:
+		Cost: 30
 	Health:
 		HP: 5000
 	RenderSprites:
 		Image: cabdronejet
 	Aircraft:
 		MaximumPitch: 90
-		TurnSpeed: 8
+		TurnSpeed: 20
 		Speed: 160
 		AirborneCondition: airborne
 		MoveIntoShroud: true
@@ -1226,6 +1190,8 @@ CABDRONEJET:
 		AttackTurnDelay: 25
 	RejectsOrders:
 	-SelectionDecorations:
+	SpawnActorOnDeath:
+		Actor: CABDRONEJET.Husk
 
 SCRBATTLESHIP:
 	Inherits: ^Helicopter
@@ -1469,14 +1435,14 @@ DEVOURER:
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
 	Valued:
-		Cost: 2400
+		Cost: 2000
 	Tooltip:
 		Name: Devourer
 	Buildable:
 		Queue: Air
 		Description: Slow frigate designed for recovery operations, gives\nthe onwer part of the cost of any unit that dies near.\n\n Strong vs Structures.\n Weak vs Infantry, Vehicles, Aircraft.
 		BuildPaletteOrder: 21
-		Prerequisites: ~cabair, cabradr
+		Prerequisites: ~cabair, cabtech
 	Selectable:
 		Bounds: 120, 75, 0, -35
 	Aircraft:
@@ -1497,18 +1463,11 @@ DEVOURER:
 		Weapon: DevourerBuff
 	Armament@Explos:
 		Weapon: DevourerExplo
-	# ExplodeWeapon@MAQUINACONCHADETUMARE:
-		# Weapon: DevourerDroneSpawn
-		# LocalOffset: 0,0,2000
 	Targetable@Seeker:
 		TargetTypes: Seeker
 	AttackHeli:
-		FacingTolerance: 20
+		FacingTolerance: 90
 		Voice: Attack
-	ProximityBounty:
-		Delay: 200#1500
-		# BountyType: CabGrinder
-		Range: 6c0
 	WithRangeCircle:
 		Range: 6c0
 		Type: Bounty

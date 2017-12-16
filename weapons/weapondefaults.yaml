@@ -5,7 +5,7 @@
 		Condition: RifleWarhead
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Condition: BreakShield
-		Range: 64
+		Range: 32
 		Duration: 400
 
 ^RifleWarhead:	#Inherits: ^RifleWarhead
@@ -13,14 +13,14 @@
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c181
+		Spread: 0c090
 		Damage: 20
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 25
-			VehicleArmor: 10
+			BuildingArmor: 35
+			VehicleArmor: 15
 			AircraftArmor: 100
-			ConcreteArmor: 40
+			ConcreteArmor: 15
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RifleWarhead
 
@@ -37,7 +37,7 @@
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 0c181
-		Image: missile01
+		Image: DRAGON
 		HorizontalRateOfTurn: 40
 		VerticalRateOfTurn: 40
 		RangeLimit: 28c291
@@ -57,6 +57,12 @@
 
 ^APWarhead:	#Inherits: ^APWarhead , Tanks, Wasps and Gladiators use this.
 	Inherits: ^WeaponGenericUpgrades
+	Projectile: BulletAS
+		Speed: 450
+		Image: 120mm
+		Shadow: true
+		LaunchAngle: 75
+		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c181
 		Versus:
@@ -71,6 +77,7 @@
 ^FlameWarhead:	#Inherits: ^FlameWarhead , Specific Anti infantry.
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 100, 100, 100
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 200
@@ -102,7 +109,7 @@
 		Falloff: 300, 150, 100, 50, 0
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 33
+			BuildingArmor: 66
 			VehicleArmor: 50
 			AircraftArmor: 100
 			ConcreteArmor: 20
@@ -129,7 +136,6 @@
 ^FullDamage:	#Inherits: ^FullDamage
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 100, 100, 100, 100
 		Spread: 0c181
 		Versus:
 			InfantryArmor: 100

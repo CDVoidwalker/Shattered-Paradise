@@ -3,6 +3,7 @@
 #######################################################
 SMECH:
 	Inherits: ^Walker
+	Inherits@2: ^BasicStealthDetection
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -164,7 +165,7 @@ HVR:
 JUG:
 	Inherits: ^Walker
 	Valued:
-		Cost: 900
+		Cost: 1000
 	Tooltip:
 		Name: Juggernaut
 	Buildable:
@@ -235,7 +236,7 @@ G4TNK:
 	Inherits: ^VoxelTank
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 1900
+		Cost: 1800
 	Tooltip:
 		Name: Mammoth Tank
 	Buildable:
@@ -244,7 +245,7 @@ G4TNK:
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 56
+		Speed: 50
 		TurnSpeed: 5
 		Crushes: wall, crate, infantry
 	Health:
@@ -292,7 +293,7 @@ SONIC:
 	-RejectsOrders@berserk:
 	Mobile:
 		TurnSpeed: 4
-		Speed: 50
+		Speed: 55
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 55000
@@ -361,7 +362,7 @@ BGGY:
 	Inherits@2: ^NodCloakHealing
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 450
+		Cost: 700
 	Tooltip:
 		Name: Raider Buggy
 	Buildable:
@@ -374,7 +375,7 @@ BGGY:
 		Speed: 142
 		Crushes: crate
 	Health:
-		HP: 20000
+		HP: 27500
 	RevealsShroud:
 		Range: 7c0
 	Armament:
@@ -569,9 +570,9 @@ BIKE:
 	Inherits: ^VoxelVehicle
 	Inherits@2: ^NodCloakHealing
 	Valued:
-		Cost: 600
+		Cost: 900
 	Tooltip:
-		Name: Demo Cycle
+		Name: Demo Bike
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 12
@@ -666,7 +667,7 @@ SUBTANK:
 	Inherits: ^VoxelTank
 	Inherits@2: ^NodCloakHealing
 	Valued:
-		Cost: 1000
+		Cost: 900
 	Tooltip:
 		Name: Devil's Tongue
 	Buildable:
@@ -761,7 +762,7 @@ STNK:
 		Speed: 125
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 27500
+		HP: 35000
 	SelfHealing@NodCloakHealing:
 		Delay: 150
 	Cloak@cloakgenerator:
@@ -867,8 +868,10 @@ WOLF:
 		Name: Tiberian Bull
 	Voiced:
 		VoiceSet: Fiend
+	Armor:
+		Type: VehicleArmor
 	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark
+		TargetTypes: Ground, Infantry, Razorshark, MCImmune
 	-Crushable:
 	AttackFrontal:
 	AutoTarget:
@@ -881,13 +884,14 @@ WOLF:
 	Armament@Secondary:
 		Weapon: BullAcidSpawn
 		LocalOffset: 0,0,500
-	Armament@Thertiary:
-		Weapon: BullBuff
-		LocalOffset: 0,0,500
 	Passenger:
 		CargoType: Vehicle
 		Voice: Move
 		Weight: 3
+	Armor@BullArmor:
+		Type: BullArmor
+	-SelfHealing@poisoncloud:
+	-ExternalCondition@CloudPoison:
 	Health:
 		HP: 35000
 	Mobile:
@@ -900,6 +904,12 @@ WOLF:
 MUTAPC:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
+	Inherits@2: ^SpriteActor
+	# Buildable:
+		# Queue: Vehicle
+		# BuildPaletteOrder: 27
+		# Description: Tiberian Beast, spits toxic gas that gathers into clouds that harm nearby units.\n\n  Somewhat strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft, Defences.
+		# Prerequisites: ~muweap, muradr
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -909,6 +919,7 @@ MUTAPC:
 		TurnSpeed: 7
 		Speed: 130
 		Crushes: wall, crate, infantry
+	WithFacingSpriteBody:
 	Health:
 		HP: 19000
 	Cargo:
@@ -918,13 +929,13 @@ MUTAPC:
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 		EjectOnDeath: true
-	RenderVoxels:
-		Scale: 1
+	-RenderVoxels:
+	-WithVoxelBody:
 	Turreted:
 		TurnSpeed: 10
 		Offset: 150,0,0
 	AutoTarget:
-	WithVoxelTurret:
+	WithSpriteTurret:
 	WithMuzzleOverlay:
 	AttackTurreted:
 		Voice: Attack
@@ -971,7 +982,7 @@ STRUCK:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
 	Valued:
-		Cost: 600
+		Cost: 300
 	Tooltip:
 		Name: Battle Bus
 	Buildable:
@@ -994,7 +1005,7 @@ STRUCK:
 		PipCount: 4
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
-		InitialUnits: e3, e3
+		# InitialUnits: marauder, marauder
 	RenderVoxels:
 		Scale: 0.8
 		LightAmbientColor: 0.4, 0.4, 0.4
@@ -1013,6 +1024,44 @@ STRUCKFULL:
 	RenderVoxels:
 		Image: struck
 
+lynx:
+	Inherits: ^VoxelTank
+	Inherits@1:	^Ra2vxl
+	Inherits@2: ^SpriteActor
+	Inherits@3: ^MutRender
+	Buildable:
+		Queue: Vehicle
+		Description: Light Tank.\n\n Strong vs Vehicles\nWeak vs Everything else.
+		BuildPaletteOrder: 26
+		Prerequisites: ~muweap, gadept
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Lynx
+	Mobile:
+		TurnSpeed: 7
+		Speed: 90
+		Crushes: wall, crate, infantry
+	WithFacingSpriteBody:
+	Health:
+		HP: 22500
+	-RenderVoxels:
+	-WithVoxelBody:
+	Turreted:
+		TurnSpeed: 10
+		Offset: 150,0,0
+	AutoTarget:
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+	AttackTurreted:
+		Voice: Attack
+	Armament:
+		Weapon: LynxCannon
+		LocalOffset: 400,0,600
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		Recoil: 0c128
+
 2STUG3:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
@@ -1020,11 +1069,11 @@ STRUCKFULL:
 		Cost: 800
 	Tooltip:
 		Name: Tank Destroyer
-	Buildable:
-		Queue: Vehicle
-		Description: Tank designed specifically to combat vehicles.\n\n Strong vs Vehicles\nWeak vs Everything else.
-		BuildPaletteOrder: 26
-		Prerequisites: ~muweap, gadept
+	# Buildable:
+		# Queue: Vehicle
+		# Description: Tank designed specifically to combat vehicles.\n\n Strong vs Vehicles\nWeak vs Everything else.
+		# BuildPaletteOrder: 26
+		# Prerequisites: ~muweap, gadept
 	Mobile:
 		TurnSpeed: 8
 		Speed: 60
@@ -1034,7 +1083,7 @@ STRUCKFULL:
 	RevealsShroud:
 		Range: 7c0
 	Armament:
-		Weapon: StuggCannon
+		Weapon: LynxCannon
 		MuzzleSequence: muzzle
 	AttackFrontal:
 	AutoTarget:
@@ -1045,8 +1094,9 @@ STRUCKFULL:
 MUTQUAD:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
+	Inherits@2: ^BasicStealthDetection
 	Valued:
-		Cost: 675
+		Cost: 750
 	Tooltip:
 		Name: Quad Cannon
 	Buildable:
@@ -1152,7 +1202,7 @@ HVRTRUK3:
 	Inherits: ^VoxelVehicle
 	Inherits: ^HoverVehicle
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Demo Truck
 	Buildable:
@@ -1187,7 +1237,7 @@ DEATHCLAW:
 		Description: Melee Beast, usefull as a shock unit.\n\n  Strong vs Ground Units\n  Weak vs Aircraft.
 		Prerequisites: ~muweap, muhall
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Tooltip:
 		Name: Ravager
 	Voiced:
@@ -1197,17 +1247,20 @@ DEATHCLAW:
 		Voice: Move
 		Weight: 3
 	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark
+		TargetTypes: Ground, Infantry, Razorshark, MCImmuneSCRMBTLASOR
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
+	Armor:
+		Type: VehicleArmor
 	Health:
-		HP: 60000
+		HP: 50000
 	WithInfantryBody:
 		IdleSequences: idle2, idle3
 	-Crushable:
 	Mobile:
-		Speed: 78
+		Speed: 100
+		SharesCell: False
 	Armament:
 		Weapon: DeathclawBlow
 	Armament@1:
@@ -1262,8 +1315,9 @@ FORTRESS:
 SCRSCORPION:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
+	Inherits@2: ^BasicStealthDetection
 	Valued:
-		Cost: 650
+		Cost: 800
 	Tooltip:
 		Name: Ichor Walker
 	Buildable:
@@ -1276,7 +1330,7 @@ SCRSCORPION:
 		Speed: 91
 		Crushes: crate
 	Health:
-		HP: 45000
+		HP: 28125
 	AttackFrontal:
 		Voice: Attack
 	AutoTarget:
@@ -1288,7 +1342,9 @@ SCRSCORPION:
 	WithInfantryBody:
 	Selectable:
 		Bounds: 50, 32, 0, -8
-	-SelfHealing@ELITE:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRDRONEC:
 	Inherits: ^ScrinVehicle
@@ -1301,11 +1357,11 @@ SCRDRONEC:
 		Description: Support hover drone, shields nearby units, the shield takes up\na finite amount hits and dissipates.\nbounces back part of the it reveices to random hostile targets.\nCannot collect essence, but autorepairs.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Vanguard
 	Health:
-		HP: 40000
+		HP: 25000
 	Mobile:
 		Speed: 70
 	RenderSprites:
@@ -1326,10 +1382,10 @@ SCRDRONEC:
 		TargetStances: Ally
 	ProximityExternalCondition@VanguardShield:
 		Condition: VanguardShield
-		Range: 2c0
+		Range: 3c0
 		AffectsParent: false
 	WithRangeCircle:
-		Range: 2c0
+		Range: 3c0
 		Type: VanguardShield
 	Targetable:
 		TargetTypes: Ground, Vehicle
@@ -1366,6 +1422,9 @@ SCRDRONEC:
 		Condition: FullDamage
 	ExternalCondition@VanguardShield:
 		Condition: VanguardShield
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRGLYDER2:
 	Inherits: ^ScrinVehicle
@@ -1382,12 +1441,11 @@ SCRGLYDER2:
 	Tooltip:
 		Name: Glider
 	Health:
-		HP: 22500
+		HP: 14062
 	Mobile:
 		Speed: 91
-	# Transforms:
-		# IntoActor: scrglyder1
-	-DamagedByTerrain@ScrinDamage:
+	Transforms:
+		IntoActor: scrglyder1
 	Armament:
 		Weapon: Glyder2Cannon
 		Recoil: 85
@@ -1400,6 +1458,9 @@ SCRGLYDER2:
 	BodyOrientation:
 		QuantizedFacings: 32
 	-SelfHealing@ELITE:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRMOBMINE:
 	Inherits: ^ScrinVehicle
@@ -1410,9 +1471,9 @@ SCRMOBMINE:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
 		Description: Mind Control unit, can only take over infantry.\n\n Strong vs Infantry.\n  Weak vs Everything else.
-		Prerequisites: ~scrweap, scrradr
+		Prerequisites: ~scrweap, scrtech
 	Valued:
-		Cost: 1200
+		Cost: 1000
 	Tooltip:
 		Name: Subjugator
 	Mindcontroller:
@@ -1425,10 +1486,9 @@ SCRMOBMINE:
 		Weapon: MindController
 		#RequiresCondition: slaving < 1
 	Health:
-		HP: 22500
+		HP: 14062
 	Mobile:
 		Speed: 75
-	-DamagedByTerrain@ScrinDamage:
 	AutoTarget:
 	AttackFrontal:
 	RenderSprites:
@@ -1436,6 +1496,9 @@ SCRMOBMINE:
 	BodyOrientation:
 		QuantizedFacings: 32
 	-SelfHealing@ELITE:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRMBT:
 	Inherits: ^ScrinVehicle
@@ -1447,21 +1510,18 @@ SCRMBT:
 		Description: Light Tank, good for scouting, deals damage over an area.\n\n Strong vs Light, heavy armor\n  Weak vs Infantry, Aircraft\nBUG: This unit CANNOT break vanguard Shields.\n(It won't be fixed in a while).
 		Prerequisites: ~scrweap, scrdepot
 	Valued:
-		Cost: 900
+		Cost: 950
 	Tooltip:
 		Name: Hover Tank
 	Health:
-		HP: 45000
+		HP: 28125
 	Mobile:
-		Speed: 100
+		Speed: 95
 	Turreted:
 		TurnSpeed: 7
 	Armament:
-		Weapon: ScrMbtCannon
+		Weapon: scrmbtlasor
 		LocalOffset: 250,0,900
-		MuzzleSequence: muzzle
-	Armament@1:
-		Weapon: ScrMbtCannonDummy
 	AttackTurreted:
 	WithSpriteTurret:
 	AutoTarget:
@@ -1470,6 +1530,9 @@ SCRMBT:
 	BodyOrientation:
 		QuantizedFacings: 32
 	-SelfHealing@ELITE:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 SCRRECHARGER:
 	Inherits: ^ScrinVehicle
@@ -1523,8 +1586,10 @@ SCRRECHARGER:
 		Sequence: stand
 	WithMoveAnimation:
 		MoveSequence: run
-	-DamagedByTerrain@ScrinDamage:
 	-SelfHealing@ELITE:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 TRIPOD:
 	Inherits: ^ScrinVehicle
@@ -1546,7 +1611,7 @@ TRIPOD:
 		Speed: 70
 		Crushes: crate, infantry
 	Health:
-		HP: 60000
+		HP: 37500
 	Carryable:
 		LocalOffset: 0,0,2500
 	AttackFrontal:
@@ -1577,6 +1642,9 @@ TRIPOD:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	-SelfHealing@ELITE:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 ################################################
 # CABAL
@@ -1672,9 +1740,10 @@ REAPERCAB:
 
 CENTURION:
 	Inherits: ^Walker
+	Inherits@1: ^BasicStealthDetection
 	Inherits@2:	^PermanentSelfHeal
 	Valued:
-		Cost: 850
+		Cost: 600
 	Tooltip:
 		Name: Centurion
 	Buildable:
@@ -1687,7 +1756,7 @@ CENTURION:
 		Speed: 65
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 70000
+		HP: 50000
 	Voiced:
 		VoiceSet: Cyborg
 	BodyOrientation:
@@ -1705,13 +1774,13 @@ CENTURION:
 		Weapon: CenturionVulcan
 		Recoil: 127
 		RecoilRecovery: 26
-		LocalOffset: 500,300,500
+		LocalOffset: 700,600,1000
 		MuzzleSequence: muzzle
 	Armament@asd:
 		Weapon: CenturionVulcan
 		Recoil: 127
 		RecoilRecovery: 26
-		LocalOffset: 500,-300,500
+		LocalOffset: 700,-600,1000
 		MuzzleSequence: muzzle
 	AutoTarget:
 	Selectable:
@@ -1890,10 +1959,10 @@ PALADIN:
 	RenderSprites:
 	Armament@primary:
 		Weapon: PalaLazor
-		LocalOffset: 400,300,1050
+		LocalOffset: 400,400,1050
 	Armament@secondary:
 		Weapon: PalaLazor
-		LocalOffset:  400,-300,1050
+		LocalOffset:  400,-400,1050
 	AutoTarget:
 	Selectable:
 		Bounds: 40, 60, 0, -20

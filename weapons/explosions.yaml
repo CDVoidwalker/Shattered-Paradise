@@ -14,7 +14,7 @@ BuildingExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_twlt
 	Warhead@1Dam: SpreadDamage
-		Spread: 762
+		Spread: 380
 		Damage: 5000
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -36,7 +36,7 @@ ReactorExplode:
 	Inherits: ^ExploDefaults
 	Inherits@2: ^Large_twlt
 	Warhead@1Dam: SpreadDamage
-		Spread: 3c0
+		Spread: 350
 		Damage: 50000
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -52,32 +52,42 @@ CyborgExplode:
 
 StormriderExplode:
 	Inherits: ^ExploDefaults
-	Inherits: ^FullDamage
+	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Mediuml_Clsn
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c724
-		Damage: 5000
+		Spread: 0c080
+		Damage: 2500
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
 SmallPlaneExplode:
 	Inherits: ^ExploDefaults
-	Inherits: ^FullDamage
+	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Mediuml_Clsn
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c724
-		Damage: 20000
+		Spread: 0c400
+		Damage: 5000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 50
+			ConcreteArmor: 35
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
 BattleshipExplode:
 	Inherits: ^ExploDefaults
-	Inherits: ^FullDamage
+	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Mediuml_Clsn
 	Warhead@1Dam: SpreadDamage
-		Spread: 1c0
-		Damage: 20000
+		Spread: 0c900
+		Damage: 10000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 100
+			VehicleArmor: 50
+			ConcreteArmor: 35
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
 DroneExplode:
@@ -92,7 +102,7 @@ DroneExplode:
 UnitExplodeSmall:
 	Inherits@2: ^Small_Brnl
 	Warhead@1Dam: SpreadDamage
-		Spread: 426
+		Spread: 213
 		Damage: 4000
 		Versus:
 			InfantryArmor: 90
@@ -104,7 +114,7 @@ UnitExplode:
 	Inherits: ^ExploDefaults
 	Warhead@1Dam: SpreadDamage
 	Inherits@2: ^Medium_Brnl
-		Spread: 426
+		Spread: 213
 		Damage: 8000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Versus:

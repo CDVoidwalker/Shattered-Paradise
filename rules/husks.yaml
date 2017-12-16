@@ -212,6 +212,29 @@ WASP.Husk:
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
 
+CABDRONEJET.Husk:		
+	Inherits: ^AircraftHusk
+	Inherits@5: ^CabRender
+	Tooltip:
+		Name: Wasp
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 149
+	Selectable:
+		Bounds: 1,1
+	-Cloak@CLOAKGENERATOR:
+	-ExternalCondition@cloakgenerator:
+	WithShadow:
+	WithFacingSpriteBody:
+	BodyOrientation:
+		QuantizedFacings: 32	
+	RenderSprites:
+		Image: cabdronejet	
+	-RenderVoxels:
+	-WithVoxelBody:
+	FallsToEarth:
+		Explosion: SmallPlaneExplode
+
 DEVOURER.Husk:		
 	Inherits: ^AircraftHusk
 	Inherits@5: ^CabRender
