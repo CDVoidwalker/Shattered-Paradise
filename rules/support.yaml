@@ -107,14 +107,14 @@ GAVULC:
 	Buildable:
 		Description: Basic base defense.\n\n  Strong vs Infantry.\n  Weak vs Aircraft.
 		Queue: Defense
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 0
 		Prerequisites: gapile, ~structures.gdi
 	Building:
 	Selectable:
 		Bounds: 48, 36, 0, -6
 	RequiresPower:
 	Health:
-		HP: 30000
+		HP: 120000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -154,14 +154,14 @@ GAROCK:
 	Buildable:
 		Description: GDI Advanced base defense.\n\n  Strong vs Vehicles.\n  Weak vs Aircraft.
 		Queue: Defense
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 1
 		Prerequisites: gaweap, ~structures.gdi
 	RequiresPower:
 	Building:
 	Selectable:
 		Bounds: 48, 36, 0, -6
 	Health:
-		HP: 50000
+		HP: 120000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -196,14 +196,14 @@ GACSAM:
 	Buildable:
 		Queue: Defense
 		Description: GDI Anti-Air base defense.\nStronger than average AA.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles.
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 3
 		Prerequisites: garadr, ~structures.gdi
 	RequiresPower:
 	Building:
 	Selectable:
 		Bounds: 48, 36, 0, -6
 	Health:
-		HP: 50000
+		HP: 120000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -338,7 +338,7 @@ GAFIRE:
 	Selectable:
 		Bounds: 110, 60, 3, -4
 	Health:
-		HP: 50000
+		HP: 200000
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@1:
@@ -448,7 +448,7 @@ GTDROP:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 111
-		Prerequisites: gatech, ~kistructures.gdi
+		Prerequisites: gatech, ~structures.gdi
 		BuildLimit: 1
 		Description: Provides access to drop pod support.
 	Valued:
@@ -479,6 +479,10 @@ GTDROP:
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
 		ChargeTime: 240
+		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 	Health:
 		HP: 300000
 
@@ -497,13 +501,13 @@ NALASR:
 		Description: Basic base defense.\nRequires power to operate.\n\n  Strong vs Ground units\n  Weak vs Aircraft
 		Queue: Defense
 		Prerequisites: nahand, ~structures.nod
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 1
 	Building:
 	Selectable:
 		Bounds: 40, 30, -8, -6
 	RequiresPower:
 	Health:
-		HP: 30000
+		HP: 100000
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 300
@@ -530,7 +534,7 @@ NAOBEL:
 	Buildable:
 		Description: Advanced base defense.\nRequires power to operate.\n\n  Strong vs Ground units\n  Weak vs Aircraft
 		Queue: Defense
-		BuildPaletteOrder: 90
+		BuildPaletteOrder: 2
 		Prerequisites: natech, ~structures.nod
 	Building:
 		Footprint: xx xx
@@ -539,7 +543,7 @@ NAOBEL:
 		Bounds: 88, 42, 0, -6
 	RequiresPower:
 	Health:
-		HP: 70000
+		HP: 160000
 	WithMuzzleOverlay:
 	Armament:
 		Weapon: ObeliskLaserFire
@@ -571,13 +575,13 @@ NASAM:
 		Description: Nod Anti-Air base defense.\nRequires power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
 		Queue: Defense
 		Prerequisites: naradr, ~structures.nod
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 3
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 50000
+		HP: 120000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -829,7 +833,7 @@ NAMISL:
 	NukePower@ToxinMissile:
 		Cursor: nuke
 		Icon: toxinmissile
-		ChargeTime: 120
+		ChargeTime: 180
 		Description: Toxin Missile
 		LongDesc: Launches a warhead filled with toxins,\n it spawns gas clouds and has\n a fast reaction time.
 		BeginChargeSound:
@@ -850,6 +854,9 @@ NAMISL:
 		OrderName: ToxinMissile
 		BeaconPoster:
 		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 		PauseOnCondition: disabled
 	SelectionDecorations:
 		VisualBounds: 75,48
@@ -866,7 +873,7 @@ MUTWALL:
 		Queue: Defense
 		BuildPaletteOrder: 1001
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks\nMay make you sell your conyard\nIf you're not careful.
-		Prerequisites: barracks, ~structures.mut
+		Prerequisites: murax, ~structures.mut
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -886,7 +893,7 @@ MUTGATE_A:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: barracks, ~structures.mut
+		Prerequisites: murax, ~structures.mut
 	Tooltip:
 		Name: Forgotten Gate
 	Gate:
@@ -898,7 +905,7 @@ MUTGATE_B:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Prerequisites: barracks, ~structures.mut
+		Prerequisites: murax, ~structures.mut
 	Tooltip:
 		Name: Forgotten Gate
 	Gate:
@@ -915,12 +922,12 @@ MUFLAK:
 		Queue: Defense
 		Description: Anti-Air base defense. Doesn't require power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
 		Prerequisites: muradr, ~structures.mut
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 3
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	Health:
-		HP: 35000
+		HP: 90000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -954,12 +961,12 @@ MUCANNON:
 		Queue: Defense
 		Description: Anti Armor base defence. Doesn't require power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Everything Else.
 		Prerequisites: muweap, ~structures.mut
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 2
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	Health:
-		HP: 40000
+		HP: 100000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -991,7 +998,7 @@ MUBUNKR:
 	Buildable:
 		Description: Fortified position where infantry can fire from within.\nCan hold up to 6 soldiers, starts with a Marauder and\n a Skirmisher on it.\n\n  Strength depends on garrisoned units.\n  Cannot target air units.
 		Queue: Defense
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 1
 		Prerequisites: murax, ~structures.mut
 	Building:
 		Footprint: xx xx
@@ -1006,13 +1013,13 @@ MUBUNKR:
 	-CanPowerDown:
 	-RequiresPower:
 	Health:
-		HP: 65000
+		HP: 140000
 	RevealsShroud:
 		Range: 8c0
 	AutoTarget:
 	Cargo:
-		MaxWeight: 6
-		PipCount: 6
+		MaxWeight: 4
+		PipCount: 4
 		Types: Infantry
 		EjectOnDeath: true
 	AttackGarrisoned:
@@ -1068,7 +1075,7 @@ MUTSW2:
 		Queue: Defense
 		BuildPaletteOrder: 90
 		Prerequisites: muhall, ~structures.mut
-		Description: Allows the player to summon\nveinhole monsters on the battlefield.
+		Description: Allows the player to summon veinhole monsters on the battlefield.\nThese monsters harm all infantry and vehicles around it.\nBut heal mutants.
 		BuildLimit: 1
 	Valued:
 		Cost: 1500
@@ -1093,6 +1100,10 @@ MUTSW2:
 		LongDesc: Spawns a cluster of baby veinholes\non the targetted location.
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
+		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 	Health:
 		HP: 300000
 
@@ -1135,14 +1146,14 @@ MUVENTI:
 		Description: Releases tiberium toxins into the area, harming\nnon mutant infantry and healing any mutant\n in the area.\nDoesn't stop operating while in low power.
 		Prerequisites: ~structures.mut, muhall
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Tiberium Ventilator
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
-		HP: 75000
+		HP: 100000
 	RequiresPower:
 	WithRangeCircle:
 		Range: 8c0
@@ -1237,13 +1248,13 @@ SCRNEEDLER:
 		Queue: Defense
 		Description: Basic defense, cloaks when idle.\nRequires power to operate.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: scrrax, ~structures.scr
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 1
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 65000
+		HP: 130000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -1286,13 +1297,13 @@ SCRTRACTOR:
 		Description: Scrin Anti-Air base defense, deals little damage\nbut slows down the targetted aircraft.\nRequires power to operate.\n\n  Strong vs Aircraft\n  Weak vs Ground units
 		Queue: Defense
 		Prerequisites: scrradr, ~structures.scr
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 3
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 45000
+		HP: 90000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -1306,6 +1317,9 @@ SCRTRACTOR:
 	Armament:
 		Weapon: TractorBeam
 		LocalOffset: 512,0,512
+	Armament@2:
+		Weapon: TractorBeam2
+		LocalOffset: 512,0,2048
 	Power:
 		Amount: -20
 	SelectionDecorations:
@@ -1321,12 +1335,12 @@ SCRDRONE:
 	Inherits@4: ^ScrinDeathExplo
 	Inherits@5: ^2x2Shape
 	Valued:
-		Cost: 1000
+		Cost: 1350
 	Tooltip:
 		Name: Visceroid Hive
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 2
 		Description: Advanced base defense.\nThrows Visceroids near the enemies.\nRequires power to operate.\n\n  Strong vs Ground Units.\n  Weak vs Aircraft.
 		Prerequisites: scrradr, ~structures.scr
 	Building:
@@ -1336,7 +1350,7 @@ SCRDRONE:
 		Bounds: 88, 42, 0, -6
 	RequiresPower:
 	Health:
-		HP: 80000
+		HP: 150000
 	RevealsShroud:
 		Range: 12c0
 	AttackOmni:
@@ -1379,7 +1393,7 @@ SCREXTRACTOR:
 		Palette: disabled
 	RequiresPower:
 	Health:
-		HP: 60000
+		HP: 100000
 	RevealsShroud:
 		Range: 4c0
 	Power:
@@ -1431,6 +1445,10 @@ SCRSW1:
 		OrderName: MeteorSpawner
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
+		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 	ProvidesPrerequisite@MeteorSpawner:
 		Prerequisite: MeteorSpawner
 		Factions: gdi, mut, nod, cab, scr
@@ -1592,6 +1610,8 @@ CABSENTRYTURRET:
 	Health:
 		HP: 7500
 	-Sellable:
+	-RequiresPower:
+	-CanPowerDown:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -1655,7 +1675,7 @@ CABPIT:
 	Buildable:
 		Description: Drone Hangar, launches small bomber drones.\nRequires power to operate.\n	Strong vs Infantry.\n	Weak vs Vehicles, Aircraft.\nDrones can be targeted as they are air units.
 		Queue: Defense
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 1
 		Prerequisites: cabclaw, ~structures.cab
 		IconPalette: UnittemIconCab
 	Power:
@@ -1672,7 +1692,7 @@ CABPIT:
 	-EmitInfantryOnSell@cab:
 	-EmitInfantryOnSell@scr:
 	Health:
-		HP: 65000
+		HP: 130000
 	RevealsShroud:
 		Range: 8c0
 	AutoTarget:
@@ -1697,15 +1717,15 @@ CABRAIL:
 		Name: Railgun Turret
 	Buildable:
 		Queue: Defense
-		Description: Anti armor defence with low rate of fire.\nRequires power to operate.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft. 
+		Description: Anti aircraft defence with low rate of fire.\nRequires power to operate.\n\n  Strong vs Aircraft.\n  Weak vs Infantry, Vehicles. 
 		Prerequisites: cabradr, ~structures.cab
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 3
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 60000
+		HP: 160000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -1773,13 +1793,13 @@ CABBLAST:
 		Queue: Defense
 		Description: Artillery, fires plasma.\nHas a minimun range of fire.\nRequires power to operate.\n\n  Strong vs Infantry, Structures.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: cabradr, ~structures.cab
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 2
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 	RequiresPower:
 	Health:
-		HP: 40000
+		HP: 80000
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
@@ -2008,6 +2028,10 @@ CABSW1:
 		OrderName: singularity
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
+		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 	Health:
 		HP: 300000
 
@@ -2048,8 +2072,11 @@ cabobelisk:
 		ChargeTime: 180
 		Weapon: NanoMachineBurst
 		DisplayRadarPing: True
-		CameraActor: camera
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: disabled
+		CameraActor: camera
+		CameraRange: 10c0
+		CameraSpawnAdvance: 25
+		CameraRemoveDelay: 350
 	Health:
 		HP: 300000

@@ -16,7 +16,7 @@ GrenadierBazooka:
 	ReloadDelay: 100
 	Range: 6c600
 	MinRange: 2c0
-	Report: scifiexplo.wav
+	Report: rketinf1.aud
 	ValidTargets: Ground, Air
 	Projectile: Missile
 		Speed: 233
@@ -144,6 +144,7 @@ HoverMissile:
 	Range: 7c512
 	Report: hovrmis1.aud
 	ValidTargets: Ground
+	InvalidTargets: Air
 	Projectile: Missile
 		MaximumLaunchSpeed: 213
 		Arm: 2
@@ -155,15 +156,17 @@ HoverMissile:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
-		ValidTargets: Ground
+		InvalidTargets: Air
+		ValidTargets: Ground, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 HoverMissileAA:
 	Inherits: HoverMissile
 	ValidTargets: Air
+	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
 		ValidTargets: Air
+		InvalidTargets: Ground, Vehicle, Building, Infantry
 
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
@@ -226,10 +229,10 @@ SonicZap:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 MechRailgun:
-	ReloadDelay: 80
+	ReloadDelay: 68
 	Range: 8c0
 	Burst: 2 # for alternating muzzle offsets, dmg/s identical to original
-	BurstDelay: 80
+	BurstDelay: 68
 	Report: railuse5.aud
 	Projectile: AreaBeam
 		Speed: 20c0
@@ -284,6 +287,9 @@ MammothTusk:
 		Versus:
 		DamageTypes: Explosion
 
+MKIITusk:
+	Inherits: MammothTusk
+	Burst: 4
 #############################################
 # Aircraft
 #############################################				
@@ -303,8 +309,6 @@ FighterHellfire:
 		Shadow: true
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
@@ -313,7 +317,7 @@ FighterHellfire:
 
 AAFighterHellfire:
 	Inherits@2: ^Mediumtwlt
-	ReloadDelay: 60
+	ReloadDelay: 40
 	Range: 6c0
 	Report: orcamis1.aud
 	ValidTargets: Air

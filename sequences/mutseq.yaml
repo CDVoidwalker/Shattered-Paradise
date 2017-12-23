@@ -1062,6 +1062,7 @@ mutgate_a:
 	Defaults: mutgate
 		Offset: -24, -24, 24
 		UseTilesetCode: true
+		ZOffset: -512
 	idle: mutgate
 		Length: 12
 	damaged-idle: mutgate
@@ -1087,6 +1088,7 @@ mutgate_b:
 	Defaults: mutgate
 		Offset: 24, -24, 24
 		UseTilesetCode: true
+		ZOffset: -512
 	idle: mutgate
 		Start: 12
 		Length: 12

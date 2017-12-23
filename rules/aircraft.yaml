@@ -55,6 +55,9 @@ CLOUD1:
 		UseDeathTypeSuffix: false
 	ExplodeWeapon:
 		Weapon: CloudDamage
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 #######################################################
 #GDI
@@ -93,7 +96,7 @@ ORCA:
 		PipCount: 4
 		PipType: Ammo
 		ReloadCount: 2
-		ReloadTicks: 75
+		ReloadDelay: 31
 		PipTypeEmpty: AmmoEmpty
 	AutoTarget:
 	RenderSprites:
@@ -104,7 +107,7 @@ ORCAB:
 	Inherits: ^Plane
 	Inherits@1: ^AutoTargetAll
 	Valued:
-		Cost: 1500
+		Cost: 1750
 	Tooltip:
 		Name: Orca Bomber
 	Buildable:
@@ -136,7 +139,7 @@ ORCAB:
 		Ammo: 20
 		PipCount: 2
 		ReloadCount: 10
-		ReloadTicks: 200
+		ReloadDelay: 25
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 	RenderSprites:
@@ -159,7 +162,7 @@ TRNSPORT:
 	Aircraft:
 		LandWhenIdle: yes
 		TurnSpeed: 5
-		Speed: 149
+		Speed: 95
 		CruiseAltitude: 2800
 		InitialFacing: 0
 		TakeoffSound: dropup1.aud
@@ -346,7 +349,7 @@ APACHE:
 	Inherits@1: ^AutoTargetAll
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 1250
+		Cost: 1500
 	Tooltip:
 		Name: Harpy
 	Buildable:
@@ -374,11 +377,11 @@ APACHE:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 8
-		PipCount: 6
-		ReloadCount: 5
+		PipCount: 8
+		ReloadCount: 2
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
-		ReloadTicks: 50
+		ReloadDelay: 31
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
@@ -394,52 +397,11 @@ APACHE:
 	SpawnActorOnDeath:
 		Actor: APACHE.Husk
 
-APACHEHOLOGRAM:
-	Inherits: APACHE
-	Inherits@1: ^AutoTargetAll
-	-Buildable:
-	RenderSprites:
-		Image: apache
-	RenderVoxels:
-		Image: apache
-	WithDecoration@holoicon:
-		Image: holoicon
-		Sequence: idle
-		ReferencePoint: Bottom, Right
-		Palette: mouse
-	-SpawnActorOnDeath:
-	FirepowerMultiplier@Hologram:
-		Modifier: 20
-		BaseLevel: 0
-	WithDeathAnimation@body:
-		DeathSequencePalette: apolra2i
-		DeathPaletteIsPlayerPalette: False
-		DeathTypes: #1 2 normals, 3 headshot, 4 explosion
-			BulletDeath: evaporate
-			CabalDeath: evaporate
-			CabalDeathCrate: evaporate
-			BlackHandRfle: evaporate
-			HeadshotDeath: evaporate
-			SmallExplosionDeath: evaporate
-			FireDeath: evaporate
-			TiberiumDeath: evaporate
-			TiberiumDeathStrong: evaporate
-			EnergyDeath: evaporate
-			ExplosionDeath: evaporate
-	GrantPeriodicCondition:
-		Condition: KillMe
-		CooldownDuration: 500
-	KillsSelf@KillMe:
-		RequiresCondition: KillMe
-	ExternalCondition@KillMe:
-		Condition: KillMe
-	-ActorLostNotification:
-
 SCRIN:
 	Inherits: ^Plane
 	Inherits@1: ^AutoTargetAll
 	Valued:
-		Cost: 1500
+		Cost: 1750
 	Tooltip:
 		Name: Banshee Fighter
 	Buildable:
@@ -482,7 +444,7 @@ SCRIN:
 		Ammo: 27
 		PipCount: 3
 		ReloadCount: 9
-		ReloadTicks: 100
+		ReloadDelay: 15
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 	AutoTarget:
@@ -495,7 +457,6 @@ CERBERUS:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAll
 	Inherits@3: ^BasicStealthDetection
-	Inherits@4: ^PermanentSelfHeal
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -569,7 +530,7 @@ MUTHELI:
 	Inherits@2: ^AutoTargetAll
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 1750
+		Cost: 1500
 	Tooltip:
 		Name: Gargoyle
 	Buildable:
@@ -581,13 +542,13 @@ MUTHELI:
 		Bounds: 30,24
 	Aircraft:
 		TurnSpeed: 7
-		Speed: 85
+		Speed: 100
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
 		RearmBuildings: muair, gahpad, nahpad
 	Health:
-		HP: 18000
+		HP: 16000
 	RenderVoxels:
 		Scale: 9
 	WithIdleOverlay@ROTORAIR:
@@ -602,14 +563,19 @@ MUTHELI:
 		Weapon: GargoylACannon
 		MuzzleSequence: muzzle
 		LocalOffset: 900,0,0
+	Armament@AA:
+		Weapon: GargoylACannonAA
+		MuzzleSequence: muzzle
+		LocalOffset: 900,0,0
 	WithMuzzleOverlay:
 	AttackHeli:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
-		Ammo: 24
-		PipCount: 7
-		ReloadCount: 3
+		Ammo: 12
+		PipCount: 8
+		ReloadCount: 7
+		ReloadDelay: 25
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 	AutoTarget:
@@ -653,10 +619,9 @@ WETP:
 		Ammo: 1
 		PipCount: 1
 		ReloadCount: 1
-		ReloadTicks: 250
+		ReloadDelay: 300
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
-		RearmBuildings: muair, gahpad, nahpad
 	AutoTarget:
 		ScanRadius: 8
 	RenderSprites:
@@ -670,6 +635,7 @@ MUTQUEEN:
 	Inherits@1: ^SpriteActor
 	Inherits@2: ^MutRender
 	Inherits@3: ^AutoTargetAll
+	Inherits@4: ^PermanentSelfHeal
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -692,7 +658,7 @@ MUTQUEEN:
 		LandingSound: orcadwn1.aud
 		IdealSeparation: 1c0
 	RevealsShroud:
-		Range: 6c0
+		Range: 8c0
 	Health:
 		HP: 17500
 	-RenderVoxels:
@@ -830,14 +796,14 @@ drache:
 		Bounds: 144, 60, 0, -6
 		Priority: 4
 	Health:
-		HP: 300000
+		HP: 100000
 	Voiced:
 		VoiceSet: Limpet
 	Targetable@MindControlInmune:
 		TargetTypes: MindControlInmune
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 45
+		Speed: 35
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
@@ -873,7 +839,7 @@ SCRGLYDER1:
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
 	Valued:
-		Cost: 700
+		Cost: 800
 	Tooltip:
 		Name: Glider
 	# Buildable:
@@ -881,6 +847,8 @@ SCRGLYDER1:
 		# Queue: Air
 		# BuildPaletteOrder: 20
 		# Prerequisites: ~scrair
+	RevealsShroud:
+		Range: 8c0
 	Voiced:
 		VoiceSet: Limpet
 	Selectable:
@@ -896,7 +864,7 @@ SCRGLYDER1:
 		LandingSound: orcadwn1.aud
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
-		HP: 15000
+		HP: 20000
 	Armament:
 		Weapon: Glyder1Cannon
 		LocalOffset: 0,0,-100
@@ -1026,7 +994,7 @@ SCRINCOUNCIL:
 		Description: Mobile factory, it can construct vehicles.\n\n  Unarmed.
 		BuildLimit: 1
 	Valued:
-		Cost: 2250
+		Cost: 3000
 	Tooltip:
 		Name: Creation engine
 	Selectable:
@@ -1036,7 +1004,7 @@ SCRINCOUNCIL:
 	Selectable:
 		Priority: 6
 	Health:
-		HP: 70000
+		HP: 50000
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 60
@@ -1051,9 +1019,6 @@ SCRINCOUNCIL:
 		SpawnOffset: 0,0,-50
 	ProductionQueue:
 		Type: Vehicle
-	RevealsShroud:
-		Range: 12c0
-		Type: CenterPosition
 	RenderSprites:
 	Hovers:
 	WithInfantryBody:
@@ -1062,15 +1027,23 @@ SCRINCOUNCIL:
 	-WithVoxelBody:
 	SpawnActorOnDeath:
 		Actor: SCRCOUNCIL.Husk
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
+	PrimaryBuilding:
+		PrimaryCondition: primary
+	ProductionBar:
 
 SCRCARRIER:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^BasicStealthDetection
-	Inherits@5:	^PermanentSelfHeal
 	Valued:
-		Cost: 2000
+		Cost: 2500
 	Tooltip:
 		Name: Assault Carrier
 	Buildable:
@@ -1083,7 +1056,7 @@ SCRCARRIER:
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Selectable:
-		Bounds: 175,125
+		Bounds: 130,130
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 50
@@ -1093,9 +1066,6 @@ SCRCARRIER:
 		LandingSound: orcadwn1.aud
 	Health:
 		HP: 100000
-	RevealsShroud:
-		Range: 16c0
-		Type: CenterPosition
 	Targetable@GROUND:
 		TargetTypes: Vehicle, MindControlInmune, Mothership
 	Targetable@AIRBORNE:
@@ -1164,8 +1134,7 @@ STORMRIDERSPAWN:
 		InitialStance: AttackAnything
 	ExternalCondition@Return:
 		Condition: ForceReturn
-	SpawnActorOnDeath:
-		Actor: WYVERM2.Husk
+	-SpawnActorOnDeath:
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
@@ -1173,7 +1142,7 @@ CABDRONEJET:
 	Armament:
 		Weapon: CabJetMiniBomb
 	Valued:
-		Cost: 30
+		Cost: 200
 	Health:
 		HP: 5000
 	RenderSprites:
@@ -1190,8 +1159,6 @@ CABDRONEJET:
 		AttackTurnDelay: 25
 	RejectsOrders:
 	-SelectionDecorations:
-	SpawnActorOnDeath:
-		Actor: CABDRONEJET.Husk
 
 SCRBATTLESHIP:
 	Inherits: ^Helicopter
@@ -1239,7 +1206,7 @@ SCRBATTLESHIP:
 	AmmoPool:
 		Ammo: 25
 		PipCount: 0
-		ReloadTicks: 5
+		ReloadDelay: 5
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 	AutoTarget:
@@ -1265,7 +1232,7 @@ MINIWYVERM:
 	-Buildable:
 	-GainsExperience:
 	Valued:
-		Cost: 100
+		Cost: 200
 	AutoSelectionSize:
 	-Selectable:
 	-AppearsOnRadar:
@@ -1323,11 +1290,10 @@ MINIWYVERM2:
 WASP:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAll
-	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
 	Valued:
-		Cost: 1500
+		Cost: 1650
 	Tooltip:
 		Name: Wasp
 	Buildable:
@@ -1398,6 +1364,7 @@ FIREFLY:
 		TurnSpeed: 6
 		Speed: 120
 		Repulsable: true
+		-RearmBuildings: gahpad, nahpad, muair, cabair
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
@@ -1415,8 +1382,8 @@ FIREFLY:
 		PipCount: 5
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
-		SelfReloadsTicks: 8000
-		SelfReloads: false
+		SelfReloadDelay: 1500
+		SelfReloads: True
 		ReloadCount: 5
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -1431,7 +1398,6 @@ FIREFLY:
 DEVOURER:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAll
-	Inherits@2: ^PermanentSelfHeal
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
 	Valued:
@@ -1447,7 +1413,7 @@ DEVOURER:
 		Bounds: 120, 75, 0, -35
 	Aircraft:
 		TurnSpeed: 6
-		Speed: 50
+		Speed: 45
 		CruiseAltitude: 0c750
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1468,9 +1434,6 @@ DEVOURER:
 	AttackHeli:
 		FacingTolerance: 90
 		Voice: Attack
-	WithRangeCircle:
-		Range: 6c0
-		Type: Bounty
 	AutoTarget:
 		ScanRadius: 5
 	-RenderVoxels:
@@ -1495,7 +1458,6 @@ BASILISK:
 	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^Ra2vxl
 	Inherits@3: ^SelfReloads
-	Inherits@4:	^PermanentSelfHeal
 	Valued:
 		Cost: 1800
 	Tooltip:

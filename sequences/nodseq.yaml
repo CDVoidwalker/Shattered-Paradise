@@ -402,22 +402,29 @@ bggy:
 
 ttnk:
 	Inherits: ^EmpOverlay
-	idle: gatick
-		ShadowStart: 3
-		Offset: 0, -12
-	damaged-idle: gatick
-		Start: 1
-		ShadowStart: 4
-		Offset: 0, -12
-	make: gatickmk
-		Length: 24
-		ShadowStart: 24
-		Offset: 0, -12
+	idle: ticktanksprite
+		Facings: -32
+		ShadowStart: 85
+	make: ticktankmake
+		Length: 20
+		ShadowStart: 20
+		# Tick: 50
+	deployed: ticktanksprite
+		Start: 52
+		ShadowStart: 137
+	damaged-deployed: ticktanksprite
+		Start: 52
+		ShadowStart: 137
+	turret: ticktanksprite
+		Start: 53
+		Facings: -32
+		ShadowStart: 138
+		# Offset: -6,0, 32
 	dieevaporate: infgas
 		Length: *
 		Offset: 0,-6, 32
 		Tick: 30
-	icon: tickicon
+	icon: ticktankcameo
 
 sapc:
 	Inherits: ^EmpOverlay
@@ -429,7 +436,10 @@ subtank:
 
 stnk:
 	Inherits: ^EmpOverlay
-	icon: stnkicon	
+	idle: stnksprite
+		Facings: -32
+		ShadowStart: 32
+	icon: stealthtankicon	
 
 sgen:
 	Inherits: ^EmpOverlay
@@ -954,6 +964,7 @@ gate_a.nod:
 		Offset: -24, -24
 		UseTilesetCode: true
 		Tick: 80
+		ZOffset: -512
 	idle: nagate_a
 		Length: 7
 		ShadowStart: 15
@@ -983,6 +994,7 @@ gate_b.nod:
 		Offset: 24, -24, 24
 		UseTilesetCode: true
 		Tick: 80
+		ZOffset: -512
 	idle: nagate_b
 		Length: 7
 		ShadowStart: 15

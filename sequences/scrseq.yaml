@@ -616,10 +616,9 @@ drached:
 		Start: 35
 		Tick: 400
 		ShadowStart: 71		
-	make:
-		Start: 22
-		Length: 13
-		ShadowStart: 58
+	make: drachedmake
+		Length: 14
+		ShadowStart: 14
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -976,6 +975,7 @@ scrgate_a:
 	Defaults: scrgate
 		Offset: -24, -24, 24
 		UseTilesetCode: true
+		ZOffset: -512
 	idle: scrgate
 	dead: scrgate
 	make: scrgate
@@ -995,6 +995,7 @@ scrgate_b:
 	Defaults: scrgate
 		Offset: 24, -24, 24
 		UseTilesetCode: true
+		ZOffset: -512
 	idle: scrgate
 		Start: 21
 	dead: scrgate

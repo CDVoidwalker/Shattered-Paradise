@@ -300,7 +300,7 @@ ScorpAcid:
 
 MindController:
 	ReloadDelay: 125
-	Range: 8c0
+	Range: 6c0
 	ValidTargets: Infantry
 	InvalidTargets: MCImmune
 	Report: iyurat1a.wav
@@ -613,7 +613,8 @@ StormRiderBlast:
 	ReloadDelay: 100
 	Range: 6c512
 	Report: laserpistol.wav
-	ValidTargets: Ground
+	ValidTargets: Ground, Vehicle, Building, Infantry
+	InvalidTargets: Air
 	Projectile: BulletAS
 		Speed: 600
 		Blockable: false
@@ -626,7 +627,8 @@ StormRiderBlast:
 		Image: blueplasma
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
-		ValidTargets: Ground
+		ValidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 96
@@ -635,11 +637,25 @@ StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
 	ReloadDelay: 75
 	ValidTargets: Air
-	Projectile: BulletAS
-		Speed: 800
+	InvalidTargets: Ground, Vehicle, Building, Infantry
+	Projectile: Missile
+		TerrainHeightAware: True
+		CruiseAltitude: 4000
+		MinimumLaunchAngle: 300
+		MaximumLaunchAngle: 300
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
+		Speed: 0c600
+		Blockable: false
+		Shadow: true
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
+		RangeLimit: 28c291
+		AllowSnapping: true
 	Warhead@1Dam: SpreadDamage
-		Damage: 1500
+		Damage: 2000
 		ValidTargets: Air
+		InvalidTargets: Ground, Vehicle, Building, Infantry
 
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
@@ -673,7 +689,7 @@ Glyder2Cannon:
 	Report: photon1.wav
 	ValidTargets: Air
 	Projectile: Missile
-		Speed: 200
+		Speed: 300
 		Image: torpedo
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
@@ -770,7 +786,7 @@ DestroyerCannonOP:
 FighterSpawn:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 50
-	Range: 13c0
+	Range: 8c0
 	Projectile: InstantExplode
 	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage
@@ -798,6 +814,10 @@ WyvermBlast:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c180
 		Damage: 3000
+		Versus:
+			InfantryArmor: 10
+			VehicleArmor: 100
+			BuildingArmor: 50
 		ValidTargets: Ground, Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
@@ -885,6 +905,17 @@ TractorBeam:
 		Duration: 35
 		Condition: tractorstop
 		ValidTargets: Air
+
+TractorBeam2:
+	ReloadDelay: 5
+	Range: 8c0
+	ValidTargets: Air
+	Projectile: LaserZap
+		Color: 50F5FF45
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		ValidTargets: Air
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 DronePlane:
 	Inherits: ^BombWarhead

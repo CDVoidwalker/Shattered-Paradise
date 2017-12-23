@@ -320,14 +320,16 @@ moth:
 	stand:
 		Facings: -32
 		ShadowStart: 55
+	idle:
+		Facings: -32
+		ShadowStart: 55
 	run:
 		Facings: -32
 		ShadowStart: 55
-	make:
-		Start: 32
-		Length: 12
-		ShadowStart: 87
-	idle:
+	make: mothmake
+		Length: 15
+		ShadowStart: 15
+	deployed:
 		Start: 45
 		Length: 10
 		Tick: 75
@@ -1374,6 +1376,8 @@ cabsw1:
 
 nanomachineswarmdummy:
 	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: 0,-32
 	idle: dot
 		UseTilesetCode: false
 		ZOffset: -1024

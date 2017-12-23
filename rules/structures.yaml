@@ -56,7 +56,7 @@ GAPILE:
 	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 1
 		Description: Produces infantry.
 		Prerequisites: anypower, ~structures.gdi
 	Tooltip:
@@ -84,7 +84,7 @@ GAWEAP:
 		Name: GDI War Factory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 3
 		Description: Produces vehicles.
 		Prerequisites: proc, ~structures.gdi
 	WithIdleOverlay@ROOF:
@@ -99,6 +99,24 @@ GAWEAP:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 
+GARADR:
+	Inherits: ^Radar
+	Inherits@2: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: proc, ~structures.gdi
+	Tooltip:
+		Name: GDI Radar
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+	Selectable:
+		Bounds: 96, 48, 0, -6
+	SelectionDecorations:
+		VisualBounds: 96, 118, 0, -38
+
 GAHPAD:
 	Inherits@1: ^Helipad
 	Inherits@2: ^2x2Shape
@@ -107,7 +125,7 @@ GAHPAD:
 	Tooltip:
 		Name: Helipad
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 6
 		Queue: Building
 		Description: Produces, rearms and\nrepairs helicopters.
 		Prerequisites: proc, garadr, ~structures.gdi
@@ -121,8 +139,6 @@ GAHPAD:
 		HP: 60000
 	RevealsShroud:
 		Range: 5c0
-	RepairsUnits:
-		Interval: 1
 	ProductionBar:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
@@ -139,30 +155,12 @@ GAHPAD:
 	SelectionDecorations:
 		VisualBounds: 88, 66, 0, -5
 
-GARADR:
-	Inherits: ^Radar
-	Inherits@2: ^2x2Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 90
-		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
-		Prerequisites: proc, ~structures.gdi
-	Tooltip:
-		Name: GDI Radar
-	WithIdleOverlay@DISH:
-		Sequence: idle-dish
-		PauseOnLowPower: yes
-	Selectable:
-		Bounds: 96, 48, 0, -6
-	SelectionDecorations:
-		VisualBounds: 96, 118, 0, -38
-
 GATECH:
 	Inherits: ^TechCenter
 	Inherits@4: ^3x2Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 7
 		Description: Provides access to advanced G.D.I. technologies.
 		Prerequisites: gaweap, garadr, ~structures.gdi
 	Tooltip:
@@ -244,12 +242,73 @@ NAPOWR:
 	SelectionDecorations:
 		VisualBounds: 88, 80, 2, -12
 
+NAHAND:
+	Inherits: ^Barracks
+	Inherits@2: ^3x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1
+		Description: Produces infantry.
+		Prerequisites: anypower, ~structures.nod
+	Tooltip:
+		Name: Hand of Nod
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 116, 60, 3, -6
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	WithProductionOverlay@LIGHT:
+		Sequence: production-light
+	SelectionDecorations:
+		VisualBounds: 116, 60, 3, -6
+	ProvidesPrerequisite@SharedEngie:
+		Prerequisite: SharedEngie
+
+NAWEAP:
+	Inherits: ^Factory
+	Tooltip:
+		Name: Nod War Factory
+	ProvidesPrerequisite:
+		Prerequisite: factory
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 3
+		Description: Produces vehicles.
+		Prerequisites: proc, ~structures.nod
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+	WithProductionOverlay@LIGHTS:
+		Sequence: production-lights
+	WithIdleOverlay@BIB:
+		Sequence: bib
+
+NARADR:
+	Inherits: ^Radar
+	Inherits@2: ^2x2Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: proc, ~structures.nod
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+	Tooltip:
+		Name: Nod Radar
+	Selectable:
+		Bounds: 96, 48, 0, -6
+	SelectionDecorations:
+		VisualBounds: 96, 72, 0, -12
+
 NAAPWR:
 	Inherits: ^Building
 	Inherits@2: ^2x3Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 5
+		BuildPaletteOrder: 6
 		Description: Provides twice as much power as\nthe normal Power Plant.
 		Prerequisites: naradr, ~structures.nod
 	Valued:
@@ -281,49 +340,6 @@ NAAPWR:
 	SelectionDecorations:
 		VisualBounds: 100, 74, 0, -12
 
-NAHAND:
-	Inherits: ^Barracks
-	Inherits@2: ^3x2Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 30
-		Description: Produces infantry.
-		Prerequisites: anypower, ~structures.nod
-	Tooltip:
-		Name: Hand of Nod
-	Building:
-		Footprint: xxx xxx
-		Dimensions: 3,2
-	Selectable:
-		Bounds: 116, 60, 3, -6
-	WithIdleOverlay@LIGHTS:
-		Sequence: idle-lights
-	WithProductionOverlay@LIGHT:
-		Sequence: production-light
-	SelectionDecorations:
-		VisualBounds: 116, 60, 3, -6
-	ProvidesPrerequisite@SharedEngie:
-		Prerequisite: SharedEngie
-
-NAWEAP:
-	Inherits: ^Factory
-	Tooltip:
-		Name: Nod War Factory
-	ProvidesPrerequisite:
-		Prerequisite: factory
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 50
-		Description: Produces vehicles.
-		Prerequisites: proc, ~structures.nod
-	WithIdleOverlay@ROOF:
-		Sequence: idle-roof
-	WithProductionDoorOverlay@DOOR:
-	WithProductionOverlay@LIGHTS:
-		Sequence: production-lights
-	WithIdleOverlay@BIB:
-		Sequence: bib
-
 NAHPAD:
 	Inherits@1: ^Helipad
 	Inherits@2: ^2x2Shape
@@ -332,7 +348,7 @@ NAHPAD:
 	Tooltip:
 		Name: Helipad
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 7
 		Queue: Building
 		Description: Produces, rearms and\nrepairs helicopters.
 		Prerequisites: proc, naradr, ~structures.nod
@@ -348,8 +364,6 @@ NAHPAD:
 		Range: 5c0
 	DockManager:
 	PrimaryBuilding:
-		Interval: 1
-	RepairsUnits:
 	ProductionBar:
 	WithIdleOverlay@PLATFORM:
 		Sequence: idle-platform
@@ -365,31 +379,13 @@ NAHPAD:
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 		VisualBounds: 78, 54, 0, -8
-
-NARADR:
-	Inherits: ^Radar
-	Inherits@2: ^2x2Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 90
-		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
-		Prerequisites: proc, ~structures.nod
-	WithIdleOverlay@DISH:
-		Sequence: idle-dish
-		PauseOnLowPower: yes
-	Tooltip:
-		Name: Nod Radar
-	Selectable:
-		Bounds: 96, 48, 0, -6
-	SelectionDecorations:
-		VisualBounds: 96, 72, 0, -12
-
+    
 NATECH:
 	Inherits: ^TechCenter
 	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 8
 		Description: Provides access to advanced Nod technologies.
 		Prerequisites: naweap, naradr, ~structures.nod
 	Tooltip:
@@ -490,7 +486,7 @@ MURAX:
 	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 1
 		Description: Forgotten Weapons stash, arms soldiers for battle.
 		Prerequisites: anypower, ~structures.mut
 	Tooltip:
@@ -509,7 +505,7 @@ MUPROC:
 	Inherits: PROC
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 2
 		Description: Processes raw Tiberium\ninto usable resources.\nIncompatible with scrin harvesters.
 		Prerequisites: ~forgproc, anypower
 	Tooltip:
@@ -539,7 +535,7 @@ MUWEAP:
 		Name: Mutant War Factory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 3
 		Description: Produces vehicles.
 		Prerequisites: proc, ~structures.mut
 	WithIdleOverlay@ROOF:
@@ -548,17 +544,34 @@ MUWEAP:
 	WithIdleOverlay@BIB:
 		Sequence: bib
 
+
+MURADR:
+	Inherits: ^Radar
+	Inherits@1: ^MutRender
+	Inherits@2: ^2x2Shape
+	Buildable:
+		Queue: Building
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		BuildPaletteOrder: 4
+		Prerequisites: proc, ~structures.mut
+	Tooltip:
+		Name: Dome Radar
+	Selectable:
+		Bounds: 96, 66, 0, -10
+	SelectionDecorations:
+		VisualBounds: 96, 66, 0, -13
+
 MUAIR:
 	Inherits@1: ^MutRender
 	Inherits@3: ^Helipad
 	Valued:
 		Cost: 500
 	Tooltip:
-		Name: Mutant Airstrip
+		Name: Mutant Helipad
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 6
 		Queue: Building
-		Description: Produces, rearms and repairs helicopters and Jets.\nCan serve up to four aircraft at a time.
+		Description: Produces, rearms and repairs helicopters and Jets.
 		Prerequisites: proc, muradr, ~structures.mut
 	Building:
 		Footprint: xx xx
@@ -569,16 +582,15 @@ MUAIR:
 	DockManager:
 		DockOnActor: true
 		DeadlockDetectionEnabled: false
-	Dock@0:
-		DockOffset: 0,0
+	Dock:
+		DockOffset: 1,1
+		WOffset: 0, 0, 0
 	Power:
 		Amount: -10
 	Health:
 		HP: 60000
 	RevealsShroud:
 		Range: 5c0
-	RepairsUnits:
-		Interval: 1
 	ProductionBar:
 	Selectable:
 		Bounds: 88, 66, 0, -5
@@ -586,29 +598,13 @@ MUAIR:
 	SelectionDecorations:
 		VisualBounds: 88, 66, 0, -5
 
-MURADR:
-	Inherits: ^Radar
-	Inherits@1: ^MutRender
-	Inherits@2: ^2x2Shape
-	Buildable:
-		Queue: Building
-		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
-		BuildPaletteOrder: 90
-		Prerequisites: proc, ~structures.mut
-	Tooltip:
-		Name: Dome Radar
-	Selectable:
-		Bounds: 96, 66, 0, -10
-	SelectionDecorations:
-		VisualBounds: 96, 66, 0, -13
-
 MUHALL:
 	Inherits: ^TechCenter
 	Inherits@1: ^MutRender
 	Inherits@2: ^3x3Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 7
 		Description: Provides access to contact with Forgotten Leaders.
 		Prerequisites: muweap, muradr, ~structures.mut
 	Tooltip:
@@ -631,11 +627,6 @@ MUSTABLE:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
 	Inherits@2: ^2x3Shape
-	# Buildable:
-		# Queue: Building
-		# BuildPaletteOrder: 100
-		# Description: Allows beast herding.\nBeasts become stronger when hurt,\ngain regenerative capabilities but \nthey can't be ordered while in  this state.
-		# Prerequisites: murax, ~structures.mut
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -678,7 +669,7 @@ drached:
 		BuildSounds: facbld1.aud
 		Dimensions: 3,3
 	Health:
-		HP: 240000
+		HP: 300000
 	RevealsShroud:
 		Range: 5c0
 	Production:
@@ -721,7 +712,7 @@ drached:
 		Prerequisites: AImoney
 	CashTrickler@AImoney:
 		Interval: 1000
-		Amount: 10000
+		Amount: 600
 		ShowTicks: False
 		RequiresCondition: money
 
@@ -770,7 +761,7 @@ SCRRAX:
 	Inherits@4: ^2x2Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 1
 		Description: Allows the player to call in Scrin Infantry.
 		Prerequisites: scrpowr, ~structures.scr
 	Tooltip:
@@ -803,7 +794,7 @@ SCRPROC:
 		Name: Scrin Refinery
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 2
 		Description: Processes raw Ichor\ninto usable resources.\nIncompatible with human harvesters.
 		Prerequisites: scrpowr, ~structures.scr
 	Building:
@@ -869,7 +860,7 @@ SCRWEAP:
 	Buildable:
 		Queue: Building
 		Description: Produces vehicles.
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 3
 		Prerequisites: scrproc, ~structures.scr
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
@@ -878,6 +869,62 @@ SCRWEAP:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
+
+SCRRADR:
+	Inherits: ^Radar
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^3x3Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: scrproc, ~structures.scr
+	Tooltip:
+		Name: Scrin Radar
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 120, 90, 0, -20
+	SelectionDecorations:
+		VisualBounds: 120, 90, 0, -20
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	
+SCRDEPOT:
+	Inherits: GADEPT
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 5
+		Prerequisites: scrweap, ~structures.scr
+	Tooltip:
+		Name: Scrin Maintenance Depot
+	Dock:
+		DockAngle: 160
+		DockOffset: 1,1
+		Order: 2
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+		VisualBounds: 110, 60, 3, -4
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	RenderSprites:
+		Image: scrdepot
+		-FactionImages:
+	-WithIdleOverlay@LIGHT:
+	-WithIdleOverlay@GROUND:
+	-WithIdleOverlay@CIRCUITS:
+	-WithRepairOverlay@CRANE:
+	-WithRepairOverlay@PLATFORM:
+	-WithDeathAnimation@BIB:
 
 SCRAIR:
 	Inherits: ^Building
@@ -889,7 +936,7 @@ SCRAIR:
 	Tooltip:
 		Name: Stargate
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 6
 		Description: Warps in warships from a nomad galaxy.
 		Queue: Building
 		Prerequisites: scrproc, scrradr, ~structures.scr
@@ -922,7 +969,7 @@ SCRAIR:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	Power:
-		Amount: -60
+		Amount: -20
 	Selectable:
 		Bounds: 120, 130, 0, -40
 	ProvidesPrerequisite@buildingname:
@@ -938,81 +985,6 @@ SCRAIR:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
-		
-SCRDEPOT:
-	Inherits: ^Building
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
-	DockManager:
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 100
-		Description: Allows the scrin commander to repair vehicles.\nVehicles near it auto repair slowly.
-		Prerequisites: scrweap, ~structures.scr
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Scrin Maintenance Depot
-	Building:
-		Footprint: _x_ xxx _x_
-		Dimensions: 3,3
-	Selectable:
-		Bounds: 110, 60, 3, -4
-	Health:
-		HP: 50000
-	Armor:
-		Type: BuildingArmor
-	Dock@2:
-		DockAngle: 160
-		DockOffset: 2,1
-		Order: 2
-	RepairsUnits:
-		FinishRepairingNotification: UnitRepaired
-		HpPerStep: 2000
-		PlayerExperience: 15
-	ProximityExternalCondition:
-		Condition: AuraRepair
-		Range: 5c0
-	WithRangeCircle:
-		Range: 5c0
-		Type: Repair
-	RevealsShroud:
-		Range: 4c0
-	Power:
-		Amount: -30
-	ProvidesPrerequisite@buildingname:
-	SelectionDecorations:
-		VisualBounds: 110, 60, 3, -4
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
-
-SCRRADR:
-	Inherits: ^Radar
-	Inherits@2: ^ScrinRender
-	Inherits@3: ^ScrinDeathExplo
-	Inherits@4: ^3x3Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 90
-		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
-		Prerequisites: scrproc, ~structures.scr
-	Tooltip:
-		Name: Scrin Radar
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
-	Selectable:
-		Bounds: 120, 90, 0, -20
-	SelectionDecorations:
-		VisualBounds: 120, 90, 0, -20
-	WithIdleOverlay@DISH:
-		Sequence: idle-dish
-		PauseOnLowPower: yes
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 
 SCRTECH:
 	Inherits: ^TechCenter
@@ -1021,7 +993,7 @@ SCRTECH:
 	Inherits@2: ^2x3Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 7
 		Description: Provides an area for surface sampling\nAllows the Scrin to adapt their most advanced units\nto the host planet.
 		Prerequisites: scrweap, scrradr, ~structures.scr
 	Valued:
@@ -1093,7 +1065,7 @@ CABCLAW:
 		Name: Cabal Claw
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 1
 		Description: Produces infantry.
 		Prerequisites: anypower, ~structures.cab
 	Building:
@@ -1110,7 +1082,7 @@ CABPROC:
 	Inherits: PROC
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 2
 		Description: Processes raw Tiberium\ninto usable resources.\nIncompatible with scrin harvesters.
 		Prerequisites: anypower, ~structures.cab
 	Tooltip:
@@ -1143,7 +1115,7 @@ CABWEAP:
 		Name: C.A.B.A.L. War Factory
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 50
+		BuildPaletteOrder: 3
 		Description: Produces vehicles.
 		Prerequisites: proc, ~structures.cab
 	WithIdleOverlay@ROOF:
@@ -1151,6 +1123,25 @@ CABWEAP:
 	WithProductionDoorOverlay@DOOR:
 	WithIdleOverlay@BIB:
 		Sequence: bib
+
+CABRADR:
+	Inherits: ^Radar
+	Inherits@1: ^CabRender
+	Inherits@4: ^3x3Shape
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 4
+		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
+		Prerequisites: proc, ~structures.cab
+	Tooltip:
+		Name: C.A.B.A.L. Radar
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 102, 118, 0, -38
+	SelectionDecorations:
+		VisualBounds: 102, 118, 0, -38
 
 CABAIR:
 	Inherits: ^Building
@@ -1161,7 +1152,7 @@ CABAIR:
 	Tooltip:
 		Name: Air Factory
 	Buildable:
-		BuildPaletteOrder: 60
+		BuildPaletteOrder: 6
 		Queue: Building
 		Description: Produces aircraft, does not rearm\n or repair aerial units.
 		Prerequisites: proc, cabradr, ~structures.cab
@@ -1175,6 +1166,13 @@ CABAIR:
 		HP: 60000
 	RevealsShroud:
 		Range: 5c0
+	Reservable:
+	DockManager:
+		DockOnActor: true
+		DeadlockDetectionEnabled: false
+	Dock:
+		DockOffset: 1,1
+		WOffset: 0, 0, 0
 	Exit@1:
 		SpawnOffset: 0,-256,0
 	RallyPoint:
@@ -1190,7 +1188,7 @@ CABAIR:
 	RepairsUnits:
 	ProductionBar:
 	Power:
-		Amount: -40
+		Amount: -20
 	Selectable:
 		Bounds: 88, 66, 0, -5
 	ProvidesPrerequisite@buildingname:
@@ -1203,34 +1201,10 @@ CABAIR:
 		ZOffset: 9999
 		RequiresCondition: primary
 
-CABRADR:
-	Inherits: ^Radar
-	Inherits@1: ^CabRender
-	Inherits@4: ^3x3Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 90
-		Description: Provides an overview of the battlefield.\nCan detect cloaked units.\nRequires power to operate.
-		Prerequisites: proc, ~structures.cab
-	Tooltip:
-		Name: C.A.B.A.L. Radar
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
-	Selectable:
-		Bounds: 102, 118, 0, -38
-	SelectionDecorations:
-		VisualBounds: 102, 118, 0, -38
-
 CABGRINDER:
 	Inherits: ^Building
 	Inherits@1: ^CabRender
 	Inherits@2: ^2x3Shape
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 71
-		Description: Storage site for cyborg canditates.\nIt allows you to refund CABAL\ninfantry for half its cost.
-		Prerequisites: cabclaw, ~structures.cab
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -1261,7 +1235,7 @@ CABTECH:
 	Inherits@2: ^3x2Shape
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 7
 		Description: Provides access to advanced CABAL technologies.
 		Prerequisites: cabweap, cabradr, ~structures.cab
 	Tooltip:

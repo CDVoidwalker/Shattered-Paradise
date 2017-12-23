@@ -14,7 +14,6 @@ SMECH:
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
-		TurnSpeed: 5
 		Speed: 99
 		Crushes: crate
 	Health:
@@ -282,7 +281,7 @@ SONIC:
 	Inherits@2: ^IncompleteSelfHeal
 	Inherits@3:	^Ra2vxl
 	Valued:
-		Cost: 1200
+		Cost: 1350
 	Tooltip:
 		Name: Disruptor
 	Buildable:
@@ -316,18 +315,18 @@ HMEC:
 	Inherits: ^VoxelTank
 	Inherits@1: ^PermanentSelfHeal
 	Valued:
-		Cost: 2000
+		Cost: 3000
 	Tooltip:
 		Name: Mammoth Mk. II
-	# Buildable:
-		# Queue: Vehicle
-		# BuildPaletteOrder: 8
-		# Prerequisites: ~gaweap, gatech
-		# Description: Slow Heavy Walker armed with dual railguns.\n\n  Strong vs Ground Units.\n  Weak vs  Aircraft\nMaximum 1 can be built.
-		# BuildLimit: 1
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 8
+		Prerequisites: ~gaweap, gtdrop
+		Description: Slow Heavy Walker armed with dual railguns.\n\n  Strong vs Ground Units.\n  Weak vs  Aircraft\nMaximum 1 can be built.
+		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
-		Speed: 50
+		Speed: 40
 		Crushes: wall, crate, infantry
 	-RejectsOrders@berserk:
 	Health:
@@ -338,7 +337,7 @@ HMEC:
 		Voice: Attack
 	AutoTarget:
 	Armament:
-		Weapon: MammothTusk
+		Weapon: MKIITusk
 		LocalOffset: -172,-260,854, -172,260,854
 	Armament@1:
 		Weapon: MechRailgun
@@ -433,7 +432,7 @@ BUGGYHOLOGRAM:
 			ExplosionDeath: evaporate
 	GrantPeriodicCondition:
 		Condition: KillMe
-		CooldownDuration: 1000
+		CooldownDuration: 750
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
@@ -442,6 +441,7 @@ BUGGYHOLOGRAM:
 
 TTNK:
 	Inherits: ^VoxelTank
+	Inherits@1: ^SpriteActor
 	Inherits@2: ^NodCloakHealing
 	Valued:
 		Cost: 850
@@ -453,7 +453,7 @@ TTNK:
 		Description: Nod's main battle tank.\nCan deploy to gain extra protection.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft.
 		Prerequisites: ~naweap, gadept
 	Mobile:
-		TurnSpeed: 5
+		TurnSpeed: 10
 		Speed: 85
 		Crushes: wall, crate, infantry
 		RequiresCondition: undeployed
@@ -479,18 +479,24 @@ TTNK:
 		Range: 5c0
 	RenderSprites:
 		Image: ttnk
+	WithMakeAnimation:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		DeployAnimation: make
 		Facing: 160
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySound: place2.aud
 		UndeploySound: clicky1.aud
-	WithVoxelBody:
+	Carryable:
+		RequiresCondition: undeployed
+	WithFacingSpriteBody:
+		Sequence: idle
 		RequiresCondition: undeployed
 	WithSpriteBody@deployed:
+		Sequence: deployed
 		RequiresCondition: !undeployed
+	-WithVoxelBody:
+	-RenderVoxels:
 	AttackFrontal:
 		Voice: Attack
 		RequiresCondition: undeployed
@@ -498,12 +504,7 @@ TTNK:
 		TurnSpeed: 6
 		Turret: deployed
 		InitialFacing: 160
-		Offset: -20, -130, 180
-	WithVoxelBarrel:
-		Armament: deployed
-		LocalOffset: 128, 0, 256
-		RequiresCondition: deployed
-	WithVoxelTurret@deployed:
+	WithSpriteTurret@deployed:
 		Turret: deployed
 		RequiresCondition: deployed
 	AttackTurreted@deployed:
@@ -523,9 +524,11 @@ TICKHOLOGRAM:
 		Crushes: crate
 	-Explodes:
 	-GrantConditionOnDeploy:
+	-WithSpriteBody@deployed:
+	WithFacingSpriteBody:
+		Sequence: idle
+		-RequiresCondition: undeployed
 	RenderSprites:
-		Image: ttnk
-	RenderVoxels:
 		Image: ttnk
 	FirepowerMultiplier@Hologram:
 		Modifier: 20
@@ -547,12 +550,6 @@ TICKHOLOGRAM:
 			ExplosionDeath: evaporate
 	-ThrowsShrapnel:
 	Mobile:
-		-RequiresCondition: undeployed
-	-Turreted:
-	-WithVoxelBarrel:
-	-WithSpriteBody@deployed:
-	-WithVoxelTurret@deployed:
-	WithVoxelBody:
 		-RequiresCondition: undeployed
 	-AttackTurreted@deployed:
 	AttackFrontal:
@@ -615,18 +612,31 @@ SAPC:
 		Subterranean: true
 		SubterraneanCondition: submerged
 		SubterraneanTransitionTerrainTypes: Clear, Rough
-		SubterraneanTransitionCost: 120
+		SubterraneanTransitionCost: 1
 		SubterraneanTransitionSound: subdril1.aud
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
 		TerrainSpeeds:
 			Subterranean: 120
+	Cloak@cloakgenerator:
+		RequiresCondition: submerged
+		InitialDelay: 25
+		CloakDelay: 25
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	SelfHealing@veinholedrain:
+		RequiresCondition: veinholedrain && !submerged
+	WithIdleOverlay@veinholedrain:
+		RequiresCondition: veinholedrain && !submerged
 	Health:
 		HP: 17500
 	RevealsShroud:
 		RequiresCondition: !inside-tunnel && !submerged
 		Range: 5c0
 		MaxHeightDelta: 3
+	RejectsOrders@berserk:
+		RequiresCondition: submerged
+		Except: Stop
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -683,12 +693,22 @@ SUBTANK:
 		Subterranean: true
 		SubterraneanCondition: submerged
 		SubterraneanTransitionTerrainTypes: Clear, Rough
-		SubterraneanTransitionCost: 120
+		SubterraneanTransitionCost: 1
 		SubterraneanTransitionSound: subdril1.aud
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
 		TerrainSpeeds:
 			Subterranean: 120
+	SelfHealing@veinholedrain:
+		RequiresCondition: veinholedrain && !submerged
+	WithIdleOverlay@veinholedrain:
+		RequiresCondition: veinholedrain && !submerged
+	Cloak@cloakgenerator:
+		RequiresCondition: submerged
+		InitialDelay: 25
+		CloakDelay: 25
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	Health:
 		HP: 30000
 	Armament:
@@ -697,6 +717,9 @@ SUBTANK:
 	Armament@secondary:
 		Weapon: DevilsFlame
 		LocalOffset: 0,-200,0
+	RejectsOrders@berserk:
+		RequiresCondition: submerged
+		Except: Stop
 	AttackFrontal:
 		Voice: Attack
 	AutoTarget:
@@ -704,13 +727,16 @@ SUBTANK:
 		RequiresCondition: !submerged
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 ARMH:
 	Inherits: ^VoxelTank
 	Inherits@2:	^Ra2vxl
 	Inherits@3: ^NodCloakHealing
 	Valued:
-		Cost: 1000
+		Cost: 1100
 	Tooltip:
 		Name: Beam Cannon
 	Buildable:
@@ -721,8 +747,8 @@ ARMH:
 	Health:
 		HP: 16000
 	Mobile:
-		Speed: 75
-		TurnSpeed: 10
+		Speed: 60
+		TurnSpeed: 5
 	RevealsShroud:
 		Range: 9c0
 	RenderVoxels:
@@ -765,6 +791,7 @@ STNK:
 		HP: 35000
 	SelfHealing@NodCloakHealing:
 		Delay: 150
+	WithFacingSpriteBody:
 	Cloak@cloakgenerator:
 		RequiresCondition: !lawea
 		InitialDelay: 80
@@ -775,10 +802,12 @@ STNK:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	Armament:
 		Weapon: StealthRocket
-		LocalOffset: 213,43,128, 213,-43,128
+		LocalOffset: 50,43,900, 50,-43,900
 	Armament@Secondary:
 		Weapon: StealthRocketAA
-		LocalOffset: 213,43,128, 213,-43,128
+		LocalOffset: 50,43,900, 50,-43,900
+	-RenderVoxels:
+	-WithVoxelBody:
 	AttackFrontal:
 		Voice: Attack
 	-RejectsOrders@berserk:
@@ -789,6 +818,9 @@ STNK:
 	Voiced:
 		VoiceSet: StealthTankVO
 		Volume: 7
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 LIMPED:
 	Inherits@1: ^ScrinRender
@@ -871,7 +903,7 @@ WOLF:
 	Armor:
 		Type: VehicleArmor
 	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark, MCImmune
+		TargetTypes: Ground, Infantry, Razorshark, CloudInmune
 	-Crushable:
 	AttackFrontal:
 	AutoTarget:
@@ -992,7 +1024,7 @@ STRUCK:
 		Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 9
-		Speed: 110
+		Speed: 90
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 25000
@@ -1001,8 +1033,8 @@ STRUCK:
 		Volume: 3
 	Cargo:
 		Types: Infantry
-		MaxWeight: 4
-		PipCount: 4
+		MaxWeight: 3
+		PipCount: 3
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 		# InitialUnits: marauder, marauder
@@ -1024,7 +1056,7 @@ STRUCKFULL:
 	RenderVoxels:
 		Image: struck
 
-lynx:
+LYNX:
 	Inherits: ^VoxelTank
 	Inherits@1:	^Ra2vxl
 	Inherits@2: ^SpriteActor
@@ -1103,7 +1135,7 @@ MUTQUAD:
 		Queue: Vehicle
 		BuildPaletteOrder: 27
 		Description: Heavy armored truck equiped with a quad cannon.\n\n  Strong vs Infantry, Aircraft\n  Weak vs Vehicles.
-		Prerequisites: ~muweap, muradr
+		Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 7
 		Speed: 85
@@ -1202,7 +1234,7 @@ HVRTRUK3:
 	Inherits: ^VoxelVehicle
 	Inherits: ^HoverVehicle
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	Tooltip:
 		Name: Demo Truck
 	Buildable:
@@ -1215,7 +1247,7 @@ HVRTRUK3:
 		Volume: 3
 	Mobile:
 		TurnSpeed: 5
-		Speed: 100
+		Speed: 50
 	Health:
 		HP: 12500
 	Explodes:
@@ -1355,9 +1387,9 @@ SCRDRONEC:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
 		Description: Support hover drone, shields nearby units, the shield takes up\na finite amount hits and dissipates.\nbounces back part of the it reveices to random hostile targets.\nCannot collect essence, but autorepairs.
-		Prerequisites: ~scrweap, scrradr
+		Prerequisites: ~scrweap, scrdepot, scrradr
 	Valued:
-		Cost: 800
+		Cost: 950
 	Tooltip:
 		Name: Vanguard
 	Health:
@@ -1437,11 +1469,11 @@ SCRGLYDER2:
 		Description: Anti air hover vehicle.\n\n Strong vs Aircraft.\n  Weak vs Everything else.
 		Prerequisites: ~scrweap, scrradr
 	Valued:
-		Cost: 500
+		Cost: 800
 	Tooltip:
 		Name: Glider
 	Health:
-		HP: 14062
+		HP: 20000
 	Mobile:
 		Speed: 91
 	Transforms:
@@ -1450,7 +1482,7 @@ SCRGLYDER2:
 		Weapon: Glyder2Cannon
 		Recoil: 85
 		RecoilRecovery: 25
-		LocalOffset: 768,0,90
+		LocalOffset: 100,0,1500
 	AutoTarget:
 	AttackFrontal:
 	RenderSprites:
@@ -1473,7 +1505,7 @@ SCRMOBMINE:
 		Description: Mind Control unit, can only take over infantry.\n\n Strong vs Infantry.\n  Weak vs Everything else.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
-		Cost: 1000
+		Cost: 1250
 	Tooltip:
 		Name: Subjugator
 	Mindcontroller:
@@ -1499,6 +1531,9 @@ SCRMOBMINE:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
+	WithRangeCircle:
+		Type: Subjugator
+	RenderRangeCircle:
 
 SCRMBT:
 	Inherits: ^ScrinVehicle
@@ -1702,14 +1737,8 @@ REAPERCAB:
 		BuildPaletteOrder: 17
 		Description: Cyborg construct, equipped with multi missiles\nand web launchers that can ensrane infantry.\nDetects cloaked units.\n\n Strong vs Vehicles, Aircraft\n Weak vs Infantry.
 		Prerequisites: ~cabweap, gadept
-	Repairable:
-		RepairBuildings: gadept
-		Voice: Move
 	Selectable:
 		Bounds: 40,40,0,-10
-	DeliversCash
-		Payload: 300
-		Voice: Move
 	Mobile:
 		Speed: 80
 		SharesCell: False
@@ -1743,7 +1772,7 @@ CENTURION:
 	Inherits@1: ^BasicStealthDetection
 	Inherits@2:	^PermanentSelfHeal
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Centurion
 	Buildable:

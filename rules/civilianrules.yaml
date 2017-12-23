@@ -4,7 +4,7 @@
 GHOST:
 	Inherits: ^Mutant
 	Valued:
-		Cost: 1750
+		Cost: 1
 	Tooltip:
 		Name: Ghost Stalker
 		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 1 can be trained.
@@ -246,9 +246,9 @@ DOGGIE:
 		Shape: Circle
 			Radius: 213
 	Valued:
-		Cost: 10000
+		Cost: 1
 	Armor:
-		Type: Light
+		Type: InfantryArmor
 	-RevealsShroud:
 	Mobile:
 		Speed: 113
@@ -300,7 +300,7 @@ VISC_LRG:
 	Health:
 		HP: 20000
 	Armor:
-		Type: BuildingArmor
+		Type: VehicleArmor
 	Armament:
 		Weapon: SlimeAttack
 	AutoTarget:
@@ -335,7 +335,7 @@ VISC_LRG_SCRIN:
 	Health:
 		HP: 15000
 	Armor:
-		Type: BuildingArmor
+		Type: VehicleArmor
 	Armament:
 		Weapon: SlimeAttack
 	-DamagedByTerrain:
@@ -469,7 +469,7 @@ CRAB:
 		Name: Crab
 	-GainsExperience:		
 	Health:
-		HP: 10000
+		HP: 17000
 		Shape: Circle
 			Radius: 213
 	Valued:
@@ -508,39 +508,39 @@ FLOATER:
 		Name: Floater
 	-GainsExperience:		
 	Health:
-		HP: 50000
+		HP: 10000
 		Shape: Circle
 			Radius: 213
 	Valued:
 		Cost: 100
 	Armor:
-		Type: Light
+		Type: VehicleArmor
 	RevealsShroud:
 		Range: 5c0
 	ExplodeWeapon:
-		Weapon: VeinholeAttack
+		Weapon: FloaterCloudSpawn
 	-SpawnActorOnDeath@conversion:
-	-WithColoredOverlay@EMPDISABLE:
-	-DisableOnCondition@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	-PowerMultiplier@EMPDISABLE:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
+	-SelfHealing@poisoncloud:
+	-ExternalCondition@CloudPoison:
+	WithSpriteBody:
 	Mobile:
 		Speed: 90
 		Crushes: nada
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
-		TargetTypes: Infantry, Ground, NeutralTibCritter
+		TargetTypes: Infantry, Ground, NeutralTibCritter, CloudInmune
 	Armament:
-		Weapon: CrabAcid
-	WithInfantryBody:
-		AttackSequence: shoot
-		IdleSequences:
+		Weapon: Tentacle
+	# WithInfantryBody:
+		# AttackSequence: shoot
+		# IdleSequences:
 	AutoTarget:
 		ScanRadius: 6
+	WithAttackAnimation:
+		AttackSequence: attack
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
@@ -589,7 +589,7 @@ CIV3:
 	Health:
 		HP: 60000
 	Armor:
-		Type: Heavy
+		Type: VehicleArmor
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
@@ -2366,7 +2366,6 @@ BLOODDERRICK:
 		Weapon: TiberiumExplosion
 	RenderSprites:
 		PlayerPalette: playerscrin
-	-Cloak@CLOAKGENERATOR:
 	WithDeathAnimation:
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin
@@ -2466,18 +2465,16 @@ SCRINREINFPAD:
 		ExitDelay: 5
 	Production:
 		Produces: Vehicle
-	TransformOnCapture:
-		IntoActor: SCRINREINFPADENABLED
-
-SCRINREINFPADENABLED:
-	Inherits: SCRINREINFPAD
-	RenderSprites:
-		Image: scrinreinfpad
+	ProvidesAIPrerequisite@BuildStuff:
+		Prerequisite: BuildStuff
+	GrantConditionOnPrerequisite@BuildStuff:
+		Condition: BuildStuff
+		Prerequisites: BuildStuff
 	PeriodicProducer:
 		Actors: 2stug3
 		Type: Vehicle
 		ChargeDuration: 3000
-
+		Condition: !BuildStuff
 GASAND:
 	Inherits: ^Wall
 	SoundOnDamageTransition:
@@ -2530,20 +2527,13 @@ GASPOT:
 		VisualBounds: 48, 82, 0, -25
 
 GALITE:
-	Inherits: ^Building
+	Inherits: ^CivBuilding
 	Valued:
 		Cost: 200
 	Tooltip:
 		Name: Light Post
 	RenderSprites:
 		Palette: terraindecoration
-	-WithMakeAnimation:
-	-WithDeathAnimation:
-	-WithColoredOverlay@EMPDISABLE:
-	-DisableOnCondition@EMPDISABLE:
-	-TimedConditionBar@EMPDISABLE:
-	-WithIdleOverlay@EMPDISABLE:
-	-PowerMultiplier@EMPDISABLE:
 	Health:
 		HP: 60000
 	Armor:
@@ -2563,7 +2553,6 @@ GALITE:
 		Prerequisites: ~disabled
 	SelectionDecorations:
 		VisualBounds: 25, 35, 0, -12
-	-Cloak@CLOAKGENERATOR:
 	CustomSelectionSize
 		CustomBounds:  600,600
 
@@ -2582,7 +2571,6 @@ GAICBM:
 		Cost: 800
 	Tooltip:
 		Name: Deployed ICBM
-	-GivesBuildableArea:
 	Health:
 		HP: 40000
 	Armor:
@@ -2595,7 +2583,6 @@ GAICBM:
 		Facing: 96
 		TransformSounds: place2.aud
 		NoTransformSounds:
-	-WithDeathAnimation:
 
 NAMNTK:
 	Inherits: ^CivBuilding
@@ -2728,7 +2715,6 @@ C_KODIAK:
 	# Building:
 		# Dimensions: 3,3
 		# Footprint: xxx xxx xxx
-	# WithMakeAnimation:
 	# RenderSprites:
 	# WithSpriteBody:
 	# AutoSelectionSize:
@@ -2764,7 +2750,7 @@ C_KODIAK:
 EGGS:
 	Inherits: ^CivBuilding
 	Tooltip:
-		Name: Crab Eggs (Kill me)
+		Name: Crab Eggs (Menacing)
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
@@ -2782,7 +2768,6 @@ EGGS:
 	-Explodes:
 	-SoundOnDamageTransition:
 	-ShakeOnDeath:
-	-SpawnActorOnDeath@ScrinEssence:
 	ExternalCondition@SpawnCrabs:
 		Condition: SpawnCrabs
 	GrantPeriodicCondition:

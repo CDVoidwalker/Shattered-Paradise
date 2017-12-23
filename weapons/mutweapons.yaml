@@ -1,7 +1,7 @@
 MarauderShotgun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 30
+	ReloadDelay: 40
 	Range: 3c512
 	Report: shotfire.wav
 		Image: 120mm
@@ -192,6 +192,7 @@ PsykerRay:
 	ReloadDelay: 150
 	Range: 12c0
 	Burst: 3
+	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Projectile: BulletAS
 		Speed: 4c6824
 		Inaccuracy: 3c0
@@ -421,7 +422,7 @@ TiberianRocket:
 		Blockable: false
 		Shadow: true
 		LaunchAngle: 62	
-		Inaccuracy: 3c0
+		Inaccuracy: 2c0
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		HorizontalRateOfTurn: 8
@@ -452,32 +453,17 @@ TiberianRocket:
 		# MaxLevel: 500
 
 MiniNuke:
-	Range: 3c0
+	Inherits: ClusterMissile
 	ValidTargets: Ground, Water, Air
-	Warhead@4Dam_areanuke1: SpreadDamage
-		Spread: 2c0
-		Damage: 90000
-		ValidTargets: Ground, Water, Air
-		Versus:
-			ConcreteArmor: 25
-		AffectsParent: true
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeathStrong
-	Warhead@2Eff: CreateEffect
-		Explosions: mininuke1, mininuke2
-		ImpactSound: expnew09.aud
-		InvalidTargets: Water
-	Warhead@3EffWater: CreateEffect
-		Explosions: small_watersplash
-		ExplosionPalette: player
-		ImpactSound: ssplash3.aud
-		ValidTargets: Water
-	Warhead@10Smu: LeaveSmudge
-		SmudgeType: MediumCrater
-		InvalidTargets: Vehicle, Building, Wall
-	Warhead@ClusterSmudges4: LeaveSmudge
-		SmudgeType: SmallScorch
-		Size: 4
-		InvalidTargets: Vehicle, Building, Wall
+	Warhead@ImpactDamage0: SpreadDamage
+		Damage: 4500
+	Warhead@ClusterDamage3: SpreadDamage
+		Damage: 7500
+	Warhead@7Dam_areanukeb: SpreadDamage
+		Damage: 1500
+	Warhead@10Dam_areanukec: SpreadDamage
+		Damage: 750
+
 #################################################################
 # Aircraft
 #################################################################
@@ -583,15 +569,31 @@ GargoylACannon:
 	ReloadDelay: 15
 	Range: 6c0
 	Report: 120mmf.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
+	InvalidTargets: Air
 	Projectile: BulletAS
 		Speed: 1c682
 		Innacuracy: 0c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 1400
-		ValidTargets: Ground, Air
+		Damage: 3200
 		Versus:
+			InfantryArmor: 80
+			BuildingArmor: 80
+			VehicleArmor: 100
+			ConcreteArmor: 30
+		ValidTargets: Ground
+		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
+
+GargoylACannonAA:
+	Inherits: GargoylACannon
+	ReloadDelay: 30
+	ValidTargets: Air
+	InvalidTargets: Ground, Vehicle, Building, Infantry
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+		InvalidTargets: Ground, Vehicle, Building, Infantry
+		Damage: 1600
 
 GargoylVulcan:
 	Inherits: ^RifleWarhead
@@ -660,6 +662,7 @@ CloudDamage:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 5
 	Projectile: InstantExplode
+	InvalidTargets: CloudInmune
 	Warhead@1Dam: SpreadDamage
 		Spread: 164
 		Damage: 650
@@ -679,10 +682,11 @@ CloudDamage:
 			ConcreteArmor: 1
 			BullArmor: 1
 		ValidStances: Ally
+		InvalidTargets: CloudInmune
 
 FalconPunch:
 	Inherits: ^BombWarhead
-	Inherits@2: ^Small_Clsn
+	Inherits@2: ^Mediuml_Clsn
 	ValidTargets: Ground, Water
 	ReloadDelay: 1
 	Range: 5c0
@@ -706,11 +710,11 @@ FalconPunch:
 		CloseEnough: 200
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
-		Damage: 15000
+		Damage: 13500
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeathStrong
 	Warhead@5Actor: SpawnActor
-		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
+		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
 		FallRate: 5000
 		Range: 3
 
@@ -776,10 +780,17 @@ VentilatorPoison:
 		Spread: 2c0
 		ValidTargets: Mutant
 		Falloff: 300, 150, 100, 50, 0
-		Damage: -1000
+		Damage: -250
 		Versus:
 			InfantryArmor: 125
 			BuildingArmor: 25
 			VehicleArmor: 25
 			ConcreteArmor: 5
 		DamageTypes: TiberiumDeath
+
+VeinholePoision:
+	Inherits: VentilatorPoison
+	Warhead@1Dam: SpreadDamage
+		Damage: 333
+	Warhead@2Dam: SpreadDamage
+		Damage: -250

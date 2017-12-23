@@ -430,9 +430,9 @@
 
 ^GuardianPlatformSelfHeal:
 	SelfHealing@GuardianPlatformSelfHeal:
-		PercentageStep: 2
+		PercentageStep: 6
 		Step: 0
-		Delay: 200
+		Delay: 100
 		DamageCooldown: 200
 		HealIfBelow: 105
 		RequiresCondition: AuraRepair
@@ -607,7 +607,7 @@
 		Sequence: idle
 		SpawnFrequency: 3, 10
 		Gravity: -32,-32,48, 32,32,48
-		Offset: -384,-384,0, 384,384,0
+		Offset: 0,0,0,0,0,0#-384,-384,0, 384,384,0
 		Image: sgrysmk1
 		Palette: effectalpha
 	ExternalCondition@smoketrail:
@@ -621,7 +621,6 @@
 	Inherits@3: ^ScrinEssence
 	Inherits@4: ^BurstRecovery
 	Inherits@5: ^FirestormGenBuff
-	Inherits@6: ^GuardianPlatformSelfHeal
 	RevealOnFire:
 
 ^StructureEffects:
@@ -667,9 +666,8 @@
 ^AircraftEffects:
 	Inherits: ^GenericEffects
 	Inherits@0: ^tractorstop
+	Inherits@6: ^GuardianPlatformSelfHeal
 	Inherits@1: ^FireflyDebuff
-	Inherits@2:^NodVehicleRepair
-	Inherits@3: ^PermanentSelfHeal
 	Inherits@4: ^SpawnSmoke
 
 ^ProducesStuff:
@@ -719,8 +717,6 @@
 		EmptyWeapon: BuildingExplode
 		Type: Footprint
 	EngineerRepairable:
-	SelfHealing@poisoncloud:
-		PercentageStep: -2
 	ShakeOnDeath:
 	Guardable:
 		Range: 6c0
@@ -736,12 +732,8 @@
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
 		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@ScrinEssence:
-		Actor: SCRINESSENCESMALL
 	EditorTilesetFilter:
 		Categories: Civ Building
-	GrantConditionOnDisabled@IDISABLE:
-		Condition: disabled
 
 ^Building:
 	Inherits@1: ^BasicBuilding
@@ -793,6 +785,8 @@
 		Range: 2c0, 5c0
 	EditorTilesetFilter:
 		Categories: Buildable Structure
+	GrantConditionOnDisabled@IDISABLE:
+		Condition: disabled
 
 ^CivBuilding:
 	Inherits: ^BasicBuilding
@@ -1018,14 +1012,14 @@
 		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@tiberium3:
 		Actor: zombie
-		Probability: 30
+		Probability: 10
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeathStrong
 		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@tiberium4:
 		Actor: VISC_LRG
-		Probability: 30
+		Probability: 10
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeathStrong
@@ -1102,12 +1096,8 @@
 	Inherits: ^Mutant
 	Inherits@1: ^RejectsOrdersBerkserk
 	-TakeCover:
-	SpawnActorOnDeath@tiberium2:
-		Probability: 20
 	-SpawnActorOnDeath@tiberium3:
-	SpawnActorOnDeath@tiberium4:
 	-SpawnActorOnDeath@berserk:
-		Probability: 40
 	-SpawnActorOnDeath@berserk2:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
@@ -1251,7 +1241,7 @@
 	-SpawnActorOnDeath@ScrinEssence:
 	GrantPeriodicCondition:
 		Condition: KillMe
-		CooldownDuration: 1000
+		CooldownDuration: 750
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:
@@ -1334,8 +1324,6 @@
 	RevealsShroud:
 		Range: 9c0
 		RequiresCondition: !inside-tunnel && !submerged
-	RepairableNear:
-		Buildings: scrdepot
 	Selectable:
 		Bounds: 40,30
 	SelectionDecorations:
@@ -1371,14 +1359,14 @@
 		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@egg2:
 		Actor: crab
-		Probability: 40
+		Probability: 10
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType:  TiberiumDeathStrong
 		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@berserk2:
 		Actor: berserker
-		Probability: 40
+		Probability: 10
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeathStrong
@@ -1393,7 +1381,7 @@
 	Targetable@repair:
 		TargetTypes: repair
 	Repairable:
-		RepairBuildings: gadept
+		RepairBuildings: gadept, scrdepot
 		Voice: Move
 	Passenger:
 		CargoType: Vehicle
@@ -1504,18 +1492,9 @@
 	Inherits@0: ^GainsExperience
 	Inherits@1: ^AircraftEffects
 	Inherits@2: ^ExistsInWorld
-	Inherits@5: ^PermanentSelfHeal
 	Inherits@6: ^1x1Shape
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
-	GrantConditionOnDamageState@smoke:
-		Condition: smoketrail
-		ValidDamageStates: Critical
-	ExplodeWeapon@smoke:
-		Weapon: SmokeShrapnel
-		RequiresCondition: smoketrail
-	RepairableNear:
-		Buildings: scrdepot
 	AppearsOnRadar:
 		UseLocation: yes
 	Targetable@GROUND:
@@ -1533,13 +1512,14 @@
 	Aircraft:
 		AirborneCondition: airborne
 		CruisingCondition: cruising
-		RepairBuildings: gadept
+		RepairBuildings: gadept, scrdepot
 		RearmBuildings: gahpad, nahpad, muair
 		LandWhenIdle: false
 		Voice: Move
 		RepulsionSpeed: 40
 		CruiseAltitude: 2560
 		AltitudeVelocity: 250
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Building
 	Passenger:
 		CargoType: Aircraft
 	Voiced:
@@ -1558,13 +1538,6 @@
 	MustBeDestroyed:
 	RenderVoxels:
 	WithVoxelBody:
-	SelfHealing@AircraftAutoRepair:
-		PercentageStep: 2
-		Step: 0
-		Delay: 50
-		DamageCooldown: 200
-		RequiresCondition: AircraftAutoRepair
-		HealIfBelow: 101
 	ExternalCondition@AircraftAutoRepair:
 		Condition: AircraftAutoRepair
 	EditorTilesetFilter:
@@ -1579,7 +1552,9 @@
 		LandWhenIdle: False
 		CruiseAltitude: 2048
 		CanHover: True
-		# LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		RepairBuildings: gadept, scrdepot
+		RearmBuildings: gahpad, nahpad, muair
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Targetable@AIRBORNE:
 		TargetTypes: Air, Helicopter
 		RequiresCondition: airborne
@@ -1693,6 +1668,7 @@
 
 ^Tree:
 	Inherits@1: ^SpriteActor
+	Inherits@0: ^1x1Shape
 	HiddenUnderShroud:
 	RenderSprites:
 		Palette: terraindecoration
@@ -1707,6 +1683,12 @@
 		Name: Tree
 	EditorTilesetFilter:
 		Categories: Tree
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	Health:
+		HP: 50000
+		Shape: Circle
+			Radius: 500
 
 ^Rock:
 	Inherits@1: ^SpriteActor
@@ -1905,7 +1887,6 @@
 
 ^Wall:
 	Inherits@1: ^SpriteActor
-	Inherits@2: ^Cloakable
 	CombatDebugOverlay:
 	HiddenUnderShroud:
 	AppearsOnRadar:

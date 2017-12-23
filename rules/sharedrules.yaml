@@ -63,7 +63,7 @@ MCV:
 	Selectable:
 		Priority: 4
 	Health:
-		HP: 300000
+		HP: 100000
 	Armor:
 		Type: VehicleArmor
 	Mobile:
@@ -183,6 +183,8 @@ SCRHARV:
 		Priority: 7
 		Bounds: 36,36
 		Class: ScrinHarv
+	Mobile:
+		Crushes: wall, crate, infantry, RazorShark
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	-SpeedMultiplier@ScrinOrb:
@@ -283,7 +285,7 @@ GACNST:
 	Production:
 		Produces: Building,Defense
 	Valued:
-		Cost: 1500
+		Cost: 2000
 	Tooltip:
 		Name: Construction Yard
 		Description: Builds base structures.
@@ -357,7 +359,7 @@ GACNST:
 		Prerequisites: AImoney
 	CashTrickler@AImoney:
 		Interval: 1000
-		Amount: 10000
+		Amount: 400
 		ShowTicks: False
 		RequiresCondition: money
 
@@ -403,7 +405,7 @@ PROC:
 		Prerequisite: proc
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 2
 		Prerequisites: ~humanproc, anypower
 	Building:
 		Footprint: xx== xx== xx==
@@ -509,7 +511,7 @@ PROC:
 		SpawnOffset: 0,-256,0
 	DockManager:
 	Dock:
-		DockOffset: 1,1
+		DockOffset: 0,0
 		DockAngle: 160
 	Production:
 		Produces: Air
@@ -563,7 +565,7 @@ GADEPT:
 		Name: Service Depot
 		Description: Repairs vehicles.\nVehicles near it auto repair slowly.
 	Buildable:
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 5
 		Prerequisites:  ~humanstuff, factory
 		Queue: Building
 	Building:
@@ -599,15 +601,13 @@ GADEPT:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-ground
 		UseDeathTypeSuffix: false
-	ProximityExternalCondition:
-		Condition: AuraRepair
-		Range: 4c0
-	WithRangeCircle:
-		Range: 4c0
-		Type: Repair
 	DockManager:
 		DeadlockDetectionEnabled: false
 		DockOnActor: true
+	ProximityExternalCondition@firestorm:
+		Condition: AuraRepair
+		Range: 3c0
+		AffectsParent: false
 	Dock@center:
 		DockOffset: 1,1
 		ExitOffset: 2,0
@@ -635,7 +635,7 @@ GADEPT:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
-		HP: 300000
+		HP: 240000
 	RevealsShroud:
 		Range: 4c0
 	Power:

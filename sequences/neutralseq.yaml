@@ -154,8 +154,14 @@ crab:
 	icon: sidebar-gdi|e1icon
 
 floater:
+	Inherits@1: ^InfantryDeathAnims
+	Inherits@2: ^EmpOverlay
 	Defaults:
 		Tick: 80
+	idle:
+		Facings: 1
+		Length: 16
+		ShadowStart: 32
 	stand:
 		Facings: 1
 		Length: 16
@@ -164,7 +170,13 @@ floater:
 		Facings: 1
 		Length: 16
 		ShadowStart: 32
+	attack:
+		Length: 16
+		Facings: 1
+		Start: 16
+		ShadowStart: 47
 	shoot:
+		Length: 16
 		Facings: 1
 		Start: 16
 		ShadowStart: 47

@@ -97,8 +97,6 @@ Player:
 			cabeye: 2
 			scrextractor: 3
 			muventi: 3
-			mustable: 1
-			cabgrinder: 1
 #Superweapons#
 #Helipads#
 			nahpad: 0
@@ -168,8 +166,6 @@ Player:
 			muventi: 1%
 			cabeye: 1%
 			scrextrator: 1%
-			mustable: 1%
-			cabgrinder: 1%
 #Superweapons#
 #Helipads#
 			nahpad: 5%
@@ -229,7 +225,7 @@ Player:
 			subtank: 8
 			mutquad: 8
 			wolf: 8
-			grinder: 8
+			g4tnk: 8
 			scrmbt: 8
 			scrrecharger: 3
 #T3 Vehicle#
@@ -305,7 +301,7 @@ Player:
 			lynx: 8%
 			mutquad: 9%
 			wolf: 9%
-			grinder: 9%
+			g4tnk: 9%
 			scrmbt: 9%
 			scrrecharger: 9%
 #T3 Vehicle#
@@ -427,8 +423,6 @@ Player:
 			cabeye: 2
 			scrextractor: 3
 			muventi: 3
-			mustable: 1
-			cabgrinder: 1
 #Superweapons#
 #Helipads#
 			nahpad: 0
@@ -498,8 +492,6 @@ Player:
 			muventi: 1%
 			cabeye: 1%
 			scrextrator: 1%
-			mustable: 1%
-			cabgrinder: 1%
 #Superweapons#
 #Helipads#
 			nahpad: 5%
@@ -559,7 +551,7 @@ Player:
 			subtank: 8
 			mutquad: 8
 			wolf: 8
-			grinder: 8
+			g4tnk: 8
 			scrmbt: 8
 			scrrecharger: 3
 #T3 Vehicle#
@@ -635,7 +627,7 @@ Player:
 			lynx: 8%
 			mutquad: 9%
 			wolf: 9%
-			grinder: 9%
+			g4tnk: 9%
 			scrmbt: 9%
 			scrrecharger: 9%
 #T3 Vehicle#
@@ -764,8 +756,6 @@ Player:
 			cabeye: 2
 			scrextractor: 3
 			muventi: 3
-			mustable: 1
-			cabgrinder: 1
 #Superweapons#
 #Helipads#
 			nahpad: 0
@@ -836,7 +826,6 @@ Player:
 			cabeye: 1%
 			scrextrator: 1%
 			mustable: 1%
-			cabgrinder: 1%
 #Superweapons#
 #Helipads#
 			nahpad: 5%
@@ -896,7 +885,7 @@ Player:
 			subtank: 2
 			mutquad: 2
 			wolf: 2
-			grinder: 2
+			g4tnk: 2
 			scrmbt: 2
 			scrrecharger: 2
 #T3 Vehicle#
@@ -972,7 +961,7 @@ Player:
 			lynx: 8%
 			mutquad: 9%
 			wolf: 9%
-			grinder: 9%
+			g4tnk: 9%
 			scrmbt: 9%
 			scrrecharger: 9%
 #T3 Vehicle#

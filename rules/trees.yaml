@@ -255,6 +255,8 @@ MINIVEIN:
 	WithRangeCircle:
 		Range: 4c0
 		Type: cloakgenerator
+	ExplodeWeapon:
+		Weapon: VeinholePoision
 	ProximityExternalCondition:
 		Condition: veinholedrain
 		Range: 4c0

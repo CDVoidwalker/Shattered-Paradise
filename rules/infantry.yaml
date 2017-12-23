@@ -65,7 +65,7 @@ GRENADIER:
 JUMPJET:
 	Inherits: ^Soldier
 	Valued:
-		Cost: 350
+		Cost: 450
 	Tooltip:
 		Name: Jumpjet Infantry
 	Voiced:
@@ -73,7 +73,7 @@ JUMPJET:
 	Mobile:
 		Speed: 55
 	Health:
-		HP: 13000
+		HP: 16000
 	Transforms:
 		IntoActor: jumpjetair
 	Armament@1:
@@ -87,7 +87,7 @@ JUMPJETAIR:
 	Inherits: ^Aircraft
 	Inherits@2: ^AutoTargetAll
 	Valued:
-		Cost: 350
+		Cost: 450
 	Tooltip:
 		Name: Jumpjet Infantry
 		Description: Airborne Soldier, equipped with a chaingun.\nnBug: Loses accumulated experience if ordered to alternate modes.\nStarts in airborne mode.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Aircraft, Anti air.
@@ -268,11 +268,11 @@ CRUSADER:
 		Description: Anti Armour Infantry, equiped with a Rocket\nlauncher backpack, can fire while moving.\nCan also set units on fire.\n\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry.
 		Prerequisites: ~nahand
 	Valued:
-		Cost: 325
+		Cost: 300
 	Tooltip:
 		Name: Crusader
 	Health:
-		HP: 11000
+		HP: 10000
 	Mobile:
 		Speed: 55
 	Armament@PRIMARY:
@@ -299,7 +299,7 @@ TEMPLAR:
 		Description: Flame warrior, resurrected regenesis prototype. heals on Tiberium.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~nahand, naradr
 	Valued:
-		Cost: 300
+		Cost: 400
 	Tooltip:
 		Name: Templar
 	Health:
@@ -416,7 +416,7 @@ BHS:
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
 	Valued:
-		Cost: 1000
+		Cost: 1500
 	Tooltip:
 		Name: Toxin Commando
 	Targetable@MindControlImmunity:
@@ -565,6 +565,9 @@ MARAUDER:
 	FirepowerMultiplier@deployed:
 		RequiresCondition: deployed
 		Modifier: 140
+	RangeMultiplier@deployed:
+		RequiresCondition: deployed
+		Modifier: 120
 
 E3:
 	Inherits: ^Mutant
@@ -574,7 +577,7 @@ E3:
 		Description: Siege Militia armed with mortars.\nExtremely strong in groups.\n\n  Strong vs Infantry, Buildings.\n  Weak vs Vehicles, Aircraft.
 		Prerequisites: ~murax, muradr
 	Valued:
-		Cost: 150
+		Cost: 350
 	Tooltip:
 		Name: Skirmisher
 	Voiced:
@@ -706,7 +709,6 @@ MUTFIEND:
 		HP: 18000
 		Shape: Circle
 			Radius: 213
-	-Crushable:
 	Mobile:
 		Speed: 73
 	Voiced:
@@ -732,13 +734,13 @@ SEER:
 		Description: Psychic mutant that is able to fire lightning\nat hostile units, can detect cloaked units.\n\n  Strong vs Vehicles, Aircraft.\n Weak vs Infantry.
 		Prerequisites: ~murax, muhall
 	Valued:
-		Cost: 300
+		Cost: 550
 	Tooltip:
 		Name: Seer
 	Voiced:
 		VoiceSet: Umagon
 	Health:
-		HP: 9000
+		HP: 17500
 	Mobile:
 		Speed: 60
 	AutoTarget:
@@ -850,7 +852,7 @@ PSYKER:
 		Description: Forgotten Commando. Pure strain\nforgotten that can call down lightning.\nAttacks from afar.\n\n  Strong vs Vehicles, Aircraft, Buildings.\n  Weak vs Infantry.
 		BuildLimit: 1
 	Valued:
-		Cost: 1100
+		Cost: 1500
 	Tooltip:
 		Name: Lyra The Storm Caller
 	Voiced:
@@ -885,7 +887,7 @@ SHARK:
 		Description: Melee creature that tears down enemies.\n\n  Strong vs Infantry.\n  Weak vs Vehicles, Structures, Aircraft.
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 100
+		Cost: 120
 	Tooltip:
 		Name: Razorshark
 	Selectable:
@@ -1158,7 +1160,7 @@ CABSENTRY:
 	Armor@worker:
 		Type: Worker
 	Valued:
-		Cost: 30
+		Cost: 200
 	Tooltip:
 		Name: Sentry Drone
 	Explodes:
@@ -1334,21 +1336,19 @@ SWARMLING:
 	DeliversCash
 		Payload: 275
 		Voice: Move
-	Minelayer:
-		Mine: mumine
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Tooltip:
 		Name: Abductor
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 15
 		Description: Ambusher drone that needs to deploy to attack.\nWhen deployed it burrows underground \nand fires spikes at nearby enemies.\nEnemy units are converted into cyborgs.\n\n  Strong vs Infantry, Light Vehicles.\n  Weak vs Aircraft, Detectors.
-		Prerequisites: ~cabclaw, cabradr
+		Prerequisites: cabtech, ~cabclaw
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
@@ -1371,7 +1371,7 @@ MOTH:
 			Water: 80
 		RequiresCondition: !deployed
 	Health:
-		HP: 25000
+		HP: 30000
 	Selectable:
 		Priority: 7
 	SelectionDecorations:
@@ -1379,23 +1379,20 @@ MOTH:
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
-		DeployAnimation: make
 		Facing: 160
-		AllowedTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySound: place2.aud
 		UndeploySound: clicky1.aud
 	Hovers:
-		RequiresCondition: undeployed
-	WithInfantryBody:
-		RequiresCondition: undeployed
-	WithSpriteBody@deployed:
-		StartSequence: dot
-		Sequence: dot
-		RequiresCondition: deployed
-	-WithIdleOverlay@web:
-	WithIdleOverlay:
+		RequiresCondition: !deployed
+	WithMakeAnimation:
+	WithFacingSpriteBody@1234:
 		Sequence: idle
-		RequiresCondition: deployed
+		RequiresCondition: !deployed
+	WithSpriteBody@1234:
+		Sequence: deployed
+		RequiresCondition: !undeployed
+	-WithInfantryBody:
 	Armament@primary:
 		Weapon: LurkerHit
 		RequiresCondition: deployed
@@ -1417,10 +1414,7 @@ GLAD:
 		Description: Advanced cyborg construct, extremely resilient\nand capable of piercing enemy armor.\n\n  Strong vs Vehicles.\n  Weak vs Infantry, Aircraft.
 		Queue: Infantry
 		BuildPaletteOrder: 14
-		Prerequisites: ~cabclaw, cabtech
-	Repairable:
-		RepairBuildings: gadept
-		Voice: Move
+		Prerequisites: ~cabclaw, cabradr, gadept
 	Selectable:
 		Bounds: 35,30,0,-10
 	Passenger:
@@ -1448,7 +1442,7 @@ CYC2:
 	Inherits: ^Cyborg
 	Inherits@2: ^PermanentSelfHeal
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Cyborg Commando
 	Buildable:
@@ -1458,9 +1452,6 @@ CYC2:
 		Prerequisites: ~cabclaw, cabtech
 		BuildLimit: 1
 	-RejectsOrders@berserk:
-	Repairable:
-		RepairBuildings: gadept
-		Voice: Move
 	DeliversCash
 		Payload: 600
 		Voice: Move
@@ -1469,7 +1460,7 @@ CYC2:
 	Mobile:
 		Speed: 56
 	Health:
-		HP: 30000
+		HP: 70000
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
 	Armament:

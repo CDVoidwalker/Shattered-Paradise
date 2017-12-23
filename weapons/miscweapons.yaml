@@ -116,7 +116,7 @@ SlimeAttack:
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
 VeinholeAttack:
-	ReloadDelay: 1
+	ReloadDelay: 20
 	Range: 5c0
 	Report:
 	Projectile: InstantExplode
@@ -130,6 +130,10 @@ VeinholeAttack:
 		FallRate: 5000
 		Range: 3
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+FloaterCloudSpawn:
+	Inherits: VeinholeAttack
+	ReloadDelay: 100
 
 Veins:
 	ReloadDelay: 12

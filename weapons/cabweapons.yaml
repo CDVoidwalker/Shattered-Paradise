@@ -19,7 +19,7 @@ CyborgRocket:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
 	Range: 5c0
-	Report: samshot1.aud
+	Report: rketinf1.aud
 	ValidTargets: Ground, Air
 	Projectile: Missile
 		Speed: 213
@@ -49,9 +49,8 @@ SentryGun:
 
 ReaperWeb:
 	Inherits: ^RifleWarhead
-	ReloadDelay: 75
+	ReloadDelay: 250
 	Range: 7c0
-	Burst: 1
 	Report: fireweb1.aud
 	ValidTargets: Infantry
 	Projectile: BulletAS
@@ -67,7 +66,7 @@ ReaperWeb:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
-		Duration: 35
+		Duration: 125
 		ValidTargets: Infantry
 		Condition: WebDisable	
 	
@@ -464,7 +463,7 @@ DroneHostShell:
 		RangeLimit: 25
 	Warhead@1Dam: SpreadDamage
 		Spread: 210
-		Damage: 1500
+		Damage: 3000
 		Versus:
 			Worker: 25
 		ValidTargets: Ground, Vehicle, Infantry, water
@@ -514,20 +513,24 @@ WaspBullet:
 	ReloadDelay: 50
 	Range: 6c0
 	Report: lastur1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Vehicle, Building, Infantry
+	InvalidTargets: Air
 	Projectile:	Bullet
 		Speed: 100c0		
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
-		ValidTargets: Ground
+		ValidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Air
 
 WaspBulletAA:
 	Inherits: WaspBullet
 	ValidTargets: Air
+	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		ValidTargets: Air
+ 		InvalidTargets: Ground, Vehicle, Building, Infantry   
 
 WaspLasor:
 	ReloadDelay: 50
@@ -583,7 +586,7 @@ BasiliskProton:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
-	Range: 4c0
+	Range: 6c0
 	Report: scrin5b.aud
 	Burst: 2
 	BurstDelay: 3
@@ -603,7 +606,7 @@ BasiliskProton:
 BasiliskBomb:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 150
-	Range: 4c0
+	Range: 6c0
 	Burst: 1
 	MinRange: 0c512
 	Report: rketinf1.aud
@@ -719,6 +722,7 @@ BlasterProton:
 	ReloadDelay: 150
 	Burst: 6
 	Range: 11c0
+	MinRange: 3c0
 	Report: hovrmis1.aud
 	ValidTargets: Ground, Vehicle, Infantry, water
 	Projectile: BulletAS

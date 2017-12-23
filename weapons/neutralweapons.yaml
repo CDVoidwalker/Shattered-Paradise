@@ -77,7 +77,7 @@ CrabAcid:
 		Image: acidall32mini #flamebro 
 		Inaccuracy: 384
 		Palette: apolgreenalpha
-	Burst: 3
+	Burst: 5
 	BurstDelay: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
@@ -89,7 +89,26 @@ CrabAcid:
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
 
-CrabSpawnerPrior
+Tentacle:
+	Inherits@wh: ^AcidWarhead
+	ReloadDelay: 80
+	Range: 1c967
+	Report: floatk1.aud
+	ValidTargets: Ground, Vehicle, Infantry, Building
+	Projectile: BulletAS
+		Speed: 0c602
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1600
+		DamageTypes: TriggerProne, BulletDeath
+		ValidTargets: Ground, Vehicle, Infantry, Building
+	Warhead@emp1: GrantExternalCondition
+		Range: 2c124
+		Duration: 50
+		Condition: empdisable
+		ValidTargets: Ground
+
+CrabSpawnerPrior:
 	ReloadDelay: 250
 	Range: 10c0
 	Projectile: InstantExplode

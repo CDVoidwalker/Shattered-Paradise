@@ -85,7 +85,7 @@ IonCannon:
 	Projectile: InstantExplode
 	Warhead@1Dam_area: SpreadDamage
 		Spread: 1c0
-		Damage: 1
+		Damage: 100000
 		Falloff: 100, 50, 25, 0
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
@@ -141,7 +141,7 @@ IonScorch:
 		ImpactSound: ion1.aud
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 200
-		Damage: 650
+		Damage: 200
 		InvalidTargets: IonBeam
 		DamageTypes: SmallExplosionDeath
 			InfantryArmor: 500
@@ -479,6 +479,7 @@ MeteorSpawner:
 	Range: 999c0
 	Projectile: BulletAS
 		Speed: 9999
+		Blockable: false
 	Warhead@op: FireShrapnel
 		Weapon: MeteorElevator
 		Amount: 2
@@ -537,6 +538,7 @@ MeteorRainNormal:
 		TrailImage: meteortrail #metstral
 		TrailPalette: effectalpha
 		TrailInterval: 1
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 3500
@@ -597,6 +599,7 @@ CabalCannon:
 		Palette: apcyan
 		TrailImage: cabswproj2
 		TrailPalette: apolcyanalpha
+		Blockable: false
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
 		Damage: 30000
@@ -674,6 +677,7 @@ BoltSpawner:
 	Range: 9c0
 	Projectile: BulletAS
 		Speed: 100c0
+		Blockable: False
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 1
