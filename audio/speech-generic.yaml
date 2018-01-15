@@ -2,6 +2,9 @@ Speech:
 	Prefixes:
 		gdi: speech-gdi|
 		nod: speech-nod|
+		cab: speech-nod|
+		mut: speech-nod|
+		scr: speech-nod|
 	Notifications:
 		AirUnitLost: 00-i074
 		AirstrikeReady: 00-n160

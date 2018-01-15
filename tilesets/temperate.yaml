@@ -79,7 +79,6 @@ Terrain:
 		Type: Jumpjet
 		Color: 745537
 
-# Automatically generated. DO NOT EDIT!
 Templates:
 	Template@0:
 		Categories: Clear
@@ -10358,13 +10357,13 @@ Templates:
 				RightColor: 67533A
 				ZOffset: -12
 				ZRamp: 0
-			3: Cliff
+			3: Clear
 				Height: 4
 				LeftColor: 4E4539
 				RightColor: 3F372B
 				ZOffset: -12
 				ZRamp: 0
-			4: Cliff
+			4: Clear
 				Height: 3
 				RampType: 3
 				LeftColor: 514636
@@ -10378,12 +10377,12 @@ Templates:
 				RightColor: 5F513E
 				ZOffset: -12
 				ZRamp: 0
-			6: Cliff
+			6: Clear
 				LeftColor: 695742
 				RightColor: 50483C
 				ZOffset: -12
 				ZRamp: 0
-			7: Cliff
+			7: Clear
 				RampType: 1
 				LeftColor: 695A46
 				RightColor: 61523E
@@ -10435,14 +10434,14 @@ Templates:
 				RightColor: 574C3D
 				ZOffset: -12
 				ZRamp: 0
-			4: Cliff
+			4: Clear
 				Height: 3
 				RampType: 1
 				LeftColor: 4E463A
 				RightColor: 625543
 				ZOffset: -12
 				ZRamp: 0
-			5: Cliff
+			5: Clear
 				Height: 4
 				LeftColor: 504537
 				RightColor: 42392C
@@ -10455,13 +10454,13 @@ Templates:
 				RightColor: 584C3C
 				ZOffset: -12
 				ZRamp: 0
-			7: Cliff
+			7: Clear
 				RampType: 3
 				LeftColor: 564D41
 				RightColor: 4D4438
 				ZOffset: -12
 				ZRamp: 0
-			8: Cliff
+			8: Clear
 				LeftColor: 675845
 				RightColor: 3F3A31
 				ZOffset: -12
@@ -10518,14 +10517,14 @@ Templates:
 				RightColor: 4F473C
 				ZOffset: -12
 				ZRamp: 0
-			5: Cliff
+			5: Clear
 				Height: 3
 				RampType: 2
 				LeftColor: 4E4537
 				RightColor: 4D463A
 				ZOffset: -12
 				ZRamp: 0
-			6: Cliff
+			6: Clear
 				RampType: 4
 				LeftColor: 665846
 				RightColor: 5D5244
@@ -10537,13 +10536,13 @@ Templates:
 				RightColor: 62523D
 				ZOffset: -12
 				ZRamp: 0
-			9: Cliff
+			9: Clear
 				Height: 4
 				LeftColor: 4B4033
 				RightColor: 413A2F
 				ZOffset: -12
 				ZRamp: 0
-			10: Cliff
+			10: Clear
 				LeftColor: 564D40
 				RightColor: 3F3B33
 				ZOffset: -12
@@ -10554,13 +10553,13 @@ Templates:
 		Images: ramp04.tem
 		Size: 4, 3
 		Tiles:
-			1: Cliff
+			1: Clear
 				Height: 4
 				LeftColor: 473E33
 				RightColor: 403A32
 				ZOffset: -12
 				ZRamp: 0
-			2: Cliff
+			2: Clear
 				LeftColor: 3B3831
 				RightColor: 35332E
 				ZOffset: -12
@@ -10572,14 +10571,14 @@ Templates:
 				RightColor: 63594A
 				ZOffset: -12
 				ZRamp: 0
-			5: Cliff
+			5: Clear
 				Height: 3
 				RampType: 4
 				LeftColor: 655B4B
 				RightColor: 5D5447
 				ZOffset: -12
 				ZRamp: 0
-			6: Cliff
+			6: Clear
 				RampType: 2
 				LeftColor: 4E4537
 				RightColor: 4A4236
@@ -10636,12 +10635,12 @@ Templates:
 				RightColor: 504535
 				ZOffset: -12
 				ZRamp: 0
-			3: Cliff
+			3: Clear
 				LeftColor: 544C40
 				RightColor: 544C3F
 				ZOffset: -12
 				ZRamp: 0
-			4: Cliff
+			4: Clear
 				LeftColor: 4A4338
 				RightColor: 443D33
 				ZOffset: -12
@@ -10653,13 +10652,13 @@ Templates:
 				RightColor: 474035
 				ZOffset: -12
 				ZRamp: 0
-			6: Cliff
+			6: Clear
 				Height: 4
 				LeftColor: 504535
 				RightColor: 4D463B
 				ZOffset: -12
 				ZRamp: 0
-			7: Cliff
+			7: Clear
 				Height: 3
 				RampType: 3
 				LeftColor: 4E4A41
@@ -10712,13 +10711,13 @@ Templates:
 				RightColor: 4E473A
 				ZOffset: -12
 				ZRamp: 0
-			4: Cliff
+			4: Clear
 				RampType: 3
 				LeftColor: 5A4F3F
 				RightColor: 605647
 				ZOffset: -12
 				ZRamp: 0
-			5: Cliff
+			5: Clear
 				LeftColor: 6B5A45
 				RightColor: 6D5A41
 				ZOffset: -12
@@ -10743,14 +10742,14 @@ Templates:
 		Images: ramp07.tem
 		Size: 2, 2
 		Tiles:
-			0: Cliff
+			0: Clear
 				Height: 3
 				RampType: 1
 				LeftColor: 74634D
 				RightColor: 74654F
 				ZOffset: -12
 				ZRamp: 0
-			1: Cliff
+			1: Clear
 				Height: 4
 				LeftColor: 524636
 				RightColor: 494034
@@ -10769,12 +10768,12 @@ Templates:
 		Images: ramp08.tem
 		Size: 4, 3
 		Tiles:
-			1: Cliff
+			1: Clear
 				LeftColor: 685C4B
 				RightColor: 645B4C
 				ZOffset: -12
 				ZRamp: 0
-			2: Cliff
+			2: Clear
 				Height: 4
 				LeftColor: 4C453A
 				RightColor: 4C4234
@@ -10786,12 +10785,12 @@ Templates:
 				RightColor: 615545
 				ZOffset: -12
 				ZRamp: 0
-			5: Cliff
+			5: Clear
 				LeftColor: 746149
 				RightColor: 706049
 				ZOffset: -12
 				ZRamp: 0
-			6: Cliff
+			6: Clear
 				Height: 3
 				RampType: 4
 				LeftColor: 665D4F
@@ -10871,13 +10870,13 @@ Templates:
 				RightColor: 655947
 				ZOffset: -12
 				ZRamp: 0
-			5: Cliff
+			5: Clear
 				RampType: 4
 				LeftColor: 695F50
 				RightColor: 5C5244
 				ZOffset: -12
 				ZRamp: 0
-			9: Cliff
+			9: Clear
 				LeftColor: 705D45
 				RightColor: 6E5C46
 				ZOffset: -12
@@ -10888,7 +10887,7 @@ Templates:
 		Images: ramp10.tem
 		Size: 2, 2
 		Tiles:
-			0: Cliff
+			0: Clear
 				Height: 3
 				RampType: 2
 				LeftColor: 655B4B
@@ -10902,7 +10901,7 @@ Templates:
 				RightColor: 665B4A
 				ZOffset: -12
 				ZRamp: 0
-			2: Cliff
+			2: Clear
 				Height: 4
 				LeftColor: 464037
 				RightColor: 484137

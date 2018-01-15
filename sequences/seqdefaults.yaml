@@ -91,3 +91,38 @@
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
+
+^SpriteVehicle:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+		UseTilesetCode: false
+	stand:
+		Facings: -32
+		UseTilesetCode: false
+
+^SpriteVehicleWithShadow:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 32
+	stand:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 32
+
+^SpriteVehicleWithShadowAndTurret:
+	Inherits: ^EmpOverlay
+	idle:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 64
+	stand:
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 64
+	turret:
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false

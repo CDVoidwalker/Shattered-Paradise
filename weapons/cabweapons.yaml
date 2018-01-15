@@ -1,9 +1,6 @@
-########################################################################
-# Infantry
-########################################################################
 CyborgVulcan:
 	Inherits: ^RifleWarhead
-	Inherits@1:	^Piffs
+	Inherits@1: ^Piffs
 	ReloadDelay: 60
 	Burst: 3
 	Range: 5c0
@@ -30,8 +27,13 @@ CyborgRocket:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+CyborgRocketAA:
+	Inherits: CyborgRocket
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
 
 SentryGun:
 	Inherits: ^FullDamage
@@ -68,8 +70,8 @@ ReaperWeb:
 		Range: 1c0
 		Duration: 125
 		ValidTargets: Infantry
-		Condition: WebDisable	
-	
+		Condition: WebDisable
+
 ReaperScythe:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
@@ -78,7 +80,7 @@ ReaperScythe:
 	Burst: 4
 	MinRange: 3c0
 	Report: samshot1.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: Missile
 		Speed: 213
 		Blockable: false
@@ -89,10 +91,16 @@ ReaperScythe:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 3500
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 128
+
+ReaperScytheAA:
+	Inherits: ReaperScythe
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
 
 ProcessingHuman:
 	Inherits: ^RifleWarhead
@@ -107,7 +115,7 @@ ProcessingHuman:
 		ValidTargets: Infantry
 		ValidStances: Enemy, Neutral
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
-		
+
 GLAD120mm:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
@@ -140,7 +148,7 @@ LurkerHit:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: playercab
 		Explosions: lurkertentacle
-		ImpactSound: expdirt1.aud #expnew14.aud
+		ImpactSound: expdirt1.aud
 		InvalidImpactTypes: Water
 
 CyCannon:
@@ -166,18 +174,16 @@ CyCannon:
 	Warhead@2Eff: CreateEffect
 		Explosions: large_bang
 		ImpactSound: expnew12.aud
-		InvalidImpactTypes: Water
+		InvalidValidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
 		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
-########################################################################
-# Non Combat Cyborgs
-########################################################################				
+
 WorkerMinigun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -212,53 +218,6 @@ Dogzooka:
 		Damage: 1000
 		ValidTargets: Ground, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-########################################################################
-# Vehicles
-########################################################################
-
-SeekerBazooka:
-	Inherits: ^RocketWarhead
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 100
-	Range: 8c0
-	MinRange: 3c0
-	Report: rketinf1.aud
-	ValidTargets: Ground
-	Projectile: Missile
-		Speed: 213
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 128
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 15
-		RateOfTurn: 10
-		RangeLimit: 15c0
-		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Damage: 5000
-		ValidTargets: Ground
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-
-SeekerBazookaAA:
-	Inherits: SeekerBazooka
-	ValidTargets: Air
-	Warhead@1Dam: SpreadDamage
-		Damage: 3000
-		ValidTargets: Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-
-MagnetronTract:
-	ReloadDelay: 15
-	Range: 10c0
-	ValidTargets: Vehicle
-	TargetActorCenter: true
-	Projectile: InstantHit
-	Warhead@1Tract: Tractor
-		Spread: 0
-		ValidTargets: Vehicle
-		CruiseSpeedMultiplier: 0
-		DamageTypes: DefaultDeath
 
 ArtisanTurretLasor:
 	ReloadDelay: 50
@@ -426,8 +385,8 @@ CenturionVulcan:
 		Inaccuracy: 0c512
 	Warhead@1Dam: SpreadDamage
 		Damage: 1700
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath		
-		
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+
 TermitaGrinder:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
@@ -447,9 +406,8 @@ DroneHostShell:
 	ReloadDelay: 150
 	Range: 14c0
 	Burst: 4
-	BurstDelay: 15
+	BurstDelays: 15
 	MinRange: 4c0
-	# Report: 120mmf.aud
 	ValidTargets: Ground, Vehicle, Infantry, water
 	Projectile: BulletAS
 		Speed: 150
@@ -504,10 +462,6 @@ PalaLazor:
 		Damage: 5100
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
-########################################################################
-# Aircraft
-########################################################################
-
 WaspBullet:
 	Inherits: ^APWarhead
 	ReloadDelay: 50
@@ -515,8 +469,8 @@ WaspBullet:
 	Report: lastur1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	InvalidTargets: Air
-	Projectile:	Bullet
-		Speed: 100c0		
+	Projectile: Bullet
+		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
@@ -530,7 +484,7 @@ WaspBulletAA:
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		ValidTargets: Air
- 		InvalidTargets: Ground, Vehicle, Building, Infantry   
+		InvalidTargets: Ground, Vehicle, Building, Infantry
 
 WaspLasor:
 	ReloadDelay: 50
@@ -582,32 +536,11 @@ DevourerBuff:
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 		AffectsParent: True
 
-BasiliskProton:
-	Inherits: ^ArtilleryWarhead
-	Inherits@2: ^Small_Bang
-	ReloadDelay: 50
-	Range: 6c0
-	Report: scrin5b.aud
-	Burst: 2
-	BurstDelay: 3
-	ValidTargets: Ground
-	Projectile: BulletAS
-		Speed: 250
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 128
-		Image: TORPEDO
-		RangeLimit: 35
-	Warhead@1Dam: SpreadDamage
-		Damage: 2500
-		ValidTargets: Ground
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-
 BasiliskBomb:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 150
+	Inherits: ^ArtilleryWarhead
+	ReloadDelay: 70
 	Range: 6c0
-	Burst: 1
+	Burst: 4
 	MinRange: 0c512
 	Report: rketinf1.aud
 	ValidTargets: Ground, Air
@@ -615,38 +548,29 @@ BasiliskBomb:
 		Speed: 150
 		Blockable: false
 		Shadow: true
-		LaunchAngle: 62	
-		Inaccuracy: 0c510
+		LaunchAngle: 62
+		Inaccuracy: 1c0
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		HorizontalRateOfTurn: 8
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c400
-		Damage: 18000
+		Spread: 164
+		Damage: 8000
 		ValidTargets: Ground
 		Versus:
+			InfantryArmor: 400
+			BuildingArmor: 75
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: firestormexplo
-		ExplosionPalette: playercab
-		ImpactSound: expnew12.aud
-		InvalidImpactTypes: Water, Air, AirHit
-	Warhead@3EffWater: CreateEffect
-		Explosions: firestormexplo
-		ExplosionPalette: playercab
-		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
-	Warhead@4EffAir: CreateEffect
-		ValidImpactTypes: Air, AirHit
-		ExplosionPalette: playercab
-		ImpactSound: expnew05.aud
+		Explosions: firestormexplo, firestormexplo1, firestormexplo2
+		ExplosionPalette: apolbluealpha
+		ImpactSounds: firstrm1.aud
+		ValidTargets: Ground, Water
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
-########################################################################
-# Defences
-########################################################################
+
 SentryTurretGun:
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 25
@@ -671,7 +595,7 @@ CTurretCannon:
 	Range: 6c768
 	Report: 120mmf.aud
 	Burst: 1
-	BurstDelay: 5
+	BurstDelays: 5
 	Projectile: BulletAS
 		Speed: 682
 		Image: 120mm

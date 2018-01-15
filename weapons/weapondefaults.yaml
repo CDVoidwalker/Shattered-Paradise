@@ -8,7 +8,7 @@
 		Range: 32
 		Duration: 400
 
-^RifleWarhead:	#Inherits: ^RifleWarhead
+^RifleWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Projectile: BulletAS
 		Speed: 1c682
@@ -20,11 +20,11 @@
 			BuildingArmor: 35
 			VehicleArmor: 15
 			AircraftArmor: 100
-			ConcreteArmor: 15
+			ConcreteArmor: 5
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RifleWarhead
 
-^RocketWarhead:	#Inherits: ^RocketWarhead
+^RocketWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Projectile: Missile
 		TerrainHeightAware: True
@@ -55,7 +55,7 @@
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RocketWarhead
 
-^APWarhead:	#Inherits: ^APWarhead , Tanks, Wasps and Gladiators use this.
+^APWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Projectile: BulletAS
 		Speed: 450
@@ -74,7 +74,7 @@
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: APWarhead
 
-^FlameWarhead:	#Inherits: ^FlameWarhead , Specific Anti infantry.
+^FlameWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 100, 100, 100, 100
@@ -87,7 +87,7 @@
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FlameWarhead
 
-^ArtilleryWarhead: #Inherits: ^ArtilleryWarhead , Inverted curve.
+^ArtilleryWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
@@ -101,9 +101,7 @@
 		Range: 256
 		Duration: 750
 
-#Mostly Unused.
-
-^BombWarhead: #Inherits: ^BombWarhead , Used by the Orca Bomber and Demo Cycle.
+^BombWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Falloff: 300, 150, 100, 50, 0
@@ -116,7 +114,7 @@
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
 
-^AcidWarhead:	#Inherits: ^AcidWarhead Used by knights, scrin turrets, scorpions and some critters.
+^AcidWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Versus:
@@ -124,16 +122,16 @@
 			BuildingArmor: 50
 			VehicleArmor: 50
 			AircraftArmor: 100
-			ConcreteArmor: 2
+			ConcreteArmor: 15
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FlameWarhead
 
-^DecentFalloff:	#Inherits: ^DecentFalloff
+^DecentFalloff:
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 50, 25, 12, 0
 
-^FullDamage:	#Inherits: ^FullDamage
+^FullDamage:
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c181
@@ -145,13 +143,13 @@
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FullDamage
 
-^NoDamage:	#Inherits: ^NoDamage
+^NoDamage:
 	ValidTargets: Ground, Infantry, Vehicle, Building
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 1
 
-^ExploDefaults:	#Inherits: ^ExploDefaults
+^ExploDefaults:
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
 		Amount: 2

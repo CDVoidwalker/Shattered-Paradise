@@ -16,10 +16,9 @@ BoolBada			: Another code wizzard, responsible for carrier logic and other fun s
 FiveAces			: Streaming.
 SchismNavigator		: Worked on SP for some time.
 4XS					: For his help with concept art. http://4-x-s.deviantart.com/
-Lucassss			: Testing and balancing.
-Murto The Ray		: Testing and Balancing.
-Voidwalker			: Testing and Balancing.
-ZxGanon				: Balance Design.
+Noddy				: Asset Hunter.
+Voidwalker			: Coding & Maintenance.
+ZxGanon				: Balance & Streaming.
 Skyhunter713		: Voice Acting.
 Trempler			: Mapping.
 
@@ -29,13 +28,15 @@ Trempler			: Mapping.
 Nolt		: CABAL, Scrin and Mutant UI, skirmish faction logos.
 Scipción	: Shattered Paradise planet logo.
 Alex06		: Dev Blog image.
+Windawz		: CABAL, Scrin and Forgotten UI remasters.
 
 If an asset doesn't have credit, then either it was made by WW or we missed it, let us know if we made any mistakes.
 
 #Game Art
 
+Agent Z		: GDI MRLS Voxel, Forgotten Harvester.
 Astor		: Veterancy Chevrons (I guess its Astor :/)
-Agent Z		: GDI MRLS Voxel, CABAL Harvester.
+azri_apoc 	: Nod Harvester.
 Nolt		: Everything that is not listed here or belongs to westwood.
 The_Dementor	: Cameos: Skirmisher, EMP pulse Icons, Harvester and MCV (mut and cab), 
 The_Dementor	: cyborg commando cameo, Wrench and Tiberium Icons.
@@ -49,7 +50,7 @@ Super Joe	: Marine shp, Militant shp.
 Lin Kuei Ominae	: Tripod shp (Unit and Cameo).
 wirecase.com	: Guardian Platform model.				
 Hassan_2030	: Grinder vxl.
-Muldrake	: Twilight Mammoth Tank
+Muldrake	: Twilight Mammoth Tank.
 Jah		: Storm Rider vxl.	
 KALAPS S8 	: Forgotten Tank Destroyer			
 Sane Disruption	: Forgotten MRLS vxl.
@@ -58,8 +59,7 @@ Orac		: Forgotten Trike vxl.
 OverWatch (PPM User): Forgotten Battle Bus vxl.	
 GameMaster0000	: Tiberian Fiend Icon.
 CyborgCommandoKerem: Black Hand Sniper shp.				
-DonutArnold	: Basilisk torpedo explosion effect, scrin structure, scrin aircraft crash
-		 explosion effects and NOD nuke explosion effect.
+DonutArnold	: Basilisk torpedo explosion effect, scrin explosion effects and NOD nuke explosion effect.
 
 #Sounds
 Audiomicro.com	: Legio and Glyder sound effect.

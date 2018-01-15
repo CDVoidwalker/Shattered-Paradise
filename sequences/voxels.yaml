@@ -8,6 +8,8 @@ harv:
 apc:
 	idle:
 	water: apcw
+	turret: 1tnktur
+	barrel: jeeptur
 
 art2:
 	idle:
@@ -33,8 +35,9 @@ bike:
 
 ttnk:
 	idle:
-	turret: ttnktur
-	barrel: ttnkbarl
+	turret: muttanktur
+	# turret: ttnktur
+	# barrel: ttnkbarl
 
 mmch:
 	barrel: mmchbarl

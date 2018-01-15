@@ -45,9 +45,9 @@ bigblue:
 		ShadowStart: 1
 		UseTilesetExtension: true
 		Offset: 0, -12, 12
+
 tree01:
 	Inherits: ^TreeArt
-
 
 tree02:
 	Inherits: ^TreeArt

@@ -53,7 +53,7 @@ SkirmisherMortar:
 	Inherits@3: ^Small_Twlt
 	ReloadDelay: 150
 	Range: 8c0
-	MinRange: 1c0
+	MinRange: 2c0
 	Report: 120mmf.aud
 	Projectile: BulletAS
 		Speed: 140
@@ -73,7 +73,7 @@ SkirmisherMortar:
 	-Warhead@5Smu: LeaveSmudge
 
 NexusTargeter:
-	Range: 5c0 # Doesn't matter too much, I think.
+	Range: 5c0
 	ReloadDelay: 30
 	Range: 12c0
 	ValidTargets: Ground, Water, Air
@@ -112,8 +112,16 @@ FiendShard2:
 		ImpactSound: expnew14.aud
 		InvalidTargets: Water
 
+FiendShardAA:
+	Inherits: FiendShard2
+	ValidTargets: Air
+	Projectile: BulletAS
+		Speed: 800
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
+
 SeerTesla:
-	ReloadDelay: 200
+	ReloadDelay: 150
 	Range: 6c0
 	Report: voltautofire.wav
 	Charges: yes
@@ -123,17 +131,17 @@ SeerTesla:
 		Duration: 10
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
-		Versus:
-			InfantryArmor: 50
-			BuildingArmor: 75
-			VehicleArmor: 85
-			ConcreteArmor: 30
 		ValidTargets: Ground
+		Versus:
+			InfantryArmor: 10
+			BuildingArmor: 100
+			VehicleArmor: 100
+			AircraftArmor: 100
+			ConcreteArmor: 30
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 
 SeerTeslaAA:
 	Inherits: SeerTesla
-	ReloadDelay: 100
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
@@ -149,12 +157,67 @@ SparkExplo:
 
 SeerTeslaSpark:
 	Inherits: SeerTesla
-	Range: 4c0
+	Range: 3c0
 	InvalidTargets: seer
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 1
+
+SeerTyranyBuff:
+	ReloadDelay: 50
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 30
+			VehicleArmor: 2
+			ConcreteArmor: 2
+		DamageTypes: FireDeath, ScrinEssenceKill
+		InvalidTargets: Colossi
+	Warhead@Acid: GrantExternalCondition
+		Range: 5c0
+		Duration: 375
+		Condition: TyrannyBuff
+		ValidStances: Ally
+
+SeerTyranyInstakillSpawn:
+	ReloadDelay: 15
+	Range: 5c0
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 100, 100
+		Spread: 1500
+		Damage: 1
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 30
+			VehicleArmor: 2
+			ConcreteArmor: 2
+		DamageTypes: FireDeath, ScrinEssenceKill
+		InvalidTargets: Colossi
+	Warhead@op: FireShrapnel
+		Weapon: SeerTyranyInstakill
+		Amount: 1
+		AllowDirectHit: false
+		ThrowWithoutTarget: False
+		AimChance: 100
+		ValidStances: Ally
+
+SeerTyranyInstakill:
+	Inherits: SeerTesla
+	Range: 5c0
+	InvalidTargets: seer
+	Projectile: TeslaZap
+		Palette: apolbluealpha
+	Warhead@1Dam: SpreadDamage
+		Damage: 40000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 70
+			VehicleArmor: 70
+			ConcreteArmor: 40
 
 KnightAcid:
 	Inherits: ^AcidWarhead
@@ -171,7 +234,7 @@ KnightAcid:
 	Warhead@1Dam: SpreadDamage
 		Spread: 256
 		Damage: 300
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
@@ -195,7 +258,7 @@ PsykerRay:
 	ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 	Projectile: BulletAS
 		Speed: 4c6824
-		Inaccuracy: 3c0
+		Inaccuracy: 2c512
 	Warhead@1Dam: SpreadDamage
 		Spread: 150
 		Damage: 7000
@@ -211,9 +274,6 @@ PsykerRay:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 
-################################################
-# GARRISON
-################################################
 GMarauderShotgun:
 	Inherits: MarauderShotgun
 	Range: 6c768
@@ -248,9 +308,6 @@ GPsykerRay:
 	Inherits: PsykerRay
 	Range: 12c0
 
-###############################################################		
-# Beast
-###############################################################		
 BerserkerBlow:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
@@ -262,8 +319,8 @@ BerserkerBlow:
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: Ground	
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
+		ValidTargets: Ground
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
 BullAcid:
 	Inherits: ^AcidWarhead
@@ -276,11 +333,11 @@ BullAcid:
 		Inaccuracy: 384
 		Palette: apolgreenalpha
 	Burst: 7
-	BurstDelay: 5
+	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 800
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
@@ -290,6 +347,11 @@ BullAcid:
 	Warhead@3Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+	Warhead@8Radio: CreateRadioactivity
+		Range: 1, 2
+		Level: 50
+		Falloff: 100, 25
+		MaxLevel: 1000
 
 BullAcidSpawn:
 	Inherits: BullAcid
@@ -298,7 +360,7 @@ BullAcidSpawn:
 		Actors: cloud1
 		FallRate: 5000
 		Range: 3
-		
+
 BullBuff:
 	Inherits: ^NoDamage
 	ReloadDelay: 60
@@ -328,7 +390,7 @@ DeathclawBlow:
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c090
-		Damage: 4000
+		Damage: 2800
 		ValidTargets: Vehicle, Defence, Infantry
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 
@@ -344,11 +406,8 @@ DeathclawBlow2:
 		Spread: 0c090
 		Damage: 4000
 		ValidTargets: Building
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath			
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 
-###############################################################		
-# Vehicle
-###############################################################				
 IFVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -380,7 +439,7 @@ QuadFire:
 	Range: 6c0
 	Report: cygun1.aud
 	ValidTargets: Ground
-	InvalidTargets: Air	
+	InvalidTargets: Air
 	MinRange: 1c0
 	Projectile: BulletAS
 		Speed: 1000
@@ -395,19 +454,14 @@ QuadFire:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 QuadFireAA:
-	ReloadDelay: 50
 	Range: 9c0
-	Report: cygun1.aud
 	ValidTargets: Air
-	MinRange: 3c0
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		Damage: 3000
-		Versus:
-			ConcreteArmor: 5
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-		
+
 TiberianRocket:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 225
@@ -421,7 +475,7 @@ TiberianRocket:
 		Speed: 350
 		Blockable: false
 		Shadow: true
-		LaunchAngle: 62	
+		LaunchAngle: 62
 		Inaccuracy: 2c0
 		Image: DRAGON
 		TrailImage: small_smoke_trail
@@ -433,7 +487,7 @@ TiberianRocket:
 		Damage: 4000
 		ValidTargets: Ground
 		Versus:
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeathStrong
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@2EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
@@ -446,11 +500,11 @@ TiberianRocket:
 		Explosions: tib_expsmall
 		ImpactSound: expnew12.aud
 		InvalidTargets: Water, Air, AirHit
-	# Warhead@1Radio: CreateRadioactivity
-		# Range: 1, 2, 3, 4
-		# Level: 100
-		# Falloff: 100, 90, 50, 0
-		# MaxLevel: 500
+	Warhead@8Radio: CreateRadioactivity
+		Range: 1, 2, 3
+		Level: 35
+		Falloff: 100, 50, 15
+		MaxLevel: 1000
 
 MiniNuke:
 	Inherits: ClusterMissile
@@ -463,10 +517,13 @@ MiniNuke:
 		Damage: 1500
 	Warhead@10Dam_areanukec: SpreadDamage
 		Damage: 750
+	Warhead@8Radio: CreateRadioactivity
+		Range: 1, 2, 3, 4, 5, 6
+		Level: 1000
+		Falloff: 100, 60, 40, 25, 15, 5
+		MaxLevel: 1000
+		RadioactivityLayerName: OrangeRadiation
 
-#################################################################
-# Aircraft
-#################################################################
 QueenShard:
 	Inherits: ^APWarhead
 	ReloadDelay: 70
@@ -483,7 +540,7 @@ QueenShard:
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
 		ValidTargets: Ground
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
@@ -611,14 +668,14 @@ GargoylVulcan:
 		ValidTargets: Infantry
 		Versus:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
-		
+
 GargoylRocket:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 90
 	Range: 6c0
 	Report: orcamis1.aud
-	InvalidTargets: Infantry	
+	InvalidTargets: Infantry
 	ValidTargets: Ground, Vehicle, Building
 	Projectile: Missile
 		Speed: 500
@@ -633,7 +690,7 @@ GargoylRocket:
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000
 		ValidTargets: Ground, Vehicle, Building
-		InvalidTargets: Infantry	
+		InvalidTargets: Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 GargoylRocketAA:
@@ -642,7 +699,7 @@ GargoylRocketAA:
 	ReloadDelay: 90
 	Range: 6c0
 	Report: orcamis1.aud
-	ValidTargets:  Air
+	ValidTargets: Air
 	Projectile: Missile
 		Speed: 250
 		Blockable: false
@@ -712,23 +769,16 @@ FalconPunch:
 		Spread: 300
 		Damage: 13500
 		ValidTargets: Ground, Water
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeathStrong
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeath
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
 		FallRate: 5000
 		Range: 3
-
-FalconPunch2:
-	Inherits: FalconPunch
-	Burst: 1
-	ReloadDelay: 15
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1
-		FallRate: 5000
-		Range: 3
-#################################################################
-# Structures
-#################################################################
+	Warhead@8Radio: CreateRadioactivity
+		Range: 1, 2, 3
+		Level: 1000
+		Falloff: 100, 50, 25
+		MaxLevel: 1000
 
 LeonidCannon:
 	Inherits: ^APWarhead
@@ -774,13 +824,13 @@ VentilatorPoison:
 		Falloff: 300, 150, 100, 50, 0
 		ValidTargets: Infantry
 		InvalidTargets: Mutant
-		Damage: 1000
+		Damage: 10000
 		DamageTypes: TiberiumDeath
 	Warhead@2Dam: SpreadDamage
 		Spread: 2c0
 		ValidTargets: Mutant
 		Falloff: 300, 150, 100, 50, 0
-		Damage: -250
+		Damage: -2500
 		Versus:
 			InfantryArmor: 125
 			BuildingArmor: 25

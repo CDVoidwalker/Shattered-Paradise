@@ -7,7 +7,7 @@ FireballLauncher:
 		Image: FLAMEALL
 		Inaccuracy: 384
 	Burst: 5
-	BurstDelay: 5
+	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 341
 		Damage: 2500
@@ -74,20 +74,25 @@ CrabAcid:
 	InvalidTargets: NeutralTibCritter
 	Projectile: BulletAS
 		Speed: 100
-		Image: acidall32mini #flamebro 
+		Image: acidall32mini
 		Inaccuracy: 384
 		Palette: apolgreenalpha
 	Burst: 5
-	BurstDelay: 5
+	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1000
 		ValidTargets: Ground, Vehicle, Infantry, Building
 		InvalidTargets: NeutralTibCritter
-		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeathStrong
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
+	Warhead@3Radio: CreateRadioactivity
+		Range: 1, 2
+		Level: 25
+		Falloff: 100, 37
+		MaxLevel: 1000
 
 Tentacle:
 	Inherits@wh: ^AcidWarhead
@@ -115,7 +120,6 @@ CrabSpawnerPrior:
 	Warhead@op: FireShrapnel
 		Weapon: CrabSpawner
 		Amount: 1
-		# AimChance: 50
 		AllowDirectHit: false
 
 CrabSpawner:
@@ -129,13 +133,12 @@ CrabSpawner:
 		FallRate: 5000
 		Range: 3
 
-TibBurst
+TibBurst:
 	ReloadDelay: 150
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: TibBurstExplo
 		Amount: 1
-		# AimChance: 50
 
 TibBurstExplo:
 	ReloadDelay: 50
@@ -143,22 +146,18 @@ TibBurstExplo:
 	Projectile: BulletAS
 		Speed: 1c682
 		Inaccuracy: 0c512
-	# Warhead@2Res: CreateResource
-		# AddsResourceType: Tiberium
-		# Size: 1,1
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
 		ImpactSound: expnew14.aud
 		InvalidImpactTypes: Water
 
-BlueTibBurst
+BlueTibBurst:
 	ReloadDelay: 150
 	Projectile: InstantExplode
 	Warhead@op: FireShrapnel
 		Weapon: BlueTibBurstExplo
 		Amount: 1
-		# AimChance: 50
 
 BlueTibBurstExplo:
 	ReloadDelay: 50
@@ -166,10 +165,6 @@ BlueTibBurstExplo:
 	Projectile: BulletAS
 		Speed: 1c682
 		Inaccuracy: 0c512
-	# Warhead@2Res: CreateResource
-		# AddsResourceType: BlueTiberium
-		# InitialSpawnDelay: 1500
-		# Size: 1,1
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolbluealpha
@@ -215,7 +210,7 @@ LTrail:
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Dam: SpreadDamage
 		Range: 0, 32
-		Falloff: 50, 50 # Only does half damage to friendly units
+		Falloff: 50, 50
 		Damage: 15000
 		InfDeath: 6
 		AffectsParent: false
@@ -234,7 +229,7 @@ LTrail:
 	Range: 5c768
 	Report: 120mmf.aud
 	Burst: 2
-	BurstDelay: 5
+	BurstDelays: 5
 	Projectile: BulletAS
 		Speed: 682
 		Image: 120mm
@@ -245,9 +240,7 @@ LTrail:
 		Spread: 128
 		Damage: 5000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-		
+
 4tnktusk:
 	Inherits: MammothTusk
 	Range: 6c0
-
-

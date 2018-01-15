@@ -1,7 +1,7 @@
 Metadata:
 	Title: Shattered Paradise
 	Description: Live the Second Tiberium War in a perspective you have never seen before.\nFind your place in this apocalyptic wasteland and make your enemies fear you!\n\nShattered Paradise that brings three new factions to Tiberian Sun and\ntries to mimic the gameplay style of the original game while also adding\nmore content to the game like units and mechanics.
-	Version: {Test_Version_2017_12_21_I}
+	Version: {Build 20180113}
 	Author: Nolt, with the help of a lot of people.
 
 PackageFormats: Mix
@@ -11,10 +11,10 @@ Packages:
 	~^Content/ts/firestorm
 	.
 	./mods/common: common
+	./mods/as: as
 	$d2k: d2k
 	$sp: sp
 	$ts: ts
-	$as: as
 # Tiberian Sun
 	~scores.mix
 	~sidenc01.mix
@@ -100,6 +100,7 @@ MapFolders:
 	sp|maps: System
 	sp|maps/ww: System
 	sp|maps/balanced: System
+	sp|maps/coop: System
 	~^maps/sp/{DEV_VERSION}: User
 
 Rules:
@@ -169,7 +170,7 @@ MapGrid:
 	DefaultSubCell: 2
 
 Cursors:
-	sp|cursors.yaml
+	ts|cursors.yaml
 
 Chrome:
 	sp|chrome.yaml
@@ -179,25 +180,25 @@ Assemblies:
 	common|OpenRA.Mods.Cnc.dll
 	d2k|OpenRA.Mods.D2k.dll
 	as|OpenRA.Mods.AS.dll
-	./mods/common/OpenRA.Mods.yupgi_alert.dll
 
 ChromeLayout:
 	common|chrome/ingame.yaml
 	common|chrome/ingame-chat.yaml
 	common|chrome/ingame-fmvplayer.yaml
 	common|chrome/ingame-menu.yaml
-	sp|chrome/ingame-info.yaml
+	ts|chrome/ingame-info.yaml
 	common|chrome/ingame-infoscripterror.yaml
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
-	sp|chrome/ingame-observer.yaml
-	sp|chrome/ingame-observerstats.yaml
-	sp|chrome/ingame-player.yaml
+	ts|chrome/ingame-observer.yaml
+	ts|chrome/ingame-observerstats.yaml
+	sp|chrome/ingame-player.yaml #The only file of chromes that is on SP
 	common|chrome/ingame-perf.yaml
-	sp|chrome/ingame-debug.yaml
+	ts|chrome/ingame-debug.yaml
+	common|chrome/ingame-infochat.yaml
 	common|chrome/mainmenu.yaml
-	sp|chrome/mainmenu-prerelease-notification.yaml
+	ts|chrome/mainmenu-prerelease-notification.yaml
 	common|chrome/settings.yaml
 	common|chrome/credits.yaml
 	common|chrome/lobby.yaml
@@ -206,17 +207,15 @@ ChromeLayout:
 	common|chrome/lobby-options.yaml
 	common|chrome/lobby-music.yaml
 	common|chrome/lobby-kickdialogs.yaml
-	common|chrome/lobby-globalchat.yaml
-	sp|chrome/color-picker.yaml
+	ts|chrome/color-picker.yaml
 	common|chrome/map-chooser.yaml
-	common|chrome/multiplayer.yaml
 	common|chrome/multiplayer-browser.yaml
+	common|chrome/multiplayer-browserpanels.yaml
 	common|chrome/multiplayer-createserver.yaml
 	common|chrome/multiplayer-directconnect.yaml
-	common|chrome/multiplayer-globalchat.yaml
 	common|chrome/connection.yaml
 	common|chrome/replaybrowser.yaml
-	sp|chrome/dropdowns.yaml
+	ts|chrome/dropdowns.yaml
 	common|chrome/musicplayer.yaml
 	common|chrome/tooltips.yaml
 	common|chrome/assetbrowser.yaml
@@ -238,6 +237,14 @@ Music:
 Translations:
 	sp|languages/english.yaml
 
+Hotkeys:
+	common|hotkeys/game.yaml
+	common|hotkeys/observer.yaml
+	common|hotkeys/production-common.yaml
+	common|hotkeys/supportpowers.yaml
+	common|hotkeys/viewport.yaml
+	ts|hotkeys.yaml
+
 LoadScreen: LogoStripeLoadScreen
 	Image: sp|uibits/loadscreen.png
 	Text: Exterminating the Martian race..., Sending the tacitus to Earth..., Developing human civilization..., Allowing Tiberium to go rampant...,Increasing political tension..., Finishing the TD Campaign..., Reinstalling bugs..., Searching for life outside earth..., Renaming bugs into easter eggs..., Making sure Nolt doesn't understand the next exception...,Nerfing your favourite unit... 
@@ -250,7 +257,7 @@ ServerTraits:
 
 ChromeMetrics:
 	common|metrics.yaml
-	sp|metrics.yaml
+	ts|metrics.yaml
 
 Fonts:
 	Regular:
@@ -342,10 +349,10 @@ ModContent:
 			TestFiles: ^Content/ts/firestorm/linkup.aud, ^Content/ts/firestorm/hacker.aud
 			Download: fstorm-music
 	Downloads:
-		sp|installer/downloads.yaml
+		ts|installer/downloads.yaml
 	Sources:
-		sp|installer/downloads.yaml
-		sp|installer/firestorm.yaml
-		sp|installer/firstdecade.yaml
-		sp|installer/origin.yaml
-		sp|installer/tibsun.yaml
+		ts|installer/downloads.yaml
+		ts|installer/firestorm.yaml
+		ts|installer/firstdecade.yaml
+		ts|installer/origin.yaml
+		ts|installer/tibsun.yaml

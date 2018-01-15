@@ -1,6 +1,3 @@
-##########################################################
-# Infantry
-##########################################################
 e1.gdi:
 	Inherits: ^InfantryDeathAnims
 	Defaults: e1
@@ -60,7 +57,7 @@ e1.gdi:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	die5: flameguy # TODO: walking animation unused
+	die5: flameguy
 		Start: 42
 		Length: 104
 		ShadowStart: 190
@@ -126,7 +123,7 @@ e1.nod:
 		Facings: 8
 		ShadowStart: 552
 	icon: sidebar-nod|e1icon
-	
+
 engineer.gdi:
 	Inherits: ^InfantryDeathAnims
 	Defaults: engineer
@@ -227,14 +224,12 @@ engineer.nod:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: sidebar-nod|engnicon	
-##########################################################
-# Vehicles
-##########################################################
+	icon: sidebar-nod|engnicon
+
 mcv.gdi:
 	Inherits: ^EmpOverlay
 	icon: sidebar-gdi|mcvicon
-	
+
 mcv.nod:
 	Inherits: ^EmpOverlay
 	icon: sidebar-nod|mcvicon
@@ -248,28 +243,62 @@ mcv.cab:
 	icon: cabmcvicon
 
 ^Harvester:
-	Inherits: ^EmpOverlay
+	Inherits@2: ^SpriteVehicleWithShadow
+	idle:
+		Facings: -64
+		ShadowStart: 64
+	move:
+		Length: 1
+		Facings: -64
+		ShadowStart: 64
 	harvest: harvestr
 		Length: *
 		ZRamp: 1
 		Offset: 0, 0, 6
+		ZOffset: -50
+	icon: sidebar-gdi|harvicon
+	dock:
+		Start: 25
+		ShadowStart: 89
+	dock-loop:
+		Start: 25
+		ShadowStart: 89
+
+gdiharv:
+	Inherits: ^Harvester
 	icon: sidebar-gdi|harvicon
 
-harv.gdi:
+nodharv:
 	Inherits: ^Harvester
-	icon: sidebar-gdi|harvicon	
-	
-harv.nod:
-	Inherits: ^Harvester
-	icon: sidebar-nod|harvicon	
+	icon: sidebar-nod|harvicon
 
-harv.mut:
+mutharv:
 	Inherits: ^Harvester
 	icon: mutharvicon
 
 cabharv:
 	Inherits: ^Harvester
-	icon: cabharvicon
+	icon: dinoicon
+	idle: dino3
+		Facings: 8
+		ShadowStart: 86
+	stand: dino2
+		Facings: 8
+		ShadowStart: 86
+	move: dino3
+		Start: 8
+		Length: 8
+		Facings: 8
+		Tick: 80
+		ShadowStart: 94
+	dock: dino3
+		Start: 72
+		Length: 14
+		ShadowStart: 158
+	dock-loop: dino3
+		Start: 85
+		Length: 1
+		ShadowStart: 171
 
 lpst.gdi:
 	Inherits: ^EmpOverlay
@@ -291,10 +320,8 @@ lpst.nod:
 		Offset: 0, -12
 		Length: 36
 		ShadowStart: 36
-	icon: sidebar-nod|lpsticon	
-##########################################################
-# Structures
-##########################################################
+	icon: sidebar-nod|lpsticon
+
 gacnst:
 	Defaults:
 		Offset: 0, -36, 36
@@ -346,7 +373,7 @@ gacnst:
 		BlendMode: Additive
 	icon: facticon
 		Offset: 0,0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 ^Proc:
 	Defaults: ntrefn
@@ -405,7 +432,6 @@ gacnst:
 		BlendMode: Additive
 		-DepthSprite:
 
-# TODO: unused narefn_a
 proc.gdi:
 	Inherits: ^Proc
 	icon: sidebar-gdi|reficon
@@ -413,7 +439,6 @@ proc.gdi:
 		UseTilesetCode: false
 		-DepthSprite:
 
-# TODO: unused narefn_a
 proc.nod:
 	Inherits: ^Proc
 	icon: sidebar-nod|reficon
@@ -498,7 +523,7 @@ gasilo.cab:
 	Inherits: ^Gasilo
 	icon: cabsilo
 		Offset: 0, 0
-		UseTilesetCode: false		
+		UseTilesetCode: false
 
 ^Gadept:
 	Defaults: gtdept
@@ -562,7 +587,7 @@ gasilo.cab:
 		ZOffset: 512
 		BlendMode: Additive
 		-DepthSprite:
-		
+
 gadept.gdi:
 	Inherits: ^Gadept
 	icon: sidebar-gdi|fixicon
@@ -576,23 +601,20 @@ gadept.nod:
 		Offset: 0, 0
 		UseTilesetCode: false
 		-DepthSprite:
-		
+
 gadept.mut:
 	Inherits: ^Gadept
 	icon: fixforg
 		Offset: 0, 0
 		UseTilesetCode: false
 		-DepthSprite:
-		
+
 gadept.cab:
 	Inherits: ^Gadept
 	icon: fixcab
 		Offset: 0, 0
 		UseTilesetCode: false
 		-DepthSprite:
-##########################################################
-# Infantry
-##########################################################
 
 ^Napuls:
 	Defaults: ntpuls
@@ -641,4 +663,4 @@ napuls.cab:
 	Inherits: ^Napuls
 	icon: cabpulsicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false

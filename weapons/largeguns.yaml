@@ -18,7 +18,7 @@
 	Range: 6c768
 	Report: 120mmf.aud
 	Burst: 2
-	BurstDelay: 5
+	BurstDelays: 5
 	Projectile: BulletAS
 		Speed: 682
 		Image: 120mm

@@ -17,7 +17,7 @@ GrenadierBazooka:
 	Range: 6c600
 	MinRange: 2c0
 	Report: rketinf1.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: Missile
 		Speed: 233
 		Blockable: false
@@ -32,8 +32,14 @@ GrenadierBazooka:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 5500
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
+
+GrenadierBazookaAA:
+	Inherits: GrenadierBazooka
+	ValidTargets: Air
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Air
 
 JJGrenade:
 	Inherits: ^ArtilleryWarhead
@@ -82,7 +88,7 @@ Heal:
 		Versus:
 			VehicleArmor: 60
 		ValidTargets: Infantry, Jumpjet
-		
+
 TrooperRail:
 	Inherits: ^FullDamage
 	ReloadDelay: 125
@@ -96,7 +102,7 @@ TrooperRail:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 6000
-		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
+		DamageTypes: Prone60Percent, TriggerProne, BulletDeath
 		Versus:
 			InfantryArmor: 50
 			ConcreteArmor: 5
@@ -108,10 +114,6 @@ TrooperRail:
 		Range: 1c0
 		Duration: 30
 		Condition: empdisable
-
-#############################################
-# Vehicles
-#############################################
 
 WolverineVulcan:
 	Inherits: ^RifleWarhead
@@ -125,6 +127,9 @@ WolverineVulcan:
 		Damage: 3750
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		
+ApcVulcan:
+	Inherits: BuggyCannon
+
 Titan120mm:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
@@ -135,7 +140,7 @@ Titan120mm:
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-	
+
 HoverMissile:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
@@ -198,7 +203,7 @@ SonicZap:
 	Projectile: AreaBeam
 		Speed: 0c200
 		Duration: 40
-		DamageInterval: 4 # Roughly 18 impacts.
+		DamageInterval: 4
 		Width: 384
 		Shape: Flat
 		ZOffset: 2047
@@ -231,8 +236,8 @@ SonicZap:
 MechRailgun:
 	ReloadDelay: 68
 	Range: 8c0
-	Burst: 2 # for alternating muzzle offsets, dmg/s identical to original
-	BurstDelay: 68
+	Burst: 2
+	BurstDelays: 68
 	Report: railuse5.aud
 	Projectile: AreaBeam
 		Speed: 20c0
@@ -262,7 +267,7 @@ MechDummy:
 		Spread: 1
 		Damage: 1
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-	
+
 MammothTusk:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Mediumtwlt
@@ -290,9 +295,7 @@ MammothTusk:
 MKIITusk:
 	Inherits: MammothTusk
 	Burst: 4
-#############################################
-# Aircraft
-#############################################				
+
 FighterHellfire:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
@@ -315,33 +318,19 @@ FighterHellfire:
 		ValidTargets: Ground, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
-AAFighterHellfire:
-	Inherits@2: ^Mediumtwlt
-	ReloadDelay: 40
-	Range: 6c0
-	Report: orcamis1.aud
+FighterHellfireAA:
+	Inherits: FighterHellfire
 	ValidTargets: Air
-	Projectile: Missile
-		Speed: 250
-		Blockable: false
-		Shadow: true
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 20
-		RangeLimit: 15c0
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 		ValidTargets: Air
-		Versus:
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 OBBomb:
 	Inherits: ^BombWarhead
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 30
 	Burst: 5
-	BurstDelay: 3
+	BurstDelays: 3
 	ValidTargets: Ground, Building, Infantry, Vehicle
 	Range: 3c0
 	Projectile: GravityBomb
@@ -361,7 +350,7 @@ OBBombFrontal:
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 30
 	Burst: 5
-	BurstDelay: 1
+	BurstDelays: 1
 	ValidTargets: Ground, Building, Infantry, Vehicle
 	Range: 2c0
 	Projectile: BulletAS
@@ -386,10 +375,10 @@ GuardianRail:
 		BeamWidth: 2
 		BeamDuration: 3
 		Blockable: true
-		Color: 0080FFC8		
+		Color: 0080FFC8
 	Warhead@1Dam: SpreadDamage
 		Damage: 7500
-		DamageTypes: Prone60Percent, TriggerProne, BulletDeath		
+		DamageTypes: Prone60Percent, TriggerProne, BulletDeath
 		Versus:
 			InfantryArmor: 150
 			ConcreteArmor: 5
@@ -421,9 +410,6 @@ GuardianRepair:
 		Damage: -9000
 		ValidTargets: Repair
 
-#############################################
-# Defences
-#############################################		
 VulcanTower:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -436,7 +422,7 @@ VulcanTower:
 	Warhead@1Dam: SpreadDamage
 		Damage: 3300
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
-		
+
 GdiRedEye:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Twlt
@@ -474,7 +460,7 @@ RPGTower:
 		Image: canister
 		Palette: player
 	Warhead@1Dam: SpreadDamage
-		Damage: 7500
+		Damage: 8000
 		DamageTypes: Prone70Percent, TriggerProne, SmallExplosionDeath
 
 RepairGun:
@@ -544,4 +530,3 @@ FirestormExploWalls:
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: fsidlewall, fsgrndwall
-

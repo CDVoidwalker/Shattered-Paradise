@@ -1,6 +1,3 @@
-##########################################################
-# Infantry
-##########################################################	
 civ1:
 	Inherits: ^InfantryDeathAnims
 	Defaults:
@@ -149,9 +146,6 @@ civ3:
 		Facings: 8
 		ShadowStart: 456
 
-##########################################################
-# Vehicles
-##########################################################	
 trucka:
 	Inherits: ^EmpOverlay
 
@@ -178,9 +172,7 @@ traincar:
 
 cargocar:
 	Inherits: ^EmpOverlay
-##########################################################
-# Structures
-##########################################################			
+
 ammocrat:
 	idle: ammo01
 		DepthSprite: isodepth.shp
@@ -478,6 +470,18 @@ caaray:
 	critical-idle: ctaray
 		Start: 2
 		ShadowStart: 5
+	idle-satellite: ctaray_a
+		Length: 16
+		Tick: 100
+	idle-radar: ctaray_b
+		Length: 16
+		Tick: 100
+	idle-scanner: ctaray_c
+		Length: 16
+		Tick: 100
+	idle-light: ctaray_d
+		Length: 24
+		Tick: 100
 
 cabhut:
 	idle:
@@ -901,7 +905,7 @@ neutralpowerplant:
 		ShadowStart: 3
 	dead:
 		Start: 1
-		ShadowStart: 3        
+		ShadowStart: 3
 
 scrinreinfpad:
 	Inherits: ^EmpOverlay
@@ -921,26 +925,18 @@ scrinreinfpad:
 		Start: 3
 		ShadowStart: 15
 	production-lights:
-		Start: 4  
+		Start: 4
 		Length: 8
 		Tick: 100
 		ZOffset: 2048
 	damaged-production-lights:
-		Start: 4  
+		Start: 4
 		Length: 8
 		Tick: 100
 		ZOffset: 2048
 
-c_kodiak: #TODO Add Floaters and CABAL's defences.
+c_kodiak:
 	idle:
 		Offset: 0,-38
 		Start: 1
 		Length: 1
-
-# defd:
-
-# AAOB:
-
-# CORE:
-
-# CROB:

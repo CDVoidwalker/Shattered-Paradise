@@ -73,20 +73,42 @@
 		AllowUnderActors: true
 		TerrainType: Veins
 	TerrainGeometryOverlay:
+	DebugVisualizations:
+	ExitsDebugOverlayManager:
 	CliffBackImpassabilityLayer:
-	SubterraneanActorLayer
+	SubterraneanActorLayer:
 
 World:
 	Inherits: ^BaseWorld
 	ChatCommands:
 	DevCommands:
 	PlayerCommands:
+	DebugVisualizationCommands:
 	HelpCommand:
 	BuildingInfluence:
 	ProductionQueueFromSelection:
 		ProductionPaletteWidget: PRODUCTION_PALETTE
 	DomainIndex:
 	BridgeLayer:
+	RadioactivityLayer@Default:
+	RadioactivityLayer@HarmlessRadiationGreen:
+		Color: 00FF00
+		MaxLevel: 400
+		Name: HarmlessRadiationGreen
+	RadioactivityLayer@OrangeRadiation:
+		Color: EFFF00
+		Darkest: 16
+		Name: OrangeRadiation
+		UpdateDelay: 150
+	RadioactivityLayer@BlueRadiation:
+		Color: 000099
+		Color2: 000099
+		Darkest: 10
+		Name: BlueRadiation
+	RadioactivityLayer@ColossusRadiation:
+		Color: 99FFFF
+		Color2: 99FFFF
+		Name: ColossusRadiation
 	SmudgeLayer@SMALLSCORCH:
 		Type: SmallScorch
 		Sequence: smallscorches
@@ -121,8 +143,6 @@ World:
 	MapCreeps:
 	SpawnMapActors:
 	MapBuildRadius:
-	RadioactivityLayer:
-		Color: 00FF00
 	MapOptions:
 	CreateMPPlayers:
 	MPStartUnits@MCV:
@@ -144,7 +164,7 @@ World:
 		WaterChance: 0
 		ValidGround: Clear, Rough, Road, DirtRoad, Tiberium, BlueTiberium
 		InitialSpawnDelay: 1500
-		Enabled: False
+		CheckboxEnabled: False
 	PathFinder:
 	ValidateOrder:
 	DebugPauseState:

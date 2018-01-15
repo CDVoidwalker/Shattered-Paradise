@@ -1,6 +1,3 @@
-###############################################################
-# INFANTRY
-###############################################################
 flameguy:
 	Defaults:
 		Facings: 8
@@ -15,7 +12,7 @@ flameguy:
 		Facings: 1
 		Length: 104
 		ShadowStart: 192
-	
+
 cloud1:
 	Inherits: ^EmpOverlay
 	Defaults:
@@ -66,7 +63,7 @@ zombie:
 		Facings: 8
 		ShadowStart: 378
 	icon: sidebar-nod|e1icon
-	
+
 berserker:
 	Inherits: ^InfantryDeathAnims
 	Defaults:
@@ -180,7 +177,7 @@ floater:
 		Facings: 1
 		Start: 16
 		ShadowStart: 47
-	
+
 weedguy:
 	Inherits: ^InfantryDeathAnims
 	Defaults: weed
@@ -236,8 +233,8 @@ weedguy:
 		Start: 174
 		Length: 3
 		ShadowStart: 376
-		Tick: 1000	
-		
+		Tick: 1000
+
 umagon:
 	Inherits: ^InfantryDeathAnims
 	Defaults:
@@ -358,7 +355,7 @@ ghost:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: gosticon		
+	icon: gosticon
 
 mhijack:
 	Inherits: ^InfantryDeathAnims
@@ -804,14 +801,12 @@ vislrg:
 		Length: 90
 		ShadowStart: 90
 		Tick: 80
-	muzzle: vislgatk # TODO: unused
+	muzzle: vislgatk
 		Length: 5
 		Facings: 8
 		ShadowStart: 40
 		Tick: 80
-########################################################################
-# Vehicles
-########################################################################
+
 art2:
 	Inherits: ^EmpOverlay
 	icon: artyicon
@@ -826,7 +821,6 @@ gghunt:
 		Facings: 1
 		Length: 8
 		ShadowStart: 8
-
 		BlendMode: Additive
 
 4tnk:
@@ -836,27 +830,23 @@ gghunt:
 gtwimam:
 	Inherits: ^EmpOverlay
 		Length: *
-		
+
 repair:
 	Inherits: ^EmpOverlay
-	icon: rboticon		
+	icon: rboticon
 
 cube:
 	Inherits: ^EmpOverlay
-	icon: rboticon		
-	
+	icon: rboticon
+
 mwarv:
 	Inherits: ^EmpOverlay
 	icon: mwaricon
-##########################################################
-# Aircraft
-##########################################################
+
 trnsport:
-	Inherits: ^EmpOverlay
-	icon: otrnicon	
-########################################################################
-# Structures
-########################################################################	
+	Inherits@1: ^SpriteVehicle
+	icon: otrnicon
+
 eggs:
 	Inherits: ^EmpOverlay
 	Defaults:
@@ -935,4 +925,4 @@ mwar:
 		ZOffset: -1024
 	icon: weapicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false

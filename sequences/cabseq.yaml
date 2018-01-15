@@ -1,6 +1,3 @@
-##########################################################
-# Infantry
-##########################################################	
 worker:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -78,7 +75,7 @@ paladin2:
 		ShadowStart: 49
 	muzzle: gunfire
 		Length: *
-	icon: sentinelicon	
+	icon: sentinelicon
 
 cybdog:
 	Inherits@1: ^InfantryDeathAnims
@@ -125,7 +122,7 @@ cabsentry:
 		ShadowStart: 40
 	run:
 		Facings: -32
-		ShadowStart: 40	
+		ShadowStart: 40
 	idle:
 		Start: 39
 		ShadowStart: 79
@@ -138,7 +135,7 @@ cabsentry:
 	emp-overlay: emp_fx01
 		Length: *
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: cabsentryicon
 
 cborg:
@@ -182,7 +179,7 @@ cborg:
 	die6: electro
 		Length: *
 	icon: cborgicon
-	
+
 cyborg:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -263,7 +260,7 @@ pdrone:
 		Length: 8
 		Facings: 8
 		ShadowStart: 356
-	die1: 
+	die1:
 		Start: 126
 		Length: 10
 		ShadowStart: 336
@@ -282,9 +279,9 @@ pdrone:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: processingicon
-	
+
 swarmling:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -306,14 +303,14 @@ swarmling:
 		Start: 287
 		Length: 13
 		ShadowStart: 689
-		Tick: 80		
+		Tick: 80
 	die-crushed: worker
 		Start: 159
 		Length: 5
 		ShadowStart: 451
 		Tick: 800
 		ZOffset: -511
-	icon: swarmlingicon	
+	icon: swarmlingicon
 
 moth:
 	Inherits@1: ^InfantryDeathAnims
@@ -340,9 +337,9 @@ moth:
 	emp-overlay: emp_fx01
 		Length: *
 		ZOffset: 512
-		BlendMode: Additive		
-	icon: mothicon		
-	
+		BlendMode: Additive
+	icon: mothicon
+
 glad:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -403,7 +400,7 @@ glad:
 		ZOffset: 512
 		BlendMode: Additive
 	icon: gladicon
-	
+
 cyc2:
 	Inherits@1: ^InfantryDeathAnims
 	stand:
@@ -455,9 +452,7 @@ cyc2:
 		ZOffset: 512
 		BlendMode: Additive
 	icon: cyc2icon
-##########################################################
-# Vehicles
-##########################################################	
+
 jenn:
 	Inherits: ^EmpOverlay
 	shoot:
@@ -467,7 +462,7 @@ jenn:
 	idle:
 		Start: 96
 		Facings: -8
-		ShadowStart: 216	
+		ShadowStart: 216
 	stand:
 		Start: 96
 		Facings: -8
@@ -487,7 +482,6 @@ jenn:
 dino:
 	Inherits: ^EmpOverlay
 	Defaults:
-		# Offset: 0, -8
 	shoot:
 		Facings: 8
 		ShadowStart: 86
@@ -534,8 +528,8 @@ centurion:
 	turret:
 		Start: 72
 		Length: 1
-		Facings: -32		
-		ShadowStart:  278
+		Facings: -32
+		ShadowStart: 278
 	make:
 		Start: 104
 		Length: 19
@@ -543,16 +537,16 @@ centurion:
 	idle:
 		Start: 122
 		Length: 1
-		ShadowStart:  277
-	damaged-idle:	
+		ShadowStart: 277
+	damaged-idle:
 		Start: 122
 		Length: 1
-		ShadowStart:  277
+		ShadowStart: 277
 	turret2:
 		Start: 123
 		Facings: -32
 		Length: 1
-		ShadowStart:  278
+		ShadowStart: 278
 		Offset: 0, 12
 	shield: shieldlarge
 		Length: *
@@ -579,11 +573,10 @@ reapercab:
 		Facings: -8
 		ShadowStart: 117
 	icon: reapercabicon
-	
+
 cabapc:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
 	icon: cabapcicon
-	idle:	
 	shield: shieldlarge
 		Length: *
 
@@ -621,7 +614,7 @@ spiderarty:
 blaster:
 	Inherits: ^EmpOverlay
 	icon: blastericon
-	
+
 grinder:
 	Inherits: ^EmpOverlay
 	icon: grindericon
@@ -633,7 +626,7 @@ paladin:
 		ShadowStart: 120
 	idle:
 		Facings: 8
-		ShadowStart: 120		
+		ShadowStart: 120
 	run:
 		Tick: 125
 		Start: 8
@@ -644,13 +637,11 @@ paladin:
 		Start: 72
 		Length: 6
 		Facings: 8
-		ShadowStart: 192	
-	icon: paladinicon	
+		ShadowStart: 192
+	icon: paladinicon
 	shield: shieldlarge
 		Length: *
-##########################################################
-# Aircraft
-##########################################################	
+
 miniwyverm:
 	Inherits: ^EmpOverlay
 	idle:
@@ -707,11 +698,9 @@ devourer:
 	icon: devourericon
 
 basilisk:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
 	icon: basiliskicon
-##########################################################
-# Structures
-##########################################################	
+
 cabpowr:
 	Defaults:
 		Offset: 0, -24, 24
@@ -739,14 +728,14 @@ cabpowr:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 30
 		ShadowStart: 50
 	icon: cabpowricon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 cabclaw:
 	Defaults:
 		Offset: 8, -32, 32
@@ -839,7 +828,7 @@ cabproc:
 	icon: cabref
 		Offset: 0, 0
 		UseTilesetCode: false
-		-DepthSprite:		
+		-DepthSprite:
 
 cabgrinder:
 	Defaults:
@@ -864,15 +853,15 @@ cabgrinder:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 29
 	icon: cabgrindericon
 		Offset: 0, 0
-		UseTilesetCode: false				
-		
+		UseTilesetCode: false
+
 cabobelisk:
-	Defaults: 
+	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
 	idle:
@@ -928,7 +917,7 @@ cabradr:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 29
 	icon: cabradricon
@@ -1018,7 +1007,7 @@ cabair:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 20
 		Tick: 60
@@ -1026,7 +1015,7 @@ cabair:
 	icon: cabairicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 cabtech:
 	Defaults:
 		Offset: -12, -30, 30
@@ -1041,7 +1030,7 @@ cabtech:
 		Length: 18
 		ShadowStart: 121
 		Tick: 100
-	dead:	
+	dead:
 		Start: 51
 		ShadowStart: 121
 		Tick: 400
@@ -1050,25 +1039,23 @@ cabtech:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 30
 		ShadowStart: 70
 	icon: cabtechicon
 		Offset: 0, 0
-		UseTilesetCode: false		
-##########################################################
-# Defences
-##########################################################	
+		UseTilesetCode: false
+
 cabsentryturret:
 	Defaults:
 		Offset: 0, -12, 18
 		UseTilesetCode: true
-	idle: dot	
+	idle: dot
 	damaged-idle: dot
 	dead: dot
 		Tick: 400
-	make:		
+	make:
 	turret:
 		Facings: -32
 		ZOffset: -512
@@ -1080,7 +1067,7 @@ cabsentryturret:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: cabcannonicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1089,7 +1076,7 @@ cabcannon:
 	Defaults:
 		Offset: 0, -12, 18
 		UseTilesetCode: true
-	idle: dot	
+	idle: dot
 	damaged-idle: dot
 	dead: dot
 		Tick: 400
@@ -1101,7 +1088,7 @@ cabcannon:
 	damaged-turret:
 		Start: 64
 		Facings: 32
-		Offset: 0,-12#-4, 0
+		Offset: 0,-12
 		ShadowStart: 160
 	emp-overlay: emp_fx01
 		Length: *
@@ -1138,7 +1125,7 @@ cabpit:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 30
 		ShadowStart: 32
@@ -1165,7 +1152,7 @@ cabnexus:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 30
 		ShadowStart: 32
@@ -1198,19 +1185,19 @@ cabblast:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 29
 		ShadowStart: 95
 	icon: cablasticon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 cabrail:
 	Defaults:
 		Offset: 0, -12, 18
 		UseTilesetCode: true
-	idle: dot	
+	idle: dot
 	damaged-idle: dot
 	dead: dot
 	turret:
@@ -1226,7 +1213,7 @@ cabrail:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 24
 		ShadowStart: 95
@@ -1350,7 +1337,7 @@ cabsw1:
 	Defaults:
 		Offset: 0, -36, 36
 		UseTilesetCode: true
-	idle: dot	
+	idle: dot
 	damaged-idle: dot
 	dead: dot
 	turret:
@@ -1366,7 +1353,7 @@ cabsw1:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	make:
 		Length: 29
 		ShadowStart: 95

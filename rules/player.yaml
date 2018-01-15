@@ -49,9 +49,9 @@ Player:
 	AllyRepair:
 	PlayerResources:
 	DeveloperMode:
-		Enabled: true
+		CheckboxEnabled: true
 	Shroud:
-		ExploredMapEnabled: True
+		ExploredMapCheckboxEnabled: True
 	FrozenActorLayer:
 	BaseAttackNotifier:
 		NotifyInterval: 20

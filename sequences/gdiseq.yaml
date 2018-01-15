@@ -1,6 +1,3 @@
-##########################################################
-# Infantry
-##########################################################	
 gdie1:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -183,7 +180,7 @@ grenadier:
 		Facings: 8
 		ShadowStart: 844
 	icon: grenadiericon
-	
+
 jumpjet:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -212,11 +209,11 @@ jumpjet:
 	prone-stand:
 		Facings: 8
 		ShadowStart: 451
-	die1: # TODO: animation for falling from sky starts at 436
+	die1:
 		Start: 445
 		Length: 6
 		ShadowStart: 896
-	die2: # TODO: animation for falling from sky starts at 436
+	die2:
 		Start: 445
 		Length: 6
 		ShadowStart: 896
@@ -256,7 +253,7 @@ jumpjetair:
 		Start: 388
 		Length: 6
 		Facings: 8
-	icon: jjeticon	
+	icon: jjeticon
 
 medic:
 	Inherits@1: ^InfantryDeathAnims
@@ -311,8 +308,8 @@ medic:
 		Start: 292
 		Length: 14
 		ShadowStart: 599
-	icon: mediicon	
-	
+	icon: mediicon
+
 eagleguard:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -355,7 +352,7 @@ eagleguard:
 	die2:
 		Start: 311
 		Length: 11
-		ShadowStart: 743	
+		ShadowStart: 743
 	die-crushed:
 		Start: 309
 		Length: 2
@@ -377,10 +374,8 @@ eagleguard:
 		Length: 2
 		Facings: 8
 		ShadowStart: 868
-	icon: eagleguardicon		
-##########################################################
-# Vehicles
-##########################################################
+	icon: eagleguardicon
+
 smech:
 	Inherits: ^EmpOverlay
 	stand:
@@ -404,11 +399,11 @@ hmec:
 	icon: hmecicon
 
 g4tnk:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadowAndTurret
 	icon: g4tnkicon
-	
+
 sonic:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadowAndTurret
 	icon: soniicon
 
 mmch:
@@ -427,6 +422,9 @@ mmch:
 		Length: 1
 		Facings: -32
 		Offset: 0, 0, 12
+	barrel: 4tnk
+		Start: 64
+		Facings: -32
 	icon: mmchicon
 
 apc:
@@ -434,7 +432,7 @@ apc:
 	icon: apcicon
 
 hvr:
-	Inherits: ^EmpOverlay
+	Inherits@2: ^SpriteVehicleWithShadowAndTurret
 	icon: hovricon
 
 jug:
@@ -448,7 +446,7 @@ jug:
 		Start: 8
 		Length: 16
 		Facings: 8
-		Tick: 72
+		Tick: 100
 		ShadowStart: 207
 	shoot:
 		Start: 136
@@ -469,20 +467,18 @@ jugger:
 		Facings: -8
 		ShadowStart: 120
 	icon: juggicon
-##########################################################
-# Aircraft
-##########################################################
+
 orca:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
 	icon: orcaicon
 
 orcab:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
 	icon: obmbicon
-	
+
 orcatran:
 	Inherits: ^EmpOverlay
-	icon: crryicon		
+	icon: crryicon
 
 guardian:
 	Inherits: ^EmpOverlay
@@ -503,16 +499,14 @@ guardiandep:
 	dead:
 		Start: 0
 		Length: 1
-	make
+	make:
 		ShadowStart: 1
 	stand:
 		ShadowStart: 1
 	idle:
 		ShadowStart: 1
 	icon: guardianicon
-##########################################################
-# Structures
-##########################################################	
+
 gapowr:
 	Defaults:
 		Offset: 0, -24, 24
@@ -592,7 +586,7 @@ gapile:
 		Tick: 200
 		ZOffset: 1023
 	damaged-production-lights: gtpile_a
-		Start:7
+		Start: 7
 		Length: 7
 		Tick: 200
 		ZOffset: 1023
@@ -600,13 +594,13 @@ gapile:
 		Length: 7
 		Tick: 200
 	damaged-idle-light: gtpile_b
-		Start:7
+		Start: 7
 		Length: 7
 		Tick: 200
 	idle-flag: gtpile_c
 		Length: 7
 	damaged-idle-flag: gtpile_c
-		Start:7
+		Start: 7
 		Length: 7
 	make: gtpilemk
 		Length: 20
@@ -976,9 +970,7 @@ gtdrop:
 	icon: gbayicon
 		Offset: 0, 0
 		UseTilesetCode: false
-##########################################################
-# Defences
-##########################################################
+
 gactwr:
 	Inherits: ^EmpOverlay
 	Defaults:
@@ -1089,7 +1081,7 @@ gavulc:
 	icon: twr1icon
 		Offset: 0, 0
 		UseTilesetCode: false
-	
+
 garock:
 	Inherits: ^EmpOverlay
 	Defaults: gactwr
@@ -1148,7 +1140,7 @@ gacsam:
 	icon: twr3icon
 		Offset: 0, 0
 		UseTilesetCode: false
-	
+
 wall.gdi:
 	Defaults: gawall
 		Offset: 0, -12
@@ -1167,7 +1159,7 @@ wall.gdi:
 	icon: wallicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 gate_a.gdi:
 	Defaults: gagate_a
 		Offset: -24, -24, 24
@@ -1224,7 +1216,7 @@ gate_b.gdi:
 		BlendMode: Additive
 	icon: gat2icon
 		Offset: 0, 0
-		UseTilesetCode: false		
+		UseTilesetCode: false
 
 repairtur:
 	Defaults:
@@ -1240,15 +1232,15 @@ repairtur:
 		Start: 91
 		ShadowStart: 181
 		Tick: 400
-	turret: 
+	turret:
 		Start: 25
 		Facings: 32
 		ShadowStart: 116
-		Offset: 0,-12#-4, 0
+		Offset: 0,-12
 	damaged-turret:
 		Start: 57
 		Facings: 32
-		Offset: 0,-12#-4, 0
+		Offset: 0,-12
 		ShadowStart: 148
 	make:
 		Length: 24
@@ -1258,11 +1250,11 @@ repairtur:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive				
+		BlendMode: Additive
 	icon: repairturicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 gafire:
 	Defaults:
 		Offset: -12, -30, 30
@@ -1285,7 +1277,7 @@ gafire:
 		Tick: 200
 	damaged-idle2: gtfire_c
 		Length: 6
-		Tick: 240		
+		Tick: 240
 	make: gtfiremk
 		Length: 15
 		ShadowStart: 17
@@ -1298,10 +1290,6 @@ gafire:
 	icon: fsdicon
 		Offset: 0, 0
 		UseTilesetCode: false
-
-########################################################
-#	MISC
-########################################################
 
 ionbeamtarget:
 	defaults:

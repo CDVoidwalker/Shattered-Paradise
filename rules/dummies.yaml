@@ -6,16 +6,16 @@
 	-ShakeOnDeath:
 	-UpdatesPlayerStatistics:
 	-SoundOnDamageTransition:
-	-AutoSelectionSize:
 	RevealsShroud:
 		Range: 3c0
-		Type: CenterPosition 
+		Type: CenterPosition
 	-SelectionDecorations:
 	-Selectable:
 	AlwaysVisible:
 	-FrozenUnderFog:
 	RenderSprites:
 		Image: blackhanddummy
+	Interactable:
 
 ^DUMMYAIRCRAFT:
 	Inherits: ^SpriteActor
@@ -26,13 +26,16 @@
 		Name: Target
 	RevealsShroud:
 		Range: 3c0
-		Type: CenterPosition 
+		Type: CenterPosition
 	Aircraft:
 		TurnSpeed: 6
 		Speed: 0
 		CanHover: True
 		IdealSeparation: 300
+		TakeOffOnResupply: true
+		VTOL: true
 	HiddenUnderFog:
+	Interactable:
 	Armor:
 		Type: Wood
 	RenderSprites:
@@ -51,10 +54,6 @@ VISIONACTOR:
 		Step: -10
 		Delay: 10
 		HealIfBelow: 200
-
-##################################################################
-# GDI
-##################################################################
 
 SHAKYSHAKY:
 	Inherits: ^DUMMYAIRCRAFT
@@ -235,7 +234,7 @@ IONBEAMROAMER:
 		CruiseAltitude: 0
 		TurnSpeed: 20
 		Repulsable: false
-		AltitudeVelocity: 400#0c43
+		AltitudeVelocity: 400
 		Speed: 25
 		MoveIntoShroud: true
 	RevealsShroud:
@@ -293,13 +292,8 @@ KILLEDACTOR:
 		DeathType: WorkerSummon
 		RequiresLobbyCreeps: true
 
-###################################################################
-# CABAL
-###################################################################
-
 NANOMACHINEBURSTSPAWNER:
 	Inherits: ^DUMMYAIRCRAFT
-	-AutoSelectionSize:
 	RenderSprites:
 		Image: blackhanddummy
 	SelfHealing:
@@ -348,10 +342,6 @@ NANOMACHINEBURSTDUMMY:
 		TargetStances: Ally, Enemy, Neutral
 	AutoTarget:
 
-############################################################################
-# FORGOTTEN
-############################################################################
-
 EGGSPAWNER:
 	Inherits: ^DUMMYAIRCRAFT
 	Tooltip:
@@ -385,7 +375,7 @@ IONSTORMGENERATOR:
 IONSTORMRANDOMBOLT:
 	Inherits: IONSTORMGENERATOR
 	Health:
-		HP: 2
+		HP: 1
 		NotifyAppliedDamage: False
 	-ExplodeWeapon:
 	Explodes:
@@ -397,7 +387,6 @@ VEINHOLESPAWNERDUMMY:
 	Inherits: ^Infantry
 	-Targetable:
 	-UpdatesPlayerStatistics:
-	-AutoSelectionSize:
 	-SelectionDecorations:
 	-Selectable:
 	-AutoTarget:
@@ -418,10 +407,7 @@ VEINHOLESPAWNERDUMMY:
 		RequiresLobbyCreeps: true
 		SkipMakeAnimations: false
 	-SpawnActorOnDeath@nanomachineburst:
-
-##########################################################
-# NOD
-##########################################################
+	Interactable:
 
 FIREACTOR:
 	Inherits: ^DUMMYAIRCRAFT
@@ -449,9 +435,6 @@ BLACKHANDDUMMY:
 		Weapon: BlackHandExplode
 		EmptyWeapon: BlackHandExplode
 
-################################################################################
-#	Scrin
-################################################################################
 STALKERDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
 	SelfHealing:

@@ -93,8 +93,6 @@ explosion:
 	jexplosmlb: jexplosmlb
 	jflmtrail: jflmtrail
 	jgcmuzzle: jgcmuzzle
-	jgrpowexp: jgrpowexp
-	jgtpowerxpb: jgtpowerxpb
 	jgunfire: jgunfire
 	jhtrkpuff: jhtrkpuff
 	jlgrysmk1: jlgrysmk1
@@ -106,8 +104,6 @@ explosion:
 	jsbang34b: jsbang34b
 	jsbang48: jsbang48
 	jsbang48b: jsbang48b
-	jsbrnl: jsbrnl
-	jsbrnlb: jsbrnlb
 	jsbrnl20: jsbrnl20
 	jsbrnl20b: jsbrnl20b
 	jsbrnl30: jsbrnl30
@@ -193,8 +189,6 @@ explosion:
 	small_grey_explosion: xgrysml2
 	medium_grey_explosion: xgrymed1
 	large_grey_explosion: xgrymed2
-	## SP Explos start here
-	## Misc
 	fire1: fire1
 	fire2: fire2
 	fire3: fire3
@@ -202,7 +196,6 @@ explosion:
 	sparks: sparks
 	sparks2: sparks2
 	sparks3: sparks3
-	#GDI
 	fsidlewall: fsidle
 		Offset: 0,-90, 90
 		Tick: 35
@@ -225,7 +218,6 @@ explosion:
 	ionscorch: ionscorch
 		Tick: 400
 		ZOffset: -512
-	#Nod
 	templargren: templargren
 		Length: *
 		Tick: 65
@@ -265,46 +257,45 @@ explosion:
 		ZOffset: 1024
 	holosmoke4: holosmoke4
 		ZOffset: 1024
-	#Mutants
 	bolt1: lightningbolts
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt2: lightningbolts
 		Start: 1
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt3: lightningbolts
 		Start: 2
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt4: lightningbolts
 		Start: 3
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt5: lightningbolts
 		Start: 4
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt6: lightningbolts
 		Start: 5
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt7: lightningbolts
 		Start: 6
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt8: lightningbolts
 		Start: 7
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt9: lightningbolts
 		Start: 8
 		Length: 1
-		Tick: 75
+		Tick: 35
 	bolt10: lightningbolts
 		Start: 9
 		Length: 1
-		Tick: 75
+		Tick: 35
 	mininuke1: nuke1
 		ZOffset: 1024
 		BlendMode: Additive
@@ -315,14 +306,12 @@ explosion:
 	tibexp2: tibexp2
 	bullparticle: bullparticle
 	tibexp2mini: tibexp2mini
-	tib_expsmall: tibexpsmall	
-	#CABAL
+	tib_expsmall: tibexpsmall
 	cabexplo: cabexplo
 	lurkertentacle: lurkertentacle
 		Offset: 0, -12, 12
 		Tick: 15
 	cabspark: cabspark
-	#Scrin
 	destroexp: destroexp
 	lightningexplo: lightningexplo
 		Tick: 10
@@ -343,6 +332,8 @@ explosion:
 	stalkershockwave: stalkershockwave
 		Offset: 0,-12, 12
 	firestormexplo: firestormexplo
+	firestormexplo1: firestormexplo1
+	firestormexplo2: firestormexplo2
 	scrinexplo1: scrinexplo1
 	scrinexplo2: scrinexplo2
 	scrinexplo3: scrinexplo3
@@ -351,6 +342,33 @@ explosion:
 	scrinexplo6: scrinexplo6
 	scrinvehicleexplo1: scrinvehicleexplo1
 	scrinvehicleexplo2: scrinvehicleexplo2
+	ionring: ring1
+		ZRamp: 1
+		Tick: 100
+	ionbeam: ionbeam
+		Offset: 0, -60, 60
+		ZRamp: 1
+		Tick: 100
+	ionbeam2: ionbeam
+		Offset: 0, -180, 60
+		ZRamp: 1
+		Tick: 100
+	ionbeam3: ionbeam
+		Offset: 0, -300, 60
+		ZRamp: 1
+		Tick: 100
+	ionbeam4: ionbeam
+		Offset: 0, -420, 60
+		ZRamp: 1
+		Tick: 100
+	ionbeam5: ionbeam
+		Offset: 0, -540, 60
+		ZRamp: 1
+		Tick: 100
+	ionbeam6: ionbeam
+		Offset: 0, -660, 60
+		ZRamp: 1
+		Tick: 100
 
 poweroff:
 	offline:
@@ -461,48 +479,47 @@ sparks: sparks3
 		Length: *
 		Tick: 25
 		Offset: 0,0, 24
-		
+
 meteor2:
 	Inherits: meteor
 
+^IngameIcon:
+	Defaults:
+		Offset: 0,0, 15
+	idle:
+		Length: *
+
 tibicon:
-	Offset: 0,0, 15
+	Inherits: ^IngameIcon
 	idle: tibicon
 
 bombicon:
-	Offset: 0,0, 15
+	Inherits: ^IngameIcon
 	idle: bombicon
 
 holoicon:
-	Offset: 0,0, 15
+	Inherits: ^IngameIcon
 	idle: holoicon
 
 wrenchicon:
-	Offset: 0,0, 15
-	idle: wrenchicon	
+	Inherits: ^IngameIcon
+	idle: wrenchicon
 
 mpspawn:
-	idle:
-		Offset: 0,0, 15
-		Length: *
+	Inherits: ^IngameIcon
 
 waypoint:
-	Offset: 0,0, 15
-	idle:
-		Length: *
+	Inherits: ^IngameIcon
 
 camera:
-	Offset: 0,0, 15
-	idle:
-		Length: *
+	Inherits: ^IngameIcon
 
 clock:
-	Offset: 0,0, 15
+	Inherits: ^IngameIcon
 	idle: gclock2
-		Length: *
 
 darken:
-	Offset: 0,0, 15
+	Inherits: ^IngameIcon
 	idle: gclock2
 		Length: 1
 
@@ -511,10 +528,10 @@ pips:
 		Offset: 0, 0, 12
 	medic:
 		Start: 6
-	groups: pipsra #TODO: backfall to RA asset
+	groups: pipsra
 		Start: 8
 		Length: 10
-	tag-primary: pipsra #TODO: backfall to RA asset
+	tag-primary: pipsra
 		Start: 2
 		Offset: 0, 2, 2
 	pip-empty: pips2
@@ -535,8 +552,6 @@ pips:
 		Length: *
 		Tick: 300
 		Offset: 0, -6, 6
-
-# TODO:
 	pip-empty-building:
 	pip-green-building:
 		Start: 1
@@ -553,7 +568,7 @@ discus:
 	idle:
 		Length: *
 		ZOffset: 1023
-		
+
 gdidroppod:
 	idle:
 		Length: 1
@@ -679,7 +694,7 @@ metstral:
 		Length: *
 		ZOffset: 1023
 		BlendMode: Additive
-		
+
 meteortrail:
 	idle:
 		Length: *
@@ -798,7 +813,7 @@ icon:
 	hunterseeker: detnicon
 	ScrStasis: scrshieldicon
 	mothershipicon: councilicon
-	
+
 clustermissile:
 	up: atnukemini
 		ZOffset: 1023
@@ -821,7 +836,7 @@ ionbeam:
 		Offset: 0, -78, 78
 		ZOffset: 1023
 
-ionring: 
+ionring:
 	idle: ring1
 		Length: *
 		ZOffset: -512
@@ -832,6 +847,7 @@ ionring:
 		ShadowStart: 1
 		UseTilesetExtension: true
 		Offset: 0, -12, 12
+
 trock01:
 	Inherits: ^Rock
 
@@ -865,7 +881,7 @@ srock05:
 dbrissm:
 	Defaults:
 		ZOffset: 1023
-		Length:*
+		Length: *
 	1: dbris1sm
 	2: dbris2sm
 	3: dbris3sm
@@ -880,7 +896,7 @@ dbrissm:
 dbrislg:
 	Defaults:
 		ZOffset: 1023
-		Length:*
+		Length: *
 	1: dbris1lg
 	2: dbris2lg
 	3: dbris3lg
@@ -995,9 +1011,6 @@ tracks16:
 		Offset: 0, -13, 42
 		ZRamp: 1
 		UseTilesetExtension: true
-		# Disabled to avoid glitches until shadow rendering is fixed
-		# Appears to be unused in the original game too
-		# ShadowStart: 1
 
 tuntop01:
 	Inherits: ^tuntop
@@ -1010,28 +1023,24 @@ tuntop03:
 
 tuntop04:
 	Inherits: ^tuntop
-		
-######################################
-# SP Starts Here
-######################################
+
 acidall32:
 	idle:
 		Length: 15
 		Facings: -32
-		Tick: 160	
+		Tick: 160
 
 acidall32mini:
 	idle:
 		Length: 15
 		Facings: -32
-		Tick: 160		
+		Tick: 160
 
 flamebro:
 	idle:
 		Length: 17
 		Facings: 8
-		# Tick: 160
-		
+
 litning:
 	bright:
 		Length: 4
@@ -1061,7 +1070,7 @@ blueplasma:
 greenplasma:
 	idle:
 		Facings: -32
-		
+
 blueballmini:
 	idle:
 		Facings: 1
@@ -1089,15 +1098,15 @@ essencetrailmini:
 projwyverm:
 	idle:
 		Facings: -32
-		ZOffset: 1023						
+		ZOffset: 1023
 
 destroshell:
 	idle:
 		Facings: 1
 		Length: *
-		ZOffset: 1023	
-		
+		ZOffset: 1023
+
 purpbullet:
 	idle:
 		Facings: -32
-		ZOffset: 1023				
+		ZOffset: 1023

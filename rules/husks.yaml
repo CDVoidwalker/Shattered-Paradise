@@ -1,6 +1,3 @@
-############################################################
-#		GDI
-############################################################
 DSHP.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
@@ -9,8 +6,6 @@ DSHP.Husk:
 		TurnSpeed: 5
 		Speed: 168
 	RenderSprites:
-		Image: dshp
-	RenderVoxels:
 		Image: dshp
 
 ORCA.Husk:
@@ -22,8 +17,6 @@ ORCA.Husk:
 		Speed: 186
 	RenderSprites:
 		Image: orca
-	RenderVoxels:
-		Image: orca
 
 ORCAB.Husk:
 	Inherits: ^AircraftHusk
@@ -33,8 +26,6 @@ ORCAB.Husk:
 		TurnSpeed: 5
 		Speed: 96
 	RenderSprites:
-		Image: orcab
-	RenderVoxels:
 		Image: orcab
 	FallsToEarth:
 		Moves: true
@@ -51,6 +42,9 @@ ORCATRAN.Husk:
 		Image: orcatran
 	RenderVoxels:
 		Image: orcatran
+	WithVoxelBody:
+	-WithFacingSpriteBody:
+	-WithShadow:
 
 TRNSPORT.Husk:
 	Inherits: ^AircraftHusk
@@ -61,15 +55,13 @@ TRNSPORT.Husk:
 		Speed: 149
 	RenderSprites:
 		Image: trnsport
-	RenderVoxels:
-		Image: trnsport
-		
-GUARDIAN.Husk:		
+
+GUARDIAN.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
 		Name: Guardian Platform
 	Selectable:
-		Bounds: 1,1		
+		Bounds: 1,1
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
@@ -78,15 +70,10 @@ GUARDIAN.Husk:
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32	
+		QuantizedFacings: 32
 	RenderSprites:
 		Image: guardian
-	-RenderVoxels:
-	-WithVoxelBody:
-	
-############################################################
-#		NOD
-############################################################	
+
 SCRIN.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
@@ -96,11 +83,9 @@ SCRIN.Husk:
 		Speed: 168
 	RenderSprites:
 		Image: scrin
-	RenderVoxels:
-		Image: scrin
 	FallsToEarth:
 		Moves: true
-		Spins: false		
+		Spins: false
 
 APACHE.Husk:
 	Inherits: ^AircraftHusk
@@ -114,12 +99,10 @@ APACHE.Husk:
 		Sequence: rotor
 	RenderSprites:
 		Image: apache
-	RenderVoxels:
-		Image: apache
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
 
-CERBERUS.Husk:		
+CERBERUS.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
 		Name: Cerberus
@@ -128,30 +111,22 @@ CERBERUS.Husk:
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
-	FallsToEarth:
-		Spins: False
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32	
+		QuantizedFacings: 32
 	RenderSprites:
-		Image: cerberus	
-	-RenderVoxels:
-	-WithVoxelBody:
+		Image: cerberus
 	FallsToEarth:
 		Explosion: BattleshipExplode
 
-############################################################
-#		MUT
-############################################################
 MUTHELI.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@1:	^Ra2vxl		
 	Tooltip:
 		Name: Banshee Fighter
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 168	
+		Speed: 168
 	WithIdleOverlay@ROTORAIR:
 		Offset: 85,0,384
 		Sequence: rotor
@@ -161,20 +136,16 @@ MUTHELI.Husk:
 		Offset: 85,0,384
 		Sequence: slow-rotor
 		RequiresCondition: airborne
-		ConditionMaxEnabledLevel: 0		
+		ConditionMaxEnabledLevel: 0
 	RenderSprites:
 		Image: mutheli
-	RenderVoxels:
-		Image: mutheli
-		Scale: 9
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
-		
+
 WETP.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@1:	^Ra2vxl		
 	Tooltip:
-		Name: Banshee Fighter
+		Name: Falcon
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 168
@@ -183,13 +154,8 @@ WETP.Husk:
 	FallsToEarth:
 		Moves: true
 		Spins: false
-	RenderVoxels:
-		Image: wetp
-		Scale: 1
-############################################################
-#		CABAL
-############################################################
-WASP.Husk:		
+
+WASP.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@5: ^CabRender
 	Tooltip:
@@ -199,20 +165,16 @@ WASP.Husk:
 		Speed: 149
 	Selectable:
 		Bounds: 1,1
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32	
+		QuantizedFacings: 32
 	RenderSprites:
-		Image: wasp	
-	-RenderVoxels:
-	-WithVoxelBody:
+		Image: wasp
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
 
-CABDRONEJET.Husk:		
+CABDRONEJET.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@5: ^CabRender
 	Tooltip:
@@ -222,20 +184,16 @@ CABDRONEJET.Husk:
 		Speed: 149
 	Selectable:
 		Bounds: 1,1
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32	
+		QuantizedFacings: 32
 	RenderSprites:
-		Image: cabdronejet	
-	-RenderVoxels:
-	-WithVoxelBody:
+		Image: cabdronejet
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
 
-DEVOURER.Husk:		
+DEVOURER.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@5: ^CabRender
 	Tooltip:
@@ -244,21 +202,17 @@ DEVOURER.Husk:
 		TurnSpeed: 5
 		Speed: 149
 	Selectable:
-		Bounds: 1,1	
+		Bounds: 1,1
 	WithShadow:
 	WithFacingSpriteBody:
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	BodyOrientation:
-		QuantizedFacings: 32	
+		QuantizedFacings: 32
 	RenderSprites:
-		Image: devourer	
-	-RenderVoxels:
-	-WithVoxelBody:
+		Image: devourer
 	FallsToEarth:
 		Explosion: BattleshipExplode
-	
-FIREFLY.Husk:		
+
+FIREFLY.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@5: ^CabRender
 	Tooltip:
@@ -267,37 +221,28 @@ FIREFLY.Husk:
 		Bounds: 1,1
 	WithShadow:
 	WithFacingSpriteBody:
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: firefly
-	-RenderVoxels:
-	-WithVoxelBody:
-	
+
 BASILISK.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@1:	^Ra2vxl		
+	Inherits@1: ^Ra2vxl
+	Inherits@2: ^CabRender
 	Tooltip:
 		Name: Basilisk
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 168	
+		Speed: 168
 	RenderSprites:
 		Image: basilisk
-	RenderVoxels:
-		Image: basilisk
-		Scale: 1
 	FallsToEarth:
 		Explosion: BattleshipExplode
 
-############################################################
-#		SCRIN
-############################################################	
 STORMRIDER.Husk:
 	Inherits: ^AircraftHusk
 	Tooltip:
@@ -308,17 +253,13 @@ STORMRIDER.Husk:
 	RenderSprites:
 		Image: stormrider
 	FallsToEarth:
-		Explosion: ScrinUnitExplode2
-	RenderVoxels:
-		Image: stormrider
-		Scale: 0.7		
-	FallsToEarth:
 		Moves: true
 		Spins: false
+		Explosion: ScrinUnitExplode2
 	FallsToEarth:
 		Explosion: StormriderExplode
 
-WYVERM2.Husk:		
+WYVERM2.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
 	Tooltip:
@@ -330,20 +271,16 @@ WYVERM2.Husk:
 	FallsToEarth:
 		Explosion: ScrinUnitExplode2
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: wyverm2
-	-RenderVoxels:
-	-WithVoxelBody:
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
 
-GLYDER1.Husk:		
+GLYDER1.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
 	-Cloak@CLOAKGENERATOR:
@@ -357,22 +294,18 @@ GLYDER1.Husk:
 	FallsToEarth:
 		Explosion: ScrinUnitExplode2
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: scrglyder1
-	-RenderVoxels:
-	-WithVoxelBody:
 	FallsToEarth:
 		Explosion: SmallPlaneExplode
-		
-DRACHE.Husk:		
+
+DRACHE.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Drache
 	FallsToEarth:
@@ -382,95 +315,73 @@ DRACHE.Husk:
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: drache.falling
-	-RenderVoxels:
-	-WithVoxelBody:		
-		
-SCRDESTROYER.Husk:		
+
+SCRDESTROYER.Husk:
 	Inherits: ^AircraftHusk
-	Inherits@2: ^ScrinRender	
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
+	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Destroyer
-	FallsToEarth:
-		Explosion: ScrinUnitExplode3
 	Selectable:
 		Bounds: 1,1
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: scrdestroyer
-	-RenderVoxels:
-	-WithVoxelBody:
 	FallsToEarth:
 		Explosion: BattleshipExplode
 
-SCRBATTLESHIP.Husk:		
+SCRBATTLESHIP.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Battlecruiser
-	FallsToEarth:
-		Explosion: ScrinUnitExplode4
 	Selectable:
 		Bounds: 1,1
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: scrbattleship
-	-RenderVoxels:
-	-WithVoxelBody:
 	FallsToEarth:
 		Explosion: BattleshipExplode
 
-SCRCARRIER.Husk:		
+SCRCARRIER.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Mothership
-	FallsToEarth:
-		Explosion: ScrinUnitExplode4
 	Selectable:
 		Bounds: 1,1
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: scrcarrier
-	-RenderVoxels:
-	-WithVoxelBody:
 	FallsToEarth:
 		Explosion: BattleshipExplode
 
-SCRTRANS.Husk:		
+SCRTRANS.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Scrin Transport
 	FallsToEarth:
@@ -480,36 +391,28 @@ SCRTRANS.Husk:
 	WithShadow:
 	WithFacingSpriteBody:
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: scrtrans
-	-RenderVoxels:
-	-WithVoxelBody:
 
-SCRCOUNCIL.Husk:		
+SCRCOUNCIL.Husk:
 	Inherits: ^AircraftHusk
 	Inherits@2: ^ScrinRender
-	-Cloak@CLOAKGENERATOR:
-	-ExternalCondition@cloakgenerator:
 	Tooltip:
 		Name: Scrin Council
 	Selectable:
 		Bounds: 1,1
 	WithShadow:
 	WithFacingSpriteBody:
-	FallsToEarth:
-		Explosion: ScrinUnitExplode3
 	BodyOrientation:
-		QuantizedFacings: 32			
+		QuantizedFacings: 32
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 149
 	RenderSprites:
 		Image: scrincouncil
-	-RenderVoxels:
-	-WithVoxelBody:
 	FallsToEarth:
 		Explosion: BattleshipExplode

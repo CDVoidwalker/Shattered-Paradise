@@ -1,4 +1,4 @@
-^Piffs:	#Inherits@2: ^Piffs
+^Piffs:
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
 		InValidTargets: Water
@@ -7,7 +7,7 @@
 		ExplosionPalette: ra
 		ValidTargets: Water
 
-^Small_Clsn:	#Inherits@2: ^Small_Clsn
+^Small_Clsn:
 	Warhead@2Eff: CreateEffect
 		Explosions: jsclsn16, jsclsn16b, jexplosml, jexplosml
 		ImpactSound: expnew12.aud
@@ -25,7 +25,7 @@
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Mediuml_Clsn:	#Inherits@2: ^Mediuml_Clsn
+^Mediuml_Clsn:
 	Warhead@2Eff: CreateEffect
 		Explosions: jsmkpuff, jsbrnl20, jsclsn30b, jxgrysml2
 		ExplosionPalette: gensmkexploj
@@ -40,7 +40,7 @@
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Large_Clsn:	#Inherits@2: ^Large_Clsn
+^Large_Clsn:
 	Warhead@2Eff: CreateEffect
 		Explosions: jsclsn42, jsclsn42b, jsbang34, jsclsn58b
 		ExplosionPalette: gensmkexploj
@@ -54,19 +54,19 @@
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Small_Brnl:	#Inherits@2: ^Small_Brnl		
+^Small_Brnl:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexploj
 		Explosions: jsbrnl20, jsbrnl20b, jsbrnl30
 		ImpactSound: expnew13.aud
 
-^Medium_Brnl:	#Inherits@2: ^Medium_Brnl		
+^Medium_Brnl:
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: gensmkexploj
 		Explosions: jsbrnl30, jsbrnl30b, jsbrnl40
 		ImpactSound: expnew13.aud
 
-^Small_Bang:	#Inherits@2: ^Small_Bang
+^Small_Bang:
 	Warhead@2Eff: CreateEffect
 		Explosions: jsbang16, jsbang16b, jsbang24
 		ExplosionPalette: gensmkexploj
@@ -85,7 +85,7 @@
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Medium_Bang:	#Inherits@2: ^Medium_Bang
+^Medium_Bang:
 	Warhead@1Eff: CreateEffect
 		Explosions: jsbang34b, jsbang34b, jsbang48, jsbang48b
 		ExplosionPalette: gensmkexploj
@@ -98,7 +98,7 @@
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^GreyExplo:	#Inherits@2: ^GreyExplo
+^GreyExplo:
 	Warhead@2Eff: CreateEffect
 		Explosions: jxgrymed2b, jxgrymed2, jxgrymed1b, jxgrymed1
 		ExplosionPalette: gensmkexploj
@@ -113,7 +113,7 @@
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Large_Explosion:	#Inherits@2: ^Large_Explosion
+^Large_Explosion:
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt036, jtwlt036b, jtwlt050
 		ExplosionPalette: gensmkexploj
@@ -128,7 +128,7 @@
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Small_Twlt:	#Inherits@2: ^Small_Twlt
+^Small_Twlt:
 	Warhead@4EffAir: CreateEffect
 		Explosions: jsbrnl20, jsbrnl20b, jsbrnl30, jsbrnl30b
 		ExplosionPalette: gensmkexploj
@@ -146,7 +146,7 @@
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Mediumtwlt:	#Inherits@2: ^Mediumtwlt
+^Mediumtwlt:
 	Warhead@2Eff: CreateEffect
 		Explosions: jstumu22, jstumu22b, jstumu30, jstumu30b
 		ExplosionPalette: gensmkexploj
@@ -158,7 +158,7 @@
 		ImpactSound: ssplash3.aud
 		ValidTargets: Water
 
-^Large_twlt:	#Inherits@2: ^Large_twlt
+^Large_twlt:
 	Warhead@2Eff: CreateEffect
 		Explosions: jtwlt070, jtwlt070b, jtwlt100, jtwlt100b
 		ExplosionPalette: gensmkexploj
@@ -169,7 +169,7 @@
 		ImpactSound: ssplash3.aud
 		ValidTargets: Water
 
-^FlameScorch:	#Inherits@2: ^FlameScorch
+^FlameScorch:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -177,7 +177,7 @@
 		Explosions: fire1, fire2
 		InValidTargets: Water, Air, AirHit
 
-^Shrapnel:	#Inherits@2: ^Shrapnel
+^Shrapnel:
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1, infdeathexplo2,	infdeathexplo3
 		ImpactSound: expnew12.aud
@@ -196,8 +196,7 @@
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-
-^Scrin_Pulse:	#Inherits@2: ^Scrin_Pulse
+^Scrin_Pulse:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinpulse3
 		ImpactSound: expnew12.aud
@@ -211,7 +210,7 @@
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-^Scrin_Explo:	#Inherits@2: Scrin_Explo
+^Scrin_Explo:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo1
 		ExplosionPalette: apolbluealpha

@@ -1,6 +1,3 @@
-##########################################
-# Infantry
-##########################################
 MilitantRifle:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -12,7 +9,7 @@ MilitantRifle:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
-		
+
 MilitantExplode:
 	Inherits: ^FlameWarhead
 	Inherits@1: ^DecentFalloff
@@ -44,6 +41,8 @@ MillitantFire:
 		Damage: 2000
 		Falloff: 100, 50, 25, 0
 		ValidTargets: Ground
+		Versus:
+			BuildingArmor: 250
 		DamageTypes: MilitantFireDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: militantfire, militantfire2, militantfire3
@@ -71,7 +70,14 @@ CrusaderBazooka:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 2700
-		ValidTargets: Ground, Vehicle, Air, Building, Infantry
+		ValidTargets: Ground, Vehicle, Building, Infantry
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+
+CrusaderBazookaAA:
+	Inherits: CrusaderBazooka
+	Warhead@1Dam: SpreadDamage
+		Damage: 2700
+		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 TemplarFlame:
@@ -85,7 +91,7 @@ TemplarFlame:
 		Image: FLAMEALL
 		Inaccuracy: 1c3
 	Burst: 10
-	BurstDelay: 2
+	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 400
@@ -114,7 +120,7 @@ TemplarGrenade:
 	Report: grenadelauncherfire.wav
 	ValidTargets: Infantry, Vehicle
 	InvalidTargets: TemplarGrenade
-	Projectile: BulletAS # TODO: Add bounce effect
+	Projectile: BulletAS
 		Speed: 320
 		Blockable: false
 		Shadow: true
@@ -166,17 +172,14 @@ BHRifle:
 		Range: 1c0
 		Duration: 125
 		ValidTargets: Infantry, Vehicle, Ground
-		InvalidTargets: Building, Defence, MindControlInmune
+		InvalidTargets: Building, Defence, MindControlInmune, MCImmune
 	Warhead@emp: GrantExternalCondition
 		Range: 1c0
 		Duration: 125
 		Condition: ToxinTrooper
 		ValidStances: Enemy, Neutral
-		InvalidTargets: Building, Defence
+		InvalidTargets: Building, Defence, MindControlInmune, MCImmune
 
-##################################################
-# Vehicles
-##################################################
 BuggyCannon:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -186,14 +189,14 @@ BuggyCannon:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 3000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 BikeMissile:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
-	BurstDelay: 60
+	BurstDelays: 60
 	Range: 4c0
 	Report: misl1.aud
 	ValidTargets: Ground
@@ -261,7 +264,7 @@ DevilsFlame:
 		Image: FLAMEALL
 		Inaccuracy: 1c3
 	Burst: 10
-	BurstDelay: 2
+	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
 		Damage: 400
@@ -272,7 +275,7 @@ FlameHoloShrapnel:
 	ReloadDelay: 300
 	Range: 3c0
 	Burst: 3
-	BurstDelay: 2
+	BurstDelays: 2
 	Warhead@op: FireShrapnel
 		Weapon: FlameHologram
 		Amount: 1
@@ -377,7 +380,7 @@ BCLazor:
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 200
 	Burst: 4
-	BurstDelay: 10
+	BurstDelays: 10
 	Range: 12c0
 	Report: laserchaingunfire.wav
 	MinRange: 3c0
@@ -422,16 +425,13 @@ StealthRocket:
 		Damage: 3000
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-		
+
 StealthRocketAA:
 	Inherits: StealthRocket
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
-##################################################
-# Aircraft
-##################################################
 HarpyClaw:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
@@ -476,7 +476,7 @@ Proton:
 	Report: scrin5b.aud
 	Burst: 9
 	ValidTargets: Ground, Vehicle, Building, Infantry
-	BurstDelay: 2
+	BurstDelays: 2
 	Projectile: Missile
 		Speed: 341
 		Blockable: false
@@ -492,11 +492,11 @@ Proton:
 		Damage: 2500
 		ValidTargets: Ground, water, Infantry, Vehicle, Building
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-		
+
 ProtonAA:
 	Inherits: Proton
 	Burst: 9
-	BurstDelay: 3
+	BurstDelays: 3
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
@@ -513,6 +513,20 @@ CerberusLazor:
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
 		Damage: 4500
+		ValidTargets: Ground, water, Infantry, Vehicle, Building
+		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
+CerberusLazorAA:
+	Inherits: BCLazor
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 75
+	Range: 6c0
+	Report: laserchaingunfire.wav
+	MinRange: 3c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 96
+		Damage: 4500
+		ValidTargets: Air, AirHit
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 CerberusLasorSpawn:
@@ -530,9 +544,6 @@ CerberusShrapnelLasor:
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 
-##################################################
-# Defences
-##################################################
 TurretLaserFire:
 	Inherits: ^FullDamage
 	ReloadDelay: 30
@@ -569,7 +580,7 @@ RedEye2:
 		Damage: 8000
 		ValidTargets: Air
 		DamageTypes: SmallExplosionDeath
-		
+
 ObeliskLaserFire:
 	Inherits: ^FullDamage
 	ReloadDelay: 40
@@ -581,5 +592,3 @@ ObeliskLaserFire:
 	Warhead@1Dam: SpreadDamage
 		Damage: 16500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
-
-		

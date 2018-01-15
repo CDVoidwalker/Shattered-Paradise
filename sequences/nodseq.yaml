@@ -1,6 +1,3 @@
-##########################################################
-# Infantry
-##########################################################	
 altnode1:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -64,7 +61,7 @@ altnode1:
 		Facings: 8
 		ShadowStart: 552
 	icon: sidebar-nod|e1icon
-	
+
 crusader:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -124,7 +121,7 @@ crusader:
 		Facings: 8
 		ShadowStart: 480
 	icon: crusadericon
-	
+
 templar:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -251,7 +248,7 @@ nconf:
 		Facings: 8
 		ShadowStart: 646
 	icon: nconficon
-	
+
 bhs:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -313,7 +310,7 @@ bhs:
 		Facings: 8
 		ShadowStart: 552
 	icon: weaticon
-	
+
 chamspy:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -373,19 +370,14 @@ chamspy:
 		Length: 2
 		Facings: 8
 		ShadowStart: 552
-	icon: chamicon	 	
+	icon: chamicon
 
-##########################################################
-# Vehicles
-##########################################################
 bike:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
 	icon: cyclicon
 
 bggy:
-	Inherits: ^EmpOverlay
-	Defaults:
-		Length: *
+	Inherits@1: ^SpriteVehicleWithShadow
 	muzzle0: mgun-n
 	muzzle1: mgun-nw
 	muzzle2: mgun-w
@@ -408,7 +400,6 @@ ttnk:
 	make: ticktankmake
 		Length: 20
 		ShadowStart: 20
-		# Tick: 50
 	deployed: ticktanksprite
 		Start: 52
 		ShadowStart: 137
@@ -419,7 +410,6 @@ ttnk:
 		Start: 53
 		Facings: -32
 		ShadowStart: 138
-		# Offset: -6,0, 32
 	dieevaporate: infgas
 		Length: *
 		Offset: 0,-6, 32
@@ -432,14 +422,14 @@ sapc:
 
 subtank:
 	Inherits: ^EmpOverlay
-	icon: subticon	
+	icon: subticon
 
 stnk:
 	Inherits: ^EmpOverlay
 	idle: stnksprite
 		Facings: -32
 		ShadowStart: 32
-	icon: stealthtankicon	
+	icon: stealthtankicon
 
 sgen:
 	Inherits: ^EmpOverlay
@@ -454,7 +444,7 @@ hologramprojector:
 	icon: hologramprojectoricon
 
 armh:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
 	icon: beamcannonicon
 
 limped:
@@ -468,10 +458,10 @@ limped:
 		ShadowStart: 10
 	idle:
 		Facings: 1
-		ShadowStart: 10	
+		ShadowStart: 10
 	make: dlimpmk
 		Length: 41
-		ShadowStart: 42	
+		ShadowStart: 42
 	icon: limpicon
 
 dlimpet:
@@ -481,17 +471,14 @@ dlimpet:
 		ShadowStart: 3
 	idle:
 		Facings: 1
-		ShadowStart: 3	
+		ShadowStart: 3
 	make: dlimpmk
 		Length: 41
-		ShadowStart: 42	
+		ShadowStart: 42
 	icon: limpicon
 
 icbm:
 	Inherits: ^EmpOverlay
-##########################################################
-# Structures
-##########################################################	
 
 napowr:
 	Defaults:
@@ -856,7 +843,7 @@ natmpl:
 
 nawast:
 	Defaults: ntwast
-		Offset: 0, -36, 36
+		Offset: -12, -42, 20
 		UseTilesetCode: true
 	idle:
 		ShadowStart: 3
@@ -874,6 +861,20 @@ nawast:
 		Length: 20
 		ShadowStart: 40
 		Tick: 120
+	idle-redlights: ntwast_a
+		Length: 20
+		ShadowStart: 40
+		Tick: 120
+	damaged-redlights: ntwast_a
+		Start: 20
+		Length: 20
+		ShadowStart: 60
+		Tick: 120
+	flame: ntrefn_b
+		Length: *
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
 	damaged-idle-glow: ntwast_a
 		Start: 20
 		Length: 20
@@ -900,7 +901,7 @@ nawast:
 	icon: wasticon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 namisl:
 	Defaults:
 		Offset: 0, -24, 24
@@ -921,10 +922,10 @@ namisl:
 	make: ntmislmk
 		Length: 18
 		ShadowStart: 18
-	active: ntmisl_a # TODO: This is an overlay, but currently used as animation
+	active: ntmisl_a
 		Length: 10
 		Tick: 80
-	damaged-active: ntmisl_a # TODO: This is an overlay, but currently used as animation
+	damaged-active: ntmisl_a
 		Start: 10
 		Length: 10
 		Tick: 80
@@ -936,10 +937,8 @@ namisl:
 		BlendMode: Additive
 	icon: msslicon
 		Offset: 0, 0
-		UseTilesetCode: false		
-##########################################################
-# Defences
-##########################################################
+		UseTilesetCode: false
+
 wall.nod:
 	Defaults: nawall
 		Offset: 0, -12, 12
@@ -1017,7 +1016,7 @@ gate_b.nod:
 		BlendMode: Additive
 	icon: nga2icon
 		Offset: 0, 0
-		UseTilesetCode: false		
+		UseTilesetCode: false
 
 gatick:
 	Defaults:
@@ -1060,7 +1059,7 @@ mastl:
 	make: mtstlmk
 		Length: 20
 		ShadowStart: 20
-		
+
 gaicbm:
 	Defaults:
 		Offset: 0, -12, 12
@@ -1195,7 +1194,6 @@ nasam:
 	icon: samicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
 
 nastlh:
 	Defaults:
@@ -1229,25 +1227,18 @@ nastlh:
 	icon: clckicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
-##########################################################
-# Aircraft
-##########################################################
+
 apache:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
 	icon: apchicon
 	rotor: lrotor
 		Length: 4
 	slow-rotor: lrotor
 		Start: 4
 		Length: 8
-	dieevaporate: infgas
-		Length: *
-		Offset: 0,-6, 32
-		Tick: 30
 
 scrin:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
 	icon: proicon
 
 cerberus:
@@ -1259,11 +1250,8 @@ cerberus:
 	run:
 		Tick: 90
 		Facings: -32
-	icon: cerberusicon		
-##########################################################
-# Other
-##########################################################		
-		
+	icon: cerberusicon
+
 blackhanddummy:
 	Inherits@1: ^InfantryDeathAnims
 	Inherits: ^EmpOverlay
@@ -1281,4 +1269,4 @@ fire:
 	idle: dot
 		Length: *
 	1: dot
-		Length: *		
+		Length: *

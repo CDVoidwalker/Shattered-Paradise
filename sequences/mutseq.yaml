@@ -1,6 +1,3 @@
-##########################################################
-# Infantry
-##########################################################	
 marauder:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -109,8 +106,8 @@ marauder:
 		Start: 432
 		Length: 8
 		ShadowStart: 880
-	icon: maraudericon	
-	
+	icon: maraudericon
+
 e3:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -305,7 +302,7 @@ clawnexus:
 	idle: invis
 	icon: deathclawicon
 		Offset: 0, 0
-	
+
 doggie:
 	Inherits@1: ^InfantryDeathAnims
 	Defaults:
@@ -324,11 +321,11 @@ doggie:
 		Length: 4
 		Facings: 8
 		ShadowStart: 175
-	laydown: # TODO: Implement hiding when on a tiberium patch
+	laydown:
 		Start: 88
 		Length: 2
 		ShadowStart: 207
-	hide: # TODO: Implement hiding when on a tiberium patch
+	hide:
 		Start: 90
 		ShadowStart: 209
 	idle1:
@@ -439,7 +436,7 @@ awarrior:
 		Facings: -8
 		ShadowStart: 644
 	prone-shoot:
-		Ticks: 20	
+		Ticks: 20
 		Start: 246
 		Length: 6
 		Facings: 8
@@ -447,7 +444,7 @@ awarrior:
 	standup-0:
 		Facings: -8
 		ShadowStart: 652
-	icon: awarrioricon	
+	icon: awarrioricon
 
 psyker:
 	Inherits@1: ^InfantryDeathAnims
@@ -534,7 +531,7 @@ wolf:
 		Facings: 8
 		ShadowStart: 398
 	shoot:
-		Start: 226	
+		Start: 226
 		Length: 8
 		Facings: 8
 		ShadowStart: 616
@@ -545,7 +542,7 @@ wolf:
 	idle2:
 		Start: 167
 		Length: 14
-		ShadowStart: 556	
+		ShadowStart: 556
 	idle3:
 		Start: 181
 		Length: 22
@@ -609,9 +606,7 @@ deathclaw:
 		Length: 5
 		ShadowStart: 523
 	icon: deathclawicon
-##########################################################
-# Vehicles
-##########################################################		
+
 mutapc:
 	Inherits: ^EmpOverlay
 	Defaults:
@@ -666,7 +661,7 @@ lynx:
 		Length: *
 	muzzle7: mgun-ne
 		Length: *
-	icon: lynxicon	
+	icon: lynxicon
 
 trike:
 	Inherits: ^EmpOverlay
@@ -677,15 +672,15 @@ trike:
 	icon: stugicon
 
 struck:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
 	icon: battlebusicon
 
 muttank:
 	Inherits: ^EmpOverlay
 	icon: mutankicon
-	
+
 mutquad:
-	Inherits: ^EmpOverlay
+	Inherits@2: ^SpriteVehicleWithShadowAndTurret
 	muzzle: flakmuzzle
 		Length: *
 	icon: quadicon
@@ -695,15 +690,13 @@ mlrs:
 	icon: mutmrlsicon
 
 hvrtruk3:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadow
 	icon: hvrtrkicon
-	
+
 fortress:
 	Inherits: ^EmpOverlay
 	icon: fortressicon
-##########################################################
-# Aircraft
-##########################################################		
+
 mutqueen:
 	Inherits: ^EmpOverlay
 	idle:
@@ -728,24 +721,21 @@ mutbird:
 		Length: 14
 		Tick: 25
 		Facings: -8
-	icon: mutbirdicon		
-	
+	icon: mutbirdicon
+
 wetp:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
 	icon: jeticon
-	
+
 mutheli:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicle
 	icon: kamovicon
 	rotor: lrotor
 		Length: 4
 	slow-rotor: lrotor
 		Start: 4
-		Length: 8	
-	
-##########################################################
-# Structures
-##########################################################	
+		Length: 8
+
 mupowr:
 	Defaults:
 		Offset: 0, -24, 24
@@ -760,7 +750,7 @@ mupowr:
 		Start: 46
 		ShadowStart: 103
 		Tick: 400
-	idle-lights: 
+	idle-lights:
 		Start: 35
 		Length: 10
 		Tick: 150
@@ -772,7 +762,6 @@ mupowr:
 		Length: 35
 		ShadowStart: 57
 	light: ulpha
-		# BlendMode: Multiply
 		UseTilesetCode: false
 	emp-overlay: emp_fx01
 		Length: *
@@ -783,7 +772,7 @@ mupowr:
 	icon: mupwricon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 murax:
 	Defaults:
 		Offset: 0, -24, 24
@@ -932,14 +921,14 @@ muweap:
 muair:
 	Defaults:
 		Offset: 0, -24, 24
-		ZOffset: -32	
+		ZOffset: -32
 		UseTilesetCode: true
 	active:
 		Start: 30
-		ZOffset: -1c511		
+		ZOffset: -1c511
 	idle:
 		Start: 30
-		ZOffset: -1c511	
+		ZOffset: -1c511
 	damaged-idle:
 		Start: 31
 		ZOffset: -1c511
@@ -955,10 +944,10 @@ muair:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: muairicon
 		Offset: 0, 0
-		UseTilesetCode: false			
+		UseTilesetCode: false
 
 mustable:
 	Defaults:
@@ -979,7 +968,7 @@ mustable:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive				
+		BlendMode: Additive
 	make:
 		Length: 30
 		ShadowStart: 32
@@ -1009,7 +998,7 @@ muradr:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: mudricon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1036,13 +1025,11 @@ muhall:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: muhallicon
 		Offset: 0, 0
-		UseTilesetCode: false			
-##########################################################
-# Defences
-##########################################################	
+		UseTilesetCode: false
+
 wall.mut:
 	Defaults: mutwall
 		Offset: 0, -12, 12
@@ -1053,7 +1040,7 @@ wall.mut:
 	damaged-idle: mutwall
 		Start: 16
 		Length: 16
-		ShadowStart: 48		
+		ShadowStart: 48
 	icon: mutwallicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1067,10 +1054,10 @@ mutgate_a:
 		Length: 12
 	damaged-idle: mutgate
 		Start: 24
-		Length 12
+		Length 12:
 	dead: mutgate
 		Start: 24
-		Length 12
+		Length 12:
 	make: mutgate
 		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
 		Length: 9
@@ -1094,10 +1081,10 @@ mutgate_b:
 		Length: 12
 	damaged-idle: mutgate
 		Start: 36
-		Length 12
+		Length 12:
 	dead: mutgate
 		Start: 36
-		Length 12
+		Length 12:
 	make: mutgate
 		Frames: 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13
 		Length: 9
@@ -1109,7 +1096,7 @@ mutgate_b:
 		BlendMode: Additive
 	icon: mutwallbicon
 		Offset: 0, 0
-		UseTilesetCode: false		
+		UseTilesetCode: false
 
 muward:
 	Defaults:
@@ -1127,10 +1114,10 @@ muward:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: muflakicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 mumine:
 	Defaults:
@@ -1147,10 +1134,10 @@ mumine:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: muflakicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 muflak:
 	Defaults:
@@ -1164,12 +1151,12 @@ muflak:
 		Start: 11
 		Facings: 32
 		ShadowStart: 86
-		Offset: 0,-12#-4, 0
+		Offset: 0,-12
 	damaged-turret:
 		Facings: 32
 		Start: 43
 		ShadowStart: 118
-		Offset: 0,-12#-4, 0
+		Offset: 0,-12
 	make:
 		Length: 11
 		ShadowStart: 75
@@ -1178,7 +1165,7 @@ muflak:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	muzzle: flakmuzzle
 		Length: *
 		UseTilesetCode: false
@@ -1206,7 +1193,7 @@ mucannon:
 		Offset: 0,-12
 	icon: mucannonicon
 		Offset: 0, 0
-		
+
 mubunkr:
 	Defaults:
 		Offset: 0, -24, 24
@@ -1229,19 +1216,19 @@ mubunkr:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: mubnkrmkicon
 		Offset: 0, 0
-		UseTilesetCode: false		
+		UseTilesetCode: false
 
-muventi
+muventi:
 	Defaults:
 		Offset: 0, -24, 24
 		UseTilesetCode: true
 	idle: dot
 	damaged-idle: dot
 	dead: dot
-	idle-lights: 
+	idle-lights:
 		Start: 35
 		Length: 15
 		Tick: 150

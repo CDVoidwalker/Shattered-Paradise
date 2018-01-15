@@ -11,14 +11,13 @@ BIGBLUE:
 	Inherits: ^BlossomTree
 	RenderSprites:
 		Palette: bluetiberium
-	WithIdleOverlay:
-		Sequence: light
-		Palette: tibcrystalpal
 	RadarColorFromTerrain:
 		Terrain: BlueTiberium
 	SeedsResource:
 		ResourceType: BlueTiberium
 		Interval: 75
+	ExplodeWeapon@1234567:
+		Weapon: BlueTibRadiation
 
 TREE01:
 	Inherits: ^Tree
@@ -170,24 +169,11 @@ fona15:
 	Tooltip:
 		Name: Fona
 
-# bigblue3:
-	# Inherits: ^Tree
-        # Tooltip:
-                # Name: Blue Tiberium Tree
-        # Building:
-                # Dimensions: 1,1
-                # Footprint: x
-        # RenderSprites:
-        # WithSpriteBody:
-        # AutoSelectionSize:
-        # BodyOrientation:
-                # UseClassicPerspectiveFudge: False
-                # QuantizedFacings: 1
-        # FrozenUnderFog:
-
 VEINHOLE:
 	Inherits: ^Building
 	Inherits@2: ^2x2Shape
+	-ExternalCapturable:
+	-ExternalCapturableBar:
 	RadarColorFromTerrain:
 		Terrain: Veins
 	Building:
@@ -204,13 +190,15 @@ VEINHOLE:
 		MaxRange: 24
 	RenderSprites:
 		Palette: player
+	DamageMultiplier@Veinhole:
+		Modifier: 0
+		RequiresCondition: !lawea
 	SelfHealing:
 		PercentageStep: 1
 		HealIfBelow: 200
 		DamageCooldown: 50
 		Delay: 25
 	WithSpriteBody:
-	AutoSelectionSize:
 	Selectable:
 		Priority: 3
 		Bounds: 90, 54, 0, -12
@@ -222,19 +210,15 @@ VEINHOLE:
 	Armor:
 		Type: BuildingArmor
 	-WithColoredOverlay@EMPDISABLE:
-	-DisableOnCondition@EMPDISABLE:
 	-TimedConditionBar@EMPDISABLE:
 	-WithIdleOverlay@EMPDISABLE:
 	PowerMultiplier@EMPDISABLE:
 	EditorTilesetFilter:
 		Categories: Tree
+	RequiresBuildableArea:
+		AreaTypes: building
+	Interactable:
 
-VEINHOLEFORG:
-	Inherits: VEINHOLE
-	RenderSprites:
-		Image: veinholeforg
-		Palette: player
-    
 MINIVEIN:
 	Inherits: VEINHOLE
 	Inherits@2: ^1x1Shape
@@ -249,6 +233,7 @@ MINIVEIN:
 		UseDeathTypeSuffix: false
 	-Explodes:
 	-SeedsResource:
+	-DamageMultiplier@Veinhole:
 	Selectable:
 		Priority: 3
 		Bounds: 25, 25, 0, 0
@@ -277,3 +262,5 @@ MINIVEIN:
 		LocalOffset: 500, 0, 0
 		MuzzleSequence: muzzle
 	AutoTarget:
+	RequiresBuildableArea:
+		AreaTypes: building

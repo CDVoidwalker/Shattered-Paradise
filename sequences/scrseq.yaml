@@ -1,6 +1,3 @@
-##########################################################
-# Infantry
-##########################################################	
 shark:
 	Inherits@1: ^InfantryDeathAnims
 	defaults:
@@ -33,7 +30,7 @@ shark:
 		ShadowStart: 659
 	idle5:
 		Start: 106
-		Length: 24	
+		Length: 24
 		ShadowStart: 675
 	die1:
 		Start: 130
@@ -50,13 +47,11 @@ shark:
 	shoot:
 		Start: 281
 		Length: 18
-		# Tick: 300
 		Facings: -8
 		ShadowStart: 850
 	shoot2:
 		Start: 425
 		Length: 18
-		# Tick: 300
 		Facings: -8
 		ShadowStart: 994
 	icon: sharkicon
@@ -147,7 +142,7 @@ shapeshifter:
 	idle4: chamspy
 		Start: 71
 		Length: 15
-		ShadowStart: 363	
+		ShadowStart: 363
 	prone-run: e1.nod
 		Start: 86
 		Length: 6
@@ -364,9 +359,7 @@ colossi:
 		Length: 17
 		ShadowStart: 477
 	icon: colossiicon
-##########################################################
-# Vehicles
-##########################################################	
+
 drache:
 	Inherits: ^EmpOverlay
 	Defaults:
@@ -398,11 +391,15 @@ drache.falling:
 		Tick: 150
 		Offset: 0, 0
 	idle: drache
-		Start: 35		
-		
+		Start: 1
+
 scrharv:
 	Inherits: ^EmpOverlay
 	idle:
+		Facings: -32
+		ShadowStart: 33
+	move:
+		Length: 1
 		Facings: -32
 		ShadowStart: 33
 	dock:
@@ -441,8 +438,6 @@ scrmbt:
 	turret:
 		Start: 32
 		Facings: 32
-	# muzzle: gunfire2
-		# Length: 2
 	icon: scrmbticon
 
 scrmobmine:
@@ -471,8 +466,7 @@ scrrecharger:
 	particles: batterybuff
 		Length: *
 	icon: scrrechargericon
-	
-	
+
 scrdronec:
 	Inherits: ^EmpOverlay
 	idle:
@@ -485,9 +479,9 @@ scrglyder2:
 	idle: scrglyder
 		Start: 32
 		ShadowStart: 96
-		Facings: -32	
+		Facings: -32
 	icon: glider2icon
-	
+
 tripod:
 	Inherits: ^EmpOverlay
 	stand:
@@ -515,48 +509,40 @@ tripod:
 	shield: shieldtrip
 		Length: *
 	icon: tripodicon
-##########################################################
-# Aircraft
-##########################################################
-^ScrinAircraft:
-	Inherits: ^EmpOverlay
-	idle:
-		Facings: 32
-		Offset: 0,0,64
+
 scrpod:
-	Inherits: ^ScrinAircraft
+	Inherits: ^SpriteVehicle
 	icon: scrdestroyericon
 
-
 stormrider:
-	Inherits: ^ScrinAircraft
+	Inherits: ^SpriteVehicle
 	icon: stormridericon
 
 scrglyder1:
-	Inherits: ^ScrinAircraft
+	Inherits: ^EmpOverlay
 	idle: scrglyder
 		Facings: -32
 	icon: glider1icon
 
+
 scrdestroyer:
-	Inherits: ^ScrinAircraft
-	icon: scrdestroyericon	
-	
-scrtrans:
-	Inherits: ^ScrinAircraft
-	icon: scrtransporticon
+	Inherits: ^SpriteVehicle
 	idle:
-		Facings: -32
+		Facings: 32
+	icon: scrdestroyericon
+
+scrtrans:
+	Inherits: ^SpriteVehicle
+	icon: scrtransporticon
 
 wyverm2:
-	Inherits: ^EmpOverlay
-	Defaults:
-	idle:
-		Facings: -32
+	Inherits: ^SpriteVehicle
 	icon: scrbattleshipicon
 
 scrbattleship:
-	Inherits: ^ScrinAircraft
+	Inherits: ^SpriteVehicle
+	idle:
+		Facings: 32
 	icon: scrbattleshipicon
 
 scrcarrier:
@@ -582,17 +568,14 @@ scrincouncil:
 		Start: 1
 		Length: 7
 		Facings: 1
-		Tick: 100	
+		Tick: 100
 	run:
 		Start: 1
 		Length: 7
 		Facings: 1
 		Tick: 100
 	icon: councilicon
-	
-##########################################################
-# Structures
-##########################################################			
+
 drached:
 	Defaults:
 		Tick: 80
@@ -611,11 +594,11 @@ drached:
 		ShadowStart: 71
 	damaged-idle:
 		Start: 35
-		ShadowStart: 71		
+		ShadowStart: 71
 	dead:
 		Start: 35
 		Tick: 400
-		ShadowStart: 71		
+		ShadowStart: 71
 	make: drachedmake
 		Length: 14
 		ShadowStart: 14
@@ -624,7 +607,7 @@ drached:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive	
+		BlendMode: Additive
 
 scrpowr:
 	Defaults:
@@ -655,7 +638,6 @@ scrpowr:
 	make:
 		Length: 30
 		ShadowStart: 51
-		# Offset: -12, -30, 52
 		DepthSpriteOffset: -12, 0
 	emp-overlay: emp_fx01
 		Length: *
@@ -702,7 +684,7 @@ scradvpowr:
 		BlendMode: Additive
 	icon: scradvpowricon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 scrrax:
 	Defaults:
@@ -733,7 +715,7 @@ scrrax:
 		BlendMode: Additive
 	icon: scrraxicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 scrproc:
 	Defaults:
@@ -761,7 +743,7 @@ scrproc:
 	icon: scrprocicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 scrair:
 	Defaults:
 		Offset: 0, -36, 36
@@ -815,7 +797,7 @@ scrair:
 	icon: scrairicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 scrradr:
 	Defaults:
 		Offset: 0, -36, 36
@@ -835,7 +817,7 @@ scrradr:
 		Length: 16
 		Reverses: false
 		Tick: 200
-	damaged-idle-dish: 
+	damaged-idle-dish:
 		Start: 31
 		Length: 16
 		Reverses: false
@@ -878,7 +860,7 @@ scrweap:
 		ShadowStart: 113
 		ZOffset: -1024
 	production-lights-white:
-		Start:41
+		Start: 41
 		Length: 8
 		Tick: 100
 		ZOffset: -1000
@@ -928,7 +910,7 @@ scrdepot:
 		BlendMode: Additive
 	icon: scrdepoticon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 scrtech:
 	Defaults:
@@ -944,7 +926,7 @@ scrtech:
 		Start: 31
 		ShadowStart: 63
 		Tick: 400
-	make: 
+	make:
 		Length: 29
 		ShadowStart: 32
 	emp-overlay: emp_fx01
@@ -957,9 +939,6 @@ scrtech:
 		Offset: 0, 0
 		UseTilesetCode: false
 
-##########################################################
-# Defences
-##########################################################
 scrwall:
 	Defaults: scrwall
 		Offset: 0, -12, 12
@@ -970,7 +949,7 @@ scrwall:
 	icon: scrwallicon
 		Offset: 0, 0
 		UseTilesetCode: false
-		
+
 scrgate_a:
 	Defaults: scrgate
 		Offset: -24, -24, 24
@@ -1011,8 +990,8 @@ scrgate_b:
 		BlendMode: Additive
 	icon: scrgatebicon
 		Offset: 0, 0
-		UseTilesetCode: false	
-		
+		UseTilesetCode: false
+
 scrneedler:
 	Defaults:
 		Offset: 0, -12, 12
@@ -1034,7 +1013,7 @@ scrneedler:
 	damaged-turret:
 		Start: 59
 		Facings: 32
-		Offset: -4, 0		
+		Offset: -4, 0
 	make:
 		Length: 25
 		ShadowStart: 94
@@ -1070,7 +1049,7 @@ scrtractor:
 	damaged-turret:
 		Start: 65
 		Facings: 32
-		Offset: -4, 0	
+		Offset: -4, 0
 		ShadowStart: 129
 	make:
 		Length: 25
@@ -1099,10 +1078,10 @@ scrmine:
 		Offset: 0, 0
 		UseTilesetCode: false
 		ZOffset: 512
-		BlendMode: Additive		
+		BlendMode: Additive
 	icon: muflakicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 scrextractor:
 	Defaults:
@@ -1143,7 +1122,7 @@ scrdrone:
 	damaged-idle:
 		Start: 30
 		ShadowStart: 63
-	dead:	
+	dead:
 		Start: 30
 		ShadowStart: 63
 		Tick: 400
@@ -1158,7 +1137,7 @@ scrdrone:
 		BlendMode: Additive
 	icon: strdroneicon
 		Offset: 0, 0
-		UseTilesetCode: false	
+		UseTilesetCode: false
 
 scrshield:
 	Defaults:
@@ -1170,7 +1149,7 @@ scrshield:
 	damaged-idle:
 		Start: 30
 		ShadowStart: 63
-	dead:	
+	dead:
 		Start: 30
 		ShadowStart: 63
 		Tick: 400
@@ -1237,4 +1216,4 @@ scrinessencesmall:
 		BlendMode: Additive
 	icon: scrsw1icon
 		Offset: 0, 0
-		UseTilesetCode: false		
+		UseTilesetCode: false
