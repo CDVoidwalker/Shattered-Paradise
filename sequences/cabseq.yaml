@@ -701,6 +701,53 @@ basilisk:
 	Inherits@1: ^SpriteVehicle
 	icon: basiliskicon
 
+############################################################################
+# Buildings
+############################################################################
+
+cabmcv:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: 0,-18,0
+	idle:
+		Facings: -16
+		ShadowStart: 341
+		UseTilesetCode: false
+	stand:
+		Facings: -16
+		ShadowStart: 86
+	run:
+		Start: 16
+		Length: 15
+		Facings: -16
+		Tick: 100
+		ShadowStart: 357
+	icon: cabmcvicon
+		Offset: 0, 0
+
+cabyard:
+	Inherits: ^EmpOverlay
+	Defaults: cabmcv
+		UseTilesetCode: false
+		Offset: 0, -18, 24
+	idle:
+		Start: 307
+		Length: 17
+		ShadowStart: 648
+	damaged-idle:
+		Start: 324
+		Length: 17
+		ShadowStart: 665
+	dead:
+		Start: 324
+		ShadowStart: 665
+		Tick: 400
+	make: cabmcvmake
+		Length: 50
+		ShadowStart: 51
+	icon: cabyardicon
+		Offset: 0, 0
+
 cabpowr:
 	Defaults:
 		Offset: 0, -24, 24
@@ -775,24 +822,23 @@ cabclaw:
 
 cabproc:
 	Defaults: cabproc
-		Offset: -24, -52, 20
+		Offset: -15, -36, 20
 		DepthSpriteOffset: 22, 0
-		UseTilesetCode: true
+		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 32
-		ShadowStart: 66
+		ShadowStart: 69
 	damaged-idle:
 		Start: 34
-		ShadowStart: 69
+		ShadowStart: 70
 	dead:
 		Start: 34
-		ShadowStart: 69
+		ShadowStart: 70
 		Tick: 400
 	make:
 		Length: 29
-		ShadowStart: 35
-		Offset: -24, -52, 20
+		ShadowStart: 36
 		DepthSpriteOffset: -12, 0
 	flame: ntrefn_b
 		Length: *
@@ -802,20 +848,17 @@ cabproc:
 		ZOffset: 1024
 	bib:
 		Start: 33
-		ZOffset: -1024
-		Offset: -24, -52, 20
+		ZOffset: -9999
 		ZRamp: 1
 		-DepthSprite:
 	damaged-bib:
 		Start: 35
-		ZOffset: -1024
-		Offset: -24, -52, 20
+		ZOffset: -9999
 		ZRamp: 1
 		-DepthSprite:
 	dead-bib:
 		Start: 35
-		ZOffset: -1024
-		Offset: -24, -52, 20
+		ZOffset: -9999
 		ZRamp: 1
 		-DepthSprite:
 	emp-overlay: emp_fx01
@@ -825,7 +868,60 @@ cabproc:
 		ZOffset: 512
 		BlendMode: Additive
 		-DepthSprite:
-	icon: cabref
+	icon: cabprociconnotbroken
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+cabproc2:
+	Defaults:
+		Offset: 6, 36, 20
+		DepthSpriteOffset: 22, 0
+		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 32
+		ShadowStart: 69
+	damaged-idle:
+		Start: 34
+		ShadowStart: 70
+	dead:
+		Start: 34
+		ShadowStart: 70
+		Tick: 400
+	make:
+		Length: 29
+		ShadowStart: 36
+		DepthSpriteOffset: -12, 0
+	flame: ntrefn_b
+		Length: *
+	unload-overlay: narefn_a
+		Length: *
+		Offset: 24, -12
+		ZOffset: 1024
+	bib:
+		Start: 33
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	damaged-bib:
+		Start: 35
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	dead-bib:
+		Start: 35
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: cabprocicon2
 		Offset: 0, 0
 		UseTilesetCode: false
 		-DepthSprite:

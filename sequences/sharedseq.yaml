@@ -278,7 +278,6 @@ mutharv:
 
 cabharv:
 	Inherits: ^Harvester
-	icon: dinoicon
 	idle: dino3
 		Facings: 8
 		ShadowStart: 86
@@ -299,6 +298,7 @@ cabharv:
 		Start: 85
 		Length: 1
 		ShadowStart: 171
+	icon: cabharvicon
 
 lpst.gdi:
 	Inherits: ^EmpOverlay

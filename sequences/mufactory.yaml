@@ -1,0 +1,110 @@
+
+nodref:
+	Defaults:
+		Offset: -12, -38, 20
+		# DepthSpriteOffset: 22, 0
+		UseTilesetCode: false
+		# DepthSprite: isodepth.shp
+	idle:
+		Start: 31
+		ShadowStart: 66
+	damaged-idle:
+		Start: 33
+		ShadowStart: 69
+	dead:
+		Start: 33
+		ShadowStart: 69
+		Tick: 400
+	make:
+		Length: 29
+		ShadowStart: 35
+		# DepthSpriteOffset: -12, 0
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
+	flame: ntrefn_b
+		Length: *
+	bib:
+		Start: 32
+		ShadowStart: 67
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	damaged-bib:
+		Start: 35
+		ShadowStart: 69
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	dead-bib:
+		Start: 35
+		ShadowStart: 69
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		# -DepthSprite:
+	icon: nodreficon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+nodref2:
+	Defaults:
+		Offset: 6, 36, 20
+		# DepthSpriteOffset: 22, 0
+		UseTilesetCode: false
+		# DepthSprite: isodepth.shp
+	idle:
+		Start: 31
+		ShadowStart: 66
+	damaged-idle:
+		Start: 33
+		ShadowStart: 69
+	dead:
+		Start: 33
+		ShadowStart: 69
+		Tick: 400
+	make:
+		Length: 29
+		ShadowStart: 35
+		# DepthSpriteOffset: -12, 0
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
+	flame: ntrefn_b
+		Length: *
+	bib:
+		Start: 32
+		ShadowStart: 67
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	damaged-bib:
+		Start: 35
+		ShadowStart: 69
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	dead-bib:
+		Start: 35
+		ShadowStart: 69
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		# -DepthSprite:
+	icon: nodref2icon
+		Offset: 0, 0
+		UseTilesetCode: false

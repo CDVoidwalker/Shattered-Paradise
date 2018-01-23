@@ -615,6 +615,113 @@ gapile:
 		Offset: 0, 0
 		UseTilesetCode: false
 
+gdiref:
+	Defaults:
+		Offset: -12, -42, 20
+		DepthSpriteOffset: 22, 0
+		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 33
+		ShadowStart: 70
+	damaged-idle:
+		Start: 35
+		ShadowStart: 72
+	dead:
+		Start: 35
+		ShadowStart: 72
+		Tick: 400
+	make:
+		Length: 32
+		ShadowStart: 37
+		DepthSpriteOffset: -12, 0
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
+	flame: ntrefn_b
+		Length: *
+	bib:
+		Start: 34
+		ShadowStart: 71
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	damaged-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	dead-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: gdireficon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+gdiref2:
+	Inherits gdiref
+	Defaults: gdiref2
+		Offset: 3, 36, 20
+	icon: gdireficon
+		Offset: 0, 0
+		UseTilesetCode: false
+	idle:
+		Start: 33
+		ShadowStart: 70
+	damaged-idle:
+		Start: 35
+		ShadowStart: 72
+	dead:
+		Start: 35
+		ShadowStart: 72
+		Tick: 400
+	make:
+		Length: 32
+		ShadowStart: 37
+		DepthSpriteOffset: -12, 0
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
+	flame: ntrefn_b
+		Length: *
+	bib:
+		Start: 34
+		ShadowStart: 71
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+	damaged-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+	dead-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: gdiref2icon
+		Offset: 0, 0
+		UseTilesetCode: false
+
 gaweap:
 	Defaults:
 		Offset: -12, -42, 22
@@ -1164,7 +1271,7 @@ gate_a.gdi:
 	Defaults: gagate_a
 		Offset: -24, -24, 24
 		UseTilesetCode: true
-		ZOffset: -512
+		ZOffset: -3000
 	idle: gagate_a
 		Length: 10
 		ShadowStart: 21
@@ -1193,7 +1300,7 @@ gate_b.gdi:
 	Defaults: gagate_b
 		Offset: 24, -24, 24
 		UseTilesetCode: true
-		ZOffset: -512
+		ZOffset: -3000
 	idle: gagate_b
 		Length: 10
 		ShadowStart: 21

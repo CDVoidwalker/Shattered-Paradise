@@ -69,6 +69,43 @@ GAPILE:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+GDIREF:
+	Inherits: PROC
+	Tooltip:
+		Name: GDI Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Prerequisites: ~structures.gdi, gapowr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+
+GDIREF2:
+	Inherits: FLIPPEDPROC
+	Tooltip:
+		Name: GDI Refinery
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Prerequisites: ~structures.gdi, gapowr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+	Building:
+		Footprint: ==xx ==xx ==xx
+		Dimensions: 4,3
+	Refinery:
+		DockOffset: 1,1
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 1,1
+		Facing: 160
+
 GAWEAP:
 	Inherits: ^Factory
 	Tooltip:
@@ -248,6 +285,43 @@ NAHAND:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+NODREF:
+	Inherits: PROC
+	Tooltip:
+		Name: NOD Refinery
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Prerequisites: ~structures.nod, napowr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+
+NODREF2:
+	Inherits: FLIPPEDPROC
+	Tooltip:
+		Name: NOD Refinery
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Prerequisites: ~structures.nod, napowr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+	Building:
+		Footprint: ==xx ==xx ==xx
+		Dimensions: 4,3
+	Refinery:
+		DockOffset: 1,1
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 1,1
+		Facing: 160
+
 NAWEAP:
 	Inherits: ^Factory
 	Tooltip:
@@ -294,7 +368,7 @@ NAAPWR:
 		Description: Provides twice as much power as\nthe normal Power Plant.
 		Prerequisites: naradr, ~structures.nod
 	Valued:
-		Cost: 500
+		Cost: 700
 	Tooltip:
 		Name: Advanced Power Plant
 	Building:
@@ -308,7 +382,7 @@ NAAPWR:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	Power:
-		Amount: 200
+		Amount: 300
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -479,10 +553,13 @@ MURAX:
 
 MUPROC:
 	Inherits: PROC
+	Inherits@2: ^MutRender
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 2
-		Prerequisites: ~forgproc, anypower
+		Prerequisites: ~structures.mut, mupowr
+		IconPalette: UnittemIconMut
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
 	Tooltip:
 		Name: Forgotten Refinery
 	Building:
@@ -503,6 +580,31 @@ MUPROC:
 		CrushedPaletteIsPlayerPalette: true
 	RequiresBuildableArea:
 		AreaTypes: building
+
+MUPROC2:
+	Inherits: FLIPPEDPROC
+	Inherits@2: ^MutRender
+	Tooltip:
+		Name: Forgotten Refinery
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		IconPalette: UnittemIconMut
+		Prerequisites: ~structures.mut, mupowr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+	Building:
+		Footprint: ==xx ==xx ==xx
+		Dimensions: 4,3
+	Refinery:
+		DockOffset: 1,1
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 1,1
+		Facing: 160
 
 MUWEAP:
 	Inherits: ^Factory
@@ -571,7 +673,7 @@ MUAIR:
 MUHALL:
 	Inherits: ^TechCenter
 	Inherits@1: ^MutRender
-	Inherits@2: ^3x3Shape
+	Inherits@2: ^3x4Shape
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 7
@@ -586,12 +688,6 @@ MUHALL:
 		Bounds: 110, 60, 3, -4
 		DecorationBounds: 110, 60, 3, -4
 	SelectionDecorations:
-	HitShape:
-		UseOccupiedCellsOffsets: true
-		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			TopLeft: -2000, -2000
-			BottomRight: 2000, 2000
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -688,6 +784,28 @@ drached:
 		RequiresCondition: money
 	RequiresBuildableArea:
 		AreaTypes: building
+	EmitInfantryOnSell@snowflake:
+		ActorTypes: shapeshifter
+	EmitInfantryOnSell@gdi:
+		ValuePercent: 15
+		ActorTypes: gdie1
+		Factions: gdi
+	EmitInfantryOnSell@nod:
+		ValuePercent: 15
+		ActorTypes: altnode1
+		Factions: nod
+	EmitInfantryOnSell@cab:
+		ValuePercent: 15
+		ActorTypes: worker
+		Factions: cab
+	EmitInfantryOnSell@mut:
+		ValuePercent: 15
+		ActorTypes: marauder
+		Factions: mut
+	EmitInfantryOnSell@scr:
+		ValuePercent: 15
+		ActorTypes: legio
+		Factions: scr
 
 SCRPOWR:
 	Inherits: ^Building
@@ -700,7 +818,7 @@ SCRPOWR:
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.scr
 	Valued:
-		Cost: 450
+		Cost: 400
 	Tooltip:
 		Name: Scrin Generator
 	ProvidesPrerequisite:
@@ -768,6 +886,8 @@ SCRPROC:
 		Queue: Building
 		BuildPaletteOrder: 2
 		Prerequisites: scrpowr, ~structures.scr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+		IconPalette: UnittemIconScrin
 	Building:
 		Footprint: xx== xx== xx==
 		Dimensions: 4,3
@@ -786,7 +906,6 @@ SCRPROC:
 	ProvidesPrerequisite@buildingname:
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockingOverlay@UNLOAD:
-	-WithIdleOverlay@BIB:
 	-WithDockedOverlay@flame:
 	SelectionDecorations:
 	RenderSprites:
@@ -799,6 +918,37 @@ SCRPROC:
 		AreaTypes: building
 	Selectable:
 		DecorationBounds: 150, 122, -10, -18
+
+SCRPROC2:
+	Inherits: FLIPPEDPROC
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Tooltip:
+		Name: Scrin Refinery
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	-WithDockingOverlay@UNLOAD:
+	-WithDockedOverlay@flame:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Prerequisites: scrpowr, ~structures.scr
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+		IconPalette: UnittemIconScrin
+	Building:
+		Footprint: ==xx ==xx ==xx
+		Dimensions: 4,3
+	Refinery:
+		DockOffset: 1,1
+	FreeActor:
+		Actor: SCRHARV
+		SpawnOffset: 1,1
+		Facing: 160
 
 SCRWEAP:
 	Inherits: ^Factory
@@ -969,6 +1119,51 @@ SCRTECH:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+CABYARD:
+	Inherits: GACNST
+	Inherits@1: ^CabRender
+	Buildable:
+		IconPalette: UnittemIconCab
+	Transforms:
+		IntoActor: cabmcv
+		Offset: 1,1
+		Facing: 160
+		DeployCursor: undeploy
+	-WithIdleOverlay@TOP:
+	-WithIdleOverlay@SIDE:
+	-WithIdleOverlay@FRONT:
+	-WithBuildingPlacedOverlay:
+	ProvidesPrerequisite@cab:
+		Factions: gdi, nod, cab, mut, scr
+		Prerequisite: structures.cab
+	ProvidesPrerequisite@grantself:
+		Factions: gdi, nod, cab, mut, scr
+	-ProvidesPrerequisite@humanmcv:
+	-EmitInfantryOnSell@humanengie:
+	-EmitInfantryOnSell@mutengie:
+	EmitInfantryOnSell@snowflake:
+		ActorTypes: swarmling
+	EmitInfantryOnSell@gdi:
+		ValuePercent: 15
+		ActorTypes: gdie1
+		Factions: gdi
+	EmitInfantryOnSell@nod:
+		ValuePercent: 15
+		ActorTypes: altnode1
+		Factions: nod
+	EmitInfantryOnSell@cab:
+		ValuePercent: 15
+		ActorTypes: worker
+		Factions: cab
+	EmitInfantryOnSell@mut:
+		ValuePercent: 15
+		ActorTypes: marauder
+		Factions: mut
+	EmitInfantryOnSell@scr:
+		ValuePercent: 15
+		ActorTypes: legio
+		Factions: scr
+
 CABPOWR:
 	Inherits: ^PowerPlant
 	Inherits@1: ^CabRender
@@ -979,7 +1174,7 @@ CABPOWR:
 		Description: Provides power for other structures.
 		Prerequisites: ~structures.cab
 	Valued:
-		Cost: 600
+		Cost: 500
 	Tooltip:
 		Name: Firestorm Power Plant
 	Building:
@@ -1023,10 +1218,13 @@ CABCLAW:
 
 CABPROC:
 	Inherits: PROC
+	Inherits@1: ^CabRender
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 2
-		Prerequisites: anypower, ~structures.cab
+		Prerequisites: cabpowr, ~structures.cab
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+		IconPalette: UnittemIconCab
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
 	Building:
@@ -1035,19 +1233,41 @@ CABPROC:
 	FreeActor:
 		SpawnOffset: 3,1
 	RenderSprites:
-		PlayerPalette: playermut
-		Image: cabproc
+		-Image: proc.gdi
 		-FactionImages:
 	-WithIdleOverlay@REDLIGHTS:
 	-ProvidesPrerequisite@proc:
-	Cloak@CLOAKGENERATOR:
-		Palette: cloakmut
 	WithDeathAnimation:
 		DeathSequencePalette: playermut
 		CrushedSequencePalette: playermut
 		CrushedPaletteIsPlayerPalette: true
 	RequiresBuildableArea:
 		AreaTypes: building
+
+CABPROC2:
+	Inherits: FLIPPEDPROC
+	Inherits@1: ^CabRender
+	Tooltip:
+		Name: C.A.B.A.L. Refinery
+	RenderSprites:
+		-Image: proc.gdi
+		-FactionImages:
+	-WithIdleOverlay@REDLIGHTS:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 2
+		Prerequisites: cabpowr, ~structures.cab
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+		IconPalette: UnittemIconCab
+	Building:
+		Footprint: ==xx ==xx ==xx
+		Dimensions: 4,3
+	Refinery:
+		DockOffset: 1,1
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 1,1
+		Facing: 160
 
 CABWEAP:
 	Inherits: ^Factory

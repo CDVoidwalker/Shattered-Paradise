@@ -963,7 +963,7 @@ gate_a.nod:
 		Offset: -24, -24
 		UseTilesetCode: true
 		Tick: 80
-		ZOffset: -512
+		ZOffset: -3000
 	idle: nagate_a
 		Length: 7
 		ShadowStart: 15
@@ -993,7 +993,7 @@ gate_b.nod:
 		Offset: 24, -24, 24
 		UseTilesetCode: true
 		Tick: 80
-		ZOffset: -512
+		ZOffset: -3000
 	idle: nagate_b
 		Length: 7
 		ShadowStart: 15

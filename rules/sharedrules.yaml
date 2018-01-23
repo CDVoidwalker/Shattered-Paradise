@@ -48,12 +48,12 @@ MCV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
-		Prerequisites: ~factory, gadept
+		Prerequisites: ~humanmcv, gadept
+		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Cannot be transported by a Tunnel Network.
 	Valued:
 		Cost: 2000
 	Tooltip:
 		Name: Mobile Construction Vehicle
-		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.
 	Selectable:
 		Priority: 4
 		DecorationBounds: 42,42
@@ -86,7 +86,6 @@ MCV:
 			gdi: mcv.gdi
 			nod: mcv.nod
 			mut: mcv.mut
-			cab: mcv.cab
 
 HARV:
 	Inherits: ^VoxelVehicle
@@ -111,7 +110,7 @@ HARV:
 	WithFacingSpriteBody:
 	Harvester:
 		Capacity: 20
-		DeliveryBuildings: proc, muproc, cabproc, scrproc
+		DeliveryBuildings: proc, muproc, muproc2, cabproc, cabproc2, scrproc, scrproc2, gdiref, gdiref2, nodref, nodref2
 		Resources: Tiberium, BlueTiberium
 		UnloadTicksPerBale: 3
 		LoadTicksPerBale: 6
@@ -168,6 +167,8 @@ SCRHARV:
 	Inherits: HARV
 	Inherits@1: ^ScrinVehicle
 	Inherits@3: ^HoverVehicle
+	Valued:
+		Cost: 1000
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 99
@@ -259,7 +260,7 @@ GACNST:
 	RevealsShroud:
 		Range: 5c0
 	Production:
-		Produces: Building,Defense
+		Produces: Building, Defense
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -303,9 +304,9 @@ GACNST:
 		Factions: gdi, nod, cab, mut
 		Prerequisite: humanstuff
 		ResetOnOwnerChange: True
-	ProvidesPrerequisite@humanproc:
-		Factions: gdi, nod
-		Prerequisite: humanproc
+	ProvidesPrerequisite@humanmcv:
+		Factions: gdi, nod, mut
+		Prerequisite: humanmcv
 		ResetOnOwnerChange: True
 	ProvidesPrerequisite@gdi:
 		Factions: gdi
@@ -316,17 +317,32 @@ GACNST:
 	ProvidesPrerequisite@mut:
 		Factions: mut
 		Prerequisite: structures.mut
-	ProvidesPrerequisite@mut2:
+	EmitInfantryOnSell@humanengie:
+		ActorTypes: engineer
+		Factions: gdi, nod
+	EmitInfantryOnSell@mutengie:
+		ActorTypes: e2
 		Factions: mut
-		Prerequisite: forgproc
-		ResetOnOwnerChange: True
-	ProvidesPrerequisite@cab:
+	EmitInfantryOnSell@gdi:
+		ValuePercent: 15
+		ActorTypes: gdie1
+		Factions: gdi
+	EmitInfantryOnSell@nod:
+		ValuePercent: 15
+		ActorTypes: altnode1
+		Factions: nod
+	EmitInfantryOnSell@cab:
+		ValuePercent: 15
+		ActorTypes: worker
 		Factions: cab
-		Prerequisite: structures.cab
-	ProvidesPrerequisite@cab2:
-		Factions: cab
-		Prerequisite: cabproc
-		ResetOnOwnerChange: True
+	EmitInfantryOnSell@mut:
+		ValuePercent: 15
+		ActorTypes: marauder
+		Factions: mut
+	EmitInfantryOnSell@scr:
+		ValuePercent: 15
+		ActorTypes: legio
+		Factions: scr
 	SelectionDecorations:
 	ProvidesAIPrerequisite@AImoney:
 		Prerequisite: AImoney
@@ -384,7 +400,7 @@ GACNST:
 
 PROC:
 	Inherits: ^Building
-	Inherits@4: ^4x3FactoryWithBibShape
+	Inherits@4: ^NormalRefineryHitShape
 	Valued:
 		Cost: 1500
 	CustomSellValue:
@@ -394,13 +410,8 @@ PROC:
 	ProvidesPrerequisite:
 		Factions: gdi, cab, mut, nod
 		Prerequisite: proc
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 2
-		Prerequisites: ~humanproc, anypower
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
 	Building:
-		Footprint: x=== xx== x===
+		Footprint: xx== xx== xx==
 		Dimensions: 4,3
 	Selectable:
 		Bounds: 80, 84, 0, -12
@@ -438,9 +449,73 @@ PROC:
 		Palette: effect
 	Power:
 		Amount: -40
-	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@proc:
 		ProvidesPrerequisite: proc
+		Description: Tiberium Refinery
+	RenderSprites:
+		Image: proc.gdi
+		FactionImages:
+			gdi: proc.gdi
+			nod: nawast
+			mut: proc.gdi
+			cab: proc.gdi
+	RequiresBuildableArea:
+		AreaTypes: building
+
+FLIPPEDPROC:
+	Inherits: ^Building
+	Inherits@4: ^FlippedRefineryHitshape
+	Valued:
+		Cost: 1500
+	CustomSellValue:
+		Value: 400
+	Tooltip:
+		Name: Tiberium Refinery
+	ProvidesPrerequisite:
+		Factions: gdi, cab, mut, nod
+		Prerequisite: proc
+	Building:
+		Footprint: xx== xx== xx==
+		Dimensions: 4,3
+	Selectable:
+		Bounds: 80, 84, 0, -12
+		DecorationBounds: 120, 100, 0, -18
+	SelectionDecorations:
+	Health:
+		HP: 140000
+	RevealsShroud:
+		Range: 6c0
+	Refinery:
+		DockAngle: 160
+		DockOffset: 2,1
+		DiscardExcessResources: false
+	StoresResources:
+		PipColor: Green
+		PipCount: 15
+		Capacity: 700
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 3,1
+		Facing: 160
+	Explodes:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	Explodes@1:
+		Weapon: TiberiumExplosion
+		EmptyWeapon: TiberiumExplosion
+	WithIdleOverlay@REDLIGHTS:
+		Sequence: idle-redlights
+	WithDockingOverlay@UNLOAD:
+	WithIdleOverlay@BIB:
+		Sequence: bib
+	WithDockedOverlay@flame:
+		Sequence: flame
+		Palette: effect
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@proc:
+		ProvidesPrerequisite: proc
+		Description: Tiberium Refinery
 	RenderSprites:
 		Image: proc.gdi
 		FactionImages:
@@ -638,11 +713,11 @@ GASILO:
 		Queue: Defense
 		BuildPaletteOrder: 70
 		Prerequisites: ~humanstuff, proc
+		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 1000$.\nPower loss does not affect storage capacity.
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Silo
-		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 1000$.\nPower loss does not affect storage capacity.
+		Name: Silo]
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
@@ -717,6 +792,7 @@ SHAWALL:
 		Queue: Defense
 		BuildPaletteOrder: 1001
 		Prerequisites: ~sharedwall
+		Description: Stops infantry, Vehicles and blocks enemy fire.
 	SoundOnDamageTransition:
 		DamagedSounds:
 		DestroyedSounds:
@@ -725,7 +801,6 @@ SHAWALL:
 		Value: 0
 	Tooltip:
 		Name: Wall
-		Description: Stops infantry, Vehicles and blocks enemy fire.
 	LineBuild:
 		NodeTypes: wall, turret
 	RenderSprites:
@@ -741,7 +816,7 @@ SHAWALL:
 		ResetReloadWhenEnabled: false
 
 NAPULS:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@4: ^2x2Shape
 	Valued:
 		Cost: 1000
