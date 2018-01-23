@@ -2,8 +2,6 @@
 	AppearsOnRadar:
 	UpdatesPlayerStatistics:
 	CombatDebugOverlay:
-	GivesExperience:
-		PlayerExperienceModifier: 1
 	ScriptTriggers:
 	ConditionManager:
 	RenderDebugState:
@@ -21,11 +19,11 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetGroundAssaultMove:
@@ -48,11 +46,11 @@
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defence
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Building, Defense
+		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Building, Defence
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetAllAssaultMove:
@@ -84,86 +82,113 @@
 		Type: Rectangle
 			TopLeft: -512, -512
 			BottomRight: 512, 512
+			LocalYaw: 128
 
 ^2x1Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -1024, -512
-			BottomRight: 1024, 512
+			TopLeft: -512, -1024
+			BottomRight: 512, 1024
+			LocalYaw: 128
 
 ^1x2Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -512, -1024
-			BottomRight: 512, 1024
+			TopLeft: -1024, -512, 
+			BottomRight: 1024, 512
+			LocalYaw: 128
 
 ^2x2Shape:
 	HitShape:
 		Type: Rectangle
 			TopLeft: -1024, -1024
 			BottomRight: 1024, 1024
+			LocalYaw: 128
 
 ^1x3Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -512, -1536
-			BottomRight: 512, 1536
+			TopLeft: -1536, -512
+			BottomRight: 1536, 512
+			LocalYaw: 128
 
 ^3x1Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -1536, -512
-			BottomRight: 1536, 512
+			TopLeft: -512, -1536
+			BottomRight: 512, 1536
+			LocalYaw: 128
 
 ^3x2Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -1500, -1200
-			BottomRight: 1300, 1200
+			TopLeft: -1024, -1536
+			BottomRight: 1024, 1536
+			LocalYaw: 128
+			# TopLeft: -1200, -1200
+			# BottomRight: 900, 1200
 
 ^2x3Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -1250, -1500
-			BottomRight: 1400, 1600
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 1024
+			LocalYaw: 128
 
 ^3x3Shape:
 	HitShape:
 		Type: Rectangle
 			TopLeft: -1536, -1536
 			BottomRight: 1536, 1536
+			LocalYaw: 128
 
 ^2x4Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -1024, -2048
-			BottomRight: 1024, 2048
+			TopLeft: -2048, -1024
+			BottomRight: 2048, 1024
+			LocalYaw: 128
 
 ^4x2Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -2048, -1024
-			BottomRight: 2048, 1024
+			TopLeft: -1024, -2048
+			BottomRight: 1024, 2048
+			LocalYaw: 128
 
 ^3x4Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -1536, -21
-			BottomRight: 1536, 2048
+			TopLeft: -2048, -1536
+			BottomRight: 2048, 1536
 			LocalYaw: 128
 
 ^4x3FactoryWithBibShape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -1400, -1600
-			BottomRight: 1024, 736
+			TopLeft: -1536, -2048
+			BottomRight: 1536, 1024
+			LocalYaw: 128
+
+^NormalRefineryHitShape:
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1524, -1920
+			BottomRight: 1524, 1524
+			LocalYaw: 128
+
+^FlippedRefineryHitshape:
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1524, -1524
+			BottomRight: 1524, 1920
 			LocalYaw: 128
 
 ^4x3Shape:
 	HitShape:
 		Type: Rectangle
-			TopLeft: -2048, -1536
-			BottomRight: 2048, 1536
+			TopLeft: -1536, -2048 
+			BottomRight: 1536, 2048 
 			LocalYaw: 128
 
 ^4x4Shape:
@@ -171,36 +196,42 @@
 		Type: Rectangle
 			TopLeft: -2048, -2048
 			BottomRight: 2048, 2048
+			LocalYaw: 128
 
 ^3x5Shape:
 	HitShape:
 		Type: Rectangle
 			TopLeft: -1536, -2560
 			BottomRight: 1536, 2560
-
+			LocalYaw: 128
+    
 ^5x3Shape:
 	HitShape:
 		Type: Rectangle
 			TopLeft: -2560, -1536
 			BottomRight: 2560, 1536
-
+			LocalYaw: 128
+    
 ^2x5Shape:
 	HitShape:
 		Type: Rectangle
 			TopLeft: -1024, -2560
 			BottomRight: 1024, 2560
+			LocalYaw: 128
 
 ^2x6Shape:
 	HitShape:
 		Type: Rectangle
 			TopLeft: -1024, -3072
 			BottomRight: 1024, 3072
+			LocalYaw: 128
 
 ^6x4Shape:
 	HitShape:
 		Type: Rectangle
 			TopLeft: -3072, -2048
 			BottomRight: 3072, 2048
+			LocalYaw: 128
 
 ^GainsExperience:
 	GainsExperience:
@@ -284,6 +315,7 @@
 		Palette: pips
 		ReferencePoint: Bottom, Right
 		RequiresCondition: rank-veteran == 1
+		ValidStances: Ally, Enemy, Neutral
 		ZOffset: 256
 	WithDecoration@RANK-2:
 		Image: rank
@@ -292,6 +324,7 @@
 		ReferencePoint: Bottom, Right
 		RequiresCondition: rank-veteran == 2
 		ZOffset: 256
+		ValidStances: Ally, Enemy, Neutral
 	WithDecoration@RANK-3:
 		Image: rank
 		Sequence: rank-veteran-3
@@ -299,6 +332,7 @@
 		ReferencePoint: Bottom, Right
 		RequiresCondition: rank-veteran == 3
 		ZOffset: 256
+		ValidStances: Ally, Enemy, Neutral
 	WithDecoration@RANK-ELITE:
 		Image: rank
 		Sequence: rank-elite
@@ -306,19 +340,16 @@
 		ReferencePoint: Bottom, Right
 		RequiresCondition: rank-elite
 		ZOffset: 256
+		ValidStances: Ally, Enemy, Neutral
 
 ^TyrannyBuff:
-	DamageMultiplier@TyrannyBuff:
-		RequiresCondition: TyrannyBuff
-		Modifier: 120
-		BaseLevel: 1
 	SpeedMultiplier@TyrannyBuff:
 		RequiresCondition: TyrannyBuff
 		Modifier: 120
 		BaseLevel: 1
 	ReloadDelayMultiplier@TyrannyBuff:
 		RequiresCondition: TyrannyBuff
-		Modifier: 60
+		Modifier: 80
 		BaseLevel: 1
 	WithDecoration@TyrannyBuff:
 		Image: tibicon
@@ -348,10 +379,17 @@
 
 ^FirestormGenBuff:
 	DamageMultiplier@firestorm:
-		Modifier: 95
+		Modifier: 70
 		RequiresCondition: FirestormWallCondition
 	ExternalCondition@FirestormWallCondition:
 		Condition: FirestormWallCondition
+	WithDecoration@FirestormWallCondition:
+		Image: firestormicon
+		Sequence: idle
+		ReferencePoint: Bottom, Left
+		Palette: mouse
+		ShowToEnemies: true
+		RequiresCondition: FirestormWallCondition
 
 ^MindControllable:
 	WithMindcontrolArc:
@@ -746,11 +784,11 @@
 
 ^DamagedByRadioactivity: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByRadioactivity@Default:
-		DamageCoeff: 8000
+		DamageCoeff: 3000
 		DamageTypes: TiberiumDeath
 		DamageInterval: 25
 	DamagedByRadioactivity@OrangeRadiation:
-		DamageCoeff: 8000
+		DamageCoeff: 2500
 		DamageTypes: FireDeath
 		RadioactivityLayerName: OrangeRadiation
 		DamageInterval: 25
@@ -888,6 +926,8 @@
 		AreaTypes: building
 	ExternalCapturable:
 		CaptureCompleteTime: 7
+	GivesExperience:
+		PlayerExperienceModifier: 1
 	ExternalCapturableBar:
 	RepairableBuilding:
 		IndicatorPalette: mouse
@@ -896,18 +936,23 @@
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
 	EmitInfantryOnSell@gdi:
+		ValuePercent: 30
 		ActorTypes: gdie1
 		Factions: gdi
 	EmitInfantryOnSell@nod:
+		ValuePercent: 30
 		ActorTypes: altnode1
 		Factions: nod
 	EmitInfantryOnSell@cab:
+		ValuePercent: 30
 		ActorTypes: worker
 		Factions: cab
 	EmitInfantryOnSell@mut:
+		ValuePercent: 30
 		ActorTypes: marauder
 		Factions: mut
 	EmitInfantryOnSell@scr:
+		ValuePercent: 30
 		ActorTypes: legio
 		Factions: scr
 	SpawnActorOnDeath@tiberium2:
@@ -925,8 +970,8 @@
 	CaptureNotification:
 	Sellable:
 		SellSounds: cashturn.aud
-	CustomSellValue:
-		Value: 0
+	# CustomSellValue:
+		# Value: 0
 	WithMakeAnimation:
 	EditorTilesetFilter:
 		Categories: Buildable Structure
@@ -1019,10 +1064,13 @@
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	TemporaryOwnerManager:
+	GivesExperience:
+		PlayerExperienceModifier: 1
 	Chronoshiftable:
 		ReturnToOrigin: false
 	Valued:
 		Cost: 1
+	NydusTransportable:
 	Health:
 		HP: 5000
 		Shape: Circle
@@ -1297,13 +1345,17 @@
 		VoiceSet: Civilian
 	Tooltip:
 		Name: Civilian
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 0
+			BlueTiberium: 0
 	ScaredyCat:
 	WithDeathAnimation:
 		CrushedSequence: die-crushed
 		CrushedSequencePalette: player
 		CrushedPaletteIsPlayerPalette: true
 	Armament:
-		Weapon: SlimeAttack
+		Weapon: Pistola
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
@@ -1401,8 +1453,12 @@
 	DrawLineToTarget:
 	TemporaryOwnerManager:
 	WithTextControlGroupDecoration:
+	GivesExperience:
+		PlayerExperienceModifier: 1
 	Chronoshiftable:
 		ReturnToOrigin: false
+	Valued:
+		Cost: 1
 	Mobile:
 		Crushes: crate
 		TerrainSpeeds:
@@ -1412,6 +1468,7 @@
 			DirtRoad: 120
 			Rough: 80
 				PathingCost: 150
+			Bridge: 120
 			Tiberium: 80
 			BlueTiberium: 80
 			Veins: 80
@@ -1422,6 +1479,7 @@
 	RevealsShroud:
 		Range: 9c0
 		RequiresCondition: !inside-tunnel && !submerged
+	NydusTransportable:
 	Selectable:
 		Bounds: 40,30
 	SelectionDecorations:
@@ -1594,6 +1652,8 @@
 		Palette: pips
 	Armor:
 		Type: AircraftArmor
+	GivesExperience:
+		PlayerExperienceModifier: 1
 	Aircraft:
 		AirborneCondition: airborne
 		CruisingCondition: cruising
@@ -1844,7 +1904,7 @@
 	Tooltip:
 		Name: Palette
 
-^Defense:
+^Defence:
 	Inherits: ^Building
 	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^DisableOnLowPowerOrPowerDown
@@ -1855,24 +1915,24 @@
 	Targetable@Defence:
 		TargetTypes: Defence
 	RevealsShroud:
-		Range: 10c0
+		Range: 6c0
 	Armor:
 		Type: BuildingArmor
 	EditorTilesetFilter:
 		Categories: Defence
 
 ^AntiAir:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	RenderRangeCircle:
 		RangeCircleType: AA
 
 ^Tier2:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	RenderRangeCircle:
 		RangeCircleType: Tier2
 
 ^MiscTurret:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	RenderRangeCircle:
 		RangeCircleType: MiscTurret
 
@@ -1993,6 +2053,7 @@
 		Bounds: 220,220
 
 ^Wall:
+	Inherits: ^1x1Shape
 	Inherits@1: ^SpriteActor
 	CombatDebugOverlay:
 	HiddenUnderShroud:
@@ -2022,7 +2083,7 @@
 	LineBuildNode:
 		Types: wall
 	Targetable:
-		TargetTypes: Ground, Wall, C4
+		TargetTypes: Ground, Wall
 	WithWallSpriteBody:
 		Type: wall
 	Sellable:
@@ -2031,12 +2092,6 @@
 	ScriptTriggers:
 	ConditionManager:
 	Health:
-	HitShape:
-		Type: Rectangle
-			LocalYaw: 128
-			TopLeft: -512, -512
-			BottomRight: 512, 512
-			VerticalTopOffset: 768
 	EditorTilesetFilter:
 		Categories: Wall
 	Valued:
@@ -2084,6 +2139,7 @@
 
 ^Gate_A:
 	Inherits: ^Gate
+	Inherits@1: ^3x1Shape
 	Building:
 		Dimensions: 3,1
 		Footprint: xxx
@@ -2095,6 +2151,7 @@
 
 ^Gate_B:
 	Inherits: ^Gate
+	Inherits@1: ^1x3Shape
 	Building:
 		Dimensions: 1,3
 		Footprint: x x x
@@ -2175,7 +2232,7 @@
 		TargetTypes: ScrinUnitBeingHealed
 		RequiresCondition: batteryboost
 	SelfHealing@batteryboost:
-		PercentageStep: 3
+		PercentageStep: 2
 		Step: 0
 		Delay: 25
 		HealIfBelow: 101
@@ -2193,11 +2250,11 @@
 
 ^BasicStealthDetection:
 	DetectCloaked:
-		Range: 3c0
+		Range: 5c0
 	RenderDetectionCircle:
 
 ^TowerStealthDetection:
 	DetectCloaked:
-		Range: 5c0
+		Range: 7c0
 		PauseOnCondition: empdisable || disabled
 	RenderDetectionCircle:

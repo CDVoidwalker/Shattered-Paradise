@@ -30,7 +30,7 @@ GreenTibRadiation:
 		Spread: 1
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3, 4, 5
-		Falloff: 100, 70, 45, 20, 5
+		Falloff: 100, 65, 45, 25, 5
 		Level: 75
 		MaxLevel: 500
 		RadioactivityLayerName: HarmlessRadiationGreen
@@ -101,6 +101,11 @@ VeinholeAttack:
 		FallRate: 5000
 		Range: 3
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@8Radio: CreateRadioactivity
+		Range: 1, 2, 3
+		Level: 10
+		Falloff: 100, 50, 25
+		MaxLevel: 1000
 
 FloaterCloudSpawn:
 	Inherits: VeinholeAttack

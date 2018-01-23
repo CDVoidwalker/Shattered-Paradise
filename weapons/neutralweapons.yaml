@@ -81,7 +81,7 @@ CrabAcid:
 	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 1000
+		Damage: 600
 		ValidTargets: Ground, Vehicle, Infantry, Building
 		InvalidTargets: NeutralTibCritter
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
@@ -90,7 +90,7 @@ CrabAcid:
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@3Radio: CreateRadioactivity
 		Range: 1, 2
-		Level: 25
+		Level: 5
 		Falloff: 100, 37
 		MaxLevel: 1000
 

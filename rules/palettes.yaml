@@ -343,6 +343,14 @@
 		Name: UnittemIconCab
 		Filename: unitcab.pal
 		AllowModifiers: false
+	PaletteFromFile@IconFromPlayerscrin:
+		Name: UnittemIconScrin
+		Filename: unitscrin.pal
+		AllowModifiers: false
+	PaletteFromFile@IconFromPlayermut:
+		Name: UnittemIconMut
+		Filename: unitmut.pal
+		AllowModifiers: false
 	PlayerColorPalette@playertemonly:
 		BasePalette: playertemperate
 		BaseName: playertemperate

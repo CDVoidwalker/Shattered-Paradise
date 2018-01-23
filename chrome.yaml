@@ -25,6 +25,9 @@ sidebar-button-gdi-highlighted-disabled: chrome.png
 sidebar-button-gdi-disabled: chrome.png
 	background: 235,305,30,31
 
+command-button-gdi-disabled: chrome.png
+	background: 59,31,22,22
+
 scrollup-buttons-gdi: chrome.png
 	background: 0,338,34,27
 scrollup-buttons-gdi-hover: chrome.png
@@ -80,24 +83,30 @@ production-icons-gdi: chrome.png
 	air-alert: 448,64,16,16
 
 order-icons-gdi: chrome.png
-	debug: 265,119,30,31
-	debug-disabled: 295,119,30,31
-	debug-active: 265,119,30,31
-	repair: 265,150,30,31
-	repair-disabled: 295,150,30,31
-	repair-active: 265,150,30,31
-	sell: 265,181,30,31
-	sell-disabled: 295,181,30,31
-	sell-active: 265,181,30,31
 	options: 265,212,30,31
 	options-disabled: 295,212,30,31
 	options-active: 265,212,30,31
+	debug: 265,119,30,31
+	debug-disabled: 295,119,30,31
+	debug-active: 265,119,30,31
+	diplomacy: 464,48,16,16
+	diplomacy-disabled: 464,64,16,16
+	diplomacy-active: 464,80,16,16
+	sell: 265,181,30,31
+	sell-disabled: 295,181,30,31
+	sell-active: 265,181,30,31
+	repair: 265,150,30,31
+	repair-disabled: 295,150,30,31
+	repair-active: 265,150,30,31
 	beacon: 265,243,30,31
 	beacon-disabled: 295,243,30,31
 	beacon-active: 265,243,30,31
 	power: 265,274,30,31
 	power-disabled: 295,274,30,31
 	power-active: 265,274,30,31
+	stats: 368,48,16,16
+	stats-disabled: 368,64,16,16
+	stats-active: 368,80,16,16
 
 power-icons-gdi: chrome.png
 	power-normal: 480,160,16,16
@@ -904,6 +913,21 @@ lobby-bits: buttons.png
 	huepicker: 194,0,7,15
 	protected: 202,0,10,13
 	protected-disabled: 213,0,10,13
+
+reload-icon: cncchrome.png
+	enabled: 256,192,16,16
+	disabled-0: 272,192,16,16
+	disabled-1: 288,192,16,16
+	disabled-2: 304,192,16,16
+	disabled-3: 320,192,16,16
+	disabled-4: 336,192,16,16
+	disabled-5: 352,192,16,16
+	disabled-6: 368,192,16,16
+	disabled-7: 384,192,16,16
+	disabled-8: 400,192,16,16
+	disabled-9: 416,192,16,16
+	disabled-10: 432,192,16,16
+	disabled-11: 448,192,16,16
 
 strategic: buttons.png
 	unowned: 127,5,23,22

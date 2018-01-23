@@ -218,6 +218,11 @@ VEINHOLE:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Interactable:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
+	-ThrowsShrapnel@SMALL:
+	-ThrowsShrapnel@LARGE:
 
 MINIVEIN:
 	Inherits: VEINHOLE
@@ -247,6 +252,8 @@ MINIVEIN:
 		Range: 4c0
 		AffectsParent: false
 		ValidStances: Ally, Enemy, Neutral
+	Targetable@Defence:
+		TargetTypes: Defence
 	WithMakeAnimation:
 	WithChargeOverlay:
 		Sequence: shoot

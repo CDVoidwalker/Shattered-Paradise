@@ -17,6 +17,10 @@ Container@PLAYER_WIDGETS:
 					ClockPalette: iconclock
 					HotkeyPrefix: SupportPower
 					HotkeyCount: 6
+		SupportPowerTimer@SUPPORT_POWER_TIMER:
+			X: 80
+			Y: 10
+			Order: Descending
 		Image@COMMAND_BAR_BACKGROUND:
 			Logic: AddFactionSuffixLogic
 			X: 5
@@ -26,10 +30,6 @@ Container@PLAYER_WIDGETS:
 			ImageCollection: sidebar
 			ImageName: background-commandbar
 			ClickThrough: False
-		SupportPowerTimer@SUPPORT_POWER_TIMER:
-			X: 80
-			Y: 10
-			Order: Descending
 		Container@COMMAND_BAR:
 			Logic: CommandBarLogic
 				HighlightOnButtonPress: True

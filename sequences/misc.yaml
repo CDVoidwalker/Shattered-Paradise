@@ -60,7 +60,7 @@ resources:
 explosion:
 	Defaults:
 		Length: *
-		ZOffset: 4048
+		ZOffset: 9000
 		Offset: 0,0,120
 	building: twlt070
 	pulse_explosion: pulsefx2
@@ -203,10 +203,10 @@ explosion:
 		Offset: 0,-48, 48
 		Tick: 35
 	fsidle: fsidle
-		Offset: 0,-78, 78
+		Offset: 0,-62,0
 		Tick: 35
 	fsgrnd: fsgrnd
-		Offset: 0,-36, 36
+		Offset: 0,-33,0
 		Tick: 35
 	podring: podring
 	droppod: droppod
@@ -493,9 +493,13 @@ tibicon:
 	Inherits: ^IngameIcon
 	idle: tibicon
 
-bombicon:
+firestormicon:
 	Inherits: ^IngameIcon
-	idle: bombicon
+	idle: firestormicon
+
+# bombicon:
+	# Inherits: ^IngameIcon
+	# idle: bombicon
 
 holoicon:
 	Inherits: ^IngameIcon

@@ -258,6 +258,11 @@ ZombieExplosion:
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
 		ImpactSound: expnew09.aud
+	Warhead@8Radio: CreateRadioactivity
+		Range: 1, 2, 3
+		Level: 200
+		Falloff: 100, 50, 25
+		MaxLevel: 1000
 
 SmallDebris:
 	Inherits@2: ^Shrapnel

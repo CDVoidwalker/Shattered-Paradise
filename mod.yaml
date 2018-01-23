@@ -1,7 +1,7 @@
 Metadata:
 	Title: Shattered Paradise
 	Description: Live the Second Tiberium War in a perspective you have never seen before.\nFind your place in this apocalyptic wasteland and make your enemies fear you!\n\nShattered Paradise that brings three new factions to Tiberian Sun and\ntries to mimic the gameplay style of the original game while also adding\nmore content to the game like units and mechanics.
-	Version: {Build 20180113}
+	Version: {Build 20180122}
 	Author: Nolt, with the help of a lot of people.
 
 PackageFormats: Mix
@@ -97,11 +97,11 @@ Packages:
 	sp|uibits
 
 MapFolders:
-	sp|maps: System
+	# sp|maps: System
 	sp|maps/ww: System
 	sp|maps/balanced: System
 	sp|maps/coop: System
-	~^maps/sp/{DEV_VERSION}: User
+	# ~^maps/sp/{DEV_VERSION}: User
 
 Rules:
 	sp|rules/ai.yaml
@@ -141,7 +141,6 @@ Weapons:
 Sequences:
 	sp|sequences/misc.yaml
 	sp|sequences/seqdefaults.yaml
-	sp|sequences/mufactory.yaml
 	sp|sequences/civseq.yaml
 	sp|sequences/sharedseq.yaml
 	sp|sequences/trees.yaml
@@ -152,6 +151,7 @@ Sequences:
 	sp|sequences/cabseq.yaml
 	sp|sequences/scrseq.yaml
 	sp|sequences/bridges.yaml
+	sp|sequences/mufactory.yaml
 
 ModelSequences:
 	sp|sequences/voxels.yaml
@@ -191,7 +191,7 @@ ChromeLayout:
 	common|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoobjectives.yaml
 	common|chrome/ingame-infostats.yaml
-	ts|chrome/ingame-observer.yaml
+	sp|chrome/ingame-observer.yaml
 	ts|chrome/ingame-observerstats.yaml
 	sp|chrome/ingame-player.yaml #The only file of chromes that is on SP
 	common|chrome/ingame-perf.yaml
@@ -206,6 +206,7 @@ ChromeLayout:
 	common|chrome/lobby-players.yaml
 	common|chrome/lobby-options.yaml
 	common|chrome/lobby-music.yaml
+	common|chrome/lobby-servers.yaml
 	common|chrome/lobby-kickdialogs.yaml
 	ts|chrome/color-picker.yaml
 	common|chrome/map-chooser.yaml
@@ -305,15 +306,15 @@ GameSpeeds:
 	slower:
 		Name: Slower
 		Timestep: 50
-		OrderLatency: 3
+		OrderLatency: 5
 	default:
 		Name: Normal
 		Timestep: 40
-		OrderLatency: 3
+		OrderLatency: 5
 	faster:
 		Name: Faster
 		Timestep: 30
-		OrderLatency: 4
+		OrderLatency: 5
 	fastest:
 		Name: Fastest
 		Timestep: 20
@@ -321,7 +322,7 @@ GameSpeeds:
 	simulationspeed:
 		Name: 20 times Fastest
 		Timestep: 1
-		OrderLatency: 6
+		OrderLatency: 10
 
 ColorValidator:
 

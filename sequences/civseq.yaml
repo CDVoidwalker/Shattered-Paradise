@@ -202,26 +202,31 @@ ammocrat:
 	Inherits: ^abanbase
 	Defaults:
 		Offset: 36, -42, 42
+		DepthSpriteOffset: 24, 0
 
 ^aban2x6:
 	Inherits: ^abanbase
 	Defaults:
 		Offset: 48, -48, 48
+		DepthSpriteOffset: 36, 0
 
 ^aban3x2:
 	Inherits: ^abanbase
 	Defaults:
 		Offset: -12, -30, 30
+		DepthSpriteOffset: -12, 0
 
 ^aban4x2:
 	Inherits: ^abanbase
 	Defaults:
 		Offset: -24, -36, 36
+		DepthSpriteOffset: -24, 0
 
 ^aban5x3:
 	Inherits: ^abanbase
 	Defaults:
 		Offset: -24, -48, 48
+		DepthSpriteOffset: -24, 0
 
 aban01:
 	Inherits: ^aban2x6
@@ -249,24 +254,34 @@ aban08:
 
 aban09:
 	Inherits: ^aban2x2
+	Defaults:
+		Offset: 2, -20, 24
 
 aban10:
 	Inherits: ^aban2x2
 
 aban11:
 	Inherits: ^aban2x2
+	Defaults:
+		Offset: 0, -20, 24
 
 aban12:
 	Inherits: ^aban2x2
+	Defaults:
+		Offset: 2, -22, 24
 
 aban13:
 	Inherits: ^aban1x1
+	Defaults:
+		Offset: 0, -10, 12
 
 aban14:
 	Inherits: ^aban1x1
 
 aban15:
 	Inherits: ^aban1x1
+	Defaults:
+		Offset: 0, -10, 12
 
 aban16:
 	Inherits: ^aban2x2
@@ -279,7 +294,7 @@ aban18:
 
 ^bboard1x1:
 	Defaults:
-		Offset: 0, -12
+		Offset: 0, -12, 6
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -288,7 +303,16 @@ aban18:
 
 ^bboard1x2:
 	Defaults:
-		Offset: 12, -18
+		Offset: -1, -10, 6
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+^bboard2x1:
+	Defaults:
+		Offset: 2, -12, 6
 	idle:
 		ShadowStart: 2
 	damaged-idle:
@@ -335,13 +359,13 @@ bboard13:
 	Inherits: ^bboard1x1
 
 bboard14:
-	Inherits: ^bboard1x2
+	Inherits: ^bboard2x1
 
 bboard15:
-	Inherits: ^bboard1x2
+	Inherits: ^bboard2x1
 
 bboard16:
-	Inherits: ^bboard1x2
+	Inherits: ^bboard2x1
 
 ^cabase:
 	Defaults:
@@ -362,12 +386,21 @@ bboard16:
 	Inherits: ^cabase
 	Defaults:
 		Offset: 12, -18, 18
+		DepthSpriteOffset: 12, 0
+		UseTilesetCode: true
+
+^ca2x1:
+	Inherits: ^cabase
+	Defaults:
+		Offset: -12, -18, 18
+		DepthSpriteOffset: -12, 0
 		UseTilesetCode: true
 
 ^ca2x3:
 	Inherits: ^cabase
 	Defaults:
 		Offset: 12, -30, 30
+		DepthSpriteOffset: 12, 0
 		UseTilesetCode: true
 
 ^ca3x3:
@@ -419,7 +452,7 @@ ca0012:
 	Inherits: ^ca1x2
 
 ca0013:
-	Inherits: ^ca1x2
+	Inherits: ^ca2x1
 
 ca0014:
 	Inherits: ^ca1x1
@@ -513,8 +546,9 @@ cacrsh05:
 cahosp:
 	Defaults:
 		DepthSprite: isodepth.shp
+		DepthSpriteOffset: 15, 0
 		UseTilesetCode: true
-		Offset: 12, -42, 42
+		Offset: 15, -36, 36
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -556,42 +590,56 @@ capyr03:
 	Inherits: ^cabase
 	Defaults:
 		Offset: 12, -30, 30
+		DepthSpriteOffset: 12, 0
+
+^city3x2:
+	Inherits: ^cabase
+	Defaults:
+		Offset: -12, -30, 30
+		DepthSpriteOffset: -12, 0
 
 ^city3x5:
 	Inherits: ^cabase
 	Defaults:
 		Offset: 24, -48, 48
+		DepthSpriteOffset: 24, 0
 
 ^city4x2:
 	Inherits: ^cabase
 	Defaults:
 		Offset: -24, -36, 36
+		DepthSpriteOffset: -24, 48
 
 ^city4x3:
 	Inherits: ^cabase
 	Defaults:
 		Offset: -12, -42, 42
+		DepthSpriteOffset: -12, 0
 
 city01:
 	Inherits: ^city4x2
+	Defaults:
+		Offset: -12, -30, 36
 
 city02:
 	Inherits: ^city2x3
 
 city03:
-	Inherits: ^city2x3
+	Inherits: ^city3x2
 
 city04:
-	Inherits: ^city2x3
+	Inherits: ^city3x2
 
 city05:
-	Inherits: ^city2x3
+	Inherits: ^city3x2
 
 city06:
 	Inherits: ^city4x2
 
 city07:
 	Inherits: ^city4x2
+	Defaults:
+		Offset: -12, -30, 36
 
 city08:
 	Inherits: ^city2x2
@@ -619,6 +667,8 @@ city15:
 
 city16:
 	Inherits: ^city4x2
+	Defaults:
+		Offset: -24, -30, 36
 
 city17:
 	Inherits: ^city4x3
@@ -700,6 +750,7 @@ gaoldcc6:
 gakodk:
 	Defaults:
 		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -24, 0
 		UseTilesetCode: true
 		Offset: -24, -36, 36
 	idle:
@@ -795,6 +846,7 @@ galite:
 namntk:
 	Defaults:
 		DepthSprite: isodepth.shp
+		DepthSpriteOffset: 24, 0
 		UseTilesetCode: true
 		Offset: 24, -24, 24
 	idle:
@@ -812,7 +864,7 @@ namntk:
 ntpyra:
 	Defaults:
 		DepthSprite: isodepth.shp
-		Offset: 0, -48, 48
+		Offset: 0, -42, 42
 	idle:
 		ShadowStart: 3
 	damaged-idle:
@@ -829,23 +881,6 @@ ntpyra:
 		Length: 16
 		Tick: 200
 
-gasand:
-	Defaults:
-		Offset: 0, -12, 12
-		UseTilesetCode: true
-		DepthSprite: isodepth.shp
-	idle:
-		Length: 16
-		ShadowStart: 32
-	damaged-idle:
-		Start: 16
-		Length: 16
-		ShadowStart: 48
-	icon: sbagicon
-		Offset: 0, 0
-		UseTilesetCode: false
-		-DepthSprite:
-
 ufo:
 	idle: ufo.tem
 		DepthSprite: isodepth.shp
@@ -855,10 +890,10 @@ ufo:
 well:
 	Inherits: ^EmpOverlay
 	idle:
-		Offset: 0, -48, 60
+		Offset: 0, -36, 60
 		UseTilesetCode: false
 	dead:
-		Offset: 0, -48, 60
+		Offset: 0, -36, 60
 		UseTilesetCode: false
 	icon: sidebar-gdi|e1icon
 
@@ -940,3 +975,350 @@ c_kodiak:
 		Offset: 0,-38
 		Start: 1
 		Length: 1
+
+gasand:
+	Defaults:
+		Offset: 0, -12, 12
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		Length: 16
+		ShadowStart: 32
+	damaged-idle:
+		Start: 16
+		Length: 16
+		ShadowStart: 48
+	icon: sbagicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+gawall:
+	Defaults:
+		Offset: 0, -12, 12
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		Length: 16
+		ShadowStart: 48
+	damaged-idle:
+		Start: 16
+		Length: 16
+		ShadowStart: 64
+	critical-idle:
+		Start: 32
+		Length: 16
+		ShadowStart: 80
+	icon: wallicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+gagate_a:
+	Defaults:
+		Offset: -24, -24, 24
+		DepthSpriteOffset: -24, 0
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		Length: 10
+		ShadowStart: 21
+	open:
+		Start: 9
+		ShadowStart: 30
+		Offset: -24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	damaged-idle:
+		Start: 10
+		Length: 10
+		ShadowStart: 31
+	damaged-open:
+		Start: 19
+		ShadowStart: 40
+		Offset: -24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	dead:
+		Start: 20
+		Tick: 400
+		ShadowStart: 41
+	make:
+		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
+		Length: 9
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: gateicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+gagate_b:
+	Defaults:
+		Offset: 24, -24, 24
+		DepthSpriteOffset: 24, 0
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		Length: 10
+		ShadowStart: 21
+	open:
+		Start: 9
+		ShadowStart: 30
+		Offset: 24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	damaged-idle:
+		Start: 10
+		Length: 10
+		ShadowStart: 31
+	damaged-open:
+		Start: 19
+		ShadowStart: 40
+		Offset: 24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	dead:
+		Start: 20
+		Tick: 400
+		ShadowStart: 41
+	make:
+		Frames: 9, 8, 7, 6, 5, 4, 3, 2, 1
+		Length: 9
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: gat2icon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+nagate_a:
+	Defaults:
+		Offset: -24, -24, 24
+		DepthSpriteOffset: -24, 0
+		UseTilesetCode: true
+		Tick: 80
+		DepthSprite: isodepth.shp
+	idle:
+		Length: 7
+		ShadowStart: 15
+	damaged-idle:
+		Start: 7
+		Length: 7
+		ShadowStart: 22
+	open:
+		Start: 6
+		ShadowStart: 21
+		Offset: -24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	damaged-idle:
+		Start: 7
+		Length: 7
+		ShadowStart: 22
+	damaged-open:
+		Start: 13
+		ShadowStart: 28
+		Offset: -24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	dead:
+		Start: 14
+		Tick: 400
+		ShadowStart: 29
+	make:
+		Frames: 6, 5, 4, 3, 2, 1
+		Length: 6
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: ngaticon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+nagate_b:
+	Defaults:
+		Offset: 24, -24, 24
+		DepthSpriteOffset: 24, 0
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		Tick: 80
+	idle:
+		Length: 7
+		ShadowStart: 15
+	open:
+		Start: 6
+		ShadowStart: 21
+		Offset: 24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	damaged-idle:
+		Start: 7
+		Length: 7
+		ShadowStart: 22
+	damaged-open:
+		Start: 13
+		ShadowStart: 28
+		Offset: 24, -24, 1
+		ZRamp: 1
+		-DepthSprite:
+	dead:
+		Start: 14
+		Tick: 400
+		ShadowStart: 29
+	make:
+		Frames: 6, 5, 4, 3, 2, 1
+		Length: 6
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: nga2icon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+napost:
+	Defaults:
+		Offset: 0, -12, 13
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 0
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	lights: napost_b
+		Start: 0
+		Length: 7
+		ShadowStart: 14
+		Tick: 80
+	damaged-lights: napost_b
+		Start: 7
+		Length: 7
+		ShadowStart: 21
+		Tick: 80
+	chainoflights: napost_a
+		Start: 0
+		Length: 12
+		ShadowStart: 24
+		Tick: 80
+	damaged-chainoflights: napost_a
+		Start: 12
+		Length: 12
+		ShadowStart: 36
+		Tick: 80
+	dead:
+		Start: 2
+		Tick: 400
+		ShadowStart: 5
+	make: napostmk
+		Start: 0
+		Length: 12
+		ShadowStart: 12
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: lasricon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+nafnce:
+	Defaults:
+		Offset: 0, -12, 13
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		Length: 1
+	disabled-x:
+		Start: 8
+		Length: 1
+		Offset: 0, -12, 1
+		ZRamp: 1
+		-DepthSprite:
+	disabled-y:
+		Start: 12
+		Length: 1
+		Offset: 0, -12, 1
+		ZRamp: 1
+		-DepthSprite:
+	enabled-x:
+		Frames: 3,3,1,1,3,3,1,1,2,2,0,0,2,2,0,0
+		Length: 16
+	enabled-y:
+		Frames: 7,5,7,5,6,4,6,4,7,5,7,5,6,4,6,4
+		Length: 16
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+
+nawall:
+	Defaults:
+		Offset: 0, -12, 12
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+	idle:
+		Length: 16
+		ShadowStart: 48
+	damaged-idle:
+		Start: 16
+		Length: 16
+		ShadowStart: 64
+	critical-idle:
+		Start: 32
+		Length: 16
+		ShadowStart: 80
+	icon: nwalicon
+		Offset: 0, 0
+		UseTilesetCode: false
+		-DepthSprite:
+
+gaicbm:
+	Defaults:
+		Offset: 0, -12, 12
+		UseTilesetCode: true
+		DepthSprite: isodepth.shp
+		DepthSpriteOffset: -12, 6
+	idle:
+		ShadowStart: 3
+	damaged-idle:
+		Start: 1
+		ShadowStart: 4
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 13
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	make: gaicbmmk
+		Length: 30
+		ShadowStart: 30

@@ -74,12 +74,11 @@ ColossiBlast:
 		Spread: 1500
 		Damage: 800
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 30
-			VehicleArmor: 2
+			InfantryArmor: 50
+			BuildingArmor: 0
+			VehicleArmor: 20
 			ConcreteArmor: 2
 		DamageTypes: FireDeath, ScrinEssenceKill
-		InvalidTargets: Colossi
 	# Warhead@2Eff: CreateEffect
 		# Explosions: colossiglow
 		# ExplosionPalette: colossiglow
@@ -196,17 +195,17 @@ FloatGlaive10:
 
 FloatGlaive2:
 	Inherits: FloatGlaive
-	Warhead@op: FireShrapnel
+	-Warhead@op: FireShrapnel
 		Weapon: FloatGlaive3
 
-FloatGlaive3:
-	Inherits: FloatGlaive
-	Warhead@op: FireShrapnel
-		Weapon: FloatGlaive4
+# FloatGlaive3:
+	# Inherits: FloatGlaive
+	# Warhead@op: FireShrapnel
+		# Weapon: FloatGlaive4
 
-FloatGlaive4:
-	Inherits: FloatGlaive
-	-Warhead@op: FireShrapnel
+# FloatGlaive4:
+	# Inherits: FloatGlaive
+	# -Warhead@op: FireShrapnel
 
 GravMineSuicide:
 	ReloadDelay: 150
@@ -268,7 +267,7 @@ ScorpAcid:
 	BurstDelays: 3
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
-		Damage: 1300
+		Damage: 975
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -280,7 +279,7 @@ ScorpAcid:
 		InvalidImpactTypes: Water
 	Warhead@3Radio: CreateRadioactivity
 		Range: 1, 2
-		Level: 15
+		Level: 6
 		Falloff: 100, 37
 		MaxLevel: 1000
 
@@ -640,7 +639,7 @@ Glyder1Cannon:
 	ReloadDelay: 25
 	Range: 5c0
 	Report: photon1.wav
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: BulletAS
 		Speed: 200
 		Image: torpedo
@@ -655,7 +654,7 @@ Glyder1Cannon:
 			BuildingArmor: 100
 			VehicleArmor: 100
 			ConcreteArmor: 25
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 Glyder2Cannon:
@@ -840,7 +839,7 @@ NeedlerAcid:
 	BurstDelays: 4
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
-		Damage: 800
+		Damage: 600
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -852,7 +851,7 @@ NeedlerAcid:
 		InvalidImpactTypes: Water
 	Warhead@3Radio: CreateRadioactivity
 		Range: 1, 2
-		Level: 15
+		Level: 6
 		Falloff: 100, 37
 		MaxLevel: 1000
 
@@ -871,6 +870,11 @@ TractorBeam:
 		Damage: 2000
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@TractorStop: GrantExternalCondition
+		Range: 1c0
+		Duration: 35
+		Condition: tractorstop
+		ValidTargets: Air
 
 TractorBeam2:
 	ReloadDelay: 5
@@ -958,7 +962,7 @@ EssenceMissile:
 		ExplosionPalette: apolra2ialpha
 	Warhead@emp: GrantExternalCondition
 		Range: 150
-		Duration: 400
+		Duration: 300
 		Condition: batteryboost
 	Warhead@emp: GrantExternalCondition
 		Range: 200

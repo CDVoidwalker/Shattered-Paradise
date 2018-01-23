@@ -529,10 +529,6 @@ CIV1:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
 		AttackSequence: shoot
-	Armament:
-		Weapon: Pistola
-	AttackFrontal:
-		Voice: Attack
 
 CIV2:
 	Inherits: ^CivilianInfantry
@@ -542,10 +538,6 @@ CIV3:
 	Inherits: ^CivilianInfantry
 	WithInfantryBody:
 		AttackSequence: shoot
-	Armament:
-		Weapon: Pistola
-	AttackFrontal:
-		Voice: Attack
 
 4TNK:
 	Inherits: ^VoxelTank
@@ -1711,12 +1703,12 @@ CAPYR03:
 
 CITY01:
 	Inherits: ^CivBuilding
-	Inherits@shape: ^4x2Shape
+	Inherits@shape: ^3x2Shape
 	Tooltip:
 		Name: Connelly Court Apts.
 	Building:
-		Footprint: xxxX XxxX
-		Dimensions: 4, 2
+		Footprint: xxx xxx
+		Dimensions: 3, 2
 	Armor:
 		Type: BuildingArmor
 	Health:
@@ -2161,6 +2153,7 @@ GAKODK:
 	Health:
 		HP: 40000
 	RenderSprites:
+		Palette: player
 
 GAOLDCC1:
 	Inherits: ^OldBase
@@ -2199,7 +2192,7 @@ GAOLDCC6:
 GASAND:
 	Inherits: ^Wall
 	Buildable:
-		Queue: Defense
+		Queue: Defence
 		BuildPaletteOrder: 1000
 		Prerequisites: ~disabled
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
@@ -2225,7 +2218,7 @@ GASAND:
 	-BlocksProjectiles:
 
 GASPOT:
-	Inherits: ^Building
+	Inherits: ^CivBuilding
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -2248,19 +2241,19 @@ GASPOT:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	SelectionDecorations:
+	RenderSprites:
+		Palette: player
 	EditorTilesetFilter:
 		Categories: Civilian building
 
 GALITE:
-	Inherits: ^Building
+	Inherits: ^CivBuilding
 	Valued:
 		Cost: 200
 	Tooltip:
 		Name: Light Post
 	RenderSprites:
 		Palette: terraindecoration
-	-WithMakeAnimation:
-	-WithDeathAnimation:
 	Health:
 		HP: 60000
 	Armor:
@@ -2288,12 +2281,11 @@ TSTLAMP:
 	Tooltip:
 
 GAICBM:
-	Inherits: ^Building
+	Inherits: ^CivBuilding
 	Valued:
 		Cost: 800
 	Tooltip:
 		Name: Deployed ICBM
-	-GivesBuildableArea:
 	Health:
 		HP: 40000
 	Armor:
@@ -2307,7 +2299,6 @@ GAICBM:
 		Facing: 96
 		TransformSounds: place2.aud
 		NoTransformSounds:
-	-WithDeathAnimation:
 	EditorTilesetFilter:
 		Categories: Vehicle
 
@@ -2410,14 +2401,144 @@ WELL:
 	RenderSprites:
 		PlayerPalette: playersilo
 	CashTrickler:
-		Interval: 200
+		Interval: 400
 		Amount: 100
 		CaptureAmount: 500
+	GivesCashOnCapture:
+		Amount: 200
 	Health:
 		HP: 100000
 	RenderSprites:
 	Explodes:
 		Weapon: TiberiumExplosion
+
+
+BLOODDERRICK:
+	Inherits: ^TechBuilding
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Blood Derrick
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Selectable:
+		Bounds: 102, 60, 0, 0
+	Health:
+		HP: 250000
+	Explodes:
+		Weapon: TiberiumExplosion
+	RenderSprites:
+		PlayerPalette: playerscrin
+	WithDeathAnimation:
+		DeathSequencePalette: playerscrin
+		CrushedSequencePalette: playerscrin
+		CrushedPaletteIsPlayerPalette: true
+	SelectionDecorations:
+		VisualBounds: 102, 60, 0, 0
+	CashTrickler:
+		Interval: 125
+		Amount: 10
+		CaptureAmount: 500
+	AttackOmni:
+	WithAttackAnimation:
+		AttackSequence: move
+	WithRangeCircle:
+		Range: 12c0
+		Type: Bounty
+	RejectsOrders:
+	Armament:
+		Weapon: DerrickAnimation
+		TargetStances: Ally, Enemy, Neutral
+	AutoTarget:
+	ProximityBounty:
+		Delay: 200
+		BountyType: BloodDerrick
+		Range: 12c0
+
+NEUTRALRADAR:
+	Inherits: ^TechBuilding
+	Inherits@3: ^2x2Shape
+	Tooltip:
+		Name: Surveilance Radar
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Selectable:
+		Bounds: 102, 60, 0, 0
+	Health:
+		HP: 250000
+	RenderSprites:
+	SelectionDecorations:
+		VisualBounds: 70, 90, 0, -32
+	RevealsShroud:
+		Range: 14c0
+	ProvidesRadar:
+
+NEUTRALPOWERPLANT:
+	Inherits: ^TechBuilding
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Civilian Powerplant
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Selectable:
+		Bounds: 120, 90, 0, 0
+	Health:
+		HP: 250000
+	Power:
+		Amount: 300
+	RenderSprites:
+	SelectionDecorations:
+		VisualBounds: 70, 90, 0, -32
+	RevealsShroud:
+		Range: 5c0
+	BaseProvider:
+		Range: 5c0
+
+SCRINREINFPAD:
+	Inherits: ^TechBuilding
+	Inherits@3: ^3x3Shape
+	Tooltip:
+		Name: Scrin Replicator (Reinforcement Pad)
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3, 3
+	Selectable:
+		Bounds: 120, 90, 0, 0
+	Health:
+		HP: 250000
+	RenderSprites:
+		PlayerPalette: playerscrin
+	SelectionDecorations:
+		VisualBounds: 70, 90, 0, -32
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+		Offset: 1,4
+		Palette: mouse
+		IsPlayerPalette: false
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithProductionOverlay@WHITELIGHTS:
+		Sequence: production-lights
+	Exit@1:
+		SpawnOffset: 0,-256,0
+		ExitCell: 2,2
+		ExitDelay: 5
+	Production:
+		Produces: Vehicle
+	ProvidesAIPrerequisite@BuildStuff:
+		Prerequisite: BuildStuff
+	GrantConditionOnPrerequisite@BuildStuff:
+		Condition: BuildStuff
+		Prerequisites: BuildStuff
+	PeriodicProducer:
+		Actors: 2stug3
+		Type: Vehicle
+		ChargeDuration: 3000
+		Condition: !BuildStuff
 
 EGGS:
 	Inherits: ^CivBuilding

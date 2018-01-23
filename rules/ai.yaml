@@ -6,8 +6,8 @@ Player:
 		SquadSizeRandomBonus: 15
 		MinimumExcessPower: 40
 		BuildingCommonNames:
-			ConstructionYard: gacnst, drached
-			Refinery: proc, scrproc, cabproc, muproc
+			ConstructionYard: gacnst, drached, cabyard
+			Refinery: gdiref, nodref, scrproc, cabproc, muproc
 			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 			Barracks: gapile, nahand, mutrax, cabrax, scrrax
 			VehiclesFactory: gaweap, naweap, mutweap, cabweap, scrweap
@@ -15,7 +15,7 @@ Player:
 			Silo: gasilo
 		UnitQueues: Vehicle, Infantry, Air
 		UnitsCommonNames:
-			Mcv: mcv, drache
+			Mcv: mcv, drache, cabmcv
 		ProtectUnitScanRadius: 35
 		RushAttackScanRadius: 35
 		RushInterval: 1125
@@ -36,7 +36,8 @@ Player:
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			proc: 5
+			gdiref: 5
+			nodref: 5
 			scrproc: 5
 			cabproc: 5
 			muproc: 5
@@ -94,7 +95,8 @@ Player:
 		BuildingFractions:
 			gadept: 100%
 			scrdepot: 100%
-			proc: 99%
+			gdiref: 99%
+			nodref: 99%
 			scrproc: 99%
 			cabproc: 99%
 			muproc: 99%
@@ -180,8 +182,6 @@ Player:
 			bug: 4
 			smech: 7
 			bggy: 7
-			trike: 7
-			dino: 7
 			mmch: 7
 			struck: 10
 			centurion: 10
@@ -198,7 +198,7 @@ Player:
 			scrmbt: 8
 			scrrecharger: 3
 			sonic: 7
-			clawnexus: 7
+			deathclaw: 7
 			paladin: 4
 			stnk: 7
 			tripod: 7
@@ -256,7 +256,6 @@ Player:
 			bggy: 5%
 			trike: 5%
 			struck: 7%
-			dino: 5%
 			centurion: 7%
 			scrdronec: 4%
 			scrscorpion: 5%
@@ -276,7 +275,7 @@ Player:
 			armh: 12%
 			stnk: 12%
 			mrls: 12%
-			clawnexus: 12%
+			deathclaw: 12%
 			spiderarty: 12%
 			paladin: 12%
 			tripod: 12%
@@ -298,8 +297,8 @@ Player:
 		Name: CD AI
 		Type: CDAI
 		BuildingCommonNames:
-			ConstructionYard: gacnst, drached
-			Refinery: proc, scrproc, cabproc, muproc
+			ConstructionYard: gacnst, drached, cabyard
+			Refinery: gdiref, nodref, scrproc, cabproc, muproc
 			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 			Barracks: gapile, nahand, mutrax, cabrax, scrrax
 			VehiclesFactory: gaweap, naweap, mutweap, cabweap, scrweap
@@ -307,7 +306,7 @@ Player:
 			Silo: gasilo
 		UnitQueues: Vehicle, Infantry, Air
 		UnitsCommonNames:
-			Mcv: mcv, drache
+			Mcv: mcv, drache, cabmcv
 		MinimumExcessPower: 50
 		SquadSize: 20
 		SquadSizeRandomBonus: 20
@@ -330,7 +329,8 @@ Player:
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			proc: 5
+			gdiref: 5
+			nodref: 5
 			scrproc: 5
 			cabproc: 5
 			muproc: 5
@@ -388,7 +388,8 @@ Player:
 		BuildingFractions:
 			gadept: 100%
 			scrdepot: 100%
-			proc: 99%
+			gdiref: 99%
+			nodref: 99%
 			scrproc: 99%
 			cabproc: 99%
 			muproc: 99%
@@ -474,8 +475,6 @@ Player:
 			bug: 4
 			smech: 7
 			bggy: 7
-			trike: 7
-			dino: 7
 			mmch: 7
 			struck: 10
 			centurion: 10
@@ -492,7 +491,7 @@ Player:
 			scrmbt: 8
 			scrrecharger: 3
 			sonic: 7
-			clawnexus: 7
+			deathclaw: 7
 			paladin: 4
 			stnk: 7
 			tripod: 7
@@ -548,9 +547,7 @@ Player:
 			mmch: 5%
 			smech: 7%
 			bggy: 5%
-			trike: 5%
 			struck: 7%
-			dino: 5%
 			centurion: 7%
 			scrdronec: 4%
 			scrscorpion: 5%
@@ -570,7 +567,7 @@ Player:
 			armh: 12%
 			stnk: 12%
 			mrls: 12%
-			clawnexus: 12%
+			deathclaw: 12%
 			spiderarty: 12%
 			paladin: 12%
 			tripod: 12%
@@ -619,19 +616,20 @@ Player:
 		CheckCaptureTargetsForVisibility: false
 		MaximumCaptureTargetOptions: 15
 		BuildingCommonNames:
-			ConstructionYard: gacnst, drached
-			Refinery: proc, scrproc, cabproc, muproc
+			ConstructionYard: gacnst, drached, cabyard
+			Refinery: gdiref, nodref, scrproc, cabproc, muproc
 			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 			Barracks: gapile, nahand, mutrax, cabrax, scrrax
 			VehiclesFactory: gaweap, naweap, mutweap, cabweap, scrweap
 			Production: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, mutweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
 			Silo: gasilo
 		UnitsCommonNames:
-			Mcv: mcv, drache
+			Mcv: mcv, drache, cabmcv
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			proc: 2
+			gdiref: 5
+			nodref: 5
 			scrproc: 2
 			cabproc: 2
 			muproc: 2
@@ -689,7 +687,8 @@ Player:
 		BuildingFractions:
 			gadept: 100%
 			scrdepot: 100%
-			proc: 99%
+			gdiref: 99%
+			nodref: 99%
 			scrproc: 99%
 			cabproc: 99%
 			muproc: 99%
@@ -776,8 +775,6 @@ Player:
 			bug: 1
 			smech: 3
 			bggy: 3
-			trike: 3
-			dino: 3
 			mmch: 3
 			struck: 3
 			centurion: 3
@@ -794,7 +791,7 @@ Player:
 			scrmbt: 2
 			scrrecharger: 2
 			sonic: 1
-			clawnexus: 1
+			deathclaw: 1
 			paladin: 1
 			stnk: 1
 			tripod: 1
@@ -850,9 +847,7 @@ Player:
 			mmch: 5%
 			smech: 7%
 			bggy: 5%
-			trike: 5%
 			struck: 7%
-			dino: 5%
 			centurion: 7%
 			scrdronec: 4%
 			scrscorpion: 5%
@@ -872,7 +867,7 @@ Player:
 			armh: 12%
 			stnk: 12%
 			mrls: 12%
-			clawnexus: 12%
+			deathclaw: 12%
 			spiderarty: 12%
 			paladin: 12%
 			tripod: 12%

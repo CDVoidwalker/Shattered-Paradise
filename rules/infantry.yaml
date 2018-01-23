@@ -244,15 +244,13 @@ ALTNODE1:
 	ProducibleWithLevel:
 		Prerequisites: barracks.Conditiond
 	RenderSprites:
-	WithDecoration@bombicon:
-		Image: bombicon
-		Sequence: idle
-		ReferencePoint: Bottom, Left
-		Palette: mouse
-		ShowToEnemies: true
-		RequiresCondition: deployed
-	Passenger:
-		GrantCondition: FlameWarriorHologram
+	# WithDecoration@bombicon:
+		# Image: bombicon
+		# Sequence: idle
+		# ReferencePoint: Bottom, Left
+		# Palette: mouse
+		# ShowToEnemies: true
+		# RequiresCondition: deployed
 
 CRUSADER:
 	Inherits: ^Soldier
@@ -266,7 +264,7 @@ CRUSADER:
 	Tooltip:
 		Name: Crusader
 	Health:
-		HP: 10000
+		HP: 9000
 	Mobile:
 		Speed: 55
 	Armament:
@@ -310,8 +308,8 @@ TEMPLAR:
 	ProducibleWithLevel:
 		Prerequisites: barracks.Conditiond
 	RenderSprites:
-	Passenger:
-		GrantCondition: TemplarHologram
+	# Passenger:
+		# GrantCondition: TemplarHologram
 	-DamagedByTerrain:
 
 NCONF:
@@ -398,8 +396,8 @@ MHIJACK:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	-AttackMove:
-	Passenger:
-		GrantCondition: HijackerHologram
+	# Passenger:
+		# GrantCondition: HijackerHologram
 
 BHS:
 	Inherits: ^Soldier
@@ -422,7 +420,7 @@ BHS:
 	Health:
 		HP: 25000
 	Mobile:
-		Speed: 80
+		Speed: 65
 	Voiced:
 		VoiceSet: Oxanna
 	Armament@PRIMARY:
@@ -651,10 +649,10 @@ SEER:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 22
-		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Everything.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 40% extra attack speed and 20% more move speed.\n- But they will take 20% extra damage and it will also kill 5 units friendly at random.\n- Effect lasts 15 seconds.\n- Heals on Tiberium\n- Can attack air\n- Crush class: crushable
+		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Everything.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 20% extra attack speed and move speed.\n- But it will also kill 7 nearby units friendly at random.\n- Effect lasts 15 seconds.\n- Heals on Tiberium\n- Can attack air\n- Crush class: crushable
 		Prerequisites: ~murax, muhall
 	Valued:
-		Cost: 550
+		Cost: 800
 	Tooltip:
 		Name: Tyrant
 	Voiced:
@@ -697,7 +695,7 @@ SEER:
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
 		CooldownTicks: 2000
-		DeployedTicks: 75
+		DeployedTicks: 70
 		StartsFullyCharged: True
 		PauseOnCondition: WebDisable
 	ExplodeWeapon:
@@ -970,7 +968,7 @@ BUG:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 27
-		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.\n- Poisoned units take damage over time\n- Poisoned units have reduced attack speed.\n- Plague Carriers attacks bounce up to 5 times.\n- Absorbs essence from killed enemies to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
+		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.\n- Poisoned units take damage over time\n- Poisoned units have reduced attack speed.\n- Plague Carriers attacks bounce up to 3 times.\n- Absorbs essence from killed enemies to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax, scrradr
 	Valued:
 		Cost: 650
@@ -983,7 +981,7 @@ BUG:
 	Health:
 		HP: 10100
 	Mobile:
-		Speed: 60
+		Speed: 70
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 		Probability: 100
@@ -1007,11 +1005,9 @@ COLOSSI:
 		Description: Heavy duty alien.\n\nGood vs Infantry.\n\nSpecial:\n- Can irradiate its surroundings when deployed.\n- Becomes immobile on this stance.\n- Radiation harms all units regardless of owner.\n- Can absorb essence from killed units to heal.\n- Crush class: uncrushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax, scrtech
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Colossus
-	Targetable@Colossi:
-		TargetTypes: Colossi
 	Selectable:
 		Bounds: 26,30,0,-10
 	Health:
@@ -1019,7 +1015,7 @@ COLOSSI:
 	Mobile:
 		Speed: 60
 		SharesCell: False
-		RequiresCondition: !deployed
+		RequiresCondition: !deployed && !WebDisable
 	-SpawnActorOnDeath@FLAMEGUY:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
@@ -1281,7 +1277,7 @@ MOTH:
 			BlueTiberium: 100
 			Veins: 100
 			Water: 80
-		RequiresCondition: !deployed
+		RequiresCondition: !deployed && !WebDisable
 	Health:
 		HP: 30000
 	Selectable:
@@ -1315,7 +1311,7 @@ MOTH:
 		RequiresCondition: !undeployed
 	-WithInfantryBody:
 	Armament@primary:
-		Weapon: LurkerHit
+		Weapon: LurkerProj
 		RequiresCondition: deployed
 	AttackOmni:
 		RequiresCondition: deployed

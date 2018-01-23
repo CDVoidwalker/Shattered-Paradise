@@ -119,7 +119,7 @@ WolverineVulcan:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 50
-	Range: 6c0
+	Range: 7c0
 	Report: tsgun4.aud
 	Projectile: BulletAS
 		Speed: 1c682
@@ -477,7 +477,7 @@ RepairGun:
 
 FirestormWallUpgrade:
 	Inherits: ^NoDamage
-	ReloadDelay: 50
+	ReloadDelay: 25
 	Projectile: InstantExplode
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
@@ -485,8 +485,9 @@ FirestormWallUpgrade:
 		ValidTargets: Ground
 	Warhead@Wall: GrantExternalCondition
 		Range: 12c0
-		Duration: 50
-		Condition: FirestormWallUpgrade
+		Duration: 25
+		Condition: FirestormWallCondition
+		ValidStances: Ally
 
 FirestormSpawner:
 	Inherits: ^NoDamage
@@ -511,7 +512,7 @@ FirestormExplo:
 		Blockable: false
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 300
-		Damage: 7500
+		Damage: 10000
 		ValidTargets: Ground, Air
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
@@ -519,9 +520,6 @@ FirestormExplo:
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
-	Warhead@3Eff: CreateEffect
-		Explosions: fire3, fire4
-		InvalidImpactTypes: Water, Air, AirHit
 
 FirestormExploWalls:
 	Inherits: FirestormExplo

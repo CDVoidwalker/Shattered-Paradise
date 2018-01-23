@@ -47,6 +47,7 @@ Player:
 	PlayerExperience:
 	PowerManager:
 	AllyRepair:
+	NydusCounter:
 	PlayerResources:
 	DeveloperMode:
 		CheckboxEnabled: true

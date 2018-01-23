@@ -89,7 +89,7 @@ FiendShard2:
 	Burst: 2
 	Range: 4c0
 	Report: fiend2.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: BulletAS
 		Speed: 300
 		Image: CRYSTAL4
@@ -99,7 +99,7 @@ FiendShard2:
 		Palette: greentiberium
 	Warhead@1Dam: SpreadDamage
 		Damage: 1800
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -115,7 +115,12 @@ FiendShard2:
 FiendShardAA:
 	Inherits: FiendShard2
 	ValidTargets: Air
-	Projectile: BulletAS
+	Projectile: Missile
+		CruiseAltitude: 6000
+		MinimumLaunchAngle: 300
+		MaximumLaunchAngle: 300
+		MaximumLaunchSpeed: 0c543
+		MinimumLaunchSpeed: 0c301
 		Speed: 800
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -183,7 +188,7 @@ SeerTyranyBuff:
 		ValidStances: Ally
 
 SeerTyranyInstakillSpawn:
-	ReloadDelay: 15
+	ReloadDelay: 10
 	Range: 5c0
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
@@ -332,7 +337,7 @@ BullAcid:
 		Image: acidall32mini
 		Inaccuracy: 384
 		Palette: apolgreenalpha
-	Burst: 7
+	Burst: 10
 	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
@@ -349,17 +354,9 @@ BullAcid:
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2
-		Level: 50
+		Level: 6
 		Falloff: 100, 25
 		MaxLevel: 1000
-
-BullAcidSpawn:
-	Inherits: BullAcid
-	Burst: 2
-	Warhead@5Actor: SpawnActor
-		Actors: cloud1
-		FallRate: 5000
-		Range: 3
 
 BullBuff:
 	Inherits: ^NoDamage
@@ -501,9 +498,9 @@ TiberianRocket:
 		ImpactSound: expnew12.aud
 		InvalidTargets: Water, Air, AirHit
 	Warhead@8Radio: CreateRadioactivity
-		Range: 1, 2, 3
-		Level: 35
-		Falloff: 100, 50, 15
+		Range: 1, 2
+		Level: 11
+		Falloff: 70, 40
 		MaxLevel: 1000
 
 MiniNuke:
@@ -776,7 +773,7 @@ FalconPunch:
 		Range: 3
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3
-		Level: 1000
+		Level: 100
 		Falloff: 100, 50, 25
 		MaxLevel: 1000
 

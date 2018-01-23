@@ -198,6 +198,7 @@ TRNSPORT:
 	RenderSprites:
 	Selectable:
 		Bounds: 44,32,0,-8
+		Priority: 4
 	Carryall:
 		Voice: Move
 		LocalOffset: 0, 0, -224
@@ -464,7 +465,7 @@ SCRIN:
 		Ammo: 27
 		PipCount: 3
 		ReloadCount: 9
-		ReloadDelay: 28
+		ReloadDelay: 83
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
@@ -599,7 +600,7 @@ MUTHELI:
 		Voice: Attack
 	AmmoPool:
 		Ammo: 12
-		PipCount: 5
+		PipCount: 4
 		ReloadCount: 4
 		ReloadDelay: 83
 		PipType: Ammo
@@ -619,7 +620,7 @@ WETP:
 	Tooltip:
 		Name: Falcon
 	Buildable:
-		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Emittes tiberium gas damaging nearby units.
+		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Emittes tiberium gas damaging nearby units.\n- Attacks emit radiation that harms infantry in the area.
 		Queue: Air
 		BuildPaletteOrder: 20
 		Prerequisites: ~muair, muhall
@@ -1180,6 +1181,7 @@ CABDRONEJET:
 	Inherits@1: ^CabRender
 	Armament:
 		Weapon: CabJetMiniBomb
+	-Armament@AA:
 	Valued:
 		Cost: 200
 	Health:
@@ -1399,6 +1401,7 @@ FIREFLY:
 		Prerequisites: ~cabair, cabradr, gadept
 	Selectable:
 		Bounds: 40,30
+		Priority: 4
 	Voiced:
 		VoiceSet: Limpet
 	Aircraft:

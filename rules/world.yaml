@@ -91,6 +91,8 @@ World:
 	DomainIndex:
 	BridgeLayer:
 	RadioactivityLayer@Default:
+		UpdateDelay: 75
+		Halflife: 400
 	RadioactivityLayer@HarmlessRadiationGreen:
 		Color: 00FF00
 		MaxLevel: 400
@@ -99,7 +101,8 @@ World:
 		Color: EFFF00
 		Darkest: 16
 		Name: OrangeRadiation
-		UpdateDelay: 150
+		UpdateDelay: 75
+		Halflife: 600
 	RadioactivityLayer@BlueRadiation:
 		Color: 000099
 		Color2: 000099
@@ -148,8 +151,13 @@ World:
 	MPStartUnits@MCV:
 		Class: none
 		ClassName: MCV Only
-		Factions: gdi, nod, cab, mut
+		Factions: gdi, nod, mut
 		BaseActor: mcv
+	MPStartUnits@MCVcab:
+		Class: none
+		ClassName: MCV Only
+		Factions: cab
+		BaseActor: cabmcv
 	MPStartUnits@MCVscr:
 		Class: none
 		ClassName: MCV Only

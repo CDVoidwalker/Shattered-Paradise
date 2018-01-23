@@ -66,20 +66,14 @@ sgen:
 armh:
 	idle:
 
-hologramprojector:
-	idle:
-
 ###############################################################
 # CABAL
 ###############################################################
 	
 cabapc:	
 	idle:
-
-blaster:	
-	idle:	
 	
-grinder:	
+grinder:
 	idle:
 	
 ecm:	
@@ -89,14 +83,8 @@ cabharv:
 	idle:
 	unload:
 
-devourer:	
-	idle:	
-
 basilisk:
 	idle:
-	
-termita:
-	idle:	
 
 ###############################################################
 # Scrin

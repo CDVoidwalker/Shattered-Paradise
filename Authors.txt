@@ -34,6 +34,7 @@ If an asset doesn't have credit, then either it was made by WW or we missed it, 
 
 #Game Art
 
+Ahkâm		: Firestorm effect indicator.
 Agent Z		: GDI MRLS Voxel, Forgotten Harvester.
 Astor		: Veterancy Chevrons (I guess its Astor :/)
 azri_apoc 	: Nod Harvester.

@@ -287,14 +287,13 @@ G4TNK:
 
 SONIC:
 	Inherits: ^VoxelTank
-	Inherits@2: ^IncompleteSelfHeal
 	Valued:
 		Cost: 1350
 	Tooltip:
 		Name: Disruptor
 	Buildable:
 		Queue: Vehicle
-		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Selfheal to 50%\n- Can crush infantry
+		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	-RejectsOrders@berserk:
@@ -379,7 +378,7 @@ BGGY:
 		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 142
+		Speed: 99
 		Crushes: crate
 	Health:
 		HP: 27500
@@ -464,7 +463,7 @@ TTNK:
 		TurnSpeed: 10
 		Speed: 85
 		Crushes: wall, crate, infantry
-		RequiresCondition: undeployed || !empdisable
+		RequiresCondition: undeployed && !empdisable
 	Health:
 		HP: 35000
 	Armor:
@@ -900,10 +899,10 @@ WOLF:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 27
-		Description: Tiberium beast that uses tiberium gas to harm nearby units.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Heals on Tiberium.\n- Can mutate killed enemy units.
+		Description: Tiberium beast that uses tiberium gas to harm nearby units.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Heals on Tiberium.\n- Attacks emit radiation that harms infantry in the area.\n- Can mutate killed enemy units.
 		Prerequisites: ~muweap, muradr
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Tiberian Bull
 	Voiced:
@@ -918,9 +917,6 @@ WOLF:
 	Armament@PRIMARY:
 		Weapon: BullAcid
 		LocalOffset: 128,0,400
-	Armament@Secondary:
-		Weapon: BullAcidSpawn
-		LocalOffset: 0,0,500
 	Passenger:
 		CargoType: Vehicle
 		Voice: Move
@@ -930,7 +926,7 @@ WOLF:
 	-SelfHealing@poisoncloud:
 	-ExternalCondition@CloudPoison:
 	Health:
-		HP: 35000
+		HP: 30000
 	Mobile:
 		Speed: 80
 		SharesCell: false
@@ -1131,6 +1127,7 @@ MLRS:
 		TurnSpeed: 8
 		Offset: -200,0,0
 	WithVoxelTurret:
+	-DamagedByRadioactivity@Default:
 
 HVRTRUK3:
 	Inherits: ^VoxelVehicle
@@ -1220,7 +1217,7 @@ SCRSCORPION:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 30
-		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.
+		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 6
@@ -1546,6 +1543,36 @@ TRIPOD:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
 
+###########################################################
+# CABAL
+###########################################################
+
+CABMCV:
+	Inherits: MCV
+	Inherits@1: ^CabRender
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		Prerequisites: ~factory, gadept
+		IconPalette: UnittemIconCab
+	Tooltip:
+		Name: C.A.B.A.L. MCV
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+		-Image:
+		-FactionImages:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Transforms:
+		IntoActor: cabyard
+		Offset: -1,-1
+		Facing: 160
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+
 REAPERCAB:
 	Inherits: ^Walker
 	Valued:
@@ -1683,7 +1710,7 @@ SPIDERARTY:
 	Inherits: ^Walker
 	Inherits@5: ^CabRender
 	Valued:
-		Cost: 1300
+		Cost: 1500
 	Tooltip:
 		Name: Drone Host
 	Buildable:

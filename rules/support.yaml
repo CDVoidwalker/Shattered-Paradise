@@ -1,5 +1,5 @@
 GACTWR:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	-WithSpriteBody:
 	WithWallSpriteBody:
 		Type: wall
@@ -104,9 +104,10 @@ GACTWR:
 		Modifier: 0
 
 GAVULC:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^TowerStealthDetection
-	WithWallSpriteBody:
+	# WithWallSpriteBody:
+	WithSpriteBody:
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -157,7 +158,8 @@ GAROCK:
 	Inherits@1: ^TowerStealthDetection
 	Power:
 		Amount: -30
-	WithWallSpriteBody:
+	# WithWallSpriteBody:
+	WithSpriteBody:
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -202,7 +204,8 @@ GACSAM:
 	Inherits: ^AntiAir
 	Power:
 		Amount: -30
-	WithWallSpriteBody:
+	# WithWallSpriteBody:
+	WithSpriteBody:
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -282,7 +285,7 @@ GAPLUG3:
 		Amount: -100
 
 REPAIRTUR:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@2: ^2x2Shape
 	Valued:
 		Cost: 1400
@@ -327,7 +330,7 @@ GAFIRE:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 100
-		Description: Support structure that generates a barrier around it when activated.\n\nSpecial:\n- Increases damage resistance of nearby units when activated.\n- Consumes 300 power when activated.
+		Description: Generator that can generates a barrier around it to protect units.\n\nSpecial:\n- Increases damage resistance of nearby units by 30% when activated.\n- Consumes 300 power when activated.\n- Hostile units that try to cross the firestorm will be damaged.\n- Power loss does not stop this effect.\n- Does not block incoming projectiles.\n- Remains active for 12 seconds.\n- Takes 90 seconds to charge.
 		Prerequisites: gatech, ~structures.gdi
 	Valued:
 		Cost: 1500
@@ -341,18 +344,18 @@ GAFIRE:
 		Type: cloakgenerator
 	PowerMultiplier:
 		RequiresCondition: FirestormGen
-		Modifier: -600
+		Modifier: 600
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: FirestormGen
-		CooldownTicks: 3000
-		StartsFullyCharged: true
+		CooldownTicks: 2250
+		StartsFullyCharged: False
 		DeployedTicks: 300
 		RequiresCondition: !disabled
 	ExplodeWeapon:
-		Weapon: FirestormWallCondition
+		Weapon: FirestormWallUpgrade
 		RequiresCondition: FirestormGen
 		ResetReloadWhenEnabled: false
-	ExplodeWeapon:
+	ExplodeWeapon@1:
 		Weapon: FirestormSpawner
 		RequiresCondition: FirestormGen
 		ResetReloadWhenEnabled: false
@@ -368,7 +371,7 @@ GAFIRE:
 	WithIdleOverlay@2:
 		Sequence: idle2
 	Power:
-		Amount: 50
+		Amount: -50
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
 	RequiresBuildableArea:
@@ -516,7 +519,7 @@ GTDROP:
 		AreaTypes: building
 
 NALASR:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^TowerStealthDetection
 	Valued:
 		Cost: 900
@@ -589,7 +592,7 @@ NAOBEL:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	Power:
-		Amount: -100
+		Amount: -90
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1001,7 +1004,7 @@ MUFLAK:
 	-PowerMultiplier@POWERDOWN:
 
 MUCANNON:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^MutRender
 	Inherits@2: ^TowerStealthDetection
 	Valued:
@@ -1044,7 +1047,7 @@ MUCANNON:
 	-PowerMultiplier@POWERDOWN:
 
 MUBUNKR:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^MutRender
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
@@ -1086,6 +1089,18 @@ MUBUNKR:
 	-ToggleConditionOnOrder:
 	-WithDecoration@POWERDOWN:
 	-PowerMultiplier@POWERDOWN:
+	# ProvidesAIPrerequisite@BunkerFull:
+		# Prerequisite: BunkerFull
+	# GrantConditionOnPrerequisite@BunkerFull:
+		# Condition: BunkerFull
+		# Prerequisites: BunkerFull
+	# TransformOnCondition:
+		# IntoActor: MUBUNKRFULL
+		# RequiresCondition: BunkerFull
+
+# MUBUNKRFULL:
+	# Inherits: MUBUNKR
+	# -Buildable:
 
 MUTSW1:
 	Inherits: ^Building
@@ -1202,27 +1217,25 @@ MUVENTI:
 	Inherits: ^Building
 	Inherits@1: ^MutRender
 	Inherits@2: ^2x2Shape
-	Inherits@3: ^DisableOnLowPowerOrPowerDown
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 95
-		Description: Releases tiberium toxins into the area, harming\nnon mutant infantry and healing any mutant\n in the area.\nDoesn't stop operating while in low power.
-		Prerequisites: ~structures.mut, muhall
+		Description: Allows players to quickly transport units across the battlefield.\n\nSpecial:\nInstantly transports incoming units into the Tunnel network designated as primary.\n- Cannot transport MCVs.
+		Prerequisites: ~structures.mut, muradr
 	Valued:
-		Cost: 1000
+		Cost: 1500
 	Tooltip:
-		Name: Tiberium Ventilator
+		Name: Tunnel Network
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Health:
 		HP: 100000
-	WithRangeCircle:
-		Range: 8c0
-		Type: cloakgenerator
-	ExplodeWeapon:
-		Weapon: VentilatorPoison
-		RequiresCondition: !disabled
+	NydusPrimaryExit:
+	Nydus:
+		PauseOnCondition: disabled
+	RallyPoint:
+	Exit:
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
@@ -1238,6 +1251,12 @@ MUVENTI:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	WithTextDecoration@primary:
+		Text: PRIMARY
+		ReferencePoint: Top
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: primary
 
 SCRWALL:
 	Inherits: ^Wall
@@ -1295,7 +1314,7 @@ SCRGATE_B:
 		CloseDelay: 40
 
 SCRNEEDLER:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^TowerStealthDetection
 	Inherits@4: ^ScrinDeathExplo
@@ -1305,7 +1324,7 @@ SCRNEEDLER:
 		Name: Ichor Waste Turret
 	Buildable:
 		Queue: Defense
-		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Cloaks when idle.\n- Requires power to operate.\n- Can mutate killed enemies.
+		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Cloaks when idle.\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
 		Prerequisites: scrrax, ~structures.scr
 		BuildPaletteOrder: 1
 	Building:
@@ -1576,7 +1595,7 @@ SCRADVPOWR:
 		AreaTypes: building
 
 SCRSHIELD:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^2x2Shape
@@ -1679,6 +1698,8 @@ CABSENTRYTURRET:
 	-Sellable:
 	BodyOrientation:
 		QuantizedFacings: 32
+	RevealsShroud:
+		Range: 8c0
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -1690,9 +1711,12 @@ CABSENTRYTURRET:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 CABCANNON:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^CabRender
 	Inherits@3: ^TowerStealthDetection
 	Valued:
@@ -1726,7 +1750,7 @@ CABCANNON:
 		AreaTypes: building
 
 CABPIT:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^CabRender
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
@@ -1772,7 +1796,7 @@ CABPIT:
 		AreaTypes: building
 
 CABRAIL:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^CabRender
 	Valued:
 		Cost: 600
@@ -1813,7 +1837,7 @@ CABRAIL:
 		AreaTypes: building
 
 CABNEXUS:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^CabRender
 	Inherits@2: ^2x2Shape
 	Valued:
@@ -1937,6 +1961,9 @@ NAPOST:
 	Armor:
 		Type: ConcreteArmor
 	-GivesBuildableArea:
+	-Targetable:
+	Targetable@Fence:
+		TargetTypes: Building, Ground, DetonateAttack
 	LineBuild:
 		Range: 10
 		NodeTypes: laserfencenode
@@ -2021,7 +2048,7 @@ NAFNCE:
 		Bounds: 48, 24
 
 CABSW1:
-	Inherits: ^Defense
+	Inherits: ^Defence
 	Inherits@1: ^CabRender
 	Inherits@2: ^3x3Shape
 	Inherits@3: ^SuperWeapon
