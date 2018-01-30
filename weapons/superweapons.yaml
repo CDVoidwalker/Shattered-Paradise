@@ -703,7 +703,7 @@ CabalCannon:
 		InvalidTargets: Vehicle, Building, Wall
 		Delay: 15
 	Warhead@KillShieldedUnit: GrantExternalCondition
-		Range: 3c0
+		Range: 4c0
 
 NanoMachineBurst:
 	ValidTargets: Ground, Air

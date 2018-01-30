@@ -20,7 +20,7 @@ CLOUD1:
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
 	-RevealsShroud:
-	-SpawnActorOnDeath@vision:
+	# -SpawnActorOnDeath@vision:
 	-Voiced:
 	Health:
 		HP: 9

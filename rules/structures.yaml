@@ -160,9 +160,6 @@ GAHPAD:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	ProximityExternalCondition@AircraftAutoRepair:
-		Condition: AircraftAutoRepair
-		Range: 4c0
 	Health:
 		HP: 60000
 	RevealsShroud:
@@ -402,9 +399,6 @@ NAHPAD:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	ProximityExternalCondition@AircraftAutoRepair:
-		Condition: AircraftAutoRepair
-		Range: 4c0
 	Health:
 		HP: 60000
 	RevealsShroud:
@@ -652,9 +646,6 @@ MUAIR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	ProximityExternalCondition@AircraftAutoRepair:
-		Condition: AircraftAutoRepair
-		Range: 4c0
 	Power:
 		Amount: -10
 	Health:
@@ -907,6 +898,9 @@ SCRPROC:
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockingOverlay@UNLOAD:
 	-WithDockedOverlay@flame:
+	ProvidesPrerequisite:
+		Factions: scr
+		Prerequisite: scrproc
 	SelectionDecorations:
 	RenderSprites:
 		Image: scrproc
@@ -943,6 +937,9 @@ SCRPROC2:
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
+	ProvidesPrerequisite:
+		Factions: scr
+		Prerequisite: scrproc
 	Refinery:
 		DockOffset: 1,1
 	FreeActor:
@@ -1028,7 +1025,7 @@ SCRDEPOT:
 		DecorationBounds: 110, 60, 3, -4
 
 SCRAIR:
-	Inherits: ^Building
+	Inherits: ^Helipad
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^ScrinDeathExplo
 	Inherits@4: ^3x3Shape
@@ -1044,9 +1041,6 @@ SCRAIR:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	ProximityExternalCondition@AircraftAutoRepair:
-		Condition: AircraftAutoRepair
-		Range: 4c0
 	Armor:
 		Type: BuildingArmor
 	Health:
@@ -1307,7 +1301,7 @@ CABRADR:
 		AreaTypes: building
 
 CABAIR:
-	Inherits: ^Building
+	Inherits: ^Helipad
 	Inherits@1: ^CabRender
 	Inherits@4: ^3x3Shape
 	Valued:
@@ -1322,9 +1316,6 @@ CABAIR:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3,3
-	ProximityExternalCondition@AircraftAutoRepair:
-		Condition: AircraftAutoRepair
-		Range: 4c0
 	Health:
 		HP: 60000
 	RevealsShroud:

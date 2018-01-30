@@ -452,7 +452,7 @@ GAPLUG:
 		DisplayTimer: True
 		DisplayBeacon: True
 		LongDesc: Fires an array of ion cannons on the targetted area.
-		ChargeInterval: 4500
+		ChargeInterval: 6000
 		ActivationSequence: idle
 		Weapon: IonCannonSpawner
 		OrderName: IonCannon2
@@ -1220,7 +1220,7 @@ MUVENTI:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 95
-		Description: Allows players to quickly transport units across the battlefield.\n\nSpecial:\nInstantly transports incoming units into the Tunnel network designated as primary.\n- Cannot transport MCVs.
+		Description: Allows players to quickly transport units across the battlefield.\n\nSpecial:\nInstantly transports incoming units into the Tunnel network designated as primary.\n- Primary tunnel is the exit point.
 		Prerequisites: ~structures.mut, muradr
 	Valued:
 		Cost: 1500
@@ -1479,11 +1479,11 @@ SCREXTRACTOR:
 	SelectionDecorations:
 	ProximityExternalCondition@VanguardShield:
 		Condition: VanguardShield
-		Range: 6c0
+		Range: 8c0
 		AffectsParent: false
 		RequiresCondition: !disabled
 	WithRangeCircle:
-		Range: 6c0
+		Range: 8c0
 		Type: VanguardShield
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
@@ -1517,7 +1517,7 @@ SCRSW1:
 	DetonateWeaponPower@nanomachinesson:
 		Cursor: emp
 		Icon: meteor
-		ChargeInterval: 4500
+		ChargeInterval: 6000
 		Description: Wrath of the Creator
 		LongDesc: Drags meteors from orbit dealing moderate damage over a wide area.\n\nSpecial:\n- Instant kills ground units and aircraft.
 		Prerequisites: MeteorSpawner

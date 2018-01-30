@@ -83,10 +83,10 @@ Player:
 			naobel: 5
 			scrdrone: 5
 			gafire: 2
-			nastlh: 0
+			# nastlh: 0
 			cabeye: 2
 			scrextractor: 3
-			muventi: 3
+			# muventi: 3
 			nahpad: 2
 			gahpad: 2
 			muair: 2
@@ -141,8 +141,8 @@ Player:
 			naobel: 5%
 			scrdrone: 5%
 			gafire: 1%
-			nastlh: 2%
-			muventi: 1%
+			# nastlh: 2%
+			# muventi: 1%
 			cabeye: 1%
 			scrextrator: 1%
 			nahpad: 5%
@@ -159,7 +159,7 @@ Player:
 			cyborg: 18
 			cborg: 10
 			shark: 18
-			jumpjet: 13
+			jumpjetair: 13
 			altnode1: 13
 			crusader: 13
 			e3: 13
@@ -187,7 +187,7 @@ Player:
 			centurion: 10
 			scrdronec: 3
 			scrscorpion: 10
-			scrglyder1: 10
+			scrglyder2: 10
 			hvr: 8
 			ttnk: 8
 			lynx: 8
@@ -196,7 +196,7 @@ Player:
 			wolf: 8
 			g4tnk: 8
 			scrmbt: 8
-			scrrecharger: 3
+			# scrrecharger: 3
 			sonic: 7
 			deathclaw: 7
 			paladin: 4
@@ -210,7 +210,7 @@ Player:
 			wasp: 10
 			basilisk: 4
 			devourer: 1
-			bigblue: 6
+			# bigblue: 6
 			scrin: 3
 			cerberus: 2
 			orca: 5
@@ -229,7 +229,7 @@ Player:
 			altnode1: 2%
 			pdrone: 2%
 			shark: 2%
-			jumpjet: 1%
+			jumpjetair: 1%
 			crusader: 1%
 			e3: 1%
 			marauder: 1%
@@ -259,7 +259,7 @@ Player:
 			centurion: 7%
 			scrdronec: 4%
 			scrscorpion: 5%
-			scrglyder1: 7%
+			scrglyder2: 7%
 			hvr: 9%
 			ttnk: 9%
 			subtank: 9%
@@ -268,7 +268,7 @@ Player:
 			wolf: 9%
 			g4tnk: 9%
 			scrmbt: 9%
-			scrrecharger: 9%
+			# scrrecharger: 9%
 			sonic: 12%
 			jug: 12%
 			hmec: 12%
@@ -282,7 +282,7 @@ Player:
 			wasp: 7%
 			basilisk: 5%
 			devourer: 5%
-			bigblue: 7%
+			# bigblue: 7%
 			scrin: 5%
 			cerberus: 2%
 			orca: 7%
@@ -376,10 +376,10 @@ Player:
 			naobel: 5
 			scrdrone: 5
 			gafire: 2
-			nastlh: 0
+			# nastlh: 0
 			cabeye: 2
 			scrextractor: 3
-			muventi: 3
+			# muventi: 3
 			nahpad: 2
 			gahpad: 2
 			muair: 2
@@ -434,8 +434,8 @@ Player:
 			naobel: 5%
 			scrdrone: 5%
 			gafire: 1%
-			nastlh: 2%
-			muventi: 1%
+			# nastlh: 2%
+			# muventi: 1%
 			cabeye: 1%
 			scrextrator: 1%
 			nahpad: 5%
@@ -452,7 +452,7 @@ Player:
 			cyborg: 18
 			cborg: 10
 			shark: 18
-			jumpjet: 13
+			jumpjetair: 13
 			altnode1: 13
 			crusader: 13
 			e3: 13
@@ -480,7 +480,7 @@ Player:
 			centurion: 10
 			scrdronec: 3
 			scrscorpion: 10
-			scrglyder1: 10
+			scrglyder2: 10
 			hvr: 8
 			ttnk: 8
 			lynx: 8
@@ -489,7 +489,7 @@ Player:
 			wolf: 8
 			g4tnk: 8
 			scrmbt: 8
-			scrrecharger: 3
+			# scrrecharger: 3
 			sonic: 7
 			deathclaw: 7
 			paladin: 4
@@ -503,7 +503,7 @@ Player:
 			wasp: 10
 			basilisk: 4
 			devourer: 1
-			bigblue: 6
+			# bigblue: 6
 			scrin: 3
 			cerberus: 2
 			orca: 5
@@ -522,7 +522,7 @@ Player:
 			altnode1: 2%
 			pdrone: 2%
 			shark: 2%
-			jumpjet: 1%
+			jumpjetair: 1%
 			crusader: 1%
 			e3: 1%
 			marauder: 1%
@@ -551,7 +551,7 @@ Player:
 			centurion: 7%
 			scrdronec: 4%
 			scrscorpion: 5%
-			scrglyder1: 7%
+			scrglyder2: 7%
 			hvr: 9%
 			ttnk: 9%
 			subtank: 9%
@@ -560,7 +560,7 @@ Player:
 			wolf: 9%
 			g4tnk: 9%
 			scrmbt: 9%
-			scrrecharger: 9%
+			# scrrecharger: 9%
 			sonic: 12%
 			jug: 12%
 			hmec: 12%
@@ -574,7 +574,7 @@ Player:
 			wasp: 7%
 			basilisk: 5%
 			devourer: 5%
-			bigblue: 7%
+			# bigblue: 7%
 			scrin: 5%
 			cerberus: 2%
 			orca: 7%
@@ -675,10 +675,10 @@ Player:
 			naobel: 5
 			scrdrone: 5
 			gafire: 2
-			nastlh: 0
+			# nastlh: 0
 			cabeye: 2
 			scrextractor: 3
-			muventi: 3
+			# muventi: 3
 			nahpad: 2
 			gahpad: 2
 			muair: 2
@@ -733,8 +733,8 @@ Player:
 			naobel: 5%
 			scrdrone: 5%
 			gafire: 1%
-			nastlh: 2%
-			muventi: 1%
+			# nastlh: 2%
+			# muventi: 1%
 			cabeye: 1%
 			scrextrator: 1%
 			mustable: 1%
@@ -752,7 +752,7 @@ Player:
 			cyborg: 6
 			cborg: 3
 			shark: 6
-			jumpjet: 4
+			jumpjetair: 4
 			altnode1: 4
 			crusader: 4
 			e3: 4
@@ -780,7 +780,7 @@ Player:
 			centurion: 3
 			scrdronec: 3
 			scrscorpion: 3
-			scrglyder1: 3
+			scrglyder2: 3
 			hvr: 2
 			ttnk: 2
 			lynx: 2
@@ -789,7 +789,7 @@ Player:
 			wolf: 2
 			g4tnk: 2
 			scrmbt: 2
-			scrrecharger: 2
+			# scrrecharger: 2
 			sonic: 1
 			deathclaw: 1
 			paladin: 1
@@ -803,7 +803,7 @@ Player:
 			wasp: 10
 			basilisk: 4
 			devourer: 1
-			bigblue: 6
+			# bigblue: 6
 			scrin: 3
 			cerberus: 2
 			orca: 5
@@ -822,7 +822,7 @@ Player:
 			altnode1: 2%
 			pdrone: 2%
 			shark: 2%
-			jumpjet: 1%
+			jumpjetair: 1%
 			crusader: 1%
 			e3: 1%
 			marauder: 1%
@@ -851,7 +851,7 @@ Player:
 			centurion: 7%
 			scrdronec: 4%
 			scrscorpion: 5%
-			scrglyder1: 7%
+			scrglyder2: 7%
 			hvr: 9%
 			ttnk: 9%
 			subtank: 9%
@@ -860,7 +860,7 @@ Player:
 			wolf: 9%
 			g4tnk: 9%
 			scrmbt: 9%
-			scrrecharger: 9%
+			# scrrecharger: 9%
 			sonic: 12%
 			jug: 12%
 			hmec: 12%
@@ -874,7 +874,7 @@ Player:
 			wasp: 7%
 			basilisk: 5%
 			devourer: 5%
-			bigblue: 7%
+			# bigblue: 7%
 			scrin: 5%
 			cerberus: 2%
 			orca: 7%

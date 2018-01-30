@@ -87,7 +87,7 @@ SlimeAttack:
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
 VeinholeAttack:
-	ReloadDelay: 20
+	ReloadDelay: 50
 	Range: 5c0
 	Report:
 	Projectile: InstantExplode
@@ -102,9 +102,9 @@ VeinholeAttack:
 		Range: 3
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@8Radio: CreateRadioactivity
-		Range: 1, 2, 3
+		Range: 1, 2, 3, 4
 		Level: 10
-		Falloff: 100, 50, 25
+		Falloff: 100, 50, 25, 5
 		MaxLevel: 1000
 
 FloaterCloudSpawn:

@@ -93,11 +93,10 @@ HARV:
 		Cost: 1000
 	Tooltip:
 		Name: Harvester
-	-SpeedMultiplier@ScrinOrb:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 99
-		Prerequisites: ~proc
+		Prerequisites: ~humanstuff, proc
 		InitialActivity: FindResources
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.
 	Selectable:
@@ -172,15 +171,12 @@ SCRHARV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 99
-		Prerequisites: ~scrproc
+		Prerequisites: scrproc, ~scrweap
 		InitialActivity: FindResources
 	Mobile:
 		Crushes: wall, crate, infantry, RazorShark
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
-	-SpeedMultiplier@ScrinOrb:
-	Harvester:
-		DeliveryBuildings: scrproc, cabproc, muproc, proc
 	Capturable:
 		CaptureThreshold: 60
 	-GainsExperience:
@@ -472,7 +468,7 @@ FLIPPEDPROC:
 	Tooltip:
 		Name: Tiberium Refinery
 	ProvidesPrerequisite:
-		Factions: gdi, cab, mut, nod
+		Factions: gdi, cab, mut, nod, scr
 		Prerequisite: proc
 	Building:
 		Footprint: xx== xx== xx==
@@ -561,6 +557,14 @@ FLIPPEDPROC:
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
+	ProvidesPrerequisite@humanmcv:
+		Factions: gdi, nod, mut
+		Prerequisite: humanmcv
+		ResetOnOwnerChange: True
+	ProvidesPrerequisite@humanstuff:
+		Factions: gdi, nod, cab, mut
+		Prerequisite: humanstuff
+		ResetOnOwnerChange: True
 
 ^Helipad:
 	Inherits: ^Building
@@ -709,11 +713,12 @@ GADEPT:
 
 GASILO:
 	Inherits: ^Building
+	Inherits: ^2x2Shape
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 70
 		Prerequisites: ~humanstuff, proc
-		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 1000$.\nPower loss does not affect storage capacity.
+		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 1000$.\n- Power loss does not affect storage capacity.
 	Valued:
 		Cost: 200
 	Tooltip:

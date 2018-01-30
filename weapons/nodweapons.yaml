@@ -59,7 +59,7 @@ CrusaderBazooka:
 	Range: 6c600
 	MinRange: 2c0
 	Report: rketinf1.aud
-	ValidTargets: Ground, Vehicle, Air, Building, Infantry
+	ValidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: Missile
 		Speed: 233
 		Blockable: false
@@ -75,6 +75,7 @@ CrusaderBazooka:
 
 CrusaderBazookaAA:
 	Inherits: CrusaderBazooka
+	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Damage: 2700
 		ValidTargets: Air
@@ -111,37 +112,6 @@ TemplarLasor:
 		Spread: 0c045
 		Damage: 2400
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
-
-TemplarGrenade:
-	Inherits: ^ArtilleryWarhead
-	Inherits@2: ^GreyExplo
-	ReloadDelay: 150
-	Range: 4c512
-	Report: grenadelauncherfire.wav
-	ValidTargets: Infantry, Vehicle
-	InvalidTargets: TemplarGrenade
-	Projectile: BulletAS
-		Speed: 320
-		Blockable: false
-		Shadow: true
-		LaunchAngle: 45
-		Inaccuracy: 0c512
-		Image: DISCUS
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 1
-		ValidTargets: Infantry, Vehicle
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: templargren
-		ImpactSound: expnew12.aud
-		ExplosionPalette: apolyelalpha
-		InvalidImpactTypes: Water, Air, AirHit
-	Warhead@emp: GrantExternalCondition
-		Range: 2c0
-		Duration: 75
-		Condition: TemplarGrenade
-		ValidStances: Enemy, Neutral
 
 BHRifle:
 	ReloadDelay: 200

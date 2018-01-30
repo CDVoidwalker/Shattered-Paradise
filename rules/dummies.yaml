@@ -79,7 +79,7 @@ SHAKYSHAKYMINIMINI:
 
 IONBEAMTARGET:
 	Inherits: ^DUMMYAIRCRAFT
-	Inherits@2: ^VisionWhenKilled
+	# Inherits@2: ^VisionWhenKilled
 	Inherits@3: ^1x1Shape
 	Tooltip:
 		Name: Target
@@ -422,18 +422,6 @@ FIREACTOR:
 		HealIfBelow: 200
 	ExplodeWeapon:
 		Weapon: MillitantFire
-
-BLACKHANDDUMMY:
-	Inherits: ^DUMMYSTRUCTURE
-	SelfHealing:
-		Step: -10
-		HealIfBelow: 200
-	Health:
-		HP: 5
-		NotifyAppliedDamage: False
-	Explodes:
-		Weapon: BlackHandExplode
-		EmptyWeapon: BlackHandExplode
 
 STALKERDUMMY:
 	Inherits: ^DUMMYAIRCRAFT

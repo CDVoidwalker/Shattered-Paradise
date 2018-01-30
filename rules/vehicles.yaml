@@ -930,7 +930,6 @@ WOLF:
 	Mobile:
 		Speed: 80
 		SharesCell: false
-	-WithDecoration@tibicon:
 	ExternalCondition@berserk:
 		Condition: berserk
 	-DamagedByRadioactivity@Default:
@@ -1553,7 +1552,7 @@ CABMCV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
-		Prerequisites: ~factory, gadept
+		Prerequisites: ~cabweap, gadept
 		IconPalette: UnittemIconCab
 	Tooltip:
 		Name: C.A.B.A.L. MCV

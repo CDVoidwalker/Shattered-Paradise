@@ -361,22 +361,6 @@
 	ExternalCondition@TyrannyBuff:
 		Condition: TyrannyBuff
 
-^FireflyDebuff:
-	SpeedMultiplier@firefly:
-		RequiresCondition: fireflystop
-		Modifier: 40
-		BaseLevel: 1
-	ReloadDelayMultiplier@firefly:
-		RequiresCondition: fireflystop
-		Modifier: 150
-		BaseLevel: 1
-	WithColoredOverlay@firefly:
-		RequiresCondition: fireflystop
-		Palette: disabled
-	TimedConditionBar@firefly:
-		Condition: fireflystop
-		Color: FFFFFF
-
 ^FirestormGenBuff:
 	DamageMultiplier@firestorm:
 		Modifier: 70
@@ -397,24 +381,6 @@
 		RequiresCondition: !invulnerability
 		UnmindcontrolSound: bleep5.aud
 
-^TimeLineDebuff:
-	SpeedMultiplier@ScrinOrb:
-		RequiresCondition: ScrinOrb
-		Modifier: 40
-	ExternalCondition@ScrinOrb:
-		Condition: ScrinOrb
-	SpeedMultiplier@ScrinTimeline:
-		RequiresCondition: TimeLineTrolling || TimeLineTrollingMini
-		Modifier: -25
-	ReloadDelayMultiplier@ScrinTimeline:
-		RequiresCondition: TimeLineTrolling
-		Modifier: 1000
-	ReloadDelayMultiplier@ScrinTimelineMini:
-		RequiresCondition: TimeLineTrollingMini
-		Modifier: 150
-	ExternalCondition@ScrinTimelineMini:
-		Condition: ScrinTimelineMini, TimeLineTrolling
-
 ^CloudPoison:
 	SelfHealing@poisoncloud:
 		PercentageStep: -2
@@ -426,22 +392,6 @@
 	ExternalCondition@CloudPoison:
 		Condition: CloudPoison
 
-^Bounty:
-	GivesBounty@Cabal:
-		Percentage: 20
-		ValidStances: Enemy
-		DeathTypes: CabalDeathCrate
-	GivesProximityBounty@CabGrinder:
-		Percentage: 10
-
-^wiuwiuwiu:
-	SpawnActorOnDeath@burns:
-		Actor: fireactor
-		Probability: 100
-		OwnerType: Killer
-		RequiresLobbyCreeps: false
-		DeathType: MilitantFireDeath
-
 ^ScrinEssence:
 	SpawnActorOnDeath@ScrinEssence:
 		Actor: scrinessencesmall
@@ -450,59 +400,11 @@
 		DeathType: ScrinEssenceKill
 		RequiresLobbyCreeps: false
 
-^TemplarDebuff:
-	SpeedMultiplier@TemplarGrenade:
-		RequiresCondition: TemplarGrenade
-		Modifier: 90
-	ReloadDelayMultiplier@TemplarGrenade:
-		RequiresCondition: TemplarGrenade
-		Modifier: 70
-	Targetable@TemplarGrenade:
-		TargetTypes: TemplarGrenade
-		RequiresCondition: TemplarGrenade
-	ExternalCondition@TemplarGrenade:
-		Condition: TemplarGrenade
-
-^WolfBuffs:
-	SpeedMultiplier@WolfBuff:
-		RequiresCondition: WolfBuff
-		Modifier: 90
-	ReloadDelayMultiplier@WolfBuff:
-		RequiresCondition: WolfBuff
-		Modifier: 90
-	SpeedMultiplier@WolfBuff2:
-		RequiresCondition: WolfBuff > 1
-		Modifier: 90
-	ReloadDelayMultiplier@WolfBuff2:
-		RequiresCondition: WolfBuff > 1
-		Modifier: 90
-	WithDecoration@tibicon:
-		Image: tibicon
-		Sequence: idle
-		ReferencePoint: Bottom, Left
-		Palette: mouse
-		ShowToEnemies: true
-		RequiresCondition: WolfBuff || ShowTibIcon
-	ExternalCondition@SeekerTarget:
-		Condition: WolfBuff
-
 ^KillSelf:
 	KillsSelf:
 		RequiresCondition: KillSelf
 	ExternalCondition@KillSelf:
 		Condition: KillSelf
-
-^SeekerTracker:
-	Targetable@StalkerTracker:
-		TargetTypes: StalkerTracker
-		RequiresCondition: StalkerTracker
-	Targetable@SeekerTracker:
-		TargetTypes: SeekerTarget
-		RequiresCondition: SeekerTarget
-	ExternalCondition@StalkerTracker:
-		Condition: StalkerTracker
-	ExternalCondition@StalkerTracker:
-		Condition: StalkerTracker
 
 ^SuperWeapon:
 	Inherits@3: ^DisableOnLowPowerOrPowerDown
@@ -544,30 +446,6 @@
 		DamageCooldown: 200
 		HealIfBelow: 105
 
-^GuardianPlatformSelfHeal:
-	SelfHealing@GuardianPlatformSelfHeal:
-		PercentageStep: 6
-		Step: 0
-		Delay: 100
-		DamageCooldown: 200
-		HealIfBelow: 105
-		RequiresCondition: AuraRepair
-	ExternalCondition@AuraRepair:
-		Condition: AuraRepair
-
-^NodCloakHealing:
-	GainsExperience:
-		Condition:
-			400: rank
-			800: rank2
-	SelfHealing@NodCloakHealing:
-		PercentageStep: 2
-		Step: 0
-		Delay: 100
-		DamageCooldown: 200
-		HealIfBelow: 105
-		RequiresCondition: cloakgenerator
-
 ^VeinholePoisonVehicle:
 	SelfHealing@veinholedrain:
 		PercentageStep: 0
@@ -604,16 +482,6 @@
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
 
-^NodVehicleRepair:
-	SelfHealing@NodVehicleRepair:
-		PercentageStep: 1
-		Step: 0
-		Delay: 10
-		HealIfBelow: 101
-		RequiresCondition: NodVehicleRepair
-	ExternalCondition@NodVehicleRepair:
-		Condition: NodVehicleRepair
-
 ^RejectsOrdersBerkserk:
 	RejectsOrders@berserk:
 		RequiresCondition: ToxinTrooper || submerged
@@ -630,7 +498,7 @@
 	WithIdleOverlay@EMPDISABLE:
 		Sequence: emp-overlay
 		Palette: effect
-		RequiresCondition: empdisable ||  fireflystop
+		RequiresCondition: empdisable
 		ShowToEnemies: true
 		ZOffset: 512
 	PowerMultiplier@EMPDISABLE:
@@ -718,9 +586,6 @@
 	SpeedMultiplier:
 		RequiresCondition: tractorstop
 		Modifier: 15
-	ReloadDelayMultiplier:
-		RequiresCondition: tractorstop
-		Modifier: 150
 	ExternalCondition@tractorstop:
 		Condition: tractorstop
 
@@ -766,22 +631,6 @@
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
 
-^GenericEffects:
-	Inherits: ^VisionWhenKilled
-	Inherits@0: ^KillSelf
-	Inherits@1: ^Cloakable
-	Inherits@2: ^Bounty
-	Inherits@3: ^ScrinEssence
-	Inherits@4: ^BurstRecovery
-	Inherits@5: ^FirestormGenBuff
-	RevealOnFire:
-
-^StructureEffects:
-	Inherits: ^GenericEffects
-	Inherits@1: ^CloudPoison
-	Inherits@2: ^EmpDisable
-	Inherits@3: ^SpawnSmoke
-
 ^DamagedByRadioactivity: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByRadioactivity@Default:
 		DamageCoeff: 3000
@@ -803,18 +652,29 @@
 #		RadioactivityLayerName: ColossusRadiation
 #		DamageInterval: 25		
 
+^GenericEffects:
+	# Inherits: ^VisionWhenKilled
+	Inherits@0: ^KillSelf
+	Inherits@1: ^Cloakable
+	Inherits@3: ^ScrinEssence
+	Inherits@4: ^BurstRecovery
+	Inherits@5: ^FirestormGenBuff
+	RevealOnFire:
+
+^StructureEffects:
+	Inherits: ^GenericEffects
+	Inherits@1: ^CloudPoison
+	Inherits@2: ^EmpDisable
+	Inherits@3: ^SpawnSmoke
+
 ^InfantryEffects:
 	Inherits: ^GenericEffects
 	Inherits@0: ^CloudPoison
 	Inherits@1: ^TyrannyBuff
-	Inherits@2: ^SeekerTracker
-	Inherits@3: ^WolfBuffs
 	Inherits@4: ^MindControllable
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^WebDisable
-	Inherits@7: ^TemplarDebuff
 	Inherits@8: ^BugPoison
-	Inherits@9: ^TimeLineDebuff
 	Inherits@10: ^DisplayVanguardShield
 	Inherits@11: ^DamagedByRadioactivity
 
@@ -822,16 +682,11 @@
 	Inherits: ^GenericEffects
 	Inherits@0: ^CloudPoison
 	Inherits@1: ^TyrannyBuff
-	Inherits@2: ^SeekerTracker
-	Inherits@3: ^WolfBuffs
 	Inherits@4: ^BugPoison
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^EmpDisableMobile
 	Inherits@7: ^SpawnSmoke
-	Inherits@9: ^TimeLineDebuff
-	Inherits@10: ^FireflyDebuff
 	Inherits@11: ^DisplayVanguardShield
-	Inherits@12: ^NodVehicleRepair
 	Inherits@13: ^VeinholePoisonVehicle
 	Inherits@14: ^DamagedByRadioactivity
 	SpeedMultiplier@submerged:
@@ -841,8 +696,6 @@
 ^AircraftEffects:
 	Inherits: ^GenericEffects
 	Inherits@0: ^tractorstop
-	Inherits@1: ^GuardianPlatformSelfHeal
-	Inherits@2: ^FireflyDebuff
 	Inherits@3: ^SpawnSmoke
 	Inherits@4: ^DisplayVanguardShield
 
@@ -871,7 +724,7 @@
 	Selectable:
 		Priority: 3
 	Valued:
-		Cost: 300
+		Cost: 1
 	Armor@Building:
 		Type: BuildingArmor
 	Targetable:
@@ -935,6 +788,9 @@
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
+	RevealOnDeath:
+		Duration: 50
+		Radius: 3c0
 	EmitInfantryOnSell@gdi:
 		ValuePercent: 30
 		ActorTypes: gdie1
@@ -970,8 +826,6 @@
 	CaptureNotification:
 	Sellable:
 		SellSounds: cashturn.aud
-	# CustomSellValue:
-		# Value: 0
 	WithMakeAnimation:
 	EditorTilesetFilter:
 		Categories: Buildable Structure
@@ -1006,9 +860,6 @@
 	ExternalCapturable:
 		CaptureCompleteTime: 7
 	ExternalCapturableBar:
-	RepairableBuilding:
-		IndicatorPalette: mouse
-		RepairStep: 700
 	WithDeathAnimation:
 		DeathSequence: dead
 		UseDeathTypeSuffix: false
@@ -1068,6 +919,9 @@
 		PlayerExperienceModifier: 1
 	Chronoshiftable:
 		ReturnToOrigin: false
+	RevealOnDeath:
+		Duration: 50
+		Radius: 3c0
 	Valued:
 		Cost: 1
 	NydusTransportable:
@@ -1207,12 +1061,6 @@
 		OwnerType: Killer
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: false
-	SpawnActorOnDeath@blackhand:
-		Actor: blackhanddummy
-		Probability: 100
-		OwnerType: Victim
-		DeathType: BlackHandRfle
-		RequiresLobbyCreeps: false
 	Guard:
 		Voice: Move
 	Guardable:
@@ -1265,7 +1113,6 @@
 
 ^Beast:
 	Inherits: ^Mutant
-	Inherits@1: ^RejectsOrdersBerkserk
 	-TakeCover:
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
@@ -1345,10 +1192,10 @@
 		VoiceSet: Civilian
 	Tooltip:
 		Name: Civilian
-	Mobile:
-		TerrainSpeeds:
-			Tiberium: 0
-			BlueTiberium: 0
+	# Mobile:
+		# TerrainSpeeds:
+			# Tiberium: 0
+			# BlueTiberium: 0
 	ScaredyCat:
 	WithDeathAnimation:
 		CrushedSequence: die-crushed
@@ -1362,6 +1209,10 @@
 		WanderMoveRadius: 1
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
+	-SpawnActorOnDeath@tiberium:
+	-SpawnActorOnDeath@tiberium2:
+	-SpawnActorOnDeath@berserk:
+	-SpawnActorOnDeath@conversion:
 
 ^Hologram:
 	Inherits: ^Soldier
@@ -1408,7 +1259,6 @@
 	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@berserk:
 	-SpawnActorOnDeath@conversion:
-	-SpawnActorOnDeath@blackhand:
 	-SpawnActorOnDeath@ScrinEssence:
 	GrantPeriodicCondition:
 		Condition: KillMe
@@ -1457,6 +1307,9 @@
 		PlayerExperienceModifier: 1
 	Chronoshiftable:
 		ReturnToOrigin: false
+	RevealOnDeath:
+		Duration: 50
+		Radius: 3c0
 	Valued:
 		Cost: 1
 	Mobile:
@@ -1658,7 +1511,7 @@
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		RepairBuildings: gadept, scrdepot
-		RearmBuildings: gahpad, nahpad, muair
+		RearmBuildings: gahpad, nahpad, muair, cabair, scrair
 		LandWhenIdle: false
 		Voice: Move
 		RepulsionSpeed: 40
@@ -1704,8 +1557,6 @@
 		LandWhenIdle: False
 		CruiseAltitude: 2048
 		CanHover: True
-		RepairBuildings: gadept, scrdepot
-		RearmBuildings: gahpad, nahpad, muair
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 		TakeOffOnResupply: true
 		VTOL: true
@@ -2056,7 +1907,7 @@
 	Inherits: ^1x1Shape
 	Inherits@1: ^SpriteActor
 	CombatDebugOverlay:
-	HiddenUnderShroud:
+	FrozenUnderFog:
 	AppearsOnRadar:
 	Interactable:
 	Building:
@@ -2216,12 +2067,12 @@
 		LightDiffuseColor: 0.7,0.7,0.7
 		NormalsPalette: ra2normals
 
-^VisionWhenKilled:
-	SpawnActorOnDeath@vision:
-		Actor: VISIONACTOR
-		Probability: 100
-		OwnerType: victim
-		RequiresLobbyCreeps: false
+# ^VisionWhenKilled:
+	# SpawnActorOnDeath@vision:
+		# Actor: VISIONACTOR
+		# Probability: 100
+		# OwnerType: victim
+		# RequiresLobbyCreeps: false
 
 ^ScrinReaper:
 	Targetable@Essence:

@@ -72,17 +72,6 @@ SkirmisherMortar:
 	-Warhead@4Smu: LeaveSmudge
 	-Warhead@5Smu: LeaveSmudge
 
-NexusTargeter:
-	Range: 5c0
-	ReloadDelay: 30
-	Range: 12c0
-	ValidTargets: Ground, Water, Air
-	Projectile: InstantHit
-	Warhead@1Dam: SpreadDamage
-		Spread: 1
-		Damage: 0
-		ValidTargets: Air, Ground, Water
-
 FiendShard2:
 	Inherits: ^APWarhead
 	ReloadDelay: 70
@@ -114,14 +103,13 @@ FiendShard2:
 
 FiendShardAA:
 	Inherits: FiendShard2
+	Inherits: ^RocketWarhead
 	ValidTargets: Air
 	Projectile: Missile
-		CruiseAltitude: 6000
-		MinimumLaunchAngle: 300
-		MaximumLaunchAngle: 300
-		MaximumLaunchSpeed: 0c543
-		MinimumLaunchSpeed: 0c301
-		Speed: 800
+		Image: CRYSTAL4
+		Palette: greentiberium
+		-Inaccuracy: 350
+		# -TrailImage: small_smoke_trail
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
@@ -432,31 +420,28 @@ QuadFire:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 50
-	Burst: 4
+	Burst: 2
 	Range: 6c0
 	Report: cygun1.aud
 	ValidTargets: Ground
 	InvalidTargets: Air
 	MinRange: 1c0
-	Projectile: BulletAS
-		Speed: 1000
-		LaunchAngle: 30
-		Image: 120mm
-		Innacuracy: 0c512
-		Palette: ra
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Ground
 		InvalidTargets: Air
-		Damage: 1750
+		Damage: 3500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 QuadFireAA:
+	Inherits: QuadFire
 	Range: 9c0
 	ValidTargets: Air
 	Projectile: InstantHit
+	InvalidTargets: Ground
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		Damage: 3000
+		InvalidTargets: Ground
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 TiberianRocket:

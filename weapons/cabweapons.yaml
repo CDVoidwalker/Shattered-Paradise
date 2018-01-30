@@ -17,7 +17,7 @@ CyborgRocket:
 	ReloadDelay: 60
 	Range: 5c0
 	Report: rketinf1.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: Missile
 		Speed: 213
 		Blockable: false
@@ -32,6 +32,7 @@ CyborgRocket:
 
 CyborgRocketAA:
 	Inherits: CyborgRocket
+	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
@@ -128,6 +129,38 @@ GLAD120mm:
 		Damage: 8000
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
+# LurkerProj:    
+	# Inherits: ^FullDamage
+	# ReloadDelay: 80
+	# Range: 9c0
+	# Report: lasershotgun.wav
+	# Projectile: BulletAS
+		# Speed: 200
+		# TrailImage: lurkertrail
+		# TrailPalette: playercab
+		# HorizontalRateOfTurn: 8
+		# RangeLimit: 10c0
+		# MaximumLaunchSpeed: 213
+		# Weapon: LurkerHit
+	# Warhead@1Dam: SpreadDamage
+		# Damage: 1
+
+LurkerProj:
+	Inherits: ^FullDamage
+	ReloadDelay: 80
+	Range: 9c0
+	Projectile: CyclicImpactProjectile
+		Offsets: 0,128,0#, 64,96,0, -64,96,0
+		Firemode: Line # try putting "Line" or "Spread" here, "Focus"
+		Inaccuracy: 0c0
+		Weapon: LurkerHit
+		Speed: 200
+		ExplosionInterval: 3
+		# Blockable: False
+		KillProjectilesWhenReachedTargetLocation: false #try putting true
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+
 LurkerHit:
 	Inherits: ^FullDamage
 	ReloadDelay: 80
@@ -140,10 +173,13 @@ LurkerHit:
 		HorizontalRateOfTurn: 8
 		RangeLimit: 10c0
 		MaximumLaunchSpeed: 213
+		Blockable: False
 	Warhead@1Dam: SpreadDamage
+		# Damage: 800
 		Damage: 8000
 		Versus:
 			Worker: 25
+		# ValidStances: Enemy, Neutral
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
 	Warhead@2Eff: CreateEffect
 		ExplosionPalette: playercab
@@ -561,6 +597,7 @@ BasiliskBomb:
 		Versus:
 			InfantryArmor: 400
 			BuildingArmor: 75
+			VehicleArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: firestormexplo, firestormexplo1, firestormexplo2

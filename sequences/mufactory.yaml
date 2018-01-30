@@ -27,18 +27,17 @@ nodref:
 	bib:
 		Start: 32
 		ShadowStart: 67
-		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	damaged-bib:
-		Start: 35
+		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	dead-bib:
-		Start: 35
+		Start: 34
 		ShadowStart: 69
 		ZOffset: -9999
 		ZRamp: 1
