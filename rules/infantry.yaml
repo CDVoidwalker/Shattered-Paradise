@@ -649,7 +649,7 @@ SEER:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 22
-		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Everything.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 20% extra attack speed and move speed.\n- But it will also kill 7 nearby units friendly at random.\n- Effect lasts 15 seconds.\n- Heals on Tiberium\n- Can attack air\n- Crush class: crushable
+		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Everything.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 20% extra attack speed and move speed.\n- But it will also kill 6 nearby units friendly at random.\n- Effect lasts 15 seconds.\n- Heals on Tiberium.\n- Can attack air\n- Crush class: crushable.
 		Prerequisites: ~murax, muhall
 	Valued:
 		Cost: 800
@@ -695,7 +695,7 @@ SEER:
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: deployed
 		CooldownTicks: 2000
-		DeployedTicks: 70
+		DeployedTicks: 60
 		StartsFullyCharged: True
 		PauseOnCondition: WebDisable
 	ExplodeWeapon:

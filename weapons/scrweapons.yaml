@@ -287,14 +287,14 @@ MindController:
 	ReloadDelay: 125
 	Range: 6c0
 	ValidTargets: Infantry
-	InvalidTargets: MCImmune
+	InvalidTargets: MCImmune, MindControlInmune
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 0
 		ValidTargets: Infantry
-		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MCImmune
+		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MCImmune, MindControlInmune
 
 VanguardShrapnel:
 	ReloadDelay: 50
@@ -925,6 +925,7 @@ DronePlane:
 EssenceSmall:
 	ReloadDelay: 45
 	Range: 10c0
+	MinRange: 1c0
 	ValidTargets: ScrinUnit
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage

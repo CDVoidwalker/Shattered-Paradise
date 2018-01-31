@@ -196,7 +196,7 @@ SeerTyranyInstakillSpawn:
 		AllowDirectHit: false
 		ThrowWithoutTarget: False
 		AimChance: 100
-		ValidStances: Ally
+		AimTargetStances: Ally
 
 SeerTyranyInstakill:
 	Inherits: SeerTesla
