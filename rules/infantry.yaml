@@ -292,7 +292,7 @@ TEMPLAR:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
-		Description: Flame warrior, resurrected regenesis prototype.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Immune to tiberium radiation\n- Crush class: uncrushable
+		Description: Flame warrior, resurrected regenesis prototype.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Immune to tiberium radiation\n- Crush class: crushable
 		Prerequisites: ~nahand, naradr
 	Valued:
 		Cost: 400

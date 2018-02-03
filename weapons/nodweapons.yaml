@@ -391,7 +391,7 @@ HarpyClaw:
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
 	Range: 5c0
-	MinRange: 0c50
+	MinRange: 0c100
 	InvalidTargets: Air
 	Report: cygun1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry
@@ -412,7 +412,7 @@ HarpyClawAA:
 	ReloadDelay: 65
 	ValidTargets: Air
 	Range: 5c0
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: cygun1.aud
 	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: BulletAS
@@ -429,7 +429,7 @@ Proton:
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
 	Range: 5c0
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: scrin5b.aud
 	Burst: 9
 	ValidTargets: Ground, Vehicle, Building, Infantry
@@ -462,7 +462,7 @@ ProtonAA:
 CerberusLazorCharge:
 	ValidTargets: Ground, Air
 	ReloadDelay: 125
-	Range: 8c0
+	Range: 6c0
 	Burst: 7
 	MinRange: 3c0
 	BurstDelays: 10
@@ -476,7 +476,7 @@ CerberusLazor:
 	Inherits: BCLazor
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 75
-	Range: 8c0
+	Range: 6c0
 	Report: laserchaingunfire.wav
 	ValidTargets: Ground
 	Projectile: LaserZap

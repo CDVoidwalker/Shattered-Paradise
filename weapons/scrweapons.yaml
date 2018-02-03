@@ -588,7 +588,7 @@ StormRiderBlast:
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 100
 	Range: 6c512
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: laserpistol.wav
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	InvalidTargets: Air
@@ -632,7 +632,7 @@ Glyder1Cannon:
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 25
 	Range: 5c0
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: photon1.wav
 	ValidTargets: Ground
 	Projectile: BulletAS
@@ -657,7 +657,7 @@ Glyder2Cannon:
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 25
 	Range: 12c0
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: photon1.wav
 	ValidTargets: Air
 	Projectile: Missile
@@ -679,7 +679,7 @@ BattleshipCannon:
 	Report: battleshipgun1.wav
 	Burst: 8
 	BurstDelays: 3
-	MinRange: 0c50
+	MinRange: 0c100
 	ValidTargets: Ground, Infantry, Vehicle, water
 	Projectile: BulletAS
 		Speed: 500
@@ -738,7 +738,7 @@ FighterSpawn:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 50
 	Range: 8c0
-	MinRange: 0c50
+	MinRange: 0c100
 	Projectile: InstantExplode
 	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage
@@ -752,7 +752,7 @@ WyvermBlast:
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 65
 	Range: 6c512
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: laserpistol.wav
 	ValidTargets: Ground, Air
 	Projectile: Missile

@@ -1688,7 +1688,7 @@ REPAIRVEHICLE:
 	AttackFrontal:
 		Voice: Attack
 	AutoTarget:
-		ScanRadius: 4
+		ScanRadius: 6
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:

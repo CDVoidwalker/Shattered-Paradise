@@ -513,7 +513,7 @@ WaspBullet:
 	Inherits: ^APWarhead
 	ReloadDelay: 50
 	Range: 6c0
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: lastur1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	InvalidTargets: Air
@@ -537,7 +537,7 @@ WaspBulletAA:
 WaspLasor:
 	ReloadDelay: 50
 	Range: 6c0
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: lastur1.aud
 	ValidTargets: Ground, Air
 	Projectile: LaserZap
@@ -593,7 +593,7 @@ BasiliskBomb:
 	ReloadDelay: 70
 	Range: 6c0
 	Burst: 4
-	MinRange: 0c50
+	MinRange: 0c100
 	Report: rketinf1.aud
 	ValidTargets: Ground, Air
 	Projectile: BulletAS

@@ -429,6 +429,7 @@ mmch:
 
 apc:
 	Inherits@2: ^SpriteVehicleWithShadowAndTurret
+	Inherits@2: ^BuggyMuzzle
 	icon: apcicon2
 	idle-water: apcwater
 		Facings: -32
@@ -681,7 +682,7 @@ gdiref:
 gdiref2:
 	Inherits gdiref
 	Defaults: gdiref2
-		Offset: 3, 42, 20
+		Offset: 3, 32, 20
 	icon: gdireficon
 		Offset: 0, 0
 		UseTilesetCode: false

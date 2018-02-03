@@ -305,16 +305,10 @@
 		Modifier: 50
 	SelfHealing@ELITE:
 		PercentageStep: 1
-		Delay: 300
+		Delay: 150
 		HealIfBelow: 100
 		DamageCooldown: 125
 		RequiresCondition: rank-elite
-	SelfHealing@Max:
-		PercentageStep: 1
-		Delay: 100
-		HealIfBelow: 100
-		DamageCooldown: 125
-		RequiresCondition: rank-veteran == 3
 	WithDecoration@RANK-1:
 		Image: rank
 		Sequence: rank-veteran-1
@@ -347,18 +341,18 @@
 		RequiresCondition: rank-elite
 		ZOffset: 256
 		ValidStances: Ally, Enemy, Neutral
-	GivesExperienceMultiplier@1:
-		Modifier: 150
-		RequiresCondition: rank-elite
 	GivesExperienceMultiplier@2:
-		Modifier: 200
+		Modifier: 150
 		RequiresCondition: rank-veteran == 1
 	GivesExperienceMultiplier@3:
-		Modifier: 250
+		Modifier: 200
 		RequiresCondition: rank-veteran == 2
 	GivesExperienceMultiplier@4:
-		Modifier: 300
+		Modifier: 250
 		RequiresCondition: rank-veteran == 3
+	GivesExperienceMultiplier@1:
+		Modifier: 300
+		RequiresCondition: rank-elite
 
 ^TyrannyBuff:
 	SpeedMultiplier@TyrannyBuff:
@@ -1158,7 +1152,6 @@
 		CrushedSequencePalette: playerscrin
 		CrushedPaletteIsPlayerPalette: true
 	-DamagedByTerrain:
-	-SelfHealing@ELITE:
 
 ^Cyborg:
 	Inherits@1: ^Infantry
@@ -1532,7 +1525,7 @@
 		RearmBuildings: gahpad, nahpad, muair, cabair, scrair
 		LandWhenIdle: false
 		Voice: Move
-		RepulsionSpeed: 40
+		RepulsionSpeed: 30
 		CruiseAltitude: 2560
 		AltitudeVelocity: 250
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Building

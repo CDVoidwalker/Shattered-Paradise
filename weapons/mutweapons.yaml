@@ -512,7 +512,7 @@ QueenShard:
 	Burst: 1
 	Range: 7c0
 	Report: fiend2.aud
-	MinRange: 0c50
+	MinRange: 0c100
 	ValidTargets: Ground
 	Projectile: BulletAS
 		Speed: 200
@@ -607,7 +607,7 @@ GargoylACannon:
 	Inherits: ^FullDamage
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 15
-	MinRange: 0c50
+	MinRange: 0c100
 	Range: 6c0
 	Report: 120mmf.aud
 	ValidTargets: Ground
@@ -629,7 +629,7 @@ GargoylACannon:
 GargoylACannonAA:
 	Inherits: GargoylACannon
 	ReloadDelay: 30
-	MinRange: 0c50
+	MinRange: 0c100
 	ValidTargets: Air
 	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
@@ -668,7 +668,7 @@ FalconPunch:
 	Inherits@2: ^Mediuml_Clsn
 	ValidTargets: Ground, Water
 	ReloadDelay: 1
-	MinRange: 0c50
+	MinRange: 0c100
 	Range: 5c0
 	Projectile: Missile
 		TerrainHeightAware: True
