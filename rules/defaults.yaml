@@ -304,11 +304,17 @@
 		RequiresCondition: rank-elite
 		Modifier: 50
 	SelfHealing@ELITE:
-		Step: 2
-		Delay: 100
+		PercentageStep: 1
+		Delay: 300
 		HealIfBelow: 100
 		DamageCooldown: 125
 		RequiresCondition: rank-elite
+	SelfHealing@Max:
+		PercentageStep: 1
+		Delay: 100
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: rank-veteran == 3
 	WithDecoration@RANK-1:
 		Image: rank
 		Sequence: rank-veteran-1
@@ -341,6 +347,18 @@
 		RequiresCondition: rank-elite
 		ZOffset: 256
 		ValidStances: Ally, Enemy, Neutral
+	GivesExperienceMultiplier@1:
+		Modifier: 150
+		RequiresCondition: rank-elite
+	GivesExperienceMultiplier@2:
+		Modifier: 200
+		RequiresCondition: rank-veteran == 1
+	GivesExperienceMultiplier@3:
+		Modifier: 250
+		RequiresCondition: rank-veteran == 2
+	GivesExperienceMultiplier@4:
+		Modifier: 300
+		RequiresCondition: rank-veteran == 3
 
 ^TyrannyBuff:
 	SpeedMultiplier@TyrannyBuff:
@@ -809,7 +827,7 @@
 		Factions: mut
 	EmitInfantryOnSell@scr:
 		ValuePercent: 30
-		ActorTypes: legio
+		ActorTypes: shark
 		Factions: scr
 	SpawnActorOnDeath@tiberium2:
 		Actor: visc_lrg
@@ -1489,7 +1507,7 @@
 	Inherits@0: ^GainsExperience
 	Inherits@1: ^AircraftEffects
 	Inherits@2: ^ExistsInWorld
-	Inherits@6: ^1x1Shape
+	Inherits@6: ^VehicleShape
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:

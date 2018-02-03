@@ -428,8 +428,16 @@ mmch:
 	icon: mmchicon
 
 apc:
-	Inherits: ^EmpOverlay
-	icon: apcicon
+	Inherits@2: ^SpriteVehicleWithShadowAndTurret
+	icon: apcicon2
+	idle-water: apcwater
+		Facings: -32
+		UseTilesetCode: false
+		ShadowStart: 64
+	turret-water: apcwater
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false
 
 hvr:
 	Inherits@2: ^SpriteVehicleWithShadowAndTurret
@@ -673,7 +681,7 @@ gdiref:
 gdiref2:
 	Inherits gdiref
 	Defaults: gdiref2
-		Offset: 3, 36, 20
+		Offset: 3, 42, 20
 	icon: gdireficon
 		Offset: 0, 0
 		UseTilesetCode: false

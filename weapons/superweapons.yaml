@@ -642,7 +642,7 @@ MeteorRainNormal:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@KillShieldedUnit: GrantExternalCondition
-		Range: 0c750
+		Range: 2c0
 
 MeteorRainSlow:
 	Inherits: MeteorRainNormal

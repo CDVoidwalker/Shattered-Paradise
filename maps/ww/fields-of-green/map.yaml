@@ -1436,8 +1436,6 @@ Rules:
 		-StartGameNotification:
 		-SpawnMPUnits:
 		-MPStartLocations:
-		LuaScript:
-			Scripts: fields-of-green.lua
 		ResourceType@Tiberium:
 			ValuePerUnit: 0
 		MusicPlaylist:

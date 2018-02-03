@@ -67,7 +67,7 @@ GRENADIER:
 JUMPJET:
 	Inherits: ^Soldier
 	Valued:
-		Cost: 600
+		Cost: 450
 	Tooltip:
 		Name: Jumpjet Infantry
 	Voiced:
@@ -102,6 +102,11 @@ JUMPJETAIR:
 		VoiceSet: Marine
 	Selectable:
 		Bounds: 22,30,0,-10
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -250, -250
+			BottomRight: 250, 250
 	Health:
 		HP: 13000
 	Armament@1:
@@ -184,8 +189,6 @@ MEDIC:
 		ForceTargetStances: None
 	AttackFrontal:
 		PauseOnCondition: WebDisable
-	SelfHealing:
-		Delay: 60
 	Passenger:
 		PipType: Red
 
@@ -1011,7 +1014,7 @@ COLOSSI:
 	Selectable:
 		Bounds: 26,30,0,-10
 	Health:
-		HP: 43750
+		HP: 35000
 	Mobile:
 		Speed: 60
 		SharesCell: False

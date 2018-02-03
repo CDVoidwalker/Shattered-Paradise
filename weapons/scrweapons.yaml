@@ -588,32 +588,10 @@ StormRiderBlast:
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 100
 	Range: 6c512
+	MinRange: 0c50
 	Report: laserpistol.wav
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	InvalidTargets: Air
-	Projectile: BulletAS
-		Speed: 600
-		Blockable: false
-		Shadow: true
-		LaunchAngle: 45
-		Palette: pips
-		TrailImage: blueballminitrail
-		ContrailLength: 5
-		Inaccuracy: 384
-		Image: blueplasma
-	Warhead@1Dam: SpreadDamage
-		Damage: 4500
-		ValidTargets: Ground, Vehicle, Building, Infantry
-		InvalidTargets: Air
-		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
-	Warhead@ShieldUpgrade: GrantExternalCondition
-		Range: 96
-
-StormRiderBlastAA:
-	Inherits@2: StormRiderBlast
-	ReloadDelay: 75
-	ValidTargets: Air
-	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: Missile
 		TerrainHeightAware: True
 		CruiseAltitude: 4000
@@ -628,6 +606,22 @@ StormRiderBlastAA:
 		VerticalRateOfTurn: 40
 		RangeLimit: 28c291
 		AllowSnapping: true
+		Palette: pips
+		TrailImage: blueballminitrail
+		Image: blueplasma
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+		ValidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 96
+
+StormRiderBlastAA:
+	Inherits@2: StormRiderBlast
+	ReloadDelay: 75
+	ValidTargets: Air
+	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		ValidTargets: Air
@@ -638,6 +632,7 @@ Glyder1Cannon:
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 25
 	Range: 5c0
+	MinRange: 0c50
 	Report: photon1.wav
 	ValidTargets: Ground
 	Projectile: BulletAS
@@ -662,6 +657,7 @@ Glyder2Cannon:
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 25
 	Range: 12c0
+	MinRange: 0c50
 	Report: photon1.wav
 	ValidTargets: Air
 	Projectile: Missile
@@ -683,6 +679,7 @@ BattleshipCannon:
 	Report: battleshipgun1.wav
 	Burst: 8
 	BurstDelays: 3
+	MinRange: 0c50
 	ValidTargets: Ground, Infantry, Vehicle, water
 	Projectile: BulletAS
 		Speed: 500
@@ -741,6 +738,7 @@ FighterSpawn:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 50
 	Range: 8c0
+	MinRange: 0c50
 	Projectile: InstantExplode
 	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage
@@ -754,6 +752,7 @@ WyvermBlast:
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 65
 	Range: 6c512
+	MinRange: 0c50
 	Report: laserpistol.wav
 	ValidTargets: Ground, Air
 	Projectile: Missile
@@ -946,6 +945,7 @@ EssenceMissile:
 	Inherits: ^FullDamage
 	ReloadDelay: 45
 	Range: 10c0
+	MinRange: 1c0
 	ValidTargets: ScrinUnit
 	Projectile: BulletAS
 		Image: essencetrail

@@ -97,12 +97,24 @@ APC:
 		Range: 5c0
 	Turreted:
 		TurnSpeed: 10
-		Offset: 0,0,200
+		Offset: -200,0,0
 	AttackTurreted:
 		PauseOnCondition: empdisable
-	WithVoxelTurret:
-	WithVoxelBarrel:
-		LocalOffset: 250,0,0
+	GrantConditionOnTerrain:
+		Condition: inwater
+		TerrainTypes: Water
+	WithFacingSpriteBody:
+		RequiresCondition: !inwater
+	WithFacingSpriteBody@2:
+  		Sequence: idle-water
+		RequiresCondition: inwater
+	WithSpriteTurret:
+		RequiresCondition: !inwater
+	WithSpriteTurret@2:
+  		Sequence: turret-water
+		RequiresCondition: inwater
+	-WithVoxelBody:
+	-RenderVoxels:
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -110,14 +122,6 @@ APC:
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 		EjectOnDeath: true
-	GrantConditionOnTerrain:
-		Condition: inwater
-		TerrainTypes: Water
-	WithVoxelBody:
-		RequiresCondition: !inwater
-	WithVoxelBody@water:
-		Sequence: water
-		RequiresCondition: inwater
 	LeavesTrails:
 		Image: wake
 		Palette: effect
@@ -596,7 +600,7 @@ BIKE:
 	-ActorLostNotification:
 	Mobile:
 		TurnSpeed: 10
-		Speed: 150
+		Speed: 105
 		Crushes: crate
 	Armor@Bike:
 		Type: Bike
@@ -679,16 +683,13 @@ REPAIR:
 		Cost: 1000
 	Tooltip:
 		Name: Mobile Repair Vehicle
-		Description: Repairs nearby vehicles.\n  Unarmed
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 85
+		Speed: 60
 		TurnSpeed: 5
-	RevealsShroud:
-		Range: 5c0
 	Armament:
-		Weapon: NODRepair
+		Weapon: RepairVehicleRep
 		Cursor: repair
 		OutsideRangeCursor: repair
 		TargetStances: Ally
@@ -756,7 +757,6 @@ SUBTANK:
 
 ARMH:
 	Inherits: ^VoxelTank
-	Inherits@2: ^Ra2vxl
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -1092,12 +1092,12 @@ MUTQUAD:
 		Offset: -300,0,0
 	AutoTarget:
 
-MLRS:
+MRLS:
 	Inherits: ^VoxelTank
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Forgotten MLRS
+		Name: Forgotten MRLS
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
@@ -1112,10 +1112,6 @@ MLRS:
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
-	RenderVoxels:
-		LightAmbientColor: 0.5,0.5,0.5
-		LightDiffuseColor: 0.7,0.7,0.7
-		Scale: 1
 	Armament:
 		Weapon: tiberianrocket
 		LocalOffset: 400,100,900, 400,-100,900
@@ -1124,8 +1120,11 @@ MLRS:
 		PauseOnCondition: empdisable
 	Turreted:
 		TurnSpeed: 8
-		Offset: -200,0,0
-	WithVoxelTurret:
+		Offset: -300,0,0
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	WithSpriteTurret:
 	-DamagedByRadioactivity@Default:
 
 HVRTRUK3:
@@ -1210,7 +1209,7 @@ SCRSCORPION:
 	Inherits@1: ^Walker
 	Inherits@2: ^BasicStealthDetection
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Ichor Walker
 	Buildable:
@@ -1265,8 +1264,7 @@ SCRDRONEC:
 	BodyOrientation:
 		QuantizedFacings: 32
 	-Targetable@Essence:
-	SpawnActorOnDeath@ScrinEssence:
-		DeathType:
+	-Targetable@Shield:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 	Armament:
@@ -1572,50 +1570,6 @@ CABMCV:
 		NoTransformSounds:
 		Voice: Move
 
-REAPERCAB:
-	Inherits: ^Walker
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Cyborg Reaper
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 17
-		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can ensnare infantry with webs.
-		Prerequisites: ~cabweap, gadept
-	Selectable:
-		Bounds: 40,40,0,-10
-	Mobile:
-		Speed: 80
-		SharesCell: False
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
-	Health:
-		HP: 30000
-	Voiced:
-		VoiceSet: CyborgReap
-	Armament@primary:
-		Weapon: ReaperWeb
-		LocalOffset: 0,0,200
-	Armament@secondary:
-		Weapon: ReaperScythe
-		LocalOffset: 0,-200,500, 0,200,500
-	Armament@AA:
-		Weapon: ReaperScytheAA
-		LocalOffset: 0,-200,500, 0,200,500
-	WithDeathAnimation@die:
-		DeathSequence: die1
-		DeathSequencePalette: player
-		DeathPaletteIsPlayerPalette: True
-		UseDeathTypeSuffix: False
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: empdisable
-	WithInfantryBody:
-	BodyOrientation:
-		QuantizedFacings: 8
-
 CENTURION:
 	Inherits: ^Walker
 	Inherits@1: ^BasicStealthDetection
@@ -1664,6 +1618,81 @@ CENTURION:
 	Selectable:
 		Bounds: 45, 42, 0, -8
 
+REAPERCAB:
+	Inherits: ^Walker
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Cyborg Reaper
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 17
+		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can ensnare infantry with webs.
+		Prerequisites: ~cabweap, gadept
+	Selectable:
+		Bounds: 40,40,0,-10
+	Mobile:
+		Speed: 80
+		SharesCell: False
+		Crushes: nada
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Health:
+		HP: 30000
+	Voiced:
+		VoiceSet: CyborgReap
+	Armament@primary:
+		Weapon: ReaperWeb
+		LocalOffset: 0,0,200
+	Armament@secondary:
+		Weapon: ReaperScythe
+		LocalOffset: 0,-200,500, 0,200,500
+	Armament@AA:
+		Weapon: ReaperScytheAA
+		LocalOffset: 0,-200,500, 0,200,500
+	WithDeathAnimation@die:
+		DeathSequence: die1
+		DeathSequencePalette: player
+		DeathPaletteIsPlayerPalette: True
+		UseDeathTypeSuffix: False
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	WithInfantryBody:
+	BodyOrientation:
+		QuantizedFacings: 8
+
+REPAIRVEHICLE:
+	Inherits: ^VoxelTank
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Mobile Repair Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 18
+		Prerequisites: ~cabweap, cabradr
+		Description: Repairs nearby vehicles.\n\nSpecial:\n- unarmed.\n- repairs vehicles.\n- can crush infantry.
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 60
+		TurnSpeed: 5
+	Armament:
+		Weapon: RepairVehicleRep
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
+	AttackFrontal:
+		Voice: Attack
+	AutoTarget:
+		ScanRadius: 4
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+
 CABAPC:
 	Inherits: ^VoxelVehicle
 	Inherits@2: ^Ra2vxl
@@ -1676,7 +1705,7 @@ CABAPC:
 	Buildable:
 		Queue: Vehicle
 		Description: Armored transport.\n\nSpecial:\n- Can transport 8 infantry units\n- Can transport vehicles\n- Hovers (it ignores terrain like Veins and Water)
-		BuildPaletteOrder: 22
+		BuildPaletteOrder: 19
 		Prerequisites: ~cabweap, cabradr
 	Mobile:
 		TurnSpeed: 8
@@ -1714,7 +1743,7 @@ SPIDERARTY:
 		Name: Drone Host
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 23
+		BuildPaletteOrder: 20
 		Description: Heavy Artillery that deploys drones at the targetted area.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AOE damage\n- Minimum attack distance.\n- Upon attack drones get spawned that attack the enemy.\n- Converts killed units into workers.\n- Can crush infantry.
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
@@ -1753,7 +1782,7 @@ PALADIN:
 		Name: Paladin
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 24
+		BuildPaletteOrder: 21
 		Description: Advanced Walker armed with a twin laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can crush infantry.
 		Prerequisites: ~cabweap, cabtech
 	Mobile:

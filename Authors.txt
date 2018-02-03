@@ -28,39 +28,37 @@ Trempler			: Mapping.
 Nolt		: CABAL, Scrin and Mutant UI, skirmish faction logos.
 Scipción	: Shattered Paradise planet logo.
 Alex06		: Dev Blog image.
-Windawz		: CABAL, Scrin and Forgotten UI remasters.
 
-If an asset doesn't have credit, then either it was made by WW or we missed it, let us know if we made any mistakes.
+Assets come from three sources, Public, Vanilla and made by Nolt, if an asset isnt listed here
+and it doesnt belong to the vanilla tiberian sun or any other cnc game, then its made by Nolt.
 
 #Game Art
 
 Ahkâm		: Firestorm effect indicator.
 Agent Z		: GDI MRLS Voxel, Forgotten Harvester.
 Astor		: Veterancy Chevrons (I guess its Astor :/)
+ApolloTD	: Gradient Colored Palettes, Explosion Packs.
 azri_apoc 	: Nod Harvester.
-Nolt		: Everything that is not listed here or belongs to westwood.
-The_Dementor	: Cameos: Skirmisher, EMP pulse Icons, Harvester and MCV (mut and cab), 
-The_Dementor	: cyborg commando cameo, Wrench and Tiberium Icons.
-Gangster	: His template.
-Zoidzilla	: His template.	
-Zero18		: Gargoil vxl,	Quad Cannon vxl, Basilisk vxl,	Leonid tank vxl, Hologram Projector vxl.	
-ApolloTD	: Gradient Colored Palettes, Explosion Packs,				
-Moder.U		: Falcon vxl, Battle Fortress vxl, Beam Cannon vxl.
+CyborgCommandoKerem: Black Hand Sniper shp.
+DonutArnold	: Basilisk torpedo explosion effect, scrin explosion effects and NOD nuke explosion effect.	
 ErastusMercy	: Mammoth Tank and disruptor voxels.
-Super Joe	: Marine shp, Militant shp.			
-Lin Kuei Ominae	: Tripod shp (Unit and Cameo).
-wirecase.com	: Guardian Platform model.				
+GameMaster0000	: Tiberian Fiend Icon.
+Gangster	: His template.
 Hassan_2030	: Grinder vxl.
+Lin Kuei Ominae	: Tripod shp (Unit and Cameo).
+Moder.U		: Falcon vxl, Battle Fortress vxl, Beam Cannon vxl.
 Muldrake	: Twilight Mammoth Tank.
-Jah		: Storm Rider vxl.	
-KALAPS S8 	: Forgotten Tank Destroyer			
-Sane Disruption	: Forgotten MRLS vxl.
+The_Dementor	: Cameos: Skirmisher, EMP pulse Icons, Harvester and mut MCV, Wrench and Tiberium Icons. 
 HG_Scipción	: Scrin powerplant and Cabal refinery model.
+Jah		: Storm Rider vxl.	
+KALAPS S8 	: Forgotten Tank Destroyer		
+Super Joe	: Marine shp, Militant shp.
 Orac		: Forgotten Trike vxl.
 OverWatch (PPM User): Forgotten Battle Bus vxl.	
-GameMaster0000	: Tiberian Fiend Icon.
-CyborgCommandoKerem: Black Hand Sniper shp.				
-DonutArnold	: Basilisk torpedo explosion effect, scrin explosion effects and NOD nuke explosion effect.
+Windawz		: CABAL, Scrin and Forgotten UI remasters. Repair Vehicle recolor icon, Cyborg Commando Recolor icon.
+wirecase.com	: Guardian Platform model.				
+Zoidzilla	: His template.	
+Zero18		: Gargoil vxl,	Quad Cannon vxl, Basilisk vxl,	Leonid tank vxl, Hologram Projector vxl.	
 
 #Sounds
 Audiomicro.com	: Legio and Glyder sound effect.

@@ -32,7 +32,7 @@ ENGINEER:
 		Queue: Infantry
 		BuildPaletteOrder: 8
 		Prerequisites: ~SharedEngie
-		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable
+		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
 	Voiced:
 		VoiceSet: Engineer
 	RenderSprites:
@@ -49,7 +49,7 @@ MCV:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
 		Prerequisites: ~humanmcv, gadept
-		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Cannot be transported by a Tunnel Network.
+		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -108,7 +108,7 @@ HARV:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
 	Harvester:
-		Capacity: 20
+		Capacity: 28
 		DeliveryBuildings: proc, muproc, muproc2, cabproc, cabproc2, scrproc, scrproc2, gdiref, gdiref2, nodref, nodref2
 		Resources: Tiberium, BlueTiberium
 		UnloadTicksPerBale: 3
@@ -376,10 +376,10 @@ GACNST:
 		Prerequisite: barracks
 	ProximityExternalCondition@InfantryHeal:
 		Condition: InfantryHeal
-		Range: 4c0
+		Range: 5c0
 	WithRangeCircle:
-		Range: 4c0
-		Type: Mines
+		Range: 5c0
+		Type: InfantryHeal
 	Health:
 		HP: 80000
 	RevealsShroud:
@@ -722,7 +722,7 @@ GASILO:
 	Valued:
 		Cost: 200
 	Tooltip:
-		Name: Silo]
+		Name: Silo
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2

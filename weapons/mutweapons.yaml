@@ -466,7 +466,7 @@ TiberianRocket:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
-		Damage: 4000
+		Damage: 4600
 		ValidTargets: Ground
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
@@ -512,6 +512,7 @@ QueenShard:
 	Burst: 1
 	Range: 7c0
 	Report: fiend2.aud
+	MinRange: 0c50
 	ValidTargets: Ground
 	Projectile: BulletAS
 		Speed: 200
@@ -606,6 +607,7 @@ GargoylACannon:
 	Inherits: ^FullDamage
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 15
+	MinRange: 0c50
 	Range: 6c0
 	Report: 120mmf.aud
 	ValidTargets: Ground
@@ -627,75 +629,13 @@ GargoylACannon:
 GargoylACannonAA:
 	Inherits: GargoylACannon
 	ReloadDelay: 30
+	MinRange: 0c50
 	ValidTargets: Air
 	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Vehicle, Building, Infantry
 		Damage: 1600
-
-GargoylVulcan:
-	Inherits: ^RifleWarhead
-	Inherits@2: ^Piffs
-	ReloadDelay: 50
-	Range: 6c0
-	Burst: 1
-	Report: chaingn1.aud
-	ValidTargets: Infantry
-	Projectile: BulletAS
-		Speed: 1c682
-		Innacuracy: 0c512
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		ValidTargets: Infantry
-		Versus:
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
-
-GargoylRocket:
-	Inherits: ^RocketWarhead
-	Inherits@2: ^Small_Bang
-	ReloadDelay: 90
-	Range: 6c0
-	Report: orcamis1.aud
-	InvalidTargets: Infantry
-	ValidTargets: Ground, Vehicle, Building
-	Projectile: Missile
-		Speed: 500
-		Arm: 2
-		Blockable: false
-		Shadow: true
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		RateOfTurn: 8
-		RangeLimit: 15c0
-		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Damage: 6000
-		ValidTargets: Ground, Vehicle, Building
-		InvalidTargets: Infantry
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-
-GargoylRocketAA:
-	Inherits: ^FullDamage
-	Inherits@2: ^Small_Bang
-	ReloadDelay: 90
-	Range: 6c0
-	Report: orcamis1.aud
-	ValidTargets: Air
-	Projectile: Missile
-		Speed: 250
-		Blockable: false
-		Shadow: true
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		RateOfTurn: 20
-		HorizontalRateOfTurn: 20
-		RangeLimit: 15c0
-		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Damage: 7000
-		ValidTargets: Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 CloudDamage:
 	Inherits: ^RifleWarhead
@@ -728,6 +668,7 @@ FalconPunch:
 	Inherits@2: ^Mediuml_Clsn
 	ValidTargets: Ground, Water
 	ReloadDelay: 1
+	MinRange: 0c50
 	Range: 5c0
 	Projectile: Missile
 		TerrainHeightAware: True

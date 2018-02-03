@@ -635,7 +635,8 @@ mutapc:
 	icon: mutapcicon
 
 lynx:
-	Inherits: ^EmpOverlay
+	Inherits@1: ^SpriteVehicleWithShadowAndTurret
+	Inherits@2: ^BuggyMuzzle
 	Defaults:
 	idle:
 		Facings: -32
@@ -645,22 +646,7 @@ lynx:
 		Start: 32
 		Facings: -32
 		UseTilesetCode: False
-	muzzle0: mgun-n
-		Length: *
-	muzzle1: mgun-nw
-		Length: *
-	muzzle2: mgun-w
-		Length: *
-	muzzle3: mgun-sw
-		Length: *
-	muzzle4: mgun-s
-		Length: *
-	muzzle5: mgun-se
-		Length: *
-	muzzle6: mgun-e
-		Length: *
-	muzzle7: mgun-ne
-		Length: *
+
 	icon: lynxicon
 
 trike:
@@ -685,8 +671,8 @@ mutquad:
 		Length: *
 	icon: quadicon
 
-mlrs:
-	Inherits: ^EmpOverlay
+mrls:
+	Inherits@1: ^SpriteVehicleWithShadowAndTurret
 	icon: mutmrlsicon
 
 hvrtruk3:

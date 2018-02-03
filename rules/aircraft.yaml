@@ -72,7 +72,7 @@ ORCA:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^BasicStealthDetection
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Orca Fighter
 	Buildable:
@@ -371,7 +371,7 @@ APACHE:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Harpy
 	Buildable:
@@ -506,12 +506,20 @@ CERBERUS:
 	RevealsShroud:
 		Range: 7c0
 		Type: CenterPosition
+	GrantConditionOnAttack:
+		Condition: LaserCharge
+		MaximumInstances: 7
+		RevokeDelay: 60
+	Armament@charge:
+		Weapon: CerberusLazorCharge
 	Armament:
 		Weapon: CerberusLazor
-		LocalOffset: 500,0,0
+		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
+		RequiresCondition: LaserCharge > 6
 	Armament@AA:
 		Weapon: CerberusLazorAA
-		LocalOffset: 500,0,0
+		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
+		RequiresCondition: LaserCharge > 6
 	AttackHeli:
 		FacingTolerance: 64
 		Voice: Attack
@@ -553,7 +561,7 @@ MUTHELI:
 	Inherits@3: ^BasicStealthDetection
 	Inherits@4: ^MutRender
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Gargoyle
 	Buildable:
@@ -767,7 +775,7 @@ STORMRIDER:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^SelfReloads
 	Valued:
-		Cost: 900
+		Cost: 700
 	Tooltip:
 		Name: Storm Rider
 	Buildable:
@@ -789,7 +797,7 @@ STORMRIDER:
 		TakeoffSound: dropup1.aud
 		LandingSound: dropdwn1.aud
 	Health:
-		HP: 7000
+		HP: 8500
 	Armament:
 		Weapon: StormRiderBlast
 		PauseOnCondition: !ammo
@@ -822,7 +830,7 @@ drache:
 	Buildable:
 		Queue: Air
 		BuildPaletteOrder: 110
-		Description: Deploys into a Host Station.\n\n  Unarmed
+		Description: Deploys into a Host Station.\n\nSpecial:\n- Provides a build radius for structures.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.
 		Prerequisites: ~scrair
 	Valued:
 		Cost: 2000
@@ -1331,7 +1339,7 @@ WASP:
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
 	Valued:
-		Cost: 1650
+		Cost: 1000
 	Tooltip:
 		Name: Wasp
 	Buildable:
@@ -1441,6 +1449,55 @@ FIREFLY:
 		Delay: 1500
 		Count: 5
 
+BASILISK:
+	Inherits: ^Helicopter
+	Inherits@1: ^AutoTargetAllAssaultMove
+	Inherits@2: ^Ra2vxl
+	Inherits@3: ^SelfReloads
+	Inherits@4: ^CabRender
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Basilisk
+	Buildable:
+		Description: Light frigate armed with firestorm rockets.\n\nGood vs: Infantry, Buildings.
+		Queue: Air
+		BuildPaletteOrder: 21
+		Prerequisites: ~cabair, cabtech
+	Selectable:
+		Bounds: 60,48
+	Voiced:
+		VoiceSet: Limpet
+	Aircraft:
+		TurnSpeed: 6
+		Speed: 60
+		MoveIntoShroud: true
+		TakeoffSound: orcaup1.aud
+		LandingSound: orcadwn1.aud
+	Health:
+		HP: 50000
+	Armament:
+		Weapon: BasiliskBomb
+		LocalOffset: 128,0,0, 500,-700,0, 500,700,0
+		PauseOnCondition: !ammo
+	AttackHeli:
+		FacingTolerance: 20
+		Voice: Attack
+	AmmoPool:
+		Ammo: 5
+		PipCount: 0
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+		AmmoCondition: ammo
+	AutoTarget:
+	RenderSprites:
+	WithShadow:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	SpawnActorOnDeath:
+		Actor: BASILISK.Husk
+
 DEVOURER:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
@@ -1454,7 +1511,7 @@ DEVOURER:
 	Buildable:
 		Queue: Air
 		Description: Heavy and slow melee frigate.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 22
 		Prerequisites: ~cabair, cabtech
 	Selectable:
 		Bounds: 120, 75, 0, -35
@@ -1499,52 +1556,3 @@ DEVOURER:
 		Actor: DEVOURER.Husk
 	ExternalCondition@DevoBuff:
 		Condition: DevoBuff
-
-BASILISK:
-	Inherits: ^Helicopter
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@2: ^Ra2vxl
-	Inherits@3: ^SelfReloads
-	Inherits@4: ^CabRender
-	Valued:
-		Cost: 1800
-	Tooltip:
-		Name: Basilisk
-	Buildable:
-		Description: Light frigate armed with firestorm rockets.\n\nGood vs: Infantry, Buildings.
-		Queue: Air
-		BuildPaletteOrder: 22
-		Prerequisites: ~cabair, cabtech
-	Selectable:
-		Bounds: 60,48
-	Voiced:
-		VoiceSet: Limpet
-	Aircraft:
-		TurnSpeed: 6
-		Speed: 60
-		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
-	Health:
-		HP: 50000
-	Armament:
-		Weapon: BasiliskBomb
-		LocalOffset: 128,0,0, 500,-700,0, 500,700,0
-		PauseOnCondition: !ammo
-	AttackHeli:
-		FacingTolerance: 20
-		Voice: Attack
-	AmmoPool:
-		Ammo: 5
-		PipCount: 0
-		PipType: Ammo
-		PipTypeEmpty: AmmoEmpty
-		AmmoCondition: ammo
-	AutoTarget:
-	RenderSprites:
-	WithShadow:
-	-RenderVoxels:
-	-WithVoxelBody:
-	WithFacingSpriteBody:
-	SpawnActorOnDeath:
-		Actor: BASILISK.Husk

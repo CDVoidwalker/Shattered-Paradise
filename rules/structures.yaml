@@ -46,7 +46,7 @@ GAPILE:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 1
-		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it
+		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.gdi
 	Tooltip:
 		Name: GDI Barracks
@@ -113,7 +113,7 @@ GAWEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Description: Produces vehicles.
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.gdi
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
@@ -155,7 +155,7 @@ GAHPAD:
 	Buildable:
 		BuildPaletteOrder: 6
 		Queue: Building
-		Description: Produces and rearms aircraft.
+		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.
 		Prerequisites: garadr, ~structures.gdi
 	Building:
 		Footprint: xx xx
@@ -262,7 +262,7 @@ NAHAND:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 1
-		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it
+		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.nod
 	Tooltip:
 		Name: Hand of Nod
@@ -328,7 +328,7 @@ NAWEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Description: Produces vehicles.
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.nod
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
@@ -394,7 +394,7 @@ NAHPAD:
 	Buildable:
 		BuildPaletteOrder: 7
 		Queue: Building
-		Description: Produces and rearms aircraft.
+		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.\n- Max production speed reduces production time by 50%.
 		Prerequisites: naradr, ~structures.nod
 	Building:
 		Footprint: xx xx
@@ -529,7 +529,7 @@ MURAX:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 1
-		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it
+		Description: Arms Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.mut
 	Tooltip:
 		Name: Mutant Armory
@@ -607,7 +607,7 @@ MUWEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Description: Produces vehicles.
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.mut
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
@@ -621,7 +621,7 @@ MURADR:
 	Inherits@2: ^2x2Shape
 	Buildable:
 		Queue: Building
-		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate.
 		BuildPaletteOrder: 4
 		Prerequisites: proc, ~structures.mut
 	Tooltip:
@@ -641,7 +641,7 @@ MUAIR:
 	Buildable:
 		BuildPaletteOrder: 6
 		Queue: Building
-		Description: Produces and rearms aircraft.
+		Description: Produces and rearms aircraft.\n\nSpecial:\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
 		Prerequisites: muradr, ~structures.mut
 	Building:
 		Footprint: xx xx
@@ -795,7 +795,7 @@ drached:
 		Factions: mut
 	EmitInfantryOnSell@scr:
 		ValuePercent: 15
-		ActorTypes: legio
+		ActorTypes: shark
 		Factions: scr
 
 SCRPOWR:
@@ -846,7 +846,7 @@ SCRRAX:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 1
-		Description: Calls down Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it
+		Description: Calls down Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: scrpowr, ~structures.scr
 	Tooltip:
 		Name: Landing Zone
@@ -957,7 +957,7 @@ SCRWEAP:
 		Prerequisite: scrweap
 	Buildable:
 		Queue: Building
-		Description: Produces vehicles.
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		BuildPaletteOrder: 3
 		Prerequisites: scrproc, ~structures.scr
 	WithIdleOverlay@ROOF:
@@ -1035,7 +1035,7 @@ SCRAIR:
 		Name: Stargate
 	Buildable:
 		BuildPaletteOrder: 6
-		Description: Warps in warships from a nomad galaxy.\n\nSpecial:\n- Scrin Aircraft do not need to rearm.
+		Description: Warps in warships from a nomad galaxy.\n\nSpecial:\n- Scrin Aircraft do not need to rearm.\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
 		Queue: Building
 		Prerequisites: scrradr, ~structures.scr
 	Building:
@@ -1155,7 +1155,7 @@ CABYARD:
 		Factions: mut
 	EmitInfantryOnSell@scr:
 		ValuePercent: 15
-		ActorTypes: legio
+		ActorTypes: shark
 		Factions: scr
 
 CABPOWR:
@@ -1196,7 +1196,7 @@ CABCLAW:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 1
-		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it
+		Description: Processes Infantry.\n\nSpecial:\n- Heals infantry in an certain area around it.\n- Maximun production speed is reached with 7 barracks.\n- Max production speed reduces production time by 50%.
 		Prerequisites: anypower, ~structures.cab
 	Building:
 		Footprint: xx xx xx
@@ -1271,7 +1271,7 @@ CABWEAP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 3
-		Description: Produces vehicles.
+		Description: Produces vehicles.\n\nSpecial:\n- Maximun production speed is reached with 4 factories.\n- Max production speed reduces production time by 50%.
 		Prerequisites: proc, ~structures.cab
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
@@ -1286,7 +1286,7 @@ CABRADR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 4
-		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate
+		Description: Provides an overview of the battlefield.\n\nSpecial:\n- Provides minimap\n- Stealth detection\n- Requires power to operate.
 		Prerequisites: proc, ~structures.cab
 	Tooltip:
 		Name: C.A.B.A.L. Radar
@@ -1311,7 +1311,7 @@ CABAIR:
 	Buildable:
 		BuildPaletteOrder: 6
 		Queue: Building
-		Description: Produces aircraft.\n\nSpecial:\n- CABAL Aircraft do not need to rearm.
+		Description: Produces aircraft.\n\nSpecial:\n- CABAL Aircraft do not need to rearm.\n- Maximun production speed is reached with 7 helipads.\n- Max production speed reduces production time by 50%.
 		Prerequisites: cabradr, ~structures.cab
 	Building:
 		Footprint: xxx xxx xxx

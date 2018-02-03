@@ -79,7 +79,6 @@ ReaperScythe:
 	ReloadDelay: 125
 	Range: 7c0
 	Burst: 4
-	MinRange: 3c0
 	Report: samshot1.aud
 	ValidTargets: Ground
 	Projectile: Missile
@@ -436,6 +435,18 @@ TermitaGrinder:
 		Versus:
 		DamageTypes: Prone100Percent, TriggerProne, CabalDeathCrate
 
+RepairVehicleRep:
+	ReloadDelay: 150
+	Range: 2c0
+	Report: repair11.aud
+	ValidTargets: Vehicle
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 80
+		Damage: -5000
+		ValidTargets: Vehicle
+
 DroneHostShell:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
@@ -502,6 +513,7 @@ WaspBullet:
 	Inherits: ^APWarhead
 	ReloadDelay: 50
 	Range: 6c0
+	MinRange: 0c50
 	Report: lastur1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	InvalidTargets: Air
@@ -525,6 +537,7 @@ WaspBulletAA:
 WaspLasor:
 	ReloadDelay: 50
 	Range: 6c0
+	MinRange: 0c50
 	Report: lastur1.aud
 	ValidTargets: Ground, Air
 	Projectile: LaserZap
@@ -540,6 +553,7 @@ DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 35
 	Range: 300
+	MinRange: 50
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
@@ -554,6 +568,7 @@ DevourerGrinder:
 DevourerExplo:
 	ReloadDelay: 3
 	Range: 300
+	MinRange: 50
 	Projectile: InstantHit
 	Warhead@2Eff: CreateEffect
 		Explosions: cabspark
@@ -563,6 +578,7 @@ DevourerBuff:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 35
 	Range: 300
+	MinRange: 50
 	Projectile: InstantExplode
 	Warhead@Acid: GrantExternalCondition
 		Range: 350
@@ -577,7 +593,7 @@ BasiliskBomb:
 	ReloadDelay: 70
 	Range: 6c0
 	Burst: 4
-	MinRange: 0c512
+	MinRange: 0c50
 	Report: rketinf1.aud
 	ValidTargets: Ground, Air
 	Projectile: BulletAS

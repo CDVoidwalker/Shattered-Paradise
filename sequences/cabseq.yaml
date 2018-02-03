@@ -451,7 +451,7 @@ cyc2:
 		Length: *
 		ZOffset: 512
 		BlendMode: Additive
-	icon: cyc2icon
+	icon: cyborgcomandoicon
 
 jenn:
 	Inherits: ^EmpOverlay
@@ -822,7 +822,7 @@ cabclaw:
 
 cabproc:
 	Defaults: cabproc
-		Offset: -15, -36, 20
+		Offset: -15, -42, 20
 		DepthSpriteOffset: 22, 0
 		UseTilesetCode: false
 		DepthSprite: isodepth.shp

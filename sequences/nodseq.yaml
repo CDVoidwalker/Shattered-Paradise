@@ -378,14 +378,7 @@ bike:
 
 bggy:
 	Inherits@1: ^SpriteVehicleWithShadow
-	muzzle0: mgun-n
-	muzzle1: mgun-nw
-	muzzle2: mgun-w
-	muzzle3: mgun-sw
-	muzzle4: mgun-s
-	muzzle5: mgun-se
-	muzzle6: mgun-e
-	muzzle7: mgun-ne
+	Inherits@2: ^BuggyMuzzle
 	dieevaporate: infgas
 		Length: *
 		Offset: 0,-6, 32
@@ -435,9 +428,13 @@ sgen:
 	Inherits: ^EmpOverlay
 	icon: mstlicon
 
+repairvehicle:
+	Inherits: ^SpriteVehicleWithShadow
+	icon: repairvehicleicon
+
 repair:
 	Inherits: ^EmpOverlay
-	icon: rboticon
+	icon: repairicon
 
 hologramprojector:
 	Inherits: ^EmpOverlay

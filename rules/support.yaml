@@ -407,7 +407,7 @@ GUARDIANDEP:
 		VoiceSet: GuardianVO
 		Volume: 3
 	Armament:
-		Weapon: NODRepair
+		Weapon: RepairVehicleRep
 		Cursor: repair
 		OutsideRangeCursor: repair
 		TargetStances: Ally

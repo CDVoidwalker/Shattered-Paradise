@@ -126,3 +126,21 @@
 		Start: 32
 		Facings: -32
 		UseTilesetCode: false
+
+^BuggyMuzzle:
+   	muzzle0: mgun-n
+		Length: *
+	muzzle1: mgun-nw
+		Length: *
+	muzzle2: mgun-w
+		Length: *
+	muzzle3: mgun-sw
+		Length: *
+	muzzle4: mgun-s
+		Length: *
+	muzzle5: mgun-se
+		Length: *
+	muzzle6: mgun-e
+		Length: *
+	muzzle7: mgun-ne
+		Length: *

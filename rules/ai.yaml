@@ -36,11 +36,11 @@ Player:
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			gdiref: 5
-			nodref: 5
-			scrproc: 5
-			cabproc: 5
-			muproc: 5
+			gdiref: 3
+			nodref: 3
+			scrproc: 3
+			cabproc: 3
+			muproc: 3
 			gasilo: 0
 			napowr: 9
 			naapwr: 3
@@ -151,9 +151,8 @@ Player:
 			scrair: 5%
 			cabair: 5%
 		UnitLimits:
-			harv: 9
-			scrharv: 9
-			cabharv: 9
+			harv: 5
+			scrharv: 5
 			gdie1: 18
 			marauder: 18
 			cyborg: 18
@@ -329,11 +328,11 @@ Player:
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			gdiref: 5
-			nodref: 5
-			scrproc: 5
-			cabproc: 5
-			muproc: 5
+			gdiref: 3
+			nodref: 3
+			scrproc: 3
+			cabproc: 3
+			muproc: 3
 			gasilo: 0
 			napowr: 9
 			naapwr: 3
@@ -444,9 +443,9 @@ Player:
 			scrair: 5%
 			cabair: 5%
 		UnitLimits:
-			harv: 9
-			scrharv: 9
-			cabharv: 9
+			harv: 5
+			scrharv: 5
+			cabharv: 5
 			gdie1: 18
 			marauder: 18
 			cyborg: 18
@@ -628,8 +627,8 @@ Player:
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1
-			gdiref: 5
-			nodref: 5
+			gdiref: 3
+			nodref: 3
 			scrproc: 2
 			cabproc: 2
 			muproc: 2
@@ -744,9 +743,9 @@ Player:
 			scrair: 5%
 			cabair: 5%
 		UnitLimits:
-			harv: 9
-			scrharv: 9
-			cabharv: 9
+			harv: 5
+			scrharv: 5
+			cabharv: 5
 			gdie1: 6
 			marauder: 6
 			cyborg: 6

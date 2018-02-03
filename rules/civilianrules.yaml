@@ -440,6 +440,7 @@ CRAB:
 	Tooltip:
 		Name: Crab
 	-GainsExperience:
+	-DamagedByRadioactivity@Default:
 	Health:
 		HP: 17000
 		Shape: Circle
@@ -463,8 +464,8 @@ CRAB:
 		AttackSequence: shoot
 		IdleSequences: Idle1, Idle2
 		PauseOnCondition: WebDisable
-	AutoTarget:
-		ScanRadius: 6
+	# AutoTarget:
+		# ScanRadius: 6
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
@@ -2412,20 +2413,19 @@ WELL:
 	Explodes:
 		Weapon: TiberiumExplosion
 
-
 BLOODDERRICK:
 	Inherits: ^TechBuilding
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^3x3Shape
 	Tooltip:
-		Name: Blood Derrick
+		Name: Crab Hive
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
 	Selectable:
 		Bounds: 102, 60, 0, 0
 	Health:
-		HP: 250000
+		HP: 40000
 	Explodes:
 		Weapon: TiberiumExplosion
 	RenderSprites:
@@ -2436,10 +2436,6 @@ BLOODDERRICK:
 		CrushedPaletteIsPlayerPalette: true
 	SelectionDecorations:
 		VisualBounds: 102, 60, 0, 0
-	CashTrickler:
-		Interval: 125
-		Amount: 10
-		CaptureAmount: 500
 	AttackOmni:
 	WithAttackAnimation:
 		AttackSequence: move
@@ -2451,10 +2447,66 @@ BLOODDERRICK:
 		Weapon: DerrickAnimation
 		TargetStances: Ally, Enemy, Neutral
 	AutoTarget:
-	ProximityBounty:
-		Delay: 200
-		BountyType: BloodDerrick
-		Range: 12c0
+	SpawnActorOnDeath@1:
+		Actor: crab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: -1,-1
+	SpawnActorOnDeath@2:
+		Actor: crab
+		Probability: 50
+		OwnerType: InternalName
+		InternalOwner: Creeps
+	SpawnActorOnDeath@3:
+		Actor: crab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: -1,0
+	SpawnActorOnDeath@4:
+		Actor: crab
+		Probability: 50
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: -1,0
+	SpawnActorOnDeath@5:
+		Actor: crab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 0,-1
+	SpawnActorOnDeath@6:
+		Actor: crab
+		Probability: 50
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 0,1
+	SpawnActorOnDeath@7:
+		Actor: crab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 0,2
+	SpawnActorOnDeath@8:
+		Actor: crab
+		Probability: 50
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 1,2
+	SpawnActorOnDeath@9:
+		Actor: crab
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Creeps
+		Offset: 2,2
+	SpawnActorOnDeath@10:
+		Actor: crab
+		Probability: 50
+		OwnerType: InternalName
+		InternalOwner: Creeps
+	-ExternalCapturable:
+	-ExternalCapturableBar:
 
 NEUTRALRADAR:
 	Inherits: ^TechBuilding
@@ -2483,6 +2535,7 @@ NEUTRALPOWERPLANT:
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
+		Adjacent: 5
 	Selectable:
 		Bounds: 120, 90, 0, 0
 	Health:
@@ -2494,8 +2547,12 @@ NEUTRALPOWERPLANT:
 		VisualBounds: 70, 90, 0, -32
 	RevealsShroud:
 		Range: 5c0
+	GivesBuildableArea:
+		AreaTypes: building
 	BaseProvider:
-		Range: 5c0
+		Range: 10c0
+	RequiresBuildableArea:
+		AreaTypes: building
 
 SCRINREINFPAD:
 	Inherits: ^TechBuilding
@@ -2521,24 +2578,55 @@ SCRINREINFPAD:
 		IsPlayerPalette: false
 	WithIdleOverlay@ROOF:
 		Sequence: idle-roof
-	WithProductionOverlay@WHITELIGHTS:
+	WithIdleOverlay@production:
 		Sequence: production-lights
+		RequiresCondition: BuildStuffGDI || BuildStuffNOD || BuildStuffMUT || BuildStuffCAB || BuildStuffSCR
 	Exit@1:
 		SpawnOffset: 0,-256,0
 		ExitCell: 2,2
 		ExitDelay: 5
 	Production:
 		Produces: Vehicle
-	ProvidesAIPrerequisite@BuildStuff:
-		Prerequisite: BuildStuff
-	GrantConditionOnPrerequisite@BuildStuff:
-		Condition: BuildStuff
-		Prerequisites: BuildStuff
-	PeriodicProducer:
-		Actors: 2stug3
+	GrantConditionOnPrerequisite@GDI:
+		Condition: BuildStuffGDI
+		Prerequisites: structures.gdi
+	GrantConditionOnPrerequisite@NOD:
+		Condition: BuildStuffNOD
+		Prerequisites: structures.nod
+	GrantConditionOnPrerequisite@MUT:
+		Condition: BuildStuffMUT
+		Prerequisites: structures.mut
+	GrantConditionOnPrerequisite@CAB:
+		Condition: BuildStuffCAB
+		Prerequisites: structures.cab
+	GrantConditionOnPrerequisite@SCR:
+		Condition: BuildStuffSCR
+		Prerequisites: structures.scr
+	PeriodicProducer@GDI:
+		Actors: mmch
 		Type: Vehicle
 		ChargeDuration: 3000
-		Condition: !BuildStuff
+		RequiresCondition: BuildStuffGDI
+	PeriodicProducer@NOD:
+		Actors: ttnk
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffNOD
+	PeriodicProducer@mut:
+		Actors: lynx
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffMUT
+	PeriodicProducer@cab:
+		Actors: reapercab
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffCAB
+	PeriodicProducer@scr:
+		Actors: scrmbt
+		Type: Vehicle
+		ChargeDuration: 3000
+		RequiresCondition: BuildStuffSCR
 
 EGGS:
 	Inherits: ^CivBuilding
