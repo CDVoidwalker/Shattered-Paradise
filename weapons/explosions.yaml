@@ -18,11 +18,6 @@ BuildingExplode:
 		Damage: 1
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-		Versus:
-			InfantryArmor: 200
-			BuildingArmor: 150
-			VehicleArmor: 100
-			ConcreteArmor: 40
 		InvalidTargets: Air
 	Warhead@4EffAir: CreateEffect
 		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
@@ -30,7 +25,9 @@ BuildingExplode:
 
 ScrinBuildingExplode:
 	Inherits: BuildingExplode
+	-Warhead@4EffAir: CreateEffect
 	Warhead@4EffAir: CreateEffect
+		Explosions: jtwlt100, jtwlt100b, jtwlt070, jtwlt070b, jstumu42, jstumu42b ,jstumu60, jstumu60b, jbrrlexp1, jsbang34, jsbang34b, jsbang48, jsbang48b, jbrrlexp1b
 		ExplosionPalette: gensmkexplojFblue
 
 ReactorExplode:
@@ -96,7 +93,7 @@ BattleshipExplode:
 
 DroneExplode:
 	Inherits: ^ExploDefaults
-	Inherits@2: ^Small_Clsn
+	Inherits@2: ^Tiny_Explo
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
 		Amount: 1

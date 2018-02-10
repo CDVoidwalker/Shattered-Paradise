@@ -79,10 +79,12 @@ FiendShard2:
 	Range: 4c0
 	Report: fiend2.aud
 	ValidTargets: Ground
-	Projectile: BulletAS
+	Projectile: Missile
 		Speed: 300
 		Image: CRYSTAL4
 		Inaccuracy: 512
+		HorizontalRateOfTurn: 40
+		VerticalRateOfTurn: 40
 		Shadow: true
 		LaunchAngle: 60
 		Palette: greentiberium
@@ -161,6 +163,7 @@ SeerTyranyBuff:
 	ReloadDelay: 50
 	Projectile: InstantExplode
 	Warhead@1Dam: SpreadDamage
+		Spread: 1
 		Damage: 1
 		Versus:
 			InfantryArmor: 100
@@ -205,7 +208,7 @@ SeerTyranyInstakill:
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
-		Damage: 40000
+		Damage: 1
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 70
@@ -441,6 +444,7 @@ QuadFireAA:
 	InvalidTargets: Ground
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		Damage: 1750
 		InvalidTargets: Ground
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
@@ -708,8 +712,6 @@ LeonidCannon:
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 75
 	Range: 6c768
-	MinRange: 2c0
-	Burst: 1
 	Report: 120mmf.aud
 	Projectile: InstantHit
 		Innacuracy: 1c0

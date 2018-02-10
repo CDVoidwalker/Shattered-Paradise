@@ -161,7 +161,7 @@ GAROCK:
 	# WithWallSpriteBody:
 	WithSpriteBody:
 	Valued:
-		Cost: 900
+		Cost: 600
 	Tooltip:
 		Name: RPG Tower
 	Buildable:
@@ -189,7 +189,7 @@ GAROCK:
 		Recoils: no
 	Armament@ROCKET:
 		Weapon: RPGTower
-		LocalOffset: 512,-128,512
+		LocalOffset: 325,-128,1800
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	LineBuildNode:
@@ -544,7 +544,7 @@ NALASR:
 		PauseOnCondition: empdisable || disabled
 	Armament:
 		Weapon: TurretLaserFire
-		LocalOffset: 300, 0, 200
+		LocalOffset: 350, 0, 250
 	RenderVoxels:
 	WithVoxelTurret:
 	Power:
@@ -1052,7 +1052,7 @@ MUBUNKR:
 	Inherits@2: ^TowerStealthDetection
 	Inherits@3: ^2x2Shape
 	Valued:
-		Cost: 200
+		Cost: 500
 	Tooltip:
 		Name: Bunker
 	Buildable:
@@ -1506,7 +1506,7 @@ SCRSW1:
 	Valued:
 		Cost: 2500
 	Tooltip:
-		Name: Signal Transmiter
+		Name: Signal Transmitter
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2

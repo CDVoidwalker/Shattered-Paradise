@@ -183,6 +183,43 @@ DerrickAnimation:
 		Damage: 1
 		ValidTargets: KilledUnit
 
+ServDepoShrapnelSpawn:
+	ReloadDelay: 75
+	Range: 4c0
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Falloff: 100, 100, 100, 100
+		Spread: 1
+		Damage: 1
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 30
+			VehicleArmor: 2
+			ConcreteArmor: 2
+		DamageTypes: FireDeath, ScrinEssenceKill
+		InvalidTargets: Colossi
+	Warhead@op: FireShrapnel
+		Weapon: ServDepoShrapnel
+		Amount: 3
+		AllowDirectHit: false
+		ThrowWithoutTarget: False
+		AimChance: 100
+		AimTargetStances: Ally
+
+ServDepoShrapnel:
+	Range: 4c0
+	ValidTargets: Vehicle
+	Projectile: InstantHit
+		# Palette: apolbluealpha
+	Warhead@1Dam: SpreadDamage
+		Damage: -1500
+		ValidTargets: Vehicle
+	Warhead@Acid: GrantExternalCondition
+		Range: 200
+		Duration: 50
+		Condition: DisplayWrench
+		ValidStances: Ally
+
 LTrail:
 	ReloadDelay: 60
 	Range: 6c0

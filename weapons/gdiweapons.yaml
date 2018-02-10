@@ -15,7 +15,6 @@ GrenadierBazooka:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 100
 	Range: 6c600
-	MinRange: 2c0
 	Report: rketinf1.aud
 	ValidTargets: Ground
 	Projectile: Missile
@@ -90,8 +89,8 @@ Heal:
 		ValidTargets: Infantry, Jumpjet
 
 TrooperRail:
-	Inherits: ^FullDamage
-	ReloadDelay: 125
+	Inherits: ^APWarhead
+	ReloadDelay: 75
 	Range: 5c0
 	Report: railgunfire.wav
 	Projectile: LaserZap
@@ -198,10 +197,10 @@ JuggCannon:
 
 SonicZap:
 	ReloadDelay: 60
-	Range: 5c0
+	Range: 6c0
 	Report: sonic4.aud
 	Projectile: AreaBeam
-		Speed: 0c200
+		Speed: 0c250
 		Duration: 40
 		DamageInterval: 4
 		Width: 384
@@ -211,7 +210,7 @@ SonicZap:
 		Blockable: true
 		Color: 50F5FF45
 	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
+		Range: 0, 48
 		Falloff: 100, 100
 		Damage: 2000
 		AffectsParent: false
@@ -222,7 +221,7 @@ SonicZap:
 			Disruptor: 30
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Dam: SpreadDamage
-		Range: 0, 32
+		Range: 0, 48
 		Falloff: 50, 50
 		Damage: 12
 		AffectsParent: false
@@ -332,6 +331,7 @@ OBBomb:
 	ReloadDelay: 30
 	Burst: 5
 	MinRange: 0c100
+	# Report: expnew05.aud, expnew06.aud, expnew09.aud, expnew19.aud
 	BurstDelays: 3
 	ValidTargets: Ground, Building, Infantry, Vehicle
 	Range: 3c0
@@ -452,7 +452,7 @@ GdiRedEye:
 RPGTower:
 	Inherits: ^APWarhead
 	Inherits@2: ^Large_Clsn
-	ReloadDelay: 90
+	ReloadDelay: 70
 	Range: 6c768
 	Report: glnch4.aud
 	Projectile: BulletAS

@@ -107,3 +107,16 @@ nodref2:
 	icon: nodref2icon
 		Offset: 0, 0
 		UseTilesetCode: false
+
+machineshop:
+	Defaults:
+		DepthSprite: isodepth.shp
+		Offset: 0, -24, 24
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+	critical-idle:
+		Start: 1
+		ShadowStart: 3

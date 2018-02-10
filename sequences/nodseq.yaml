@@ -73,6 +73,7 @@ crusader:
 		Start: 8
 		Length: 8
 		Facings: 8
+		Tick: 60
 		ShadowStart: 346
 	idle1:
 		Start: 72
@@ -383,6 +384,25 @@ bggy:
 		Length: *
 		Offset: 0,-6, 32
 		Tick: 30
+	turret-none: buggyturret
+		Start: 128
+		Facings: -32
+		UseTilesetCode: false
+	turret-minigun: buggyturret
+		Facings: -32
+		UseTilesetCode: false
+	turret-rocket: buggyturret
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false
+	turret-flame: buggyturret
+		Start: 64
+		Facings: -32
+		UseTilesetCode: false
+	turret-laser: buggyturret
+		Start: 96
+		Facings: -32
+		UseTilesetCode: false
 	icon: bggyicon
 
 ttnk:
@@ -1257,7 +1277,7 @@ blackhanddummy:
 	stand: dot
 	nanomachinecloud: smokebomb4
 		Length: 30
-		Ticks: 40
+		Tick: 40
 		UseTilesetCode: false
 	icon: apchicon
 	run: dot

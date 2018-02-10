@@ -11,7 +11,7 @@ SMECH:
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
-		Speed: 99
+		Speed: 90
 		Crushes: crate
 	Health:
 		HP: 17500
@@ -44,7 +44,7 @@ MMCH:
 		Queue: Vehicle
 		BuildPaletteOrder: 3
 		Description: Well balanced main battle walker armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can crush infantry
-		Prerequisites: ~gaweap, gadept
+		Prerequisites: ~gaweap
 	Mobile:
 		TurnSpeed: 5
 		Speed: 70
@@ -78,7 +78,7 @@ MMCH:
 APC:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Amphibious APC
 	Buildable:
@@ -88,7 +88,7 @@ APC:
 		Prerequisites: ~gaweap, gapile
 	Mobile:
 		TurnSpeed: 5
-		Speed: 75
+		Speed: 85
 		TerrainSpeeds:
 			Water: 60
 	Health:
@@ -121,7 +121,7 @@ APC:
 		PipCount: 5
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
-		EjectOnDeath: true
+		EjectOnDeath: False
 	LeavesTrails:
 		Image: wake
 		Palette: effect
@@ -251,7 +251,7 @@ G4TNK:
 	Inherits: ^VoxelTank
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
-		Cost: 1800
+		Cost: 1700
 	Tooltip:
 		Name: Mammoth Tank
 	Buildable:
@@ -292,7 +292,7 @@ G4TNK:
 SONIC:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 1350
+		Cost: 1200
 	Tooltip:
 		Name: Disruptor
 	Buildable:
@@ -303,7 +303,7 @@ SONIC:
 	-RejectsOrders@berserk:
 	Mobile:
 		TurnSpeed: 4
-		Speed: 55
+		Speed: 60
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 55000
@@ -361,6 +361,7 @@ HMEC:
 		Weapon: MechDummy
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
+	-TemporaryOwnerManager:
 	-WithVoxelBody:
 	WithVoxelWalkerBody:
 		TickRate: 1
@@ -377,30 +378,79 @@ BGGY:
 		Name: Raider Buggy
 	Buildable:
 		Queue: Vehicle
-		Description: Fast vehicle armed with a machine guns and rocket launchers.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Stealth detection
+		Description: Fast vehicle armed with a machine, has room for one passenger that modifies the weapon of the vehicle.\n\nGood vs: Changes depending on the passenger.\n\nSpecial:\n- The weapon of the vehicle changes with the passenger.\n- Stealth detection\n- NOTE: Only NOD units are supported.
 		BuildPaletteOrder: 9
 		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 99
+		Speed: 100
 		Crushes: crate
 	Health:
 		HP: 27500
 	RevealsShroud:
 		Range: 7c0
+	Cargo:
+		MaxWeight: 1
+		PipCount: 1
+		Types: Infantry
+		LoadedCondition: loaded
+		PassengerConditions:
+			altnode1: ifv.militant
+			crusader: ifv.crusader
+			engineer: ifv.militant
+			templar: ifv.templar
+			nconf: ifv.nconf
+			bhs: ifv.bhs
 	Armament:
-		Weapon: BuggyCannon
+		Weapon: MilitantRifle
 		LocalOffset: 0,-43,384, 0,43,384
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
-	Armament@PRIMARY:
-		Weapon: BikeMissile
-		LocalOffset: -128,-170,213, -128,170,213
-	Armament@AA:
-		Weapon: BikeMissileAA
-		LocalOffset: -128,-170,213, -128,170,213
-	AttackFrontal:
+		RequiresCondition: !loaded
+	Armament@militant:
+		Weapon: BuggyCannon
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.militant
+	Armament@crusa:
+		Weapon: CrusaderBazooka
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.crusader
+	Armament@crusaaa:
+		Weapon: CrusaderBazookaAA
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.crusader
+	Armament@templar:
+		Weapon: TemplarFlame
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.templar
+	Armament@nconf:
+		Weapon: TemplarLasor
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.nconf
+	Armament@bhs:
+		Weapon: BHRifle
+		LocalOffset: 250,0,125
+		RequiresCondition: ifv.bhs
+	Turreted:
+		Offset: -125,0,300
+		TurnSpeed: 8
+	AttackTurreted:
 		PauseOnCondition: empdisable
+	WithSpriteTurret@asd:
+		Sequence: turret-none
+		RequiresCondition: !loaded
+	WithSpriteTurret@militant:
+		Sequence: turret-minigun
+		RequiresCondition: ifv.militant
+	WithSpriteTurret@rocket:
+		Sequence: turret-rocket
+		RequiresCondition: ifv.crusader
+	WithSpriteTurret@flame:
+		Sequence: turret-flame
+		RequiresCondition: ifv.templar
+	WithSpriteTurret@laser:
+		Sequence: turret-laser
+		RequiresCondition: ifv.nconf || ifv.bhs
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -462,7 +512,7 @@ TTNK:
 		Queue: Vehicle
 		BuildPaletteOrder: 11
 		Description: Nod´s main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can deploy to gain extra protection\n- Can crush infantry
-		Prerequisites: ~naweap, gadept
+		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 10
 		Speed: 85
@@ -700,7 +750,7 @@ REPAIR:
 SUBTANK:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 900
+		Cost: 800
 	Tooltip:
 		Name: Devil's Tongue
 	Buildable:
@@ -758,7 +808,7 @@ SUBTANK:
 ARMH:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 1100
+		Cost: 1300
 	Tooltip:
 		Name: Beam Cannon
 	Buildable:
@@ -778,7 +828,7 @@ ARMH:
 	WithFacingSpriteBody:
 	Armament:
 		Weapon: BCLazor
-		LocalOffset: 500,0,450
+		LocalOffset: 600,0,450
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -946,7 +996,7 @@ STRUCK:
 		Description: Transport, can carry up to three soldiers which can fire from inside.\n\nGood vs: Depends what has been garrisoned\n\nSpecial:\n- Up to 3 infantry units can be garrisoned.\n- Can crush infantry.
 		Queue: Vehicle
 		BuildPaletteOrder: 25
-		Prerequisites: ~muweap
+		Prerequisites: ~muweap, murax
 	Mobile:
 		TurnSpeed: 9
 		Speed: 90
@@ -992,7 +1042,7 @@ LYNX:
 		Queue: Vehicle
 		Description: Light tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can crush infantry
 		BuildPaletteOrder: 26
-		Prerequisites: ~muweap, gadept
+		Prerequisites: ~muweap
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1095,9 +1145,9 @@ MUTQUAD:
 MRLS:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 700
+		Cost: 800
 	Tooltip:
-		Name: Forgotten MRLS
+		Name: Forgotten MLRS
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
@@ -1244,11 +1294,6 @@ SCRDRONEC:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^HoverVehicle
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 31
-		Description: Support hover drone.\n\nSpecial:- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed enemies to heal.
-		Prerequisites: ~scrweap, scrdepot, scrradr
 	Valued:
 		Cost: 950
 	Tooltip:
@@ -1263,7 +1308,6 @@ SCRDRONEC:
 	-Cloak@CLOAKGENERATOR:
 	BodyOrientation:
 		QuantizedFacings: 32
-	-Targetable@Essence:
 	-Targetable@Shield:
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -1357,14 +1401,13 @@ SCRMOBMINE:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
 	Inherits@2: ^AutoTargetGround
-	Inherits@3: ^BasicStealthDetection
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
 		Description: Mind Control unit\n\nSpecial:\n- Can mind control infantry.\n- Can control up to three units.\n- Absorbs essence from killed units to heal.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
-		Cost: 1250
+		Cost: 1150
 	Tooltip:
 		Name: Subjugator
 	Mindcontroller:
@@ -1376,7 +1419,7 @@ SCRMOBMINE:
 	Armament@PRIMARY:
 		Weapon: MindController
 	Health:
-		HP: 14062
+		HP: 16800
 	Mobile:
 		Speed: 75
 	AutoTarget:
@@ -1402,7 +1445,7 @@ SCRMBT:
 		Queue: Vehicle
 		BuildPaletteOrder: 32
 		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water).\nAbsorbs essence from killed units to heal.
-		Prerequisites: ~scrweap, scrdepot
+		Prerequisites: ~scrweap
 	Valued:
 		Cost: 950
 	Tooltip:
@@ -1433,42 +1476,34 @@ SCRRECHARGER:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
 	Valued:
-		Cost: 800
+		Cost: 950
 	Tooltip:
-		Name: Essence Battery
+		Name: Vanguard
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 31
+		Description: Support hover drone.\n\nSpecial:- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Hovers (it ignores terrain like Veins and Water)\n- Absorbs essence from killed enemies to heal.\n- Crushes enemies.
+		Prerequisites: ~scrweap, scrdepot, scrradr
 	Mobile:
 		TurnSpeed: 6
-		Speed: 60
+		Speed: 70
 		Crushes: crate
 	Health:
 		HP: 25000
-	WithRangeCircle:
-		Range: 4c0
-		Type: ScrinEssence
+	-WithIdleOverlay@shield:
+	-Targetable@Shield:
 	Armament:
+		Weapon: VanguardShrapnel
 		TargetStances: Ally
-		Weapon: HealScrin
-		ForceTargetStances: None
-		AmmoPoolName: Essence
-		MuzzlePalette: apolra2ialpha
-		MuzzleSequence: particles
-		LocalOffset: 0,0,500
-		PauseOnCondition: !ammo
-	AmmoPool:
-		Ammo: 18
-		Name: Essence
-		InitialAmmo: 0
-		ReloadDelay: 1
-		SelfReloadDelay: 1
-		AmmoCondition: ammo
-	ReloadAmmoWhenEnabled:
-		ReloadCount: 1
-		Name: Essence
-		ReloadDelay: 1
-		RequiresCondition: EssenceGrab
-		ConditionMinEnabledLevel: 1
-	Targetable@EssenceBattery:
-		TargetTypes: EssenceBattery
+	ProximityExternalCondition@VanguardShield:
+		Condition: VanguardShield
+		Range: 3c0
+		AffectsParent: false
+	WithRangeCircle:
+		Range: 3c0
+		Type: VanguardShield
+	Targetable:
+		TargetTypes: Ground, Vehicle
 	WithMuzzleOverlay:
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -1479,7 +1514,6 @@ SCRRECHARGER:
 		Sequence: stand
 	WithMoveAnimation:
 		MoveSequence: run
-	-SelfHealing@ELITE:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
@@ -1574,7 +1608,7 @@ CENTURION:
 	Inherits: ^Walker
 	Inherits@1: ^BasicStealthDetection
 	Valued:
-		Cost: 800
+		Cost: 850
 	Tooltip:
 		Name: Centurion
 	Buildable:
@@ -1628,7 +1662,7 @@ REAPERCAB:
 		Queue: Vehicle
 		BuildPaletteOrder: 17
 		Description: Fast raiding walker armed with cluster missiles and web launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- Can ensnare infantry with webs.
-		Prerequisites: ~cabweap, gadept
+		Prerequisites: ~cabweap
 	Selectable:
 		Bounds: 40,40,0,-10
 	Mobile:
@@ -1810,10 +1844,10 @@ PALADIN:
 	RenderSprites:
 	Armament@primary:
 		Weapon: PalaLazor
-		LocalOffset: 400,400,1050
+		LocalOffset: 500,500,1200
 	Armament@secondary:
 		Weapon: PalaLazor
-		LocalOffset: 400,-400,1050
+		LocalOffset: 500,-500,1200
 	AutoTarget:
 	Selectable:
 		Bounds: 40, 60, 0, -20

@@ -363,6 +363,10 @@
 		RequiresCondition: TyrannyBuff
 		Modifier: 80
 		BaseLevel: 1
+	DamageMultiplier@TyrannyBuff:
+		RequiresCondition: TyrannyBuff
+		Modifier: 120
+		BaseLevel: 1
 	WithDecoration@TyrannyBuff:
 		Image: tibicon
 		Sequence: idle
@@ -372,6 +376,17 @@
 		RequiresCondition: TyrannyBuff
 	ExternalCondition@TyrannyBuff:
 		Condition: TyrannyBuff
+
+^DisplayWrench:
+	WithDecoration@DisplayWrench:
+		Image: wrenchicon
+		Sequence: idle
+		ReferencePoint: Bottom, Left
+		Palette: apgrey
+		ShowToEnemies: true
+		RequiresCondition: DisplayWrench
+	ExternalCondition@TyrannyBuff:
+		Condition: DisplayWrench
 
 ^FirestormGenBuff:
 	DamageMultiplier@firestorm:
@@ -457,6 +472,28 @@
 		Delay: 150
 		DamageCooldown: 200
 		HealIfBelow: 105
+
+^HopspitalHeal:
+	SelfHealing@HOSPITAL:
+		PercentageStep: 1
+		Delay: 23
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@hospitalheal:
+		Condition: hospitalheal
+		Prerequisites: CAHOSP
+
+^MachineShopHeal:
+	SelfHealing@MachineShopHeal:
+		PercentageStep: 1
+		Delay: 23
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: MachineShopHeal
+	GrantConditionOnPrerequisite@MachineShopHeal:
+		Condition: MachineShopHeal
+		Prerequisites: MACHINESHOP
 
 ^VeinholePoisonVehicle:
 	SelfHealing@veinholedrain:
@@ -639,7 +676,7 @@
 		Gravity: -32,-32,48, 32,32,48
 		Offset: 0,0,0,0,0,0
 		Image: sgrysmk1
-		Palette: effectalpha
+		Palette: effectalpha50
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
 
@@ -662,10 +699,13 @@
 #		DamageCoeff: 8000
 #		DamageTypes: FireDeath
 #		RadioactivityLayerName: ColossusRadiation
-#		DamageInterval: 25		
+#		DamageInterval: 25
+
+^Academy:
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
 
 ^GenericEffects:
-	# Inherits: ^VisionWhenKilled
 	Inherits@0: ^KillSelf
 	Inherits@1: ^Cloakable
 	Inherits@3: ^ScrinEssence
@@ -683,6 +723,8 @@
 	Inherits: ^GenericEffects
 	Inherits@0: ^CloudPoison
 	Inherits@1: ^TyrannyBuff
+	Inherits@2: ^InfantryStealthDetection
+ 	Inherits@3: ^HopspitalHeal
 	Inherits@4: ^MindControllable
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^WebDisable
@@ -694,6 +736,8 @@
 	Inherits: ^GenericEffects
 	Inherits@0: ^CloudPoison
 	Inherits@1: ^TyrannyBuff
+	Inherits@2: ^DisplayWrench
+ 	Inherits@3: ^MachineShopHeal
 	Inherits@4: ^BugPoison
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^EmpDisableMobile
@@ -941,15 +985,15 @@
 		HP: 5000
 		Shape: Circle
 			Radius: 128
-	SelfHealing@InfantryHeal:
+	SelfHealing@BarracksHeal:
 		PercentageStep: 2
 		Step: 0
 		Delay: 50
-		RequiresCondition: InfantryHeal
+		RequiresCondition: BarracksHeal
 		DamageCooldown: 200
 		HealIfBelow: 101
-	ExternalCondition@InfantryHeal:
-		Condition: InfantryHeal
+	ExternalCondition@BarracksHeal:
+		Condition: BarracksHeal
 	Armor:
 		Type: InfantryArmor
 	RevealsShroud:
@@ -963,14 +1007,13 @@
 		TerrainSpeeds:
 			Clear: 100
 			Road: 120
-			Rail: 90
-			DirtRoad: 120
+			Rail: 100
+			DirtRoad: 110
 			Rough: 80
-				PathingCost: 150
 			Bridge: 120
-			Tiberium: 80
+			Tiberium: 70
 				PathingCost: 300
-			BlueTiberium: 80
+			BlueTiberium: 70
 				PathingCost: 300
 			Veins: 80
 		TunnelCondition: inside-tunnel
@@ -1089,6 +1132,7 @@
 
 ^Soldier:
 	Inherits: ^Infantry
+	Inherits@1: ^Academy
 	Inherits@2: ^AutoTargetGroundAssaultMove
 	MustBeDestroyed:
 	TakeCover:
@@ -1100,6 +1144,7 @@
 			Prone350Percent: 350
 		DamageTriggers: TriggerProne
 		ProneTime: 50
+		SpeedModifier: 55
 	WithInfantryBody:
 		IdleSequences: idle1,idle2
 		DefaultAttackSequence: shoot
@@ -1155,17 +1200,18 @@
 
 ^Cyborg:
 	Inherits@1: ^Infantry
+	Inherits@1: ^Academy
 	Inherits@2: ^AutoTargetGroundAssaultMove
 	-SpawnActorOnDeath@conversion:
 	-Crushable:
 	-DamagedByTerrain:
 	ExplosionOnDamageTransition:
-		Weapon: CyborgExplode
+		Weapon: DroneExplode
 		DamageState: Critical
 		TriggerOnlyOnce: true
 	Explodes:
-		Weapon: CyborgExplode
-		EmptyWeapon: CyborgExplode
+		Weapon: DroneExplode
+		EmptyWeapon: DroneExplode
 	DeathSounds:
 	RevealsShroud:
 		Range: 4c0
@@ -1184,6 +1230,7 @@
 
 ^CabalDroneInfantry:
 	Inherits@1: ^Infantry
+	Inherits@2: ^Academy
 	Inherits@3: ^AutoTargetGroundAssaultMove
 	-WithDeathAnimation@normal:
 	-WithDeathAnimation@explosion:
@@ -1291,7 +1338,7 @@
 	Selectable:
 		Priority: 6
 	Mobile:
-		Speed: 45
+		Speed: 40
 	Health:
 		HP: 9500
 	Passenger:
@@ -1329,14 +1376,14 @@
 			Clear: 100
 			Road: 120
 			Rail: 100
-			DirtRoad: 120
+			DirtRoad: 110
 			Rough: 80
-				PathingCost: 150
 			Bridge: 120
-			Tiberium: 80
-			BlueTiberium: 80
-			Veins: 80
+			Tiberium: 70
 				PathingCost: 300
+			BlueTiberium: 70
+				PathingCost: 300
+			Veins: 80
 		TunnelCondition: inside-tunnel
 		TurnSpeed: 7
 		Voice: Move
@@ -1421,7 +1468,8 @@
 
 ^Tank:
 	Inherits: ^Vehicle
-	Inherits@1: ^AutoTargetGroundAssaultMove
+	Inherits@1: ^Academy
+	Inherits@2: ^AutoTargetGroundAssaultMove
 	Mobile:
 		Crushes: wall, crate, infantry
 	Explodes:
@@ -1457,6 +1505,7 @@
 
 ^Walker:
 	Inherits: ^Vehicle
+	Inherits@1: ^Academy
 	Inherits@2: ^AutoTargetGroundAssaultMove
 	Mobile:
 		Crushes: wall, crate, infantry
@@ -1484,7 +1533,7 @@
 
 ^VoxelTank:
 	Inherits: ^Tank
-	Inherits@1: ^AutoTargetGroundAssaultMove
+	Inherits@2: ^AutoTargetGroundAssaultMove
 	BodyOrientation:
 		QuantizedFacings: 0
 	RenderVoxels:
@@ -1498,9 +1547,10 @@
 
 ^Aircraft:
 	Inherits@0: ^GainsExperience
-	Inherits@1: ^AircraftEffects
-	Inherits@2: ^ExistsInWorld
-	Inherits@6: ^VehicleShape
+	Inherits@1: ^Academy
+	Inherits@2: ^AircraftEffects
+	Inherits@3: ^ExistsInWorld
+	Inherits@4: ^VehicleShape
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
@@ -1549,13 +1599,15 @@
 	WithVoxelBody:
 	EditorTilesetFilter:
 		Categories: Aircraft
-	ReloadAmmoWhenEnabled@AIReload:
-		Name: primary
+	AmmoPool:
+		Ammo: 8
+	ReloadAmmoPool@AIReload:
+		AmmoPool: primary
 		RequiresCondition: AIReload
-		ReloadCount: 10
-	GrantConditionOnPrerequisite@AIReload:
-		Condition: AIReload
-		Prerequisites: AIReload
+		Count: 20
+	# GrantConditionOnPrerequisite@AIReload:
+		# Condition: AIReload
+		# Prerequisites: AIReload
 	ExternalCondition@AIReload:
 		Condition: AIReload
 
@@ -1685,7 +1737,7 @@
 	RequiresBuildableArea:
 		AreaTypes: building
 	Interactable:
-		Bounds: 600,600
+		# Bounds: 600,600
 	ExplodeWeapon@1234567:
 		Weapon: GreenTibRadiation
 
@@ -2109,6 +2161,10 @@
 	ReloadAmmoPool@1:
 		Count: 60
 		ResetOnFire: false
+
+^InfantryStealthDetection:
+	DetectCloaked:
+		Range: 1c0
 
 ^BasicStealthDetection:
 	DetectCloaked:

@@ -13,6 +13,8 @@ BIGBLUE:
 		Palette: bluetiberium
 	RadarColorFromTerrain:
 		Terrain: BlueTiberium
+	Tooltip:
+		Name: Vinifera
 	SeedsResource:
 		ResourceType: BlueTiberium
 		Interval: 75

@@ -56,8 +56,8 @@ CLOUD1:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 	-WithIdleOverlay@shield:
 	-ExternalCondition@VanguardShield:
 	-ExternalCondition@BreakShield:
@@ -204,8 +204,8 @@ TRNSPORT:
 		LocalOffset: 0, 0, -224
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.Husk
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 
 GUARDIAN:
 	Inherits: ^Helicopter
@@ -329,8 +329,8 @@ DSHP:
 		UnloadVoice: Move
 	SpawnActorOnDeath:
 		Actor: DSHP.Husk
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 
 ORCATRAN:
 	Inherits: ^Helicopter
@@ -363,8 +363,8 @@ ORCATRAN:
 		UnloadVoice: Move
 	SpawnActorOnDeath:
 		Actor: ORCATRAN.Husk
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 
 APACHE:
 	Inherits: ^Helicopter
@@ -722,8 +722,8 @@ MUTQUEEN:
 		FacingTolerance: 20
 	Armament@1:
 		Weapon: QueenShard
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 	-ExternalCondition@AIReload:
 
 MUTBIRD:
@@ -876,8 +876,8 @@ drache:
 	-WithVoxelBody:
 	SpawnActorOnDeath:
 		Actor: DRACHE.Husk
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 
 SCRGLYDER1:
 	Inherits: ^Helicopter
@@ -1027,8 +1027,8 @@ SCRTRANS:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRTRANS.Husk
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 
 SCRINCOUNCIL:
 	Inherits: ^Helicopter
@@ -1082,8 +1082,8 @@ SCRINCOUNCIL:
 	PrimaryBuilding:
 		PrimaryCondition: primary
 	ProductionBar:
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 
 SCRCARRIER:
 	Inherits: ^Helicopter
@@ -1191,9 +1191,9 @@ CABDRONEJET:
 		Weapon: CabJetMiniBomb
 	-Armament@AA:
 	Valued:
-		Cost: 200
+		Cost: 50
 	Health:
-		HP: 5000
+		HP: 8000
 	RenderSprites:
 		Image: cabdronejet
 	Aircraft:

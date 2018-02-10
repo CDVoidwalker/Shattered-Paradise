@@ -463,6 +463,7 @@ scrrecharger:
 		Start: 8
 		Facings: -8
 		Length: 11
+		Tick: 50
 		ShadowStart: 104
 	particles: batterybuff
 		Length: *

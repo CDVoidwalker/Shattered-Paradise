@@ -33,6 +33,7 @@ ENGINEER:
 		BuildPaletteOrder: 8
 		Prerequisites: ~SharedEngie
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
+	-ProducibleWithLevel:
 	Voiced:
 		VoiceSet: Engineer
 	RenderSprites:
@@ -129,10 +130,13 @@ HARV:
 			DirtRoad: 100
 			Rough: 100
 			Tiberium: 100
+				PathingCost: 1
 			BlueTiberium: 100
+				PathingCost: 1
 			Veins: 100
 	Health:
 		HP: 60000
+	-TemporaryOwnerManager:
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	Armor:
@@ -161,6 +165,8 @@ HARV:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
+	-DamagedByRadioactivity@Default:
+	-DamagedByRadioactivity@OrangeRadiation:
 
 SCRHARV:
 	Inherits: HARV
@@ -374,12 +380,12 @@ GACNST:
 		Cost: 500
 	ProvidesPrerequisite:
 		Prerequisite: barracks
-	ProximityExternalCondition@InfantryHeal:
-		Condition: InfantryHeal
+	ProximityExternalCondition@BarracksHeal:
+		Condition: BarracksHeal
 		Range: 5c0
 	WithRangeCircle:
 		Range: 5c0
-		Type: InfantryHeal
+		Type: BarracksHeal
 	Health:
 		HP: 80000
 	RevealsShroud:
@@ -400,7 +406,7 @@ PROC:
 	Valued:
 		Cost: 1500
 	CustomSellValue:
-		Value: 400
+		Value: 200
 	Tooltip:
 		Name: Tiberium Refinery
 	ProvidesPrerequisite:
@@ -464,7 +470,7 @@ FLIPPEDPROC:
 	Valued:
 		Cost: 1500
 	CustomSellValue:
-		Value: 400
+		Value: 200
 	Tooltip:
 		Name: Tiberium Refinery
 	ProvidesPrerequisite:
@@ -482,8 +488,8 @@ FLIPPEDPROC:
 	RevealsShroud:
 		Range: 6c0
 	Refinery:
-		DockAngle: 160
-		DockOffset: 2,1
+		DockAngle: 0
+		DockOffset: 1,1
 		DiscardExcessResources: false
 	StoresResources:
 		PipColor: Green
@@ -491,8 +497,7 @@ FLIPPEDPROC:
 		Capacity: 700
 	FreeActor:
 		Actor: HARV
-		SpawnOffset: 3,1
-		Facing: 160
+		SpawnOffset: 1,1
 	Explodes:
 		Weapon: TiberiumExplosion
 		EmptyWeapon: TiberiumExplosion
@@ -546,6 +551,10 @@ FLIPPEDPROC:
 		SpawnOffset: -384,-384,0
 		ExitCell: 3,1
 		ExitDelay: 5
+	Tooltip:
+		Name: Vehicle or Aircraft production
+	ProvidesPrerequisite@factoryhelipad:
+		Prerequisite: Vehicle or Aircraft production
 	Production:
 		Produces: Vehicle
 	RevealsShroud:
@@ -579,6 +588,10 @@ FLIPPEDPROC:
 		IsPlayerPalette: false
 	PrimaryBuilding:
 		PrimaryCondition: primary
+	Tooltip:
+		Name: Vehicle or Aircraft production
+	ProvidesPrerequisite@pieceofshit:
+		Prerequisite: Vehicle or Aircraft production
 	Reservable:
 	RepairsUnits:
 		Interval: 1
@@ -634,16 +647,17 @@ FLIPPEDPROC:
 
 GADEPT:
 	Inherits: ^Building
-	Inherits: ^3x3Shape
+	Inherits@1: ^3x3Shape
+	Inherits@2: ^DisableOnLowPowerOrPowerDown
 	Valued:
-		Cost: 900
+		Cost: 700
 	Tooltip:
 		Name: Service Depot
 	Buildable:
 		BuildPaletteOrder: 5
-		Prerequisites: ~humanstuff, factory
+		Prerequisites: ~humanstuff, Vehicle or Aircraft production
 		Queue: Building
-		Description: Repairs vehicles.
+		Description: Repairs vehicles.\n\nSpecial:\n-Repairs nearby vehicles for free.\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.
 	Building:
 		Footprint: =x= xxx =x=
 		Dimensions: 3,3
@@ -678,6 +692,9 @@ GADEPT:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-ground
 		UseDeathTypeSuffix: false
+	ExplodeWeapon:
+		Weapon: ServDepoShrapnelSpawn
+		RequiresCondition: !disabled
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:

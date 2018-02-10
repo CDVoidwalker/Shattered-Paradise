@@ -9,18 +9,12 @@ GDIE1:
 		Cost: 150
 	Tooltip:
 		Name: Marine
-	Pluggable@pluga:
-		Conditions:
-			powrup: powrup
-	Power@pluga:
-		RequiresCondition: powrup
-		Amount: 100
 	Health:
 		HP: 12000
 	Voiced:
 		VoiceSet: Marine
 	Mobile:
-		Speed: 60
+		Speed: 50
 	Armament@PRIMARY:
 		Weapon: MarineRifle
 	AttackFrontal:
@@ -44,7 +38,7 @@ GRENADIER:
 	Health:
 		HP: 11000
 	Mobile:
-		Speed: 55
+		Speed: 45
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
@@ -159,8 +153,8 @@ JUMPJETAIR:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
-	-ReloadAmmoWhenEnabled@AIReload:
-	-GrantConditionOnPrerequisite@AIReload:
+	-ReloadAmmoPool@AIReload:
+	# -GrantConditionOnPrerequisite@AIReload:
 
 MEDIC:
 	Inherits: ^Soldier
@@ -176,7 +170,7 @@ MEDIC:
 	Voiced:
 		VoiceSet: Medic
 	Mobile:
-		Speed: 60
+		Speed: 50
 	Health:
 		HP: 7000
 	Crushable:
@@ -195,18 +189,18 @@ MEDIC:
 EAGLEGUARD:
 	Inherits: ^Soldier
 	Valued:
-		Cost: 750
+		Cost: 700
 	Tooltip:
 		Name: Eagle Guard
 	Buildable:
-		Description: Elite Soldiers armed with an EMP ray.\n\nGood vs: Ground Targets\n\nSpecial:\n- Immune to tiberium radiation\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
+		Description: Elite Soldiers armed with an EMP ray.\n\nGood vs: Vehicles.\n\nSpecial:\n- Immune to tiberium radiation\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
 		Queue: Infantry
 		BuildPaletteOrder: 5
 		Prerequisites: ~gapile, gatech
 	Voiced:
 		VoiceSet: Ghost
 	Mobile:
-		Speed: 46
+		Speed: 40
 	Health:
 		HP: 35000
 	-DamagedByTerrain:
@@ -236,7 +230,7 @@ ALTNODE1:
 	Targetable@FlameWarrior:
 		TargetTypes: FlameWarrior
 	Mobile:
-		Speed: 70
+		Speed: 60
 	-TakeCover:
 	Armament:
 		Weapon: MilitantRifle
@@ -269,7 +263,7 @@ CRUSADER:
 	Health:
 		HP: 9000
 	Mobile:
-		Speed: 55
+		Speed: 45
 	Armament:
 		Weapon: CrusaderBazooka
 		LocalOffset: 0,0,600
@@ -301,7 +295,7 @@ TEMPLAR:
 	Health:
 		HP: 22500
 	Mobile:
-		Speed: 65
+		Speed: 60
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
@@ -330,7 +324,7 @@ NCONF:
 	Health:
 		HP: 14500
 	Mobile:
-		Speed: 60
+		Speed: 55
 	Armament@1:
 		Weapon: TemplarLasor
 		LocalOffset: 362,0,778
@@ -416,6 +410,8 @@ BHS:
 		Name: Toxin Commando
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
 	SelfHealing@NodCloakHealing:
 		Delay: 150
 	-RejectsOrders@berserk:
@@ -437,13 +433,13 @@ BHS:
 		DetonationDelay: 45
 		Voice: Attack
 	Cloak@CLOAKGENERATOR:
-		ConditionMinEnabledLevel: 0
 		InitialDelay: 50
 		CloakDelay: 50
 		IsPlayerPalette: true
 		UncloakOn: Attack
 	ProducibleWithLevel:
 		Prerequisites: barracks.Conditiond
+	-TemporaryOwnerManager:
 	RenderSprites:
 	-DamagedByTerrain:
 
@@ -570,13 +566,13 @@ MUTFIEND:
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
 	Valued:
-		Cost: 200
+		Cost: 250
 	Health:
 		HP: 18000
 		Shape: Circle
 			Radius: 213
 	Mobile:
-		Speed: 73
+		Speed: 65
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -612,7 +608,7 @@ E3:
 	Health:
 		HP: 9500
 	Mobile:
-		Speed: 55
+		Speed: 50
 	Armament@PRIMARY:
 		Weapon: SkirmisherMortar
 		LocalOffset: 128,0,640
@@ -652,7 +648,7 @@ SEER:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 22
-		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Everything.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 20% extra attack speed and move speed.\n- But it will also kill 6 nearby units friendly at random.\n- Effect lasts 15 seconds.\n- Heals on Tiberium.\n- Can attack air\n- Crush class: crushable.
+		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Everything.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 20% extra attack speed, move speed and receive 20% more damage.\n- Effect lasts 15 seconds.\n- Heals on Tiberium.\n- Can attack air\n- Crush class: crushable.
 		Prerequisites: ~murax, muhall
 	Valued:
 		Cost: 800
@@ -663,7 +659,7 @@ SEER:
 	Health:
 		HP: 15000
 	Mobile:
-		Speed: 60
+		Speed: 50
 	AutoTarget:
 	DetectCloaked:
 		Range: 3c0
@@ -779,9 +775,10 @@ PSYKER:
 		HP: 15000
 	-RejectsOrders@berserk:
 	Mobile:
-		Speed: 75
+		Speed: 60
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
+	-TemporaryOwnerManager:
 	Armament@PRIMARY:
 		Weapon: PsykerRay
 		Name: OnFoot
@@ -810,7 +807,7 @@ SHARK:
 	Health:
 		HP: 11000
 	Mobile:
-		Speed: 90
+		Speed: 75
 		Voice: Move
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
@@ -830,7 +827,7 @@ SHARK:
 	AttackMove:
 		Voice: Move
 	AutoTarget:
-		ScanRadius: 8
+		ScanRadius: 4
 		InitialStance: AttackAnything
 	WithInfantryBody:
 		StandSequences: stand
@@ -854,7 +851,7 @@ LEGIO:
 	Health:
 		HP: 11250
 	Mobile:
-		Speed: 55
+		Speed: 45
 	Passenger:
 		PipType: Blue
 	Armament:
@@ -945,7 +942,7 @@ FLOAT:
 	Health:
 		HP: 16875
 	Mobile:
-		Speed: 65
+		Speed: 50
 		TerrainSpeeds:
 			Clear: 100
 			Road: 100
@@ -984,7 +981,7 @@ BUG:
 	Health:
 		HP: 10100
 	Mobile:
-		Speed: 70
+		Speed: 60
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 		Probability: 100
@@ -1016,7 +1013,7 @@ COLOSSI:
 	Health:
 		HP: 35000
 	Mobile:
-		Speed: 60
+		Speed: 50
 		SharesCell: False
 		RequiresCondition: !deployed && !WebDisable
 	-SpawnActorOnDeath@FLAMEGUY:
@@ -1060,7 +1057,7 @@ CABSENTRY:
 	Armor@worker:
 		Type: Worker
 	Valued:
-		Cost: 200
+		Cost: 10
 	Tooltip:
 		Name: Sentry Drone
 	Explodes:
@@ -1071,6 +1068,8 @@ CABSENTRY:
 	-ActorLostNotification:
 	-UpdatesPlayerStatistics:
 	-SpawnActorOnDeath@nanomachineburst:
+	-GainsExperience:
+	-ProducibleWithLevel:
 	Mobile:
 		Speed: 70
 		Crushes: nada
@@ -1113,9 +1112,6 @@ CYBORG:
 	Selectable:
 		Bounds: 22,32,-1,-9
 		DecorationBounds: 16,31,0,-10
-	SelfHealing@Permanent:
-		DamageCooldown: 0
-		Delay: 75
 	DeliversCash:
 		Payload: 175
 		Voice: Move
@@ -1124,7 +1120,7 @@ CYBORG:
 	Voiced:
 		VoiceSet: Cyborg
 	Mobile:
-		Speed: 45
+		Speed: 40
 	Health:
 		HP: 35000
 	Armament:
@@ -1137,7 +1133,7 @@ CYBORG:
 CBORG:
 	Inherits: ^Cyborg
 	Valued:
-		Cost: 375
+		Cost: 400
 	Tooltip:
 		Name: Missile Cyborg
 	Buildable:
@@ -1149,7 +1145,7 @@ CBORG:
 	Health:
 		HP: 30000
 	Mobile:
-		Speed: 56
+		Speed: 40
 	RevealsShroud:
 		Range: 8c0
 	Voiced:
@@ -1189,7 +1185,7 @@ PDRONE:
 		CrushSound: squish6.aud
 	Hovers:
 	Mobile:
-		Speed: 75
+		Speed: 65
 		-RequiresCondition: WebDisable
 		TerrainSpeeds:
 			Clear: 100
@@ -1239,6 +1235,7 @@ SWARMLING:
 	Inherits@2: ^CabRender
 	Tooltip:
 		Name: Swarmling
+	-ProducibleWithLevel:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 13
@@ -1247,6 +1244,14 @@ SWARMLING:
 	DeliversCash:
 		Payload: 275
 		Voice: Move
+	Explodes:
+		Weapon: DroneExplode
+		EmptyWeapon: DroneExplode
+	-WithDeathAnimation@normal:
+	-WithDeathAnimation@tib:
+	-WithDeathAnimation@explosion:
+	-WithDeathAnimation@energy:
+	-WithDeathAnimation@body:
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1269,7 +1274,7 @@ MOTH:
 	Voiced:
 		VoiceSet: Limpet
 	Mobile:
-		Speed: 60
+		Speed: 50
 		TerrainSpeeds:
 			Clear: 100
 			Road: 100
@@ -1383,8 +1388,11 @@ CYC2:
 		Speed: 56
 	Health:
 		HP: 70000
+	-TemporaryOwnerManager:
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
 	Armament:
 		Weapon: CyCannon
 		LocalOffset: 170,85,683

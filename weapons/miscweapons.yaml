@@ -31,14 +31,16 @@ GreenTibRadiation:
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3, 4, 5
 		Falloff: 100, 65, 45, 25, 5
-		Level: 75
-		MaxLevel: 500
+		Level: 32
+		MaxLevel: 250
 		RadioactivityLayerName: HarmlessRadiationGreen
 
 BlueTibRadiation:
 	Inherits: GreenTibRadiation
 	Warhead@8Radio: CreateRadioactivity
 		RadioactivityLayerName: BlueRadiation
+		Range: 1, 2, 3, 4
+		Falloff: 100, 50, 25, 5
 
 SmokeShrapnel:
 	ReloadDelay: 10

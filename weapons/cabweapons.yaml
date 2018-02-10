@@ -504,6 +504,12 @@ PalaLazor:
 		Width: 60
 		BeamDuration: 7
 		Color: 0000FF
+		BeamDuration: 20
+		ZOffset: 2047
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2550
+		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 5100
@@ -541,9 +547,14 @@ WaspLasor:
 	Report: lastur1.aud
 	ValidTargets: Ground, Air
 	Projectile: LaserZap
-		BeamWidth: 0.5
-		BeamDuration: 5
 		Color: 0dc7b8
+		BeamDuration: 20
+		Width: 90
+		ZOffset: 2047
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2550
+		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Damage: 1
 		ValidTargets: Ground, Air

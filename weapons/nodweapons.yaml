@@ -57,7 +57,6 @@ CrusaderBazooka:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 50
 	Range: 6c600
-	MinRange: 2c0
 	Report: rketinf1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: Missile
@@ -91,6 +90,7 @@ TemplarFlame:
 		Speed: 130
 		Image: FLAMEALL
 		Inaccuracy: 1c3
+		Palette: effectalpha75
 	Burst: 10
 	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
@@ -233,7 +233,8 @@ DevilsFlame:
 		Speed: 130
 		Image: FLAMEALL
 		Inaccuracy: 1c3
-	Burst: 10
+		Palette: effectalpha75
+	Burst: 14
 	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
@@ -339,8 +340,14 @@ BCLazor:
 	Report: laserchaingunfire.wav
 	MinRange: 3c0
 	Projectile: LaserZap
-		BeamWidth: 3
 		BeamDuration: 20
+		Width: 90
+		ZOffset: 2047
+		Color: FA0F0F
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2550
+		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
 		Damage: 4000
@@ -389,7 +396,7 @@ StealthRocketAA:
 HarpyClaw:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 30
+	ReloadDelay: 20
 	Range: 5c0
 	MinRange: 0c100
 	InvalidTargets: Air
@@ -477,6 +484,7 @@ CerberusLazor:
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 75
 	Range: 6c0
+	Burst: 3
 	Report: laserchaingunfire.wav
 	ValidTargets: Ground
 	Projectile: LaserZap
@@ -557,8 +565,13 @@ ObeliskLaserFire:
 	Range: 9c0
 	Report: obelray1.aud
 	Projectile: LaserZap
-		Width: 75
+		Width: 90
 		ZOffset: 2047
+		Color: FA0F0F
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2550
+		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Damage: 16500
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath

@@ -99,12 +99,8 @@ GDIREF2:
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
-	Refinery:
-		DockOffset: 1,1
 	FreeActor:
 		Actor: HARV
-		SpawnOffset: 1,1
-		Facing: 160
 
 GAWEAP:
 	Inherits: ^Factory
@@ -317,7 +313,6 @@ NODREF2:
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,1
-		Facing: 160
 
 NAWEAP:
 	Inherits: ^Factory
@@ -598,7 +593,6 @@ MUPROC2:
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,1
-		Facing: 160
 
 MUWEAP:
 	Inherits: ^Factory
@@ -945,7 +939,9 @@ SCRPROC2:
 	FreeActor:
 		Actor: SCRHARV
 		SpawnOffset: 1,1
-		Facing: 160
+	StoresResources:
+		PipCount: 17
+		Capacity: 9999
 
 SCRWEAP:
 	Inherits: ^Factory
@@ -1003,8 +999,7 @@ SCRDEPOT:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 5
-		Prerequisites: scrweap, ~structures.scr
-		Description: Repairs vehicles.
+		Prerequisites:  Vehicle or Aircraft production, ~structures.scr
 	Tooltip:
 		Name: Scrin Maintenance Depot
 	ProvidesPrerequisite@buildingname:
@@ -1261,7 +1256,6 @@ CABPROC2:
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,1
-		Facing: 160
 
 CABWEAP:
 	Inherits: ^Factory

@@ -353,6 +353,7 @@ ZOMBIE:
 	Tooltip:
 		Name: Haunt
 	-GainsExperience:
+	-ProducibleWithLevel:
 	Health:
 		HP: 7500
 		Shape: Circle
@@ -395,6 +396,7 @@ BERSERKER:
 	Tooltip:
 		Name: Berserker
 	-GainsExperience:
+	-ProducibleWithLevel:
 	Health:
 		HP: 20000
 		Shape: Circle
@@ -440,6 +442,7 @@ CRAB:
 	Tooltip:
 		Name: Crab
 	-GainsExperience:
+	-ProducibleWithLevel:
 	-DamagedByRadioactivity@Default:
 	Health:
 		HP: 17000
@@ -662,6 +665,7 @@ WEED:
 	-WithVoxelBody:
 	WithVoxelUnloadBody:
 	-GainsExperience:
+	-ProducibleWithLevel:
 
 BUS:
 	Inherits: ^CivilianVoxelVehicle
@@ -1587,26 +1591,23 @@ CAARAY:
 		Pieces: 2, 4
 
 CAARMR:
-	Inherits: ^CivBuilding
+	Inherits: ^TechBuilding
 	Inherits@shape: ^4x4Shape
 	Tooltip:
 		Name: Civilian Armory
 	Building:
 		Footprint: xxxx xxxx xxxx xxxx
 		Dimensions: 4, 4
-	Armor:
-		Type: concrete
 	Health:
 		HP: 80000
-	RenderSprites:
-		Palette: player
 	ProvidesPrerequisite:
 		Prerequisite: barracks.upgraded
-	Capturable:
 	ThrowsShrapnel@SMALL:
 		Pieces: 6, 9
 	ThrowsShrapnel@LARGE:
 		Pieces: 3, 4
+	WithIdleOverlay:
+		Sequence: flag
 
 CACRSH01:
 	Inherits: ^Decoration
@@ -1626,21 +1627,15 @@ CACRSH05:
 	Inherits: CACRSH01
 
 CAHOSP:
-	Inherits: ^BasicBuilding
+	Inherits: ^TechBuilding
 	Inherits@shape: ^3x4Shape
 	Tooltip:
 		Name: Civilian Hospital
 	Building:
 		Footprint: XxX xxx xxx xxx
 		Dimensions: 3, 4
-	Armor:
-		Type: concrete
 	Health:
 		HP: 80000
-	RenderSprites:
-		Palette: player
-	Capturable:
-	CaptureNotification:
 	ProvidesPrerequisite@BuildingName:
 	ThrowsShrapnel@SMALL:
 		Pieces: 5, 9
@@ -1648,6 +1643,11 @@ CAHOSP:
 		Pieces: 2, 4
 	EditorTilesetFilter:
 		Categories: Civilian building
+	WithIdleOverlay:
+		Sequence: flag
+	WithIdleOverlay@g:
+		Sequence: flagg
+	ProvidesPrerequisite@buildingname:
 
 CAPYR01:
 	Inherits: ^CivBuilding
@@ -2405,13 +2405,29 @@ WELL:
 		Interval: 400
 		Amount: 100
 		CaptureAmount: 500
-	GivesCashOnCapture:
-		Amount: 200
+	# GivesCashOnCapture:
+		# Amount: 200
 	Health:
 		HP: 100000
 	RenderSprites:
 	Explodes:
 		Weapon: TiberiumExplosion
+
+MACHINESHOP:
+	Inherits: ^TechBuilding
+	Inherits@2: ^2x2Shape
+	Tooltip:
+		Name: Machine Shop
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	Selectable:
+		Bounds: 90, 60, 0, -12
+	RenderSprites:
+	Health:
+		HP: 100000
+	RenderSprites:
+	ProvidesPrerequisite@buildingname:
 
 BLOODDERRICK:
 	Inherits: ^TechBuilding
@@ -2516,6 +2532,9 @@ NEUTRALRADAR:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
+	DetectCloaked:
+		Range: 5c0
+	RenderDetectionCircle:
 	Selectable:
 		Bounds: 102, 60, 0, 0
 	Health:
@@ -2537,14 +2556,14 @@ NEUTRALPOWERPLANT:
 		Dimensions: 3, 3
 		Adjacent: 5
 	Selectable:
-		Bounds: 120, 90, 0, 0
+		Bounds: 120, 0, 0, -32
 	Health:
 		HP: 250000
 	Power:
 		Amount: 300
 	RenderSprites:
 	SelectionDecorations:
-		VisualBounds: 70, 90, 0, -32
+		# VisualBounds: 70, 90, 0, -32
 	RevealsShroud:
 		Range: 5c0
 	GivesBuildableArea:
@@ -2563,13 +2582,13 @@ SCRINREINFPAD:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
 	Selectable:
-		Bounds: 120, 90, 0, 0
+		Bounds: 120, 90, 0, -24
 	Health:
 		HP: 250000
 	RenderSprites:
 		PlayerPalette: playerscrin
 	SelectionDecorations:
-		VisualBounds: 70, 90, 0, -32
+		# VisualBounds: 120, 90, 0, -32
 	RevealsShroud:
 		Range: 5c0
 	RallyPoint:

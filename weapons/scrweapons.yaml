@@ -697,6 +697,7 @@ BattleshipCannon:
 
 DestroyerCannon:
 	Inherits: ^ArtilleryWarhead
+	Inherits@1: ^Large_Explosion
 	ReloadDelay: 200
 	Range: 14c0
 	MinRange: 4c0
@@ -717,12 +718,9 @@ DestroyerCannon:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinpulse2
-		ImpactSound: expnew14.aud
-		InvalidImpactTypes: Water
-	Warhead@3EffWater: CreateEffect
-		Explosions: scrinpulse2
-		ImpactSound: ssplash3.aud
-		ValidImpactTypes: Water
+		ExplosionPalette: effectalpha50
+		ImpactSounds: expnew14.aud
+	-Warhead@3EffWater: CreateEffect
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -962,8 +960,8 @@ EssenceMissile:
 		Explosions: tibexp2
 		ExplosionPalette: apolra2ialpha
 	Warhead@emp: GrantExternalCondition
-		Range: 150
-		Duration: 300
+		Range: 75
+		Duration: 250
 		Condition: batteryboost
 	Warhead@emp: GrantExternalCondition
 		Range: 200

@@ -490,6 +490,13 @@ caarmr:
 	critical-idle: ctarmr
 		Start: 2
 		ShadowStart: 5
+	dead: ctarmr
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	flag: flag
+		Length: *
+		Offset: 18,-24
 
 caaray:
 	Defaults:
@@ -515,6 +522,7 @@ caaray:
 	idle-light: ctaray_d
 		Length: 24
 		Tick: 100
+		Offset: -48,-24
 
 cabhut:
 	idle:
@@ -557,6 +565,16 @@ cahosp:
 	critical-idle:
 		Start: 2
 		ShadowStart: 5
+	dead:
+		Start: 2
+		ShadowStart: 5
+		Tick: 400
+	flag: flag
+		Length: *
+		Offset: -44,-36
+	flagg: flagg
+		Length: *
+		Offset: -48,-24
 
 capyr01:
 	idle: ctpyr01
