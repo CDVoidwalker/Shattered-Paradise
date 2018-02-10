@@ -534,9 +534,11 @@ WaspBullet:
 WaspBulletAA:
 	Inherits: WaspBullet
 	ValidTargets: Air
+	ReloadDelay: 30
+	Projectile: InstantHit
 	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
-		Damage: 2500
+		Damage: 3000
 		ValidTargets: Air
 		InvalidTargets: Ground, Vehicle, Building, Infantry
 

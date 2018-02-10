@@ -635,11 +635,12 @@ GargoylACannonAA:
 	ReloadDelay: 30
 	MinRange: 0c100
 	ValidTargets: Air
+	Projectile: InstantHit
 	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Vehicle, Building, Infantry
-		Damage: 1600
+		Damage: 3000
 
 CloudDamage:
 	Inherits: ^RifleWarhead

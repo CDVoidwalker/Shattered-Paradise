@@ -416,17 +416,18 @@ HarpyClaw:
 HarpyClawAA:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
-	ReloadDelay: 65
+	ReloadDelay: 30
 	ValidTargets: Air
-	Range: 5c0
+	Range: 6c0
 	MinRange: 0c100
+	Projectile: InstantHit
 	Report: cygun1.aud
 	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: BulletAS
 		Speed: 1c682
 		ValidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 3000
 		ValidTargets: Air
 		InvalidTargets: Ground, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath

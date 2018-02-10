@@ -1708,6 +1708,10 @@ CABSENTRYTURRET:
 		Recoils: no
 	Armament@1:
 		Weapon: ArtisanTurretLasor
+		LocalOffset: 200,-150,300
+	Armament@2:
+		Weapon: ArtisanTurretLasor
+		LocalOffset: 200,150,300
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building

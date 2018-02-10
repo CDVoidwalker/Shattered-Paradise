@@ -65,16 +65,16 @@
 ^InfantryShape:
 	HitShape:
 		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			TopLeft: -128, -128
-			BottomRight: 128, 128
+		Type: Circle
+			Radius: 128
+			VerticalTopOffset: 512
 
 ^VehicleShape:
 	HitShape:
 		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			TopLeft: -340, -340
-			BottomRight: 340, 340
+		Type: Circle
+			Radius: 340
+			VerticalTopOffset: 512
 
 ^1x1Shape:
 	HitShape:

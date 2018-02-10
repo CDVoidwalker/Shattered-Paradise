@@ -619,7 +619,7 @@ StormRiderBlast:
 
 StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
-	ReloadDelay: 75
+	ReloadDelay: 25
 	ValidTargets: Air
 	InvalidTargets: Ground, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage

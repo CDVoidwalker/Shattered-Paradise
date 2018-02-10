@@ -154,6 +154,7 @@ JUMPJETAIR:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
 	-ReloadAmmoPool@AIReload:
+	-AmmoPool:
 	# -GrantConditionOnPrerequisite@AIReload:
 
 MEDIC:

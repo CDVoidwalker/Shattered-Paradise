@@ -321,8 +321,11 @@ FighterHellfire:
 FighterHellfireAA:
 	Inherits: FighterHellfire
 	ValidTargets: Air
+	Burst: 2
+	BurstDelays: 3
+	ReloadDelay: 25
 	Warhead@1Dam: SpreadDamage
-		Damage: 2500
+		Damage: 1500
 		ValidTargets: Air
 
 OBBomb:
