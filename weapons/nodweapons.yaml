@@ -466,7 +466,7 @@ ProtonAA:
 		ValidTargets: Air
 
 CerberusLazorCharge:
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	ReloadDelay: 125
 	Range: 6c0
 	Burst: 7
@@ -476,7 +476,7 @@ CerberusLazorCharge:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground, Air
+		ValidTargets: Ground
 
 CerberusLazor:
 	Inherits: BCLazor
@@ -497,14 +497,6 @@ CerberusLazor:
 		ValidTargets: Ground, water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
-
-CerberusLazorAA:
-	Inherits: CerberusLazor
-	ValidTargets: Air
-	InvalidTargets: Ground
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: Air, AirHit
-		InvalidTargets: Ground
 
 CerberusLasorSpawn:
 	Inherits: CombatDroneLasorSpawn

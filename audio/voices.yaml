@@ -1,3 +1,7 @@
+SWVoice:
+	Voices:
+		Build: swdetected
+
 Infantry:
 	Voices:
 		Select: 15-i000, 15-i004, 15-i012, 15-i048

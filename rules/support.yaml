@@ -454,6 +454,7 @@ GAPLUG:
 		LongDesc: Fires an array of ion cannons on the targetted area.
 		ChargeInterval: 6000
 		ActivationSequence: idle
+		LaunchSound: SuperweaponFired
 		Weapon: IonCannonSpawner
 		OrderName: IonCannon2
 		Cursor: ioncannon
@@ -510,6 +511,7 @@ GTDROP:
 		PauseOnCondition: empdisable || disabled
 		ChargeInterval: 6000
 		CameraActor: camera
+		LaunchSound: SuperweaponFired
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -814,8 +816,8 @@ NATMPL:
 		SelectTargetSound:
 		InsufficientPowerSound:
 		IncomingSound: 00-i150.aud
-		LaunchSound: icbm1.aud
 		MissileWeapon: ClusterMissile
+		LaunchSound: SuperweaponFired
 		SpawnOffset: 0,427,0
 		DisplayTimerStances: Ally, Neutral, Enemy
 		DisplayTimer: True
@@ -878,11 +880,11 @@ NAMISL:
 		SelectTargetSound:
 		InsufficientPowerSound:
 		IncomingSound: 00-i150.aud
-		LaunchSound: icbm1.aud
 		FlightDelay: 100
 		MissileWeapon: ToxinMissile
 		DisplayTimerStances: Ally, Neutral, Enemy
 		SpawnOffset: 0,427,0
+		LaunchSound: SuperweaponFired
 		DisplayTimer: True
 		DisplayBeacon: True
 		DisplayRadarPing: True
@@ -1128,6 +1130,7 @@ MUTSW1:
 		Actor: ionstormgenerator
 		Icon: ionstorm
 		ChargeInterval: 9000
+		LaunchSound: SuperweaponFired
 		OrderName: IonStorm
 		DisplayTimer: True
 		DisplayBeacon: True
@@ -1171,6 +1174,7 @@ MUTSW2:
 		OrderName: Veinhole
 		DisplayTimer: True
 		DisplayBeacon: True
+		LaunchSound: SuperweaponFired
 		Description: Veinhole summon
 		LongDesc: Spawns a cluster of baby veinholes\non the targetted location.
 		DisplayTimerStances: Ally, Neutral, Enemy
@@ -1525,6 +1529,7 @@ SCRSW1:
 		OrderName: MeteorSpawner
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
+		LaunchSound: SuperweaponFired
 		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
@@ -1580,6 +1585,7 @@ SCRADVPOWR:
 		Duration: 500
 		KillCargo: no
 		DisplayRadarPing: True
+		LaunchSound: SuperweaponFired
 		SelectionCursor: emp
 		TargetCursor: emp
 		ValidTileSequencePrefix: build-valid-
@@ -2104,6 +2110,7 @@ CABSW1:
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: singularity
 		OrderName: singularity
+		LaunchSound: SuperweaponFired
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 		CameraActor: camera
@@ -2154,6 +2161,7 @@ cabobelisk:
 		DisplayRadarPing: True
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
+		LaunchSound: SuperweaponFired
 		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25

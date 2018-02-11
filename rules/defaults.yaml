@@ -442,6 +442,9 @@
 	Power:
 		Amount: -150
 	SupportPowerChargeBar:
+	AnnounceOnBuild:
+	Voiced:
+		VoiceSet: SWVoice
 
 ^Cloakable:
 	Cloak@CLOAKGENERATOR:
@@ -1001,7 +1004,7 @@
 		RequiresCondition: !inside-tunnel && !submerged
 	Mobile:
 		Voice: Move
-		Speed: 71
+		Speed: 50
 		Crushes: crate
 		SharesCell: true
 		TerrainSpeeds:
@@ -1280,6 +1283,7 @@
 		HP: 4500
 	-GainsExperience:
 	-GivesExperience:
+	-ProducibleWithLevel:
 	-Passenger:
 	-DamagedByTerrain:
 	-ActorLostNotification:

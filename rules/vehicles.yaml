@@ -1265,7 +1265,7 @@ SCRSCORPION:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 30
-		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Main blast does not deal damage to friendlies.\n- Attacks emit radiation that harms infantry in the area.
+		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 6

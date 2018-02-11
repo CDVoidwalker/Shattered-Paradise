@@ -625,8 +625,10 @@ E3:
 		PauseOnCondition: WebDisable
 
 E2:
-	Inherits: ENGINEER
 	Inherits: ^Mutant
+	Inherits@1: ENGINEER
+	Valued:
+		Cost: 500
 	Tooltip:
 		Name: Mutant Engineer
 	Buildable:
@@ -636,6 +638,9 @@ E2:
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Heals on tiberium fields.
 	Voiced:
 		VoiceSet: Engineer
+	Mobile:
+		Voice: Move
+		Speed: 40
 	RenderSprites:
 	WithInfantryBody:
 		AttackSequence: throw
@@ -1127,7 +1132,7 @@ CYBORG:
 	Mobile:
 		Speed: 40
 	Health:
-		HP: 9000
+		HP: 30000
 	Armament:
 		Weapon: CyborgVulcan
 	AttackFrontal:
@@ -1148,7 +1153,7 @@ CBORG:
 		Prerequisites: ~cabclaw
 		IconPalette: UnittemIcon
 	Health:
-		HP: 30000
+		HP: 9000
 	Mobile:
 		Speed: 45
 	RevealsShroud:

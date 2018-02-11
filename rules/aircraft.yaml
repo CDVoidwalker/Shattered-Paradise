@@ -492,7 +492,7 @@ CERBERUS:
 	Tooltip:
 		Name: Cerberus
 	Buildable:
-		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloacks friendly units next to it
+		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloacks friendly units next to it.
 		Queue: Air
 		BuildPaletteOrder: 20
 		Prerequisites: ~nahpad, natmpl
@@ -518,10 +518,6 @@ CERBERUS:
 		Weapon: CerberusLazorCharge
 	Armament:
 		Weapon: CerberusLazor
-		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
-		RequiresCondition: LaserCharge > 6
-	Armament@AA:
-		Weapon: CerberusLazorAA
 		LocalOffset: 500,0,0, 150, 400, 0, 150, -400, 0, -600,0,0
 		RequiresCondition: LaserCharge > 6
 	AttackHeli:

@@ -1,10 +1,10 @@
 Speech:
 	Prefixes:
-		gdi: speech-gdi|
-		nod: speech-nod|
-		cab: speech-nod|
-		mut: speech-nod|
-		scr: speech-nod|
+		gdi: g_
+		nod: n_
+		cab: n_
+		mut: n_
+		scr: n_
 	Notifications:
 		AirUnitLost: 00-i074
 		AirstrikeReady: 00-n160
@@ -84,3 +84,5 @@ Speech:
 		WarningInboundTacticalNukeDetected: 00-n098
 		Win: 00-i284
 		YouHaveResigned: 00-i288
+		SuperWeaponDetected: swdetected
+		SuperweaponFired: swlaunch
