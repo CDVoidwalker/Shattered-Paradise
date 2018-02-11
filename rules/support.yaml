@@ -235,7 +235,7 @@ GACSAM:
 		Recoils: no
 	Armament@SAM:
 		Weapon: GdiRedEye
-		LocalOffset: 400,0,512
+		LocalOffset: 400,0,1800
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	LineBuildNode:
@@ -1708,10 +1708,10 @@ CABSENTRYTURRET:
 		Recoils: no
 	Armament@1:
 		Weapon: ArtisanTurretLasor
-		LocalOffset: 200,-150,300
+		LocalOffset: 300,-150,300
 	Armament@2:
 		Weapon: ArtisanTurretLasor
-		LocalOffset: 200,150,300
+		LocalOffset: 300,150,300
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building

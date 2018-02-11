@@ -2556,14 +2556,14 @@ NEUTRALPOWERPLANT:
 		Dimensions: 3, 3
 		Adjacent: 5
 	Selectable:
-		Bounds: 120, 0, 0, -32
+		Bounds: 150, 110, 0, -32
 	Health:
 		HP: 250000
 	Power:
 		Amount: 300
 	RenderSprites:
 	SelectionDecorations:
-		# VisualBounds: 70, 90, 0, -32
+		VisualBounds: 150, 110, 0, -32
 	RevealsShroud:
 		Range: 5c0
 	GivesBuildableArea:

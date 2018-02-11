@@ -292,7 +292,7 @@ G4TNK:
 SONIC:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 1200
+		Cost: 1500
 	Tooltip:
 		Name: Disruptor
 	Buildable:
@@ -373,7 +373,7 @@ BGGY:
 	Inherits@1: ^AutoTargetGround
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 550
+		Cost: 400
 	Tooltip:
 		Name: Raider Buggy
 	Buildable:
@@ -1155,7 +1155,7 @@ MRLS:
 		Prerequisites: ~muweap, muhall
 	Mobile:
 		TurnSpeed: 10
-		Speed: 95
+		Speed: 80
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 15000
@@ -1453,7 +1453,7 @@ SCRMBT:
 	Health:
 		HP: 28125
 	Mobile:
-		Speed: 95
+		Speed: 80
 	Turreted:
 		TurnSpeed: 7
 	Armament:
@@ -1842,12 +1842,18 @@ PALADIN:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	RenderSprites:
-	Armament@primary:
+	Armament@1:
 		Weapon: PalaLazor
-		LocalOffset: 500,500,1200
-	Armament@secondary:
+		LocalOffset: 555,500,1200
+	Armament@2:
 		Weapon: PalaLazor
-		LocalOffset: 500,-500,1200
+		LocalOffset: 555,-500,1200
+	Armament@3:
+		Weapon: PalaLazor
+		LocalOffset: 555,500,1350
+	Armament@4:
+		Weapon: PalaLazor
+		LocalOffset: 555,-500,1350
 	AutoTarget:
 	Selectable:
 		Bounds: 40, 60, 0, -20

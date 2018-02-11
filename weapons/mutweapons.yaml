@@ -74,13 +74,12 @@ SkirmisherMortar:
 
 FiendShard2:
 	Inherits: ^APWarhead
-	ReloadDelay: 70
+	ReloadDelay: 30
 	Burst: 2
 	Range: 4c0
 	Report: fiend2.aud
 	ValidTargets: Ground
 	Projectile: Missile
-		Speed: 300
 		Image: CRYSTAL4
 		Inaccuracy: 512
 		HorizontalRateOfTurn: 40
@@ -89,7 +88,7 @@ FiendShard2:
 		LaunchAngle: 60
 		Palette: greentiberium
 	Warhead@1Dam: SpreadDamage
-		Damage: 1800
+		Damage: 1500
 		ValidTargets: Ground
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@3EffWater: CreateEffect
@@ -107,6 +106,7 @@ FiendShardAA:
 	Inherits: FiendShard2
 	Inherits: ^RocketWarhead
 	ValidTargets: Air
+	Range: 5c512
 	Projectile: Missile
 		Image: CRYSTAL4
 		Palette: greentiberium
@@ -438,7 +438,7 @@ QuadFire:
 
 QuadFireAA:
 	Inherits: QuadFire
-	Range: 9c0
+	Range: 7c512
 	ValidTargets: Air
 	Projectile: InstantHit
 	InvalidTargets: Ground
@@ -466,7 +466,6 @@ TiberianRocket:
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		HorizontalRateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 200

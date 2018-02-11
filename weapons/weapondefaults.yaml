@@ -33,15 +33,16 @@
 		MaximumLaunchAngle: 300
 		MaximumLaunchSpeed: 0c543
 		MinimumLaunchSpeed: 0c301
-		Speed: 1c300
+		Speed: 400
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 0c181
 		Image: DRAGON
 		HorizontalRateOfTurn: 40
 		VerticalRateOfTurn: 40
-		RangeLimit: 15c204
+		RangeLimit: 14c0
 		Palette: effect
+		TrailPalette: effectalpha75
 		AllowSnapping: true
 		CloseEnough: 200
 	Warhead@1Dam: SpreadDamage

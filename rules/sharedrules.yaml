@@ -33,7 +33,8 @@ ENGINEER:
 		BuildPaletteOrder: 8
 		Prerequisites: ~SharedEngie
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
-	-ProducibleWithLevel:
+	-GainsExperience:
+	-ProducibleWithLevel
 	Voiced:
 		VoiceSet: Engineer
 	RenderSprites:
@@ -41,7 +42,6 @@ ENGINEER:
 		FactionImages:
 			gdi: engineer.gdi
 			nod: engineer.nod
-	-GainsExperience:
 	AttackFrontal:
 
 MCV:

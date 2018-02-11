@@ -13,12 +13,11 @@ MarineRifle:
 GrenadierBazooka:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 100
-	Range: 6c600
+	ReloadDelay: 60
+	Range: 6c0
 	Report: rketinf1.aud
 	ValidTargets: Ground
 	Projectile: Missile
-		Speed: 233
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 350
@@ -27,15 +26,15 @@ GrenadierBazooka:
 		MaximumLaunchAngle: 270
 		TrailImage: small_smoke_trail
 		RateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 5500
+		Damage: 3000
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
 
 GrenadierBazookaAA:
 	Inherits: GrenadierBazooka
+	Range: 7c0
 	ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
@@ -150,7 +149,6 @@ HoverMissile:
 	ValidTargets: Ground
 	InvalidTargets: Air
 	Projectile: Missile
-		MaximumLaunchSpeed: 213
 		Arm: 2
 		Blockable: false
 		Shadow: true
@@ -283,7 +281,6 @@ MammothTusk:
 		TrailImage: small_smoke_trail
 		HorizontalRateOfTurn: 10
 		MaximumLaunchSpeed: 213
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
@@ -305,8 +302,6 @@ FighterHellfire:
 	Burst: 2
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: Missile
-		Speed: 800
-		MaximumLaunchSpeed: 512
 		Arm: 2
 		Blockable: false
 		Shadow: true
@@ -445,7 +440,6 @@ GdiRedEye:
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		HorizontalRateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000

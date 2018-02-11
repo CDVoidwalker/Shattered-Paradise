@@ -56,11 +56,10 @@ CrusaderBazooka:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 50
-	Range: 6c600
+	Range: 6c0
 	Report: rketinf1.aud
 	ValidTargets: Ground, Vehicle, Building, Infantry
 	Projectile: Missile
-		Speed: 233
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 350
@@ -68,15 +67,15 @@ CrusaderBazooka:
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 2700
+		Damage: 3000
 		ValidTargets: Ground, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 CrusaderBazookaAA:
 	Inherits: CrusaderBazooka
 	ValidTargets: Air
+	Range: 7c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 2700
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
@@ -449,7 +448,6 @@ Proton:
 		Inaccuracy: 128
 		Palette: effect
 		Image: TORPEDO
-		RangeLimit: 15c0
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			BuildingArmor: 75
@@ -525,7 +523,7 @@ CerberusShrapnelLasor:
 
 TurretLaserFire:
 	Inherits: ^FullDamage
-	ReloadDelay: 30
+	ReloadDelay: 45
 	Range: 6c768
 	Report: lastur1.aud
 	Projectile: LaserZap
@@ -553,7 +551,6 @@ RedEye2:
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		HorizontalRateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000

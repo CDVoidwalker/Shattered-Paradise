@@ -25,9 +25,9 @@ FiendShard:
 GreenTibRadiation:
 	ReloadDelay: 100
 	Projectile: InstantExplode
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
-		Spread: 1
+	# Warhead@1Dam: SpreadDamage
+		# Damage: 1
+		# Spread: 1
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3, 4, 5
 		Falloff: 100, 65, 45, 25, 5

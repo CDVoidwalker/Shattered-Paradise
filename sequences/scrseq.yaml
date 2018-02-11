@@ -117,7 +117,7 @@ legio:
 
 shapeshifter:
 	Inherits@1: ^InfantryDeathAnims
-	Defaults: e1.nod
+	Defaults: e1
 		Tick: 80
 	stand: civ1
 		Facings: 8
@@ -127,7 +127,7 @@ shapeshifter:
 		Length: 6
 		Facings: 8
 		ShadowStart: 300
-	idle1: engineer.gdi
+	idle1: engineer
 		Start: 71
 		Length: 15
 		ShadowStart: 363
@@ -143,7 +143,7 @@ shapeshifter:
 		Start: 71
 		Length: 15
 		ShadowStart: 363
-	prone-run: e1.nod
+	prone-run: e1
 		Start: 86
 		Length: 6
 		Facings: 8

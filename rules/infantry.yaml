@@ -36,7 +36,7 @@ GRENADIER:
 	Tooltip:
 		Name: Grenadier
 	Health:
-		HP: 11000
+		HP: 9000
 	Mobile:
 		Speed: 45
 	Explodes:
@@ -262,7 +262,7 @@ CRUSADER:
 	Tooltip:
 		Name: Crusader
 	Health:
-		HP: 9000
+		HP: 7000
 	Mobile:
 		Speed: 45
 	Armament:
@@ -567,13 +567,13 @@ MUTFIEND:
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
 	Valued:
-		Cost: 250
+		Cost: 200
 	Health:
-		HP: 18000
+		HP: 12000
 		Shape: Circle
 			Radius: 213
 	Mobile:
-		Speed: 65
+		Speed: 70
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -625,8 +625,8 @@ E3:
 		PauseOnCondition: WebDisable
 
 E2:
+	Inherits: ENGINEER
 	Inherits: ^Mutant
-	Inherits@1: ^Engineer
 	Tooltip:
 		Name: Mutant Engineer
 	Buildable:
@@ -639,8 +639,12 @@ E2:
 	RenderSprites:
 	WithInfantryBody:
 		AttackSequence: throw
+	RenderSprites:
+		Image: e2
+		-FactionImages:
 	-AutoTarget:
 	-GainsExperience:
+	-ProducibleWithLevel
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 
@@ -797,7 +801,7 @@ SHARK:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 24
-		Description: Melee creature that tears down enemies.\n\nGood vs Infantry.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
+		Description: Melee creature that tears down enemies.\n\nGood vs Infantry.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\n- Immune to unit radiation (green radiation).
 		Prerequisites: ~scrrax
 	Valued:
 		Cost: 120
@@ -837,6 +841,7 @@ SHARK:
 	DetectCloaked:
 		CloakTypes: Cloak, Hijacker
 	-TakeCover:
+	-DamagedByRadioactivity@Default:
 
 LEGIO:
 	Inherits: ^ScrinSoldier
@@ -850,7 +855,7 @@ LEGIO:
 	Tooltip:
 		Name: Legionnaire
 	Health:
-		HP: 11250
+		HP: 9000
 	Mobile:
 		Speed: 45
 	Passenger:
@@ -870,8 +875,7 @@ LEGIO:
 		Prerequisites: barracks.Conditiond
 
 SHAPESHIFTER:
-	Inherits: ^Soldier
-	Inherits@3: ^Engineer
+	Inherits: ENGINEER
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -886,11 +890,11 @@ SHAPESHIFTER:
 	-DamagedByTerrain:
 	Selectable:
 		Priority: 6
-	-TakeCover:
 	WithInfantryBody:
 		IdleSequences: idle1, idle2, idle3, idle4
 	RenderSprites:
-	-GainsExperience:
+		Image: shapeshifter
+		-FactionImages:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
@@ -1123,7 +1127,7 @@ CYBORG:
 	Mobile:
 		Speed: 40
 	Health:
-		HP: 35000
+		HP: 9000
 	Armament:
 		Weapon: CyborgVulcan
 	AttackFrontal:
@@ -1146,7 +1150,7 @@ CBORG:
 	Health:
 		HP: 30000
 	Mobile:
-		Speed: 40
+		Speed: 45
 	RevealsShroud:
 		Range: 8c0
 	Voiced:
@@ -1232,11 +1236,10 @@ PDRONE:
 			EnergyDeath: 6
 
 SWARMLING:
-	Inherits: SHAPESHIFTER
+	Inherits: ENGINEER
 	Inherits@2: ^CabRender
 	Tooltip:
 		Name: Swarmling
-	-ProducibleWithLevel:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 13
@@ -1248,6 +1251,9 @@ SWARMLING:
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
+	RenderSprites:
+		Image: swarmling
+		-FactionImages:
 	-WithDeathAnimation@normal:
 	-WithDeathAnimation@tib:
 	-WithDeathAnimation@explosion:

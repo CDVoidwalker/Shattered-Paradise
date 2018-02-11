@@ -14,8 +14,8 @@ SharkJump:
 LegioNeedler:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Scrin_Pulse
-	ReloadDelay: 100
-	Range: 5c0
+	ReloadDelay: 60
+	Range: 6c0
 	Report: photon1.wav
 	ValidTargets: Ground, Air
 	Projectile: Missile
@@ -24,18 +24,15 @@ LegioNeedler:
 		Palette: apblue
 		Image: blueballminitrail
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 3000
 		Versus:
-			InfantryArmor: 30
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 
 LegioNeedlerAA:
 	Inherits: LegioNeedler
+	Range: 7c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		Versus:
-			InfantryArmor: 30
 		ValidTargets: Air
 
 ColossiTesla:
@@ -269,6 +266,9 @@ ScorpAcid:
 		Spread: 250
 		Damage: 975
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		Versus:
+			InfantryArmor: 125
+		ValidStances: Enemy, Neutral
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall

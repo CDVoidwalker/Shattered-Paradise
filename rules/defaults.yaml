@@ -2146,7 +2146,7 @@
 		TargetTypes: ScrinUnitBeingHealed
 		RequiresCondition: batteryboost
 	SelfHealing@batteryboost:
-		PercentageStep: 2
+		PercentageStep: 1
 		Step: 0
 		Delay: 25
 		HealIfBelow: 101

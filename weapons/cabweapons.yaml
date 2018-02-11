@@ -8,31 +8,31 @@ CyborgVulcan:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 2400
+		Damage: 1800
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 CyborgRocket:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 60
-	Range: 5c0
+	Range: 6c0
 	Report: rketinf1.aud
 	ValidTargets: Ground
 	Projectile: Missile
-		Speed: 213
 		Blockable: false
 		Shadow: true
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 3000
 		ValidTargets: Ground
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 CyborgRocketAA:
 	Inherits: CyborgRocket
 	ValidTargets: Air
+	Range: 7c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
@@ -82,7 +82,6 @@ ReaperScythe:
 	Report: samshot1.aud
 	ValidTargets: Ground
 	Projectile: Missile
-		Speed: 213
 		Blockable: false
 		Shadow: true
 		Image: DRAGON
@@ -240,14 +239,12 @@ Dogzooka:
 	Report: rketinf1.aud
 	ValidTargets: Ground, Air
 	Projectile: Missile
-		Speed: 213
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 128
 		Image: DRAGON
 		TrailImage: small_smoke_trail
 		RateOfTurn: 8
-		RangeLimit: 15c0
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
@@ -265,7 +262,7 @@ ArtisanTurretLasor:
 		Color: 0dc7b8
 	Warhead@1Dam: SpreadDamage
 		Damage: 1400
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 
 CombatDroneAproach:
 	ReloadDelay: 25
@@ -512,7 +509,7 @@ PalaLazor:
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
-		Damage: 5100
+		Damage: 2550
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 WaspBullet:
