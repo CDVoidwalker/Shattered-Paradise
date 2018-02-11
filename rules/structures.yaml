@@ -871,7 +871,7 @@ SCRPROC:
 		Queue: Building
 		BuildPaletteOrder: 2
 		Prerequisites: scrpowr, ~structures.scr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 4000$.
 		IconPalette: UnittemIconScrin
 	Building:
 		Footprint: xx== xx== xx==
@@ -884,7 +884,7 @@ SCRPROC:
 		EmptyWeapon: TiberiumExplosion
 	StoresResources:
 		PipCount: 17
-		Capacity: 9999
+		Capacity: 4000
 	FreeActor:
 		Actor: SCRHARV
 		SpawnOffset: 3,1
@@ -926,7 +926,7 @@ SCRPROC2:
 		Queue: Building
 		BuildPaletteOrder: 2
 		Prerequisites: scrpowr, ~structures.scr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 4000$.\n- Turned 180 degrees.
 		IconPalette: UnittemIconScrin
 	Building:
 		Footprint: ==xx ==xx ==xx
@@ -941,7 +941,7 @@ SCRPROC2:
 		SpawnOffset: 1,1
 	StoresResources:
 		PipCount: 17
-		Capacity: 9999
+		Capacity: 4000
 
 SCRWEAP:
 	Inherits: ^Factory

@@ -166,7 +166,6 @@ IonBeamCreator:
 		Range: 15
 
 IonScorch:
-	Inherits: ^SWBaseEffects
 	ReloadDelay: 1
 	Projectile: InstantExplode
 	ValidTargets: Ground, Air, IonSpawner
@@ -176,15 +175,17 @@ IonScorch:
 		ImpactSound: ion1.aud
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 200
-		Damage: 200
+		Damage: 500
 		InvalidTargets: IonBeam
 		DamageTypes: SmallExplosionDeath
 			InfantryArmor: 500
 			BuildingArmor: 100
 			VehicleArmor: 50
 			ConcreteArmor: 5
-	Warhead@KillShieldedUnit: GrantExternalCondition
-		Range: 0c512
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Condition: BreakShield
+		Range: 32
+		Duration: 400
 
 IonDrag:
 	ReloadDelay: 5
@@ -339,7 +340,7 @@ ClusterMissile:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@ClusterDamage3: SpreadDamage
 		Damage: 21000
-		Spread: 2c512
+		Spread: 1c512
 		Falloff: 1000, 700, 500, 300, 150, 50, 0
 		Delay: 15
 		ValidTargets: Ground, Water, Air
@@ -350,23 +351,10 @@ ClusterMissile:
 			ConcreteArmor: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@7Dam_areanukeb: SpreadDamage
-		Spread: 3c768
-		Damage: 5000
+		Spread: 2c0
+		Damage: 500
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 6
-		ValidTargets: Ground, Air, Trees
-		AffectsParent: True
-		Versus:
-			InfantryArmor: 500
-			BuildingArmor: 100
-			VehicleArmor: 50
-			ConcreteArmor: 5
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@10Dam_areanukec: SpreadDamage
-		Spread: 5c0
-		Damage: 2000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Delay: 9
 		ValidTargets: Ground, Air, Trees
 		AffectsParent: True
 		Versus:

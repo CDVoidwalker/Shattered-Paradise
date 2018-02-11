@@ -413,7 +413,7 @@ HarpyClaw:
 			BuildingArmor: 100
 
 HarpyClawAA:
-	Inherits: ^RifleWarhead
+	Inherits: ^FullDamage
 	Inherits@2: ^Piffs
 	ReloadDelay: 30
 	ValidTargets: Air
@@ -530,22 +530,20 @@ TurretLaserFire:
 RedEye2:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 75
-	Range: 8c0
+	ReloadDelay: 40
+	Range: 9c0
 	Report: samshot1.aud
 	ValidTargets: Air
 	Projectile: Missile
-		MaximumLaunchSpeed: 384
 		Arm: 2
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 128
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 8000
+		Damage: 5000
 		ValidTargets: Air
 		DamageTypes: SmallExplosionDeath
 

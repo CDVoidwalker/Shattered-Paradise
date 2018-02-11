@@ -56,6 +56,9 @@ JJGrenade:
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 5000
+		Versus:
+			BuildingArmor: 100
+			VehicleArmor: 25
 		ValidTargets: Ground
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
@@ -428,21 +431,19 @@ GdiRedEye:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Twlt
 	ReloadDelay: 40
-	Range: 8c0
+	Range: 9c0
 	Report: samshot1.aud
 	ValidTargets: Air
 	Projectile: Missile
-		MaximumLaunchSpeed: 384
 		Arm: 2
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 128
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 5000
 		ValidTargets: Air
 		DamageTypes: SmallExplosionDeath
 

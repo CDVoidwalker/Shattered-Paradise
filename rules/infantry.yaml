@@ -84,14 +84,14 @@ JUMPJETAIR:
 	Inherits: ^Aircraft
 	Inherits@2: ^AutoTargetAll
 	Valued:
-		Cost: 600
+		Cost: 450
 	Tooltip:
 		Name: Jumpjet Infantry
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 3
 		Prerequisites: ~gapile, garadr
-		Description: Soldiers with jetpacks armed with a grenade launcher.\n\nGood vs: Ground Targets\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy.\n- BUG: looses experience if it change modes.
+		Description: Soldiers with jetpacks armed with a grenade launcher.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy.\n- BUG: looses experience if it change modes.
 	Voiced:
 		VoiceSet: Marine
 	Selectable:
@@ -459,13 +459,6 @@ CrusaHologram:
 	RenderSprites:
 		Image: crusader
 
-EngineerHologram:
-	Inherits@2: ^Hologram
-	-AttackFrontal:
-	-AutoTarget:
-	RenderSprites:
-		Image: engineer
-
 TemplarHologram:
 	Inherits@2: ^Hologram
 	Armament:
@@ -473,18 +466,6 @@ TemplarHologram:
 	Crushable:
 	RenderSprites:
 		Image: templar
-
-HijackerHologram:
-	Inherits@2: ^Hologram
-	RenderSprites:
-		Image: mhijack
-
-HandHologram:
-	Inherits@2: ^Hologram
-	Armament:
-		Weapon: BHRifle
-	RenderSprites:
-		Image: bhs
 
 MARAUDER:
 	Inherits: ^Mutant
@@ -834,6 +815,9 @@ SHARK:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
+	AutoTargetPriority:
+		Priority: 1
+		ValidTargets: Infantry
 	AttackMove:
 		Voice: Move
 	AutoTarget:
@@ -1195,7 +1179,7 @@ PDRONE:
 		CrushSound: squish6.aud
 	Hovers:
 	Mobile:
-		Speed: 65
+		Speed: 75
 		-RequiresCondition: WebDisable
 		TerrainSpeeds:
 			Clear: 100
@@ -1364,7 +1348,7 @@ GLAD:
 		Speed: 45
 		SharesCell: False
 	Health:
-		HP: 65000
+		HP: 59000
 	Armament@primary:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle

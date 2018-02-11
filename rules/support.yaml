@@ -165,7 +165,7 @@ GAROCK:
 	Tooltip:
 		Name: RPG Tower
 	Buildable:
-		Description: Anti-Armor base defense.\n\nGood vs: Vehicles.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
+		Description: Anti-Armor base defense.\n\nGood vs: Vehicles, Structures.\n\nSpecial:\n- Provides stealth detection.\n- Requires power to operate.
 		Queue: Defense
 		BuildPaletteOrder: 1
 		Prerequisites: gaweap, ~structures.gdi
@@ -966,7 +966,7 @@ MUFLAK:
 	Inherits: ^AntiAir
 	Inherits@1: ^MutRender
 	Valued:
-		Cost: 350
+		Cost: 600
 	Tooltip:
 		Name: Flak Station
 	Buildable:
@@ -979,7 +979,7 @@ MUFLAK:
 		Bounds: 40, 36, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 90000
+		HP: 100000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -1374,7 +1374,7 @@ SCRTRACTOR:
 	Inherits@2: ^ScrinRender
 	Inherits@4: ^ScrinDeathExplo
 	Valued:
-		Cost: 550
+		Cost: 600
 	Tooltip:
 		Name: Tractor Beam
 	Buildable:
@@ -1387,7 +1387,7 @@ SCRTRACTOR:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 90000
+		HP: 120000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:
@@ -1822,7 +1822,7 @@ CABRAIL:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 160000
+		HP: 120000
 	BodyOrientation:
 		QuantizedFacings: 32
 	RenderRangeCircle:

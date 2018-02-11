@@ -459,6 +459,9 @@ scrrecharger:
 	stand:
 		Facings: -8
 		ShadowStart: 96
+	idle:
+		Facings: -8
+		ShadowStart: 96
 	run:
 		Start: 8
 		Facings: -8

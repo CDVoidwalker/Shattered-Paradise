@@ -297,7 +297,7 @@ SONIC:
 		Name: Disruptor
 	Buildable:
 		Queue: Vehicle
-		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals damage over time to any unit in line of fire\n- Can crush infantry
+		Description: Armored high-tech vehicle with sonic armament.\n\nGood vs: Ground Targets.\n\nSpecial:\n- Deals damage over time to any unit in line of fire.\n- Can crush infantry.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	-RejectsOrders@berserk:
@@ -373,7 +373,7 @@ BGGY:
 	Inherits@1: ^AutoTargetGround
 	Inherits@3: ^BasicStealthDetection
 	Valued:
-		Cost: 400
+		Cost: 300
 	Tooltip:
 		Name: Raider Buggy
 	Buildable:
@@ -469,6 +469,7 @@ BUGGYHOLOGRAM:
 		Palette: mouse
 	Mobile:
 		Crushes: crate
+	-Cargo:
 	-ThrowsShrapnel:
 	-Explodes:
 	RenderSprites:
@@ -949,7 +950,7 @@ WOLF:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 27
-		Description: Tiberium beast that uses tiberium gas to harm nearby units.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Heals on Tiberium.\n- Attacks emit radiation that harms infantry in the area.\n- Can mutate killed enemy units.
+		Description: Tiberium beast that uses tiberium gas to harm nearby units.\n\nGood vs: Infantry, Vehicles\n\nSpecial:\n- Heals on Tiberium.\n- Attacks emit radiation that harms infantry in the area.\n- Can mutate killed enemy units.\n- Inmune to tiberium radiation.
 		Prerequisites: ~muweap, muradr
 	Valued:
 		Cost: 800
@@ -980,9 +981,14 @@ WOLF:
 	Mobile:
 		Speed: 80
 		SharesCell: false
+		-RequiresCondition: !WebDisable
 	ExternalCondition@berserk:
 		Condition: berserk
 	-DamagedByRadioactivity@Default:
+	-WithColoredOverlay@WebDisable:
+	-TimedConditionBar@WebDisable:
+	-WithIdleOverlay@web:
+	-ExternalCondition@WebDisable:
 
 STRUCK:
 	Inherits: ^VoxelTank
@@ -1151,7 +1157,7 @@ MRLS:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
-		Description: Light artillery armed with tiberium rockets.\n\nGood vs: Ground\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed enemy units\n- Emittes tiberium gas damaging nearby units.\n- Can crush infantry.
+		Description: Light artillery armed with tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed enemy units\n- Emittes tiberium gas damaging nearby units.\n- Can crush infantry.\n- Inmune to tiberium radiation.
 		Prerequisites: ~muweap, muhall
 	Mobile:
 		TurnSpeed: 10
@@ -1244,6 +1250,7 @@ DEATHCLAW:
 	Mobile:
 		Speed: 100
 		SharesCell: False
+		-RequiresCondition: !WebDisable
 	Armament:
 		Weapon: DeathclawBlow
 	Armament@1:
@@ -1253,6 +1260,11 @@ DEATHCLAW:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 30,50,0,-20
+	-DamagedByRadioactivity@Default:
+	-WithColoredOverlay@WebDisable:
+	-TimedConditionBar@WebDisable:
+	-WithIdleOverlay@web:
+	-ExternalCondition@WebDisable:
 
 SCRSCORPION:
 	Inherits: ^ScrinVehicle
@@ -1265,7 +1277,7 @@ SCRSCORPION:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 30
-		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.
+		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 6
@@ -1492,6 +1504,7 @@ SCRRECHARGER:
 		HP: 25000
 	-WithIdleOverlay@shield:
 	-Targetable@Shield:
+	-DamageMultiplier@Boarded6:
 	Armament:
 		Weapon: VanguardShrapnel
 		TargetStances: Ally

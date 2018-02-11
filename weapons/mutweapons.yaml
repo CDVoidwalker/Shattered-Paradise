@@ -721,14 +721,14 @@ LeonidCannon:
 
 FlakFire:
 	Inherits: ^FullDamage
-	ReloadDelay: 75
-	Range: 8c0
+	ReloadDelay: 50
+	Range: 9c0
 	Report: cygun1.aud
 	ValidTargets: Air
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		Damage: 3000
+		Damage: 5000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs

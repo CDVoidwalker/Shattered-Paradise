@@ -8,6 +8,8 @@ SharkJump:
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
+		Versus:
+			BuildingArmor: 15
 		Spread: 0c030
 		DamageTypes: BulletDeath, ScrinEssenceKill
 
@@ -268,6 +270,7 @@ ScorpAcid:
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		Versus:
 			InfantryArmor: 125
+			BuildingArmor: 75
 		ValidStances: Enemy, Neutral
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -599,7 +602,6 @@ StormRiderBlast:
 		MaximumLaunchAngle: 300
 		MaximumLaunchSpeed: 0c543
 		MinimumLaunchSpeed: 0c301
-		Speed: 0c600
 		Blockable: false
 		Shadow: true
 		HorizontalRateOfTurn: 40
@@ -837,6 +839,8 @@ NeedlerAcid:
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
 		Damage: 600
+		Versus:
+			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -855,7 +859,7 @@ NeedlerAcid:
 TractorBeam:
 	Inherits: ^FullDamage
 	ReloadDelay: 25
-	Range: 8c0
+	Range: 9c0
 	Report:
 	ValidTargets: Air
 	Projectile: BulletAS
@@ -864,7 +868,7 @@ TractorBeam:
 		Shadow: true
 		Palette: pips
 	Warhead@1Dam: SpreadDamage
-		Damage: 2000
+		Damage: 1500
 		ValidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@TractorStop: GrantExternalCondition
