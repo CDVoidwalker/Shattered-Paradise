@@ -207,7 +207,7 @@ EAGLEGUARD:
 	-DamagedByTerrain:
 	Armament:
 		Weapon: TrooperRail
-		LocalOffset: 400,100,450
+		LocalOffset: 550,100,550
 	-Crushable:
 	AttackFrontal:
 		Voice: Attack

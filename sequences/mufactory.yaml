@@ -112,6 +112,7 @@ machineshop:
 	Defaults:
 		DepthSprite: isodepth.shp
 		Offset: 0, -24, 24
+		UseTilesetCode: False
 	idle:
 		ShadowStart: 2
 	damaged-idle:
