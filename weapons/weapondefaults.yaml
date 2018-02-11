@@ -40,7 +40,7 @@
 		Image: DRAGON
 		HorizontalRateOfTurn: 40
 		VerticalRateOfTurn: 40
-		RangeLimit: 14c0
+		RangeLimit: 15c0
 		Palette: effect
 		TrailPalette: effectalpha75
 		AllowSnapping: true

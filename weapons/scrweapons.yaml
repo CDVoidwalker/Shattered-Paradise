@@ -661,8 +661,8 @@ Glyder2Cannon:
 	Report: photon1.wav
 	ValidTargets: Air
 	Projectile: Missile
-		Speed: 300
 		Image: torpedo
+		RangeLimit: 21c0
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
