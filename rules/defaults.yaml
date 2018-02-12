@@ -445,6 +445,7 @@
 	AnnounceOnBuild:
 	Voiced:
 		VoiceSet: SWVoice
+		Volume: 15
 
 ^Cloakable:
 	Cloak@CLOAKGENERATOR:

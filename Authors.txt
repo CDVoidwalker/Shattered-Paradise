@@ -59,7 +59,7 @@ Windawz		: CABAL, Scrin and Forgotten UI remasters. Repair Vehicle recolor icon,
 wirecase.com	: Guardian Platform model.				
 Zoidzilla	: His template.	
 Zero18		: Gargoil vxl,	Quad Cannon vxl, Basilisk vxl,	Leonid tank vxl, Hologram Projector vxl.
-ZxGanon		: Superweapon ready sounds.
+ZxGanon		: Super weapon warning announcer.
 
 #Sounds
 Audiomicro.com	: Legio and Glyder sound effect.

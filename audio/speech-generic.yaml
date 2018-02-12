@@ -84,4 +84,5 @@ Speech:
 		WarningInboundTacticalNukeDetected: 00-n098
 		Win: 00-i284
 		YouHaveResigned: 00-i288
-		SuperweaponFired: 41-n000#swlaunch
+		SuperweaponFired: swlaunch
+		SuperweaponReady: swready

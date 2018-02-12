@@ -1,6 +1,7 @@
 SWVoice:
 	Voices:
-		Build: n_41-n000#swdetected
+		Build: n_swdetected#s_00-i216
+		SuperweaponFired: n_swlaunch
 
 Infantry:
 	Voices:

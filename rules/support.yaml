@@ -454,7 +454,10 @@ GAPLUG:
 		LongDesc: Fires an array of ion cannons on the targetted area.
 		ChargeInterval: 6000
 		ActivationSequence: idle
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		Weapon: IonCannonSpawner
 		OrderName: IonCannon2
 		Cursor: ioncannon
@@ -511,7 +514,10 @@ GTDROP:
 		PauseOnCondition: empdisable || disabled
 		ChargeInterval: 6000
 		CameraActor: camera
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
 		CameraRemoveDelay: 350
@@ -812,12 +818,14 @@ NATMPL:
 		Description: Atomic Bomb
 		LongDesc: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		BeginChargeSound:
-		EndChargeSound: 00-i154.aud
+		EndChargeSound: n_swready.aud
 		SelectTargetSound:
 		InsufficientPowerSound:
-		IncomingSound: 00-i150.aud
 		MissileWeapon: ClusterMissile
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		SpawnOffset: 0,427,0
 		DisplayTimerStances: Ally, Neutral, Enemy
 		DisplayTimer: True
@@ -876,15 +884,17 @@ NAMISL:
 		Description: Toxin Missile
 		LongDesc: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
 		BeginChargeSound:
-		EndChargeSound: 00-i154.aud
+		EndChargeSound: n_swready.aud
 		SelectTargetSound:
 		InsufficientPowerSound:
-		IncomingSound: 00-i150.aud
 		FlightDelay: 100
 		MissileWeapon: ToxinMissile
 		DisplayTimerStances: Ally, Neutral, Enemy
 		SpawnOffset: 0,427,0
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		DisplayTimer: True
 		DisplayBeacon: True
 		DisplayRadarPing: True
@@ -1130,7 +1140,10 @@ MUTSW1:
 		Actor: ionstormgenerator
 		Icon: ionstorm
 		ChargeInterval: 9000
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		OrderName: IonStorm
 		DisplayTimer: True
 		DisplayBeacon: True
@@ -1174,7 +1187,10 @@ MUTSW2:
 		OrderName: Veinhole
 		DisplayTimer: True
 		DisplayBeacon: True
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		Description: Veinhole summon
 		LongDesc: Spawns a cluster of baby veinholes\non the targetted location.
 		DisplayTimerStances: Ally, Neutral, Enemy
@@ -1529,7 +1545,10 @@ SCRSW1:
 		OrderName: MeteorSpawner
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25
@@ -1585,7 +1604,10 @@ SCRADVPOWR:
 		Duration: 500
 		KillCargo: no
 		DisplayRadarPing: True
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		SelectionCursor: emp
 		TargetCursor: emp
 		ValidTileSequencePrefix: build-valid-
@@ -1661,7 +1683,7 @@ SCRSHIELD:
 		ChargeInterval: 3000
 		Description: E.M. Pulse
 		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
-		EndChargeSound: speech-nod|00-i158.aud
+		EndChargeSound: n_swready.aud
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: emp.gdi
 		OrderName: Nodemp
@@ -2106,11 +2128,14 @@ CABSW1:
 		ChargeInterval: 6750
 		Description: Iron Savior
 		LongDesc: Fires a volley of energy volleys at the target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		EndChargeSound: speech-nod|00-i158.aud
+		EndChargeSound: n_swready.aud
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: singularity
 		OrderName: singularity
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 		CameraActor: camera
@@ -2154,14 +2179,17 @@ cabobelisk:
 		OrderName: NanomachineSwarm
 		Weapon: NanoMachineBurst
 		BeginChargeSound:
-		EndChargeSound: 00-i156.aud
+		EndChargeSound: n_swready.aud
 		DisplayTimer: True
 		DisplayBeacon: True
 		ChargeInterval: 4500
 		DisplayRadarPing: True
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
-		LaunchSound: SuperweaponFired
+		LaunchSpeechNotification: SuperweaponFired
+		IncomingSpeechNotification: SuperweaponFired
+		IncomingSound: SuperweaponFired
+		LaunchSound: n_swlaunch.aud
 		CameraActor: camera
 		CameraRange: 10c0
 		CameraSpawnAdvance: 25

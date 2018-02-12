@@ -896,7 +896,7 @@ NAPULS:
 		Description: E.M. Pulse
 		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
 		EndChargeSound: speech-nod|00-i158.aud
-		SelectTargetSound: speech-nod|00-i042.aud
+		SelectTargetSound: n_00-i042.aud
 		Prerequisites: emp.gdi
 		OrderName: Nodemp
 		PauseOnCondition: disabled
