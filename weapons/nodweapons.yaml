@@ -410,6 +410,7 @@ HarpyClaw:
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		Versus:
+			InfantryArmor: 200
 			BuildingArmor: 100
 
 HarpyClawAA:

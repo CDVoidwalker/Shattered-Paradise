@@ -787,6 +787,7 @@ WyvermBlastAA:
 	Inherits: WyvermBlast
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		Damage: 1500
 
 Return:
 	ReloadDelay: 25
