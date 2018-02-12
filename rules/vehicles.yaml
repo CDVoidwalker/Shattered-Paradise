@@ -690,13 +690,16 @@ SAPC:
 		RequiresCondition: !empdisable && !loading
 		Subterranean: true
 		SubterraneanCondition: submerged
-		SubterraneanTransitionTerrainTypes: Clear, Rough
-		SubterraneanTransitionCost: 1
+		SubterraneanTransitionTerrainTypes: Clear, Rough, Road, Rail, DirtRoad, Bridge,  Tiberium, BlueTiberium, Veins
+		SubterraneanTransitionCost: -2147483647 # int maxvalue
 		SubterraneanTransitionSound: subdril1.aud
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionOnRamps: True
 		TerrainSpeeds:
 			Subterranean: 120
+			Road: 100
+			Bridge: 100
 	Cloak@cloakgenerator:
 		RequiresCondition: submerged
 		InitialDelay: 25
@@ -713,7 +716,7 @@ SAPC:
 		RequiresCondition: !inside-tunnel && !submerged
 		Range: 5c0
 		MaxHeightDelta: 3
-	RejectsOrders@berserk:
+	RejectsOrders@subterranean:
 		RequiresCondition: submerged
 		Except: Stop
 	Cargo:
@@ -727,6 +730,9 @@ SAPC:
 		RequiresCondition: !submerged
 	Targetable:
 		RequiresCondition: !inside-tunnel && !submerged
+	AnnounceOnSeen@subterranean:
+		Notification: SubterraneanUnitDetected
+		PingRadar: True
 
 REPAIR:
 	Inherits: ^VoxelTank
@@ -766,13 +772,16 @@ SUBTANK:
 		RequiresCondition: !empdisable && !loading
 		Subterranean: true
 		SubterraneanCondition: submerged
-		SubterraneanTransitionTerrainTypes: Clear, Rough
-		SubterraneanTransitionCost: 1
+		SubterraneanTransitionTerrainTypes: Clear, Rough, Road, Rail, DirtRoad, Bridge,  Tiberium, BlueTiberium, Veins
+		SubterraneanTransitionCost: 0
 		SubterraneanTransitionSound: subdril1.aud
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
+		SubterraneanTransitionOnRamps: True
 		TerrainSpeeds:
 			Subterranean: 120
+			Road: 100
+			Bridge: 100
 	SelfHealing@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
 	WithIdleOverlay@veinholedrain:
@@ -791,7 +800,7 @@ SUBTANK:
 	Armament@secondary:
 		Weapon: DevilsFlame
 		LocalOffset: 0,-200,0
-	RejectsOrders@berserk:
+	RejectsOrders@subterranean:
 		RequiresCondition: submerged
 		Except: Stop
 	AttackFrontal:
@@ -805,6 +814,9 @@ SUBTANK:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
+	AnnounceOnSeen@subterranean:
+		Notification: SubterraneanUnitDetected
+		PingRadar: True
 
 ARMH:
 	Inherits: ^VoxelTank
