@@ -1236,6 +1236,8 @@ SCRBATTLESHIP:
 		Bounds: 140,100
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
+	AnnounceOnSeen:
+		Notification: BattleCruiserDetected
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 50

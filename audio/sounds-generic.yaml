@@ -8,6 +8,8 @@ Sounds:
 		BuildPaletteOpen: emblem
 		Button: button
 		CantPushButtonSound: scold8
+		BuildingCaptured: 00-i056
+		BuildingLostToCapture: 
 		CashTickDown: creddwn1
 		CashTickUp: credup1
 		ChatLine: message1

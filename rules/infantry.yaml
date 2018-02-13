@@ -343,6 +343,8 @@ NCONF:
 	ProducibleWithLevel:
 		Prerequisites: barracks.Condition
 	RenderSprites:
+	Voiced:
+		VoiceSet: BlackHand
 	GrantTimedConditionOnDeploy:
 		DeployedCondition: HologramSpawn
 		CooldownTicks: 4000
@@ -425,6 +427,8 @@ BHS:
 		VoiceSet: Oxanna
 	Armament@PRIMARY:
 		Weapon: BHRifle
+	AnnounceOnSeen:
+		Notification: CommandoDetected
 	RevealsShroud:
 		Range: 12c0
 	AttackFrontal:
@@ -765,6 +769,8 @@ PSYKER:
 	Health:
 		HP: 15000
 	-RejectsOrders@berserk:
+	AnnounceOnSeen:
+		Notification: CommandoDetected
 	Mobile:
 		Speed: 60
 	Targetable@MindControlImmunity:
@@ -1380,6 +1386,8 @@ CYC2:
 		Voice: Move
 	Voiced:
 		VoiceSet: CyborgCommando
+	AnnounceOnSeen:
+		Notification: CommandoDetected
 	Mobile:
 		Speed: 56
 	Health:

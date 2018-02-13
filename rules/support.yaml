@@ -454,6 +454,8 @@ GAPLUG:
 		LongDesc: Fires an array of ion cannons on the targetted area.
 		ChargeInterval: 6000
 		ActivationSequence: idle
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
@@ -507,6 +509,8 @@ GTDROP:
 		DisplayTimer: True
 		DisplayBeacon: True
 		Description: Helldiver Drop
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		LongDesc: Deploys shock troopers at the targetted location.
 		OrderName: Droppod
 		Weapon: DroppodSpawner
@@ -818,7 +822,8 @@ NATMPL:
 		Description: Atomic Bomb
 		LongDesc: Launches a conventional warhead at a target location.\n\nSpecial:\n- Instant kills ground units and aircraft
 		BeginChargeSound:
-		EndChargeSound: n_swready.aud
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound:
 		InsufficientPowerSound:
 		MissileWeapon: ClusterMissile
@@ -884,7 +889,8 @@ NAMISL:
 		Description: Toxin Missile
 		LongDesc: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
 		BeginChargeSound:
-		EndChargeSound: n_swready.aud
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound:
 		InsufficientPowerSound:
 		FlightDelay: 100
@@ -1140,6 +1146,8 @@ MUTSW1:
 		Actor: ionstormgenerator
 		Icon: ionstorm
 		ChargeInterval: 9000
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
@@ -1187,6 +1195,8 @@ MUTSW2:
 		OrderName: Veinhole
 		DisplayTimer: True
 		DisplayBeacon: True
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		LaunchSpeechNotification: SuperweaponFired
 		IncomingSpeechNotification: SuperweaponFired
 		IncomingSound: SuperweaponFired
@@ -1543,6 +1553,8 @@ SCRSW1:
 		Prerequisites: MeteorSpawner
 		Weapon: MeteorSpawner
 		OrderName: MeteorSpawner
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 		LaunchSpeechNotification: SuperweaponFired
@@ -1597,6 +1609,8 @@ SCRADVPOWR:
 		PauseOnCondition: empdisable || disabled
 		Icon: mothershipicon
 		ChargeInterval: 3000
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		Description: Reality destabilization
 		LongDesc: Teleports infantry and vehicles.
 		SelectTargetSpeechNotification: SelectTarget
@@ -1683,7 +1697,8 @@ SCRSHIELD:
 		ChargeInterval: 3000
 		Description: E.M. Pulse
 		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
-		EndChargeSound: n_swready.aud
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: emp.gdi
 		OrderName: Nodemp
@@ -2128,7 +2143,8 @@ CABSW1:
 		ChargeInterval: 6750
 		Description: Iron Savior
 		LongDesc: Fires a volley of energy volleys at the target location.\n\nSpecial:\n- Instant kills ground units and aircraft
-		EndChargeSound: n_swready.aud
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		SelectTargetSound: speech-nod|00-i042.aud
 		Prerequisites: singularity
 		OrderName: singularity
@@ -2179,7 +2195,8 @@ cabobelisk:
 		OrderName: NanomachineSwarm
 		Weapon: NanoMachineBurst
 		BeginChargeSound:
-		EndChargeSound: n_swready.aud
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
 		DisplayTimer: True
 		DisplayBeacon: True
 		ChargeInterval: 4500

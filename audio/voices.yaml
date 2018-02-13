@@ -110,7 +110,7 @@ Cyborg:
 		Move: 22-i008, 22-i010, 22-i014, 22-i016, 22-i020
 		Attack: 22-i008, 22-i010, 22-i012, 22-i018
 		Action: 22-i008, 22-i010, 22-i014, 22-i016, 22-i020
-		Die: 22-n104, 22-n108
+		Die: 22-n104, 22-n106, 22-n108
 		Burned: 22-n106
 		Zapped: electro1
 
@@ -120,7 +120,7 @@ CyborgReap:
 		Move: 60-n106, 60-n108, 60-n110
 		Action: 60-n106, 60-n108, 60-n110
 		Attack: 60-n112, 60-n114, 60-n116
-		Die: 69-n102,
+		Die: spiddie1
 		Burned: 22-n106
 		Zapped: electro1
 
@@ -131,7 +131,7 @@ Limpet:
 		Unload: limpc3, limpc4, limpq3, limpq4
 		Action: limpc3, limpc4, limpq3, limpq4
 		Attack: limpc3, limpc4, limpq3, limpq4
-		Die: 69-n102,
+		Die: expnew12, expnew13, expnew14, expnew15
 		Burned: 22-n106
 		Zapped: electro1
 
@@ -175,9 +175,19 @@ Oxanna:
 		Burned: dedgirl3
 		Zapped: electro1
 
+BlackHand:
+	Voices:
+		Select: 42-i000, 42-i002, 42-i004
+		Move: 42-i006, 42-i008, 42-i010, 42-i012
+		Attack: 42-i006, 42-i008, 42-i010, 42-i012
+		Action: 42-i006, 42-i008, 42-i010, 42-i012
+		Die: dedman1, dedman3, dedman4, dedman5, dedman6
+		Burned: dedman2
+		Zapped: electro1
+
 Slavick:
 	Voices:
-		Select: 12-i000, 12-i002, 12-i004
+		Select: , 12-i002, 12-i004
 		Move: 12-i006, 12-i008, 12-i010
 		Attack: 12-i012, 12-i014, 12-i016
 		Action: 12-i012, 12-i014, 12-i016

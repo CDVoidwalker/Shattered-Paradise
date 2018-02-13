@@ -347,6 +347,8 @@ HMEC:
 		HP: 150000
 	RevealsShroud:
 		Range: 11c0
+	AnnounceOnSeen:
+		Notification: MammothDetected
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -1721,6 +1723,7 @@ REAPERCAB:
 	WithInfantryBody:
 	BodyOrientation:
 		QuantizedFacings: 8
+	DeathSounds:
 
 REPAIRVEHICLE:
 	Inherits: ^VoxelTank

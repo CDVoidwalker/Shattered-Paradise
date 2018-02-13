@@ -884,6 +884,8 @@
 		Range: 6c0
 		RequiresCondition: !inside-tunnel && !submerged
 	CaptureNotification:
+		Notification: BuildingCaptured
+		LoseNotification: BuildingLostToCapture
 	Sellable:
 		SellSounds: cashturn.aud
 	WithMakeAnimation:

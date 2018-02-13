@@ -43,6 +43,8 @@ ENGINEER:
 			gdi: engineer.gdi
 			nod: engineer.nod
 	AttackFrontal:
+	AnnounceOnSeen:
+		Notification: EnemyEngineerDetected
 
 MCV:
 	Inherits: ^VoxelVehicle
@@ -121,7 +123,7 @@ HARV:
 		PipCount: 7
 	WithMoveAnimation:
 	Mobile:
-		Speed: 70
+		Speed: 60
 		Crushes: wall, crate, infantry, RazorShark
 		TerrainSpeeds:
 			Clear: 100
