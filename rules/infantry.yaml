@@ -1146,6 +1146,8 @@ PDRONE:
 		Description: Melee drone programmed to kill enemy infantry.\n\nSpecial:\n- Can only attack infantry\n- Turns killed infantry into worker cyborgs\n- Immune to Tiberium radiation\n- Crush class: crushable
 		BuildPaletteOrder: 12
 		Prerequisites: ~cabclaw
+	WithInfantryBody:
+		-RequiresCondition: !WebDisable
 	Selectable:
 		Bounds: 22,32,0,0
 	Crushable:
@@ -1197,6 +1199,8 @@ PDRONE:
 		DeathPaletteIsPlayerPalette: False
 		DeathTypes:
 			EnergyDeath: 6
+	-WithIdleOverlay@web:
+	-ExternalCondition@WebDisable:
 
 SWARMLING:
 	Inherits: ENGINEER
@@ -1222,6 +1226,7 @@ SWARMLING:
 	-WithDeathAnimation@explosion:
 	-WithDeathAnimation@energy:
 	-WithDeathAnimation@body:
+	-WithIdleOverlay@web:
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1295,6 +1300,7 @@ MOTH:
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
 	RenderRangeCircle:
+	-WithIdleOverlay@web:
 
 GLAD:
 	Inherits: ^Cyborg

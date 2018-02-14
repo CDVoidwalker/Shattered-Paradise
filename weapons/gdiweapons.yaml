@@ -441,18 +441,19 @@ GdiRedEye:
 		DamageTypes: SmallExplosionDeath
 
 RPGTower:
-	Inherits: ^APWarhead
+	Inherits: ^RocketWarhead
 	Inherits@2: ^Large_Clsn
 	ReloadDelay: 70
 	Range: 6c768
 	Report: glnch4.aud
-	Projectile: BulletAS
-		Speed: 384
-		Blockable: false
-		Shadow: true
-		LaunchAngle: 62
+	Projectile: Missile
 		Image: canister
+		CruiseAltitude: 4000
+		HorizontalRateOfTurn: 30
+		VerticalRateOfTurn: 30
 		Palette: player
+		-TrailImage: small_smoke_trail
+		-TrailPalette: effectalpha75
 	Warhead@1Dam: SpreadDamage
 		Damage: 8000
 		DamageTypes: Prone70Percent, TriggerProne, SmallExplosionDeath

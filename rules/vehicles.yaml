@@ -894,8 +894,6 @@ STNK:
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 35000
-	SelfHealing@NodCloakHealing:
-		Delay: 150
 	WithFacingSpriteBody:
 	Cloak@cloakgenerator:
 		RequiresCondition: !lawea
