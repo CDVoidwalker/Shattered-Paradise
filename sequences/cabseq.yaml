@@ -1480,3 +1480,11 @@ nanomachineswarmdummy:
 		Length: 15
 		UseTilesetCode: false
 		ZOffset: -1024
+
+gate_a.cab:
+	Inherits: gate_a.nod
+	icon: cabgate2icon
+
+gate_b.cab:
+	Inherits: gate_b.nod
+	icon: cabgate1icon

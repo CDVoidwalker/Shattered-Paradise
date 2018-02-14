@@ -70,9 +70,11 @@ CrusaderBazooka:
 CrusaderBazookaAA:
 	Inherits: CrusaderBazooka
 	ValidTargets: Air
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Range: 7c0
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 TemplarFlame:
@@ -126,7 +128,7 @@ BHRifle:
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: hallugren
-		ImpactSound: expnew12.aud
+		ImpactSounds: expnew12.aud
 		ExplosionPalette: apolra2yalpha
 		InvalidImpactTypes: Water, Air, AirHit
 	Warhead@3EffWater: CreateEffect

@@ -37,8 +37,8 @@ LegioNeedler:
 LegioNeedlerAA:
 	Inherits: LegioNeedler
 	Range: 7c0
-	ValidTargets: Ground, Water, Infantry, Vehicle, Building
-	InvalidTargets: Air
+	ValidTargets: Air
+	InvalidTargets: Ground, Water, Infantry, Vehicle, Building
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
@@ -87,7 +87,7 @@ ColossiBlast:
 	# Warhead@2Eff: CreateEffect
 		# Explosions: colossiglow
 		# ExplosionPalette: colossiglow
-		# ImpactSound: expnew12.aud
+		# ImpactSounds: expnew12.aud
 	Warhead@op: FireShrapnel
 		Weapon: ColossiBlastTesla
 		Amount: 8
@@ -285,7 +285,6 @@ ScorpAcid:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
-		ImpactSound: expnew14.aud
 		InvalidImpactTypes: Water
 	Warhead@3Radio: CreateRadioactivity
 		Range: 1, 2
@@ -838,7 +837,6 @@ NeedlerAcid:
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
-		ImpactSound: expnew14.aud
 		InvalidImpactTypes: Water
 	Warhead@3Radio: CreateRadioactivity
 		Range: 1, 2
@@ -898,12 +896,12 @@ DronePlane:
 	Warhead@2Eff: CreateEffect
 		Explosions: viscexplo
 		ExplosionPalette: effect
-		ImpactSound: expnew14.aud
+		ImpactSounds: expnew14.aud
 		InvalidImpactTypes: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: viscexplo
 		ExplosionPalette: effect
-		ImpactSound: ssplash3.aud
+		ImpactSounds: ssplash3.aud
 		ValidImpactTypes: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater

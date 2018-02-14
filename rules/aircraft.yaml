@@ -1,10 +1,6 @@
 CLOUD1:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Valued:
-		Cost: 900
-	Tooltip:
-		Name: Gas Cloud
 	-Selectable:
 	-SelectionDecorations:
 	-UpdatesPlayerStatistics:
@@ -20,7 +16,6 @@ CLOUD1:
 	-Targetable@GROUND:
 	-Targetable@AIRBORNE:
 	-RevealsShroud:
-	# -SpawnActorOnDeath@vision:
 	-Voiced:
 	Health:
 		HP: 9

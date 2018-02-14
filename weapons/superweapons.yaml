@@ -36,12 +36,12 @@ MultiCluster:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_explosion
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 		InvalidImpactTypes: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
-		ImpactSound: ssplash2.aud
+		ImpactSounds: ssplash2.aud
 		ValidImpactTypes: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
@@ -65,13 +65,13 @@ EMPulseCannon:
 	ReloadDelay: 50
 	Range: 25c0
 	MinRange: 3c0
-	Report: PLSECAN2.AUD
+	Report: plsecan2.aud
 	ValidTargets: Vehicle, Building, Ground
 	Projectile: BulletAS
 		Speed: 425
 		Blockable: false
 		Shadow: true
-		LaunchAngle: 62
+		LaunchAngle: 110
 		Image: pulsball
 	Warhead@1Eff: CreateEffect
 		Explosions: pulse_explosion
@@ -110,7 +110,7 @@ IonCannon:
 	Warhead@4Effect: CreateEffect
 		Explosions: ionbeam
 		ExplosionPalette: effect-ignore-lighting-alpha75
-		ImpactSounds: ion1.aud
+		ImpactSoundss: ion1.aud
 		VictimScanRadius: 0
 	Warhead@5Effect: CreateEffect
 		Explosions: ionbeam2
@@ -172,7 +172,6 @@ IonScorch:
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: ionscorch
 		ExplosionPalette: effectalpha
-		ImpactSound: ion1.aud
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 200
 		Damage: 500
@@ -282,15 +281,15 @@ droppod1:
 		SmudgeType: SmallCrater
 	Warhead@3Eff: CreateEffect
 		Explosions: small_clsn, large_twlt, medium_brnl
-		ImpactSounds: expnew12.aud
+		ImpactSoundss: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@4Eff: CreateEffect
 		Explosions: podring
-		ImpactSounds: expnew12.aud
+		ImpactSoundss: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5Eff: CreateEffect
 		Explosions: droppod, droppod2
-		ImpactSounds: expnew12.aud
+		ImpactSoundss: expnew12.aud
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -366,7 +365,7 @@ ClusterMissile:
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: nuke1, nuke2, nuke3
 		ExplosionPalette: effect
-		ImpactSound: expnew19.aud
+		ImpactSounds: expnew19.aud
 	Warhead@ClusterSmudges0: LeaveSmudge
 		SmudgeType: LargeCrater
 		Size: 1
@@ -454,7 +453,7 @@ ToxinMissile:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@SoundEffect0: CreateEffect
 		Explosions: large_explosion
-		ImpactSound: expnew19.aud
+		ImpactSounds: expnew19.aud
 	Warhead@ClusterSmudges0: LeaveSmudge
 		SmudgeType: LargeCrater
 		Size: 1
@@ -487,7 +486,7 @@ EnergyAssimilator:
 	Warhead@2Eff_impact: CreateEffect
 		Explosions: scrinenergyeff
 		ExplosionPalette: scrinenergystuffsalpha
-		ImpactSound: ion1.aud
+		ImpactSounds: ion1.aud
 	Warhead@energy: GrantExternalCondition
 		Range: 15c0
 		Duration: 400
@@ -613,7 +612,7 @@ MeteorRainNormal:
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@3Eff: CreateEffect
 		Explosions: small_clsn, large_twlt, medium_brnl
-		ImpactSounds: expnew12.aud
+		ImpactSoundss: expnew12.aud
 	Warhead@op: FireShrapnel
 		Weapon: SmallDebris
 		Amount: 3
@@ -674,7 +673,8 @@ CabalCannon:
 	Warhead@2Eff: CreateEffect
 		Explosions: cabexplo
 		ExplosionPalette: apolcyanalpha
-		ImpactSound: expnew09.aud
+		ValidTargets: Ground, Air
+		ImpactSounds: expnew09.aud, expnew02.aud, expnew03.aud, expnew04.aud
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: LargeCrater
 		InvalidImpactTypes: Water
@@ -755,17 +755,17 @@ IonRay:
 		Damage: 7500
 	Warhead@2Eff: CreateEffect
 		Explosions: large_explosion
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 	Warhead@3Eff: CreateEffect
 		Explosions: bolt1, bolt2, bolt3, bolt4, bolt5, bolt6, bolt7, bolt8, bolt9, bolt10
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 		Delay: 5
 	Warhead@4: LeaveSmudge
 		SmudgeType: SmallCrater
 		InvalidTargets: Vehicle, Building, Wall
 	Warhead@6Eff: CreateEffect
 		Explosions: fire1, fire2, fire3, fire4
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 		Delay: 10
 	Warhead@KillShieldedUnit: GrantExternalCondition
 		Range: 0c512

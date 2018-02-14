@@ -1334,7 +1334,7 @@
 		Condition: KillMe
 
 ^Engineer:
-	Inherits@1: ^1x1Shape
+	Inherits@1: ^InfantryShape
 	Valued:
 		Cost: 500
 	Tooltip:

@@ -140,7 +140,7 @@ BlackHandExplode:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_twlt
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 	Warhead@AcidScaleDmg: GrantExternalCondition
 		Range: 300
 		Duration: 150
@@ -176,7 +176,7 @@ ScrinUnitExplode:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinvehicleexplo1, scrinvehicleexplo2
 		ExplosionPalette: apolbluealpha
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 
 ScrinUnitExplode2:
 	Inherits: ^ExploDefaults
@@ -192,7 +192,7 @@ ScrinUnitExplode2:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 
 ScrinUnitExplode3:
 	Inherits: ^ExploDefaults
@@ -208,7 +208,7 @@ ScrinUnitExplode3:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 
 ScrinUnitExplode4:
 	Inherits: ^ExploDefaults
@@ -224,7 +224,7 @@ ScrinUnitExplode4:
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 
 TiberiumExplosion:
 	Warhead@1Dam: SpreadDamage
@@ -240,7 +240,7 @@ TiberiumExplosion:
 		Size: 1,1
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 
 ZombieExplosion:
 	Warhead@1Dam: SpreadDamage
@@ -257,7 +257,7 @@ ZombieExplosion:
 		Range: 3
 	Warhead@3Eff: CreateEffect
 		Explosions: tibexp
-		ImpactSound: expnew09.aud
+		ImpactSounds: expnew09.aud
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3
 		Level: 200

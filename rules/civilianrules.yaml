@@ -1682,7 +1682,7 @@ CAPYR02:
 		Footprint: xxxx xxxx xxxx xxxx
 		Dimensions: 4, 4
 	Armor:
-		Type: concrete
+		Type: BuildingArmor
 	Health:
 		HP: 40000
 	EditorTilesetFilter:
@@ -2338,8 +2338,6 @@ NTPYRA:
 	Building:
 		Footprint: xxxx xxxx xxxx xxxx
 		Dimensions: 4, 4
-	Power:
-		Amount: -40
 	Armor:
 		Type: BuildingArmor
 	Health:

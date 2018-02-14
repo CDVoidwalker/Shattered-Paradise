@@ -872,7 +872,7 @@ NAPULS:
 	AttackTurreted:
 	Armament:
 		Weapon: EMPulseCannon
-		LocalOffset: 150,0,1250
+		LocalOffset: 200,0,1500
 		LocalYaw: 0,100
 	WithSpriteTurret:
 		Sequence: turret
@@ -920,7 +920,7 @@ GATE_A:
 		FactionImages:
 			gdi: gate_a.gdi
 			nod: gate_a.nod
-			cab: gate_a.nod
+			cab: gate_a.cab
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
@@ -941,7 +941,7 @@ GATE_B:
 		FactionImages:
 			gdi: gate_b.gdi
 			nod: gate_b.nod
-			cab: gate_b.nod
+			cab: gate_b.cab
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:

@@ -144,8 +144,7 @@ IONBEAMMINI:
 		AltitudeVelocity: 400
 		Speed: 30
 		MoveIntoShroud: true
-	Tooltip:
-		Name: Ion Beam
+	-Tooltip:
 	Health:
 		HP: 150
 	SelfHealing:
@@ -299,8 +298,7 @@ NANOMACHINEBURSTSPAWNER:
 	SelfHealing:
 		Step: -10
 		HealIfBelow: 200
-	Tooltip:
-		Name: Nanomachine Swarm
+	-Tooltip:
 	Health:
 		HP: 5
 		NotifyAppliedDamage: False
@@ -316,8 +314,7 @@ NANOMACHINEBURSTDUMMY:
 		Step: -1
 		Delay: 25
 		HealIfBelow: 200
-	Tooltip:
-		Name: Nanomachine Swarm
+	-Tooltip:
 	RenderSprites:
 		Image: nanomachineswarmdummy
 		Palette: apolgreyalpha
@@ -466,8 +463,7 @@ SCRINESSENCESMALL:
 		Step: -1
 		Delay: 50
 		HealIfBelow: 200
-	Tooltip:
-		Name: Essence
+	-Tooltip:
 	Targetable@Esscence:
 		TargetTypes: ScrinEssence
 	AttackMove:
