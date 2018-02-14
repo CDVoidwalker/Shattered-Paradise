@@ -241,14 +241,19 @@ MINIVEIN:
 	-Explodes:
 	-SeedsResource:
 	-DamageMultiplier@Veinhole:
+	-Sellable:
+	-RepairableBuilding: 
+	Health:
+		HP: 20000
 	Selectable:
 		Priority: 3
 		Bounds: 25, 25, 0, 0
-	WithRangeCircle:
-		Range: 4c0
-		Type: cloakgenerator
-	ExplodeWeapon:
-		Weapon: VeinholePoision
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack, NeutralTibCritter
+	ExplodeWeapon@1:
+		Weapon: VeinholeAttack
+	ExplodeWeapon@2:
+		Weapon: VeinholeEggElevator
 	ProximityExternalCondition:
 		Condition: veinholedrain
 		Range: 4c0
@@ -257,19 +262,5 @@ MINIVEIN:
 	Targetable@Defence:
 		TargetTypes: Defence
 	WithMakeAnimation:
-	WithChargeOverlay:
-		Sequence: shoot
-		Palette: player
-		IsPlayerPalette: false
-	AttackCharges:
-		ChargeAudio:
-		ReloadDelay: 15
-		ChargeDelay: 1
-	Armament:
-		Weapon: VeinholeAttack
-		TargetStances: Enemy, Ally, Neutral
-		LocalOffset: 500, 0, 0
-		MuzzleSequence: muzzle
-	AutoTarget:
 	RequiresBuildableArea:
 		AreaTypes: building

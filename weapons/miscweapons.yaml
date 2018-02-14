@@ -22,6 +22,16 @@ FiendShard:
 		ImpactSound: ssplash3.aud
 		ValidImpactTypes: Water
 
+LightTowerClaxon:
+	ReloadDelay: 200
+	Report: klax1.aud
+	ValidTargets: Ground, Water, Air
+	Range: 10c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+	ValidTargets: Ground, Water, Air
+	Projectile: InstantExplode
+
 GreenTibRadiation:
 	ReloadDelay: 100
 	Projectile: InstantExplode
@@ -55,7 +65,7 @@ ThrowSmoke:
 	Inherits: ^RocketWarhead
 	Range: 30
 	MinRange: 30
-	ValidTargets: Ground, Air
+	ValidTargets: Ground, Water, Air
 	Projectile: Missile
 		MaximumLaunchSpeed: 50
 		MaximumLaunchLaunchAngle: 255
@@ -71,7 +81,7 @@ ThrowSmoke:
 		Spread: 128
 		Damage: 1
 		AffectsParent: true
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 SlimeAttack:

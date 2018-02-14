@@ -35,12 +35,12 @@ MillitantFire:
 	Inherits: ^FlameWarhead
 	ReloadDelay: 15
 	Projectile: InstantExplode
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 300
 		Damage: 2000
 		Falloff: 100, 50, 25, 0
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		Versus:
 			BuildingArmor: 250
 		DamageTypes: MilitantFireDeath
@@ -55,20 +55,16 @@ MillitantFire:
 CrusaderBazooka:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 50
+	ReloadDelay: 60
 	Range: 6c0
 	Report: rketinf1.aud
-	ValidTargets: Ground, Vehicle, Building, Infantry
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	InvalidTargets: Air
 	Projectile: Missile
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 350
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
+		InvalidTargets: Air
 		Damage: 3000
-		ValidTargets: Ground, Vehicle, Building, Infantry
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 CrusaderBazookaAA:
@@ -161,44 +157,16 @@ BuggyCannon:
 		Damage: 3000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
-BikeMissile:
-	Inherits: ^RocketWarhead
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 60
-	BurstDelays: 60
-	Range: 4c0
-	Report: misl1.aud
-	ValidTargets: Ground
-	Projectile: Missile
-		Arm: 2
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 128
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		ValidTargets: Ground
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-
-BikeMissileAA:
-	Inherits: BikeMissile
-	ValidTargets: Air
-	Warhead@1Dam: SpreadDamage
-		Damage: 2500
-		ValidTargets: Air
-
 BikeExplo:
 	Inherits: ^DecentFalloff
 	Inherits@1: ^BombWarhead
 	Inherits@2: ^Large_Explosion
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water, Water, Air
 	InvalidTargets: Air
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 700
 		Damage: 90000
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Water, Air
 		AffectsParent: true
 		InvalidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
@@ -283,7 +251,7 @@ FlameHologram:
 	Report: cloak5.aud
 	Projectile: BulletAS
 		Speed: 100c0
-	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
 		Damage: 1
@@ -292,11 +260,11 @@ FlameHologram:
 		FallRate: 5000
 		Range: 5
 		Delay: 10
-		ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	Warhead@4EffAir: CreateEffect
 		Explosions: holosmoke1, holosmoke2, holosmoke3, holosmoke4
 		ExplosionPalette: cyanjascpal
-		ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 
 CrusaHologram:
 	Inherits: FlameHologram
@@ -325,7 +293,7 @@ SUBAPCTRAIL:
 	Projectile: GravityBomb
 		Speed: -100c0
 		Acceleration: 100, 0, 0
-	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	Warhead@2EffAir: CreateEffect
 		Explosions: dig
 
@@ -372,18 +340,12 @@ StealthRocket:
 	Range: 7c0
 	Burst: 7
 	Report: misl1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: Missile
-		Arm: 2
-		Blockable: false
-		Shadow: true
 		Inaccuracy: 0c512
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 StealthRocketAA:
@@ -400,13 +362,11 @@ HarpyClaw:
 	MinRange: 0c100
 	InvalidTargets: Air
 	Report: cygun1.aud
-	ValidTargets: Ground, Vehicle, Building, Infantry
-	Projectile: BulletAS
-		Speed: 1c682
-		ValidTargets: Ground, Vehicle, Building, Infantry
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: Ground, Vehicle, Building, Infantry
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		Versus:
@@ -422,14 +382,11 @@ HarpyClawAA:
 	MinRange: 0c100
 	Projectile: InstantHit
 	Report: cygun1.aud
-	InvalidTargets: Ground, Vehicle, Building, Infantry
-	Projectile: BulletAS
-		Speed: 1c682
-		ValidTargets: Ground, Vehicle, Building, Infantry
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		ValidTargets: Air
-		InvalidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 Proton:
@@ -440,7 +397,7 @@ Proton:
 	MinRange: 0c100
 	Report: scrin5b.aud
 	Burst: 9
-	ValidTargets: Ground, Vehicle, Building, Infantry
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	BurstDelays: 2
 	Projectile: Missile
 		Speed: 341
@@ -454,7 +411,7 @@ Proton:
 			BuildingArmor: 75
 		Spread: 250
 		Damage: 2500
-		ValidTargets: Ground, water, Infantry, Vehicle, Building
+		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 ProtonAA:
@@ -467,7 +424,7 @@ ProtonAA:
 		ValidTargets: Air
 
 CerberusLazorCharge:
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	ReloadDelay: 125
 	Range: 6c0
 	Burst: 7
@@ -477,7 +434,7 @@ CerberusLazorCharge:
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 
 CerberusLazor:
 	Inherits: BCLazor
@@ -486,7 +443,7 @@ CerberusLazor:
 	Range: 6c0
 	Burst: 3
 	Report: laserchaingunfire.wav
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: LaserZap
 		BeamWidth: 2
 		BeamDuration: 20
@@ -495,7 +452,7 @@ CerberusLazor:
 	Warhead@1Dam: SpreadDamage
 		Spread: 96
 		Damage: 8000
-		ValidTargets: Ground, water, Infantry, Vehicle, Building
+		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
@@ -536,13 +493,6 @@ RedEye2:
 	Report: samshot1.aud
 	ValidTargets: Air
 	Projectile: Missile
-		Arm: 2
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 128
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 		ValidTargets: Air

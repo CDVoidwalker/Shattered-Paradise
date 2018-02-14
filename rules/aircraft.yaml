@@ -58,7 +58,6 @@ CLOUD1:
 	-ExternalCondition@smoketrail:
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
-	# -GrantConditionOnPrerequisite@AIReload:
 	-WithIdleOverlay@shield:
 	-ExternalCondition@VanguardShield:
 	-ExternalCondition@BreakShield:
@@ -67,6 +66,8 @@ CLOUD1:
 	-SelfHealing@KillShieldedUnit:
 	-ExternalCondition@KillShieldedUnit:
 	Interactable:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 ORCA:
 	Inherits: ^Helicopter
@@ -101,11 +102,11 @@ ORCA:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
-		Ammo: 8
-		PipCount: 4
+		Ammo: 10
+		PipCount: 5
 		PipType: Ammo
 		ReloadCount: 2
-		ReloadDelay: 62
+		ReloadDelay: 50
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
@@ -121,7 +122,7 @@ ORCAB:
 	Inherits: ^Plane
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Valued:
-		Cost: 1750
+		Cost: 2000
 	Tooltip:
 		Name: Orca Bomber
 	Buildable:
@@ -142,11 +143,8 @@ ORCAB:
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
 	Health:
-		HP: 17500
+		HP: 20000
 	Armament@primary:
-		Weapon: OBBomb
-		PauseOnCondition: !ammo
-	Armament@secondary:
 		Weapon: OBBombFrontal
 		PauseOnCondition: !ammo
 	AttackPlane:
@@ -207,7 +205,8 @@ TRNSPORT:
 		Actor: TRNSPORT.Husk
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
-	# -GrantConditionOnPrerequisite@AIReload:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 GUARDIAN:
 	Inherits: ^Helicopter
@@ -368,7 +367,8 @@ ORCATRAN:
 		Actor: ORCATRAN.Husk
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
-	# -GrantConditionOnPrerequisite@AIReload:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 APACHE:
 	Inherits: ^Helicopter
@@ -404,12 +404,12 @@ APACHE:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
-		Ammo: 8
-		PipCount: 8
+		Ammo: 10
+		PipCount: 5
 		ReloadCount: 2
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
-		ReloadDelay: 62
+		ReloadDelay: 50
 		AmmoCondition: ammo
 	AutoTarget:
 		InitialStance: HoldFire
@@ -434,7 +434,7 @@ SCRIN:
 	Inherits: ^Plane
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Valued:
-		Cost: 1750
+		Cost: 1500
 	Tooltip:
 		Name: Banshee Fighter
 	Buildable:
@@ -607,10 +607,10 @@ MUTHELI:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
-		Ammo: 12
-		PipCount: 4
-		ReloadCount: 4
-		ReloadDelay: 83
+		Ammo: 14
+		PipCount: 7
+		ReloadCount: 2
+		ReloadDelay: 36
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
@@ -989,11 +989,11 @@ SCRTRANS:
 	Inherits: ^Helicopter
 	Inherits@2: ^ScrinRender
 	Valued:
-		Cost: 1000
+		Cost: 800
 	Tooltip:
 		Name: Scrin Transport
 	Buildable:
-		Description: Scrin transport\n\nSpecial\n- Can up to 3 vehicles and one soldier\n- or it can carry 10 soldiers.
+		Description: Scrin transport\n\nSpecial\n- Can carry up to 3 vehicles or ten soldiers.\n- Lands whenever its able to. 
 		Queue: Air
 		Prerequisites: ~scrair, scrdepot
 	Voiced:
@@ -1031,7 +1031,8 @@ SCRTRANS:
 		Actor: SCRTRANS.Husk
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
-	# -GrantConditionOnPrerequisite@AIReload:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 SCRINCOUNCIL:
 	Inherits: ^Helicopter
@@ -1087,7 +1088,8 @@ SCRINCOUNCIL:
 	ProductionBar:
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
-	# -GrantConditionOnPrerequisite@AIReload:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 SCRCARRIER:
 	Inherits: ^Helicopter
@@ -1112,13 +1114,13 @@ SCRCARRIER:
 		Bounds: 130,130
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 50
+		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
 		TakeoffSound: orcaup1.aud
 		LandingSound: orcadwn1.aud
 	Health:
-		HP: 100000
+		HP: 60000
 	Targetable@GROUND:
 		TargetTypes: Vehicle, MindControlInmune, Mothership
 	Targetable@AIRBORNE:
@@ -1149,6 +1151,8 @@ STORMRIDERSPAWN:
 	Inherits@2: ^ScrinRender
 	Tooltip:
 		Name: Wyverm
+	GainsExperienceMultiplier:
+		Modifier: 10
 	Valued:
 		Cost: 30
 	-AttackTurreted:
@@ -1402,7 +1406,6 @@ WASP:
 
 FIREFLY:
 	Inherits: ^Helicopter
-	Inherits@4: ^BasicStealthDetection
 	Inherits@5: ^CabRender
 	Valued:
 		Cost: 700
@@ -1436,8 +1439,8 @@ FIREFLY:
 		Mine: cabsentryturret
 		-RearmBuildings: gahpad
 	AmmoPool:
-		Ammo: 5
-		PipCount: 5
+		Ammo: 3
+		PipCount: 3
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 	ReloadAmmoPool@1:
@@ -1454,6 +1457,8 @@ FIREFLY:
 	ReloadAmmoPool@1:
 		Delay: 1500
 		Count: 5
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 BASILISK:
 	Inherits: ^Helicopter

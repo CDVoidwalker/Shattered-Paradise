@@ -135,6 +135,17 @@ Limpet:
 		Burned: 22-n106
 		Zapped: electro1
 
+AlienLimpet:
+	Voices:
+		Select: limpc3, limpc4, limpq3, limpq4
+		Move: limpc3, limpc4, limpq3, limpq4
+		Unload: limpc3, limpc4, limpq3, limpq4
+		Action: limpc3, limpc4, limpq3, limpq4
+		Attack: limpc3, limpc4, limpq3, limpq4
+		Die: fiend2
+		Burned: 22-n106
+		Zapped: electro1
+
 CyborgCommando:
 	Voices:
 		Select: 23-i000, 23-i002, 23-i004, 23-i006

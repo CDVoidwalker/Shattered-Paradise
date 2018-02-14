@@ -389,6 +389,7 @@ ZOMBIE:
 	-SpawnActorOnDeath@tiberium:
 	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@berserk:
+	-DamagedByRadioactivity@Default:
 
 BERSERKER:
 	Inherits: ^Mutant
@@ -435,6 +436,7 @@ BERSERKER:
 	-SpawnActorOnDeath@tiberium:
 	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@berserk:
+	-DamagedByRadioactivity@Default:
 
 CRAB:
 	Inherits: ^Beast
@@ -467,8 +469,15 @@ CRAB:
 		AttackSequence: shoot
 		IdleSequences: Idle1, Idle2
 		PauseOnCondition: WebDisable
-	# AutoTarget:
-		# ScanRadius: 6
+	GrantPeriodicCondition:
+		Condition: SpawnCrabs
+		CooldownDuration: 2250
+	SelfHealing@crab:
+		PercentageStep: -100
+		Step: 0
+		Delay: 50
+		HealIfBelow: 150
+		RequiresCondition: SpawnCrabs
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
@@ -2219,7 +2228,8 @@ GASAND:
 	-BlocksProjectiles:
 
 GASPOT:
-	Inherits: ^CivBuilding
+	Inherits: ^TechBuilding
+	Inherits@1: ^AutoTargetGround
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -2230,8 +2240,6 @@ GASPOT:
 	Selectable:
 		Bounds: 48, 30, 0, -4
 		DecorationBounds: 48, 82, 0, -25
-	Power:
-		Amount: -10
 	Armor:
 		Type: BuildingArmor
 	Health:
@@ -2242,10 +2250,12 @@ GASPOT:
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	SelectionDecorations:
+	Armament:
+		Weapon: LightTowerClaxon
+	GivesCashOnCapture:
+		Amount: 300
+	AttackOmni:
 	RenderSprites:
-		Palette: player
-	EditorTilesetFilter:
-		Categories: Civilian building
 
 GALITE:
 	Inherits: ^CivBuilding

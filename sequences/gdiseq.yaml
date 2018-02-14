@@ -159,9 +159,9 @@ grenadier:
 		Length: 15
 		ShadowStart: 700
 	die-crushed:
-		Start: 255
-		Length: 14
-		ShadowStart: 685
+		Start: 246
+		Length: 4
+		ShadowStart: 675
 		Tick: 800
 		ZOffset: -511
 	shoot:

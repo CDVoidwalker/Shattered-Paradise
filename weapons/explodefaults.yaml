@@ -1,7 +1,7 @@
 ^Piffs:
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
-		InValidTargets: Water
+		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: ra
@@ -12,11 +12,12 @@
 		Explosions: infdeathexplo1, infdeathexplo2, infdeathexplo3
 		ImpactSounds: expnew12.aud
 		ExplosionPalette: gensmkexploj
-		InValidTargets: Water
+		InvalidTargets: Water
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ImpactSounds: ssplash3.aud
+		ExplosionPalette: player
 		ValidTargets: Water
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -27,11 +28,12 @@
 		Explosions: jsclsn16, jsclsn16b, jexplosml, jexplosml
 		ImpactSounds: expnew12.aud
 		ExplosionPalette: gensmkexploj
-		InValidTargets: Water
+		InvalidTargets: Water
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ImpactSounds: ssplash3.aud
+		ExplosionPalette: player
 		ValidTargets: Water
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -42,12 +44,12 @@
 		Explosions: jsmkpuff, jsbrnl20, jsclsn30b, jxgrysml2
 		ExplosionPalette: gensmkexploj
 		ImpactSounds: expnew14.aud
-		InValidTargets: Water
+		InvalidTargets: Water
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
-		ExplosionPalette: player
 		ImpactSounds: ssplash3.aud
+		ExplosionPalette: player
 		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -58,11 +60,12 @@
 		Explosions: jsclsn42, jsclsn42b, jsbang34, jsclsn58b
 		ExplosionPalette: gensmkexploj
 		ImpactSounds: expnew14.aud
-		InValidTargets: Water
+		InvalidTargets: Water
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ImpactSounds: ssplash3.aud
+		ExplosionPalette: player
 		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: MediumCrater
@@ -94,7 +97,7 @@
 		ExplosionPalette: gensmkexploj
 		ImpactSounds: expnew12.aud
 		ValidTargets: Ground, Air
-		InValidTargets: Water
+		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player
@@ -110,6 +113,11 @@
 		ExplosionPalette: gensmkexploj
 		ImpactSoundss: expnew10.aud
 		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_watersplash
+		ExplosionPalette: player
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
@@ -135,7 +143,7 @@
 		Explosions: jtwlt036, jtwlt036b, jtwlt050
 		ExplosionPalette: gensmkexploj
 		ImpactSounds: expnew09.aud
-		InValidTargets: Water
+		InvalidTargets: Water
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -151,7 +159,7 @@
 		Explosions: jsbrnl20, jsbrnl20b, jsbrnl30, jsbrnl30b
 		ExplosionPalette: gensmkexploj
 		ImpactSounds: expnew12.aud
-		InValidTargets: Water
+		InvalidTargets: Water
 		ValidTargets: Ground, Air
 	Warhead@5Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -170,7 +178,7 @@
 		Explosions: jstumu22, jstumu22b, jstumu30, jstumu30b
 		ExplosionPalette: gensmkexploj
 		ImpactSounds: expnew07.aud
-		InValidTargets: Water
+		InvalidTargets: Water
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -197,14 +205,14 @@
 	Warhead@3Eff: CreateEffect
 		Explosions: fire1, fire2
 		ExplosionPalette: effectalpha75
-		InValidTargets: Water, Air, AirHit
+		InvalidTargets: Water, Air, AirHit
 
 ^Shrapnel:
 	Warhead@2Eff: CreateEffect
 		Explosions: infdeathexplo1, infdeathexplo2,	infdeathexplo3
 		ImpactSounds: expnew12.aud
 		ExplosionPalette: gensmkexploj
-		InValidTargets: Water
+		InvalidTargets: Water
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
 		ExplosionPalette: player

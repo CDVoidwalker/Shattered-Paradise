@@ -26,7 +26,7 @@ Hellfire:
 	Range: 6c0
 	Report: orcamis1.aud
 	Burst: 2
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: Missile
 		MaximumLaunchSpeed: 256
 		Arm: 2
@@ -41,7 +41,7 @@ Hellfire:
 	Warhead@1Dam: SpreadDamage
 		Spread: 85
 		Damage: 3000
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		Versus:
 			InfantryArmor: 30
 			BuildingArmor: 65
@@ -70,7 +70,7 @@ CrabAcid:
 	ReloadDelay: 100
 	Range: 4c0
 	Report: flamtnk1.aud
-	ValidTargets: Ground, Vehicle, Infantry, Building
+	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	InvalidTargets: NeutralTibCritter
 	Projectile: BulletAS
 		Speed: 100
@@ -82,7 +82,7 @@ CrabAcid:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 600
-		ValidTargets: Ground, Vehicle, Infantry, Building
+		ValidTargets: Ground, Water, Vehicle, Infantry, Building
 		InvalidTargets: NeutralTibCritter
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
@@ -99,19 +99,19 @@ Tentacle:
 	ReloadDelay: 80
 	Range: 1c967
 	Report: floatk1.aud
-	ValidTargets: Ground, Vehicle, Infantry, Building
+	ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	Projectile: BulletAS
 		Speed: 0c602
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1600
 		DamageTypes: TriggerProne, BulletDeath
-		ValidTargets: Ground, Vehicle, Infantry, Building
+		ValidTargets: Ground, Water, Vehicle, Infantry, Building
 	Warhead@emp1: GrantExternalCondition
 		Range: 2c124
 		Duration: 50
 		Condition: empdisable
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 
 CrabSpawnerPrior:
 	ReloadDelay: 250

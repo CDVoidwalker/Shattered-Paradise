@@ -16,20 +16,11 @@ GrenadierBazooka:
 	ReloadDelay: 60
 	Range: 6c0
 	Report: rketinf1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: Missile
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 350
-		Image: DRAGON
-		MinimumLaunchAngle: 90
-		MaximumLaunchAngle: 270
-		TrailImage: small_smoke_trail
-		RateOfTurn: 8
-		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
 
 GrenadierBazookaAA:
@@ -45,13 +36,13 @@ JJGrenade:
 	ReloadDelay: 80
 	Range: 4c0
 	Report: grenadelauncherfire.wav
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 320
 		Blockable: false
 		Shadow: true
 		LaunchAngle: 45
-		Inaccuracy: 1c0
+		Inaccuracy: 0c512
 		Image: DISCUS
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
@@ -59,7 +50,7 @@ JJGrenade:
 		Versus:
 			BuildingArmor: 100
 			VehicleArmor: 25
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
 JJBuff:
@@ -149,7 +140,7 @@ HoverMissile:
 	Burst: 2
 	Range: 7c512
 	Report: hovrmis1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	Projectile: Missile
 		Arm: 2
@@ -162,16 +153,16 @@ HoverMissile:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
 		InvalidTargets: Air
-		ValidTargets: Ground, Vehicle, Building, Infantry
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 HoverMissileAA:
 	Inherits: HoverMissile
 	ValidTargets: Air
-	InvalidTargets: Ground, Vehicle, Building, Infantry
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		InvalidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
@@ -274,7 +265,7 @@ MammothTusk:
 	ReloadDelay: 120
 	Range: 7c0
 	Report: misl1.aud
-	ValidTargets: Ground, Vehicle, Building, Infantry, Air
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
 	Burst: 2
 	Projectile: Missile
 		Blockable: false
@@ -287,7 +278,7 @@ MammothTusk:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
-		ValidTargets: Ground, Vehicle, Building, Infantry, Air
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
 		Versus:
 		DamageTypes: Explosion
 
@@ -303,7 +294,7 @@ FighterHellfire:
 	MinRange: 0c100
 	Report: orcamis1.aud
 	Burst: 2
-	ValidTargets: Ground, Vehicle, Building, Infantry
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	Projectile: Missile
 		Arm: 2
 		Blockable: false
@@ -313,7 +304,7 @@ FighterHellfire:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: Ground, Vehicle, Building, Infantry
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 FighterHellfireAA:
@@ -326,49 +317,51 @@ FighterHellfireAA:
 		Damage: 1500
 		ValidTargets: Air
 
-OBBomb:
-	Inherits: ^BombWarhead
-	Inherits@2: ^Large_Explosion
-	ReloadDelay: 30
-	Burst: 5
-	MinRange: 0c100
+# OBBomb:
+	# Inherits: ^BombWarhead
+	# Inherits@2: ^Large_Explosion
+	# ReloadDelay: 30
+	# Burst: 5
+	# MinRange: 0c100
 	# Report: expnew05.aud, expnew06.aud, expnew09.aud, expnew19.aud
-	BurstDelays: 3
-	ValidTargets: Ground, Building, Infantry, Vehicle
-	Range: 3c0
-	Projectile: GravityBomb
-		Speed: 170
-		Image: 120mm
-		Shadow: true
-		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Falloff: 100, 80, 70, 60, 50
-		Spread: 400
-		Damage: 15000
-		ValidTargets: Ground, Building, Infantry, Vehicle
-		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+	# BurstDelays: 3
+	# ValidTargets: Ground, Water, Building, Infantry, Vehicle
+	# Range: 3c0
+	# Projectile: GravityBomb
+		# Speed: 170
+		# Image: 120mm
+		# Shadow: true
+		# Palette: ra
+	# Warhead@1Dam: SpreadDamage
+		# Falloff: 100, 80, 70, 60, 50
+		# Spread: 400
+		# Damage: 15000
+		# ValidTargets: Ground, Water, Building, Infantry, Vehicle
+		# DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
 OBBombFrontal:
 	Inherits: ^BombWarhead
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 30
 	MinRange: 0c100
-	Burst: 5
+	Burst: 10
 	BurstDelays: 1
-	ValidTargets: Ground, Building, Infantry, Vehicle
+	ValidTargets: Ground, Water, Building, Infantry, Vehicle
 	Range: 2c0
 	Projectile: BulletAS
 		Speed: 170
 		Image: 120mm
 		Shadow: true
 		Palette: ra
-		Inaccuracy: 512
+		Inaccuracy: 756
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 80, 70, 60, 50
 		Spread: 300
-		Damage: 15000
-		ValidTargets: Ground, Building, Infantry, Vehicle
+		Damage: 5000
+		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+	Warhead@ShieldUpgrade: GrantExternalCondition
+		Range: 128
 
 GuardianRail:
 	Inherits: ^FullDamage
@@ -399,7 +392,7 @@ GuardianClaw:
 		ValidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000
-		ValidTargets: Ground, Vehicle, Building, Infantry, Air
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry, Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 GuardianRepair:
@@ -483,7 +476,7 @@ FirestormWallUpgrade:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 	Warhead@Wall: GrantExternalCondition
 		Range: 12c0
 		Duration: 25
@@ -498,14 +491,14 @@ FirestormSpawner:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 	Warhead@op: FireShrapnel
 		Weapon: FirestormExplo
 		Amount: 24
 
 FirestormExplo:
 	Inherits: ^FullDamage
-	ReloadDelay: 5
+	ReloadDelay: 3
 	Range: 12c0
 	MinRange: 12c0
 	Projectile: BulletAS
@@ -514,7 +507,7 @@ FirestormExplo:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 300
 		Damage: 10000
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: fsidle, fsgrnd

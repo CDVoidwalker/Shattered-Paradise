@@ -14,7 +14,7 @@ MultiCluster:
 	ReloadDelay: 80
 	Range: 6c0
 	Report: MISL1.AUD
-	ValidTargets: Ground, Air
+	ValidTargets: Ground, Water, Air
 	Projectile: Missile
 		MaximumLaunchSpeed: 170
 		Arm: 2
@@ -27,7 +27,7 @@ MultiCluster:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 6500
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		Versus:
 			InfantryArmor: 25
 			BuildingArmor: 65
@@ -88,13 +88,13 @@ EMPulseCannon:
 
 IonCannon:
 	Inherits: ^SWBaseEffects
-	ValidTargets: Ground, Air, IonBeam
+	ValidTargets: Ground, Water, Air, IonBeam
 	Projectile: InstantExplode
 	Warhead@1Dam_area: SpreadDamage
 		Spread: 1c0
 		Damage: 100000
 		Falloff: 100, 50, 25, 0
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
 	Warhead@3Smu_area: LeaveSmudge
 		SmudgeType: SmallScorch
@@ -142,7 +142,7 @@ IonCannonSpawner:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@op: FireShrapnel
 		Weapon: IonBeamCreator
 		Amount: 20
@@ -160,7 +160,7 @@ IonBeamCreator:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 1
 		Damage: 1
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@Spawn: SpawnActor
 		Actors: ionbeammini
 		Range: 15
@@ -168,7 +168,7 @@ IonBeamCreator:
 IonScorch:
 	ReloadDelay: 1
 	Projectile: InstantExplode
-	ValidTargets: Ground, Air, IonSpawner
+	ValidTargets: Ground, Water, Air, IonSpawner
 	Warhead@1Eff_impact: CreateEffect
 		Explosions: ionscorch
 		ExplosionPalette: effectalpha
@@ -269,7 +269,7 @@ droppod1:
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 3
 	Range: 3c0
-	ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
+	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
 	Projectile: BulletAS
 		Speed: 350
 		Image: gdidroppod
@@ -329,12 +329,12 @@ droppod5:
 
 ClusterMissile:
 	Inherits: ^SWBaseEffects
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
 		Damage: 14000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Water, Air
 		Versus:
 			ConcreteArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
@@ -343,7 +343,7 @@ ClusterMissile:
 		Spread: 1c512
 		Falloff: 1000, 700, 500, 300, 150, 50, 0
 		Delay: 15
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Water, Air
 		Versus:
 			InfantryArmor: 500
 			BuildingArmor: 100
@@ -355,7 +355,7 @@ ClusterMissile:
 		Damage: 500
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 6
-		ValidTargets: Ground, Air, Trees
+		ValidTargets: Ground, Water, Air, Trees
 		AffectsParent: True
 		Versus:
 			InfantryArmor: 500
@@ -443,12 +443,12 @@ MeteorFlame:
 		Speed: 400
 
 ToxinMissile:
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
 		Damage: 10000
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water, Water, Air
 		Versus:
 			ConcreteArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
@@ -476,12 +476,12 @@ ToxinMissile:
 		MaxLevel: 1000
 
 EnergyAssimilator:
-	ValidTargets: Ground, Air, Building
+	ValidTargets: Ground, Water, Air, Building
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 250
 		Damage: 5
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 		Delay: 15
 	Warhead@2Eff_impact: CreateEffect
@@ -499,7 +499,7 @@ EnergyAssimilator:
 		Range: 15c0
 		Duration: 200
 		Condition: TimeLineTrolling
-		ValidTargets: Ground, Air, Infantry, Vehicle, Aircraft
+		ValidTargets: Ground, Water, Air, Infantry, Vehicle, Aircraft
 		ValidStances: Ally, Enemy, Neutral
 		Delay: 15
 
@@ -592,7 +592,7 @@ MeteorRainNormal:
 	ReloadDelay: 8
 	Range: 1c0
 	Report: mehit1.aud
-	ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
+	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
 	Projectile: BulletAS
 		Speed: 350
 		Image: meteor2
@@ -606,7 +606,7 @@ MeteorRainNormal:
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 3500
-		ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
+		ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallCrater
@@ -694,12 +694,12 @@ CabalCannon:
 		Range: 4c0
 
 NanoMachineBurst:
-	ValidTargets: Ground, Air
+	ValidTargets: Ground, Water, Air
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 1c0
 		Damage: 500
 		Falloff: 500, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone100Percent, TriggerProne, EnergyDeath
 	Warhead@5Actor: SpawnActor
 		Actors: NANOMACHINEBURSTSPAWNER
@@ -774,12 +774,12 @@ VeinholeSummonerWeapon:
 	Inherits: ^BombWarhead
 	ReloadDelay: 8
 	Range: 3c0
-	ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
+	ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
 	Warhead@1Dam: SpreadDamage
 		Spread: 650
 		Damage: 1
 		Falloff: 1000, 500, 250, 125, 75, 50, 25, 12, 0
-		ValidTargets: Ground, Air, Vehicle, Building, Infantry, Water
+		ValidTargets: Ground, Water, Air, Vehicle, Building, Infantry, Water
 		DamageTypes:
 	Warhead@5Actor: SpawnActor
 		Actors: VEINHOLESPAWNERDUMMY
@@ -789,7 +789,8 @@ VeinholeSummonerWeapon:
 		Weapon: VeinholeShrapnel
 		Amount: 3
 		AllowDirectHit: false
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Ground, Water, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
 
 VeinholeShrapnel:
 	Range: 5c0

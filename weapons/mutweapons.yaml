@@ -24,29 +24,6 @@ MarauderShotgunInnacurate:
 		Damage: 1000
 	-Warhead@op: FireShrapnel
 
-SkirmisherRocket:
-	Inherits: ^RocketWarhead
-	Inherits@2: ^Small_Clsn
-	ReloadDelay: 125
-	Range: 5c0
-	Report: rketinf1.aud
-	ValidTargets: Ground, Air
-	Projectile: Missile
-		MaximumLaunchSpeed: 213
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 128
-		Image: DRAGON
-		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
-		RangeLimit: 12c0
-		Palette: ra
-	Warhead@1Dam: SpreadDamage
-		Damage: 2000
-		AffectsParent: true
-		ValidTargets: Ground, Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-
 SkirmisherMortar:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
@@ -74,12 +51,13 @@ SkirmisherMortar:
 
 FiendShard2:
 	Inherits: ^APWarhead
-	ReloadDelay: 30
+	ReloadDelay: 60
 	Burst: 2
 	Range: 4c0
 	Report: fiend2.aud
-	ValidTargets: Ground
-	Projectile: Missile
+	ValidTargets: Ground, Water
+	Projectile: BulletAS
+		Speed: 450
 		Image: CRYSTAL4
 		Inaccuracy: 512
 		HorizontalRateOfTurn: 40
@@ -89,7 +67,7 @@ FiendShard2:
 		Palette: greentiberium
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -120,13 +98,13 @@ SeerTesla:
 	Range: 6c0
 	Report: voltautofire.wav
 	Charges: yes
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: TeslaZap
 		Palette: apolbluealpha
 		Duration: 10
 	Warhead@1Dam: SpreadDamage
 		Damage: 7000
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		Versus:
 			InfantryArmor: 10
 			BuildingArmor: 100
@@ -274,10 +252,6 @@ GMarauderShotgun:
 	Inherits: MarauderShotgun
 	Range: 6c768
 
-GSkirmisherRocket:
-	Inherits: SkirmisherRocket
-	Range: 6c768
-
 GFiendShard2:
 	Inherits: FiendShard2
 	Range: 6c768
@@ -315,7 +289,7 @@ BerserkerBlow:
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath, TiberiumDeath
 	Warhead@1Dam: SpreadDamage
 		Damage: 4000
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 
 BullAcid:
@@ -426,12 +400,12 @@ QuadFire:
 	Burst: 2
 	Range: 6c0
 	Report: cygun1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	MinRange: 1c0
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		ValidTargets: Ground
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
 		Damage: 3500
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
@@ -441,11 +415,11 @@ QuadFireAA:
 	Range: 7c512
 	ValidTargets: Air
 	Projectile: InstantHit
-	InvalidTargets: Ground
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 		Damage: 1750
-		InvalidTargets: Ground
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 TiberianRocket:
@@ -454,7 +428,7 @@ TiberianRocket:
 	Range: 12c0
 	Burst: 8
 	Report: rketinf1.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	InvalidTargets: NeutralTibCritter
 	MinRange: 3c0
 	Projectile: BulletAS
@@ -470,7 +444,7 @@ TiberianRocket:
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
 		Damage: 4600
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@2EffWater: CreateEffect
@@ -493,7 +467,7 @@ TiberianRocket:
 
 MiniNuke:
 	Inherits: ClusterMissile
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Damage: 4500
 	Warhead@ClusterDamage3: SpreadDamage
@@ -516,7 +490,7 @@ QueenShard:
 	Range: 7c0
 	Report: fiend2.aud
 	MinRange: 0c100
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 200
 		Image: tibshard
@@ -525,7 +499,7 @@ QueenShard:
 		Palette: apgreen
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -558,7 +532,8 @@ EggElevator:
 	Warhead@op: FireShrapnel
 		Weapon: SpawnEgg
 		Amount: 1
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+		ValidTargets: Ground, Water, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
 
 SpawnEgg:
 	Inherits: ^FullDamage
@@ -576,13 +551,13 @@ SpawnEgg:
 		Damage: 1
 		ValidStances: Enemy, Neutral
 		InvalidTargets: Water, Cliff
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 	Warhead@5Actor: SpawnActor
 		Actors: EGGSPAWNER
 		FallRate: 5000
 		Range: 2
 		InvalidTargets: Water, Cliff
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 
 FirestormExplo:
 	Inherits: ^FullDamage
@@ -595,7 +570,7 @@ FirestormExplo:
 	Warhead@3Dam_area: SpreadDamage
 		Spread: 300
 		Damage: 7500
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: fsidle, fsgrnd
@@ -613,7 +588,7 @@ GargoylACannon:
 	MinRange: 0c100
 	Range: 6c0
 	Report: 120mmf.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	InvalidTargets: Air
 	Projectile: BulletAS
 		Speed: 1c682
@@ -625,7 +600,7 @@ GargoylACannon:
 			BuildingArmor: 80
 			VehicleArmor: 100
 			ConcreteArmor: 30
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath, BulletDeath
 
@@ -635,10 +610,10 @@ GargoylACannonAA:
 	MinRange: 0c100
 	ValidTargets: Air
 	Projectile: InstantHit
-	InvalidTargets: Ground, Vehicle, Building, Infantry
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		InvalidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 		Damage: 3000
 
 CloudDamage:
@@ -648,29 +623,16 @@ CloudDamage:
 	InvalidTargets: CloudInmune
 	Warhead@1Dam: SpreadDamage
 		Spread: 164
-		Damage: 650
-		DamageTypes: BulletDeath
+		Damage: 200
+		DamageTypes: TiberiumDeath
+		InvalidTargets: CloudInmune, NeutralTibCritter
 		Versus:
-			BuildingArmor: 10
-			VehicleArmor: 7
-			ConcreteArmor: 1
-		ValidStances: Enemy, Neutral
-	Warhead@2Dam: SpreadDamage
-		Spread: 164
-		Damage: 325
-		DamageTypes: BulletDeath
-		Versus:
-			BuildingArmor: 10
-			VehicleArmor: 7
-			ConcreteArmor: 1
-			BullArmor: 1
-		ValidStances: Ally
-		InvalidTargets: CloudInmune
+			InfantryArmor: 300
 
 FalconPunch:
 	Inherits: ^BombWarhead
 	Inherits@2: ^Mediuml_Clsn
-	ValidTargets: Ground, Water
+	ValidTargets: Ground, Water, Water
 	ReloadDelay: 1
 	MinRange: 0c100
 	Range: 5c0
@@ -695,7 +657,7 @@ FalconPunch:
 	Warhead@1Dam: SpreadDamage
 		Spread: 300
 		Damage: 13500
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Water
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, TiberiumDeath
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1, cloud1
@@ -728,7 +690,7 @@ FlakFire:
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
-		Damage: 5000
+		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
@@ -763,9 +725,7 @@ VentilatorPoison:
 			ConcreteArmor: 5
 		DamageTypes: TiberiumDeath
 
-VeinholePoision:
-	Inherits: VentilatorPoison
-	Warhead@1Dam: SpreadDamage
-		Damage: 333
-	Warhead@2Dam: SpreadDamage
-		Damage: -250
+VeinholeEggElevator:
+	Inherits: EggElevator
+	MinRange: 1c0
+	ReloadDelay: 800

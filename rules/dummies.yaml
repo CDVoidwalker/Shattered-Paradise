@@ -402,8 +402,7 @@ VEINHOLESPAWNERDUMMY:
 	SpawnActorOnDeath@cabalcrate:
 		Actor: MINIVEIN
 		Probability: 100
-		OwnerType: InternalName
-		InternalOwner: Creeps
+		OwnerType: Victim
 		RequiresLobbyCreeps: true
 		SkipMakeAnimations: false
 	-SpawnActorOnDeath@nanomachineburst:

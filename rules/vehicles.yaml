@@ -37,7 +37,7 @@ SMECH:
 MMCH:
 	Inherits: ^Walker
 	Valued:
-		Cost: 850
+		Cost: 900
 	Tooltip:
 		Name: Titan
 	Buildable:
@@ -133,7 +133,7 @@ APC:
 		LocalOffset: 250,0,384
 
 HVR:
-	Inherits: ^VoxelVehicle
+	Inherits: ^VoxelTank
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^HoverVehicle
 	Inherits@3: ^BasicStealthDetection
@@ -187,7 +187,7 @@ JUG:
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 45
+		Speed: 50
 	Health:
 		HP: 21000
 	AttackFrontal:
@@ -371,7 +371,7 @@ HMEC:
 		Bounds: 40, 40, 0, -8
 
 BGGY:
-	Inherits: ^VoxelVehicle
+	Inherits: ^VoxelTank
 	Inherits@1: ^AutoTargetGround
 	Inherits@3: ^BasicStealthDetection
 	Valued:
@@ -508,7 +508,7 @@ TTNK:
 	Inherits@1: ^Ra2vxl
 	Inherits@2: ^SpriteActor
 	Valued:
-		Cost: 850
+		Cost: 900
 	Tooltip:
 		Name: Tick Tank
 	Buildable:
@@ -678,14 +678,14 @@ BIKE:
 SAPC:
 	Inherits: ^VoxelVehicle
 	Valued:
-		Cost: 800
+		Cost: 700
 	Tooltip:
 		Name: Subterranean APC
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 30
 		Prerequisites: ~naweap, naradr
-		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground\n- Can transport up to 5 infantry units\n- Can crush infantry
+		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
 	Mobile:
 		TurnSpeed: 5
 		Speed: 71
@@ -755,6 +755,8 @@ REPAIR:
 		ForceTargetStances: None
 	AttackFrontal:
 		Voice: Attack
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 SUBTANK:
 	Inherits: ^VoxelTank
@@ -764,7 +766,7 @@ SUBTANK:
 		Name: Devil's Tongue
 	Buildable:
 		Queue: Vehicle
-		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground\n- Can crush infantry
+		Description: Subterranean flame tank able to move underground.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Can move underground.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
 		BuildPaletteOrder: 15
 		Prerequisites: ~naweap, natech
 	Mobile:
@@ -775,15 +777,31 @@ SUBTANK:
 		Subterranean: true
 		SubterraneanCondition: submerged
 		SubterraneanTransitionTerrainTypes: Clear, Rough, Road, Rail, DirtRoad, Bridge,  Tiberium, BlueTiberium, Veins
-		SubterraneanTransitionCost: 0
+		SubterraneanTransitionCost: 0#-2147483647
 		SubterraneanTransitionSound: subdril1.aud
 		SubterraneanTransitionImage: dig
 		SubterraneanTransitionSequence: idle
 		SubterraneanTransitionOnRamps: True
 		TerrainSpeeds:
+			Clear: 100
+				PathingCost: 150
+			Road: 120
+				PathingCost: 150
+			Rail: 100
+				PathingCost: 150
+			DirtRoad: 110
+				PathingCost: 150
+			Rough: 80
+				PathingCost: 150
+			Bridge: 120
+				PathingCost: 150
+			Tiberium: 70
+				PathingCost: 300
+			BlueTiberium: 70
+				PathingCost: 300
+			Veins: 80
+				PathingCost: 150
 			Subterranean: 120
-			Road: 100
-			Bridge: 100
 	SelfHealing@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
 	WithIdleOverlay@veinholedrain:
@@ -862,7 +880,7 @@ ARMH:
 STNK:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 1100
+		Cost: 1000
 	Tooltip:
 		Name: Stealth Tank
 	Buildable:
@@ -872,7 +890,7 @@ STNK:
 		Queue: Vehicle
 	Mobile:
 		TurnSpeed: 9
-		Speed: 125
+		Speed: 100
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 35000
@@ -1028,6 +1046,8 @@ STRUCK:
 		Volume: 3
 	-RenderVoxels:
 	-WithVoxelBody:
+	-GainsExperience:
+	-ProducibleWithLevel:
 	WithFacingSpriteBody:
 	Cargo:
 		Types: Infantry
@@ -1064,7 +1084,7 @@ LYNX:
 		BuildPaletteOrder: 26
 		Prerequisites: ~muweap
 	Valued:
-		Cost: 600
+		Cost: 650
 	Tooltip:
 		Name: Lynx
 	Mobile:
@@ -1075,6 +1095,9 @@ LYNX:
 	Health:
 		HP: 22500
 	-RenderVoxels:
+	Voiced:
+		VoiceSet: Trike
+		Volume: 3
 	-WithVoxelBody:
 	Turreted:
 		TurnSpeed: 10
@@ -1149,6 +1172,7 @@ MUTQUAD:
 		Weapon: QuadFire
 		MuzzleSequence: muzzle
 		LocalOffset: 700,0,650
+		MuzzlePalette: apgrey
 	Armament@Secondary:
 		Weapon: QuadFireAA
 		MuzzleSequence: muzzle
@@ -1171,7 +1195,7 @@ MRLS:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
-		Description: Light artillery armed with tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed enemy units\n- Emittes tiberium gas damaging nearby units.\n- Can crush infantry.\n- Inmune to tiberium radiation.
+		Description: Light artillery armed with tiberium rockets.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Deals AoE damage\n- Minimum attack distance\n- Can mutate killed enemy units\n- Emittes tiberium radiaton that damages nearby units.\n- Can crush infantry.\n- Inmune to tiberium radiation.
 		Prerequisites: ~muweap, muhall
 	Mobile:
 		TurnSpeed: 10
@@ -1291,7 +1315,7 @@ SCRSCORPION:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 30
-		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.
+		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.\n- Cannot harm razorsharks.
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 6
@@ -1462,6 +1486,8 @@ SCRMOBMINE:
 	WithRangeCircle:
 		Type: Subjugator
 	RenderRangeCircle:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 SCRMBT:
 	Inherits: ^ScrinVehicle
@@ -1473,7 +1499,7 @@ SCRMBT:
 		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water).\nAbsorbs essence from killed units to heal.
 		Prerequisites: ~scrweap
 	Valued:
-		Cost: 950
+		Cost: 1000
 	Tooltip:
 		Name: Hover Tank
 	Health:
@@ -1544,6 +1570,8 @@ SCRRECHARGER:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 TRIPOD:
 	Inherits: ^ScrinVehicle
@@ -1682,7 +1710,7 @@ CENTURION:
 REAPERCAB:
 	Inherits: ^Walker
 	Valued:
-		Cost: 1000
+		Cost: 1100
 	Tooltip:
 		Name: Cyborg Reaper
 	Buildable:
@@ -1728,7 +1756,7 @@ REAPERCAB:
 REPAIRVEHICLE:
 	Inherits: ^VoxelTank
 	Valued:
-		Cost: 900
+		Cost: 750
 	Tooltip:
 		Name: Mobile Repair Vehicle
 	Buildable:
@@ -1754,6 +1782,8 @@ REPAIRVEHICLE:
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 CABAPC:
 	Inherits: ^VoxelVehicle
@@ -1761,7 +1791,7 @@ CABAPC:
 	Inherits@3: ^HoverVehicle
 	Inherits@4: ^CabRender
 	Valued:
-		Cost: 600
+		Cost: 500
 	Tooltip:
 		Name: Hover APC
 	Buildable:
@@ -1771,7 +1801,7 @@ CABAPC:
 		Prerequisites: ~cabweap, cabradr
 	Mobile:
 		TurnSpeed: 8
-		Speed: 110
+		Speed: 120
 	Voiced:
 		VoiceSet: Limpet
 	Health:
@@ -1795,6 +1825,8 @@ CABAPC:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
+	-GainsExperience:
+	-ProducibleWithLevel:
 
 SPIDERARTY:
 	Inherits: ^Walker

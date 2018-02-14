@@ -1197,7 +1197,7 @@
 	Inherits@1: ^ScrinReaper
 	Inherits@2: ^ScrinRender
 	Voiced:
-		VoiceSet: Limpet
+		VoiceSet: AlienLimpet
 	WithDeathAnimation@normal:
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin
@@ -1485,6 +1485,7 @@
 
 ^HoverVehicle:
 	Inherits: ^Vehicle
+	Inherits@1: ^Academy
 	Hovers:
 	Mobile:
 		TerrainSpeeds:

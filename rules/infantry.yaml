@@ -20,8 +20,6 @@ GDIE1:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 	RenderSprites:
 
 GRENADIER:
@@ -55,8 +53,6 @@ GRENADIER:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 
 JUMPJET:
 	Inherits: ^Soldier
@@ -155,7 +151,6 @@ JUMPJETAIR:
 	-ExternalCondition@smoketrail:
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
-	# -GrantConditionOnPrerequisite@AIReload:
 
 MEDIC:
 	Inherits: ^Soldier
@@ -212,8 +207,6 @@ EAGLEGUARD:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 
 ALTNODE1:
 	Inherits: ^Soldier
@@ -239,16 +232,7 @@ ALTNODE1:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 	RenderSprites:
-	# WithDecoration@bombicon:
-		# Image: bombicon
-		# Sequence: idle
-		# ReferencePoint: Bottom, Left
-		# Palette: mouse
-		# ShowToEnemies: true
-		# RequiresCondition: deployed
 
 CRUSADER:
 	Inherits: ^Soldier
@@ -278,8 +262,6 @@ CRUSADER:
 	Turreted:
 	Passenger:
 		PipType: Blue
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 	RenderSprites:
 
 TEMPLAR:
@@ -303,11 +285,7 @@ TEMPLAR:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 	RenderSprites:
-	# Passenger:
-		# GrantCondition: TemplarHologram
 	-DamagedByTerrain:
 
 NCONF:
@@ -340,8 +318,6 @@ NCONF:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	ProducibleWithLevel:
-		Prerequisites: barracks.Condition
 	RenderSprites:
 	Voiced:
 		VoiceSet: BlackHand
@@ -396,8 +372,6 @@ MHIJACK:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 	-AttackMove:
-	# Passenger:
-		# GrantCondition: HijackerHologram
 
 BHS:
 	Inherits: ^Soldier
@@ -442,8 +416,6 @@ BHS:
 		CloakDelay: 50
 		IsPlayerPalette: true
 		UncloakOn: Attack
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 	-TemporaryOwnerManager:
 	RenderSprites:
 	-DamagedByTerrain:
@@ -801,6 +773,8 @@ SHARK:
 		Name: Razorshark
 	Selectable:
 		Class: Shark
+	Targetable@Shark:
+		TargetTypes: Shark
 	Health:
 		HP: 11000
 	Mobile:
@@ -866,8 +840,6 @@ LEGIO:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 
 SHAPESHIFTER:
 	Inherits: ENGINEER
@@ -922,8 +894,6 @@ STALKER:
 	WithInfantryBody:
 		AttackSequence: throw
 	-TakeCover:
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 
 FLOAT:
 	Inherits: ^ScrinSoldier
@@ -994,8 +964,6 @@ BUG:
 		Voice: Attack
 		PauseOnCondition: WebDisable
 	-TakeCover:
-	ProducibleWithLevel:
-		Prerequisites: barracks.Conditiond
 
 COLOSSI:
 	Inherits: ^ScrinSoldier

@@ -41,8 +41,9 @@
 		HorizontalRateOfTurn: 40
 		VerticalRateOfTurn: 40
 		RangeLimit: 15c0
-		Palette: effect
+		TrailImage: small_smoke_trail
 		TrailPalette: effectalpha75
+		Palette: ra
 		AllowSnapping: true
 		CloseEnough: 200
 	Warhead@1Dam: SpreadDamage

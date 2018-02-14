@@ -1,6 +1,6 @@
 SharkJump:
 	Inherits: ^RifleWarhead
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	ReloadDelay: 20
 	Range: 1c512
 	Report: fiend2.aud
@@ -19,23 +19,29 @@ LegioNeedler:
 	ReloadDelay: 60
 	Range: 6c0
 	Report: photon1.wav
-	ValidTargets: Ground, Air
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building
 	Projectile: Missile
 		Blockable: false
 		Shadow: true
 		Palette: apblue
 		Image: blueballminitrail
+		-TrailImage: small_smoke_trail
+		-TrailPalette: effectalpha75
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		Versus:
-		ValidTargets: Ground
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building
+		InvalidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 
 LegioNeedlerAA:
 	Inherits: LegioNeedler
 	Range: 7c0
+	ValidTargets: Ground, Water, Infantry, Vehicle, Building
+	InvalidTargets: Air
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
+		InvalidTargets: Ground, Water, Infantry, Vehicle, Building
 
 ColossiTesla:
 	Inherits: ^RifleWarhead
@@ -147,7 +153,7 @@ FloatGlaive:
 	ReloadDelay: 100
 	Range: 7c0
 	Report: photon1.wav
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 300
 		Blockable: false
@@ -157,7 +163,7 @@ FloatGlaive:
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
 		Versus:
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: FloatGlaive2
@@ -258,6 +264,7 @@ ScorpAcid:
 	Range: 4c0
 	Burst: 12
 	Report: flamtnk1.aud
+	InvalidTargets: Shark
 	Projectile: BulletAS
 		Speed: 200
 		Image: acidall32
@@ -271,7 +278,7 @@ ScorpAcid:
 		Versus:
 			InfantryArmor: 125
 			BuildingArmor: 75
-		ValidStances: Enemy, Neutral
+		InvalidTargets: Shark
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -374,7 +381,7 @@ BounceExplosion:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 2000
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		Versus:
 			InfantryArmor: 15
 			BuildingArmor: 100
@@ -395,7 +402,7 @@ BounceTesla:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: 1500
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		Versus:
 			InfantryArmor: 15
 			BuildingArmor: 100
@@ -420,11 +427,6 @@ RifleBounce:
 	Warhead@Bouncing: CreateEffect
 		Explosions: vanguardshockwave
 		ExplosionPalette: apolra2ialpha
-
-RocketBounce:
-	Inherits: RifleBounce
-	Warhead@op: FireShrapnel
-		Weapon: RocketBounceWeapon
 
 APBounce:
 	Inherits: RifleBounce
@@ -458,21 +460,6 @@ RifleBounceWeapon:
 		LaunchAngle: 15
 	ReloadDelay: 50
 	Range: 6c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 1500
-
-RocketBounceWeapon:
-	Inherits: SkirmisherRocket
-	Projectile: BulletAS
-		Speed: 500
-		Image: purpBullet
-		TrailImage: purpBullet
-		Inaccuracy: 1c0
-		ContrailLength: 5
-		Shadow: true
-		Palette: playerscrin
-		LaunchAngle: 15
-	ReloadDelay: 50
 	Warhead@1Dam: SpreadDamage
 		Damage: 1500
 
@@ -571,8 +558,7 @@ TripodProton:
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
 	Range: 1c0
-	Report: scrin5b.aud
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 150
 		Blockable: false
@@ -583,7 +569,7 @@ TripodProton:
 	Warhead@1Dam: SpreadDamage
 		Spread: 100
 		Damage: 700
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
 StormRiderBlast:
@@ -593,7 +579,7 @@ StormRiderBlast:
 	Range: 6c512
 	MinRange: 0c100
 	Report: laserpistol.wav
-	ValidTargets: Ground, Vehicle, Building, Infantry
+	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	InvalidTargets: Air
 	Projectile: Missile
 		TerrainHeightAware: True
@@ -609,11 +595,12 @@ StormRiderBlast:
 		RangeLimit: 28c291
 		AllowSnapping: true
 		Palette: pips
+		TrailPalette: effect
 		TrailImage: blueballminitrail
 		Image: blueplasma
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
-		ValidTargets: Ground, Vehicle, Building, Infantry
+		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@ShieldUpgrade: GrantExternalCondition
@@ -621,13 +608,12 @@ StormRiderBlast:
 
 StormRiderBlastAA:
 	Inherits@2: StormRiderBlast
-	ReloadDelay: 25
 	ValidTargets: Air
-	InvalidTargets: Ground, Vehicle, Building, Infantry
+	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
 		Damage: 2000
 		ValidTargets: Air
-		InvalidTargets: Ground, Vehicle, Building, Infantry
+		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
 Glyder1Cannon:
 	Inherits: ^RocketWarhead
@@ -636,7 +622,7 @@ Glyder1Cannon:
 	Range: 5c0
 	MinRange: 0c100
 	Report: photon1.wav
-	ValidTargets: Ground
+	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 200
 		Image: torpedo
@@ -651,7 +637,7 @@ Glyder1Cannon:
 			BuildingArmor: 100
 			VehicleArmor: 100
 			ConcreteArmor: 25
-		ValidTargets: Ground
+		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 Glyder2Cannon:
@@ -663,6 +649,8 @@ Glyder2Cannon:
 	Report: photon1.wav
 	ValidTargets: Air
 	Projectile: Missile
+		-TrailImage: small_smoke_trail
+		-TrailPalette: effectalpha75
 		Image: torpedo
 		RangeLimit: 21c0
 		Palette: apblue
@@ -682,7 +670,7 @@ BattleshipCannon:
 	Burst: 8
 	BurstDelays: 3
 	MinRange: 0c100
-	ValidTargets: Ground, Infantry, Vehicle, water
+	ValidTargets: Ground, Water, Infantry, Vehicle, water
 	Projectile: BulletAS
 		Speed: 500
 		Image: purpBullet
@@ -694,7 +682,7 @@ BattleshipCannon:
 		LaunchAngle: 15
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
-		ValidTargets: Ground, Infantry, Vehicle, water
+		ValidTargets: Ground, Water, Infantry, Vehicle, water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 
 DestroyerCannon:
@@ -740,12 +728,12 @@ FighterSpawn:
 	Range: 8c0
 	MinRange: 0c100
 	Projectile: InstantExplode
-	ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+	ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
 		Damage: 1
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-		ValidTargets: Ground, Infantry, Air, Vehicle, Building, Wall
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
 
 WyvermBlast:
 	Inherits: ^ArtilleryWarhead
@@ -754,7 +742,7 @@ WyvermBlast:
 	Range: 6c512
 	MinRange: 0c100
 	Report: laserpistol.wav
-	ValidTargets: Ground, Air
+	ValidTargets: Ground, Water, Air
 	Projectile: Missile
 		TerrainHeightAware: True
 		CruiseAltitude: 4000
@@ -780,7 +768,7 @@ WyvermBlast:
 			InfantryArmor: 10
 			VehicleArmor: 100
 			BuildingArmor: 50
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
 WyvermBlastAA:
@@ -839,10 +827,11 @@ NeedlerAcid:
 	BurstDelays: 4
 	Warhead@1Dam: SpreadDamage
 		Spread: 250
-		Damage: 600
+		Damage: 800
 		Versus:
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		InvalidTargets: Shark
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -904,7 +893,7 @@ DronePlane:
 	Warhead@1Dam: SpreadDamage
 		Spread: 150
 		Damage: 3000
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
 	Warhead@2Eff: CreateEffect
 		Explosions: viscexplo
@@ -942,7 +931,7 @@ EssenceSmall:
 		ThrowWithoutTarget: False
 		AllowDirectHit: True
 		AimTargetStances: Ally
-		ValidTargets: Ground, ScrinUnit
+		ValidTargets: Ground, Water, ScrinUnit
 
 EssenceMissile:
 	Inherits: ^FullDamage

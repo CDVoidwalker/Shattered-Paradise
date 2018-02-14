@@ -5,7 +5,7 @@ Bazooka:
 	Range: 6c0
 	MinRange: 0c512
 	Report: rketinf1.aud
-	ValidTargets: Ground, Air
+	ValidTargets: Ground, Water, Air
 	Projectile: Missile
 		MaximumLaunchSpeed: 213
 		Blockable: false
@@ -18,5 +18,5 @@ Bazooka:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
-		ValidTargets: Ground, Air
+		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath

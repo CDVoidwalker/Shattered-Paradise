@@ -61,7 +61,7 @@ MCV:
 		Priority: 4
 		DecorationBounds: 42,42
 	Health:
-		HP: 100000
+		HP: 120000
 	Armor:
 		Type: VehicleArmor
 	Mobile:
@@ -137,7 +137,7 @@ HARV:
 				PathingCost: 1
 			Veins: 100
 	Health:
-		HP: 60000
+		HP: 40000
 	-TemporaryOwnerManager:
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
@@ -167,8 +167,6 @@ HARV:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
-	-DamagedByRadioactivity@Default:
-	-DamagedByRadioactivity@OrangeRadiation:
 
 SCRHARV:
 	Inherits: HARV
@@ -202,6 +200,7 @@ SCRHARV:
 		Volume: 1
 	Selectable:
 		DecorationBounds: 36,36
+	-ProducibleWithLevel:
 
 LPST:
 	Inherits: ^VoxelVehicle

@@ -1191,7 +1191,7 @@ MUTSW2:
 		Weapon: VeinholeSummonerWeapon
 		Effect: dot
 		Icon: veinholesw
-		ChargeInterval: 6000
+		ChargeInterval: 5000
 		OrderName: Veinhole
 		DisplayTimer: True
 		DisplayBeacon: True
@@ -1202,7 +1202,7 @@ MUTSW2:
 		IncomingSound: SuperweaponFired
 		LaunchSound: n_swlaunch.aud
 		Description: Veinhole summon
-		LongDesc: Spawns a cluster of baby veinholes\non the targetted location.
+		LongDesc: Spawns a cluster of veinholes\non the targetted location.\nVeinholes spawn gas clouds, radiation, and tiberian crabs.\nThey also provide vision.
 		DisplayTimerStances: Ally, Neutral, Enemy
 		PauseOnCondition: empdisable || disabled
 		CameraActor: camera
@@ -1432,7 +1432,7 @@ SCRTRACTOR:
 		Weapon: TractorBeam2
 		LocalOffset: 512,0,2048
 	Power:
-		Amount: -20
+		Amount: -30
 	SelectionDecorations:
 	-GrantConditionOnDamageState@smoke:
 	-SmokeParticleEmitter:
@@ -1447,7 +1447,7 @@ SCRDRONE:
 	Inherits@4: ^ScrinDeathExplo
 	Inherits@5: ^2x2Shape
 	Valued:
-		Cost: 1350
+		Cost: 1000
 	Tooltip:
 		Name: Visceroid Hive
 	Buildable:
@@ -1462,7 +1462,7 @@ SCRDRONE:
 		Bounds: 88, 42, 0, -6
 		DecorationBounds: 88, 72, 0, -12
 	Health:
-		HP: 150000
+		HP: 127500
 	RevealsShroud:
 		Range: 12c0
 	AttackOmni:
@@ -2026,7 +2026,7 @@ NAPOST:
 		AreaTypes: building
 		Adjacent: 7
 	Power:
-		Amount: -10
+		Amount: -5
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@LIGHTS:
