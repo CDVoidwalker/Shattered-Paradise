@@ -100,7 +100,7 @@
 			InfantryArmor: 100
 			BuildingArmor: 150
 			VehicleArmor: 50
-			DefenseArmor: 150
+			DefenseArmor: 50
 			ConcreteArmor: 35
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead

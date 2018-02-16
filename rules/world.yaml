@@ -30,7 +30,7 @@
 	Faction@4:
 		Name: Scrin
 		InternalName: scr
-		Description: Scrin\nAn alien race that brought Tiberium to earth many years ago. They\nmine planets through the use of Ichor (Tiberium).\n\nManipulator Faction\n\nSpecial Characteristics:\n\n- Most units have special abilities that affect the battlefield.\n- Focus on airpower, mind control, shield generation and radiation.\n- All Scrin units steal essence from kills to heals.\n- Support Structure: Shield Battery.\n- Support power: Reality destabilization (Teleportation Device)\n- Superweapon: Wrath of the Creator (Meteor Storm)
+		Description: Scrin\nAn alien race that brought Tiberium to earth many years ago. They\nmine planets through the use of Ichor (Tiberium).\n\nManipulator Faction\n\nSpecial Characteristics:\n\n- Most units have special abilities that affect the battlefield.\n- Focus on airpower, mind control, shield generation and radiation.\n- All Scrin units steal essence from kills to heal.\n- Support Structure: Shield Battery.\n- Support power: Reality destabilization (Teleportation Device)\n- Superweapon: Wrath of the Creator (Meteor Storm)
 	Faction@Random:
 		Name: Random
 		InternalName: Random

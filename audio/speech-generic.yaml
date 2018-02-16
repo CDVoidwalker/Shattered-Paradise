@@ -1,10 +1,10 @@
 Speech:
 	Prefixes:
-		gdi: g_
+		gdi: f_
 		nod: n_
-		cab: n_
-		mut: n_
-		scr: n_
+		cab: c_
+		mut: f_
+		scr: s_
 	Notifications:
 		AirUnitLost: 00-i074
 		AirstrikeReady: 00-n160

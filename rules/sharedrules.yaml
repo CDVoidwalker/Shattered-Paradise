@@ -52,7 +52,7 @@ MCV:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
 		Prerequisites: ~humanmcv, gadept
-		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.
+		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.\n- Cannot be mindcontrolled.
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -99,7 +99,7 @@ HARV:
 		BuildPaletteOrder: 99
 		Prerequisites: ~humanstuff, proc
 		InitialActivity: FindResources
-		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.
+		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.\n- Cannot be mindcontrolled.
 	Selectable:
 		Priority: 7
 		Bounds: 36,36
@@ -824,7 +824,7 @@ NAPULS:
 		Queue: Defense
 		BuildPaletteOrder: 90
 		Prerequisites: ~humanstuff, radar
-		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Requires power to operate
+		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled over water will be destroyed instantly.\n- Requires power to operate
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2

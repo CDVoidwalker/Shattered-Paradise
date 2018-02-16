@@ -12,6 +12,16 @@ SharkJump:
 			BuildingArmor: 15
 		Spread: 0c030
 		DamageTypes: BulletDeath, ScrinEssenceKill
+		InvalidTargets: Shark
+	Warhead@2Shark: SpreadDamage
+		Damage: 2000
+		ValidTargets: Shark
+		Versus:
+			BuildingArmor: 15
+		Spread: 0c030
+		DamageTypes: BulletDeath, ScrinEssenceKill
+		InvalidTargets: Building, Vehicle
+		ValidStances: Enemy, Neutral
 
 LegioNeedler:
 	Inherits: ^RocketWarhead
@@ -30,8 +40,14 @@ LegioNeedler:
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
-		InvalidTargets: Air
+		InvalidTargets: Air, Shark
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+	Warhead@2Shark: SpreadDamage
+		Damage: 3000
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
+		InvalidTargets: Building, Vehicle, Air
+		ValidStances: Enemy, Neutral
+		ValidTargets: Shark
 
 LegioNeedlerAA:
 	Inherits: LegioNeedler
@@ -140,7 +156,7 @@ FloatTesla:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
-		Amount: 1
+		Amount: 2
 		AimChance: 100
 		AllowDirectHit: True
 
@@ -260,7 +276,6 @@ ScorpAcid:
 	Burst: 12
 	BurstDelays: 1
 	Report: flamtnk1.aud
-	InvalidTargets: Shark
 	Projectile: BulletAS
 		Speed: 200
 		Image: acidall32
@@ -275,6 +290,16 @@ ScorpAcid:
 			InfantryArmor: 160
 			BuildingArmor: 75
 		InvalidTargets: Shark
+	Warhead@2Shark: SpreadDamage
+		Spread: 250
+		Damage: 975
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		Versus:
+			InfantryArmor: 160
+			BuildingArmor: 75
+		ValidTargets: Shark
+		InvalidTargets: Building, Vehicle
+		ValidStances: Enemy, Neutral
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall
@@ -328,6 +353,16 @@ SCRMBTLASOR:
 		Versus:
 			InfantryArmor: 65
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		InvalidTargets: Shark
+	Warhead@2shark: SpreadDamage
+		Spread: 0c045
+		Damage: 7000
+		ValidTargets: Shark
+		Versus:
+			InfantryArmor: 65
+		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
+		InvalidTargets: Building, Vehicle
+		ValidStances: Enemy, Neutral
 
 ScrMbtCannon:
 	Inherits: ^APWarhead
@@ -601,7 +636,13 @@ StormRiderBlast:
 	Warhead@1Dam: SpreadDamage
 		Damage: 4500
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
-		InvalidTargets: Air
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
+		InvalidTargets: Shark, Air
+	Warhead@2Shark: SpreadDamage
+		Damage: 4500
+		ValidTargets: Shark
+		InvalidTargets: Building, Vehicle, Air
+		ValidStances: Enemy, Neutral
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Range: 96

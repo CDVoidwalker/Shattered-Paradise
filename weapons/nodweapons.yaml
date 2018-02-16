@@ -44,7 +44,6 @@ MillitantFire:
 		ValidTargets: Ground, Water
 		Versus:
 			BuildingArmor: 250
-			DefenseArmor: 250
 		DamageTypes: MilitantFireDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: militantfire, militantfire2, militantfire3
@@ -113,15 +112,15 @@ TemplarLasor:
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 BHRifle:
-	ReloadDelay: 200
+	ReloadDelay: 100
 	Range: 9c0
 	Report: ramjetfire.wav
-	ValidTargets: Infantry, Vehicle, Ground
+	ValidTargets: Infantry
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 7500
-		ValidTargets: Infantry, Vehicle, Ground
+		ValidTargets: Infantry
 		Versus:
 			InfantryArmor: 400
 			BuildingArmor: 5
@@ -138,16 +137,11 @@ BHRifle:
 		Explosions: water_piff
 		ExplosionPalette: ra
 		ValidImpactTypes: Water
-	Warhead@4OwnerChange: ChangeOwner
-		Range: 1c0
-		Duration: 125
-		ValidTargets: Infantry, Vehicle, Ground
-		InvalidTargets: Building, Defence, MindControlInmune, MCImmune
 	Warhead@emp: GrantExternalCondition
-		Range: 1c0
+		Range: 1c512
 		Duration: 125
-		Condition: ToxinTrooper
-		ValidStances: Enemy, Neutral
+		Condition: ToxinTrooperDebuff
+		ValidTargets: Infantry
 		InvalidTargets: Building, Defence, MindControlInmune, MCImmune
 
 BuggyCannon:
@@ -178,7 +172,6 @@ BikeExplo:
 		Versus:
 			Bike: 1
 			BuildingArmor: 200
-			DefenseArmor: 200
 
 Tick90mm:
 	Inherits: ^APWarhead
@@ -378,7 +371,6 @@ HarpyClaw:
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 100
-			DefenseArmor: 100
 
 HarpyClawAA:
 	Inherits: ^FullDamage
@@ -416,7 +408,6 @@ Proton:
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			BuildingArmor: 75
-			DefenseArmor: 75
 		Spread: 250
 		Damage: 2500
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building

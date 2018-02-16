@@ -786,6 +786,7 @@
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^EmpDisableMobile
 	Inherits@7: ^SpawnSmoke
+	Inherits@8: ^MindControllable
 	Inherits@11: ^DisplayVanguardShield
 	Inherits@13: ^VeinholePoisonVehicle
 	Inherits@14: ^DamagedByRadioactivity
@@ -1551,7 +1552,7 @@
 		RequiresCondition: hoverunitonwater && empdisable
 	GrantConditionOnTerrain:
 		Condition: hoverunitonwater
-		TerrainTypes: water
+		TerrainTypes: Water
 	ExternalCondition@hoverunitonwater:
 		Condition: hoverunitonwater
 	-Explodes:
@@ -1892,6 +1893,8 @@
 	Inherits: ^Defence
 	RenderRangeCircle:
 		RangeCircleType: AA
+	RevealsShroud:
+		Range: 9c0
 
 ^Tier2:
 	Inherits: ^Defence

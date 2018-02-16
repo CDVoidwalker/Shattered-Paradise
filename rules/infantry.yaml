@@ -384,7 +384,7 @@ BHS:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
-		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Immune to tiberium radiation.\n- Demolishes strcutures with C4.\n- Shot fired release toxin that slow nearby infantry.\n- Crush class: uncrushable
+		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Immune to tiberium radiation.\n- Demolishes strcutures with C4.\n- Shots fired release toxins that slow nearby infantry.\n- Cannot attack Vehicles.\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
 	Valued:
@@ -737,7 +737,7 @@ PSYKER:
 		Queue: Infantry
 		BuildPaletteOrder: 24
 		Prerequisites: ~murax, muhall
-		Description: Forgotten Commando. Pure strain forgotten that can call down lightning.\n\nGood vs: Groups of units\n\nSpecial:\n- Maximum Supply of 1.\n- Heals on Tiberium\n- Strong AoE\n- Crush class: uncrushable
+		Description: Forgotten Commando. Pure strain forgotten that can call down lightning.\n\nGood vs: Groups of units\n\nSpecial:\n- Maximum Supply of 1.\n- Heals on Tiberium\n- Strong AoE\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
 		BuildLimit: 1
 	Valued:
 		Cost: 1500
@@ -1356,7 +1356,7 @@ CYC2:
 	Tooltip:
 		Name: Cyborg Commando
 	Buildable:
-		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Immune to Tiberium radiation\n- Crush class: uncrushable
+		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Immune to Tiberium radiation\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
 		Queue: Infantry
 		BuildPaletteOrder: 17
 		Prerequisites: ~cabclaw, cabtech

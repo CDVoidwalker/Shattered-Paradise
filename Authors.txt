@@ -74,6 +74,7 @@ soundpacks.com	: Various sound effects.
 
 Comrade Crimson		: GDI Marine, Mutant Vehicle quotes.
 DrWhitePsyker		: Stealth Tank
-HiJinxy			: Harvester
+HiJinxy				: Harvester
 SchismNavigator		: Beam Cannon
 SkyHunter713		: Guardian Platform
+Scrin and NOD EVA	: Command and conquer 3.

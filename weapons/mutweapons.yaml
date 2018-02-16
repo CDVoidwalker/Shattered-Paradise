@@ -587,7 +587,7 @@ FirestormExplo:
 GargoylACannon:
 	Inherits: ^FullDamage
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 30
+	ReloadDelay: 25
 	MinRange: 0c100
 	Range: 6c0
 	Report: 120mmf.aud
@@ -612,6 +612,7 @@ GargoylACannonAA:
 	Inherits: GargoylACannon
 	MinRange: 0c100
 	ValidTargets: Air
+	ReloadDelay: 30
 	Projectile: InstantHit
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage

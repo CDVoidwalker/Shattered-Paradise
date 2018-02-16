@@ -260,7 +260,7 @@ G4TNK:
 		Name: Mammoth Tank
 	Buildable:
 		Queue: Vehicle
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Selfheal to 50%\n- Can attack air\n- Can crush infantry
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -340,7 +340,7 @@ HMEC:
 		Queue: Vehicle
 		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gtdrop
-		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry
+		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry.\n- Cannot be mindcontrolled.
 		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
@@ -988,7 +988,7 @@ WOLF:
 	Armor:
 		Type: VehicleArmor
 	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark, CloudInmune, MCImmune
+		TargetTypes: Ground, Infantry, Razorshark, CloudInmune
 	-Crushable:
 	AttackFrontal:
 	AutoTarget:
@@ -1249,7 +1249,7 @@ DEATHCLAW:
 		Voice: Move
 		Weight: 3
 	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark, MCImmune
+		TargetTypes: Ground, Infantry, Razorshark
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
@@ -1291,7 +1291,7 @@ SCRSCORPION:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 30
-		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.\n- Cannot harm razorsharks.
+		Description: Anti-personnel walker.\n\n Good vs Infantry.\n\nSpecial:\n- Can mutate enemies killed.\n- Deals considerable damage to vehicles.\n- Absorbs essence from killed enemies to heal.\n- Attacks emit radiation that harms infantry in the area.\n- Inmune to tiberium radiation.
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 6
