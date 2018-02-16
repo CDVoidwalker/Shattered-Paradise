@@ -15,6 +15,7 @@ FireballLauncher:
 			InfantryArmor: 600
 			BuildingArmor: 148
 			VehicleArmor: 59
+			DefenseArmor: 59
 			ConcreteArmor: 2
 		DamageTypes: Prone100Percent, TriggerProne, FireDeath
 	Warhead@2Smu: LeaveSmudge
@@ -46,6 +47,7 @@ Hellfire:
 			InfantryArmor: 30
 			BuildingArmor: 65
 			VehicleArmor: 150
+			DefenseArmor: 150
 			ConcreteArmor: 30
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -195,6 +197,7 @@ ServDepoShrapnelSpawn:
 			InfantryArmor: 100
 			BuildingArmor: 30
 			VehicleArmor: 2
+			DefenseArmor: 2
 			ConcreteArmor: 2
 		DamageTypes: FireDeath, ScrinEssenceKill
 		InvalidTargets: Colossi
@@ -243,6 +246,7 @@ LTrail:
 			InfantryArmor: 100
 			BuildingArmor: 130
 			VehicleArmor: 150
+			DefenseArmor: 150
 			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Dam: SpreadDamage
@@ -256,6 +260,7 @@ LTrail:
 			InfantryArmor: 100
 			BuildingArmor: 130
 			VehicleArmor: 150
+			DefenseArmor: 150
 			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
 

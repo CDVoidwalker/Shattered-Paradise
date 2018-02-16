@@ -32,6 +32,7 @@ MultiCluster:
 			InfantryArmor: 25
 			BuildingArmor: 65
 			VehicleArmor: 75
+			DefenseArmor: 75
 			ConcreteArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
@@ -58,6 +59,7 @@ SuicideBomb:
 		Versus:
 			InfantryArmor: 90
 			VehicleArmor: 60
+			DefenseArmor: 60
 			ConcreteArmor: 50
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 
@@ -180,6 +182,7 @@ IonScorch:
 			InfantryArmor: 500
 			BuildingArmor: 100
 			VehicleArmor: 50
+			DefenseArmor: 50
 			ConcreteArmor: 5
 	Warhead@ShieldUpgrade: GrantExternalCondition
 		Condition: BreakShield
@@ -347,6 +350,7 @@ ClusterMissile:
 			InfantryArmor: 500
 			BuildingArmor: 100
 			VehicleArmor: 50
+			DefenseArmor: 50
 			ConcreteArmor: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@7Dam_areanukeb: SpreadDamage
@@ -360,6 +364,7 @@ ClusterMissile:
 			InfantryArmor: 500
 			BuildingArmor: 100
 			VehicleArmor: 50
+			DefenseArmor: 50
 			ConcreteArmor: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@SoundEffect0: CreateEffect
@@ -445,7 +450,7 @@ ToxinMissile:
 	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
-		Damage: 10000
+		Damage: 8000
 		Falloff: 500, 368, 135, 50, 18, 7, 0
 		ValidTargets: Ground, Water, Water, Air
 		Versus:
@@ -665,10 +670,9 @@ CabalCannon:
 	Warhead@1Dam: SpreadDamage
 		Spread: 700
 		Damage: 30000
-			Versus:
-				BuildingArmor: 600
-		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 		Versus:
+			BuildingArmor: 600
+		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: cabexplo

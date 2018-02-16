@@ -83,8 +83,9 @@ ORCA:
 		TurnSpeed: 5
 		Speed: 150
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
 	Health:
 		HP: 12000
 	Armament:
@@ -104,7 +105,6 @@ ORCA:
 		ReloadDelay: 50
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
-	AutoTarget:
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -135,8 +135,6 @@ ORCAB:
 		Speed: 120
 		AirborneCondition: airborne
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
 		HP: 20000
 	Armament@primary:
@@ -144,6 +142,9 @@ ORCAB:
 		PauseOnCondition: !ammo
 	AttackPlane:
 		FacingTolerance: 20
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
 	AmmoPool:
 		Ammo: 20
 		PipCount: 2
@@ -179,8 +180,6 @@ TRNSPORT:
 		Speed: 95
 		CruiseAltitude: 2800
 		InitialFacing: 0
-		TakeoffSound: dropup1.aud
-		LandingSound: dropdwn1.aud
 		MoveIntoShroud: false
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
@@ -219,8 +218,6 @@ GUARDIAN:
 		Speed: 50
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 65000
@@ -311,8 +308,6 @@ DSHP:
 		TurnSpeed: 5
 		Speed: 168
 		InitialFacing: 0
-		TakeoffSound: dropup1.aud
-		LandingSound: dropdwn1.aud
 	Health:
 		HP: 20000
 	RevealsShroud:
@@ -345,8 +340,6 @@ ORCATRAN:
 		TurnSpeed: 5
 		Speed: 84
 		InitialFacing: 0
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 20000
@@ -447,8 +440,6 @@ SCRIN:
 		Speed: 180
 		AirborneCondition: airborne
 		MoveIntoShroud: true
-		TakeoffSound: dropup1.aud
-		LandingSound: dropdwn1.aud
 	Health:
 		HP: 20000
 	Armament@1:
@@ -469,6 +460,8 @@ SCRIN:
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -498,10 +491,8 @@ CERBERUS:
 		Speed: 50
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
-		HP: 65000
+		HP: 45000
 	RevealsShroud:
 		Range: 7c0
 		Type: CenterPosition
@@ -570,8 +561,6 @@ MUTHELI:
 		TurnSpeed: 7
 		Speed: 150
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		RearmBuildings: muair, gahpad, nahpad
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -610,6 +599,8 @@ MUTHELI:
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
 	RenderSprites:
 	SpawnActorOnDeath:
 		Actor: MUTHELI.Husk
@@ -636,8 +627,6 @@ WETP:
 		Speed: 160
 		AirborneCondition: airborne
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
 		HP: 13000
 	Armament:
@@ -658,7 +647,8 @@ WETP:
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
-		ScanRadius: 8
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
 	RenderSprites:
 	Hovers@CRUISING:
 		RequiresCondition: cruising
@@ -689,8 +679,6 @@ MUTQUEEN:
 		Speed: 100
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		IdealSeparation: 1c0
 	RevealsShroud:
 		Range: 8c0
@@ -748,8 +736,6 @@ SCRPOD:
 		Speed: 500
 		AirborneCondition: airborne
 		MoveIntoShroud: true
-		TakeoffSound: dropup1.aud
-		LandingSound: dropdwn1.aud
 	Health:
 		HP: 30000
 	RevealsShroud:
@@ -790,8 +776,6 @@ STORMRIDER:
 		Speed: 160
 		AirborneCondition: airborne
 		MoveIntoShroud: true
-		TakeoffSound: dropup1.aud
-		LandingSound: dropdwn1.aud
 	Health:
 		HP: 10000
 	Armament:
@@ -846,8 +830,6 @@ drache:
 		TurnSpeed: 5
 		Speed: 35
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	RevealsShroud:
 		Range: 10c0
@@ -898,8 +880,6 @@ SCRGLYDER1:
 		Speed: 110
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 20000
@@ -950,8 +930,6 @@ SCRDESTROYER:
 		Speed: 50
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Health:
@@ -1007,8 +985,6 @@ SCRTRANS:
 		LandWhenIdle: true
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 50000
@@ -1054,8 +1030,6 @@ SCRINCOUNCIL:
 		TurnSpeed: 5
 		Speed: 60
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	WithSpriteBody:
 		Sequence: dummy
 	Production:
@@ -1205,8 +1179,6 @@ CABDRONEJET:
 		Speed: 160
 		AirborneCondition: airborne
 		MoveIntoShroud: true
-		TakeoffSound: dropup1.aud
-		LandingSound: dropdwn1.aud
 	AttackPlane:
 		AttackTurnDelay: 25
 	RejectsOrders:
@@ -1242,8 +1214,6 @@ SCRBATTLESHIP:
 		Speed: 50
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
 		HP: 200000
 	RevealsShroud:
@@ -1298,8 +1268,6 @@ MINIWYVERM:
 	Aircraft:
 		IdealSeparation: 300
 		Speed: 110
-		-TakeoffSound: orcaup1.aud
-		-LandingSound: orcadwn1.aud
 	Targetable@Drone:
 		TargetTypes: AttackDrone
 	Targetable@GROUND:
@@ -1359,8 +1327,6 @@ WASP:
 		Speed: 125
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
 		HP: 12000
 	Voiced:
@@ -1422,8 +1388,6 @@ FIREFLY:
 		Repulsable: true
 		-RearmBuildings: gahpad
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 		AllowedTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 10000
@@ -1476,12 +1440,10 @@ BASILISK:
 		VoiceSet: Limpet
 	Aircraft:
 		TurnSpeed: 6
-		Speed: 60
+		Speed: 65
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
-		HP: 50000
+		HP: 35000
 	Armament:
 		Weapon: BasiliskBomb
 		LocalOffset: 128,0,0, 500,-700,0, 500,700,0
@@ -1527,8 +1489,6 @@ DEVOURER:
 		CruiseAltitude: 0c750
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
 		HP: 175000
 	Voiced:

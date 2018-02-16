@@ -50,6 +50,7 @@ JJGrenade:
 		Versus:
 			BuildingArmor: 100
 			VehicleArmor: 25
+			DefenseArmor: 25
 		ValidTargets: Ground, Water
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 
@@ -79,6 +80,7 @@ Heal:
 		Damage: -5000
 		Versus:
 			VehicleArmor: 60
+			DefenseArmor: 60
 		ValidTargets: Infantry, Jumpjet
 
 TrooperRail:
@@ -209,6 +211,7 @@ SonicZap:
 		ValidStances: Neutral, Enemy
 		Versus:
 			VehicleArmor: 80
+			DefenseArmor: 80
 			ConcreteArmor: 60
 			Disruptor: 30
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -220,6 +223,7 @@ SonicZap:
 		ValidStances: Ally
 		Versus:
 			VehicleArmor: 80
+			DefenseArmor: 80
 			ConcreteArmor: 60
 			Disruptor: 30
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
@@ -245,6 +249,7 @@ MechRailgun:
 			InfantryArmor: 200
 			BuildingArmor: 175
 			VehicleArmor: 160
+			DefenseArmor: 160
 			ConcreteArmor: 25
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 

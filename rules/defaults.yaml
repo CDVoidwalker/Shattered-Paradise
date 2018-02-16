@@ -535,11 +535,18 @@
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
 
+^ToxinTrooperDebuff:
+	SpeedMultiplier:
+		RequiresCondition: ToxinTrooperDebuff
+		Modifier: 15
+	ExternalCondition@ToxinTrooperDebuff:
+		Condition: ToxinTrooperDebuff
+
 ^RejectsOrdersBerkserk:
 	RejectsOrders@berserk:
-		RequiresCondition: ToxinTrooper || submerged
-	ExternalCondition@ToxinTrooper:
-		Condition: ToxinTrooper
+		RequiresCondition: submerged
+	# ExternalCondition@ToxinTrooper:
+		# Condition: ToxinTrooper
 
 ^EmpDisable:
 	WithColoredOverlay@EMPDISABLE:
@@ -712,6 +719,7 @@
 ^GenericEffects:
 	Inherits@0: ^KillSelf
 	Inherits@1: ^Cloakable
+	Inherits@1: ^ToxinTrooperDebuff
 	Inherits@3: ^ScrinEssence
 	Inherits@4: ^BurstRecovery
 	Inherits@5: ^FirestormGenBuff
@@ -1417,8 +1425,8 @@
 		OwnerType: Killer
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: false
-	SpawnActorOnDeath@egg:
-		Actor: crab
+	SpawnActorOnDeath@tiberium2:
+		Actor: visc_lrg
 		Probability: 10
 		OwnerType: InternalName
 		InternalOwner: Creeps
@@ -1505,6 +1513,13 @@
 		TerrainTypes: Water
 		StationaryInterval: 18
 		MovingInterval: 6
+	KillsSelf@hoverunitonwater:
+		RequiresCondition: hoverunitonwater && empdisable
+	GrantConditionOnTerrain:
+		Condition: hoverunitonwater
+		TerrainTypes: water
+	ExternalCondition@hoverunitonwater:
+		Condition: hoverunitonwater
 	-Explodes:
 	-SelfHealing@veinholedrain:
 	-ExternalCondition@veinholedrain:
@@ -1839,7 +1854,7 @@
 	RevealsShroud:
 		Range: 6c0
 	Armor:
-		Type: BuildingArmor
+		Type: DefenseArmor
 	EditorTilesetFilter:
 		Categories: Defence
 

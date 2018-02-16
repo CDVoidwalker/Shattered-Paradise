@@ -109,6 +109,7 @@ SeerTesla:
 			InfantryArmor: 10
 			BuildingArmor: 100
 			VehicleArmor: 100
+			DefenseArmor: 100
 			AircraftArmor: 100
 			ConcreteArmor: 30
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
@@ -147,6 +148,7 @@ SeerTyranyBuff:
 			InfantryArmor: 100
 			BuildingArmor: 30
 			VehicleArmor: 2
+			DefenseArmor: 2
 			ConcreteArmor: 2
 		DamageTypes: FireDeath, ScrinEssenceKill
 		InvalidTargets: Colossi
@@ -168,6 +170,7 @@ SeerTyranyInstakillSpawn:
 			InfantryArmor: 100
 			BuildingArmor: 30
 			VehicleArmor: 2
+			DefenseArmor: 2
 			ConcreteArmor: 2
 		DamageTypes: FireDeath, ScrinEssenceKill
 		InvalidTargets: Colossi
@@ -191,6 +194,7 @@ SeerTyranyInstakill:
 			InfantryArmor: 100
 			BuildingArmor: 70
 			VehicleArmor: 70
+			DefenseArmor: 70
 			ConcreteArmor: 40
 
 KnightAcid:
@@ -233,6 +237,7 @@ PsykerRay:
 	Projectile: BulletAS
 		Speed: 4c6824
 		Inaccuracy: 2c512
+		Blockable: False
 	Warhead@1Dam: SpreadDamage
 		Spread: 150
 		Damage: 7000
@@ -444,7 +449,6 @@ TiberianRocket:
 		Spread: 200
 		Damage: 4600
 		ValidTargets: Ground, Water
-		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@2EffWater: CreateEffect
 		Explosions: small_watersplash
@@ -583,7 +587,7 @@ FirestormExplo:
 GargoylACannon:
 	Inherits: ^FullDamage
 	Inherits@2: ^Small_Clsn
-	ReloadDelay: 15
+	ReloadDelay: 30
 	MinRange: 0c100
 	Range: 6c0
 	Report: 120mmf.aud
@@ -598,6 +602,7 @@ GargoylACannon:
 			InfantryArmor: 80
 			BuildingArmor: 80
 			VehicleArmor: 100
+			DefenseArmor: 100
 			ConcreteArmor: 30
 		ValidTargets: Ground, Water
 		InvalidTargets: Air
@@ -605,7 +610,6 @@ GargoylACannon:
 
 GargoylACannonAA:
 	Inherits: GargoylACannon
-	ReloadDelay: 30
 	MinRange: 0c100
 	ValidTargets: Air
 	Projectile: InstantHit
@@ -721,6 +725,7 @@ VentilatorPoison:
 			InfantryArmor: 125
 			BuildingArmor: 25
 			VehicleArmor: 25
+			DefenseArmor: 25
 			ConcreteArmor: 5
 		DamageTypes: TiberiumDeath
 

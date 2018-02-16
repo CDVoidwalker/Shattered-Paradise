@@ -45,6 +45,7 @@ ReactorExplode:
 			InfantryArmor: 200
 			BuildingArmor: 150
 			VehicleArmor: 100
+			DefenseArmor: 100
 			ConcreteArmor: 40
 
 CyborgExplode:
@@ -74,6 +75,7 @@ SmallPlaneExplode:
 			InfantryArmor: 100
 			BuildingArmor: 100
 			VehicleArmor: 50
+			DefenseArmor: 50
 			ConcreteArmor: 35
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
@@ -90,6 +92,7 @@ BattleshipExplode:
 			InfantryArmor: 100
 			BuildingArmor: 100
 			VehicleArmor: 50
+			DefenseArmor: 50
 			ConcreteArmor: 35
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		InvalidTargets: Air
@@ -108,23 +111,14 @@ UnitExplodeSmall:
 	Warhead@1Dam: SpreadDamage
 		Spread: 213
 		Damage: 1
-		Versus:
-			InfantryArmor: 90
-			BuildingArmor: 75
-			VehicleArmor: 60
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 UnitExplode:
 	Inherits: ^ExploDefaults
 	Warhead@1Dam: SpreadDamage
 	Inherits@2: ^Medium_Brnl
-		Spread: 213
-		Damage: 8000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			InfantryArmor: 90
-			BuildingArmor: 75
-			VehicleArmor: 60
+		Spread: 1
+		Damage: 1
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 BlackHandExplode:
@@ -165,14 +159,8 @@ VeinholeExplosion:
 ScrinUnitExplode:
 	Inherits: ^ExploDefaults
 	Warhead@1Dam: SpreadDamage
-		Spread: 426
-		Damage: 4000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			InfantryArmor: 90
-			BuildingArmor: 75
-			VehicleArmor: 60
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Spread: 1
+		Damage: 1
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinvehicleexplo1, scrinvehicleexplo2
 		ExplosionPalette: apolbluealpha
@@ -181,14 +169,8 @@ ScrinUnitExplode:
 ScrinUnitExplode2:
 	Inherits: ^ExploDefaults
 	Warhead@1Dam: SpreadDamage
-		Spread: 426
-		Damage: 5000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			InfantryArmor: 90
-			BuildingArmor: 75
-			VehicleArmor: 60
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Spread: 1
+		Damage: 1
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
@@ -197,14 +179,8 @@ ScrinUnitExplode2:
 ScrinUnitExplode3:
 	Inherits: ^ExploDefaults
 	Warhead@1Dam: SpreadDamage
-		Spread: 639
-		Damage: 7500
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			InfantryArmor: 135
-			BuildingArmor: 113
-			VehicleArmor: 90
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Spread: 1
+		Damage: 1
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
@@ -213,14 +189,8 @@ ScrinUnitExplode3:
 ScrinUnitExplode4:
 	Inherits: ^ExploDefaults
 	Warhead@1Dam: SpreadDamage
-		Spread: 852
-		Damage: 10000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			InfantryArmor: 180
-			BuildingArmor: 150
-			VehicleArmor: 120
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Spread: 1
+		Damage: 1
 	Warhead@2Eff: CreateEffect
 		Explosions: scrinexplo3, scrinexplo4, scrinexplo5
 		ExplosionPalette: apolbluealpha
@@ -228,13 +198,8 @@ ScrinUnitExplode4:
 
 TiberiumExplosion:
 	Warhead@1Dam: SpreadDamage
-		Spread: 9
-		Damage: 1000
-		Versus:
-			InfantryArmor: 90
-			BuildingArmor: 75
-			VehicleArmor: 60
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		Spread: 1
+		Damage: 1
 	Warhead@2Res: CreateResource
 		AddsResourceType: Tiberium
 		Size: 1,1
@@ -244,13 +209,8 @@ TiberiumExplosion:
 
 ZombieExplosion:
 	Warhead@1Dam: SpreadDamage
-		Spread: 9
-		Damage: 1000
-		Versus:
-			InfantryArmor: 90
-			BuildingArmor: 75
-			VehicleArmor: 60
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		Spread: 1
+		Damage: 1
 	Warhead@5Actor: SpawnActor
 		Actors: cloud1
 		FallRate: 5000

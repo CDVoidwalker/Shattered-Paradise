@@ -18,7 +18,7 @@
 	Faction@1:
 		Name: Nod
 		InternalName: nod
-		Description: Brotherhood of Nod\nThe Brotherhood fights under the leadership of Kane to speed up\nthe evolution of humanity through the power of Tiberium.\n\nHit and run faction.\n\nSpecial Characteristics:\n\n- Nod units are oriented to do guerilla attacks and stealth.\n- Advanced laser technology and Subterranean Vehicles.\n- Support Structure: Stealth Generators.\n- Support power: Toxic Bomb (quick missile).\n- Superweapon: Atomic Bomb.
+		Description: Brotherhood of Nod\nThe Brotherhood fights under the leadership of Kane to speed up\nthe evolution of humanity through the power of Tiberium.\n\nHit and run faction.\n\nSpecial Characteristics:\n\n- Nod units are oriented to do guerilla attacks and stealth.\n- Advanced laser technology and Subterranean Vehicles.\n- Support Structure: Stealth Generators.\n- Support power: Toxin Bomb (quick missile).\n- Superweapon: Atomic Bomb.
 	Faction@2:
 		Name: Mutants
 		InternalName: mut
@@ -30,7 +30,7 @@
 	Faction@4:
 		Name: Scrin
 		InternalName: scr
-		Description: Scrin\nAn alien race that brought Tiberium to earth many years ago. They\nmine planets through the use of Ichor (Tiberium).\n\nManipulator Faction\n\nSpecial Characteristics:\n\n- Most units have special abilities that affect the battlefield.\n- Focus on airpower, mind control, shield generation and radiation.\n- All Scrin units heal from stealing essence from enemy kills.\n- Support Structure: Shield Battery.\n- Support power: Reality destabilization (Teleportation Device)\n- Superweapon: Wrath of the Creator (Meteor Storm)
+		Description: Scrin\nAn alien race that brought Tiberium to earth many years ago. They\nmine planets through the use of Ichor (Tiberium).\n\nManipulator Faction\n\nSpecial Characteristics:\n\n- Most units have special abilities that affect the battlefield.\n- Focus on airpower, mind control, shield generation and radiation.\n- All Scrin units steal essence from kills to heals.\n- Support Structure: Shield Battery.\n- Support power: Reality destabilization (Teleportation Device)\n- Superweapon: Wrath of the Creator (Meteor Storm)
 	Faction@Random:
 		Name: Random
 		InternalName: Random
@@ -44,7 +44,7 @@
 		Palette: greentiberium
 		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12
 		MaxDensity: 17
-		ValuePerUnit: 25
+		ValuePerUnit: 22
 		AllowedTerrainTypes: Clear, Rough, DirtRoad
 		AllowUnderActors: true
 		TerrainType: Tiberium
@@ -55,7 +55,7 @@
 		Palette: bluetiberium
 		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12
 		MaxDensity: 15
-		ValuePerUnit: 50
+		ValuePerUnit: 44
 		PipColor: Blue
 		AllowedTerrainTypes: Clear, Rough, DirtRoad
 		AllowUnderActors: true

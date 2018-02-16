@@ -649,7 +649,6 @@ FLIPPEDPROC:
 GADEPT:
 	Inherits: ^Building
 	Inherits@1: ^3x3Shape
-	Inherits@2: ^DisableOnLowPowerOrPowerDown
 	Valued:
 		Cost: 700
 	Tooltip:

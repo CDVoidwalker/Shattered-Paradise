@@ -1452,10 +1452,10 @@ SCRMOBMINE:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
-		Description: Mind Control unit\n\nSpecial:\n- Can mind control infantry.\n- Can control up to three units.\n- Absorbs essence from killed units to heal.
+		Description: Mind Control unit\n\nSpecial:\n- Can mind control infantry or vehicles.\n- Can control up to four units.\n- Absorbs essence from killed units to heal.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
-		Cost: 1150
+		Cost: 1600
 	Tooltip:
 		Name: Subjugator
 	Mindcontroller:

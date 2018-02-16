@@ -378,7 +378,7 @@ BHS:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
-		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Maximum Supply of 1\n- Immune to tiberium radiation\n- Demolishes strcutures with C4\n- Enemies hit will engage nearby units for a short time, friend or foe.\n- Crush class: uncrushable
+		Description: Kanes Elite Commando armed with a Toxin sniper rifle.\n\nGood vs: Infantry, Buildings.\n\nSpecial:\n- Maximum Supply of 1\n- Immune to tiberium radiation.\n- Demolishes strcutures with C4.\n- Shot fired release toxin that slow nearby infantry.\n- Crush class: uncrushable
 		Prerequisites: ~nahand, natech
 		BuildLimit: 1
 	Valued:
@@ -908,7 +908,7 @@ FLOAT:
 		Cost: 400
 	-Crushable:
 	Tooltip:
-		Name: Purifier
+		Name: Essence Collector
 	Health:
 		HP: 16875
 	Mobile:

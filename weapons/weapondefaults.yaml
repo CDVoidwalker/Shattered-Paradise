@@ -19,6 +19,7 @@
 			InfantryArmor: 100
 			BuildingArmor: 30
 			VehicleArmor: 15
+			DefenseArmor: 15
 			AircraftArmor: 100
 			ConcreteArmor: 5
 	Warhead@BounceUpgrade: GrantExternalCondition
@@ -52,8 +53,9 @@
 			InfantryArmor: 30
 			BuildingArmor: 100
 			VehicleArmor: 100
+			DefenseArmor: 100
 			AircraftArmor: 100
-			ConcreteArmor: 30
+			ConcreteArmor: 35
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: RocketWarhead
 
@@ -71,8 +73,9 @@
 			InfantryArmor: 10
 			BuildingArmor: 100
 			VehicleArmor: 100
+			DefenseArmor: 100
 			AircraftArmor: 100
-			ConcreteArmor: 30
+			ConcreteArmor: 35
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: APWarhead
 
@@ -83,6 +86,7 @@
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 200
+			DefenseArmor: 25
 			VehicleArmor: 25
 			AircraftArmor: 100
 			ConcreteArmor: 1
@@ -96,6 +100,7 @@
 			InfantryArmor: 100
 			BuildingArmor: 150
 			VehicleArmor: 50
+			DefenseArmor: 150
 			ConcreteArmor: 35
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: ArtilleryWarhead
@@ -111,6 +116,7 @@
 			InfantryArmor: 100
 			BuildingArmor: 66
 			VehicleArmor: 50
+			DefenseArmor: 50
 			AircraftArmor: 100
 			ConcreteArmor: 20
 	Warhead@BounceUpgrade: GrantExternalCondition
@@ -123,6 +129,7 @@
 			InfantryArmor: 100
 			BuildingArmor: 50
 			VehicleArmor: 50
+			DefenseArmor: 50
 			AircraftArmor: 100
 			ConcreteArmor: 15
 	Warhead@BounceUpgrade: GrantExternalCondition
@@ -141,7 +148,8 @@
 			InfantryArmor: 100
 			BuildingArmor: 100
 			VehicleArmor: 100
-			ConcreteArmor: 25
+			DefenseArmor: 100
+			ConcreteArmor: 30
 	Warhead@BounceUpgrade: GrantExternalCondition
 		Condition: FullDamage
 

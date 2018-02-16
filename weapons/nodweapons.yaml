@@ -24,6 +24,7 @@ MilitantExplode:
 		Versus:
 			InfantryArmor: 600
 			BuildingArmor: 100
+			DefenseArmor: 100
 			VehicleArmor: 1
 			ConcreteArmor: 1
 		DamageTypes: Prone50Percent, TriggerProne, MilitantFireDeath
@@ -43,6 +44,7 @@ MillitantFire:
 		ValidTargets: Ground, Water
 		Versus:
 			BuildingArmor: 250
+			DefenseArmor: 250
 		DamageTypes: MilitantFireDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: militantfire, militantfire2, militantfire3
@@ -123,6 +125,7 @@ BHRifle:
 		Versus:
 			InfantryArmor: 400
 			BuildingArmor: 5
+			DefenseArmor: 5
 			VehicleArmor: 5
 			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
@@ -175,6 +178,7 @@ BikeExplo:
 		Versus:
 			Bike: 1
 			BuildingArmor: 200
+			DefenseArmor: 200
 
 Tick90mm:
 	Inherits: ^APWarhead
@@ -374,6 +378,7 @@ HarpyClaw:
 		Versus:
 			InfantryArmor: 200
 			BuildingArmor: 100
+			DefenseArmor: 100
 
 HarpyClawAA:
 	Inherits: ^FullDamage
@@ -411,6 +416,7 @@ Proton:
 	Warhead@1Dam: SpreadDamage
 		Versus:
 			BuildingArmor: 75
+			DefenseArmor: 75
 		Spread: 250
 		Damage: 2500
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building

@@ -29,7 +29,6 @@ LegioNeedler:
 		-TrailPalette: effectalpha75
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-		Versus:
 		ValidTargets: Ground, Water, Infantry, Vehicle, Building
 		InvalidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, ScrinEssenceKill
@@ -53,7 +52,6 @@ ColossiTesla:
 		Palette: apolbluealpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
-		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: ColossiTeslaSplash
@@ -82,6 +80,7 @@ ColossiBlast:
 			InfantryArmor: 50
 			BuildingArmor: 0
 			VehicleArmor: 20
+			DefenseArmor: 20
 			ConcreteArmor: 2
 		DamageTypes: FireDeath, ScrinEssenceKill
 	# Warhead@2Eff: CreateEffect
@@ -111,7 +110,6 @@ ColossiBlastTesla:
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 1
-		Versus:
 		DamageTypes: FireDeath
 	Warhead@op: FireShrapnel
 		Weapon: DummySparks
@@ -139,7 +137,6 @@ FloatTesla:
 		Palette: apolredalpha
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: EssenceMissile
@@ -162,7 +159,6 @@ FloatGlaive:
 		Image: glaive
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
-		Versus:
 		ValidTargets: Ground, Water
 		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
@@ -223,7 +219,6 @@ GravMineSuicide:
 		Damage: 1
 		ValidTargets: GravMine
 		AffectsParent: True
-		Versus:
 	Warhead@5Actor: SpawnActor
 		Actors: STALKERDUMMY
 		FallRate: 5000
@@ -263,6 +258,7 @@ ScorpAcid:
 	ReloadDelay: 100
 	Range: 4c0
 	Burst: 12
+	BurstDelays: 1
 	Report: flamtnk1.aud
 	InvalidTargets: Shark
 	Projectile: BulletAS
@@ -276,7 +272,7 @@ ScorpAcid:
 		Damage: 975
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		Versus:
-			InfantryArmor: 125
+			InfantryArmor: 160
 			BuildingArmor: 75
 		InvalidTargets: Shark
 	Warhead@2Smu: LeaveSmudge
@@ -293,16 +289,16 @@ ScorpAcid:
 		MaxLevel: 1000
 
 MindController:
-	ReloadDelay: 125
+	ReloadDelay: 100
 	Range: 6c0
-	ValidTargets: Infantry
+	ValidTargets: Infantry, Vehicle
 	InvalidTargets: MCImmune, MindControlInmune
 	Report: iyurat1a.wav
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
 		Spread: 1
 		Damage: 0
-		ValidTargets: Infantry
+		ValidTargets: Infantry, Vehicle
 		InvalidTargets: Structure, Wall, Husk, Trees, Creep, MCImmune, MindControlInmune
 
 VanguardShrapnel:
@@ -329,6 +325,8 @@ SCRMBTLASOR:
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 7000
+		Versus:
+			InfantryArmor: 65
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 
 ScrMbtCannon:
@@ -385,6 +383,7 @@ BounceExplosion:
 			InfantryArmor: 15
 			BuildingArmor: 100
 			VehicleArmor: 10
+			DefenseArmor: 10
 			ConcreteArmor: 28
 	Warhead@op: FireShrapnel
 		Weapon: BounceTesla
@@ -406,6 +405,7 @@ BounceTesla:
 			InfantryArmor: 15
 			BuildingArmor: 100
 			VehicleArmor: 10
+			DefenseArmor: 10
 			ConcreteArmor: 28
 
 RifleBounce:
@@ -545,6 +545,7 @@ TripodLaser:
 			InfantryArmor: 100
 			BuildingArmor: 100
 			VehicleArmor: 50
+			DefenseArmor: 50
 			ConcreteArmor: 30
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
@@ -625,8 +626,9 @@ Glyder1Cannon:
 	Projectile: BulletAS
 		Speed: 200
 		Image: torpedo
-		Inaccuracy: 0c256
 		Shadow: true
+		-TrailImage: small_smoke_trail
+		-TrailPalette: effectalpha75
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
@@ -635,6 +637,7 @@ Glyder1Cannon:
 			InfantryArmor: 100
 			BuildingArmor: 100
 			VehicleArmor: 100
+			DefenseArmor: 100
 			ConcreteArmor: 25
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -766,6 +769,7 @@ WyvermBlast:
 		Versus:
 			InfantryArmor: 10
 			VehicleArmor: 100
+			DefenseArmor: 100
 			BuildingArmor: 50
 		ValidTargets: Ground, Water, Air
 		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
@@ -786,7 +790,6 @@ Return:
 		Spread: 110
 		Damage: 1
 		ValidTargets: Mothership
-		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 CouncilSteal:
@@ -983,6 +986,7 @@ HealScrin:
 		Versus:
 			InfantryArmor: 50
 			VehicleArmor: 100
+			DefenseArmor: 100
 		ValidTargets: ScrinUnit
 	Warhead@emp: GrantExternalCondition
 		Range: 200

@@ -1605,10 +1605,11 @@ SCRADVPOWR:
 		DecorationBounds: 90, 84, 0, -12
 	SelectionDecorations:
 	ChronoshiftPower@chronoshift:
+		Range: 2
 		OrderName: Chronoshift
 		PauseOnCondition: empdisable || disabled
 		Icon: mothershipicon
-		ChargeInterval: 3000
+		ChargeInterval: 6000
 		EndChargeSound: SuperWeaponReady
 		EndChargeSpeechNotification: SuperWeaponReady
 		Description: Reality destabilization

@@ -195,6 +195,7 @@ CyCannon:
 			InfantryArmor: 350
 			BuildingArmor: 260
 			VehicleArmor: 205
+			DefenseArmor: 205
 			ConcreteArmor: 80
 		DamageTypes: Prone350Percent, TriggerProne, EnergyDeath
 	Warhead@2Eff: CreateEffect
@@ -414,7 +415,6 @@ TermitaGrinder:
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
 		Damage: 3500
-		Versus:
 		DamageTypes: Prone100Percent, TriggerProne, CabalDeathCrate
 
 RepairVehicleRep:
@@ -554,7 +554,6 @@ DevourerGrinder:
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
 		Damage: 9000
-		Versus:
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@5Actor: SpawnActor
 		Actors: SHAKYSHAKYMINI
@@ -610,6 +609,7 @@ BasiliskBomb:
 			InfantryArmor: 400
 			BuildingArmor: 75
 			VehicleArmor: 25
+			DefenseArmor: 25
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: firestormexplo, firestormexplo1, firestormexplo2
@@ -685,6 +685,7 @@ CabJetMiniBomb:
 			InfantryArmor: 125
 			BuildingArmor: 40
 			VehicleArmor: 10
+			DefenseArmor: 10
 			ConcreteArmor: 1
 		ValidTargets: Ground, Water, Building, Infantry, Vehicle
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
@@ -709,7 +710,6 @@ BlasterProton:
 		Spread: 150
 		Damage: 5850
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
-		Versus:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 CABALRAIL:
