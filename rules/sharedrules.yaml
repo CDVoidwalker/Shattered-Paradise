@@ -67,8 +67,6 @@ MCV:
 	Mobile:
 		Speed: 45
 		Crushes: wall, crate, infantry
-	RevealsShroud:
-		Range: 4c0
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	MustBeDestroyed:
@@ -218,8 +216,6 @@ LPST:
 	Mobile:
 		Speed: 85
 		TurnSpeed: 5
-	RevealsShroud:
-		Range: 7c0
 	RenderSprites:
 		Image: lpst.gdi
 		FactionImages:
@@ -260,8 +256,6 @@ GACNST:
 		Prerequisites: ~disabled
 	Health:
 		HP: 240000
-	RevealsShroud:
-		Range: 5c0
 	Production:
 		Produces: Building, Defense
 	Valued:
@@ -366,8 +360,6 @@ GACNST:
 	ProvidesPrerequisite:
 		Prerequisite: anypower
 	ProvidesPrerequisite@buildingname:
-	RevealsShroud:
-		Range: 4c0
 	InfiltrateForPowerOutage:
 	AffectedByPowerOutage:
 	Targetable:
@@ -389,8 +381,6 @@ GACNST:
 		Type: BarracksHeal
 	Health:
 		HP: 80000
-	RevealsShroud:
-		Range: 5c0
 	Exit@1:
 		SpawnOffset: -256,1024,0
 		ExitCell: 2,2
@@ -422,8 +412,6 @@ PROC:
 	SelectionDecorations:
 	Health:
 		HP: 140000
-	RevealsShroud:
-		Range: 6c0
 	Refinery:
 		DockAngle: 160
 		DockOffset: 2,1
@@ -486,8 +474,6 @@ FLIPPEDPROC:
 	SelectionDecorations:
 	Health:
 		HP: 140000
-	RevealsShroud:
-		Range: 6c0
 	Refinery:
 		DockAngle: 0
 		DockOffset: 1,1
@@ -558,8 +544,6 @@ FLIPPEDPROC:
 		Prerequisite: Vehicle or Aircraft production
 	Production:
 		Produces: Vehicle
-	RevealsShroud:
-		Range: 6c0
 	PrimaryBuilding:
 	ProductionBar:
 	Power:
@@ -625,7 +609,7 @@ FLIPPEDPROC:
 		Range: 10c0
 	RenderDetectionCircle:
 	RevealsShroud:
-		Range: 10c0
+		Range: 12c0
 	Targetable:
 		TargetTypes: Building, Ground, C4, SpyInfiltrate
 	Power:
@@ -666,16 +650,12 @@ GADEPT:
 		DecorationBounds: 98, 68, -6, -6
 	Health:
 		HP: 110000
-	RevealsShroud:
-		Range: 5c0
 	Reservable:
 	RepairsUnits:
 		HpPerStep: 2000
 	RallyPoint:
 		Palette: mouse
 		IsPlayerPalette: false
-	RevealsShroud:
-		Range: 6c0
 	RepairsUnits:
 		FinishRepairingNotification: UnitRepaired
 		PlayerExperience: 15
@@ -720,8 +700,6 @@ GADEPT:
 		Dimensions: 3,2
 	Health:
 		HP: 240000
-	RevealsShroud:
-		Range: 4c0
 	Power:
 		Amount: -150
 	ProvidesPrerequisite@buildingname:
@@ -754,8 +732,6 @@ GASILO:
 		HP: 10000
 	Armor:
 		Type: BuildingArmor
-	RevealsShroud:
-		Range: 4c0
 	RenderSprites:
 		Image: gasilo.gdi
 		FactionImages:
@@ -863,8 +839,6 @@ NAPULS:
 	-AutoTarget:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
-	RevealsShroud:
-		Range: 8c0
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 300
@@ -964,8 +938,6 @@ MUMINE:
 	-Voiced:
 	Armor:
 		Type: Mine
-	RevealsShroud:
-		Range: 1c0
 	Targetable:
 		TargetTypes: Ground, Repair, DetonateAttack, MindControlInmune, Mine
 	BodyOrientation:

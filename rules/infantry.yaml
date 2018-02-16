@@ -1,5 +1,6 @@
 GDIE1:
 	Inherits: ^Soldier
+	Inherits@2: ^5CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 1
@@ -24,6 +25,7 @@ GDIE1:
 
 GRENADIER:
 	Inherits: ^Soldier
+	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 2
@@ -79,6 +81,7 @@ JUMPJET:
 JUMPJETAIR:
 	Inherits: ^Aircraft
 	Inherits@2: ^AutoTargetAll
+	Inherits@3: ^7CellVision
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -141,9 +144,6 @@ JUMPJETAIR:
 	-WithVoxelBody:
 	Armament@SelfBuff:
 		Weapon: JJBuff
-	RevealsShroud:
-		Range: 10c0
-		Type: CenterPosition
 	ExternalCondition@JJBuff:
 		Condition: JJBuff
 	-GrantConditionOnDamageState@smoke:
@@ -184,6 +184,7 @@ MEDIC:
 
 EAGLEGUARD:
 	Inherits: ^Soldier
+	Inherits@1: ^6CellVision
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -210,6 +211,7 @@ EAGLEGUARD:
 
 ALTNODE1:
 	Inherits: ^Soldier
+	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 6
@@ -236,6 +238,7 @@ ALTNODE1:
 
 CRUSADER:
 	Inherits: ^Soldier
+	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 7
@@ -266,6 +269,7 @@ CRUSADER:
 
 TEMPLAR:
 	Inherits: ^Soldier
+	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
@@ -290,10 +294,11 @@ TEMPLAR:
 
 NCONF:
 	Inherits: ^Soldier
+	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 8
-		Description: NOD Special forces.\n\nGood vs: Ground Targets\n\nSpecial:\n- Spawns holograms when ordered to deploy\n- Cloaked when not firing\n- Crush class: crushable
+		Description: Nod Special forces.\n\nGood vs: Ground Targets\n\nSpecial:\n- Spawns holograms when ordered to deploy\n- Cloaked when not firing\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		IconPalette: UnittemIcon
 	Valued:
@@ -375,6 +380,7 @@ MHIJACK:
 
 BHS:
 	Inherits: ^Soldier
+	Inherits@1: ^9CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 10
@@ -403,8 +409,6 @@ BHS:
 		Weapon: BHRifle
 	AnnounceOnSeen:
 		Notification: CommandoDetected
-	RevealsShroud:
-		Range: 12c0
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
@@ -446,6 +450,7 @@ TemplarHologram:
 MARAUDER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
+	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 18
@@ -510,6 +515,7 @@ MARAUDER:
 
 MUTFIEND:
 	Inherits: ^Beast
+	Inherits@1: ^5CellVision
 	Tooltip:
 		Name: Tiberian Fiend
 	Buildable:
@@ -552,6 +558,7 @@ MUTFIEND:
 
 E3:
 	Inherits: ^Mutant
+	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 21
@@ -612,6 +619,7 @@ E2:
 
 SEER:
 	Inherits: ^Mutant
+	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 22
@@ -630,8 +638,6 @@ SEER:
 	AutoTarget:
 	DetectCloaked:
 		Range: 3c0
-	RevealsShroud:
-		Range: 7c0
 	RenderSprites:
 	Armament@PRIMARY:
 		Weapon: SeerTesla
@@ -726,6 +732,7 @@ AWARRIOR:
 PSYKER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
+	Inherits@2: ^7CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 24
@@ -762,6 +769,7 @@ PSYKER:
 
 SHARK:
 	Inherits: ^ScrinSoldier
+	Inherits@1: ^4CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 24
@@ -788,8 +796,6 @@ SHARK:
 		RequiresLobbyCreeps: true
 	SpawnActorOnDeath@tiberium2:
 		Probability: 20
-	RevealsShroud:
-		Range: 5c0
 	Armament:
 		Weapon: SharkJump
 	AttackFrontal:
@@ -806,14 +812,12 @@ SHARK:
 	WithInfantryBody:
 		StandSequences: stand
 		IdleSequences: idle1, idle2, idle3, idle4
-	IgnoresDisguise:
-	DetectCloaked:
-		CloakTypes: Cloak, Hijacker
 	-TakeCover:
 	-DamagedByRadioactivity@Default:
 
 LEGIO:
 	Inherits: ^ScrinSoldier
+	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 25
@@ -884,8 +888,6 @@ STALKER:
 		TerrainSpeeds:
 			Water: 80
 		Crushes: crate
-	RevealsShroud:
-		Range: 6c0
 	Armament@prim:
 		Weapon: GravMineSuicide
 	AttackFrontal:
@@ -897,6 +899,7 @@ STALKER:
 
 FLOAT:
 	Inherits: ^ScrinSoldier
+	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 29
@@ -935,6 +938,7 @@ FLOAT:
 
 BUG:
 	Inherits: ^ScrinSoldier
+	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 27
@@ -967,6 +971,7 @@ BUG:
 
 COLOSSI:
 	Inherits: ^ScrinSoldier
+	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 30
@@ -1068,6 +1073,7 @@ CABSENTRY:
 
 CYBORG:
 	Inherits: ^Cyborg
+	Inherits@1: ^6CellVision
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -1083,8 +1089,6 @@ CYBORG:
 	DeliversCash:
 		Payload: 175
 		Voice: Move
-	RevealsShroud:
-		Range: 8c0
 	Voiced:
 		VoiceSet: Cyborg
 	Mobile:
@@ -1100,6 +1104,7 @@ CYBORG:
 
 CBORG:
 	Inherits: ^Cyborg
+	Inherits@1: ^6CellVision
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -1114,8 +1119,6 @@ CBORG:
 		HP: 9000
 	Mobile:
 		Speed: 45
-	RevealsShroud:
-		Range: 8c0
 	Voiced:
 		VoiceSet: Cyborg
 	DeliversCash:
@@ -1134,6 +1137,7 @@ CBORG:
 
 PDRONE:
 	Inherits: ^CabalDroneInfantry
+	Inherits@1: ^4CellVision
 	Valued:
 		Cost: 175
 	DeliversCash:
@@ -1231,6 +1235,7 @@ SWARMLING:
 MOTH:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^CabRender
+	Inherits@2: ^7CellVision
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1304,6 +1309,7 @@ MOTH:
 
 GLAD:
 	Inherits: ^Cyborg
+	Inherits@1: ^6CellVision
 	Inherits@2: ^PermanentSelfHeal
 	Valued:
 		Cost: 800
@@ -1343,6 +1349,7 @@ GLAD:
 
 CYC2:
 	Inherits: ^Cyborg
+	Inherits@1: ^7CellVision
 	Inherits@2: ^PermanentSelfHeal
 	Valued:
 		Cost: 1500
@@ -1424,8 +1431,6 @@ PALADIN2:
 		VoiceSet: Limpet
 	Armor@worker:
 		Type: Worker
-	RevealsShroud:
-		Range: 8c0
 	DeliversCash:
 		Payload: 350
 		Voice: Move
@@ -1468,8 +1473,6 @@ cybdog:
 		Speed: 65
 	Health:
 		HP: 15000
-	RevealsShroud:
-		Range: 5c0
 	Armor@worker:
 		Type: Worker
 	Armament:

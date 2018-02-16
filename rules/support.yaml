@@ -364,8 +364,6 @@ GAFIRE:
 		DecorationBounds: 110, 60, 3, -4
 	Health:
 		HP: 200000
-	RevealsShroud:
-		Range: 4c0
 	WithIdleOverlay@1:
 		Sequence: idle1
 	WithIdleOverlay@2:
@@ -401,8 +399,6 @@ GUARDIANDEP:
 		Bounds: 110, 60, 3, -4
 	Health:
 		HP: 65000
-	RevealsShroud:
-		Range: 15c0
 	Voiced:
 		VoiceSet: GuardianVO
 		Volume: 3
@@ -666,8 +662,6 @@ NASTLH:
 		HP: 60000
 	Armor:
 		Type: BuildingArmor
-	RevealsShroud:
-		Range: 6c0
 	WithIdleOverlay@pulse:
 		Sequence: pulse
 		PauseOnLowPower: true
@@ -708,8 +702,6 @@ MASTL:
 		Type: cloakgenerator
 	Selectable:
 		Priority: 6
-	RevealsShroud:
-		Range: 5c0
 	BodyOrientation:
 		QuantizedFacings: 32
 	Transforms:
@@ -736,8 +728,6 @@ DLIMPET:
 	-AttackTurreted:
 	-AutoTarget:
 	-RenderRangeCircle:
-	RevealsShroud:
-		Range: 6c0
 	BodyOrientation:
 		QuantizedFacings: 32
 	Transforms:
@@ -770,8 +760,6 @@ GAARTY:
 		Name: Deployed Artillery
 	Health:
 		HP: 30000
-	RevealsShroud:
-		Range: 9c0
 	Turreted:
 		TurnSpeed: 5
 		InitialFacing: 128
@@ -1086,8 +1074,6 @@ MUBUNKR:
 		DecorationBounds: 88, 72, 0, -12
 	Health:
 		HP: 140000
-	RevealsShroud:
-		Range: 8c0
 	AutoTarget:
 	Cargo:
 		MaxWeight: 4
@@ -1228,8 +1214,6 @@ MUWARD:
 	Selectable:
 		Priority: 3
 	-Voiced:
-	RevealsShroud:
-		Range: 5c0
 	BodyOrientation:
 		QuantizedFacings: 32
 	Cloak@cloakgenerator:
@@ -1266,8 +1250,6 @@ MUVENTI:
 		PauseOnCondition: disabled
 	RallyPoint:
 	Exit:
-	RevealsShroud:
-		Range: 4c0
 	WithIdleOverlay@LIGHTS:
 		Sequence: idle-lights
 	Selectable:
@@ -1463,8 +1445,6 @@ SCRDRONE:
 		DecorationBounds: 88, 72, 0, -12
 	Health:
 		HP: 127500
-	RevealsShroud:
-		Range: 12c0
 	AttackOmni:
 		PauseOnCondition: empdisable || disabled
 	Armament:
@@ -1502,8 +1482,6 @@ SCREXTRACTOR:
 		DecorationBounds: 40, 36, -3, -8
 	Health:
 		HP: 100000
-	RevealsShroud:
-		Range: 4c0
 	Power:
 		Amount: -50
 	SelectionDecorations:
@@ -1683,8 +1661,6 @@ SCRSHIELD:
 		Condition: disabled
 	Health:
 		HP: 150000
-	RevealsShroud:
-		Range: 8c0
 	Power:
 		Amount: -100
 	SelectionDecorations:
@@ -1742,8 +1718,6 @@ CABSENTRYTURRET:
 	-Sellable:
 	BodyOrientation:
 		QuantizedFacings: 32
-	RevealsShroud:
-		Range: 8c0
 	Turreted:
 		TurnSpeed: 10
 		InitialFacing: 50
@@ -1827,8 +1801,6 @@ CABPIT:
 	-EmitInfantryOnSell@scr:
 	Health:
 		HP: 130000
-	RevealsShroud:
-		Range: 8c0
 	AutoTarget:
 	SelectionDecorations:
 	AttackOmni:
@@ -1978,7 +1950,7 @@ CABEYE:
 		Range: 8c0
 		RequiresCondition: !disabled
 	RevealsShroud@asd:
-		Range: 20c0
+		Range: 24c0
 		RequiresCondition: !disabled
 	Selectable:
 		Bounds: 90, 124, 0, -40
@@ -2028,8 +2000,6 @@ NAPOST:
 		Adjacent: 7
 	Power:
 		Amount: -5
-	RevealsShroud:
-		Range: 4c0
 	WithIdleOverlay@LIGHTS:
 		RequiresCondition: !disabled
 		Sequence: lights

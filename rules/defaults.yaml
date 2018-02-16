@@ -701,16 +701,48 @@
 		DamageTypes: FireDeath
 		RadioactivityLayerName: OrangeRadiation
 		DamageInterval: 25
-#	DamagedByRadioactivity@BlueRadiation:
-#		DamageCoeff: 8000
-#		DamageTypes: FireDeath
-#		RadioactivityLayerName: BlueRadiation
-#		DamageInterval: 25
-#	DamagedByRadioactivity@ColossusRadiation:
-#		DamageCoeff: 8000
-#		DamageTypes: FireDeath
-#		RadioactivityLayerName: ColossusRadiation
-#		DamageInterval: 25
+
+^4CellVision:
+	RevealsShroud:
+		Range: 4c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
+
+^5CellVision:
+	RevealsShroud:
+		Range: 5c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
+
+^6CellVision:
+	RevealsShroud:
+		Range: 6c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
+
+^7CellVision:
+	RevealsShroud:
+		Range: 7c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition
+
+^8CellVision:
+	RevealsShroud:
+		Range: 8c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition
+
+^9CellVision:
+	RevealsShroud:
+		Range: 9c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition
+
+^10CellVision:
+	RevealsShroud:
+		Range: 10c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
 
 ^Academy:
 	ProducibleWithLevel:
@@ -889,7 +921,7 @@
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	RevealsShroud:
-		Range: 6c0
+		Range: 4c0
 		RequiresCondition: !inside-tunnel && !submerged
 	CaptureNotification:
 		Notification: BuildingCaptured
@@ -1011,7 +1043,7 @@
 	Armor:
 		Type: InfantryArmor
 	RevealsShroud:
-		Range: 6c0
+		Range: 4c0
 		RequiresCondition: !inside-tunnel && !submerged
 	Mobile:
 		Voice: Move
@@ -1148,6 +1180,7 @@
 	Inherits: ^Infantry
 	Inherits@1: ^Academy
 	Inherits@2: ^AutoTargetGroundAssaultMove
+	Inherits@3: ^5CellVision
 	MustBeDestroyed:
 	TakeCover:
 		DamageModifiers:
@@ -1228,7 +1261,8 @@
 		EmptyWeapon: DroneExplode
 	DeathSounds:
 	RevealsShroud:
-		Range: 4c0
+		Range: 6c0
+		RequiresCondition: !inside-tunnel && !submerged
 	MustBeDestroyed:
 	WithPermanentInjury:
 	WithInfantryBody:
@@ -1403,7 +1437,7 @@
 		TurnSpeed: 7
 		Voice: Move
 	RevealsShroud:
-		Range: 9c0
+		Range: 4c0
 		RequiresCondition: !inside-tunnel && !submerged
 	NydusTransportable:
 	Selectable:
@@ -1530,6 +1564,7 @@
 	Inherits: ^Vehicle
 	Inherits@1: ^Academy
 	Inherits@2: ^AutoTargetGroundAssaultMove
+
 	Mobile:
 		Crushes: wall, crate, infantry
 	Carryable:
@@ -1574,6 +1609,7 @@
 	Inherits@2: ^AircraftEffects
 	Inherits@3: ^ExistsInWorld
 	Inherits@4: ^VehicleShape
+	Inherits@5: ^9CellVision
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
@@ -1628,17 +1664,14 @@
 		AmmoPool: primary
 		RequiresCondition: AIReload
 		Count: 20
-	# GrantConditionOnPrerequisite@AIReload:
-		# Condition: AIReload
-		# Prerequisites: AIReload
+	GrantConditionOnPrerequisite@AIReload:
+		Condition: AIReload
+		Prerequisites: AIReload
 	ExternalCondition@AIReload:
 		Condition: AIReload
 
 ^Helicopter:
 	Inherits: ^Aircraft
-	RevealsShroud:
-		Range: 12c0
-		Type: CenterPosition
 	Aircraft:
 		LandWhenIdle: False
 		CruiseAltitude: 2048
@@ -1659,9 +1692,6 @@
 		LandWhenIdle: False
 		CruiseAltitude: 2560
 	ReturnOnIdle:
-	RevealsShroud:
-		Range: 8c0
-		Type: CenterPosition
 
 ^AircraftHusk:
 	Inherits: ^SpriteActor
@@ -1852,7 +1882,7 @@
 	Targetable@Defence:
 		TargetTypes: Defence
 	RevealsShroud:
-		Range: 6c0
+		Range: 8c0
 	Armor:
 		Type: DefenseArmor
 	EditorTilesetFilter:

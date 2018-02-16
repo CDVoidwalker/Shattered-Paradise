@@ -221,9 +221,6 @@ GUARDIAN:
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 65000
-	RevealsShroud:
-		Range: 15c0
-		Type: CenterPosition
 	Armament@primary:
 		Weapon: GuardianRail
 	Armament@secondary:
@@ -310,9 +307,6 @@ DSHP:
 		InitialFacing: 0
 	Health:
 		HP: 20000
-	RevealsShroud:
-		Range: 3c0
-		Type: CenterPosition
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -343,9 +337,6 @@ ORCATRAN:
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 20000
-	RevealsShroud:
-		Range: 2c0
-		Type: CenterPosition
 	Cargo:
 		Types: Infantry
 		MaxWeight: 5
@@ -379,9 +370,6 @@ APACHE:
 		MoveIntoShroud: true
 	Health:
 		HP: 12000
-	RevealsShroud:
-		Range: 15c0
-		Type: CenterPosition
 	Armament:
 		Weapon: HarpyClaw
 		PauseOnCondition: !ammo
@@ -493,9 +481,6 @@ CERBERUS:
 		MoveIntoShroud: true
 	Health:
 		HP: 45000
-	RevealsShroud:
-		Range: 7c0
-		Type: CenterPosition
 	GrantConditionOnAttack:
 		Condition: LaserCharge
 		MaximumInstances: 7
@@ -680,8 +665,6 @@ MUTQUEEN:
 		Repulsable: true
 		MoveIntoShroud: true
 		IdealSeparation: 1c0
-	RevealsShroud:
-		Range: 8c0
 	Health:
 		HP: 17500
 	-RenderVoxels:
@@ -831,9 +814,6 @@ drache:
 		Speed: 35
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
-	RevealsShroud:
-		Range: 10c0
-		Type: CenterPosition
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	BaseBuilding:
@@ -867,8 +847,6 @@ SCRGLYDER1:
 		Cost: 800
 	Tooltip:
 		Name: Glider
-	RevealsShroud:
-		Range: 8c0
 	Voiced:
 		VoiceSet: Limpet
 	Selectable:
@@ -988,9 +966,6 @@ SCRTRANS:
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 50000
-	RevealsShroud:
-		Range: 7c0
-		Type: CenterPosition
 	-RenderVoxels:
 	-WithVoxelBody:
 	RenderSprites:
@@ -1216,9 +1191,6 @@ SCRBATTLESHIP:
 		MoveIntoShroud: true
 	Health:
 		HP: 200000
-	RevealsShroud:
-		Range: 14c0
-		Type: CenterPosition
 	Armament:
 		Weapon: BattleshipCannon
 		LocalOffset: 0,0,0, 450,-200,0, -750,500,0, 600,-500,0, -750,0,300
@@ -1258,8 +1230,6 @@ MINIWYVERM:
 	-ActorLostNotification:
 	Health:
 		HP: 60
-	RevealsShroud:
-		Range: 5c0
 	SelfHealing:
 		PercentageStep: -50
 		Step: 0
@@ -1391,9 +1361,6 @@ FIREFLY:
 		AllowedTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 10000
-	RevealsShroud:
-		Range: 9c0
-		Type: CenterPosition
 	Minelayer:
 		Mine: cabsentryturret
 		-RearmBuildings: gahpad

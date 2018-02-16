@@ -1,5 +1,6 @@
 SMECH:
 	Inherits: ^Walker
+	Inherits@1: ^5CellVision
 	Inherits@2: ^BasicStealthDetection
 	Valued:
 		Cost: 400
@@ -36,6 +37,7 @@ SMECH:
 
 MMCH:
 	Inherits: ^Walker
+	Inherits@1: ^7CellVision
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -93,8 +95,6 @@ APC:
 			Water: 60
 	Health:
 		HP: 35000
-	RevealsShroud:
-		Range: 5c0
 	Turreted:
 		TurnSpeed: 10
 		Offset: -200,0,0
@@ -137,6 +137,7 @@ HVR:
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^HoverVehicle
 	Inherits@3: ^BasicStealthDetection
+	Inherits@4: ^7CellVision
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -177,6 +178,7 @@ HVR:
 
 JUG:
 	Inherits: ^Walker
+	Inherits@1: ^5CellVision
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -217,6 +219,7 @@ JUG:
 
 JUGGER:
 	Inherits: ^Walker
+	Inherits@1: ^5CellVision
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -249,6 +252,7 @@ JUGGER:
 
 G4TNK:
 	Inherits: ^VoxelTank
+	Inherits@1: ^7CellVision
 	Inherits@2: ^IncompleteSelfHeal
 	Valued:
 		Cost: 1700
@@ -265,8 +269,6 @@ G4TNK:
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 60000
-	RevealsShroud:
-		Range: 6c0
 	Turreted:
 		TurnSpeed: 6
 		Offset: -200,0,0
@@ -291,6 +293,7 @@ G4TNK:
 
 SONIC:
 	Inherits: ^VoxelTank
+	Inherits@1: ^7CellVision
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -327,6 +330,7 @@ SONIC:
 
 HMEC:
 	Inherits: ^VoxelTank
+	Inherits@1: ^9CellVision
 	Inherits@1: ^PermanentSelfHeal
 	Valued:
 		Cost: 3000
@@ -345,8 +349,6 @@ HMEC:
 	-RejectsOrders@berserk:
 	Health:
 		HP: 150000
-	RevealsShroud:
-		Range: 11c0
 	AnnounceOnSeen:
 		Notification: MammothDetected
 	AttackFrontal:
@@ -373,6 +375,7 @@ HMEC:
 BGGY:
 	Inherits: ^VoxelTank
 	Inherits@1: ^AutoTargetGround
+	Inherits@2: ^5CellVision
 	Inherits@3: ^BasicStealthDetection
 	Valued:
 		Cost: 300
@@ -389,8 +392,6 @@ BGGY:
 		Crushes: crate
 	Health:
 		HP: 27500
-	RevealsShroud:
-		Range: 7c0
 	Cargo:
 		MaxWeight: 1
 		PipCount: 1
@@ -507,6 +508,7 @@ TTNK:
 	Inherits: ^VoxelTank
 	Inherits@1: ^Ra2vxl
 	Inherits@2: ^SpriteActor
+	Inherits@3: ^7CellVision
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -539,8 +541,6 @@ TTNK:
 		LocalOffset: 256,-0,600
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
-	RevealsShroud:
-		Range: 5c0
 	RenderSprites:
 		Image: ttnk
 	WithMakeAnimation:
@@ -667,8 +667,6 @@ BIKE:
 	WithFacingSpriteBody:
 	WithShadow:
 	RenderSprites:
-	RevealsShroud:
-		Range: 7c0
 	Explodes:
 		Weapon: BikeExplo
 		EmptyWeapon: BikeExplo
@@ -716,7 +714,6 @@ SAPC:
 		HP: 17500
 	RevealsShroud:
 		RequiresCondition: !inside-tunnel && !submerged
-		Range: 5c0
 		MaxHeightDelta: 3
 	RejectsOrders@subterranean:
 		RequiresCondition: submerged
@@ -760,6 +757,7 @@ REPAIR:
 
 SUBTANK:
 	Inherits: ^VoxelTank
+	Inherits@1: ^7CellVision
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -840,6 +838,7 @@ SUBTANK:
 
 ARMH:
 	Inherits: ^VoxelTank
+	Inherits@1: ^5CellVision
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -854,8 +853,6 @@ ARMH:
 	Mobile:
 		Speed: 60
 		TurnSpeed: 5
-	RevealsShroud:
-		Range: 9c0
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -879,6 +876,7 @@ ARMH:
 
 STNK:
 	Inherits: ^VoxelTank
+	Inherits@1: ^7CellVision
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -946,8 +944,6 @@ LIMPED:
 		NoTransformSounds:
 		Voice: Move
 	WithSpriteBody:
-	RevealsShroud:
-		Range: 5c0
 	Selectable:
 		Bounds: 12, 30, 0, 0
 	RenderSprites:
@@ -977,6 +973,7 @@ SGEN:
 
 WOLF:
 	Inherits: ^Beast
+	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 27
@@ -1023,6 +1020,7 @@ WOLF:
 STRUCK:
 	Inherits: ^VoxelTank
 	Inherits@1: ^Ra2vxl
+	Inherits@2: ^5CellVision
 	Inherits@3: ^MutRender
 	Valued:
 		Cost: 300
@@ -1076,6 +1074,7 @@ LYNX:
 	Inherits@1: ^Ra2vxl
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^MutRender
+	Inherits@4: ^7CellVision
 	Buildable:
 		Queue: Vehicle
 		Description: Light tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can crush infantry
@@ -1113,36 +1112,12 @@ LYNX:
 		MuzzleSplitFacings: 8
 		Recoil: 0c128
 
-2STUG3:
-	Inherits: ^VoxelTank
-	Inherits@1: ^Ra2vxl
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Tank Destroyer
-	Mobile:
-		TurnSpeed: 8
-		Speed: 60
-		Crushes: crate
-	Health:
-		HP: 27500
-	RevealsShroud:
-		Range: 7c0
-	Armament:
-		Weapon: LynxCannon
-		MuzzleSequence: muzzle
-	AttackFrontal:
-		PauseOnCondition: empdisable
-	AutoTarget:
-	WithMuzzleOverlay:
-	RenderVoxels:
-		Scale: 0.8
-
 MUTQUAD:
 	Inherits: ^VoxelTank
 	Inherits@1: ^Ra2vxl
 	Inherits@2: ^BasicStealthDetection
 	Inherits@3: ^MutRender
+	Inherits@4: ^7CellVision
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -1186,6 +1161,7 @@ MUTQUAD:
 
 MRLS:
 	Inherits: ^VoxelTank
+	Inherits@1: ^5CellVision
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1256,6 +1232,7 @@ HVRTRUK3:
 DEATHCLAW:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender
+	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
@@ -1305,6 +1282,7 @@ DEATHCLAW:
 SCRSCORPION:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
+	Inherits@1: ^5CellVision
 	Inherits@2: ^BasicStealthDetection
 	Valued:
 		Cost: 700
@@ -1413,6 +1391,7 @@ SCRGLYDER2:
 	Inherits@1: ^HoverVehicle
 	Inherits@2: ^AutoTargetGround
 	Inherits@3: ^BasicStealthDetection
+	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
@@ -1491,6 +1470,7 @@ SCRMBT:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
 	Inherits@2: ^AutoTargetGround
+	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 32
@@ -1574,6 +1554,7 @@ SCRRECHARGER:
 TRIPOD:
 	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
+	Inherits@2: ^7CellVision
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -1660,6 +1641,7 @@ CABMCV:
 CENTURION:
 	Inherits: ^Walker
 	Inherits@1: ^BasicStealthDetection
+	Inherits@2: ^5CellVision
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -1707,6 +1689,7 @@ CENTURION:
 
 REAPERCAB:
 	Inherits: ^Walker
+	Inherits@1: ^7CellVision
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -1785,9 +1768,9 @@ REPAIRVEHICLE:
 
 CABAPC:
 	Inherits: ^VoxelVehicle
-	Inherits@2: ^Ra2vxl
-	Inherits@3: ^HoverVehicle
-	Inherits@4: ^CabRender
+	Inherits@1: ^Ra2vxl
+	Inherits@2: ^HoverVehicle
+	Inherits@3: ^CabRender
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -1828,7 +1811,8 @@ CABAPC:
 
 SPIDERARTY:
 	Inherits: ^Walker
-	Inherits@5: ^CabRender
+	Inherits@1: ^5CellVision
+	Inherits@2: ^CabRender
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1866,8 +1850,9 @@ SPIDERARTY:
 
 PALADIN:
 	Inherits: ^Walker
-	Inherits@5: ^CabRender
-	Inherits@2: ^PermanentSelfHeal
+	Inherits@1: ^7CellVision
+	Inherits@2: ^CabRender
+	Inherits@3: ^PermanentSelfHeal
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -1881,9 +1866,6 @@ PALADIN:
 		TurnSpeed: 6
 		Speed: 60
 		Crushes: wall, crate, infantry
-	RevealsShroud:
-		Range: 11c0
-		RequiresCondition: !inside-tunnel && !submerged
 	-RejectsOrders@berserk:
 	SelfHealing@Permanent:
 		DamageCooldown: 0
