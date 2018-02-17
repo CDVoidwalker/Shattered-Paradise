@@ -260,7 +260,7 @@ G4TNK:
 		Name: Mammoth Tank
 	Buildable:
 		Queue: Vehicle
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry.
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry.\n- Cannot be mindcontrolled.
 		BuildPaletteOrder: 7
 		Prerequisites: ~gaweap, gatech
 	Mobile:
@@ -340,7 +340,7 @@ HMEC:
 		Queue: Vehicle
 		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gtdrop
-		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry.\n- Cannot be mindcontrolled.
+		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry
 		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
@@ -1280,8 +1280,8 @@ DEATHCLAW:
 	-ExternalCondition@WebDisable:
 
 SCRSCORPION:
-	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
+	Inherits: ^ScrinVehicle
 	Inherits@1: ^5CellVision
 	Inherits@2: ^BasicStealthDetection
 	Valued:
@@ -1311,15 +1311,12 @@ SCRSCORPION:
 	WithInfantryBody:
 	Selectable:
 		Bounds: 50, 32, 0, -8
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	-DamagedByRadioactivity@Default:
 
 SCRDRONEC:
-	Inherits: ^ScrinVehicle
 	Inherits@1: ^AutoTargetGround
 	Inherits@2: ^HoverVehicle
+	Inherits: ^ScrinVehicle
 	Valued:
 		Cost: 950
 	Tooltip:
@@ -1382,13 +1379,10 @@ SCRDRONEC:
 		# Condition: FullDamage
 	# ExternalCondition@VanguardShield:
 		# Condition: VanguardShield
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 
 SCRGLYDER2:
-	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
+	Inherits: ^ScrinVehicle
 	Inherits@2: ^AutoTargetGround
 	Inherits@3: ^BasicStealthDetection
 	Inherits@1: ^7CellVision
@@ -1419,30 +1413,28 @@ SCRGLYDER2:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
-	-SelfHealing@ELITE:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 
 SCRMOBMINE:
-	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
+	Inherits: ^ScrinVehicle
 	Inherits@2: ^AutoTargetGround
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 31
-		Description: Mind Control unit\n\nSpecial:\n- Can mind control infantry or vehicles.\n- Can control up to four units.\n- Absorbs essence from killed units to heal.
+		Description: Mind Control unit\n\nSpecial:\n- Can mind control vehicles.\n- Can control up to three units.\n- Absorbs essence from killed units to heal.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
 		Cost: 1600
 	Tooltip:
 		Name: Subjugator
 	Mindcontroller:
-		Capacity: 4
+		Capacity: 3
 		Sound: sonpulse.aud
 		GiveCondition: mindcontrolled
 		ControllingCondition: slaving
 		Policy: DiscardOldest
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
 	Armament@PRIMARY:
 		Weapon: MindController
 	Health:
@@ -1456,10 +1448,6 @@ SCRMOBMINE:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
-	-SelfHealing@ELITE:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	WithRangeCircle:
 		Type: Subjugator
 	RenderRangeCircle:
@@ -1467,8 +1455,8 @@ SCRMOBMINE:
 	-ProducibleWithLevel:
 
 SCRMBT:
-	Inherits: ^ScrinVehicle
 	Inherits@1: ^HoverVehicle
+	Inherits: ^ScrinVehicle
 	Inherits@2: ^AutoTargetGround
 	Inherits@1: ^7CellVision
 	Buildable:
@@ -1497,14 +1485,10 @@ SCRMBT:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
-	-SelfHealing@ELITE:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 
 SCRRECHARGER:
-	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
+	Inherits: ^ScrinVehicle
 	Valued:
 		Cost: 950
 	Tooltip:
@@ -1545,15 +1529,12 @@ SCRRECHARGER:
 		Sequence: stand
 	WithMoveAnimation:
 		MoveSequence: run
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	-GainsExperience:
 	-ProducibleWithLevel:
 
 TRIPOD:
-	Inherits: ^ScrinVehicle
 	Inherits@1: ^Walker
+	Inherits: ^ScrinVehicle
 	Inherits@2: ^7CellVision
 	Valued:
 		Cost: 1400
@@ -1603,10 +1584,6 @@ TRIPOD:
 		DefaultAttackSequence: shoot
 	QuantizeFacingsFromSequence:
 		Sequence: stand
-	-SelfHealing@ELITE:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 
 ###########################################################
 # CABAL

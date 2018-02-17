@@ -458,6 +458,11 @@ sgrysmk1:
 		Length: *
 		Tick: 100
 
+scrsmoke:
+	idle:
+		Length: *
+		Tick: 100
+
 htrkpuff:
 	idle:
 		Length: *

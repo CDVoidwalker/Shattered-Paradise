@@ -287,7 +287,7 @@ ScorpAcid:
 		Damage: 975
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		Versus:
-			InfantryArmor: 160
+			InfantryArmor: 150
 			BuildingArmor: 75
 		InvalidTargets: Shark
 	Warhead@2Shark: SpreadDamage
@@ -316,7 +316,7 @@ ScorpAcid:
 MindController:
 	ReloadDelay: 100
 	Range: 6c0
-	ValidTargets: Infantry, Vehicle
+	ValidTargets: Vehicle
 	InvalidTargets: MCImmune, MindControlInmune
 	Report: iyurat1a.wav
 	Projectile: InstantHit
@@ -862,6 +862,7 @@ NeedlerAcid:
 	Range: 6c768
 	Burst: 7
 	Report: flamtnk1.aud
+	BurstDelays: 1
 	Projectile: BulletAS
 		Speed: 250
 		Image: acidall32
@@ -872,6 +873,7 @@ NeedlerAcid:
 		Spread: 250
 		Damage: 800
 		Versus:
+			InfantryArmor: 150
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		InvalidTargets: Shark

@@ -698,6 +698,14 @@ MUSTABLE:
 		Weapon: ScrinBuildingExplode
 		EmptyWeapon: ScrinBuildingExplode
 		Type: Footprint
+	SmokeParticleEmitter:
+		RequiresCondition: smoketrail
+		Sequence: idle
+		SpawnFrequency: 3, 10
+		Gravity: -32,-32,48, 32,32,48
+		Offset: 0,0,0,0,0,0
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 drached:
 	Inherits: ^Building
@@ -740,9 +748,6 @@ drached:
 	ProvidesPrerequisite@scr:
 		Prerequisite: structures.scr
 	SelectionDecorations:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	ProvidesAIPrerequisite@AImoney:
 		Prerequisite: AImoney
 	GrantConditionOnPrerequisite@AImoney:
@@ -810,9 +815,6 @@ SCRPOWR:
 		TargetTypes: Building, Ground, C4, DetonateAttack, SpyInfiltrate, Powerplant
 	ScalePowerWithHealth:
 	SelectionDecorations:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -839,9 +841,6 @@ SCRRAX:
 	Power:
 		Amount: -20
 	SelectionDecorations:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -883,9 +882,6 @@ SCRPROC:
 	RenderSprites:
 		Image: scrproc
 		-FactionImages:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	RequiresBuildableArea:
 		AreaTypes: building
 	Selectable:
@@ -903,9 +899,6 @@ SCRPROC2:
 	-WithIdleOverlay@REDLIGHTS:
 	-WithDockingOverlay@UNLOAD:
 	-WithDockedOverlay@flame:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 2
@@ -944,9 +937,6 @@ SCRWEAP:
 		Sequence: idle-roof
 	WithProductionOverlay@WHITELIGHTS:
 		Sequence: production-lights-white
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 
 SCRRADR:
 	Inherits: ^Radar
@@ -970,9 +960,6 @@ SCRRADR:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
 		PauseOnLowPower: yes
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -988,9 +975,6 @@ SCRDEPOT:
 		Name: Scrin Maintenance Depot
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	RenderSprites:
 		Image: scrdepot
 		-FactionImages:
@@ -1054,9 +1038,6 @@ SCRAIR:
 		ZOffset: 9999
 		RequiresCondition: primary
 		ConditionMinEnabledLevel: 1
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1084,9 +1065,6 @@ SCRTECH:
 		DecorationBounds: 110, 60, 3, -4
 	ProvidesPrerequisite@buildingname:
 	SelectionDecorations:
-	-GrantConditionOnDamageState@smoke:
-	-SmokeParticleEmitter:
-	-ExternalCondition@smoketrail:
 	RequiresBuildableArea:
 		AreaTypes: building
 

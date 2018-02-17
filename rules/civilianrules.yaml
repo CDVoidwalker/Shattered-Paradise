@@ -2401,7 +2401,7 @@ WELL:
 	Inherits: ^TechBuilding
 	Inherits@2: ^3x3Shape
 	Tooltip:
-		Name: Tiberium Well
+		Name: Tiberium Well (Awards money)
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -2558,7 +2558,7 @@ NEUTRALPOWERPLANT:
 	Inherits: ^TechBuilding
 	Inherits@3: ^3x3Shape
 	Tooltip:
-		Name: Civilian Powerplant
+		Name: Civilian Powerplant (Provides build radius & explosive)
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -2580,6 +2580,9 @@ NEUTRALPOWERPLANT:
 		Range: 8c0
 	RequiresBuildableArea:
 		AreaTypes: building
+	Explodes:
+		Weapon: PowerplantNuke
+		EmptyWeapon: PowerplantNuke
 
 SCRINREINFPAD:
 	Inherits: ^TechBuilding

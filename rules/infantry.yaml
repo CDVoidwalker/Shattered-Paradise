@@ -34,7 +34,7 @@ GRENADIER:
 	Valued:
 		Cost: 300
 	Tooltip:
-		Name: Grenadier
+		Name: Phalanx
 	Health:
 		HP: 9000
 	Mobile:
@@ -530,7 +530,7 @@ MUTFIEND:
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
 	Valued:
-		Cost: 200
+		Cost: 250
 	Health:
 		HP: 12000
 		Shape: Circle

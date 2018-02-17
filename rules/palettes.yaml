@@ -186,6 +186,10 @@
 		Name: apolbluealpha
 		BasePalette: apblue
 		Alpha: 0.8
+	PaletteFromPaletteWithAlpha@apolbluealpha60:
+		Name: apolbluealpha60
+		BasePalette: apblue
+		Alpha: 0.4
 	PaletteFromPaletteWithAlpha@apcyblalhpa:
 		Name: apollightbluealpha
 		BasePalette: apcybl

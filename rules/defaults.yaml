@@ -769,7 +769,6 @@
 	Inherits@1: ^TyrannyBuff
 	Inherits@2: ^InfantryStealthDetection
  	Inherits@3: ^HopspitalHeal
-	Inherits@4: ^MindControllable
 	Inherits@5: ^RejectsOrdersBerkserk
 	Inherits@6: ^WebDisable
 	Inherits@8: ^BugPoison
@@ -1582,6 +1581,9 @@
 		EmptyWeapon: ScrinUnitExplode
 	Voiced:
 		VoiceSet: Limpet
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 ^VoxelVehicle:
 	Inherits: ^Vehicle

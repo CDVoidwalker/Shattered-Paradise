@@ -788,6 +788,9 @@ STORMRIDER:
 	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 drache:
 	Inherits: ^Helicopter
@@ -838,7 +841,9 @@ drache:
 		Actor: DRACHE.Husk
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
-	# -GrantConditionOnPrerequisite@AIReload:
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 SCRGLYDER1:
 	Inherits: ^Helicopter
@@ -886,6 +891,9 @@ SCRGLYDER1:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: GLYDER1.Husk
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 SCRDESTROYER:
 	Inherits: ^Helicopter
@@ -937,6 +945,9 @@ SCRDESTROYER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRDESTROYER.Husk
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 SCRTRANS:
 	Inherits: ^Helicopter
@@ -982,6 +993,9 @@ SCRTRANS:
 	-AmmoPool:
 	-GainsExperience:
 	-ProducibleWithLevel:
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 SCRINCOUNCIL:
 	Inherits: ^Helicopter
@@ -1037,6 +1051,9 @@ SCRINCOUNCIL:
 	-AmmoPool:
 	-GainsExperience:
 	-ProducibleWithLevel:
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 SCRCARRIER:
 	Inherits: ^Helicopter
@@ -1091,6 +1108,9 @@ SCRCARRIER:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRCARRIER.Husk
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 STORMRIDERSPAWN:
 	Inherits: STORMRIDER
@@ -1138,6 +1158,9 @@ STORMRIDERSPAWN:
 	ExternalCondition@Return:
 		Condition: ForceReturn
 	-SpawnActorOnDeath:
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 CABDRONEJET:
 	Inherits: STORMRIDERSPAWN
@@ -1217,6 +1240,9 @@ SCRBATTLESHIP:
 		QuantizedFacings: 32
 	SpawnActorOnDeath:
 		Actor: SCRBATTLESHIP.Husk
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 MINIWYVERM:
 	Inherits: WASP
