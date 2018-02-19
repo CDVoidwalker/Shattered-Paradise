@@ -1,7 +1,7 @@
 {
     "mod": "sp",
-    "modversion": "{Build 20180203}",
-    "map": "e82eb502a3997718bc8424a26c9fbd96f1fe3c91",
+    "modversion": "{Build 20180216 II}",
+    "map": "50795cd535bb2f204d25403e0d794c520aa8658d",
     "timestep": 40,
     "orderlatency": 3,
     "allowspectators": true,
@@ -14,12 +14,12 @@
             "locked": false
         },
         "cheats": {
-            "value": true,
-            "preferredvalue": true,
+            "value": false,
+            "preferredvalue": false,
             "locked": false
         },
         "explored": {
-            "value": false,
+            "value": true,
             "preferredvalue": false,
             "locked": false
         },
