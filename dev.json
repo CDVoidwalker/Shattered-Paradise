@@ -1,0 +1,77 @@
+{
+    "mod": "sp",
+    "modversion": "{Build 20180203}",
+    "map": "e82eb502a3997718bc8424a26c9fbd96f1fe3c91",
+    "timestep": 40,
+    "orderlatency": 3,
+    "allowspectators": true,
+    "allowversionmismatch": false,
+    "enablesingleplayer": true,
+    "options": {
+        "startingcash": {
+            "value": 5000,
+            "preferredvalue": 5000,
+            "locked": false
+        },
+        "cheats": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "explored": {
+            "value": false,
+            "preferredvalue": false,
+            "locked": false
+        },
+        "fog": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "factundeploy": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "creeps": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "allybuild": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "buildradius": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "shortgame": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        },
+        "techlevel": {
+            "value": "unrestricted",
+            "preferredvalue": "unrestricted",
+            "locked": false
+        },
+        "gamespeed": {
+            "value": "default",
+            "preferredvalue": "default",
+            "locked": false
+        },
+        "startingunits": {
+            "value": "none",
+            "preferredvalue": "none",
+            "locked": false
+        },
+        "crates": {
+            "value": true,
+            "preferredvalue": true,
+            "locked": false
+        }
+    }
+}
