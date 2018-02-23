@@ -44,7 +44,7 @@
 		Palette: greentiberium
 		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12
 		MaxDensity: 17
-		ValuePerUnit: 22
+		ValuePerUnit: 25
 		AllowedTerrainTypes: Clear, Rough, DirtRoad
 		AllowUnderActors: true
 		TerrainType: Tiberium
@@ -55,7 +55,7 @@
 		Palette: bluetiberium
 		Sequences: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12
 		MaxDensity: 15
-		ValuePerUnit: 44
+		ValuePerUnit: 50
 		PipColor: Blue
 		AllowedTerrainTypes: Clear, Rough, DirtRoad
 		AllowUnderActors: true
@@ -151,8 +151,13 @@ World:
 	MPStartUnits@MCV:
 		Class: none
 		ClassName: MCV Only
-		Factions: gdi, nod, mut
+		Factions: gdi, mut
 		BaseActor: mcv
+	MPStartUnits@MCVnod:
+		Class: none
+		ClassName: MCV Only
+		Factions: nod
+		BaseActor: nodmcv
 	MPStartUnits@MCVcab:
 		Class: none
 		ClassName: MCV Only

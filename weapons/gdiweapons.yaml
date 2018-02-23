@@ -232,7 +232,7 @@ MechRailgun:
 	ReloadDelay: 68
 	Range: 8c0
 	Burst: 2
-	BurstDelays: 68
+	BurstDelays: 10
 	Report: railuse5.aud
 	Projectile: AreaBeam
 		Speed: 20c0

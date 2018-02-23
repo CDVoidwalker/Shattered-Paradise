@@ -796,16 +796,92 @@ vissml:
 		Tick: 80
 
 vislrg:
-	Inherits: ^InfantryDeathAnims
+	stand:
+		Length: 90
+		ShadowStart: 90
+		Tick: 80
+		Facings: 1
+	run:
+		Length: 90
+		ShadowStart: 90
+		Tick: 80
+		Facings: 1
 	idle:
 		Length: 90
 		ShadowStart: 90
 		Tick: 80
-	muzzle: vislgatk
+		Facings: 1
+	attack:
+		Combine:
+			vislgatk:
+				Start: 5
+				Length: 35
+			vislgatk:
+				Start: 0
+				Length: 5
+		Facings: -8
 		Length: 5
-		Facings: 8
-		ShadowStart: 40
 		Tick: 80
+		Offset: 0, 0, 16
+	die3: infdie
+		Length: *
+	die4: infdeathexplo1
+		Length: *
+	die5: infdeathexplo2
+		Length: *
+	die6: electro
+		Length: *
+	die7: infdeathexplo3
+		Length: *
+	cloud: cloud2
+		Length: *
+		Offset: 0,-12
+		ZOffset: 512
+	diebody1: death_a
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody2: death_b
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody3: death_c
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody4: death_d
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	diebody5: death_f
+		Length: *
+		Tick: 5000
+		ZOffset: -511
+	dieevaporate: infgas
+		Length: *
+		Offset: 0,-6, 32
+		Tick: 30
+	diemelt: infmelt
+		Length: *
+		Offset: 0,-6, 32
+	dieshatter: infshatter
+		Length: *
+		Offset: 0,-6, 32
+	diecristalize1: infcrystalize
+		Length: 21
+	diecristalize2: infcrystalize
+		Start: 21
+		Length: 21
+	webguy: webguy
+		Length: 6
+		ShadowStart: 6
+	shield: shieldsmall
+		Length: *
+	emp-overlay: emp_fx01
+		Length: *
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
 
 art2:
 	Inherits: ^EmpOverlay

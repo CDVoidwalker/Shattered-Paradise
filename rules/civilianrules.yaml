@@ -252,74 +252,69 @@ VISC_SML:
 	Inherits: ^Visceroid
 	Tooltip:
 		Name: Baby Visceroid
-		Description: infantry transmorgifies into this
 	Health:
 		HP: 15000
 	Armor:
-		Type: none
+		Type: VehicleArmor
 	AttackWander:
-		WanderMoveRadius: 2
+		WanderMoveRadius: 3
 		MinMoveDelay: 30
 		MaxMoveDelay: 60
+		RequiresCondition: !Evolve
 	RenderSprites:
-		Image: vislrg
+		Image: vissml
+	Targetable@ViscMale:
+		TargetTypes: ViscMale
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
-	Armament:
-		Weapon: SlimeAttack
-	AutoTarget:
 	Mobile:
 		Crushes: nada
-	AttackFrontal:
-		Voice: Attack
+	TransformOnCondition:
+		IntoActor: visc_lrg
+		RequiresCondition: Transform
+	GrantPeriodicCondition:
+		Condition: Transform
+		CooldownDuration: 750
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
 
 VISC_LRG:
 	Inherits: ^Visceroid
 	Tooltip:
 		Name: Adult Visceroid
-		Description: 2 small visceroids combine into this
 	Health:
-		HP: 20000
+		HP: 5000
 	Armor:
 		Type: VehicleArmor
-	Armament:
-		Weapon: SlimeAttack
-	AutoTarget:
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
 	RevealsShroud:
 		Range: 4c0
-	-WithSpriteBody:
-	WithInfantryBody:
-		MoveSequence: idle
-		AttackSequence: muzzle
-		StandSequences: idle
-	Targetable:
-		TargetTypes: Ground, Infantry, NeutralTibCritter
+	Armament:
+		Weapon: SlimeAttack
+		FireDelay: 10
+	AutoTarget:
+		ScanRadius: 5
 	AttackFrontal:
 		Voice: Attack
 	AttackWander:
 		WanderMoveRadius: 2
-		MinMoveDelay: 50
-		MaxMoveDelay: 90
+		MinMoveDelay: 25
+		MaxMoveDelay: 50
+	WithAttackAnimation:
+		AttackSequence: attack
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
 	Mobile:
-		Crushes: nada
+		Crushes: crate, infantry
 	RenderSprites:
 		Image: vislrg
 
 VISC_LRG_SCRIN:
-	Inherits: ^Visceroid
-	Tooltip:
-		Name: Adult Visceroid
-		Description: 2 small visceroids combine into this
+	Inherits: VISC_LRG
 	Health:
-		HP: 15000
-	Armor:
-		Type: VehicleArmor
-	Armament:
-		Weapon: SlimeAttack
+		HP: 10000
 	-DamagedByTerrain:
 	RejectsOrders:
 	-UpdatesPlayerStatistics:
@@ -327,17 +322,6 @@ VISC_LRG_SCRIN:
 	AutoTarget:
 		ScanRadius: 5
 		InitialStance: AttackAnything
-	Explodes:
-		Weapon: UnitExplodeSmall
-		EmptyWeapon: UnitExplodeSmall
-	RevealsShroud:
-		Range: 4c0
-	AttackFrontal:
-		Voice: Attack
-	AttackWander:
-		WanderMoveRadius: 2
-		MinMoveDelay: 200
-		MaxMoveDelay: 360
 	SelfHealing:
 		PercentageStep: -10
 		Step: 0
@@ -366,6 +350,8 @@ ZOMBIE:
 		Weapon: ZombieExplosion
 		EmptyWeapon: ZombieExplosion
 		Chance: 80
+	AutoTarget:
+		ScanRadius: 3
 	Mobile:
 		Speed: 65
 		Crushes: nada
@@ -387,8 +373,6 @@ ZOMBIE:
 		MinMoveDelay: 25
 		MaxMoveDelay: 45
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
-	-SpawnActorOnDeath@berserk:
 	-DamagedByRadioactivity@Default:
 
 BERSERKER:
@@ -421,7 +405,7 @@ BERSERKER:
 	Armament:
 		Weapon: BerserkerBlow
 	AutoTarget:
-		ScanRadius: 8
+		ScanRadius: 4
 	WithInfantryBody:
 		AttackSequence: shoot
 		IdleSequences: idle1, idle2, idle3
@@ -434,8 +418,6 @@ BERSERKER:
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
-	-SpawnActorOnDeath@berserk:
 	-DamagedByRadioactivity@Default:
 
 CRAB:
@@ -2558,7 +2540,7 @@ NEUTRALPOWERPLANT:
 	Inherits: ^TechBuilding
 	Inherits@3: ^3x3Shape
 	Tooltip:
-		Name: Civilian Powerplant (Provides build radius & explosive)
+		Name: Nuclear Powerplant (Provides build radius & explosive)
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
@@ -2566,9 +2548,9 @@ NEUTRALPOWERPLANT:
 	Selectable:
 		Bounds: 150, 110, 0, -32
 	Health:
-		HP: 250000
+		HP: 150000
 	Power:
-		Amount: 300
+		Amount: 200
 	RenderSprites:
 	SelectionDecorations:
 		VisualBounds: 150, 110, 0, -32
@@ -2595,7 +2577,7 @@ SCRINREINFPAD:
 	Selectable:
 		Bounds: 120, 90, 0, -24
 	Health:
-		HP: 250000
+		HP: 120000
 	RenderSprites:
 		PlayerPalette: playerscrin
 	SelectionDecorations:
@@ -2674,7 +2656,7 @@ EGGS:
 	RenderSprites:
 		Palette: playermut
 	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack, NeutralTibCritter
+		TargetTypes: Defence, Ground, C4, DetonateAttack, NeutralTibCritter
 	-ThrowsShrapnel@SMALL:
 	-ThrowsShrapnel@LARGE:
 	-Explodes:

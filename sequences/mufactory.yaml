@@ -1,3 +1,109 @@
+gdiref:
+	Defaults:
+		Offset: -12, -42, 20
+		DepthSpriteOffset: 22, 0
+		UseTilesetCode: false
+		DepthSprite: isodepth.shp
+	idle:
+		Start: 33
+		ShadowStart: 70
+	damaged-idle:
+		Start: 35
+		ShadowStart: 72
+	dead:
+		Start: 35
+		ShadowStart: 72
+		Tick: 400
+	make:
+		Length: 32
+		ShadowStart: 37
+		DepthSpriteOffset: -12, 0
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
+	flame: ntrefn_b
+		Length: *
+	bib:
+		Start: 34
+		ShadowStart: 71
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	damaged-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	dead-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+		-DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+		-DepthSprite:
+	icon: gdireficon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+gdiref2:
+	Inherits gdiref
+	Defaults: gdiref2
+		Offset: 3, 32, 20
+	icon: gdireficon
+		Offset: 0, 0
+		UseTilesetCode: false
+	idle:
+		Start: 33
+		ShadowStart: 70
+	damaged-idle:
+		Start: 35
+		ShadowStart: 72
+	dead:
+		Start: 35
+		ShadowStart: 72
+		Tick: 400
+	make:
+		Length: 32
+		ShadowStart: 37
+		DepthSpriteOffset: -12, 0
+	unload-overlay: narefn_a
+		Length: *
+		ZOffset: 1024
+	flame: ntrefn_b
+		Length: *
+	bib:
+		Start: 34
+		ShadowStart: 71
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+	damaged-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+	dead-bib:
+		Start: 36
+		ShadowStart: 73
+		ZOffset: -9999
+		ZRamp: 1
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0, 21
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: gdiref2icon
+		Offset: 0, 0
+		UseTilesetCode: false
 
 nodref:
 	Defaults:
@@ -121,3 +227,168 @@ machineshop:
 	critical-idle:
 		Start: 1
 		ShadowStart: 3
+	dead:
+		Start: 1
+		ShadowStart: 3
+
+bggy:
+	Inherits@1: ^SpriteVehicleWithShadow
+	Inherits@2: ^BuggyMuzzle
+	dieevaporate: infgas
+		Length: *
+		Offset: 0,-6, 32
+		Tick: 30
+	turret-none: buggyturret
+		Start: 128
+		Facings: -32
+		UseTilesetCode: false
+	turret-minigun: buggyturret
+		Facings: -32
+		UseTilesetCode: false
+	turret-rocket: buggyturret
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false
+	turret-flame: buggyturret
+		Start: 64
+		Facings: -32
+		UseTilesetCode: false
+	turret-laser: buggyturret
+		Start: 96
+		Facings: -32
+		UseTilesetCode: false
+	turret-abductor: buggyturret
+		Start: 160
+		Facings: -32
+		UseTilesetCode: false
+	turret-cyc2: buggyturret
+		Start: 192
+		Facings: -32
+		UseTilesetCode: false
+	turret-eagleguard: buggyturret2
+		Facings: -32
+		UseTilesetCode: false
+	turret-mortar: buggyturret2
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false
+	turret-tesla: buggyturret2
+		Start: 64
+		Facings: -32
+		UseTilesetCode: false
+	turret-bug: buggyturret2
+		Start: 96
+		Facings: -32
+		UseTilesetCode: false
+	turret-colossi: buggyturret2
+		Start: 128
+		Facings: -32
+		UseTilesetCode: false
+	turret-glad: buggyturret2
+		Start: 160
+		Facings: -32
+		UseTilesetCode: false
+	turret-float: buggyturret2
+		Start: 192
+		Facings: -32
+		UseTilesetCode: false
+	turret-chainsaw: buggyturret3
+		Facings: -32
+		UseTilesetCode: false
+	turret-medic: buggyturret3
+		Start: 32
+		Facings: -32
+		UseTilesetCode: false
+	icon: bggyicon
+
+scrproc:
+	Defaults:
+		Offset: 0, -30, 42
+		UseTilesetCode: false
+	idle:
+		Start: 31
+		ShadowStart: 65
+	damaged-idle:
+		Start: 33
+		ShadowStart: 67
+	dead:
+		Start: 33
+		ShadowStart: 67
+		Tick: 400
+	make:
+		Length: 30
+		ShadowStart: 34
+	bib:
+		Start: 32
+		ShadowStart: 66
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	damaged-bib:
+		Start: 32
+		ShadowStart: 66
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	dead-bib:
+		Start: 32
+		ShadowStart: 66
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: scrprocicon
+		Offset: 0, 0
+		UseTilesetCode: false
+
+scrproc2:
+	Defaults:
+		Offset: 6, 34, 20
+		UseTilesetCode: false
+	idle:
+		Start: 31
+		ShadowStart: 65
+	damaged-idle:
+		Start: 33
+		ShadowStart: 67
+	dead:
+		Start: 33
+		ShadowStart: 67
+		Tick: 400
+	make:
+		Length: 30
+		ShadowStart: 34
+	bib:
+		Start: 32
+		ShadowStart: 66
+		Length: 1
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	damaged-bib:
+		Start: 32
+		ShadowStart: 66
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	dead-bib:
+		Start: 32
+		ShadowStart: 66
+		ZOffset: -9999
+		ZRamp: 1
+		# -DepthSprite:
+	emp-overlay: emp_fx01
+		Length: *
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		BlendMode: Additive
+	icon: scrprocicon2
+		Offset: 0, 0
+		UseTilesetCode: false

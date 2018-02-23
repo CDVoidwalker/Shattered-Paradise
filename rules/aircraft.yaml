@@ -75,7 +75,7 @@ ORCA:
 	Buildable:
 		Description: Fast assault gunship with dual missile launchers.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- detects cloaked units.
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 1
 		Prerequisites: ~gahpad
 	Selectable:
 		Bounds: 30,24
@@ -123,7 +123,7 @@ ORCAB:
 	Buildable:
 		Description: Heavy carpet bomber.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AoE damage\n- Fires bombs in a line before reaching its target.
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 3
 		Prerequisites: ~gahpad, gatech
 	Selectable:
 		Bounds: 30,24
@@ -167,18 +167,18 @@ TRNSPORT:
 	Inherits: ^Helicopter
 	Inherits@1: ^6CellVision
 	Valued:
-		Cost: 500
+		Cost: 400
 	Tooltip:
 		Name: Carryall
 	Buildable:
 		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle
 		Queue: Air
-		BuildPaletteOrder: 20
-		Prerequisites: ~gahpad, gadept
+		BuildPaletteOrder: 2
+		Prerequisites: ~humanstuff, gadept
 	Aircraft:
 		LandWhenIdle: yes
 		TurnSpeed: 5
-		Speed: 95
+		Speed: 120
 		CruiseAltitude: 2800
 		InitialFacing: 0
 		MoveIntoShroud: false
@@ -362,7 +362,7 @@ APACHE:
 	Buildable:
 		Description: Scout Helicopter armed with chain guns.\n\nGood vs: Infantry, Aircraft\n\nSpecial:\n- Can attack air\n- Can detect stealth
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 1
 		Prerequisites: ~nahpad
 	Selectable:
 		Bounds: 30,24
@@ -418,7 +418,7 @@ SCRIN:
 	Buildable:
 		Description: Advanced fighter-bomber craft armed with twin plasma cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 4
 		Prerequisites: ~nahpad, natech
 	Selectable:
 		Bounds: 30,24
@@ -472,7 +472,7 @@ CERBERUS:
 	Buildable:
 		Description: High tech frigate armed with a mobile stealth generator.\n\nGood vs: Ground Targets\n\nSpecial:\n- Cloacks friendly units next to it.
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 5
 		Prerequisites: ~nahpad, natmpl
 	Selectable:
 		Bounds: 110,90
@@ -540,7 +540,7 @@ MUTHELI:
 	Buildable:
 		Description: Heavy assault gunship with an auto-cannon.\n\nGood vs: Everything\n\nSpecial:\n- Can attack air\n- detects cloaked units.
 		Queue: Air
-		BuildPaletteOrder: 19
+		BuildPaletteOrder: 1
 		Prerequisites: ~muair
 	Selectable:
 		Bounds: 30,24
@@ -603,7 +603,7 @@ WETP:
 	Buildable:
 		Description: Fast jet that throws a small tiberium bomb.\n\nGood vs: Ground Targets\nSpecial:\n- Can mutate killed enemy units\n- Emittes tiberium gas damaging nearby units.\n- Attacks emit radiation that harms infantry in the area.
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 6
 		Prerequisites: ~muair, muhall
 	Selectable:
 		Bounds: 30,24
@@ -655,7 +655,7 @@ MUTQUEEN:
 	Buildable:
 		Description: Harasser and mutator.\n\nGood vs: Vehicles, Buildings\n\nSpecial:\n- Can mutate killed enemy units\n- Lays eggs via deploy which later hatch as crabs that are hostile to anyone.
 		Queue: Air
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 7
 		Prerequisites: ~muair, muhall
 	Selectable:
 		Bounds: 30,24
@@ -748,7 +748,7 @@ STORMRIDER:
 	Buildable:
 		Description: Scrin fighter equiped with a blaster turret\n\nStrong vs Aircraft.\n\nSpecial:\n- Can fire while moving.\n- Can absorb essence from killed units to heal.
 		Queue: Air
-		BuildPaletteOrder: 18
+		BuildPaletteOrder: 1
 		Prerequisites: ~scrair
 	Selectable:
 		Bounds: 30,24
@@ -865,7 +865,7 @@ SCRGLYDER1:
 		Speed: 110
 		Repulsable: true
 		MoveIntoShroud: true
-		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Water
 	Health:
 		HP: 20000
 	Armament:
@@ -907,7 +907,7 @@ SCRDESTROYER:
 	Buildable:
 		Description: Scrin light frigate, designed for long range harassment.\n\nGood vs Ground targets.\n\nSpecial:\n- Can absorb essence from killed units to heal.
 		Queue: Air
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 9
 		Prerequisites: ~scrair, scrradr
 	Voiced:
 		VoiceSet: Limpet
@@ -961,6 +961,7 @@ SCRTRANS:
 		Description: Scrin transport\n\nSpecial\n- Can carry up to 3 vehicles or ten soldiers.\n- Lands whenever its able to. 
 		Queue: Air
 		Prerequisites: ~scrair, scrdepot
+		BuildPaletteOrder: 8
 	Voiced:
 		VoiceSet: Limpet
 	Cargo:
@@ -973,13 +974,13 @@ SCRTRANS:
 		Bounds: 100,50
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 70
+		Speed: 90
 		LandWhenIdle: true
 		Repulsable: true
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
-		HP: 50000
+		HP: 35000
 	-RenderVoxels:
 	-WithVoxelBody:
 	RenderSprites:
@@ -1002,7 +1003,7 @@ SCRINCOUNCIL:
 	Inherits@2: ^ScrinRender
 	Buildable:
 		Queue: Air
-		BuildPaletteOrder: 22
+		BuildPaletteOrder: 10
 		Prerequisites: ~scrair, scrtech
 		Description: Mobile factory, it can construct vehicles.
 		BuildLimit: 1
@@ -1066,9 +1067,9 @@ SCRCARRIER:
 	Tooltip:
 		Name: Assault Carrier
 	Buildable:
-		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies.\n- Can attack Air.\n- Can absorb essence from killed enemies to heal.
+		Description: Scrin frigate.\n\nStrong vs Vehicles, Aircraft\n\nSpecial:\n- Sends fighters at enemies.\n- Can attack Air.\n- Detects cloaked units.\n- Can absorb essence from killed enemies to heal.
 		Queue: Air
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 11
 		Prerequisites: ~scrair, scrtech
 	Voiced:
 		VoiceSet: Limpet
@@ -1190,7 +1191,6 @@ SCRBATTLESHIP:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
-	Inherits@4: ^BasicStealthDetection
 	Inherits@5: ^PermanentSelfHeal
 	Valued:
 		Cost: 4000
@@ -1199,7 +1199,7 @@ SCRBATTLESHIP:
 	Buildable:
 		Description: Scrin flagship\n\nStrong vs Ground units\n\nSpecial:\n- Maximum Supply of 1.\n- Auto repairs.\n- Can absorb essence from killed enemies to heal.
 		Queue: Air
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 12
 		Prerequisites: ~scrair, scrtech
 		BuildLimit: 1
 	Voiced:
@@ -1311,13 +1311,13 @@ WASP:
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^CabRender
 	Valued:
-		Cost: 1000
+		Cost: 1100
 	Tooltip:
 		Name: Wasp
 	Buildable:
 		Description: Aerial drone armed with dual laser cannons.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack air\n- detects stealth
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 1
 		Prerequisites: ~cabair
 	Selectable:
 		Bounds: 40,30
@@ -1374,7 +1374,7 @@ FIREFLY:
 	Buildable:
 		Description: Support drone that deploys turrets.\n\nSpecial:\n- unarmed\n- Deployes turrets\n- rearms at Service Depot\n- detects stealth
 		Queue: Air
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 13
 		Prerequisites: ~cabair, cabradr, gadept
 	Selectable:
 		Bounds: 40,30
@@ -1428,7 +1428,7 @@ BASILISK:
 	Buildable:
 		Description: Light frigate armed with firestorm rockets.\n\nGood vs: Infantry, Buildings.
 		Queue: Air
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 14
 		Prerequisites: ~cabair, cabtech
 	Selectable:
 		Bounds: 60,48
@@ -1475,7 +1475,7 @@ DEVOURER:
 	Buildable:
 		Queue: Air
 		Description: Heavy and slow melee frigate.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair
-		BuildPaletteOrder: 22
+		BuildPaletteOrder: 15
 		Prerequisites: ~cabair, cabtech
 	Selectable:
 		Bounds: 120, 75, 0, -35

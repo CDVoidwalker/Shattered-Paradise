@@ -473,7 +473,7 @@
 	SelfHealing@Permanent:
 		PercentageStep: 1
 		Step: 0
-		Delay: 150
+		Delay: 75
 		DamageCooldown: 200
 		HealIfBelow: 105
 
@@ -912,8 +912,8 @@
 		ActorTypes: shark
 		Factions: scr
 	SpawnActorOnDeath@tiberium2:
-		Actor: visc_lrg
-		Probability: 10
+		Actor: visc_sml_male
+		Probability: 15
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -1136,22 +1136,8 @@
 		Actor: FLAMEGUY
 		DeathType: MilitantFireDeath
 	SpawnActorOnDeath@tiberium:
-		Actor: zombie
-		Probability: 10
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@tiberium2:
-		Actor: visc_lrg
-		Probability: 10
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@berserk:
-		Actor: berserker
-		Probability: 5
+		Actor: inftibspawn
+		Probability: 15
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -1210,10 +1196,10 @@
 		Terrain: Tiberium, BlueTiberium
 	Mobile:
 		TerrainSpeeds:
-			Tiberium: 90
-				PathingCost: 1
-			BlueTiberium: 90
-				PathingCost: 1
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 
 ^Beast:
 	Inherits: ^Mutant
@@ -1244,6 +1230,12 @@
 		CrushedSequencePalette: playerscrin
 		CrushedPaletteIsPlayerPalette: true
 	-DamagedByTerrain:
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 
 ^Cyborg:
 	Inherits@1: ^Infantry
@@ -1259,6 +1251,12 @@
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 	DeathSounds:
 	RevealsShroud:
 		Range: 6c0
@@ -1285,12 +1283,17 @@
 	-WithDeathAnimation@energy:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
 	Voiced:
 		VoiceSet: Limpet
 	-Crushable:
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 
 ^CivilianInfantry:
 	Inherits: ^Infantry
@@ -1316,8 +1319,6 @@
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
-	-SpawnActorOnDeath@berserk:
 	-SpawnActorOnDeath@conversion:
 
 ^Hologram:
@@ -1363,8 +1364,6 @@
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
-	-SpawnActorOnDeath@berserk:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@ScrinEssence:
 	GrantPeriodicCondition:
@@ -1460,15 +1459,8 @@
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: false
 	SpawnActorOnDeath@tiberium2:
-		Actor: visc_lrg
-		Probability: 10
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@berserk:
-		Actor: berserker
-		Probability: 10
+		Actor: vehicletibspawn
+		Probability: 15
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -1487,6 +1479,7 @@
 		Voice: Move
 	Passenger:
 		CargoType: Vehicle
+		PipType: Blue
 		Voice: Move
 		Weight: 3
 	AttackMove:
@@ -1730,8 +1723,9 @@
 ^Visceroid:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
-	Inherits@3: ^AutoTargetGround
+	Inherits@3: ^AutoTargetGroundAssaultMove
 	Inherits@4: ^1x1Shape
+	Inherits@5: ^6CellVision
 	DrawLineToTarget:
 	Health:
 		Shape: Circle
@@ -1766,7 +1760,9 @@
 		DamageInterval: 16
 		Terrain: Tiberium, BlueTiberium
 	Guardable:
-	WithSpriteBody:
+	WithFacingSpriteBody:
+	EditorTilesetFilter:
+		Categories: Tib Critters
 
 ^BlossomTree:
 	Inherits@1: ^SpriteActor
@@ -1846,10 +1842,17 @@
 
 ^Decoration:
 	Inherits@1: ^SpriteActor
+	Inherits@2: ^1x1Shape
 	Interactable:
 	HiddenUnderShroud:
 	RenderSprites:
 		Palette: terraindecoration
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	Health:
+		HP: 50000
+		Shape: Circle
+			Radius: 500
 	WithSpriteBody:
 	Building:
 		Footprint: x

@@ -419,6 +419,27 @@ FIREACTOR:
 	ExplodeWeapon:
 		Weapon: MillitantFire
 
+INFTIBSPAWN:
+	Inherits: ^DUMMYAIRCRAFT
+	Tooltip:
+		Name: Fire
+	-RevealsShroud:
+	Health:
+		HP: 30
+	SelfHealing:
+		Step: -30
+		Delay: 25
+		HealIfBelow: 200
+	Explodes:
+		Weapon: SpawnZombie
+		EmptyWeapon: SpawnVisc
+		LoadedChance: 25
+
+VEHICLETIBSPAWN:
+	Inherits: INFTIBSPAWN
+	Explodes:
+		Weapon: SpawnBerserker
+
 STALKERDUMMY:
 	Inherits: ^DUMMYAIRCRAFT
 	SelfHealing:

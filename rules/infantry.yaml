@@ -14,8 +14,6 @@ GDIE1:
 		HP: 12000
 	Voiced:
 		VoiceSet: Marine
-	Mobile:
-		Speed: 50
 	Armament@PRIMARY:
 		Weapon: MarineRifle
 	AttackFrontal:
@@ -37,8 +35,6 @@ GRENADIER:
 		Name: Phalanx
 	Health:
 		HP: 9000
-	Mobile:
-		Speed: 45
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
@@ -55,6 +51,34 @@ GRENADIER:
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
+
+MEDIC:
+	Inherits: ^Soldier
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Medic
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 4
+		Description: Heals nearby infantry.\n\n  Unarmed
+		Prerequisites: ~gapile
+	Voiced:
+		VoiceSet: Medic
+	Health:
+		HP: 7000
+	Crushable:
+		CrushSound: squishy2.aud
+	AutoTarget:
+		ScanRadius: 8
+	Armament:
+		TargetStances: Ally
+		Weapon: Heal
+		ForceTargetStances: None
+	AttackFrontal:
+		PauseOnCondition: WebDisable
+	Passenger:
+		PipType: Red
 
 JUMPJET:
 	Inherits: ^Soldier
@@ -88,11 +112,14 @@ JUMPJETAIR:
 		Name: Jumpjet Infantry
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 3
+		BuildPaletteOrder: 5
 		Prerequisites: ~gapile, garadr
 		Description: Soldiers with jetpacks armed with a grenade launcher.\n\nGood vs: Infantry, Structures.\n\nSpecial:\n- Can fly\n- Will land when ordered to deploy.\n- BUG: looses experience if it change modes.
 	Voiced:
 		VoiceSet: Marine
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
 	Selectable:
 		Bounds: 22,30,0,-10
 	HitShape:
@@ -101,7 +128,7 @@ JUMPJETAIR:
 			TopLeft: -250, -250
 			BottomRight: 250, 250
 	Health:
-		HP: 13000
+		HP: 9000
 	Armament@1:
 		Weapon: JJGrenade
 	Transforms:
@@ -152,36 +179,6 @@ JUMPJETAIR:
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
 
-MEDIC:
-	Inherits: ^Soldier
-	Valued:
-		Cost: 200
-	Tooltip:
-		Name: Medic
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 4
-		Description: Heals nearby infantry.\n\n  Unarmed
-		Prerequisites: ~gapile
-	Voiced:
-		VoiceSet: Medic
-	Mobile:
-		Speed: 50
-	Health:
-		HP: 7000
-	Crushable:
-		CrushSound: squishy2.aud
-	AutoTarget:
-		ScanRadius: 8
-	Armament:
-		TargetStances: Ally
-		Weapon: Heal
-		ForceTargetStances: None
-	AttackFrontal:
-		PauseOnCondition: WebDisable
-	Passenger:
-		PipType: Red
-
 EAGLEGUARD:
 	Inherits: ^Soldier
 	Inherits@1: ^6CellVision
@@ -192,7 +189,7 @@ EAGLEGUARD:
 	Buildable:
 		Description: Elite Soldiers armed with an EMP ray.\n\nGood vs: Vehicles.\n\nSpecial:\n- Immune to tiberium radiation\n- Disables vehicles and buildings for a short time\n- Crush class: uncrushable
 		Queue: Infantry
-		BuildPaletteOrder: 5
+		BuildPaletteOrder: 6
 		Prerequisites: ~gapile, gatech
 	Voiced:
 		VoiceSet: Ghost
@@ -214,11 +211,11 @@ ALTNODE1:
 	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 6
+		BuildPaletteOrder: 1
 		Description: Light infantry variant.\n\nGood vs: Infantry\n\nSpecial:\n- Does not go prone after taking fire.\n- Crush class: crushable
 		Prerequisites: ~nahand
 	Valued:
-		Cost: 120
+		Cost: 110
 	Tooltip:
 		Name: Militant
 	Health:
@@ -250,8 +247,6 @@ CRUSADER:
 		Name: Crusader
 	Health:
 		HP: 7000
-	Mobile:
-		Speed: 45
 	Armament:
 		Weapon: CrusaderBazooka
 		LocalOffset: 0,0,600
@@ -297,7 +292,7 @@ NCONF:
 	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 9
 		Description: Nod Special forces.\n\nGood vs: Ground Targets\n\nSpecial:\n- Spawns holograms when ordered to deploy\n- Cloaked when not firing\n- Crush class: crushable
 		Prerequisites: ~nahand, natech
 		IconPalette: UnittemIcon
@@ -345,38 +340,6 @@ NCONF:
 	ExplodeWeapon@2:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
-
-MHIJACK:
-	Inherits: ^Mutant
-	Valued:
-		Cost: 400
-	Tooltip:
-		Name: Hijacker
-	Voiced:
-		VoiceSet: Spy
-	-Crushable:
-	Health:
-		HP: 9000
-	Targetable@MindControlImmunity:
-		TargetTypes: MindControlInmune
-	Mobile:
-		Speed: 76
-	Infiltrates:
-		Types: SpyInfiltrate
-	Captures:
-		CaptureTypes: Vehicle
-		Sabotage: True
-	Cloak@CLOAKGENERATOR:
-		InitialDelay: 100
-		CloakDelay: 100
-		IsPlayerPalette: true
-		UncloakOn: Move, Attack, Infiltrate
-	RenderSprites:
-		Image: Chamspy
-	-AutoTarget:
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-	-AttackMove:
 
 BHS:
 	Inherits: ^Soldier
@@ -453,7 +416,7 @@ MARAUDER:
 	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 18
+		BuildPaletteOrder: 11
 		Description: Wasteland soldiers armed with shotguns.\n\nGood vs: Infantry\n\nSpecial:\n- Heals on Tiberium\n- Can deploy to increase health and attackrange.\n- Crush class: crushable
 		Prerequisites: ~murax
 	Valued:
@@ -467,7 +430,6 @@ MARAUDER:
 	AutoTarget:
 		ScanRadius: 8
 	Mobile:
-		Speed: 50
 		RequiresCondition: undeployed
 	Armament@1:
 		Weapon: MarauderShotgun
@@ -520,7 +482,7 @@ MUTFIEND:
 		Name: Tiberian Fiend
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 19
+		BuildPaletteOrder: 12
 		Description: Tiberium beasts trained to take out enemys with tiberium shards.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Heals on Tiberium\n- Can attack Air\n- Crush class: crushable
 		Prerequisites: ~murax
 	SpawnActorOnDeath@conversion:
@@ -556,16 +518,45 @@ MUTFIEND:
 		PauseOnCondition: WebDisable
 		Armaments: OnFoot
 
+E2:
+	Inherits: ^Mutant
+	Inherits@1: ENGINEER
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mutant Engineer
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 13
+		Prerequisites: ~murax
+		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Heals on tiberium fields.
+	Voiced:
+		VoiceSet: Engineer
+	Mobile:
+		Voice: Move
+		Speed: 40
+	RenderSprites:
+	WithInfantryBody:
+		AttackSequence: throw
+	RenderSprites:
+		Image: e2
+		-FactionImages:
+	-AutoTarget:
+	-GainsExperience:
+	-ProducibleWithLevel
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+
 E3:
 	Inherits: ^Mutant
 	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 21
+		BuildPaletteOrder: 14
 		Description: Siege militia armed with mortars.\n\nGood vs: Infantry, Buildings\n\nSpecial:\n- Heals on Tiberium\n- High attack range\n- Minimum attack distance\n- Crush class: crushable
 		Prerequisites: ~murax, muradr
 	Valued:
-		Cost: 350
+		Cost: 250
 	Tooltip:
 		Name: Skirmisher
 	Voiced:
@@ -588,42 +579,13 @@ E3:
 		Armaments: OnFoot
 		PauseOnCondition: WebDisable
 
-E2:
-	Inherits: ^Mutant
-	Inherits@1: ENGINEER
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Mutant Engineer
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 20
-		Prerequisites: ~murax
-		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Heals on tiberium fields.
-	Voiced:
-		VoiceSet: Engineer
-	Mobile:
-		Voice: Move
-		Speed: 40
-	RenderSprites:
-	WithInfantryBody:
-		AttackSequence: throw
-	RenderSprites:
-		Image: e2
-		-FactionImages:
-	-AutoTarget:
-	-GainsExperience:
-	-ProducibleWithLevel
-	-AutoTargetPriority@DEFAULT:
-	-AutoTargetPriority@ATTACKANYTHING:
-
 SEER:
 	Inherits: ^Mutant
 	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 22
-		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Everything.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 20% extra attack speed, move speed and receive 20% more damage.\n- Effect lasts 15 seconds.\n- Heals on Tiberium.\n- Can attack air\n- Crush class: crushable.
+		BuildPaletteOrder: 15
+		Description: Psychic mutant that leads armies through fear.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Can persuade friendly units to fight harder when deployed.\n- Buffed units will get 20% extra attack speed, move speed and receive 20% more damage.\n- Effect lasts 15 seconds.\n- Heals on Tiberium.\n- Can attack air\n- Crush class: crushable.
 		Prerequisites: ~murax, muhall
 	Valued:
 		Cost: 800
@@ -633,8 +595,6 @@ SEER:
 		VoiceSet: Umagon
 	Health:
 		HP: 15000
-	Mobile:
-		Speed: 50
 	AutoTarget:
 	DetectCloaked:
 		Range: 3c0
@@ -677,65 +637,13 @@ SEER:
 		Weapon: SeerTyranyInstakillSpawn
 		RequiresCondition: deployed  
 
-AWARRIOR:
-	Inherits: ^Mutant
-	Inherits@1: ^MutRender
-	-SelectionDecorations:
-	RejectsOrders@slaved:
-	Valued:
-		Cost: 350
-	Tooltip:
-		Name: Forgotten Knight
-	Voiced:
-		VoiceSet: Rocket
-	-UpdatesPlayerStatistics:
-	-TakeCover:
-	Health:
-		HP: 20000
-	Mobile:
-		Speed: 75
-	AutoTarget:
-		ScanRadius: 6
-	Armament@1:
-		Weapon: KnightAcid
-		Name: OnFoot
-		Muzzle: flamebro
-		LocalOffset: 500,75,500
-		MuzzleSequence: muzzle
-		MuzzlePalette: apolgreenalpha
-		MuzzleSplitFacings: 8
-	Armament@2:
-		Weapon: KnightAcid2
-		Name: OnFoot
-		MuzzlePalette: apolgreenalpha
-		LocalOffset: 500,75,500
-	Armament@GARRISON:
-		Weapon: GKnightAcid
-		MuzzlePalette: apolgreenalpha
-		LocalOffset: 250,0,400
-	Armament@GARRISON2:
-		Weapon: GKnightAcid2
-		MuzzlePalette: apolgreenalpha
-		LocalOffset: 250,0,400
-	AttackFrontal:
-		Voice: Attack
-		Armaments: OnFoot
-		PauseOnCondition: WebDisable
-	SpawnActorOnDeath@deathclaw:
-		Actor: deathclaw
-		Probability: 7
-		InternalOwner: Victim
-	WithMuzzleOverlay:
-	Targetable@MCImmune:
-		TargetTypes: MCImmune
-
 PSYKER:
 	Inherits: ^Mutant
 	Inherits@1: ^MutRender
 	Inherits@2: ^7CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 24
+		BuildPaletteOrder: 16
 		Prerequisites: ~murax, muhall
 		Description: Forgotten Commando. Pure strain forgotten that can call down lightning.\n\nGood vs: Groups of units\n\nSpecial:\n- Maximum Supply of 1.\n- Heals on Tiberium\n- Strong AoE\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
 		BuildLimit: 1
@@ -772,11 +680,11 @@ SHARK:
 	Inherits@1: ^4CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 24
+		BuildPaletteOrder: 17
 		Description: Melee creature that tears down enemies.\n\nGood vs Infantry.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\n- Immune to unit radiation (green radiation).
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 120
+		Cost: 90
 	Tooltip:
 		Name: Razorshark
 	Selectable:
@@ -794,8 +702,6 @@ SHARK:
 		OwnerType: Killer
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@tiberium2:
-		Probability: 20
 	Armament:
 		Weapon: SharkJump
 	AttackFrontal:
@@ -820,7 +726,7 @@ LEGIO:
 	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 25
+		BuildPaletteOrder: 18
 		Description: Frontile trooper.\n\nGood vs Vehicles, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax
 	Valued:
@@ -829,8 +735,6 @@ LEGIO:
 		Name: Legionnaire
 	Health:
 		HP: 9000
-	Mobile:
-		Speed: 45
 	Passenger:
 		PipType: Blue
 	Armament:
@@ -853,7 +757,7 @@ SHAPESHIFTER:
 		Name: Shapeshifter
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 26
+		BuildPaletteOrder: 19
 		Prerequisites: ~scrrax
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Immune to tiberium radiation.
 	Voiced:
@@ -870,39 +774,12 @@ SHAPESHIFTER:
 	-AutoTargetPriority@DEFAULT:
 	-AutoTargetPriority@ATTACKANYTHING:
 
-STALKER:
-	Inherits: ^ScrinSoldier
-	Selectable:
-		Class: Stalker
-	Valued:
-		Cost: 600
-	Tooltip:
-		Name: Stalker
-		Description: Disruption infantry, explodes on contact releasing a energy orb that\nfollows enemy units Damaging and slowing them\n\n  Strong vs Unit acumulations.\n  Unarmed.
-	Health:
-		HP: 13000
-	Targetable@Stalker:
-		TargetTypes: Stalker
-	Mobile:
-		Speed: 80
-		TerrainSpeeds:
-			Water: 80
-		Crushes: crate
-	Armament@prim:
-		Weapon: GravMineSuicide
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: WebDisable
-	WithInfantryBody:
-		AttackSequence: throw
-	-TakeCover:
-
 FLOAT:
 	Inherits: ^ScrinSoldier
 	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 29
+		BuildPaletteOrder: 20
 		Description: Support unit that steals essence from enemy units.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Attack deals little to no damage but steals essence to heal friendly units.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax, scrradr
 	Selectable:
@@ -915,7 +792,6 @@ FLOAT:
 	Health:
 		HP: 16875
 	Mobile:
-		Speed: 50
 		TerrainSpeeds:
 			Clear: 100
 			Road: 100
@@ -941,7 +817,7 @@ BUG:
 	Inherits@1: ^7CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 27
+		BuildPaletteOrder: 21
 		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.\n- Poisoned units take damage over time\n- Poisoned units have reduced attack speed.\n- Plague Carriers attacks bounce up to 3 times.\n- Absorbs essence from killed enemies to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax, scrradr
 	Valued:
@@ -974,7 +850,7 @@ COLOSSI:
 	Inherits@1: ^5CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 22
 		Description: Heavy duty alien.\n\nGood vs Infantry.\n\nSpecial:\n- Can irradiate its surroundings when deployed.\n- Becomes immobile on this stance.\n- Radiation harms all units regardless of owner.\n- Can absorb essence from killed units to heal.\n- Crush class: uncrushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax, scrtech
 	Valued:
@@ -986,7 +862,6 @@ COLOSSI:
 	Health:
 		HP: 35000
 	Mobile:
-		Speed: 50
 		SharesCell: False
 		RequiresCondition: !deployed && !WebDisable
 	-SpawnActorOnDeath@FLAMEGUY:
@@ -1044,7 +919,7 @@ CABSENTRY:
 	-GainsExperience:
 	-ProducibleWithLevel:
 	Mobile:
-		Speed: 70
+		Speed: 60
 		Crushes: nada
 	GrantPeriodicCondition:
 		Condition: KillMe
@@ -1080,9 +955,11 @@ CYBORG:
 		Name: Cyborg Infantry
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 11
+		BuildPaletteOrder: 23
 		Description: Durable cyborg construct.\n\nGood vs: Infantry.\n\nSpecial:\n- Immune to Tiberium radiation.\n- Crush class: uncrushable.
 		Prerequisites: ~cabclaw
+	Mobile:
+		Speed: 45
 	Selectable:
 		Bounds: 22,32,-1,-9
 		DecorationBounds: 16,31,0,-10
@@ -1091,10 +968,8 @@ CYBORG:
 		Voice: Move
 	Voiced:
 		VoiceSet: Cyborg
-	Mobile:
-		Speed: 40
 	Health:
-		HP: 30000
+		HP: 25500
 	Armament:
 		Weapon: CyborgVulcan
 	AttackFrontal:
@@ -1106,19 +981,17 @@ CBORG:
 	Inherits: ^Cyborg
 	Inherits@1: ^6CellVision
 	Valued:
-		Cost: 400
+		Cost: 350
 	Tooltip:
 		Name: Missile Cyborg
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 11
+		BuildPaletteOrder: 24
 		Description: Anti armor cyborg.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Immune to Tiberium radiation\n- Crush class: uncrushable
 		Prerequisites: ~cabclaw
 		IconPalette: UnittemIcon
 	Health:
 		HP: 9000
-	Mobile:
-		Speed: 45
 	Voiced:
 		VoiceSet: Cyborg
 	DeliversCash:
@@ -1135,11 +1008,37 @@ CBORG:
 		PauseOnCondition: WebDisable
 	RenderSprites:
 
+SWARMLING:
+	Inherits: ENGINEER
+	Inherits@2: ^CabRender
+	Tooltip:
+		Name: Swarmling
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 25
+		Prerequisites: ~cabclaw
+		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Immune to tiberium radiation.
+	DeliversCash:
+		Payload: 275
+		Voice: Move
+	Explodes:
+		Weapon: DroneExplode
+		EmptyWeapon: DroneExplode
+	RenderSprites:
+		Image: swarmling
+		-FactionImages:
+	-WithDeathAnimation@normal:
+	-WithDeathAnimation@tib:
+	-WithDeathAnimation@explosion:
+	-WithDeathAnimation@energy:
+	-WithDeathAnimation@body:
+	-WithIdleOverlay@web:
+
 PDRONE:
 	Inherits: ^CabalDroneInfantry
 	Inherits@1: ^4CellVision
 	Valued:
-		Cost: 175
+		Cost: 150
 	DeliversCash:
 		Payload: 75
 		Voice: Move
@@ -1148,7 +1047,7 @@ PDRONE:
 	Buildable:
 		Queue: Infantry
 		Description: Melee drone programmed to kill enemy infantry.\n\nSpecial:\n- Can only attack infantry\n- Turns killed infantry into worker cyborgs\n- Immune to Tiberium radiation\n- Crush class: crushable
-		BuildPaletteOrder: 12
+		BuildPaletteOrder: 26
 		Prerequisites: ~cabclaw
 	WithInfantryBody:
 		-RequiresCondition: !WebDisable
@@ -1206,31 +1105,45 @@ PDRONE:
 	-WithIdleOverlay@web:
 	-ExternalCondition@WebDisable:
 
-SWARMLING:
-	Inherits: ENGINEER
-	Inherits@2: ^CabRender
-	Tooltip:
-		Name: Swarmling
-	Buildable:
-		Queue: Infantry
-		BuildPaletteOrder: 13
-		Prerequisites: ~cabclaw
-		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Immune to tiberium radiation.
+GLAD:
+	Inherits: ^Cyborg
+	Inherits@1: ^6CellVision
+	Inherits@2: ^PermanentSelfHeal
+	Valued:
+		Cost: 800
 	DeliversCash:
-		Payload: 275
+		Payload: 300
 		Voice: Move
-	Explodes:
-		Weapon: DroneExplode
-		EmptyWeapon: DroneExplode
-	RenderSprites:
-		Image: swarmling
-		-FactionImages:
-	-WithDeathAnimation@normal:
-	-WithDeathAnimation@tib:
-	-WithDeathAnimation@explosion:
-	-WithDeathAnimation@energy:
-	-WithDeathAnimation@body:
-	-WithIdleOverlay@web:
+	Tooltip:
+		Name: Gladiator
+	Buildable:
+		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n- Selfrepair\n- Immune to Tiberium radiation\n- Crush class: uncrushable.
+		Queue: Infantry
+		BuildPaletteOrder: 27
+		Prerequisites: ~cabclaw, cabradr, gadept
+	Selectable:
+		Bounds: 35,30,0,-10
+	Passenger:
+		PipType: Blue
+	Voiced:
+		VoiceSet: Cyborg
+	WithMuzzleOverlay:
+	Mobile:
+		Speed: 45
+		SharesCell: False
+	Health:
+		HP: 59000
+	Armament@primary:
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 170,250,500
+	Armament@secondary:
+		Weapon: GLAD120mm
+		MuzzleSequence: muzzle
+		LocalOffset: 170,-250,500
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: WebDisable
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1242,7 +1155,7 @@ MOTH:
 		Name: Abductor
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 15
+		BuildPaletteOrder: 28
 		Description: High tech ambusher drone.\n\nGood vs: Ground Targets\n\nSpecial:\n- Needs to deploy to attack\n- Stealthed when deployed\n- Turns killed enemy units into cyborgs\n- Immune to Tiberium radiation\n- Crush class: uncrushable
 		Prerequisites: cabtech, ~cabclaw
 	Explodes:
@@ -1307,46 +1220,6 @@ MOTH:
 	RenderRangeCircle:
 	-WithIdleOverlay@web:
 
-GLAD:
-	Inherits: ^Cyborg
-	Inherits@1: ^6CellVision
-	Inherits@2: ^PermanentSelfHeal
-	Valued:
-		Cost: 800
-	DeliversCash:
-		Payload: 300
-		Voice: Move
-	Tooltip:
-		Name: Gladiator
-	Buildable:
-		Description: Advanced cyborg construct, extremely resilient.\n\nGood vs: Vehicles\n\nSpecial:\n- Selfrepair\n- Immune to Tiberium radiation\n- Crush class: uncrushable.
-		Queue: Infantry
-		BuildPaletteOrder: 14
-		Prerequisites: ~cabclaw, cabradr, gadept
-	Selectable:
-		Bounds: 35,30,0,-10
-	Passenger:
-		PipType: Blue
-	Voiced:
-		VoiceSet: Cyborg
-	WithMuzzleOverlay:
-	Mobile:
-		Speed: 45
-		SharesCell: False
-	Health:
-		HP: 59000
-	Armament@primary:
-		Weapon: GLAD120mm
-		MuzzleSequence: muzzle
-		LocalOffset: 170,250,500
-	Armament@secondary:
-		Weapon: GLAD120mm
-		MuzzleSequence: muzzle
-		LocalOffset: 170,-250,500
-	AttackFrontal:
-		Voice: Attack
-		PauseOnCondition: WebDisable
-
 CYC2:
 	Inherits: ^Cyborg
 	Inherits@1: ^7CellVision
@@ -1358,7 +1231,7 @@ CYC2:
 	Buildable:
 		Description: Elite cyborg armed with a plasma cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Maximum Supply of 1\n- Immune to Tiberium radiation\n- Crush class: uncrushable.\n- Cannot be mindcontrolled.
 		Queue: Infantry
-		BuildPaletteOrder: 17
+		BuildPaletteOrder: 30
 		Prerequisites: ~cabclaw, cabtech
 		BuildLimit: 1
 	-RejectsOrders@berserk:
@@ -1396,8 +1269,6 @@ WORKER:
 		Name: Worker Unit
 	Health:
 		HP: 9000
-	Mobile:
-		Speed: 56
 	Voiced:
 		VoiceSet: Cyborg
 	DeliversCash:
@@ -1422,9 +1293,6 @@ PALADIN2:
 		Cost: 800
 	Tooltip:
 		Name: Sentinel
-	Mobile:
-		TurnSpeed: 5
-		Speed: 56
 	Health:
 		HP: 10000
 	Voiced:
@@ -1447,7 +1315,7 @@ PALADIN2:
 	RenderSprites:
 		Scale: 1
 	Armament:
-		Weapon: SentryGun
+		Weapon: SentinelGun
 		Recoil: 127
 		RecoilRecovery: 26
 	AutoTarget:
@@ -1458,7 +1326,7 @@ PALADIN2:
 cybdog:
 	Inherits: ^Cyborg
 	Valued:
-		Cost: 650
+		Cost: 120
 	Tooltip:
 		Name: Cyberdog
 	Selectable:
@@ -1472,7 +1340,7 @@ cybdog:
 	Mobile:
 		Speed: 65
 	Health:
-		HP: 15000
+		HP: 9000
 	Armor@worker:
 		Type: Worker
 	Armament:
@@ -1516,3 +1384,118 @@ FLAMEGUY:
 	WithDeathAnimation:
 		FallbackSequence: die
 		UseDeathTypeSuffix: false
+
+#################################################
+# UNUSED
+#################################################
+
+MHIJACK:
+	Inherits: ^Mutant
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Hijacker
+	Voiced:
+		VoiceSet: Spy
+	-Crushable:
+	Health:
+		HP: 9000
+	Targetable@MindControlImmunity:
+		TargetTypes: MindControlInmune
+	Mobile:
+		Speed: 76
+	Infiltrates:
+		Types: SpyInfiltrate
+	Captures:
+		CaptureTypes: Vehicle
+		Sabotage: True
+	Cloak@CLOAKGENERATOR:
+		InitialDelay: 100
+		CloakDelay: 100
+		IsPlayerPalette: true
+		UncloakOn: Move, Attack, Infiltrate
+	RenderSprites:
+		Image: Chamspy
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	-AttackMove:
+    
+AWARRIOR:
+	Inherits: ^Mutant
+	Inherits@1: ^MutRender
+	-SelectionDecorations:
+	RejectsOrders@slaved:
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Forgotten Knight
+	Voiced:
+		VoiceSet: Rocket
+	-UpdatesPlayerStatistics:
+	-TakeCover:
+	Health:
+		HP: 20000
+	Mobile:
+		Speed: 75
+	AutoTarget:
+		ScanRadius: 6
+	Armament@1:
+		Weapon: KnightAcid
+		Name: OnFoot
+		Muzzle: flamebro
+		LocalOffset: 500,75,500
+		MuzzleSequence: muzzle
+		MuzzlePalette: apolgreenalpha
+		MuzzleSplitFacings: 8
+	Armament@2:
+		Weapon: KnightAcid2
+		Name: OnFoot
+		MuzzlePalette: apolgreenalpha
+		LocalOffset: 500,75,500
+	Armament@GARRISON:
+		Weapon: GKnightAcid
+		MuzzlePalette: apolgreenalpha
+		LocalOffset: 250,0,400
+	Armament@GARRISON2:
+		Weapon: GKnightAcid2
+		MuzzlePalette: apolgreenalpha
+		LocalOffset: 250,0,400
+	AttackFrontal:
+		Voice: Attack
+		Armaments: OnFoot
+		PauseOnCondition: WebDisable
+	SpawnActorOnDeath@deathclaw:
+		Actor: deathclaw
+		Probability: 7
+		InternalOwner: Victim
+	WithMuzzleOverlay:
+	Targetable@MCImmune:
+		TargetTypes: MCImmune
+
+STALKER:
+	Inherits: ^ScrinSoldier
+	Selectable:
+		Class: Stalker
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Stalker
+		Description: Disruption infantry, explodes on contact releasing a energy orb that\nfollows enemy units Damaging and slowing them\n\n  Strong vs Unit acumulations.\n  Unarmed.
+	Health:
+		HP: 13000
+	Targetable@Stalker:
+		TargetTypes: Stalker
+	Mobile:
+		Speed: 80
+		TerrainSpeeds:
+			Water: 80
+		Crushes: crate
+	Armament@prim:
+		Weapon: GravMineSuicide
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: WebDisable
+	WithInfantryBody:
+		AttackSequence: throw
+	-TakeCover:

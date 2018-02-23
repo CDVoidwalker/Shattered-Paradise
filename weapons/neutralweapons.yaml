@@ -125,15 +125,13 @@ CrabSpawnerPrior:
 		AllowDirectHit: false
 
 PowerplantNuke:
-	Inherits: MiniNuke
+	Inherits: ClusterMissile
 	Warhead@ImpactDamage0: SpreadDamage
-		Damage: 500
+		Damage: 300
 	Warhead@ClusterDamage3: SpreadDamage
-		Damage: 750
+		Damage: 62
 	Warhead@7Dam_areanukeb: SpreadDamage
-		Damage: 150
-	Warhead@10Dam_areanukec: SpreadDamage
-		Damage: 75
+		Damage: 32
 
 CrabSpawner:
 	ReloadDelay: 150

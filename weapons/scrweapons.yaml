@@ -300,13 +300,9 @@ ScorpAcid:
 		ValidTargets: Shark
 		InvalidTargets: Building, Vehicle
 		ValidStances: Enemy, Neutral
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha
-		InvalidImpactTypes: Water
 	Warhead@3Radio: CreateRadioactivity
 		Range: 1, 2
 		Level: 6
@@ -351,7 +347,7 @@ SCRMBTLASOR:
 		Spread: 0c045
 		Damage: 7000
 		Versus:
-			InfantryArmor: 65
+			InfantryArmor: 45
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Shark
 	Warhead@2shark: SpreadDamage
@@ -673,12 +669,12 @@ Glyder1Cannon:
 		Palette: apblue
 	Warhead@1Dam: SpreadDamage
 		Spread: 90
-		Damage: 1000
+		Damage: 3000
 		Versus:
-			InfantryArmor: 100
-			BuildingArmor: 100
-			VehicleArmor: 100
-			DefenseArmor: 100
+			InfantryArmor: 140
+			BuildingArmor: 35
+			VehicleArmor: 35
+			DefenseArmor: 35
 			ConcreteArmor: 25
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -866,6 +862,7 @@ NeedlerAcid:
 	Projectile: BulletAS
 		Speed: 250
 		Image: acidall32
+		Blockable: False
 		Inaccuracy: 1c0
 		Palette: apolgreenalpha
 	BurstDelays: 4
@@ -877,9 +874,6 @@ NeedlerAcid:
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		InvalidTargets: Shark
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha

@@ -1,7 +1,7 @@
 Metadata:
 	Title: Shattered Paradise
 	Description: Live the Second Tiberium War in a perspective you have never seen before.\nFind your place in this apocalyptic wasteland and make your enemies fear you!\n\nShattered Paradise that brings three new factions to Tiberian Sun and\ntries to mimic the gameplay style of the original game while also adding\nmore content to the game like units and mechanics.
-	Version: {Build 20180216 II}
+	Version: {Build 20180222}
 	Author: Nolt, with the help of a lot of people.
 
 PackageFormats: Mix
@@ -104,6 +104,7 @@ Packages:
 MapFolders:
 	# sp|maps: System
 	sp|maps/ww: System
+	sp|maps/meme: System
 	sp|maps/balanced: System
 	sp|maps/coop: System
 	~^maps/sp/{DEV_VERSION}: User
@@ -152,6 +153,7 @@ Sequences:
 	sp|sequences/gdiseq.yaml
 	sp|sequences/nodseq.yaml
 	sp|sequences/neutralseq.yaml
+	sp|sequences/proc.yaml
 	sp|sequences/mutseq.yaml
 	sp|sequences/cabseq.yaml
 	sp|sequences/scrseq.yaml

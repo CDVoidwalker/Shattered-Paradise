@@ -373,37 +373,51 @@ chamspy:
 		ShadowStart: 552
 	icon: chamicon
 
+nodmcv:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: 0,0,0
+	idle:
+		Facings: 32
+		ShadowStart: 126
+		UseTilesetCode: false
+	stand:
+		Facings: 32
+		ShadowStart: 126
+	run:
+		Facings: 32
+		ShadowStart: 126
+	icon: nodmcvicon
+		Offset: 0, 0
+
+nodyard:
+	Inherits: ^EmpOverlay
+	Defaults: nodmcv
+		UseTilesetCode: false
+		Offset: 0, -36, 24
+	idle:
+		Start: 66
+		Length: 30
+		ShadowStart: 192
+		Tick: 80
+	damaged-idle:
+		Start: 96
+		Length: 30
+		ShadowStart: 222
+		Tick: 80
+	dead:
+		Start: 96
+		ShadowStart: 222
+		Tick: 400
+	make: nodmcvmake
+		Length: 35
+		ShadowStart: 35
+	icon: nodyardicon
+		Offset: 0, 0
+
 bike:
 	Inherits@1: ^SpriteVehicleWithShadow
 	icon: cyclicon
-
-bggy:
-	Inherits@1: ^SpriteVehicleWithShadow
-	Inherits@2: ^BuggyMuzzle
-	dieevaporate: infgas
-		Length: *
-		Offset: 0,-6, 32
-		Tick: 30
-	turret-none: buggyturret
-		Start: 128
-		Facings: -32
-		UseTilesetCode: false
-	turret-minigun: buggyturret
-		Facings: -32
-		UseTilesetCode: false
-	turret-rocket: buggyturret
-		Start: 32
-		Facings: -32
-		UseTilesetCode: false
-	turret-flame: buggyturret
-		Start: 64
-		Facings: -32
-		UseTilesetCode: false
-	turret-laser: buggyturret
-		Start: 96
-		Facings: -32
-		UseTilesetCode: false
-	icon: bggyicon
 
 ttnk:
 	Inherits: ^EmpOverlay
