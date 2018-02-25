@@ -68,6 +68,7 @@ ORCA:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^BasicStealthDetection
+	Inherits@2: ^11CellVision
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -165,7 +166,7 @@ ORCAB:
 
 TRNSPORT:
 	Inherits: ^Helicopter
-	Inherits@1: ^6CellVision
+	Inherits@1: ^9CellVision
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -355,6 +356,7 @@ APACHE:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^BasicStealthDetection
+	Inherits@3: ^11CellVision
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -533,6 +535,7 @@ MUTHELI:
 	Inherits@2: ^AutoTargetAllAssaultMove
 	Inherits@3: ^BasicStealthDetection
 	Inherits@4: ^MutRender
+	Inherits@5: ^11CellVision
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -741,6 +744,7 @@ STORMRIDER:
 	Inherits: ^Plane
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^SelfReloads
+	Inherits@3: ^11CellVision
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -900,6 +904,7 @@ SCRDESTROYER:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^ScrinRender
 	Inherits@3: ^SelfReloads
+	Inherits@5: ^7CellVision
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -951,7 +956,7 @@ SCRDESTROYER:
 
 SCRTRANS:
 	Inherits: ^Helicopter
-	Inherits@1: ^6CellVision
+	Inherits@1: ^9CellVision
 	Inherits@2: ^ScrinRender
 	Valued:
 		Cost: 800
@@ -1247,6 +1252,7 @@ WASP:
 	Inherits@1: ^AutoTargetAllAssaultMove
 	Inherits@2: ^BasicStealthDetection
 	Inherits@3: ^SelfReloads
+	Inherits@4: ^11CellVision
 	Inherits@5: ^CabRender
 	Valued:
 		Cost: 1100
