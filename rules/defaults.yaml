@@ -473,7 +473,7 @@
 	SelfHealing@Permanent:
 		PercentageStep: 1
 		Step: 0
-		Delay: 150
+		Delay: 75
 		DamageCooldown: 200
 		HealIfBelow: 105
 
@@ -555,6 +555,12 @@
 	TimedConditionBar@EMPDISABLE:
 		Condition: empdisable
 		Color: FFFFFF
+	SpeedMultiplier@WebDisable:
+		RequiresCondition: empdisable
+		Modifier: 0
+	RangeMultiplier@WebDisable:
+		RequiresCondition: empdisable
+		Modifier: 0
 	WithIdleOverlay@EMPDISABLE:
 		Sequence: emp-overlay
 		Palette: effect
@@ -616,6 +622,12 @@
 	TimedConditionBar@WebDisable:
 		Condition: WebDisable
 		Color: FFFFFF
+	SpeedMultiplier@WebDisable:
+		RequiresCondition: WebDisable
+		Modifier: 0
+	RangeMultiplier@WebDisable:
+		RequiresCondition: WebDisable
+		Modifier: 0
 	Mobile:
 		RequiresCondition: !WebDisable
 	WithInfantryBody:
@@ -702,6 +714,12 @@
 		RadioactivityLayerName: OrangeRadiation
 		DamageInterval: 25
 
+^3CellVision:
+	RevealsShroud:
+		Range: 3c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
+
 ^4CellVision:
 	RevealsShroud:
 		Range: 4c0
@@ -743,6 +761,30 @@
 		Range: 10c0
 		RequiresCondition: !inside-tunnel && !submerged
 		Type: CenterPosition 
+
+^11CellVision:
+	RevealsShroud:
+		Range: 11c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
+
+^12CellVision:
+	RevealsShroud:
+		Range: 12c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
+
+^13CellVision:
+	RevealsShroud:
+		Range: 13c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition 
+
+^14CellVision:
+	RevealsShroud:
+		Range: 14c0
+		RequiresCondition: !inside-tunnel && !submerged
+		Type: CenterPosition
 
 ^Academy:
 	ProducibleWithLevel:
@@ -873,8 +915,9 @@
 		Weapons: LargeDebris
 
 ^Building:
-	Inherits@1: ^BasicBuilding
-	Inherits@2: ^StructureEffects
+	Inherits@0: ^BasicBuilding
+	Inherits@1: ^StructureEffects
+	Inherits@2: ^5CellVision
 	GivesBuildableArea:
 		AreaTypes: building
 	ExternalCapturable:
@@ -882,6 +925,8 @@
 	GivesExperience:
 		PlayerExperienceModifier: 1
 	ExternalCapturableBar:
+	RevealsShroud:
+		Type: Footprint 
 	RepairableBuilding:
 		IndicatorPalette: mouse
 		RepairStep: 700
@@ -912,17 +957,14 @@
 		ActorTypes: shark
 		Factions: scr
 	SpawnActorOnDeath@tiberium2:
-		Actor: visc_lrg
-		Probability: 10
+		Actor: visc_sml
+		Probability: 15
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
 		RequiresLobbyCreeps: true
 	MustBeDestroyed:
 		RequiredForShortGame: true
-	RevealsShroud:
-		Range: 4c0
-		RequiresCondition: !inside-tunnel && !submerged
 	CaptureNotification:
 		Notification: BuildingCaptured
 		LoseNotification: BuildingLostToCapture
@@ -934,12 +976,10 @@
 
 ^CivBuilding:
 	Inherits: ^BasicBuilding
+	Inherits@0: ^7CellVision
 	-UpdatesPlayerStatistics:
 	Health:
 		HP: 90000
-	RevealsShroud:
-		Range: 6c0
-		RequiresCondition: !inside-tunnel && !submerged
 	Tooltip:
 		Description: Civilian Building
 	RenderSprites:
@@ -949,11 +989,12 @@
 
 ^TechBuilding:
 	Inherits: ^BasicBuilding
+	Inherits@0: ^6CellVision
+	RevealsShroud:
+		Type: Footprint 
 	RepairableBuilding:
 		IndicatorPalette: mouse
 		RepairStep: 700
-	RevealsShroud:
-		Range: 4c0
 	Capturable:
 		CaptureThreshold: 100
 	RenderSprites:
@@ -1014,6 +1055,7 @@
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
 	Inherits@4: ^InfantryShape
+	Inherits@5: ^5CellVision
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	TemporaryOwnerManager:
@@ -1042,21 +1084,18 @@
 		Condition: BarracksHeal
 	Armor:
 		Type: InfantryArmor
-	RevealsShroud:
-		Range: 4c0
-		RequiresCondition: !inside-tunnel && !submerged
 	Mobile:
 		Voice: Move
-		Speed: 50
+		Speed: 60
 		Crushes: crate
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
-			Road: 120
+			Road: 110
 			Rail: 100
-			DirtRoad: 110
+			DirtRoad: 105
 			Rough: 80
-			Bridge: 120
+			Bridge: 110
 			Tiberium: 70
 				PathingCost: 300
 			BlueTiberium: 70
@@ -1136,22 +1175,8 @@
 		Actor: FLAMEGUY
 		DeathType: MilitantFireDeath
 	SpawnActorOnDeath@tiberium:
-		Actor: zombie
-		Probability: 10
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@tiberium2:
-		Actor: visc_lrg
-		Probability: 10
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@berserk:
-		Actor: berserker
-		Probability: 5
+		Actor: inftibspawn
+		Probability: 15
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -1210,10 +1235,10 @@
 		Terrain: Tiberium, BlueTiberium
 	Mobile:
 		TerrainSpeeds:
-			Tiberium: 90
-				PathingCost: 1
-			BlueTiberium: 90
-				PathingCost: 1
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 
 ^Beast:
 	Inherits: ^Mutant
@@ -1244,11 +1269,18 @@
 		CrushedSequencePalette: playerscrin
 		CrushedPaletteIsPlayerPalette: true
 	-DamagedByTerrain:
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 
 ^Cyborg:
 	Inherits@1: ^Infantry
 	Inherits@1: ^Academy
 	Inherits@2: ^AutoTargetGroundAssaultMove
+	Inherits@3: ^7CellVision
 	-SpawnActorOnDeath@conversion:
 	-Crushable:
 	-DamagedByTerrain:
@@ -1259,10 +1291,13 @@
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 	DeathSounds:
-	RevealsShroud:
-		Range: 6c0
-		RequiresCondition: !inside-tunnel && !submerged
 	MustBeDestroyed:
 	WithPermanentInjury:
 	WithInfantryBody:
@@ -1285,12 +1320,17 @@
 	-WithDeathAnimation@energy:
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
 	-SpawnActorOnDeath@conversion:
 	-DamagedByTerrain:
 	Voiced:
 		VoiceSet: Limpet
 	-Crushable:
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 
 ^CivilianInfantry:
 	Inherits: ^Infantry
@@ -1316,14 +1356,11 @@
 		MinMoveDelay: 100
 		MaxMoveDelay: 200
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
-	-SpawnActorOnDeath@berserk:
 	-SpawnActorOnDeath@conversion:
 
 ^Hologram:
 	Inherits: ^Soldier
-	RevealsShroud:
-		Range: 3c0
+	Inherits@1: ^3CellVision
 	Health:
 		HP: 4500
 	-GainsExperience:
@@ -1363,8 +1400,6 @@
 	-SpawnActorOnDeath@FLAMEGUY:
 	-SpawnActorOnDeath@FLAMEGUY2:
 	-SpawnActorOnDeath@tiberium:
-	-SpawnActorOnDeath@tiberium2:
-	-SpawnActorOnDeath@berserk:
 	-SpawnActorOnDeath@conversion:
 	-SpawnActorOnDeath@ScrinEssence:
 	GrantPeriodicCondition:
@@ -1387,7 +1422,7 @@
 	Selectable:
 		Priority: 6
 	Mobile:
-		Speed: 40
+		Speed: 50
 	Health:
 		HP: 9500
 	Passenger:
@@ -1407,6 +1442,7 @@
 	Inherits@1: ^VehicleEffects
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^VehicleShape
+	Inherits@4: ^5CellVision
 	DrawLineToTarget:
 	TemporaryOwnerManager:
 	WithTextControlGroupDecoration:
@@ -1436,9 +1472,6 @@
 		TunnelCondition: inside-tunnel
 		TurnSpeed: 7
 		Voice: Move
-	RevealsShroud:
-		Range: 4c0
-		RequiresCondition: !inside-tunnel && !submerged
 	NydusTransportable:
 	Selectable:
 		Bounds: 40,30
@@ -1460,15 +1493,8 @@
 		DeathType: CabalDeath
 		RequiresLobbyCreeps: false
 	SpawnActorOnDeath@tiberium2:
-		Actor: visc_lrg
-		Probability: 10
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
-	SpawnActorOnDeath@berserk:
-		Actor: berserker
-		Probability: 10
+		Actor: vehicletibspawn
+		Probability: 15
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -1487,6 +1513,7 @@
 		Voice: Move
 	Passenger:
 		CargoType: Vehicle
+		PipType: Blue
 		Voice: Move
 		Weight: 3
 	AttackMove:
@@ -1572,6 +1599,12 @@
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
+	SmokeParticleEmitter:
+		Offset: 0,0,400
+	HitShape:
+		TargetableOffsets: 0,0,400
+		Type: Circle
+			VerticalTopOffset: 500
 
 ^ScrinVehicle:
 	Inherits@1: ^ScrinReaper
@@ -1612,7 +1645,7 @@
 	Inherits@2: ^AircraftEffects
 	Inherits@3: ^ExistsInWorld
 	Inherits@4: ^VehicleShape
-	Inherits@5: ^9CellVision
+	Inherits@5: ^10CellVision
 	DrawLineToTarget:
 	WithTextControlGroupDecoration:
 	AppearsOnRadar:
@@ -1730,8 +1763,9 @@
 ^Visceroid:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
-	Inherits@3: ^AutoTargetGround
+	Inherits@3: ^AutoTargetGroundAssaultMove
 	Inherits@4: ^1x1Shape
+	Inherits@5: ^6CellVision
 	DrawLineToTarget:
 	Health:
 		Shape: Circle
@@ -1739,7 +1773,7 @@
 	Armor:
 		Type: VehicleArmor
 	Mobile:
-		Speed: 113
+		Speed: 120
 		TurnSpeed: 16
 		Crushes: crate
 		SharesCell: no
@@ -1766,7 +1800,9 @@
 		DamageInterval: 16
 		Terrain: Tiberium, BlueTiberium
 	Guardable:
-	WithSpriteBody:
+	WithFacingSpriteBody:
+	EditorTilesetFilter:
+		Categories: Tib Critters
 
 ^BlossomTree:
 	Inherits@1: ^SpriteActor
@@ -1846,10 +1882,17 @@
 
 ^Decoration:
 	Inherits@1: ^SpriteActor
+	Inherits@2: ^1x1Shape
 	Interactable:
 	HiddenUnderShroud:
 	RenderSprites:
 		Palette: terraindecoration
+	Targetable:
+		TargetTypes: Building, Ground, C4, DetonateAttack
+	Health:
+		HP: 50000
+		Shape: Circle
+			Radius: 500
 	WithSpriteBody:
 	Building:
 		Footprint: x
@@ -1878,14 +1921,15 @@
 	Inherits: ^Building
 	Inherits@1: ^AutoTargetAll
 	Inherits@2: ^DisableOnLowPowerOrPowerDown
+	Inherits@3: ^8CellVision
+	RevealsShroud:
+		Type: Footprint 
 	-GivesBuildableArea:
 	AutoTarget:
 	-MustBeDestroyed:
 	RenderRangeCircle:
 	Targetable@Defence:
 		TargetTypes: Defence
-	RevealsShroud:
-		Range: 8c0
 	Armor:
 		Type: DefenseArmor
 	EditorTilesetFilter:
@@ -1893,10 +1937,11 @@
 
 ^AntiAir:
 	Inherits: ^Defence
+	Inherits@0: ^10CellVision
 	RenderRangeCircle:
 		RangeCircleType: AA
 	RevealsShroud:
-		Range: 9c0
+		Type: Footprint 
 
 ^Tier2:
 	Inherits: ^Defence
@@ -1947,6 +1992,7 @@
 	Inherits@1: ^EmpDisableMobile
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^1x1Shape
+	Inherits@4: ^6CellVision
 	RenderVoxels:
 	RenderSprites:
 	WithVoxelBody:
@@ -1963,7 +2009,7 @@
 			Veins: 50
 		TurnSpeed: 5
 		Voice: Move
-		Speed: 113
+		Speed: 120
 		TunnelCondition: inside-tunnel
 	Cargo:
 		Types: Vehicle
@@ -1973,8 +2019,6 @@
 		HP: 10000
 	Armor:
 		Type: VehicleArmor
-	RevealsShroud:
-		Range: 5c0
 	Selectable:
 		Bounds: 40,24
 	SelectionDecorations:

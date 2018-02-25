@@ -244,7 +244,7 @@ MINIVEIN:
 	-Sellable:
 	-RepairableBuilding: 
 	Health:
-		HP: 50000
+		HP: 80000
 	Selectable:
 		Priority: 3
 		Bounds: 25, 25, 0, 0

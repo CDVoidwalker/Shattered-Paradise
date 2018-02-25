@@ -79,10 +79,6 @@ grinder:
 ecm:	
 	idle:
 
-cabharv:
-	idle:
-	unload:
-
 basilisk:
 	idle:
 

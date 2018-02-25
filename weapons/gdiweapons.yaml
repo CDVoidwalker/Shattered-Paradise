@@ -229,16 +229,16 @@ SonicZap:
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 MechRailgun:
-	ReloadDelay: 68
+	ReloadDelay: 120
 	Range: 8c0
 	Burst: 2
-	BurstDelays: 68
+	BurstDelays: 10
 	Report: railuse5.aud
 	Projectile: AreaBeam
 		Speed: 20c0
 		Duration: 3
 		DamageInterval: 2
-		Width: 20
+		Width: 60
 		BeyondTargetRange: 0c64
 		Blockable: true
 		Color: 0008ED
@@ -429,7 +429,7 @@ GdiRedEye:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Twlt
 	ReloadDelay: 40
-	Range: 9c0
+	Range: 10c0
 	Report: samshot1.aud
 	ValidTargets: Air
 	Projectile: Missile

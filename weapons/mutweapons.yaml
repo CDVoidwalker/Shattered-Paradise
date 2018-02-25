@@ -2,7 +2,7 @@ MarauderShotgun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 40
-	Range: 3c512
+	Range: 4c512
 	Report: shotfire.wav
 		Image: 120mm
 		Palette: ra
@@ -22,6 +22,12 @@ MarauderShotgunInnacurate:
 	-Report: shotfire.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 1000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 15
+			VehicleArmor: 7
+			DefenseArmor: 7
+			ConcreteArmor: 2
 	-Warhead@op: FireShrapnel
 
 SkirmisherMortar:
@@ -77,7 +83,6 @@ FiendShard2:
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
 		ExplosionPalette: apolgreenalpha
-		ImpactSounds: expnew14.aud
 		InvalidTargets: Water
 
 FiendShardAA:
@@ -94,7 +99,7 @@ FiendShardAA:
 		ValidTargets: Air
 
 SeerTesla:
-	ReloadDelay: 150
+	ReloadDelay: 125
 	Range: 6c0
 	Report: voltautofire.wav
 	Charges: yes
@@ -308,19 +313,16 @@ BullAcid:
 		Inaccuracy: 384
 		Palette: apolgreenalpha
 	Burst: 10
-	BurstDelays: 5
+	BurstDelays: 2
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 800
+		Damage: 700
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
 		ValidTargets: Vehicle, Infantry, Building, Ground, Water
 	Warhead@2Eff: CreateEffect
 		Explosions: tib_expsmall
 		ExplosionPalette: apolgreenalpha
 		InvalidTargets: Water
-	Warhead@3Smu: LeaveSmudge
-		SmudgeType: SmallScorch
-		InvalidTargets: Vehicle, Building, Wall
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2
 		Level: 6
@@ -441,13 +443,13 @@ TiberianRocket:
 		Shadow: true
 		LaunchAngle: 62
 		Inaccuracy: 2c0
+		TrailPalette: effectalpha75
 		Image: DRAGON
 		TrailImage: small_smoke_trail
-		HorizontalRateOfTurn: 8
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Spread: 200
-		Damage: 4600
+		Damage: 5290
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@2EffWater: CreateEffect
@@ -464,7 +466,7 @@ TiberianRocket:
 		InvalidTargets: Water, Air, AirHit
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2
-		Level: 11
+		Level: 20
 		Falloff: 70, 40
 		MaxLevel: 1000
 
@@ -472,13 +474,14 @@ MiniNuke:
 	Inherits: ClusterMissile
 	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
+		Spread: 1c0
 		Damage: 4500
 	Warhead@ClusterDamage3: SpreadDamage
+		Spread: 1c512
 		Damage: 7500
 	Warhead@7Dam_areanukeb: SpreadDamage
+		Spread: 2c0
 		Damage: 1500
-	Warhead@10Dam_areanukec: SpreadDamage
-		Damage: 750
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3, 4, 5, 6
 		Level: 1000
@@ -688,7 +691,7 @@ LeonidCannon:
 FlakFire:
 	Inherits: ^FullDamage
 	ReloadDelay: 50
-	Range: 9c0
+	Range: 10c0
 	Report: cygun1.aud
 	ValidTargets: Air
 	Projectile: InstantHit

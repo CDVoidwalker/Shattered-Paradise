@@ -8,7 +8,7 @@ E1:
 	Health:
 		HP: 12500
 	Mobile:
-		Speed: 71
+		Speed: 81
 	Armament@PRIMARY:
 		Weapon: Minigun
 	AttackFrontal:
@@ -30,7 +30,7 @@ ENGINEER:
 		Name: Engineer
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 8
+		BuildPaletteOrder: 3
 		Prerequisites: ~SharedEngie
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable.
 	-GainsExperience:
@@ -58,7 +58,7 @@ MCV:
 	Tooltip:
 		Name: Mobile Construction Vehicle
 	Selectable:
-		Priority: 4
+		Priority: 5
 		DecorationBounds: 42,42
 	Health:
 		HP: 120000
@@ -96,7 +96,7 @@ HARV:
 		Name: Harvester
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 99
+		BuildPaletteOrder: 1
 		Prerequisites: ~humanstuff, proc
 		InitialActivity: FindResources
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.\n- Cannot be mindcontrolled.
@@ -135,7 +135,7 @@ HARV:
 				PathingCost: 1
 			Veins: 100
 	Health:
-		HP: 40000
+		HP: 50000
 	-TemporaryOwnerManager:
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
@@ -174,7 +174,6 @@ SCRHARV:
 		Cost: 1000
 	Buildable:
 		Queue: Vehicle
-		BuildPaletteOrder: 99
 		Prerequisites: scrproc, ~scrweap
 		InitialActivity: FindResources
 	Mobile:
@@ -199,6 +198,9 @@ SCRHARV:
 	Selectable:
 		DecorationBounds: 36,36
 	-ProducibleWithLevel:
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolbluealpha60
 
 LPST:
 	Inherits: ^VoxelVehicle
@@ -302,15 +304,12 @@ GACNST:
 		Prerequisite: humanstuff
 		ResetOnOwnerChange: True
 	ProvidesPrerequisite@humanmcv:
-		Factions: gdi, nod, mut
+		Factions: gdi, mut
 		Prerequisite: humanmcv
 		ResetOnOwnerChange: True
 	ProvidesPrerequisite@gdi:
 		Factions: gdi
 		Prerequisite: structures.gdi
-	ProvidesPrerequisite@nod:
-		Factions: nod
-		Prerequisite: structures.nod
 	ProvidesPrerequisite@mut:
 		Factions: mut
 		Prerequisite: structures.mut
@@ -397,7 +396,7 @@ PROC:
 	Valued:
 		Cost: 1500
 	CustomSellValue:
-		Value: 200
+		Value: 500
 	Tooltip:
 		Name: Tiberium Refinery
 	ProvidesPrerequisite:
@@ -459,7 +458,7 @@ FLIPPEDPROC:
 	Valued:
 		Cost: 1500
 	CustomSellValue:
-		Value: 200
+		Value: 500
 	Tooltip:
 		Name: Tiberium Refinery
 	ProvidesPrerequisite:
@@ -552,7 +551,7 @@ FLIPPEDPROC:
 	RequiresBuildableArea:
 		AreaTypes: building
 	ProvidesPrerequisite@humanmcv:
-		Factions: gdi, nod, mut
+		Factions: gdi, mut
 		Prerequisite: humanmcv
 		ResetOnOwnerChange: True
 	ProvidesPrerequisite@humanstuff:
@@ -566,6 +565,8 @@ FLIPPEDPROC:
 	Inherits@2: ^2x2Shape
 	Exit@1:
 		SpawnOffset: 0,-256,0
+	Valued:
+		Cost: 500
 	Production:
 		Produces: Air
 	RallyPoint:
@@ -581,6 +582,8 @@ FLIPPEDPROC:
 	RepairsUnits:
 		Interval: 1
 	ProductionBar:
+	Health:
+		HP: 60000
 
 ^Radar:
 	Inherits: ^Building
@@ -689,6 +692,28 @@ GADEPT:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+SCRDEPOT:
+	Inherits: GADEPT
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Prerequisites:  Vehicle or Aircraft production, ~structures.scr
+	Tooltip:
+		Name: Scrin Maintenance Depot
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	RenderSprites:
+		Image: scrdepot
+		-FactionImages:
+	-WithIdleOverlay@LIGHT:
+	-WithIdleOverlay@GROUND:
+	-WithIdleOverlay@CIRCUITS:
+	-WithRepairOverlay@CRANE:
+	-WithRepairOverlay@PLATFORM:
+	-WithDeathAnimation@BIB:
+	Selectable:
+		DecorationBounds: 110, 60, 3, -4
+
 ^TechCenter:
 	Inherits: ^Building
 	Valued:
@@ -699,19 +724,220 @@ GADEPT:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
-		HP: 240000
+		HP: 150000
 	Power:
 		Amount: -150
 	ProvidesPrerequisite@buildingname:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+ANYPOWER:
+	AlwaysVisible:
+	Tooltip:
+		Name: Power Plant
+		Description: Power Plant
+
+BARRACKS:
+	AlwaysVisible:
+	Tooltip:
+		Name: Infantry Production
+		Description: Infantry Production
+
+FACTORY:
+	AlwaysVisible:
+	Tooltip:
+		Name: Vehicle Production
+		Description: Vehicle Production
+
+RADAR:
+	AlwaysVisible:
+	Tooltip:
+		Name: Radar
+		Description: Radar
+
+TECH:
+	AlwaysVisible:
+	Tooltip:
+		Name: Tech Center
+		Description: Tech Center
+
+SHAWALL:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1
+		Prerequisites: ~sharedwall
+		Description: Stops infantry, Vehicles and blocks enemy fire.
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	-AppearsOnRadar:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Wall
+	LineBuild:
+		NodeTypes: wall, turret
+	RenderSprites:
+		Image: wall.gdi
+		FactionImages:
+			gdi: wall.gdi
+			nod: wall.nod
+			cab: wall.nod
+	ExplodeWeapon@1:
+		Weapon: FirestormExploWalls
+		RequiresCondition: FirestormWallCondition
+		ConditionMinEnabledLevel: 1
+		ResetReloadWhenEnabled: false
+
+NAPOST:
+	Inherits: ^Building
+	Inherits@IDISABLED: ^DisableOnLowPowerOrPowerDown
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 2
+		Prerequisites: napowr, ~structures.nod
+		Description: Stops infantry and blocks enemy fire.\n- Can NOT be crushed by tanks.\n- Requires power to operate.
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Laser Fence
+	Health:
+		HP: 30000
+	Armor:
+		Type: ConcreteArmor
+	-GivesBuildableArea:
+	-Targetable:
+	Targetable@Fence:
+		TargetTypes: Building, Ground, DetonateAttack
+	LineBuild:
+		Range: 10
+		NodeTypes: laserfencenode
+		SegmentType: nafnce
+		SegmentsRequireNode: true
+	WithMakeAnimation:
+		Condition: make-animation-playing
+	Selectable:
+		Bounds: 42, 44, 0, -12
+	LineBuildNode:
+		Types: laserfencenode
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 7
+	Power:
+		Amount: -5
+	WithIdleOverlay@LIGHTS:
+		RequiresCondition: !disabled
+		Sequence: lights
+	WithIdleOverlay@CHAINOFLIGHTS:
+		RequiresCondition: !disabled
+		Sequence: chainoflights
+	LineBuildSegmentExternalCondition:
+		RequiresCondition: !disabled && !make-animation-playing
+		Condition: active-posts
+
+NAFNCE:
+	Inherits: ^Wall
+	Inherits@1: ^Cloakable
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Laser Fence
+	Tooltip:
+		Name: Laser Fence
+	LineBuild:
+		NodeTypes: laserfence
+	LineBuildNode:
+		Types: laserfence
+	-Crushable:
+	-Sellable:
+	-Targetable:
+	-Building:
+	EnergyWall:
+		ActiveCondition: active-posts == 2
+		Weapon: LaserFence
+	GrantConditionOnLineBuildDirection@X:
+		Direction: X
+		Condition: laserfence-direction-x
+	GrantConditionOnLineBuildDirection@Y:
+		Direction: Y
+		Condition: laserfence-direction-y
+	-WithWallSpriteBody:
+	ExternalCondition@ACTIVE:
+		Condition: active-posts
+	WithWallSpriteBody@XENABLED:
+		RequiresCondition: laserfence-direction-x && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-x
+	WithWallSpriteBody@YENABLED:
+		RequiresCondition: laserfence-direction-y && active-posts == 2
+		Type: laserfence
+		Sequence: enabled-y
+	WithSpriteBody@XDISABLED:
+		RequiresCondition: laserfence-direction-x && active-posts < 2
+		Sequence: disabled-x
+	WithSpriteBody@YDISABLED:
+		RequiresCondition: laserfence-direction-y && active-posts < 2
+		Sequence: disabled-y
+	BlocksProjectiles:
+		RequiresCondition: active-posts == 2
+	DamageMultiplier: # Prevent all normal damage, but still allows direct kills from the post
+		Modifier: 0
+	ThrowsShrapnel@SMALL:
+		Weapons: SmallDebris
+		Pieces: 0, 1
+		Range: 2c0, 5c0
+	Interactable:
+		Bounds: 48, 24
+
+MUTWALL:
+	Inherits: ^Wall
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 3
+		Description: Stops infantry, Vehicles and blocks enemy fire.
+		Prerequisites: ~structures.mut
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Forgotten Wall
+	-Cloak@CLOAKGENERATOR:
+	RenderSprites:
+		Image: wall.mut
+	LineBuild:
+		NodeTypes: wall, turret
+
+SCRWALL:
+	Inherits: ^Wall
+	Inherits@2: ^ScrinRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 4
+		Description: Stops infantry, Vehicles and blocks enemy fire.
+		Prerequisites: ~structures.scr
+	SoundOnDamageTransition:
+		DamagedSounds:
+		DestroyedSounds:
+	CustomSellValue:
+		Value: 0
+	-Cloak@CLOAKGENERATOR:
+	Tooltip:
+		Name: Energy Wall
+	LineBuild:
+		NodeTypes: wall, turret
+
 GASILO:
 	Inherits: ^Building
 	Inherits: ^2x2Shape
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 70
+		BuildPaletteOrder: 31
 		Prerequisites: ~humanstuff, proc
 		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 1000$.\n- Power loss does not affect storage capacity.
 	Valued:
@@ -754,65 +980,6 @@ GASILO:
 	RequiresBuildableArea:
 		AreaTypes: building
 
-ANYPOWER:
-	AlwaysVisible:
-	Tooltip:
-		Name: Power Plant
-		Description: Power Plant
-
-BARRACKS:
-	AlwaysVisible:
-	Tooltip:
-		Name: Infantry Production
-		Description: Infantry Production
-
-FACTORY:
-	AlwaysVisible:
-	Tooltip:
-		Name: Vehicle Production
-		Description: Vehicle Production
-
-RADAR:
-	AlwaysVisible:
-	Tooltip:
-		Name: Radar
-		Description: Radar
-
-TECH:
-	AlwaysVisible:
-	Tooltip:
-		Name: Tech Center
-		Description: Tech Center
-
-SHAWALL:
-	Inherits: ^Wall
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 1001
-		Prerequisites: ~sharedwall
-		Description: Stops infantry, Vehicles and blocks enemy fire.
-	SoundOnDamageTransition:
-		DamagedSounds:
-		DestroyedSounds:
-	-AppearsOnRadar:
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Wall
-	LineBuild:
-		NodeTypes: wall, turret
-	RenderSprites:
-		Image: wall.gdi
-		FactionImages:
-			gdi: wall.gdi
-			nod: wall.nod
-			cab: wall.nod
-	ExplodeWeapon@1:
-		Weapon: FirestormExploWalls
-		RequiresCondition: FirestormWallCondition
-		ConditionMinEnabledLevel: 1
-		ResetReloadWhenEnabled: false
-
 NAPULS:
 	Inherits: ^Defence
 	Inherits@4: ^2x2Shape
@@ -822,7 +989,7 @@ NAPULS:
 		Name: EMP Cannon
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 90
+		BuildPaletteOrder: 32
 		Prerequisites: ~humanstuff, radar
 		Description: Cannon that uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate
 	Building:
@@ -877,6 +1044,83 @@ NAPULS:
 	RequiresBuildableArea:
 		AreaTypes: building
 
+SCRSHIELD:
+	Inherits: ^Defence
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Inherits@4: ^2x2Shape
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Stasis Field Generator
+	Buildable:
+		Queue: Defense
+		Description: Uses EMP projectiles to disable vehicles.\n\nSpecial:\n- Fires a pulse blast which disables all vehicles and buildings in the area\n- Hover units disabled staying over water will be destroyed instantly.\n- Requires power to operate
+		BuildPaletteOrder: 33
+		Prerequisites: scrradr, ~structures.scr
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 88, 42, 0, -6
+		DecorationBounds: 88, 72, 0, -12
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	Turreted:
+		TurnSpeed: 10
+		InitialFacing: 300
+	AttackTurreted:
+	Armament:
+		Weapon: EMPulseCannon
+		LocalOffset: 0,0,1800
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	ToggleConditionOnOrder:
+		Condition: powerdown
+		OrderName: PowerDown
+	WithColoredOverlay@disabled:
+		RequiresCondition: disabled
+		Palette: disabled
+	ExternalCondition@disabled:
+		Condition: disabled
+	Health:
+		HP: 150000
+	Power:
+		Amount: -100
+	SelectionDecorations:
+	ProvidesPrerequisite@gdi:
+		Prerequisite: emp.gdi
+		Factions: gdi, mut, nod, cab, scr
+		ResetOnOwnerChange: true
+	AttackOrderPower@nod:
+		Cursor: emp
+		Icon: emp
+		ChargeInterval: 3000
+		Description: E.M. Pulse
+		LongDesc: Fires a pulse blast which disables\nall mechanical units in the area.
+		EndChargeSound: SuperWeaponReady
+		EndChargeSpeechNotification: SuperWeaponReady
+		SelectTargetSound: speech-nod|00-i042.aud
+		Prerequisites: emp.gdi
+		OrderName: Nodemp
+		PauseOnCondition: empdisable || disabled
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		RequiresCondition: powerdown
+		ReferencePoint: Center
+	RequiresBuildableArea:
+		AreaTypes: building
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+
 GATE_A:
 	Inherits: ^Gate_A
 	Buildable:
@@ -919,42 +1163,60 @@ GATE_B:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
 
-MUMINE:
-	Inherits: ^DeployedVehicle
-	Valued:
-		Cost: 100
+MUTGATE_A:
+	Inherits: ^Gate_A
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.mut
+		Description: Automated barrier that opens for allied units.
 	Tooltip:
-		Name: Mine
-	Selectable:
-		Priority: 1
-	Health:
-		HP: 5000
-	-AttackTurreted:
-	-SpawnActorOnDeath@ScrinEssence:
-	-AutoTarget:
-	-RenderRangeCircle:
-	-ActorLostNotification:
-	-UpdatesPlayerStatistics:
-	-Voiced:
-	Armor:
-		Type: Mine
-	Targetable:
-		TargetTypes: Ground, Repair, DetonateAttack, MindControlInmune, Mine
-	BodyOrientation:
-		QuantizedFacings: 32
-	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
-		CloakSound:
-		InitialDelay: 50
-		CloakDelay: 50
-		UncloakSound:
-		Palette: cloakmut
-		IsPlayerPalette: true
-		CloakTypes: mine
-		UncloakOn: Dock
-	Mine:
-		CrushClasses: crate
-		DetonateClasses: crate
-		AvoidFriendly: true
-	Explodes:
-		Weapon: MineExplode
+		Name: Forgotten Gate
+	Building:
+	Gate:
+		CloseDelay: 100
+
+MUTGATE_B:
+	Inherits: ^Gate_B
+	Inherits@2: ^MutRender
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.mut
+		Description: Automated barrier that opens for allied units.
+	Tooltip:
+		Name: Forgotten Gate
+	Building:
+	Gate:
+		CloseDelay: 100
+
+SCRGATE_A:
+	Inherits: ^Gate_A
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.scr
+		Description: Automated barrier that opens for allied units.
+	Tooltip:
+		Name: Energy Gate
+	Building:
+	Gate:
+		CloseDelay: 40
+
+SCRGATE_B:
+	Inherits: ^Gate_B
+	Inherits@2: ^ScrinRender
+	Inherits@3: ^ScrinDeathExplo
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: ~structures.scr
+		Description: Automated barrier that opens for allied units.
+	Tooltip:
+		Name: Energy Gate
+	Building:
+	Gate:
+		CloseDelay: 40

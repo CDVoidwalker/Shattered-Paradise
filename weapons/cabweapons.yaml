@@ -3,7 +3,7 @@ CyborgVulcan:
 	Inherits@1: ^Piffs
 	ReloadDelay: 60
 	Burst: 3
-	Range: 5c0
+	Range: 4c512
 	Report: cygun1.aud
 	Projectile: BulletAS
 		Speed: 1c682
@@ -43,6 +43,20 @@ SentryGun:
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
 		Damage: 600
+		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+
+SentinelGun:
+	Inherits: ^RifleWarhead
+	Inherits@1: ^Mediuml_Clsn
+	ReloadDelay: 60
+	Range: 4c0
+	Projectile: BulletAS
+		Speed: 682
+		Image: 120mm
+		Shadow: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
 
 ReaperWeb:
@@ -220,27 +234,25 @@ WorkerMinigun:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 500
+		Damage: 2000
 		DamageTypes: Prone70Percent, TriggerProne
 
 Dogzooka:
-	Inherits: ^RocketWarhead
+	Inherits: JJGrenade
+	Inherits@1: ^RifleWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 75
-	Range: 6c0
+	Range: 4c0
 	MinRange: 0c512
 	Report: rketinf1.aud
-	ValidTargets: Ground, Water, Air
-	Projectile: Missile
+	ValidTargets: Ground, Water
 	Warhead@1Dam: SpreadDamage
-		Damage: 1000
-		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Damage: 3000
 
 ArtisanTurretLasor:
 	ReloadDelay: 50
 	Report: lastur1.aud
-	Range: 6c0
+	Range: 5c0
 	ValidTargets: Infantry, Building, Vehicle, Defence, Airhit, Ground
 	Projectile: LaserZap
 		Width: 25
@@ -497,6 +509,38 @@ PalaLazor:
 		Damage: 2550
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
+WaspLasor:
+	ReloadDelay: 50
+	Range: 6c0
+	MinRange: 0c100
+	Report: lastur1.aud
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Projectile: LaserZap
+		Color: 0dc7b8
+		BeamDuration: 20
+		Width: 90
+		ZOffset: 2047
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2550
+		SecondaryBeamColor: FFFFFF
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		ValidTargets: Ground, Water
+		InvalidTargets: Air
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+WaspLasorAA:
+	Inherits: WaspLasor
+	ReloadDelay: 30
+	ValidTargets: Air
+	InvalidTargets: Ground, Water
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		ValidTargets: Air
+		InvalidTargets: Ground, Water
+
 WaspBullet:
 	Inherits: ^APWarhead
 	ReloadDelay: 50
@@ -508,7 +552,7 @@ WaspBullet:
 	Projectile: Bullet
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 3500
+		Damage: 2800
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		InvalidTargets: Air
@@ -523,26 +567,6 @@ WaspBulletAA:
 		Damage: 3000
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
-
-WaspLasor:
-	ReloadDelay: 50
-	Range: 6c0
-	MinRange: 0c100
-	Report: lastur1.aud
-	ValidTargets: Ground, Water, Air
-	Projectile: LaserZap
-		Color: 0dc7b8
-		BeamDuration: 20
-		Width: 90
-		ZOffset: 2047
-		SecondaryBeam: True
-		SecondaryBeamWidth: 30
-		SecondaryBeamZOffset: 2550
-		SecondaryBeamColor: FFFFFF
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
-		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
@@ -609,7 +633,7 @@ BasiliskBomb:
 			InfantryArmor: 400
 			BuildingArmor: 75
 			VehicleArmor: 25
-			DefenseArmor: 25
+			DefenseArmor: 75
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: firestormexplo, firestormexplo1, firestormexplo2
@@ -680,7 +704,7 @@ CabJetMiniBomb:
 	Warhead@1Dam: SpreadDamage
 		Falloff: 100, 80, 70, 60, 50
 		Spread: 200
-		Damage: 3000
+		Damage: 6000
 		Versus:
 			InfantryArmor: 125
 			BuildingArmor: 40
@@ -705,7 +729,6 @@ BlasterProton:
 		Shadow: true
 		Inaccuracy: 1c0
 		Image: TORPEDO
-		RangeLimit: 35
 	Warhead@1Dam: SpreadDamage
 		Spread: 150
 		Damage: 5850
@@ -731,7 +754,7 @@ CABALRAIL:
 CABRAILAA:
 	Inherits: ^FullDamage
 	ReloadDelay: 50
-	Range: 9c0
+	Range: 10c0
 	Report: railgunfire.wav
 	ValidTargets: Air
 	Projectile: LaserZap

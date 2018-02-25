@@ -53,37 +53,32 @@ BlueTibRadiation:
 		Range: 1, 2, 3, 4
 		Falloff: 100, 50, 25, 5
 
-SmokeShrapnel:
-	ReloadDelay: 10
-	Projectile: InstantExplode
-	Warhead@op: FireShrapnel
-		Weapon: ThrowSmoke
-		Amount: 1
-		AllowDirectHit: True
-		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
-
-ThrowSmoke:
-	Inherits: ^RocketWarhead
-	Range: 30
-	MinRange: 30
-	ValidTargets: Ground, Water, Air
-	Projectile: Missile
-		MaximumLaunchSpeed: 50
-		MaximumLaunchLaunchAngle: 255
-		Arm: 100
-		Speed: 50
-		Blockable: false
-		Image: sgrysmk1
-		HorizontalRateOfTurn: 8
-		RangeLimit: 12c0
-		AirburstAltitude: 5000
-		Palette: effectalpha
+SpawnVisc:
+	ReloadDelay: 25
+	Range: 2c0
+	Burst: 1
+	BurstDelays: 1
+	ValidTargets: ViscMale
+	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
+    	ValidTargets: ViscMale
 		Damage: 1
-		AffectsParent: true
-		ValidTargets: Ground, Water, Air
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@5Actor: SpawnActor
+		Actors: VISC_SML
+		FallRate: 5000
+		Range: 3
+		ValidTargets: Ground, Water, Infantry, Air, Vehicle, Building, Wall
+
+SpawnZombie:
+	Inherits: SpawnVisc
+	Warhead@5Actor: SpawnActor
+		Actors: ZOMBIE
+
+SpawnBerserker:
+	Inherits: SpawnVisc
+	Warhead@5Actor: SpawnActor
+		Actors: BERSERKER
 
 SlimeAttack:
 	Inherits: ^RifleWarhead
