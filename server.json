@@ -69,8 +69,8 @@
             "locked": false
         },
         "crates": {
-            "value": true,
-            "preferredvalue": true,
+            "value": false,
+            "preferredvalue": false,
             "locked": false
         }
     }
