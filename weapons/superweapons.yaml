@@ -135,7 +135,7 @@ IonCannon:
 		ExplosionPalette: effect-ignore-lighting-alpha75
 		VictimScanRadius: 0
 	Warhead@KillShieldedUnit: GrantExternalCondition
-		Range: 2c0
+		Range: 5c0
 
 IonCannonSpawner:
 	ReloadDelay: 6
@@ -342,7 +342,7 @@ ClusterMissile:
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@ClusterDamage3: SpreadDamage
 		Damage: 21000
-		Spread: 1c512
+		Spread: 2c512
 		Falloff: 1000, 700, 500, 300, 150, 50, 0
 		Delay: 25
 		ValidTargets: Ground, Water, Water, Air
@@ -354,8 +354,8 @@ ClusterMissile:
 			ConcreteArmor: 5
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 	Warhead@7Dam_areanukeb: SpreadDamage
-		Spread: 2c0
-		Damage: 500
+		Spread: 3c0
+		Damage: 2000
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
 		Delay: 50
 		ValidTargets: Ground, Water, Air, Trees
@@ -634,7 +634,7 @@ MeteorRainNormal:
 		AllowDirectHit: false
 		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
 	Warhead@KillShieldedUnit: GrantExternalCondition
-		Range: 2c0
+		Range: 1c0
 
 MeteorRainSlow:
 	Inherits: MeteorRainNormal

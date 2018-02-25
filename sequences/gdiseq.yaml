@@ -455,7 +455,7 @@ jug:
 		Start: 8
 		Length: 16
 		Facings: 8
-		Tick: 100
+		Tick: 75
 		ShadowStart: 207
 	shoot:
 		Start: 136

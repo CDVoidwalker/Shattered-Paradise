@@ -89,9 +89,9 @@ JUMPJET:
 	Voiced:
 		VoiceSet: Marine
 	Mobile:
-		Speed: 55
+		Speed: 60
 	Health:
-		HP: 16000
+		HP: 9000
 	Transforms:
 		IntoActor: jumpjetair
 	Armament@1:
@@ -238,7 +238,7 @@ CRUSADER:
 	Inherits@1: ^6CellVision
 	Buildable:
 		Queue: Infantry
-		BuildPaletteOrder: 7
+		BuildPaletteOrder: 2
 		Description: Anti armor infantry.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Can attack Air\n- Can shoot while moving.\n- Does not go prone after taking fire.\n- Crush class: crushable
 		Prerequisites: ~nahand
 	Valued:
@@ -246,7 +246,7 @@ CRUSADER:
 	Tooltip:
 		Name: Crusader
 	Health:
-		HP: 7000
+		HP: 8000
 	Armament:
 		Weapon: CrusaderBazooka
 		LocalOffset: 0,0,600
@@ -440,7 +440,7 @@ MARAUDER:
 	AutoTarget:
 		ScanRadius: 8
 	Mobile:
-		RequiresCondition: undeployed
+		RequiresCondition: !WebDisable && undeployed
 	Armament@1:
 		Weapon: MarauderShotgun
 		Name: OnFoot
@@ -459,10 +459,10 @@ MARAUDER:
 		DeploySound:
 		UndeploySound:
 	WithInfantryBody:
-		RequiresCondition: undeployed
+		RequiresCondition: !WebDisable && undeployed
 	WithInfantryBody@deployed:
 		StandSequences: turret
-		RequiresCondition: deployed
+		RequiresCondition: !WebDisable && deployed
 	WithMuzzleOverlay:
 		RequiresCondition: deployed
 	Turreted:
@@ -529,8 +529,8 @@ MUTFIEND:
 		Armaments: OnFoot
 
 E2:
-	Inherits: ^Mutant
 	Inherits@1: ENGINEER
+	Inherits: ^Mutant
 	Valued:
 		Cost: 500
 	Tooltip:

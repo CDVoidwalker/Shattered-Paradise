@@ -2,7 +2,7 @@ MilitantRifle:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 25
-	Range: 4c0
+	Range: 4c512
 	Report: infgun3.aud, gostgun1.aud, slvkgun1.aud
 	Projectile: BulletAS
 		Speed: 1c682
@@ -406,8 +406,6 @@ Proton:
 		Palette: effect
 		Image: TORPEDO
 	Warhead@1Dam: SpreadDamage
-		Versus:
-			BuildingArmor: 75
 		Spread: 250
 		Damage: 2500
 		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
@@ -488,7 +486,7 @@ RedEye2:
 	Inherits: ^RocketWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 40
-	Range: 9c0
+	Range: 10c0
 	Report: samshot1.aud
 	ValidTargets: Air
 	Projectile: Missile

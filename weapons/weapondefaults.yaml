@@ -114,7 +114,7 @@
 		Falloff: 300, 150, 100, 50, 0
 		Versus:
 			InfantryArmor: 100
-			BuildingArmor: 66
+			BuildingArmor: 100
 			VehicleArmor: 50
 			DefenseArmor: 100
 			AircraftArmor: 100

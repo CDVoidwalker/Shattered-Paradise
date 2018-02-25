@@ -8,7 +8,7 @@ E1:
 	Health:
 		HP: 12500
 	Mobile:
-		Speed: 71
+		Speed: 81
 	Armament@PRIMARY:
 		Weapon: Minigun
 	AttackFrontal:
@@ -396,7 +396,7 @@ PROC:
 	Valued:
 		Cost: 1500
 	CustomSellValue:
-		Value: 250
+		Value: 500
 	Tooltip:
 		Name: Tiberium Refinery
 	ProvidesPrerequisite:
@@ -458,7 +458,7 @@ FLIPPEDPROC:
 	Valued:
 		Cost: 1500
 	CustomSellValue:
-		Value: 250
+		Value: 500
 	Tooltip:
 		Name: Tiberium Refinery
 	ProvidesPrerequisite:
@@ -565,6 +565,8 @@ FLIPPEDPROC:
 	Inherits@2: ^2x2Shape
 	Exit@1:
 		SpawnOffset: 0,-256,0
+	Valued:
+		Cost: 500
 	Production:
 		Produces: Air
 	RallyPoint:
@@ -639,7 +641,7 @@ GADEPT:
 	Tooltip:
 		Name: Service Depot
 	Buildable:
-		BuildPaletteOrder: 4
+		BuildPaletteOrder: 5
 		Prerequisites: ~humanstuff, Vehicle or Aircraft production
 		Queue: Building
 		Description: Repairs vehicles.\n\nSpecial:\n-Repairs nearby vehicles for free.\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.

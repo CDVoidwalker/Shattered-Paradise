@@ -887,7 +887,7 @@ NeedlerAcid:
 TractorBeam:
 	Inherits: ^FullDamage
 	ReloadDelay: 25
-	Range: 9c0
+	Range: 10c0
 	Report:
 	ValidTargets: Air
 	Projectile: BulletAS

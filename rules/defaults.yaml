@@ -555,6 +555,12 @@
 	TimedConditionBar@EMPDISABLE:
 		Condition: empdisable
 		Color: FFFFFF
+	SpeedMultiplier@WebDisable:
+		RequiresCondition: empdisable
+		Modifier: 0
+	RangeMultiplier@WebDisable:
+		RequiresCondition: empdisable
+		Modifier: 0
 	WithIdleOverlay@EMPDISABLE:
 		Sequence: emp-overlay
 		Palette: effect
@@ -616,6 +622,12 @@
 	TimedConditionBar@WebDisable:
 		Condition: WebDisable
 		Color: FFFFFF
+	SpeedMultiplier@WebDisable:
+		RequiresCondition: WebDisable
+		Modifier: 0
+	RangeMultiplier@WebDisable:
+		RequiresCondition: WebDisable
+		Modifier: 0
 	Mobile:
 		RequiresCondition: !WebDisable
 	WithInfantryBody:
@@ -912,7 +924,7 @@
 		ActorTypes: shark
 		Factions: scr
 	SpawnActorOnDeath@tiberium2:
-		Actor: visc_sml_male
+		Actor: visc_sml
 		Probability: 15
 		OwnerType: InternalName
 		InternalOwner: Creeps
@@ -1562,6 +1574,12 @@
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
+	SmokeParticleEmitter:
+		Offset: 0,0,400
+	HitShape:
+		TargetableOffsets: 0,0,400
+		Type: Circle
+			VerticalTopOffset: 500
 
 ^ScrinVehicle:
 	Inherits@1: ^ScrinReaper

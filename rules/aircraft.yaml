@@ -121,7 +121,7 @@ ORCAB:
 	Tooltip:
 		Name: Orca Bomber
 	Buildable:
-		Description: Heavy carpet bomber.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AoE damage\n- Fires bombs in a line before reaching its target.
+		Description: Heavy carpet bomber.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AoE damage.
 		Queue: Air
 		BuildPaletteOrder: 3
 		Prerequisites: ~gahpad, gatech
@@ -354,7 +354,7 @@ ORCATRAN:
 APACHE:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
-	Inherits@3: ^BasicStealthDetection
+	Inherits@2: ^BasicStealthDetection
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1242,66 +1242,6 @@ SCRBATTLESHIP:
 		Image: scrsmoke
 		Palette: apolbluealpha60
 
-MINIWYVERM:
-	Inherits: WASP
-	Inherits@1: ^AutoTargetAllAssaultMove
-	Tooltip:
-		Name: Attack Drone
-	-Buildable:
-	-GainsExperience:
-	Valued:
-		Cost: 200
-	-Selectable:
-	-AppearsOnRadar:
-	-SelectionDecorations:
-	-ActorLostNotification:
-	Health:
-		HP: 60
-	SelfHealing:
-		PercentageStep: -50
-		Step: 0
-		Delay: 250
-		HealIfBelow: 200
-	Aircraft:
-		IdealSeparation: 300
-		Speed: 110
-	Targetable@Drone:
-		TargetTypes: AttackDrone
-	Targetable@GROUND:
-		TargetTypes: Vehicle
-		-RequiresCondition: airborne
-	-UpdatesPlayerStatistics:
-	-Targetable@AIRBORNE:
-	RejectsOrders:
-	AutoTarget:
-		ScanRadius: 20
-	-Armament@Secondary:
-	-Armament@TheRealThing:
-	-Armament@TheRealThingAA:
-	Armament@Primary:
-		Weapon: CombatDroneAproach
-		-LocalOffset:
-		TargetStances: Ally
-	ExplodeWeapon:
-		Weapon: CombatDroneLasorSpawn
-	AttackWander:
-		MinMoveDelay: 0
-		MaxMoveDelay: 10
-		WanderMoveRadius: 10
-	Explodes:
-		Weapon: ReturnDroneSummon
-		EmptyWeapon: ReturnDroneSummon
-	-SpawnActorOnDeath:
-	Interactable:
-	Interactable:
-
-MINIWYVERM2:
-	Inherits: MINIWYVERM
-	ExplodeWeapon:
-		Weapon: HealerDroneLasorSpawn
-	RenderSprites:
-		Image: miniwyverm
-
 WASP:
 	Inherits: ^Helicopter
 	Inherits@1: ^AutoTargetAllAssaultMove
@@ -1328,14 +1268,24 @@ WASP:
 		HP: 12000
 	Voiced:
 		VoiceSet: Limpet
-	Armament@Primary:
+	Armament@1:
 		Weapon: WaspLasor
 		LocalOffset: 200,350,-100
 		PauseOnCondition: !ammo
-	Armament@Secondary:
+	Armament@2:
 		Weapon: WaspLasor
 		AmmoPoolName: Rocket
 		LocalOffset: 200,-350,-100
+		PauseOnCondition: !ammo
+	Armament@3:
+		Weapon: WaspLasorAA
+		AmmoPoolName: Rocket
+		LocalOffset: 200,-350,-100
+		PauseOnCondition: !ammo
+	Armament@4:
+		Weapon: WaspLasorAA
+		AmmoPoolName: Rocket
+		LocalOffset: 200, 350,-100
 		PauseOnCondition: !ammo
 	Armament@TheRealThing:
 		Weapon: WaspBullet

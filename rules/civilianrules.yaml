@@ -285,7 +285,7 @@ VISC_LRG:
 	Tooltip:
 		Name: Adult Visceroid
 	Health:
-		HP: 5000
+		HP: 15000
 	Armor:
 		Type: VehicleArmor
 	RevealsShroud:
@@ -308,6 +308,8 @@ VISC_LRG:
 		EmptyWeapon: UnitExplodeSmall
 	Mobile:
 		Crushes: crate, infantry
+	Targetable:
+		TargetTypes: Ground, NeutralTibCritter, Vehicle
 	RenderSprites:
 		Image: vislrg
 
@@ -609,7 +611,7 @@ ICBM:
 	Health:
 		HP: 50000
 	Armor:
-		Type: Light
+		Type: VehicleArmor
 	Mobile:
 		Speed: 95
 		TurnSpeed: 5
