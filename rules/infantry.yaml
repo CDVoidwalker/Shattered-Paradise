@@ -194,7 +194,7 @@ EAGLEGUARD:
 	Voiced:
 		VoiceSet: Ghost
 	Mobile:
-		Speed: 40
+		Speed: 50
 	Health:
 		HP: 35000
 	-DamagedByTerrain:
@@ -223,7 +223,7 @@ ALTNODE1:
 	Targetable@FlameWarrior:
 		TargetTypes: FlameWarrior
 	Mobile:
-		Speed: 60
+		Speed: 70
 	-TakeCover:
 	Armament:
 		Weapon: MilitantRifle
@@ -277,7 +277,12 @@ TEMPLAR:
 	Health:
 		HP: 22500
 	Mobile:
-		Speed: 60
+		Speed: 70
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 70
+			BlueTiberium: 70
+				PathingCost: 70
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
@@ -303,7 +308,7 @@ NCONF:
 	Health:
 		HP: 14500
 	Mobile:
-		Speed: 55
+		Speed: 65
 	Armament@1:
 		Weapon: TemplarLasor
 		LocalOffset: 362,0,778
@@ -365,7 +370,12 @@ BHS:
 	Health:
 		HP: 25000
 	Mobile:
-		Speed: 65
+		Speed: 75
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 70
+			BlueTiberium: 70
+				PathingCost: 70
 	Voiced:
 		VoiceSet: Oxanna
 	Armament@PRIMARY:
@@ -498,7 +508,7 @@ MUTFIEND:
 		Shape: Circle
 			Radius: 213
 	Mobile:
-		Speed: 70
+		Speed: 80
 	Voiced:
 		VoiceSet: Fiend
 	Targetable:
@@ -534,10 +544,16 @@ E2:
 		VoiceSet: Engineer
 	Mobile:
 		Voice: Move
-		Speed: 40
+		Speed: 50
 	RenderSprites:
 	WithInfantryBody:
 		AttackSequence: throw
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 	RenderSprites:
 		Image: e2
 		-FactionImages:
@@ -564,7 +580,7 @@ E3:
 	Health:
 		HP: 9500
 	Mobile:
-		Speed: 50
+		Speed: 60
 	Armament@PRIMARY:
 		Weapon: SkirmisherMortar
 		LocalOffset: 128,0,640
@@ -659,7 +675,7 @@ PSYKER:
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	Mobile:
-		Speed: 60
+		Speed: 70
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
 	-TemporaryOwnerManager:
@@ -694,7 +710,7 @@ SHARK:
 	Health:
 		HP: 11000
 	Mobile:
-		Speed: 75
+		Speed: 85
 		Voice: Move
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
@@ -762,6 +778,12 @@ SHAPESHIFTER:
 		Description: Utility unit.\n\nGood vs: Buildings\n\nSpecial:\n- Can capture neutral and enemy buildings\n- Can repair buildings\n- Crush class: crushable\n- Immune to tiberium radiation.
 	Voiced:
 		VoiceSet: Hijacker
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 	-DamagedByTerrain:
 	Selectable:
 		Priority: 6
@@ -831,7 +853,7 @@ BUG:
 	Health:
 		HP: 10100
 	Mobile:
-		Speed: 60
+		Speed: 70
 	SpawnActorOnDeath@conversion:
 		Actor: cybdog
 		Probability: 100
@@ -919,7 +941,7 @@ CABSENTRY:
 	-GainsExperience:
 	-ProducibleWithLevel:
 	Mobile:
-		Speed: 60
+		Speed: 70
 		Crushes: nada
 	GrantPeriodicCondition:
 		Condition: KillMe
@@ -959,7 +981,7 @@ CYBORG:
 		Description: Durable cyborg construct.\n\nGood vs: Infantry.\n\nSpecial:\n- Immune to Tiberium radiation.\n- Crush class: uncrushable.
 		Prerequisites: ~cabclaw
 	Mobile:
-		Speed: 45
+		Speed: 55
 	Selectable:
 		Bounds: 22,32,-1,-9
 		DecorationBounds: 16,31,0,-10
@@ -1024,6 +1046,13 @@ SWARMLING:
 	Explodes:
 		Weapon: DroneExplode
 		EmptyWeapon: DroneExplode
+	-DamagedByTerrain:
+	Mobile:
+		TerrainSpeeds:
+			Tiberium: 70
+				PathingCost: 50
+			BlueTiberium: 70
+				PathingCost: 50
 	RenderSprites:
 		Image: swarmling
 		-FactionImages:
@@ -1058,7 +1087,7 @@ PDRONE:
 		CrushSound: squish6.aud
 	Hovers:
 	Mobile:
-		Speed: 75
+		Speed: 85
 		-RequiresCondition: WebDisable
 		TerrainSpeeds:
 			Clear: 100
@@ -1129,7 +1158,7 @@ GLAD:
 		VoiceSet: Cyborg
 	WithMuzzleOverlay:
 	Mobile:
-		Speed: 45
+		Speed: 55
 		SharesCell: False
 	Health:
 		HP: 59000
@@ -1167,7 +1196,7 @@ MOTH:
 	Voiced:
 		VoiceSet: Limpet
 	Mobile:
-		Speed: 50
+		Speed: 60
 		TerrainSpeeds:
 			Clear: 100
 			Road: 100
@@ -1243,7 +1272,7 @@ CYC2:
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	Mobile:
-		Speed: 56
+		Speed: 65
 	Health:
 		HP: 70000
 	-TemporaryOwnerManager:
@@ -1338,7 +1367,7 @@ cybdog:
 		Payload: 150
 		Voice: Move
 	Mobile:
-		Speed: 65
+		Speed: 75
 	Health:
 		HP: 9000
 	Armor@worker:
@@ -1360,7 +1389,7 @@ FLAMEGUY:
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^1x1Shape
 	Mobile:
-		Speed: 71
+		Speed: 75
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 45
@@ -1403,7 +1432,7 @@ MHIJACK:
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
 	Mobile:
-		Speed: 76
+		Speed: 85
 	Infiltrates:
 		Types: SpyInfiltrate
 	Captures:
@@ -1437,7 +1466,7 @@ AWARRIOR:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 75
+		Speed: 85
 	AutoTarget:
 		ScanRadius: 6
 	Armament@1:
@@ -1487,7 +1516,7 @@ STALKER:
 	Targetable@Stalker:
 		TargetTypes: Stalker
 	Mobile:
-		Speed: 80
+		Speed: 90
 		TerrainSpeeds:
 			Water: 80
 		Crushes: crate

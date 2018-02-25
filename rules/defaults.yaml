@@ -1042,21 +1042,18 @@
 		Condition: BarracksHeal
 	Armor:
 		Type: InfantryArmor
-	RevealsShroud:
-		Range: 4c0
-		RequiresCondition: !inside-tunnel && !submerged
 	Mobile:
 		Voice: Move
-		Speed: 50
+		Speed: 60
 		Crushes: crate
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
-			Road: 120
+			Road: 110
 			Rail: 100
-			DirtRoad: 110
+			DirtRoad: 105
 			Rough: 80
-			Bridge: 120
+			Bridge: 110
 			Tiberium: 70
 				PathingCost: 300
 			BlueTiberium: 70
@@ -1386,7 +1383,7 @@
 	Selectable:
 		Priority: 6
 	Mobile:
-		Speed: 40
+		Speed: 50
 	Health:
 		HP: 9500
 	Passenger:
@@ -1733,7 +1730,7 @@
 	Armor:
 		Type: VehicleArmor
 	Mobile:
-		Speed: 113
+		Speed: 120
 		TurnSpeed: 16
 		Crushes: crate
 		SharesCell: no
@@ -1966,7 +1963,7 @@
 			Veins: 50
 		TurnSpeed: 5
 		Voice: Move
-		Speed: 113
+		Speed: 120
 		TunnelCondition: inside-tunnel
 	Cargo:
 		Types: Vehicle

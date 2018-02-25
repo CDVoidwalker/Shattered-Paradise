@@ -6,7 +6,7 @@ GHOST:
 	Voiced:
 		VoiceSet: Ghost
 	Mobile:
-		Speed: 56
+		Speed: 65
 	Health:
 		HP: 20000
 	Passenger:
@@ -35,7 +35,7 @@ WEEDGUY:
 	Voiced:
 		VoiceSet: Weed
 	Mobile:
-		Speed: 42
+		Speed: 55
 	Health:
 		HP: 13000
 	Crushable:
@@ -54,7 +54,7 @@ UMAGON:
 	Voiced:
 		VoiceSet: Umagon
 	Mobile:
-		Speed: 71
+		Speed: 80
 	Health:
 		HP: 15000
 	Passenger:
@@ -79,7 +79,7 @@ CHAMSPY:
 	Health:
 		HP: 12000
 	Mobile:
-		Speed: 85
+		Speed: 95
 	RevealsShroud:
 		Range: 9c0
 	Passenger:
@@ -109,7 +109,7 @@ MUTANT:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 56
+		Speed: 65
 	RevealsShroud:
 		Range: 4c0
 	Armament:
@@ -131,7 +131,7 @@ MWMN:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 56
+		Speed: 65
 	RevealsShroud:
 		Range: 4c0
 	Armament:
@@ -153,7 +153,7 @@ MUTANT3:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 56
+		Speed: 65
 	RevealsShroud:
 		Range: 4c0
 	Armament:
@@ -175,7 +175,7 @@ TRATOS:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 71
+		Speed: 80
 	RevealsShroud:
 		Range: 4c0
 	-AutoTarget:
@@ -193,7 +193,7 @@ OXANNA:
 	Health:
 		HP: 5000
 	Mobile:
-		Speed: 56
+		Speed: 65
 	RevealsShroud:
 		Range: 4c0
 	-AutoTarget:
@@ -211,7 +211,7 @@ SLAV:
 	Health:
 		HP: 30000
 	Mobile:
-		Speed: 56
+		Speed: 65
 	RevealsShroud:
 		Range: 4c0
 	-AutoTarget:
@@ -232,7 +232,7 @@ DOGGIE:
 		Type: InfantryArmor
 	-RevealsShroud:
 	Mobile:
-		Speed: 113
+		Speed: 120
 		Crushes: nada
 	Voiced:
 		VoiceSet: Fiend
@@ -353,7 +353,7 @@ ZOMBIE:
 	AutoTarget:
 		ScanRadius: 3
 	Mobile:
-		Speed: 65
+		Speed: 75
 		Crushes: nada
 	-SpawnActorOnDeath@conversion:
 	-TakeCover:
@@ -394,7 +394,7 @@ BERSERKER:
 		Step: 0
 		Delay: 200
 	Mobile:
-		Speed: 90
+		Speed: 100
 		Crushes: nada
 	-Crushable:
 	Voiced:
@@ -492,7 +492,7 @@ FLOATER:
 	-ExternalCondition@CloudPoison:
 	WithSpriteBody:
 	Mobile:
-		Speed: 90
+		Speed: 100
 		Crushes: nada
 	Voiced:
 		VoiceSet: Fiend
@@ -541,7 +541,7 @@ CIV3:
 	Tooltip:
 		Name: Mammoth Tank
 	Mobile:
-		Speed: 56
+		Speed: 65
 		TurnSpeed: 5
 		Crushes: wall, crate, infantry
 	Health:
@@ -611,7 +611,7 @@ ICBM:
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 85
+		Speed: 95
 		TurnSpeed: 5
 	RevealsShroud:
 		Range: 7c0
@@ -641,7 +641,7 @@ WEED:
 		HarvestVoice: Attack
 		DeliverVoice: Move
 	Mobile:
-		Speed: 71
+		Speed: 80
 		TurnSpeed: 5
 	Health:
 		HP: 600
@@ -664,7 +664,7 @@ BUS:
 		Name: School Bus
 	Mobile:
 		TurnSpeed: 5
-		Speed: 113
+		Speed: 120
 	Health:
 		HP: 10000
 	Armor:
@@ -678,7 +678,7 @@ PICK:
 		Name: Pickup
 	Mobile:
 		TurnSpeed: 5
-		Speed: 113
+		Speed: 120
 	Health:
 		HP: 10000
 	Armor:
@@ -692,7 +692,7 @@ CAR:
 		Name: Automobile
 	Mobile:
 		TurnSpeed: 5
-		Speed: 113
+		Speed: 120
 	Health:
 		HP: 10000
 	Armor:
@@ -706,7 +706,7 @@ WINI:
 		Name: Recreational Vehicle
 	Mobile:
 		TurnSpeed: 5
-		Speed: 113
+		Speed: 120
 	Health:
 		HP: 20000
 	Armor:

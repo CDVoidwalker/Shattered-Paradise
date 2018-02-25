@@ -81,7 +81,7 @@ ORCA:
 		Bounds: 30,24
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 150
+		Speed: 160
 		MoveIntoShroud: true
 	AutoTarget:
 		InitialStance: HoldFire
@@ -132,7 +132,7 @@ ORCAB:
 		MaximumPitch: 120
 		TurnSpeed: 4
 		IdealSeparation: 256
-		Speed: 120
+		Speed: 130
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -178,7 +178,7 @@ TRNSPORT:
 	Aircraft:
 		LandWhenIdle: yes
 		TurnSpeed: 5
-		Speed: 120
+		Speed: 130
 		CruiseAltitude: 2800
 		InitialFacing: 0
 		MoveIntoShroud: false
@@ -216,7 +216,7 @@ GUARDIAN:
 		Bounds: 110,90
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 50
+		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
@@ -270,7 +270,7 @@ DPOD:
 	Aircraft:
 		LandWhenIdle: yes
 		TurnSpeed: 5
-		Speed: 149
+		Speed: 160
 		InitialFacing: 0
 	Health:
 		HP: 6000
@@ -368,7 +368,7 @@ APACHE:
 		Bounds: 30,24
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 150
+		Speed: 160
 		MoveIntoShroud: true
 	Health:
 		HP: 12000
@@ -427,7 +427,7 @@ SCRIN:
 	Aircraft:
 		MaximumPitch: 90
 		TurnSpeed: 6
-		Speed: 180
+		Speed: 190
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -478,7 +478,7 @@ CERBERUS:
 		Bounds: 110,90
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 50
+		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
 	Health:
@@ -546,7 +546,7 @@ MUTHELI:
 		Bounds: 30,24
 	Aircraft:
 		TurnSpeed: 7
-		Speed: 150
+		Speed: 160
 		MoveIntoShroud: true
 		RearmBuildings: muair, gahpad, nahpad
 	-RenderVoxels:
@@ -611,7 +611,7 @@ WETP:
 		CruiseAltitude: 3072
 		MaximumPitch: 120
 		TurnSpeed: 6
-		Speed: 160
+		Speed: 170
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -663,7 +663,7 @@ MUTQUEEN:
 		VoiceSet: Fiend
 	Aircraft:
 		TurnSpeed: 6
-		Speed: 100
+		Speed: 110
 		Repulsable: true
 		MoveIntoShroud: true
 		IdealSeparation: 1c0
@@ -758,7 +758,7 @@ STORMRIDER:
 	Aircraft:
 		MaximumPitch: 90
 		TurnSpeed: 8
-		Speed: 160
+		Speed: 170
 		AirborneCondition: airborne
 		MoveIntoShroud: true
 	Health:
@@ -862,7 +862,7 @@ SCRGLYDER1:
 		IntoActor: scrglyder2
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 110
+		Speed: 120
 		Repulsable: true
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Water
@@ -915,7 +915,7 @@ SCRDESTROYER:
 		Bounds: 100,75,0,-20
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 50
+		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
 	Targetable@Essence:
@@ -974,7 +974,7 @@ SCRTRANS:
 		Bounds: 100,50
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 90
+		Speed: 100
 		LandWhenIdle: true
 		Repulsable: true
 		MoveIntoShroud: true
@@ -1021,7 +1021,7 @@ SCRINCOUNCIL:
 		HP: 50000
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 60
+		Speed: 70
 		MoveIntoShroud: true
 	WithSpriteBody:
 		Sequence: dummy
@@ -1079,11 +1079,9 @@ SCRCARRIER:
 		Bounds: 130,130
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 60
+		Speed: 70
 		Repulsable: true
 		MoveIntoShroud: true
-		TakeoffSound: orcaup1.aud
-		LandingSound: orcadwn1.aud
 	Health:
 		HP: 60000
 	Targetable@GROUND:
@@ -1212,7 +1210,7 @@ SCRBATTLESHIP:
 		Notification: BattleCruiserDetected
 	Aircraft:
 		TurnSpeed: 5
-		Speed: 50
+		Speed: 60
 		Repulsable: true
 		MoveIntoShroud: true
 	Health:
@@ -1436,7 +1434,7 @@ BASILISK:
 		VoiceSet: Limpet
 	Aircraft:
 		TurnSpeed: 6
-		Speed: 65
+		Speed: 75
 		MoveIntoShroud: true
 	Health:
 		HP: 35000
@@ -1481,7 +1479,7 @@ DEVOURER:
 		Bounds: 120, 75, 0, -35
 	Aircraft:
 		TurnSpeed: 6
-		Speed: 45
+		Speed: 55
 		CruiseAltitude: 0c750
 		Repulsable: true
 		MoveIntoShroud: true

@@ -12,7 +12,7 @@ SMECH:
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
-		Speed: 90
+		Speed: 100
 		Crushes: crate
 	Health:
 		HP: 17500
@@ -49,7 +49,7 @@ MMCH:
 		Prerequisites: ~gaweap
 	Mobile:
 		TurnSpeed: 5
-		Speed: 70
+		Speed: 80
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 40000
@@ -90,7 +90,7 @@ APC:
 		Prerequisites: ~gaweap, gapile
 	Mobile:
 		TurnSpeed: 5
-		Speed: 85
+		Speed: 95
 		TerrainSpeeds:
 			Water: 60
 	Health:
@@ -148,7 +148,7 @@ HVR:
 		BuildPaletteOrder: 5
 		Prerequisites: ~gaweap, garadr
 	Mobile:
-		Speed: 99
+		Speed: 110
 		TurnSpeed: 9
 		TerrainSpeeds:
 	Health:
@@ -189,7 +189,7 @@ JUG:
 		BuildPaletteOrder: 6
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 50
+		Speed: 60
 	Health:
 		HP: 21000
 	AttackFrontal:
@@ -232,7 +232,7 @@ SONIC:
 	-RejectsOrders@berserk:
 	Mobile:
 		TurnSpeed: 4
-		Speed: 60
+		Speed: 70
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 55000
@@ -268,7 +268,7 @@ G4TNK:
 		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gatech
 	Mobile:
-		Speed: 50
+		Speed: 60
 		TurnSpeed: 5
 		Crushes: wall, crate, infantry
 	Health:
@@ -311,7 +311,7 @@ HMEC:
 		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
-		Speed: 40
+		Speed: 50
 		Crushes: wall, crate, infantry
 	-RejectsOrders@berserk:
 	Health:
@@ -379,7 +379,7 @@ BGGY:
 		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 100
+		Speed: 110
 		Crushes: crate
 	Health:
 		HP: 27500
@@ -639,7 +639,7 @@ TTNK:
 		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 10
-		Speed: 85
+		Speed: 95
 		Crushes: wall, crate, infantry
 		RequiresCondition: undeployed && !empdisable
 	Health:
@@ -772,7 +772,7 @@ BIKE:
 	-ActorLostNotification:
 	Mobile:
 		TurnSpeed: 10
-		Speed: 105
+		Speed: 115
 		Crushes: crate
 	Armor@Bike:
 		Type: Bike
@@ -805,7 +805,7 @@ SAPC:
 		Description: Troop transport that can move underground.\n\nSpecial:\n- Can move underground.\n- Can transport up to 5 infantry.\n- Can crush infantry.\n- Cannot receive orders but halt when underground.
 	Mobile:
 		TurnSpeed: 5
-		Speed: 71
+		Speed: 80
 		RequiresCondition: !empdisable && !loading
 		Subterranean: true
 		SubterraneanCondition: submerged
@@ -866,7 +866,7 @@ SUBTANK:
 		Prerequisites: ~naweap, natech
 	Mobile:
 		TurnSpeed: 6
-		Speed: 81
+		Speed: 90
 		Crushes: wall, crate, infantry
 		RequiresCondition: !empdisable && !loading
 		Subterranean: true
@@ -948,7 +948,7 @@ ARMH:
 	Health:
 		HP: 16000
 	Mobile:
-		Speed: 60
+		Speed: 70
 		TurnSpeed: 5
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -985,7 +985,7 @@ STNK:
 		Queue: Vehicle
 	Mobile:
 		TurnSpeed: 9
-		Speed: 100
+		Speed: 110
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 25000
@@ -1038,7 +1038,7 @@ MUTQUAD:
 		Prerequisites: ~muweap
 	Mobile:
 		TurnSpeed: 7
-		Speed: 85
+		Speed: 95
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 30000
@@ -1085,7 +1085,7 @@ LYNX:
 		Name: Lynx
 	Mobile:
 		TurnSpeed: 7
-		Speed: 90
+		Speed: 100
 		Crushes: wall, crate, infantry
 	WithFacingSpriteBody:
 	Health:
@@ -1127,7 +1127,7 @@ STRUCK:
 		Prerequisites: ~muweap, murax
 	Mobile:
 		TurnSpeed: 9
-		Speed: 90
+		Speed: 100
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 25000
@@ -1190,7 +1190,7 @@ WOLF:
 	Health:
 		HP: 30000
 	Mobile:
-		Speed: 80
+		Speed: 90
 		SharesCell: false
 		-RequiresCondition: !WebDisable
 	ExternalCondition@berserk:
@@ -1215,7 +1215,7 @@ MRLS:
 		Prerequisites: ~muweap, muhall
 	Mobile:
 		TurnSpeed: 10
-		Speed: 80
+		Speed: 90
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 15000
@@ -1269,7 +1269,7 @@ DEATHCLAW:
 		IdleSequences: idle2, idle3
 	-Crushable:
 	Mobile:
-		Speed: 100
+		Speed: 110
 		SharesCell: False
 		-RequiresCondition: !WebDisable
 	Armament:
@@ -1305,7 +1305,7 @@ HVRTRUK3:
 		Volume: 3
 	Mobile:
 		TurnSpeed: 5
-		Speed: 50
+		Speed: 60
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -1337,7 +1337,7 @@ SCRSCORPION:
 		Prerequisites: ~scrweap
 	Mobile:
 		TurnSpeed: 6
-		Speed: 91
+		Speed: 100
 		Crushes: crate
 	Health:
 		HP: 28125
@@ -1372,7 +1372,7 @@ SCRMBT:
 	Health:
 		HP: 28125
 	Mobile:
-		Speed: 80
+		Speed: 90
 	Turreted:
 		TurnSpeed: 7
 	Armament:
@@ -1405,7 +1405,7 @@ SCRGLYDER2:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 91
+		Speed: 100
 	Transforms:
 		IntoActor: scrglyder1
 	Armament:
@@ -1435,7 +1435,7 @@ SCRRECHARGER:
 		Prerequisites: ~scrweap, scrdepot, scrradr
 	Mobile:
 		TurnSpeed: 6
-		Speed: 70
+		Speed: 80
 	Health:
 		HP: 25000
 	-WithIdleOverlay@shield:
@@ -1492,7 +1492,7 @@ SCRMOBMINE:
 	Health:
 		HP: 16800
 	Mobile:
-		Speed: 75
+		Speed: 95
 	AutoTarget:
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -1524,7 +1524,7 @@ TRIPOD:
 		IconPalette: chromescrin
 	Mobile:
 		TurnSpeed: 8
-		Speed: 70
+		Speed: 80
 		Crushes: crate, infantry
 	Health:
 		HP: 37500
@@ -1604,7 +1604,7 @@ CENTURION:
 		Prerequisites: ~cabweap
 	Mobile:
 		TurnSpeed: 5
-		Speed: 60
+		Speed: 70
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 50000
@@ -1653,7 +1653,7 @@ REAPERCAB:
 	Selectable:
 		Bounds: 40,40,0,-10
 	Mobile:
-		Speed: 85
+		Speed: 95
 		SharesCell: False
 		Crushes: nada
 	Explodes:
@@ -1699,7 +1699,7 @@ REPAIRVEHICLE:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 60
+		Speed: 70
 		TurnSpeed: 5
 	Armament:
 		Weapon: RepairVehicleRep
@@ -1733,7 +1733,7 @@ CABAPC:
 		Prerequisites: ~cabweap, cabradr
 	Mobile:
 		TurnSpeed: 8
-		Speed: 120
+		Speed: 130
 	Voiced:
 		VoiceSet: Limpet
 	Health:
@@ -1775,7 +1775,7 @@ SPIDERARTY:
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
 		TurnSpeed: 12
-		Speed: 70
+		Speed: 80
 		Crushes: crate, infantry
 		TerrainSpeeds:
 	Voiced:
@@ -1815,7 +1815,7 @@ PALADIN:
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
 		TurnSpeed: 6
-		Speed: 60
+		Speed: 70
 		Crushes: wall, crate, infantry
 	-RejectsOrders@berserk:
 	SelfHealing@Permanent:
@@ -1865,7 +1865,7 @@ JUGGER:
 		Name: Juggernaut
 	Mobile:
 		TurnSpeed: 6
-		Speed: 65
+		Speed: 75
 	Health:
 		HP: 21000
 	AttackFrontal:
@@ -1900,7 +1900,7 @@ LIMPED:
 	Health:
 		HP: 10000
 	Mobile:
-		Speed: 80
+		Speed: 90
 		Crushes: crate
 	Transforms:
 		IntoActor: dlimpet
@@ -1925,7 +1925,7 @@ REPAIR:
 	Health:
 		HP: 20000
 	Mobile:
-		Speed: 60
+		Speed: 70
 		TurnSpeed: 5
 	Armament:
 		Weapon: RepairVehicleRep
@@ -1946,7 +1946,7 @@ SGEN:
 		Name: Mobile Stealth Generator
 	Mobile:
 		TurnSpeed: 6
-		Speed: 80
+		Speed: 90
 	RenderVoxels:
 	Health:
 		HP: 20000
@@ -1969,7 +1969,7 @@ SCRDRONEC:
 	Health:
 		HP: 25000
 	Mobile:
-		Speed: 70
+		Speed: 80
 	RenderSprites:
 	-WithIdleOverlay@shield:
 	WithFacingSpriteBody:
