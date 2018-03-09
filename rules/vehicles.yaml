@@ -1,6 +1,6 @@
 SMECH:
 	Inherits: ^Walker
-	Inherits@1: ^6CellVision
+	Inherits@1: ^7CellVision
 	Inherits@2: ^BasicStealthDetection
 	Valued:
 		Cost: 400
@@ -315,7 +315,7 @@ HMEC:
 		Crushes: wall, crate, infantry
 	-RejectsOrders@berserk:
 	Health:
-		HP: 150000
+		HP: 200000
 	AnnounceOnSeen:
 		Notification: MammothDetected
 	AttackFrontal:
@@ -366,7 +366,7 @@ NODMCV:
 BGGY:
 	Inherits: ^VoxelTank
 	Inherits@1: ^AutoTargetGround
-	Inherits@2: ^6CellVision
+	Inherits@2: ^7CellVision
 	Inherits@3: ^BasicStealthDetection
 	Valued:
 		Cost: 300
@@ -379,10 +379,10 @@ BGGY:
 		Prerequisites: ~naweap
 	Mobile:
 		TurnSpeed: 8
-		Speed: 110
+		Speed: 130
 		Crushes: crate
 	Health:
-		HP: 27500
+		HP: 15000
 	Cargo:
 		MaxWeight: 1
 		PipCount: 1
@@ -426,6 +426,9 @@ BGGY:
 		LocalOffset: 0,-43,384, 0,43,384
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
+		RequiresCondition: !loaded
+	FirepowerMultiplier@MilitantRifle:
+		Modifier: 120
 		RequiresCondition: !loaded
 	Armament@militant:
 		Weapon: BuggyCannon
@@ -498,7 +501,7 @@ BGGY:
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.float
 	Armament@reclaimer:
-		Weapon: ProcessingHuman
+		Weapon: ReclaimerHit
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.reclaimer
 	Armament@glad:
@@ -583,6 +586,7 @@ BGGY:
 
 BUGGYHOLOGRAM:
 	Inherits: BGGY
+	Inherits@1: ^3CellVision
 	-Buildable:
 	WithDecoration@holoicon:
 		Image: holoicon
@@ -707,6 +711,7 @@ TTNK:
 
 TICKHOLOGRAM:
 	Inherits: TTNK
+	Inherits@1: ^3CellVision
 	-Buildable:
 	WithDecoration@holoicon:
 		Image: holoicon
@@ -781,6 +786,9 @@ BIKE:
 	Passenger:
 		CargoType: Infantry
 		Weight: 5
+	WithRangeCircle:
+		Range: 2c0
+		Type: DemoBike
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
@@ -1027,7 +1035,7 @@ MUTQUAD:
 	Inherits@3: ^MutRender
 	Inherits@4: ^8CellVision
 	Valued:
-		Cost: 700
+		Cost: 600
 	Tooltip:
 		Name: Quad Cannon
 	Buildable:
@@ -1366,7 +1374,7 @@ SCRMBT:
 		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water).\nAbsorbs essence from killed units to heal.\n- Cannot crush infantry.
 		Prerequisites: ~scrweap
 	Valued:
-		Cost: 1000
+		Cost: 950
 	Tooltip:
 		Name: Hover Tank
 	Health:

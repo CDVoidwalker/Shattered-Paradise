@@ -103,11 +103,11 @@ cybdog:
 	die1:
 		Start: 254
 		Length: 12
-		ShadowStart: 504
+		ShadowStart: 540
 	die2:
-		Start: 149
-		Length: 23
-		ShadowStart: 519
+		Start: 266
+		Length: 21
+		ShadowStart: 551
 	shoot:
 		Start: 174
 		Length: 10

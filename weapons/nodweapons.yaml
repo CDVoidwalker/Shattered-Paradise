@@ -153,7 +153,7 @@ BuggyCannon:
 	Projectile: BulletAS
 		Speed: 1c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 3000
+		Damage: 3600
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 BikeExplo:
@@ -162,6 +162,7 @@ BikeExplo:
 	Inherits@2: ^Large_Explosion
 	ValidTargets: Ground, Water, Water, Air
 	InvalidTargets: Air
+	Report: gexpbara, gexpbarb, gexpbarc
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 700
 		Damage: 90000
@@ -170,8 +171,19 @@ BikeExplo:
 		InvalidTargets: Air
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath
 		Versus:
-			Bike: 1
 			BuildingArmor: 200
+	Warhead@5Sharpnel: FireShrapnel
+		Weapon: NukeFlame3
+		Amount: 60
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+
+NukeFlame3:
+	Inherits: NukeFlame
+	Range: 2c0
+	Projectile: BulletAS
+		Blockable: False
+	-MinRange:
 
 Tick90mm:
 	Inherits: ^APWarhead

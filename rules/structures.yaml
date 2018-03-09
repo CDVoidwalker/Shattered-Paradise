@@ -135,7 +135,7 @@ GARADR:
 		Name: GDI Radar
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
-		PauseOnLowPower: yes
+		PauseOnCondition: disabled
 	Selectable:
 		Bounds: 96, 48, 0, -6
 		DecorationBounds: 96, 118, 0, -38
@@ -206,7 +206,7 @@ GTDROP:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 9
-		Prerequisites: gatech, ~structures.gdi
+		Prerequisites: gatech, ~structures.gdi, ~techlevel.unrestricted
 		BuildLimit: 1
 		Description: Staging area for drop pod assault. \n\nSpecial:\n- Provides access to Helldiver Drop support\n- Unlocks the Mammoth MKII\n- Requires power to operate
 	Valued:
@@ -414,7 +414,7 @@ NARADR:
 		Prerequisites: proc, ~structures.nod
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
-		PauseOnLowPower: yes
+		PauseOnCondition: disabled
 	Tooltip:
 		Name: Nod Radar
 	Selectable:
@@ -515,13 +515,13 @@ NAMISL:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 9
-		Prerequisites: natech, ~structures.nod
-		Description: Provides access to Nod´s Catalyst Rockets.\n\nSpecial:\n- Provides access to Toxin Missile\n- Requires power to operate
+		Prerequisites: natech, ~structures.nod, ~techlevel.unrestricted
+		Description: Provides access to Nod´s Chemical Missiles.\n\nSpecial:\n- Provides access to the Chemical Missile\n- Requires power to operate
 		BuildLimit: 1
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: Nod Missile Silo
+		Name: Chemical Missile Silo
 	ProvidesPrerequisite:
 		Prerequisite: tech
 	Building:
@@ -542,7 +542,7 @@ NAMISL:
 		Cursor: nuke
 		Icon: toxinmissile
 		ChargeInterval: 4500
-		Description: Toxin Missile
+		Description: Chemical Missile
 		LongDesc: Launches a warhead filled with tiberium, it spawns gas clouds and radiates the area.\nHas a fast reaction time.
 		BeginChargeSound:
 		EndChargeSound: SuperWeaponReady
@@ -785,7 +785,7 @@ MUTSW2:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 9
-		Prerequisites: muhall, ~structures.mut
+		Prerequisites: muhall, ~structures.mut, ~techlevel.unrestricted
 		Description: With this structure Mutant commanders are able to summon veinhole monster.\n\nSpecial:\n- Provides access to Veinhole Summon\n- Requires power to operate
 		BuildLimit: 1
 	Valued:
@@ -1092,7 +1092,7 @@ SCRRADR:
 	SelectionDecorations:
 	WithIdleOverlay@DISH:
 		Sequence: idle-dish
-		PauseOnLowPower: yes
+		PauseOnCondition: disabled
 	RequiresBuildableArea:
 		AreaTypes: building
 
@@ -1182,7 +1182,7 @@ SCRADVPOWR:
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 9
-		Prerequisites: scrtech, ~structures.scr
+		Prerequisites: scrtech, ~structures.scr, ~techlevel.unrestricted
 		Description: Teleports infantry and vehicles to a selected area.\n\nSpecial:\n- Provides access to the reality desestabilizer support power.\n- Requires power to operate.
 		BuildLimit: 1
 	Valued:
@@ -1493,7 +1493,7 @@ CABOBELISK:
 		Name: Nanomachine Core
 	Buildable:
 		Queue: Building
-		Prerequisites: cabtech, ~structures.cab
+		Prerequisites: cabtech, ~structures.cab, ~techlevel.unrestricted
 		Description: Cabal´s Support Superweapon.\n\nSpecial:\n- Provides access to Nanomachine Swarms\n- Requires power to operate
 		BuildPaletteOrder: 9
 		BuildLimit: 1

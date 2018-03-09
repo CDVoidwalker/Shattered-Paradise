@@ -6,6 +6,7 @@
 		Explosions: water_piffs
 		ExplosionPalette: ra
 		ValidTargets: Water
+		InvalidTargets: Ground
 
 ^Tiny_Explo:
 	Warhead@2Eff: CreateEffect

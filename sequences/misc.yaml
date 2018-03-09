@@ -833,9 +833,9 @@ clustermissile:
 		Offset: 0,-50
 
 toxinmissile:
-	up: atnuke
+	up: chemnuke
 		ZOffset: 1023
-	down: atnuke
+	down: chemnuke
 		Start: 1
 		ZOffset: 1023
 

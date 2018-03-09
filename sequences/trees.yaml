@@ -169,8 +169,8 @@ fona15:
 veinhole:
 	Defaults: veinhole
 		UseTilesetExtension: true
-		ZOffset: -512
-		Offset: 0,-64, 64
+		ZOffset: -9999
+		Offset: 0,-60, 60
 	idle:
 	dead:
 	stand:
@@ -181,8 +181,10 @@ veinhole:
 		UseTilesetExtension: false
 		Length: *
 
-veinholeforg:
+veinhole2:
 	Inherits: veinhole
+	Defaults: veinhole
+		Offset: 0,-32, 64
 
 minivein:
 	defaults:

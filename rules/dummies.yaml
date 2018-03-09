@@ -433,7 +433,7 @@ INFTIBSPAWN:
 	Explodes:
 		Weapon: SpawnZombie
 		EmptyWeapon: SpawnVisc
-		LoadedChance: 25
+		LoadedChance: 35
 
 VEHICLETIBSPAWN:
 	Inherits: INFTIBSPAWN
@@ -479,7 +479,6 @@ STALKERDUMMY:
 
 SCRINESSENCESMALL:
 	Inherits: ^DUMMYAIRCRAFT
-	Inherits@1: ^AutoTargetGround
 	SelfHealing:
 		Step: -1
 		Delay: 50
@@ -494,10 +493,8 @@ SCRINESSENCESMALL:
 	Health:
 		HP: 2
 		NotifyAppliedDamage: False
-	AttackTurreted:
 	Turreted:
 		TurnSpeed: 99
-	AutoTarget:
 	RevealsShroud:
 	RenderSprites:
 		Image: scrinessencesmall
@@ -508,6 +505,3 @@ SCRINESSENCESMALL:
 		EmptyWeapon: EssenceSmall
 		LoadedChance: 100
 		Chance: 100
-	Armament:
-		Weapon: EssenceSmall
-		TargetStances: Ally

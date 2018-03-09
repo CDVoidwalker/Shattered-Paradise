@@ -32,7 +32,7 @@ GAVULC:
 		Recoils: no
 	Armament@VULCPRIMARY:
 		Weapon: VulcanTower
-		LocalOffset: 768,85,512
+		LocalOffset: 768,85,550, 768,-85,550
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 	WithMuzzleOverlay:
@@ -517,7 +517,7 @@ SCRNEEDLER:
 		Name: Ichor Waste Turret
 	Buildable:
 		Queue: Defense
-		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Cloaks when idle.\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
+		Description: Basic defense.\n\nGood vs Infantry.\n\nSpecial:\n- Requires power to operate.\n- Can mutate killed enemies.\n- Attacks emit radiation that harms infantry in the area.
 		Prerequisites: scrrax, ~structures.scr
 		BuildPaletteOrder: 23
 	Building:
@@ -712,7 +712,7 @@ GAPLUG:
 		DecorationBounds: 115,104,0,-24
 	Buildable:
 		BuildPaletteOrder: 41
-		Prerequisites: proc, gatech, ~structures.gdi
+		Prerequisites: proc, gatech, ~structures.gdi, ~techlevel.unrestricted
 		Description: Communications facility for the Ion Cannon Array.\n\nSpecial:\n- Provides access to Ion Cannon Alpha Strike\n- Requires power to operate
 		Queue: Defense
 		BuildLimit: 1
@@ -807,7 +807,7 @@ NATMPL:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 44
-		Prerequisites: natech, ~structures.nod
+		Prerequisites: natech, ~structures.nod, ~techlevel.unrestricted
 		Description: The religious center of Nod.\n\nSpecial:\n- Provides access to the Atomic Bomb\n- Requires power to operate.
 		BuildLimit: 1
 	ProvidesPrerequisite@buildingname:
@@ -912,7 +912,7 @@ MUTSW1:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 47
-		Prerequisites: muhall, ~structures.mut
+		Prerequisites: muhall, ~structures.mut, ~techlevel.unrestricted
 		Description: Allows to generate powerful Ion Storms.\n\nSpecial:\n- Provides access to Ion Storm\n- Requires power to operate
 		BuildLimit: 1
 	Valued:
@@ -994,7 +994,7 @@ SCRSW1:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
-		Prerequisites: scrtech, ~structures.scr
+		Prerequisites: scrtech, ~structures.scr, ~techlevel.unrestricted
 		Description: Allows the player to call in meteor storm strikes.\n\nSpecial:\n- Provides access to the Wrath of the Creator superweapon.\n- Requires power to operate.
 		BuildLimit: 1
 	Valued:
@@ -1089,7 +1089,7 @@ CABSW1:
 		Name: Iron Savior
 	Buildable:
 		Queue: Defense
-		Prerequisites: cabtech, ~structures.cab
+		Prerequisites: cabtech, ~structures.cab, ~techlevel.unrestricted
 		Description: Energy cannon based off Scrin technology.\n\nSpecial:\n- Provides access to the Iron Savior cannon\n- Requires power to operate
 		BuildPaletteOrder: 53
 		BuildLimit: 1

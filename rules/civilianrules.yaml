@@ -307,9 +307,7 @@ VISC_LRG:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	Mobile:
-		Crushes: crate, infantry
-	Targetable:
-		TargetTypes: Ground, NeutralTibCritter, Vehicle
+		Crushes: nada
 	RenderSprites:
 		Image: vislrg
 
@@ -327,10 +325,8 @@ VISC_LRG_SCRIN:
 	SelfHealing:
 		PercentageStep: -10
 		Step: 0
-		Delay: 25
+		Delay: 50
 		HealIfBelow: 200
-	Mobile:
-		Crushes: nada
 	RenderSprites:
 		Image: vislrg
 
@@ -760,8 +756,6 @@ GAWALL:
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	Health:
 		HP: 30000
-	Armor:
-		Type: Concrete
 	RenderSprites:
 		Image: wall.gdi
 	BlocksProjectiles:
@@ -786,8 +780,6 @@ NAWALL:
 		Description: Stops infantry and blocks enemy fire.\nCan NOT be crushed by tanks.
 	Health:
 		HP: 30000
-	Armor:
-		Type: Concrete
 	RenderSprites:
 		Image: wall.nod
 	BlocksProjectiles:
@@ -2383,6 +2375,7 @@ C_KODIAK:
 
 WELL:
 	Inherits: ^TechBuilding
+	Inherits@1: ^SpawnSmoke
 	Inherits@2: ^3x3Shape
 	Tooltip:
 		Name: Tiberium Well (Awards money)
@@ -2397,13 +2390,15 @@ WELL:
 		Interval: 400
 		Amount: 100
 		CaptureAmount: 500
-	# GivesCashOnCapture:
-		# Amount: 200
 	Health:
 		HP: 100000
 	RenderSprites:
 	Explodes:
 		Weapon: TiberiumExplosion
+	SmokeParticleEmitter:
+		Image: scrsmoke
+		Palette: apolgreenalpha
+		Offset: 1300,0,0
 
 MACHINESHOP:
 	Inherits: ^TechBuilding
@@ -2668,7 +2663,7 @@ EGGS:
 		Condition: SpawnCrabs
 	GrantPeriodicCondition:
 		Condition: SpawnCrabs
-		CooldownDuration: 500
+		CooldownDuration: 400
 	SelfHealing@crab:
 		PercentageStep: -100
 		Step: 0

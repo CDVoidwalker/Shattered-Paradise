@@ -17,13 +17,15 @@
 ^AutoTargetGround:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		MinimumScanTimeInterval: 16
+		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Defence, Air
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence
+		ValidTargets: Infantry, Vehicle, Creep, Water, Building, Defence, Air
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetGroundAssaultMove:
@@ -37,6 +39,8 @@
 
 ^AutoTargetAir:
 	AutoTarget:
+		MinimumScanTimeInterval: 16
+		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: Air
 		InvalidTargets: NoAutoTarget
@@ -44,6 +48,8 @@
 ^AutoTargetAll:
 	AutoTarget:
 		AttackAnythingCondition: stance-attackanything
+		MinimumScanTimeInterval: 16
+		MaximumScanTimeInterval: 20
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
 		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defence
@@ -693,7 +699,7 @@
 		Condition: smoketrail
 		ValidDamageStates: Critical, Heavy
 	SmokeParticleEmitter:
-		RequiresCondition: smoketrail
+		RequiresCondition: smoketrail && !cloakgenerator
 		Sequence: idle
 		SpawnFrequency: 3, 10
 		Gravity: -32,-32,48, 32,32,48
@@ -896,8 +902,8 @@
 			Radius: 500
 	Demolishable:
 	SpawnActorOnDeath@tiberium2:
-		Actor: visc_lrg
-		Probability: 10
+		Actor: inftibspawn
+		Probability: 25
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -956,13 +962,6 @@
 		ValuePercent: 30
 		ActorTypes: shark
 		Factions: scr
-	SpawnActorOnDeath@tiberium2:
-		Actor: visc_sml
-		Probability: 15
-		OwnerType: InternalName
-		InternalOwner: Creeps
-		DeathType: TiberiumDeath
-		RequiresLobbyCreeps: true
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	CaptureNotification:
@@ -1089,6 +1088,7 @@
 		Speed: 60
 		Crushes: crate
 		SharesCell: true
+		WaitAverage: 10
 		TerrainSpeeds:
 			Clear: 100
 			Road: 110
@@ -1176,7 +1176,7 @@
 		DeathType: MilitantFireDeath
 	SpawnActorOnDeath@tiberium:
 		Actor: inftibspawn
-		Probability: 15
+		Probability: 25
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -1457,6 +1457,7 @@
 		Cost: 1
 	Mobile:
 		Crushes: crate
+		WaitAverage: 10
 		TerrainSpeeds:
 			Clear: 100
 			Road: 120
@@ -1465,10 +1466,9 @@
 			Rough: 80
 			Bridge: 120
 			Tiberium: 70
-				PathingCost: 300
 			BlueTiberium: 70
-				PathingCost: 300
 			Veins: 80
+				PathingCost: 300
 		TunnelCondition: inside-tunnel
 		TurnSpeed: 7
 		Voice: Move
@@ -1494,7 +1494,7 @@
 		RequiresLobbyCreeps: false
 	SpawnActorOnDeath@tiberium2:
 		Actor: vehicletibspawn
-		Probability: 15
+		Probability: 25
 		OwnerType: InternalName
 		InternalOwner: Creeps
 		DeathType: TiberiumDeath
@@ -1694,6 +1694,9 @@
 	WithVoxelBody:
 	EditorTilesetFilter:
 		Categories: Aircraft
+	Repairable:
+		RepairBuildings: gadept, scrdepot
+		Voice: Move
 	AmmoPool:
 		Ammo: 8
 	ReloadAmmoPool@AIReload:
@@ -1774,6 +1777,7 @@
 		Type: VehicleArmor
 	Mobile:
 		Speed: 120
+		WaitAverage: 10
 		TurnSpeed: 16
 		Crushes: crate
 		SharesCell: no
@@ -1792,7 +1796,7 @@
 	Selectable:
 		Bounds: 26,26,0,-3
 	Targetable:
-		TargetTypes: Ground, NeutralTibCritter
+		TargetTypes: Ground, NeutralTibCritter, Vehicle
 	AttackMove:
 	HiddenUnderFog:
 	DamagedByTerrain:

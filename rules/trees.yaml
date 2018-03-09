@@ -226,6 +226,9 @@ VEINHOLE:
 	-ThrowsShrapnel@SMALL:
 	-ThrowsShrapnel@LARGE:
 
+VEINHOLE2:
+	Inherits: VEINHOLE
+
 MINIVEIN:
 	Inherits: VEINHOLE
 	Inherits@2: ^1x1Shape

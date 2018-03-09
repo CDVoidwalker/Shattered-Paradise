@@ -20,6 +20,7 @@ Noddy				: Asset Hunter.
 Voidwalker			: Coding & Maintenance.
 ZxGanon				: Balance & Streaming.
 Skyhunter713		: Voice Acting.
+Jrb0001				: Multiplayer server support.
 Trempler			: Mapping.
 
 

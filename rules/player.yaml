@@ -51,6 +51,14 @@ Player:
 	PlayerResources:
 	DeveloperMode:
 		CheckboxEnabled: true
+	ProvidesTechPrerequisite@high:
+		Name: No Superweapons
+		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high
+		Id: nosuperweapons
+	ProvidesTechPrerequisite@unrestricted:
+		Name: Unrestricted
+		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high, techlevel.unrestricted
+		Id: unrestricted
 	Shroud:
 		ExploredMapCheckboxEnabled: True
 	FrozenActorLayer:

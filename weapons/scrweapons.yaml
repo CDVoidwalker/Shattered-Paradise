@@ -3,7 +3,7 @@ SharkJump:
 	ValidTargets: Ground, Water
 	ReloadDelay: 20
 	Range: 1c512
-	Report: fiend2.aud
+	Report: SharkStrike0001.wav, SharkStrike0003.wav, SharkStrike0004.wav, SharkStrike0006.wav
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
@@ -165,7 +165,7 @@ FloatGlaive:
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 100
 	Range: 7c0
-	Report: photon1.wav
+	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 300
@@ -188,6 +188,8 @@ FloatGlaive:
 		Range: 96
 		Duration: 300
 		Condition: BugPoison
+	Warhead@2Eff: CreateEffect
+		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
 PoisonGlaive:
 	ReloadDelay: 75
@@ -205,6 +207,7 @@ PoisonGlaive:
 FloatGlaive10:
 	Inherits: FloatGlaive
 	Range: 2c0
+	-Report:
 	-Warhead@op: FireShrapnel
 	Warhead@1Dam: SpreadDamage
 		Spread: 64
@@ -212,17 +215,9 @@ FloatGlaive10:
 
 FloatGlaive2:
 	Inherits: FloatGlaive
+	-Report:
 	-Warhead@op: FireShrapnel
 		Weapon: FloatGlaive3
-
-# FloatGlaive3:
-	# Inherits: FloatGlaive
-	# Warhead@op: FireShrapnel
-		# Weapon: FloatGlaive4
-
-# FloatGlaive4:
-	# Inherits: FloatGlaive
-	# -Warhead@op: FireShrapnel
 
 GravMineSuicide:
 	ReloadDelay: 150
@@ -275,7 +270,7 @@ ScorpAcid:
 	Range: 4c0
 	Burst: 12
 	BurstDelays: 1
-	Report: flamtnk1.aud
+	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	Projectile: BulletAS
 		Speed: 200
 		Image: acidall32
@@ -337,7 +332,7 @@ SCRMBTLASOR:
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 75
 	Range: 5c0
-	Report: laserpistol.wav
+	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
 	Projectile: LaserZap
 		Width: 50
 		BeamDuration: 5
@@ -359,6 +354,8 @@ SCRMBTLASOR:
 		DamageTypes: Prone60Percent, TriggerProne, FireDeath, ScrinEssenceKill
 		InvalidTargets: Building, Vehicle
 		ValidStances: Enemy, Neutral
+	Warhead@2Eff: CreateEffect
+		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
 ScrMbtCannon:
 	Inherits: ^APWarhead
@@ -950,6 +947,7 @@ DronePlane:
 		Actors: VISC_LRG_SCRIN, VISC_LRG_SCRIN
 		FallRate: 5000
 		Range: 3
+		ValidTargets: Ground, Infantry, Vehicle, Building, Structure, Water, Air
 
 EssenceSmall:
 	ReloadDelay: 45

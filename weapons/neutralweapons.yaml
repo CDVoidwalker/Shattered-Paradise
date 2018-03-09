@@ -83,10 +83,12 @@ CrabAcid:
 	BurstDelays: 5
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
-		Damage: 600
+		Damage: 630
 		ValidTargets: Ground, Water, Vehicle, Infantry, Building
 		InvalidTargets: NeutralTibCritter
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath
+		Versus:
+			BuildingArmor: 75
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: SmallScorch
 		InvalidTargets: Vehicle, Building, Wall

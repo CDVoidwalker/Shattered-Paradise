@@ -447,6 +447,7 @@ MeteorFlame:
 		Speed: 400
 
 ToxinMissile:
+	Inherits: ^Large_Explosion
 	ValidTargets: Ground, Water, Water, Air
 	Warhead@ImpactDamage0: SpreadDamage
 		Spread: 1c0
@@ -455,10 +456,7 @@ ToxinMissile:
 		ValidTargets: Ground, Water, Water, Air
 		Versus:
 			ConcreteArmor: 25
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-	Warhead@SoundEffect0: CreateEffect
-		Explosions: large_explosion
-		ImpactSounds: expnew19.aud
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
 	Warhead@ClusterSmudges0: LeaveSmudge
 		SmudgeType: LargeCrater
 		Size: 1

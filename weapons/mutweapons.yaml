@@ -2,7 +2,7 @@ MarauderShotgun:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 40
-	Range: 4c512
+	Range: 3c512
 	Report: shotfire.wav
 		Image: 120mm
 		Palette: ra
@@ -358,7 +358,7 @@ DeathclawBlow:
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c090
-		Damage: 2800
+		Damage: 2380
 		ValidTargets: Vehicle, Defence, Infantry
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 
@@ -672,7 +672,7 @@ FalconPunch:
 		Range: 3
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3
-		Level: 100
+		Level: 400
 		Falloff: 100, 50, 25
 		MaxLevel: 1000
 

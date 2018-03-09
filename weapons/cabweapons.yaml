@@ -107,7 +107,7 @@ ReaperScytheAA:
 	Warhead@1Dam: SpreadDamage
 		ValidTargets: Air
 
-ProcessingHuman:
+ReclaimerHit:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 75
 	Range: 1c512
@@ -116,7 +116,7 @@ ProcessingHuman:
 	Projectile: BulletAS
 		Speed: 5c682
 	Warhead@1Dam: SpreadDamage
-		Damage: 4500
+		Damage: 6500
 		ValidTargets: Infantry
 		ValidStances: Enemy, Neutral
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
@@ -239,7 +239,6 @@ WorkerMinigun:
 
 Dogzooka:
 	Inherits: JJGrenade
-	Inherits@1: ^RifleWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 75
 	Range: 4c0
@@ -248,6 +247,13 @@ Dogzooka:
 	ValidTargets: Ground, Water
 	Warhead@1Dam: SpreadDamage
 		Damage: 3000
+		Versus:
+			InfantryArmor: 100
+			BuildingArmor: 30
+			VehicleArmor: 15
+			DefenseArmor: 15
+			AircraftArmor: 100
+			ConcreteArmor: 5
 
 ArtisanTurretLasor:
 	ReloadDelay: 50
@@ -571,7 +577,7 @@ WaspBulletAA:
 DevourerGrinder:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 35
-	Range: 300
+	Range: 600
 	MinRange: 50
 	Report: repair11.aud
 	Projectile: InstantHit
@@ -585,8 +591,8 @@ DevourerGrinder:
 		Range: 6
 
 DevourerExplo:
-	ReloadDelay: 3
-	Range: 300
+	ReloadDelay: 25
+	Range: 600
 	MinRange: 50
 	Projectile: InstantHit
 	Warhead@2Eff: CreateEffect
@@ -596,7 +602,7 @@ DevourerExplo:
 DevourerBuff:
 	Inherits: ^RifleWarhead
 	ReloadDelay: 35
-	Range: 300
+	Range: 600
 	MinRange: 50
 	Projectile: InstantExplode
 	Warhead@Acid: GrantExternalCondition
@@ -730,7 +736,7 @@ BlasterProton:
 		Inaccuracy: 1c0
 		Image: TORPEDO
 	Warhead@1Dam: SpreadDamage
-		Spread: 150
+		Spread: 200
 		Damage: 5850
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath

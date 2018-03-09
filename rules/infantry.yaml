@@ -7,7 +7,7 @@ GDIE1:
 		Description: Basic combat infantry.\n\nGood vs: Infantry\n\nSpecial:\n- Crush class: crushable
 		Prerequisites: ~gapile
 	Valued:
-		Cost: 150
+		Cost: 140
 	Tooltip:
 		Name: Marine
 	Health:
@@ -178,6 +178,12 @@ JUMPJETAIR:
 	-ExternalCondition@smoketrail:
 	-ReloadAmmoPool@AIReload:
 	-AmmoPool:
+	WithTextDecoration@primary:
+		Text: F
+		ReferencePoint: Right
+		Color: E0D048
+		ZOffset: 9999
+		RequiresCondition: !lawea
 
 EAGLEGUARD:
 	Inherits: ^Soldier
@@ -302,7 +308,7 @@ NCONF:
 		Prerequisites: ~nahand, natech
 		IconPalette: UnittemIcon
 	Valued:
-		Cost: 850
+		Cost: 800
 	Tooltip:
 		Name: Black Hand Trooper
 	Health:
@@ -336,13 +342,13 @@ NCONF:
 	ExplodeWeapon@1:
 		Weapon: CrusaHoloShrapnel
 		RequiresCondition: HologramSpawn
+	ExplodeWeapon@2:
+		Weapon: FlameHoloShrapnel
+		RequiresCondition: HologramSpawn
 	ExplodeWeapon@3:
 		Weapon: FlameHoloShrapnel
 		RequiresCondition: HologramSpawn
-	ExplodeWeapon@1:
-		Weapon: BuggyHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@2:
+	ExplodeWeapon@4:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
 
@@ -700,7 +706,7 @@ SHARK:
 		Description: Melee creature that tears down enemies.\n\nGood vs Infantry.\n\nSpecial:\n- Absorbs essence from killed units to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\n- Immune to unit radiation (green radiation).
 		Prerequisites: ~scrrax
 	Valued:
-		Cost: 90
+		Cost: 80
 	Tooltip:
 		Name: Razorshark
 	Selectable:
@@ -708,7 +714,7 @@ SHARK:
 	Targetable@Shark:
 		TargetTypes: Shark
 	Health:
-		HP: 11000
+		HP: 8800
 	Mobile:
 		Speed: 85
 		Voice: Move
@@ -904,7 +910,7 @@ COLOSSI:
 		UndeployedCondition: undeployed
 		DeployAnimation: make
 		Facing: 160
-		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
 		DeploySound:
 		UndeploySound:
 	WithInfantryBody:
@@ -1106,7 +1112,7 @@ PDRONE:
 		ScanRadius: 8
 		InitialStance: AttackAnything
 	Armament:
-		Weapon: ProcessingHuman
+		Weapon: ReclaimerHit
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: WebDisable
@@ -1218,7 +1224,7 @@ MOTH:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		Facing: 160
-		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
+		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Tiberium, BlueTiberium
 		DeploySound: place2.aud
 		UndeploySound: clicky1.aud
 	Cloak@cloakgenerator:

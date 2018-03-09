@@ -128,7 +128,7 @@ Titan120mm:
 	Inherits: ^APWarhead
 	Inherits@2: ^Mediuml_Clsn
 	ReloadDelay: 80
-	Range: 5c0
+	Range: 6c0
 	Report: 120mmf.aud
 	Projectile: BulletAS
 	Warhead@1Dam: SpreadDamage
@@ -153,7 +153,7 @@ HoverMissile:
 		TrailImage: small_smoke_trail
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 4500
+		Damage: 3500
 		InvalidTargets: Air
 		ValidTargets: Ground, Water, Vehicle, Building, Infantry
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
@@ -163,6 +163,7 @@ HoverMissileAA:
 	ValidTargets: Air
 	InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 	Warhead@1Dam: SpreadDamage
+		Damage: 4500
 		ValidTargets: Air
 		InvalidTargets: Ground, Water, Vehicle, Building, Infantry
 
@@ -185,7 +186,7 @@ JuggCannon:
 		ContrailUsePlayerColor: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 450
+		Spread: 300
 		Damage: 5500
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
@@ -416,13 +417,14 @@ VulcanTower:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Piffs
 	ReloadDelay: 26
+	Burst: 2
 	Range: 6c768
 	Report: chaingn1.aud
 	Projectile: BulletAS
 		Speed: 1c682
 		Blockable: False
 	Warhead@1Dam: SpreadDamage
-		Damage: 3300
+		Damage: 3000
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 GdiRedEye:
@@ -511,8 +513,8 @@ FirestormExplo:
 		Speed: 100c0
 		Blockable: false
 	Warhead@3Dam_area: SpreadDamage
-		Spread: 300
-		Damage: 10000
+		Spread: 150
+		Damage: 30000
 		ValidTargets: Ground, Water, Air
 		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
