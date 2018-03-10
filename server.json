@@ -1,6 +1,6 @@
 {
     "mod": "sp",
-    "modversion": "{Build 20180309}",
+    "modversion": "{Build 20180309 I}",
     "map": "50795cd535bb2f204d25403e0d794c520aa8658d",
     "timestep": 40,
     "orderlatency": 3,
@@ -69,8 +69,8 @@
             "locked": false
         },
         "crates": {
-            "value": true,
-            "preferredvalue": true,
+            "value": false,
+            "preferredvalue": false,
             "locked": false
         }
     }

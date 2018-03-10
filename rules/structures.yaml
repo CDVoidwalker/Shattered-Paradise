@@ -880,6 +880,10 @@ drached:
 		ProductionType: Defense
 	ProvidesPrerequisite@scr:
 		Prerequisite: structures.scr
+	ProvidesPrerequisite@12321:
+		Prerequisite: scrinstuff
+		Factions: scr
+		ResetOnOwnerChange: True
 	SelectionDecorations:
 	ProvidesAIPrerequisite@AImoney:
 		Prerequisite: AImoney

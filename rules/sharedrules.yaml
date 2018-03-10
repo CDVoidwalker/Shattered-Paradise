@@ -97,7 +97,7 @@ HARV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 1
-		Prerequisites: ~humanstuff, proc
+		Prerequisites: ~humanstuff, factory
 		InitialActivity: FindResources
 		Description: Collects Tiberium for processing.\n\nSpecial:\n- Harvests Tiberium.\n- Immune to Veins.\n- Can crush infantry.\n- Cannot be mindcontrolled.
 	Selectable:
@@ -381,12 +381,12 @@ GACNST:
 		Type: BarracksHeal
 	Health:
 		HP: 80000
-	Exit:
-		SpawnOffset: -256,1024,0
-		ExitCell: 1,1
 	Exit@1:
 		SpawnOffset: -256,1024,0
 		ExitCell: 2,2
+	Exit:
+		# SpawnOffset: -256,1024,0
+		ExitCell: 0,0
 	Production:
 		Produces: Infantry
 	PrimaryBuilding:
