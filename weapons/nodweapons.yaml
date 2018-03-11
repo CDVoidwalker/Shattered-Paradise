@@ -223,7 +223,7 @@ FlameHoloShrapnel:
 	Inherits: ^NoDamage
 	ReloadDelay: 300
 	Range: 3c0
-	Burst: 3
+	Burst: 2
 	BurstDelays: 2
 	Warhead@op: FireShrapnel
 		Weapon: FlameHologram
@@ -327,8 +327,10 @@ BCLazor:
 		SecondaryBeamZOffset: 2550
 		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
-		Spread: 96
+		Spread: 200
 		Damage: 4000
+		Versus:
+			BuildingArmor: 150
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
 ToxinBerserk:

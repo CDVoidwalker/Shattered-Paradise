@@ -435,7 +435,6 @@ TiberianRocket:
 	Burst: 8
 	Report: rketinf1.aud
 	ValidTargets: Ground, Water
-	InvalidTargets: NeutralTibCritter
 	MinRange: 3c0
 	Projectile: BulletAS
 		Speed: 350
@@ -685,7 +684,7 @@ LeonidCannon:
 	Projectile: InstantHit
 		Innacuracy: 1c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
+		Damage: 4600
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 
 FlakFire:

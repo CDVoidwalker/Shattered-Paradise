@@ -186,7 +186,7 @@ JuggCannon:
 		ContrailUsePlayerColor: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 300
+		Spread: 400
 		Damage: 5500
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 

@@ -42,8 +42,8 @@ SentryGun:
 		Shadow: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Damage: 600
-		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+		Damage: 1200
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 SentinelGun:
 	Inherits: ^RifleWarhead
@@ -467,7 +467,7 @@ DroneHostShell:
 		LaunchAngle: 150
 		RangeLimit: 25
 	Warhead@1Dam: SpreadDamage
-		Spread: 210
+		Spread: 350
 		Damage: 3000
 		Versus:
 			Worker: 25

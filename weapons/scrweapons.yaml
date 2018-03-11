@@ -854,7 +854,7 @@ NeedlerAcid:
 	ReloadDelay: 50
 	Range: 6c768
 	Burst: 7
-	Report: flamtnk1.aud
+	Report: ScrinAcid0000.wav, ScrinAcid0001.wav, ScrinAcid0002.wav, ScrinAcid0003.wav, ScrinAcid0004.wav
 	BurstDelays: 1
 	Projectile: BulletAS
 		Speed: 250
@@ -871,6 +871,16 @@ NeedlerAcid:
 			BuildingArmor: 75
 		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
 		InvalidTargets: Shark
+	Warhead@2Shark: SpreadDamage
+		Spread: 250
+		Damage: 800
+		Versus:
+			InfantryArmor: 150
+			BuildingArmor: 75
+		DamageTypes: Prone100Percent, TriggerProne, TiberiumDeath, ScrinEssenceKill
+		ValidTargets: Shark
+		InvalidTargets: Building, Vehicle
+		ValidStances: Enemy, Neutral
 	Warhead@2Eff: CreateEffect
 		Explosions: tibexp2
 		ExplosionPalette: apolgreenalpha

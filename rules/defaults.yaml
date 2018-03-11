@@ -928,9 +928,9 @@
 		AreaTypes: building
 	ExternalCapturable:
 		CaptureCompleteTime: 7
+	ExternalCapturableBar:
 	GivesExperience:
 		PlayerExperienceModifier: 1
-	ExternalCapturableBar:
 	RevealsShroud:
 		Type: Footprint 
 	RepairableBuilding:
@@ -2132,7 +2132,6 @@
 		Types: wall, gate
 	-WithDeathAnimation:
 	-Building:
-	-ExternalCapturable:
 	-GivesBuildableArea:
 	-MustBeDestroyed:
 	-WithSpriteBody:

@@ -366,11 +366,10 @@ drache:
 		Tick: 150
 		Offset: 0, 0, 60
 	stand:
-		Facings: 8
+		Facings: 20
 	run:
 		Start: 1
-		Length: 20
-		Facings: 1
+		Facings: 20
 		Tick: 150
 	icon: dracheicon
 		Offset: 0, 0

@@ -477,7 +477,7 @@ CERBERUS:
 		BuildPaletteOrder: 5
 		Prerequisites: ~nahpad, natmpl
 	Selectable:
-		Bounds: 110,90
+		Bounds: 90,45
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 60
@@ -581,10 +581,10 @@ MUTHELI:
 		FacingTolerance: 20
 		Voice: Attack
 	AmmoPool:
-		Ammo: 14
-		PipCount: 7
+		Ammo: 10
+		PipCount: 5
 		ReloadCount: 2
-		ReloadDelay: 36
+		ReloadDelay: 50
 		PipType: Ammo
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
@@ -810,9 +810,8 @@ drache:
 	Tooltip:
 		Name: Scrin Host Station
 	Selectable:
-		Bounds: 144, 60, 0, -6
+		Bounds: 100, 85, 0, -24
 		Priority: 4
-		DecorationBounds: 200,200
 	Health:
 		HP: 100000
 	Voiced:
@@ -820,7 +819,7 @@ drache:
 	Targetable@MindControlInmune:
 		TargetTypes: MindControlInmune
 	Aircraft:
-		TurnSpeed: 5
+		TurnSpeed: 3
 		Speed: 35
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
@@ -913,7 +912,7 @@ SCRDESTROYER:
 	Inherits@3: ^SelfReloads
 	Inherits@5: ^7CellVision
 	Valued:
-		Cost: 1500
+		Cost: 1350
 	Tooltip:
 		Name: Destroyer
 	Buildable:
@@ -924,7 +923,7 @@ SCRDESTROYER:
 	Voiced:
 		VoiceSet: Limpet
 	Selectable:
-		Bounds: 100,75,0,-20
+		Bounds: 85,50,0,-12
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 60
@@ -983,7 +982,7 @@ SCRTRANS:
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
 	Selectable:
-		Bounds: 100,50
+		Bounds: 90,50
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 100
@@ -1024,7 +1023,7 @@ SCRINCOUNCIL:
 	Tooltip:
 		Name: Creation engine
 	Selectable:
-		Bounds: 100,90
+		Bounds: 80,70,0,-12
 	Voiced:
 		VoiceSet: Limpet
 	Selectable:
@@ -1086,7 +1085,7 @@ SCRCARRIER:
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	Selectable:
-		Bounds: 130,130
+		Bounds: 90,55
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 70
@@ -1211,7 +1210,7 @@ SCRBATTLESHIP:
 	Voiced:
 		VoiceSet: Limpet
 	Selectable:
-		Bounds: 140,100
+		Bounds: 90,55
 	Targetable@Essence:
 		TargetTypes: ScrinUnit
 	AnnounceOnSeen:
@@ -1435,7 +1434,7 @@ DEVOURER:
 		BuildPaletteOrder: 15
 		Prerequisites: ~cabair, cabtech
 	Selectable:
-		Bounds: 120, 75, 0, -35
+		Bounds: 80, 60, 0, -24
 	Aircraft:
 		TurnSpeed: 6
 		Speed: 55

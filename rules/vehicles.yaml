@@ -1787,7 +1787,7 @@ SPIDERARTY:
 		Description: Heavy Artillery that deploys drones at the targetted area.\n\nGood vs: Ground Targets\n\nSpecial:\n- Deals AOE damage\n- Minimum attack distance.\n- Upon attack drones get spawned that attack the enemy.\n- Converts killed units into workers.\n- Can crush infantry.
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
-		TurnSpeed: 12
+		TurnSpeed: 6
 		Speed: 80
 		Crushes: crate, infantry
 		TerrainSpeeds:

@@ -340,15 +340,12 @@ NCONF:
 	ExternalCondition@MineSpawn:
 		Condition: HologramSpawn
 	ExplodeWeapon@1:
-		Weapon: CrusaHoloShrapnel
+		Weapon: FlameHoloShrapnel
 		RequiresCondition: HologramSpawn
 	ExplodeWeapon@2:
 		Weapon: FlameHoloShrapnel
 		RequiresCondition: HologramSpawn
 	ExplodeWeapon@3:
-		Weapon: FlameHoloShrapnel
-		RequiresCondition: HologramSpawn
-	ExplodeWeapon@4:
 		Weapon: TickHoloShrapnel
 		RequiresCondition: HologramSpawn
 
@@ -951,7 +948,7 @@ CABSENTRY:
 		Crushes: nada
 	GrantPeriodicCondition:
 		Condition: KillMe
-		CooldownDuration: 250
+		CooldownDuration: 500
 	KillsSelf@KillMe:
 		RequiresCondition: KillMe
 	ExternalCondition@KillMe:

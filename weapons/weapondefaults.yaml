@@ -62,7 +62,7 @@
 ^APWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Projectile: BulletAS
-		Speed: 550
+		Speed: 650
 		Image: 120mm
 		Shadow: true
 		LaunchAngle: 75
