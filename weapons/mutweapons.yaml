@@ -689,6 +689,7 @@ LeonidCannon:
 
 FlakFire:
 	Inherits: ^FullDamage
+	Inherits: ^Small_Brnl
 	ReloadDelay: 50
 	Range: 10c0
 	Report: cygun1.aud
@@ -699,8 +700,8 @@ FlakFire:
 		Damage: 4000
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: piffs
-		InvalidTargets: Water, air, AirHit
+		ValidTargets: Ground, Water, Air, AirHit
+		ExplosionPalette: apolra2salpha
 	Warhead@3EffWater: CreateEffect
 		Explosions: water_piffs
 		ExplosionPalette: ra
