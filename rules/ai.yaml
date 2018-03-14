@@ -6,7 +6,7 @@ Player:
 		SquadSizeRandomBonus: 15
 		MinimumExcessPower: 40
 		BuildingCommonNames:
-			ConstructionYard: gacnst, drached, cabyard, nodyard
+			ConstructionYard: gacnst, drached, cabyard, nodyard, mutyard
 			Refinery: gdiref, nodref, scrproc, cabproc, muproc
 			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 			Barracks: gapile, nahand, mutrax, cabrax, scrrax
@@ -15,7 +15,7 @@ Player:
 			Silo: gasilo
 		UnitQueues: Vehicle, Infantry, Air
 		UnitsCommonNames:
-			Mcv: mcv, drache, cabmcv, nodmcv
+			Mcv: mcv, drache, cabmcv, nodmcv, mutmcv
 		ProtectUnitScanRadius: 35
 		RushAttackScanRadius: 35
 		RushInterval: 1125
@@ -296,7 +296,7 @@ Player:
 		Name: CD AI
 		Type: CDAI
 		BuildingCommonNames:
-			ConstructionYard: gacnst, drached, cabyard, nodyard
+			ConstructionYard: gacnst, drached, cabyard, nodyard, mutyard
 			Refinery: gdiref, nodref, scrproc, cabproc, muproc
 			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 			Barracks: gapile, nahand, mutrax, cabrax, scrrax
@@ -305,7 +305,7 @@ Player:
 			Silo: gasilo
 		UnitQueues: Vehicle, Infantry, Air
 		UnitsCommonNames:
-			Mcv: mcv, drache, cabmcv, nodmcv
+			Mcv: mcv, drache, cabmcv, nodmcv, mutmcv
 		MinimumExcessPower: 50
 		SquadSize: 20
 		SquadSizeRandomBonus: 20
@@ -615,7 +615,7 @@ Player:
 		CheckCaptureTargetsForVisibility: false
 		MaximumCaptureTargetOptions: 15
 		BuildingCommonNames:
-			ConstructionYard: gacnst, drached, cabyard, nodyard
+			ConstructionYard: gacnst, drached, cabyard, nodyard, mutyard
 			Refinery: gdiref, nodref, scrproc, cabproc, muproc
 			Power: gapowr, napowor, naapwr, cabpowr, mutpowr, scrpowr
 			Barracks: gapile, nahand, mutrax, cabrax, scrrax
@@ -623,7 +623,7 @@ Player:
 			Production: gapile, nahand, mutrax, cabclaw, scrrax, gaweap, naweap, mutweap, cabweap, scrweap, gahpad, nahpad, muair, cabair, scrair
 			Silo: gasilo
 		UnitsCommonNames:
-			Mcv: mcv, drache, cabmcv, nodmcv
+			Mcv: mcv, drache, cabmcv, nodmcv, mutmcv
 		BuildingLimits:
 			gadept: 1
 			scrdepot: 1

@@ -351,7 +351,6 @@ NODMCV:
 	-WithVoxelBody:
 	RenderSprites:
 		-Image:
-		-FactionImages:
 	WithFacingSpriteBody:
 	WithMoveAnimation:
 		MoveSequence: run
@@ -799,6 +798,12 @@ BIKE:
 		EmptyWeapon: BikeExplo
 	AttackSuicides:
 		PauseOnCondition: empdisable
+	WithDecoration@TNT:
+		Image: bombicon
+		Sequence: idle
+		ReferencePoint: Bottom, Left
+		Palette: mouse
+		ShowToEnemies: true
 
 SAPC:
 	Inherits: ^VoxelVehicle
@@ -1028,6 +1033,34 @@ STNK:
 	-SmokeParticleEmitter:
 	-ExternalCondition@smoketrail:
 
+#####################################################################
+# FORGOTTEN
+#####################################################################
+
+MUTMCV:
+	Inherits: MCV
+	Inherits@1: ^MutRender
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		Prerequisites: ~muweap, gadept
+	Tooltip:
+		Name: Mutant MCV
+	-RenderVoxels:
+	-WithVoxelBody:
+	RenderSprites:
+		-Image:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
+	Transforms:
+		IntoActor: mutyard
+		Offset: -1,-1
+		Facing: 160
+		TransformSounds: place2.aud
+		NoTransformSounds:
+		Voice: Move
+
 MUTQUAD:
 	Inherits: ^VoxelTank
 	Inherits@1: ^Ra2vxl
@@ -1152,10 +1185,6 @@ STRUCK:
 		PipCount: 3
 		UnloadVoice: Unload
 		LoadingCondition: notmobile
-	RenderVoxels:
-		Scale: 0.8
-		LightAmbientColor: 0.4, 0.4, 0.4
-		LightDiffuseColor: 0.6, 0.6, 0.6
 	AutoTarget:
 	AttackGarrisoned:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
@@ -1328,6 +1357,12 @@ HVRTRUK3:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
+	WithDecoration@TNT:
+		Image: bombicon
+		Sequence: idle
+		ReferencePoint: Bottom, Left
+		Palette: mouse
+		ShowToEnemies: true
 
 SCRSCORPION:
 	Inherits@1: ^Walker
@@ -1591,7 +1626,6 @@ CABMCV:
 	-WithVoxelBody:
 	RenderSprites:
 		-Image:
-		-FactionImages:
 	WithFacingSpriteBody:
 	WithMoveAnimation:
 		MoveSequence: run

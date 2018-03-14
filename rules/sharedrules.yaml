@@ -51,7 +51,7 @@ MCV:
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 110
-		Prerequisites: ~humanmcv, gadept
+		Prerequisites: ~gaweap, gadept
 		Description: Deploys into a Construction Yard.\n\nSpecial:\n- Provides a build radius for structures.\n- Can crush infantry.\n- Maximun production speed is reached with 7 Conyards.\n- Max production speed reduces production time by 50%.\n- Cannot be mindcontrolled.
 	Valued:
 		Cost: 2000
@@ -83,10 +83,6 @@ MCV:
 	SelectionDecorations:
 	RenderSprites:
 		Image: mcv.gdi
-		FactionImages:
-			gdi: mcv.gdi
-			nod: mcv.nod
-			mut: mcv.mut
 
 HARV:
 	Inherits: ^VoxelVehicle
@@ -304,16 +300,9 @@ GACNST:
 		Factions: gdi, nod, cab, mut
 		Prerequisite: humanstuff
 		ResetOnOwnerChange: True
-	ProvidesPrerequisite@humanmcv:
-		Factions: gdi, mut
-		Prerequisite: humanmcv
-		ResetOnOwnerChange: True
 	ProvidesPrerequisite@gdi:
 		Factions: gdi
 		Prerequisite: structures.gdi
-	ProvidesPrerequisite@mut:
-		Factions: mut
-		Prerequisite: structures.mut
 	EmitInfantryOnSell@humanengie:
 		ActorTypes: engineer
 		Factions: gdi, nod

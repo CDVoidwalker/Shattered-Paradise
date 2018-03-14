@@ -230,18 +230,6 @@ mcv.gdi:
 	Inherits: ^EmpOverlay
 	icon: sidebar-gdi|mcvicon
 
-mcv.nod:
-	Inherits: ^EmpOverlay
-	icon: sidebar-nod|mcvicon
-
-mcv.mut:
-	Inherits: ^EmpOverlay
-	icon: mutmcvicon
-
-mcv.cab:
-	Inherits: ^EmpOverlay
-	icon: cabmcvicon
-
 ^Harvester:
 	Inherits@2: ^SpriteVehicleWithShadow
 	idle:
@@ -270,7 +258,7 @@ gdiharv:
 
 nodharv:
 	Inherits: ^Harvester
-	icon: sidebar-nod|harvicon
+	icon: nodharvicon
 
 mutharv:
 	Inherits: ^Harvester

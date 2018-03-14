@@ -151,7 +151,7 @@ World:
 	MPStartUnits@MCV:
 		Class: none
 		ClassName: MCV Only
-		Factions: gdi, mut
+		Factions: gdi
 		BaseActor: mcv
 	MPStartUnits@MCVnod:
 		Class: none
@@ -163,6 +163,11 @@ World:
 		ClassName: MCV Only
 		Factions: cab
 		BaseActor: cabmcv
+	MPStartUnits@MCVmut:
+		Class: none
+		ClassName: MCV Only
+		Factions: mut
+		BaseActor: mutmcv
 	MPStartUnits@MCVscr:
 		Class: none
 		ClassName: MCV Only

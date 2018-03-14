@@ -710,12 +710,8 @@ BattleshipCannon:
 	Projectile: BulletAS
 		Speed: 500
 		Image: purpBullet
-		TrailImage: purpBullet
 		Inaccuracy: 1c0
-		ContrailLength: 5
-		Shadow: true
 		Palette: playerscrin
-		LaunchAngle: 15
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
 		ValidTargets: Ground, Water, Infantry, Vehicle, water

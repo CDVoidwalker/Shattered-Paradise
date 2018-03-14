@@ -269,31 +269,9 @@ NODYARD:
 		Prerequisite: structures.nod
 	ProvidesPrerequisite@grantself:
 		Factions: gdi, nod, cab, mut, scr
-	-ProvidesPrerequisite@humanmcv:
 	-EmitInfantryOnSell@humanengie:
 	-EmitInfantryOnSell@mutengie:
 	EmitInfantryOnSell@snowflake:
-		ActorTypes: swarmling
-	EmitInfantryOnSell@gdi:
-		ValuePercent: 15
-		ActorTypes: gdie1
-		Factions: gdi
-	EmitInfantryOnSell@nod:
-		ValuePercent: 15
-		ActorTypes: altnode1
-		Factions: nod
-	EmitInfantryOnSell@cab:
-		ValuePercent: 15
-		ActorTypes: worker
-		Factions: cab
-	EmitInfantryOnSell@mut:
-		ValuePercent: 15
-		ActorTypes: marauder
-		Factions: mut
-	EmitInfantryOnSell@scr:
-		ValuePercent: 15
-		ActorTypes: shark
-		Factions: scr
 
 NAPOWR:
 	Inherits: ^PowerPlant
@@ -584,6 +562,28 @@ NAMISL:
 		RequiresCondition: powerdown
 		Modifier: 0
 	WithNukeLaunchAnimation:
+
+MUTYARD:
+	Inherits: GACNST
+	Inherits@1: ^MutRender
+	Transforms:
+		IntoActor: mutmcv
+		Offset: 1,1
+		Facing: 160
+		DeployCursor: undeploy
+	-WithIdleOverlay@TOP:
+	-WithIdleOverlay@SIDE:
+	-WithIdleOverlay@FRONT:
+	-WithBuildingPlacedOverlay:
+	ProvidesPrerequisite@mut:
+		Factions: gdi, nod, cab, mut, scr
+		Prerequisite: structures.mut
+	ProvidesPrerequisite@grantself:
+		Factions: gdi, nod, cab, mut, scr
+	-EmitInfantryOnSell@humanengie:
+	-EmitInfantryOnSell@mutengie:
+	EmitInfantryOnSell@snowflake:
+		ActorTypes: e2
 
 MUPOWR:
 	Inherits: ^Building
@@ -1253,31 +1253,10 @@ CABYARD:
 		Prerequisite: structures.cab
 	ProvidesPrerequisite@grantself:
 		Factions: gdi, nod, cab, mut, scr
-	-ProvidesPrerequisite@humanmcv:
 	-EmitInfantryOnSell@humanengie:
 	-EmitInfantryOnSell@mutengie:
 	EmitInfantryOnSell@snowflake:
 		ActorTypes: swarmling
-	EmitInfantryOnSell@gdi:
-		ValuePercent: 15
-		ActorTypes: gdie1
-		Factions: gdi
-	EmitInfantryOnSell@nod:
-		ValuePercent: 15
-		ActorTypes: altnode1
-		Factions: nod
-	EmitInfantryOnSell@cab:
-		ValuePercent: 15
-		ActorTypes: worker
-		Factions: cab
-	EmitInfantryOnSell@mut:
-		ValuePercent: 15
-		ActorTypes: marauder
-		Factions: mut
-	EmitInfantryOnSell@scr:
-		ValuePercent: 15
-		ActorTypes: shark
-		Factions: scr
 
 CABPOWR:
 	Inherits: ^PowerPlant

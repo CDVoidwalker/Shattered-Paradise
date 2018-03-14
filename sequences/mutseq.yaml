@@ -722,6 +722,24 @@ mutheli:
 		Start: 4
 		Length: 8
 
+##########################################################################
+# Buildings
+##########################################################################
+
+mutmcv:
+	Inherits: ^EmpOverlay
+	Defaults:
+		Offset: 0,-3,0
+		UseTilesetCode: False
+	idle:
+		Facings: 32
+		ShadowStart: 156
+	stand:
+		Facings: 32
+		ShadowStart: 156
+	icon: mutmcvicon
+		Offset: 0, 0
+
 mupowr:
 	Defaults:
 		Offset: 0, -24, 24

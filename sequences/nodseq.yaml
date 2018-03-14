@@ -453,10 +453,10 @@ subtank:
 
 stnk:
 	Inherits: ^EmpOverlay
-	idle: stnksprite
+	idle: stealthtank2#stnksprite
 		Facings: -32
 		ShadowStart: 32
-	icon: stealthtankicon
+	icon: stnkicon#stealthtankicon
 
 sgen:
 	Inherits: ^EmpOverlay
