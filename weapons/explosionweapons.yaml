@@ -224,6 +224,33 @@ ZombieExplosion:
 		Falloff: 100, 50, 25
 		MaxLevel: 1000
 
+DebrisSpawner:
+	Inherits: ^NoDamage
+	ReloadDelay: 100
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water, Air, AirHit
+	Warhead@op: FireShrapnel
+		Weapon: SparkDebris
+		Amount: 12
+		ValidTargets: Ground, Water, Air, AirHit
+		InvalidTargets: Infantry, Vehicle, Building, Wall
+	Warhead@1: CreateEffect
+		Explosions: marnflash6
+		ExplosionPalette: MarnAlphaAlpha
+		ValidTargets: Ground, Water, Infantry, Vehicle, Building, Air
+
+SparkDebris:
+	Range: 1c0
+	Report:
+	Projectile: BulletAS
+		Speed: 50, 125
+		Innacuracy: 256
+		LaunchAngle: 150, 250
+		Image: sparkprojectile
+
 SmallDebris:
 	Inherits@2: ^Shrapnel
 	ReloadDelay: 60
@@ -231,6 +258,7 @@ SmallDebris:
 	Report:
 	Projectile: BulletAS
 		Speed: 50, 125
+		Innacuracy: 256
 		LaunchAngle: 91, 255
 		Image: dbrissm
 		Sequences: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10

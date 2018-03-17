@@ -1,28 +1,3 @@
-FiendShard:
-	ReloadDelay: 30
-	Burst: 3
-	Range: 5c0
-	Report: fiend2.aud
-	Projectile: BulletAS
-		Speed: 213
-		Image: CRYSTAL4
-		Inaccuracy: 512
-		Shadow: true
-		LaunchAngle: 60
-		Palette: greentiberium
-	Warhead@1Dam: SpreadDamage
-		Damage: 3500
-		Versus:
-			VehicleArmor: 60
-			DefenseArmor: 60
-			ConcreteArmor: 20
-		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
-	Warhead@3EffWater: CreateEffect
-		Explosions: small_watersplash
-		ExplosionPalette: player
-		ImpactSounds: ssplash3.aud
-		ValidImpactTypes: Water
-
 LightTowerClaxon:
 	ReloadDelay: 200
 	Report: klax1.aud
@@ -36,9 +11,6 @@ LightTowerClaxon:
 GreenTibRadiation:
 	ReloadDelay: 100
 	Projectile: InstantExplode
-	# Warhead@1Dam: SpreadDamage
-		# Damage: 1
-		# Spread: 1
 	Warhead@8Radio: CreateRadioactivity
 		Range: 1, 2, 3, 4, 5
 		Falloff: 100, 65, 45, 25, 5
@@ -129,13 +101,6 @@ Veins:
 		Explosions: veins
 		ExplosionPalette: player
 
-Tiberium:
-	ReloadDelay: 25
-	Warhead@1Dam: SpreadDamage
-		Spread: 42
-		Damage: 2
-		DamageTypes: TiberiumDeath
-
 Repair:
 	ReloadDelay: 80
 	Range: 1c819
@@ -149,15 +114,9 @@ Repair:
 		Damage: -5000
 		ValidTargets: Repair
 
-TiberiumHeal:
-	ReloadDelay: 16
-	Warhead@1Dam: SpreadDamage
-		Spread: 42
-		Damage: -2
-
 Demolish:
 	Warhead@1Dam: SpreadDamage
-		DamageTypes: DefaultDeath
+		DamageTypes: ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_twlt
 		ExplosionPalette: effectalpha75

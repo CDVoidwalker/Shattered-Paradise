@@ -311,3 +311,9 @@ explosion:
 		Offset: 0, -660, 60
 		ZRamp: 1
 		Tick: 100
+	marnflash1: marnflash1
+	marnflash2: marnflash2
+	marnflash3: marnflash3
+	marnflash4: marnflash4
+	marnflash5: marnflash5
+	marnflash6: marnflash6

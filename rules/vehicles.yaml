@@ -95,6 +95,9 @@ APC:
 			Water: 60
 	Health:
 		HP: 35000
+	WithCargo:
+		DisplayTypes: Infantry, Vehicle
+		LocalOffset: 390,-256,0, 390,256,0, 0,0,0, -390,-256,0, -390,256,0
 	Turreted:
 		TurnSpeed: 10
 		Offset: -200,0,0
@@ -782,9 +785,6 @@ BIKE:
 		Type: Bike
 	Health:
 		HP: 7000
-	Passenger:
-		CargoType: Infantry
-		Weight: 5
 	WithRangeCircle:
 		Range: 2c0
 		Type: DemoBike
@@ -1296,7 +1296,7 @@ DEATHCLAW:
 	Targetable:
 		TargetTypes: Ground, Infantry, Razorshark
 	AutoTarget:
-		ScanRadius: 8
+		ScanRadius: 6
 		InitialStance: AttackAnything
 	Armor:
 		Type: VehicleArmor

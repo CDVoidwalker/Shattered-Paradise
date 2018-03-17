@@ -353,6 +353,9 @@ lurkertrail:
 		ZOffset: 1023
 		Tick: 30
 
+sparkprojectile:
+	idle:
+
 viscproj:
 	idle:
 		Offset: 0,6

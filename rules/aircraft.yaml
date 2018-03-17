@@ -167,6 +167,7 @@ ORCAB:
 TRNSPORT:
 	Inherits: ^Helicopter
 	Inherits@1: ^9CellVision
+	Inherits@2: ^SpriteActor
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -177,26 +178,42 @@ TRNSPORT:
 		BuildPaletteOrder: 2
 		Prerequisites: ~humanstuff, gadept
 	Aircraft:
-		LandWhenIdle: yes
+		LandWhenIdle: True
+		RepulsionSpeed: 40
+		AltitudeVelocity: 350
+		MaximumPitch: 350
+		IdealSeparation: 3c0
 		TurnSpeed: 5
 		Speed: 130
 		CruiseAltitude: 2800
 		InitialFacing: 0
-		MoveIntoShroud: false
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
 	Health:
 		HP: 17500
 	-RenderVoxels:
 	-WithVoxelBody:
 	WithFacingSpriteBody:
+		RequiresCondition: !loaded
+	WithFacingSpriteBody@attack:
+		Sequence: idle2
+		RequiresCondition: loaded
+	BodyOrientation:
+		QuantizedFacings: 32
 	WithShadow:
 	RenderSprites:
 	Selectable:
 		Bounds: 44,32,0,-8
 		Priority: 4
-	Carryall:
-		Voice: Move
-		LocalOffset: 0, 0, -224
+	Cargo:
+		Types: Vehicle
+		MaxWeight: 3
+		PipCount: 1
+		UnloadVoice: Unload
+		PassengerFacing: 1
+		LoadedCondition: loaded
+		LoadingCondition: notmobile
+	WithCargo:
+		DisplayTypes: Infantry, Vehicle
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.Husk
 	-ReloadAmmoPool@AIReload:

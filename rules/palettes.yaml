@@ -41,6 +41,13 @@
 	PaletteFromFile@effect:
 		Name: effect
 		Filename: anim.pal
+	PaletteFromFile@MarnAlpha:
+		Name: MarnAlpha
+		Filename: MarnAlpha.pal
+	PaletteFromPaletteWithAlpha@MarnAlphaAlpha:
+		Name: MarnAlphaAlpha
+		Alpha: 0.1
+		BasePalette: MarnAlpha
 	PaletteFromFile@effect-nolite:
 		Name: effect-ignore-lighting
 		Filename: anim.pal
@@ -225,6 +232,9 @@
 	PaletteFromFile@apolra2y:
 		Name: apolra2y
 		Filename: apolra2y.pal
+	PaletteFromFile@apolra2s:
+		Name: apolra2s
+		Filename: apolra2s.pal
 	PaletteFromPaletteWithAlpha@apolgreyalpha:
 		Name: apolgreyalpha
 		BasePalette: apgrey
@@ -256,6 +266,10 @@
 	PaletteFromPaletteWithAlpha@apolra2yalpha:
 		Name: apolra2yalpha
 		BasePalette: apolra2y
+		Alpha: 0.7
+	PaletteFromPaletteWithAlpha@apolra2salpha:
+		Name: apolra2salpha
+		BasePalette: apolra2s
 		Alpha: 0.7
 	PaletteFromJasc32File@gradgreen:
 		Name: gradgreen

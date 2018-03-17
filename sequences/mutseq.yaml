@@ -4,108 +4,84 @@ marauder:
 		Tick: 80
 	stand:
 		Facings: 8
-		ShadowStart: 448
 	run:
 		Start: 8
 		Length: 8
 		Facings: 8
-		ShadowStart: 456
 	idle1:
 		Start: 72
 		Length: 18
-		ShadowStart: 520
 	idle2:
 		Start: 124
 		Length: 14
-		ShadowStart: 569
 	prone-run:
 		Start: 222
 		Length: 8
 		Facings: 8
-		ShadowStart: 670
 	prone-stand:
 		Start: 223
 		Facings: 8
 		Stride: 8
-		ShadowStart: 670
 	die1:
 		Start: 138
 		Length: 6
-		ShadowStart: 586
 	die2:
 		Start: 158
 		Length: 8
-		ShadowStart: 607
 	die-crushed:
 		Start: 148
 		Length: 2
-		ShadowStart: 451
 		Tick: 800
 		ZOffset: -511
 	shoot:
 		Start: 166
 		Length: 7
 		Facings: 8
-		ShadowStart: 614
 	prone-shoot:
 		Start: 302
 		Length: 7
 		Facings: 8
-		ShadowStart: 750
 	standup-0:
 		Start: 286
 		Length: 2
 		Facings: 8
-		ShadowStart: 552
 	make:
 		Start: 367
 		Length: 9
-		ShadowStart: 815
 	turret:
 		Start: 440
 		Facings: 8
-		ShadowStart: 888
 	turret-shoot:
 		Start: 376
 		Length: 8
 		Facings: 8
-		ShadowStart: 824
 	idle:
 		Start: 440
 		Facings: 8
-		ShadowStart: 888
 	muzzle0:
 		Start: 376
 		Length: 8
-		ShadowStart: 824
 	muzzle1:
 		Start: 384
 		Length: 8
-		ShadowStart: 832
 	muzzle2:
 		Start: 392
 		Length: 8
-		ShadowStart: 840
 	muzzle3:
 		Start: 400
 		Length: 8
-		ShadowStart: 848
 	muzzle4:
 		Start: 408
 		Length: 8
-		ShadowStart: 856
 	muzzle5:
 		Start: 416
 		Length: 8
-		ShadowStart: 864
 	muzzle6:
 		Start: 424
 		Length: 8
-		ShadowStart: 872
 	muzzle7:
 		Start: 432
 		Length: 8
-		ShadowStart: 880
 	icon: maraudericon
 
 e3:
@@ -237,71 +213,49 @@ seer:
 		Tick: 80
 	stand:
 		Facings: 8
-		ShadowStart: 454
 	run:
 		Start: 8
 		Length: 8
 		Facings: 8
-		ShadowStart: 462
 	shoot:
 		Start: 238
 		Length: 10
 		Facings: 8
-		ShadowStart: 692
 	idle1:
 		Start: 72
 		Length: 13
-		ShadowStart: 526
 	idle2:
 		Start: 136
 		Length: 23
-		ShadowStart: 577
 	prone-run:
 		Start: 174
 		Length: 8
 		Facings: 8
-		ShadowStart: 628
 	prone-stand:
 		Start: 406
 		Stride: 2
 		Facings: 8
-		ShadowStart: 860
 	prone-shoot:
 		Start: 318
 		Length: 11
 		Facings: 8
-		ShadowStart: 772
 	die1:
 		Start: 422
 		Length: 8
-		ShadowStart: 876
 	die2:
 		Start: 446
 		Length: 7
-		ShadowStart: 892
 		Tick: 80
 	die-crushed:
 		Start: 441
 		Length: 4
-		ShadowStart: 896
 		Tick: 800
 		ZOffset: -511
 	standup-0:
 		Start: 406
 		Length: 2
 		Facings: 8
-		ShadowStart: 860
 	icon: seericon
-
-fiendnexus:
-	idle: invis
-	icon: fiendicon
-		Offset: 0, 0
-
-clawnexus:
-	idle: invis
-	icon: deathclawicon
-		Offset: 0, 0
 
 doggie:
 	Inherits@1: ^InfantryDeathAnims
@@ -452,65 +406,52 @@ psyker:
 		Tick: 80
 	stand:
 		Facings: 8
-		ShadowStart: 591
 	run:
 		Start: 8
 		Length: 13
 		Facings: 8
-		ShadowStart: 599
 	idle1:
 		Start: 112
 		Length: 21
-		ShadowStart: 703
 	idle2:
 		Start: 132
 		Length: 24
-		ShadowStart: 724
 	prone-run:
 		Start: 156
 		Length: 14
 		Facings: 8
-		ShadowStart: 747
 	prone-stand:
 		Start: 156
 		Facings: 8
 		Stride: 6
-		ShadowStart: 747
 	die1:
 		Start: 261
 		Length: 19
-		ShadowStart: 851
 	die2:
 		Start: 279
 		Length: 15
-		ShadowStart: 870
 		Tick: 80
 	shoot:
 		Start: 423
 		Length: 21
 		Facings: 8
-		ShadowStart: 1014
 	die-crushed:
 		Start: 159
 		Length: 5
-		ShadowStart: 451
 		Tick: 800
 		ZOffset: -511
 	charge:
 		Start: 295
 		Length: 6
 		Facings: 8
-		ShadowStart: 886
 	prone-shoot:
 		Start: 343
 		Length: 9
 		Facings: 8
-		ShadowStart: 934
 	standup-0:
 		Start: 407
 		Length: 2
 		Facings: 8
-		ShadowStart: 999
 	icon: psykericon
 
 wolf:
@@ -733,26 +674,21 @@ mutmcv:
 		UseTilesetCode: False
 	idle:
 		Facings: 32
-		ShadowStart: 156
 	stand:
 		Facings: 32
-		ShadowStart: 156
 	icon: mutmcvicon
 		Offset: 0, 0
 
 mupowr:
 	Defaults:
 		Offset: 0, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 35
-		ShadowStart: 92
 	damaged-idle:
 		Start: 46
-		ShadowStart: 103
 	dead:
 		Start: 46
-		ShadowStart: 103
 		Tick: 400
 	idle-lights:
 		Start: 35
@@ -764,7 +700,6 @@ mupowr:
 		Tick: 150
 	make:
 		Length: 35
-		ShadowStart: 57
 	light: ulpha
 		UseTilesetCode: false
 	emp-overlay: emp_fx01
@@ -780,16 +715,13 @@ mupowr:
 murax:
 	Defaults:
 		Offset: 0, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 25
-		ShadowStart: 52
 	damaged-idle:
 		Start: 26
-		ShadowStart: 53
 	dead:
 		Start: 26
-		ShadowStart: 53
 		Tick: 400
 	make:
 		Length: 24
@@ -812,13 +744,10 @@ muproc:
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
-		ShadowStart: 66
 	damaged-idle:
 		Start: 33
-		ShadowStart: 69
 	dead:
 		Start: 33
-		ShadowStart: 69
 		Tick: 400
 	make:
 		Length: 29
@@ -865,13 +794,10 @@ muproc2:
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
-		ShadowStart: 66
 	damaged-idle:
 		Start: 33
-		ShadowStart: 69
 	dead:
 		Start: 33
-		ShadowStart: 69
 		Tick: 400
 	make:
 		Length: 29
@@ -913,24 +839,19 @@ muproc2:
 muweap:
 	Defaults:
 		Offset: -12, -42
-		UseTilesetCode: true
-	idle: mtweap_1
-		ShadowStart: 3
+		UseTilesetCode: false
+	idle: muweap_1
 		ZOffset: -1024
-	damaged-idle: mtweap_1
+	damaged-idle: muweap_1
 		Start: 1
-		ShadowStart: 3
 		ZOffset: -1024
-	idle-roof: mtweap_2
-		ShadowStart: 3
+	idle-roof: muweap_2
 		ZOffset: 512
-	damaged-idle-roof: mtweap_2
+	damaged-idle-roof: muweap_2
 		Start: 1
-		ShadowStart: 3
 		ZOffset: 512
-	dead: mtweap_2
+	dead: muweap_2
 		Start: 2
-		ShadowStart: 5
 		Tick: 400
 	production-lights: ntweap_a
 		Length: 16
@@ -941,24 +862,21 @@ muweap:
 		Length: 16
 		Tick: 100
 		ZOffset: 2048
-	build-door: mtweap_b
+	build-door: muweap_b
 		Length: 11
-		ShadowStart: 11
 		ZOffset: 512
-	damaged-build-door: mtweap_b
+	damaged-build-door: muweap_b
 		Length: 11
-		ShadowStart: 11
 		ZOffset: 512
-	make: mtweapmk
+	make: muweapmk
 		Length: 60
 		Tick: 40
-		ShadowStart: 60
-	bib: mtweap_bb
+	bib: muweap_bb
 		ZOffset: -1024
-	damaged-bib: mtweap_bb
+	damaged-bib: muweap_bb
 		Start: 1
 		ZOffset: -1024
-	dead-bib: mtweap_bb
+	dead-bib: muweap_bb
 		Start: 2
 		ZOffset: -1024
 	emp-overlay: emp_fx01
@@ -975,7 +893,7 @@ muair:
 	Defaults:
 		Offset: 0, -24, 24
 		ZOffset: -32
-		UseTilesetCode: true
+		UseTilesetCode: false
 	active:
 		Start: 30
 		ZOffset: -1c511
@@ -1005,16 +923,13 @@ muair:
 mustable:
 	Defaults:
 		Offset: 10, -36, 36
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 30
-		ShadowStart: 62
 	damaged-idle:
 		Start: 31
-		ShadowStart: 63
 	dead:
 		Start: 31
-		ShadowStart: 63
 		Tick: 400
 	emp-overlay: emp_fx01
 		Length: *
@@ -1024,7 +939,6 @@ mustable:
 		BlendMode: Additive
 	make:
 		Length: 30
-		ShadowStart: 32
 	icon: stableicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1032,16 +946,13 @@ mustable:
 muradr:
 	Defaults:
 		Offset: 0, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 25
-		ShadowStart: 52
 	damaged-idle:
 		Start: 26
-		ShadowStart: 53
 	dead:
 		Start: 26
-		ShadowStart: 53
 		Tick: 400
 	make:
 		Length: 25
@@ -1059,20 +970,16 @@ muradr:
 muhall:
 	Defaults:
 		Offset: 12, -36, 36
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 26
-		ShadowStart: 54
 	damaged-idle:
 		Start: 27
-		ShadowStart: 55
 	dead:
 		Start: 27
-		ShadowStart: 55
 		Tick: 400
 	make:
 		Length: 25
-		ShadowStart: 28
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -1086,14 +993,12 @@ muhall:
 wall.mut:
 	Defaults: mutwall
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle: mutwall
 		Length: 16
-		ShadowStart: 32
 	damaged-idle: mutwall
 		Start: 16
 		Length: 16
-		ShadowStart: 48
 	icon: mutwallicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1101,7 +1006,7 @@ wall.mut:
 mutgate_a:
 	Defaults: mutgate
 		Offset: -24, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 		ZOffset: -3000
 	idle: mutgate
 		Length: 12
@@ -1127,7 +1032,7 @@ mutgate_a:
 mutgate_b:
 	Defaults: mutgate
 		Offset: 24, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 		ZOffset: -512
 	idle: mutgate
 		Start: 12
@@ -1154,7 +1059,7 @@ mutgate_b:
 muward:
 	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 		Length: 1
 	idle:
 		Length: 10
@@ -1175,7 +1080,7 @@ muward:
 mumine:
 	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 		ZOffset: -512
 	idle:
 	damaged-idle:
@@ -1195,7 +1100,7 @@ mumine:
 muflak:
 	Defaults:
 		Offset: 0, -12, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle: dot
 	damaged-idle: dot
 	dead: dot
@@ -1203,16 +1108,13 @@ muflak:
 	turret:
 		Start: 11
 		Facings: 32
-		ShadowStart: 86
 		Offset: 0,-12
 	damaged-turret:
 		Facings: 32
 		Start: 43
-		ShadowStart: 118
 		Offset: 0,-12
 	make:
 		Length: 11
-		ShadowStart: 75
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -1233,16 +1135,13 @@ mucannon:
 	turret:
 		Start: 25
 		Facings: 32
-		ShadowStart: 114
 		Offset: 0,-12
 	damaged-turret:
 		Start: 57
 		Facings: 32
-		ShadowStart: 146
 		Offset: 0,-12
 	make:
 		Length: 24
-		ShadowStart: 89
 		Offset: 0,-12
 	icon: mucannonicon
 		Offset: 0, 0
@@ -1250,16 +1149,13 @@ mucannon:
 mubunkr:
 	Defaults:
 		Offset: 0, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 10
-		ShadowStart: 22
 	damaged-idle:
 		Start: 11
-		ShadowStart: 23
 	dead:
 		Start: 11
-		ShadowStart: 23
 		Tick: 400
 	make:
 		Length: 10
@@ -1277,7 +1173,7 @@ mubunkr:
 muventi:
 	Defaults:
 		Offset: 0, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle: dot
 	damaged-idle: dot
 	dead: dot
@@ -1285,12 +1181,10 @@ muventi:
 		Start: 35
 		Length: 15
 		Tick: 150
-		ShadowStart: 126
 	damaged-idle-lights:
 		Start: 64
 		Length: 15
 		Tick: 150
-		ShadowStart: 156
 	make:
 		Length: 29
 		ShadowStart: 91
@@ -1307,16 +1201,13 @@ muventi:
 mutsw1:
 	Defaults:
 		Offset: -6, -30, 30
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 30
-		ShadowStart: 62
 	damaged-idle:
 		Start: 31
-		ShadowStart: 63
 	dead:
 		Start: 31
-		ShadowStart: 63
 		Tick: 400
 	make:
 		Length: 29
@@ -1334,22 +1225,18 @@ mutsw1:
 mutsw2:
 	Defaults:
 		Offset: 0, -36, 36
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 31
 		Length: 19
-		ShadowStart: 102
 	damaged-idle:
 		Start: 51
 		Length: 19
-		ShadowStart: 122
 	dead:
 		Start: 2
-		ShadowStart: 5
 		Tick: 400
 	make:
 		Length: 29
-		ShadowStart: 71
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0

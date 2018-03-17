@@ -709,6 +709,16 @@
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
 
+^SpawnSpark:
+	GrantConditionOnDamageState@spawnsparks:
+		Condition: spawnsparks
+		ValidDamageStates: Critical, Heavy, Medium
+	ExplodeWeapon@spawnsparks:
+		RequiresCondition: spawnsparks && !cloakgenerator
+		Weapon: DebrisSpawner
+	ExternalCondition@spawnsparks:
+		Condition: spawnsparks
+
 ^DamagedByRadioactivity: #Damage = DamageCoeff * RadioactivityLevel / MaxLevel
 	DamagedByRadioactivity@Default:
 		DamageCoeff: 3000
@@ -834,9 +844,10 @@
 	Inherits@6: ^EmpDisableMobile
 	Inherits@7: ^SpawnSmoke
 	Inherits@8: ^MindControllable
-	Inherits@11: ^DisplayVanguardShield
-	Inherits@13: ^VeinholePoisonVehicle
-	Inherits@14: ^DamagedByRadioactivity
+	Inherits@9: ^SpawnSpark
+	Inherits@10: ^DisplayVanguardShield
+	Inherits@11: ^VeinholePoisonVehicle
+	Inherits@12: ^DamagedByRadioactivity
 	SpeedMultiplier@submerged:
 		Modifier: 60
 		RequiresCondition: submerged
@@ -1538,7 +1549,6 @@
 		Weapons: SmallDebris
 		Pieces: 3, 7
 		Range: 2c0, 5c0
-	Carryable:
 	EditorTilesetFilter:
 		Categories: Vehicle
 
@@ -1594,8 +1604,6 @@
 
 	Mobile:
 		Crushes: wall, crate, infantry
-	Carryable:
-		LocalOffset: 0,0,600
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
