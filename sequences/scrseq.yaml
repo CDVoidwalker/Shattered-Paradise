@@ -617,12 +617,11 @@ scrpowr:
 	Defaults:
 		Offset: -12, -30, 52
 		DepthSpriteOffset: 32, 0
-		UseTilesetCode: true
+		UseTilesetCode: false
 		DepthSprite: isodepth.shp
 	idle:
 		Start: 31
 		Length: 8
-		ShadowStart: 81
 		ZOffset: -1024
 		ZRamp: 1
 		Tick: 100
@@ -630,18 +629,15 @@ scrpowr:
 	damaged-idle:
 		Start: 41
 		Length: 8
-		ShadowStart: 91
 		ZOffset: -1024
 		ZRamp: 1
 		Tick: 100
 		-DepthSprite:
 	dead:
 		Start: 40
-		ShadowStart: 91
 		Tick: 400
 	make:
 		Length: 30
-		ShadowStart: 51
 		DepthSpriteOffset: -12, 0
 	emp-overlay: emp_fx01
 		Length: *
@@ -657,16 +653,13 @@ scrpowr:
 scradvpowr:
 	Defaults:
 		Offset: 0, -36, 36
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 29
-		ShadowStart: 82
 	damaged-idle:
 		Start: 39
-		ShadowStart: 92
 	dead:
 		Start: 40
-		ShadowStart: 92
 		Tick: 400
 	idle-lights:
 		Start: 31
@@ -679,7 +672,6 @@ scradvpowr:
 		Tick: 200
 	make:
 		Length: 30
-		ShadowStart: 52
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -693,20 +685,16 @@ scradvpowr:
 scrrax:
 	Defaults:
 		Offset: 0, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 40
-		ShadowStart: 82
 	damaged-idle:
 		Start: 41
-		ShadowStart: 83
 	dead:
 		Start: 41
-		ShadowStart: 83
 		Tick: 400
 	make:
 		Length: 38
-		ShadowStart: 42
 	ship: scrpodanim
 		UseTilesetCode: false
 		Length: *
@@ -727,33 +715,26 @@ scrproc:
 		UseTilesetCode: false
 	idle:
 		Start: 31
-		ShadowStart: 65
 	damaged-idle:
 		Start: 33
-		ShadowStart: 67
 	dead:
 		Start: 33
-		ShadowStart: 67
 		Tick: 400
 	make:
 		Length: 30
-		ShadowStart: 34
 	bib:
 		Start: 32
-		ShadowStart: 66
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	damaged-bib:
 		Start: 32
-		ShadowStart: 66
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	dead-bib:
 		Start: 32
-		ShadowStart: 66
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
@@ -773,33 +754,26 @@ scrproc2:
 		UseTilesetCode: false
 	idle:
 		Start: 31
-		ShadowStart: 65
 	damaged-idle:
 		Start: 33
-		ShadowStart: 67
 	dead:
 		Start: 33
-		ShadowStart: 67
 		Tick: 400
 	make:
 		Length: 30
-		ShadowStart: 34
 	bib:
 		Start: 32
-		ShadowStart: 66
 		Length: 1
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	damaged-bib:
 		Start: 32
-		ShadowStart: 66
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
 	dead-bib:
 		Start: 32
-		ShadowStart: 66
 		ZOffset: -9999
 		ZRamp: 1
 		# -DepthSprite:
@@ -816,18 +790,15 @@ scrproc2:
 scrair:
 	Defaults:
 		Offset: 0, -36, 36
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 30
-		ShadowStart: 85
 		ZOffset: -1c511
 	damaged-idle:
 		Start: 53
-		ShadowStart: 108
 		ZOffset: -1c511
 	dead:
 		Start: 53
-		ShadowStart: 108
 		ZOffset: -1c511
 		Tick: 400
 	idle-platform:
@@ -838,7 +809,6 @@ scrair:
 		ZOffset: 1c511
 	dead-platform:
 		Start: 54
-		ShadowStart: 5
 		ZOffset: 1c511
 		Tick: 400
 	idle-lights:
@@ -855,7 +825,6 @@ scrair:
 		ZOffset: 0
 	make:
 		Length: 29
-		ShadowStart: 55
 		ZOffset: -1c511
 	emp-overlay: emp_fx01
 		Length: *
@@ -870,16 +839,13 @@ scrair:
 scrradr:
 	Defaults:
 		Offset: 0, -36, 36
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 30
-		ShadowStart: 78
 	damaged-idle:
 		Start: 47
-		ShadowStart: 95
 	dead:
 		Start: 47
-		ShadowStart: 95
 		Tick: 400
 	idle-dish:
 		Start: 31
@@ -893,7 +859,6 @@ scrradr:
 		Tick: 300
 	make:
 		Length: 29
-		ShadowStart: 48
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -908,21 +873,17 @@ scrweap:
 	Defaults:
 		Offset: -12, -42
 		ZOffset: -2048
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 49
-		ShadowStart: 102
 		ZOffset: -1024
 	damaged-idle:
 		Start: 60
-		ShadowStart: 113
 		ZOffset: -1024
 	idle-roof: scrweap_1
-		ShadowStart: 2
 		ZOffset: 2048
 	damaged-idle-roof: scrweap_1
 		Start: 1
-		ShadowStart: 3
 		ZOffset: 2048
 	dead:
 		Start: 51
@@ -941,7 +902,6 @@ scrweap:
 	make:
 		Length: 39
 		Tick: 40
-		ShadowStart: 62
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -955,22 +915,18 @@ scrweap:
 scrdepot:
 	Defaults:
 		Offset: 0, -36, 36
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 29
 		Length: 1
-		ShadowStart: 81
 	damaged-idle:
 		Start: 41
 		Length: 1
-		ShadowStart: 93
 	dead:
 		Start: 41
-		ShadowStart: 83
 		Tick: 400
 	make:
 		Length: 30
-		ShadowStart: 52
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -984,16 +940,13 @@ scrdepot:
 scrtech:
 	Defaults:
 		Offset: 12, -30, 30
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 30
-		ShadowStart: 62
 	damaged-idle:
 		Start: 31
-		ShadowStart: 63
 	dead:
 		Start: 31
-		ShadowStart: 63
 		Tick: 400
 	make:
 		Length: 29
@@ -1011,10 +964,9 @@ scrtech:
 scrwall:
 	Defaults: scrwall
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle: scrwall
 		Length: 16
-		ShadowStart: 16
 	icon: scrwallicon
 		Offset: 0, 0
 		UseTilesetCode: false
@@ -1022,7 +974,7 @@ scrwall:
 scrgate_a:
 	Defaults: scrgate
 		Offset: -24, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 		ZOffset: -3000
 	idle: scrgate
 	dead: scrgate
@@ -1042,7 +994,7 @@ scrgate_a:
 scrgate_b:
 	Defaults: scrgate
 		Offset: 24, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 		ZOffset: -3000
 	idle: scrgate
 		Start: 21
@@ -1064,7 +1016,7 @@ scrgate_b:
 scrneedler:
 	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 92
 		ShadowStart: 186
@@ -1099,7 +1051,7 @@ scrneedler:
 scrtractor:
 	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 31
 		ShadowStart: 128
@@ -1136,7 +1088,7 @@ scrtractor:
 scrmine:
 	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 	damaged-idle:
 	make:
@@ -1155,22 +1107,18 @@ scrmine:
 scrextractor:
 	Defaults:
 		Offset: 0, -12, 12
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 31
 		Length: 11
-		ShadowStart: 85
 	damaged-idle:
 		Start: 42
 		Length: 11
-		ShadowStart: 96
 	dead:
 		Start: 42
-		ShadowStart: 96
 		Tick: 400
 	make:
 		Length: 30
-		ShadowStart: 55
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
@@ -1184,16 +1132,13 @@ scrextractor:
 scrdrone:
 	Defaults:
 		Offset: 0, -24, 32
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 29
-		ShadowStart: 62
 	damaged-idle:
 		Start: 30
-		ShadowStart: 63
 	dead:
 		Start: 30
-		ShadowStart: 63
 		Tick: 400
 	make:
 		Length: 28
@@ -1204,23 +1149,20 @@ scrdrone:
 		UseTilesetCode: false
 		ZOffset: 512
 		BlendMode: Additive
-	icon: strdroneicon
+	icon: scrdroneicon
 		Offset: 0, 0
 		UseTilesetCode: false
 
 scrshield:
 	Defaults:
 		Offset: 0, -24, 24
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 29
-		ShadowStart: 62
 	damaged-idle:
 		Start: 30
-		ShadowStart: 63
 	dead:
 		Start: 30
-		ShadowStart: 63
 		Tick: 400
 	make:
 		Length: 28
@@ -1238,24 +1180,19 @@ scrshield:
 scrsw1:
 	Defaults:
 		Offset: -6, -30, 30
-		UseTilesetCode: true
+		UseTilesetCode: false
 	idle:
 		Start: 30
 		Length: 9
-		ShadowStart: 82
 	damaged-idle:
 		Start: 41
 		Length: 9
-		ShadowStart: 93
 	dead:
 		Start: 41
-		ShadowStart: 93
 		Tick: 400
 	active:
-		ShadowStart: 82
 	make:
 		Length: 29
-		ShadowStart: 52
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0
