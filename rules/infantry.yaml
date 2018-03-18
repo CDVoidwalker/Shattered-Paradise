@@ -221,7 +221,7 @@ ALTNODE1:
 		Description: Light infantry variant.\n\nGood vs: Infantry\n\nSpecial:\n- Does not go prone after taking fire.\n- Crush class: crushable
 		Prerequisites: ~nahand
 	Valued:
-		Cost: 110
+		Cost: 100
 	Tooltip:
 		Name: Militant
 	Health:

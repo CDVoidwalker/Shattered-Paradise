@@ -919,17 +919,6 @@ mwarv:
 	Inherits: ^EmpOverlay
 	icon: mwaricon
 
-trnsport:
-	Inherits@1: ^SpriteVehicle
-	idle:
-		UseClassicFacingFudge: True
-	idle2:
-		Facings: -32
-		UseClassicFacingFudge: True
-		Offset: 0,-25
-	stand:
-	icon: otrnicon
-
 eggs:
 	Inherits: ^EmpOverlay
 	Defaults:

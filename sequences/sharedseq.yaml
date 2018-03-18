@@ -604,6 +604,51 @@ gadept.cab:
 		UseTilesetCode: false
 		-DepthSprite:
 
+trnsport:
+	Inherits@1: ^SpriteVehicle
+	idle:
+		UseClassicFacingFudge: True
+		ZOffset: 3000
+	idle2:
+		Facings: -32
+		UseClassicFacingFudge: True
+		Offset: 0,-25
+		ZOffset: 3000
+	stand:
+	rotor: lrotor
+		Length: 4
+		ZOffset: 4000
+	slow-rotor: lrotor
+		Start: 4
+		Length: 8
+		ZOffset: 4000
+	icon: otrnicon
+
+forgcarryall:
+	Inherits: trnsport
+	idle: forgcarryall
+	idle2: forgcarryall
+	icon: forgcarryallicon
+	rotor: lrotor
+		Length: 4
+		ZOffset: 4000
+	slow-rotor: lrotor
+		Start: 4
+		Length: 8
+		ZOffset: 4000
+
+nodcarryall:
+	Inherits: trnsport
+	idle: nodcarryall
+	idle2: nodcarryall
+	icon: nodcarryallicon
+
+cabcarryall:
+	Inherits: trnsport
+	idle: cabcarryall
+	idle2: cabcarryall
+	icon: cabcarryallicon
+
 ^Napuls:
 	Defaults: ntpuls
 		Offset: 0, -24, 24

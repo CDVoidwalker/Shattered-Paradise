@@ -820,6 +820,7 @@
 	Inherits@1: ^CloudPoison
 	Inherits@2: ^EmpDisable
 	Inherits@3: ^SpawnSmoke
+	Inherits@9: ^SpawnSpark
 
 ^InfantryEffects:
 	Inherits: ^GenericEffects
@@ -857,6 +858,7 @@
 	Inherits@0: ^tractorstop
 	Inherits@3: ^SpawnSmoke
 	Inherits@4: ^DisplayVanguardShield
+	Inherits@9: ^SpawnSpark
 
 ^ProducesStuff:
 	WithTextDecoration@primary:
@@ -1717,6 +1719,14 @@
 	ExternalCondition@AIReload:
 		Condition: AIReload
 
+^AircraftShadow:
+	WithShadow:
+		RequiresCondition: airborne
+	WithShadow@2:
+		Offset: 240,480,0
+		RequiresCondition: !airborne
+		ZOffset: -1000
+
 ^Helicopter:
 	Inherits: ^Aircraft
 	Aircraft:
@@ -1864,7 +1874,7 @@
 	EditorTilesetFilter:
 		Categories: Tree
 	Targetable:
-		TargetTypes: Building, Ground, C4, DetonateAttack
+		TargetTypes: Building, Ground, C4
 	Health:
 		HP: 50000
 		Shape: Circle

@@ -162,6 +162,38 @@ HARV:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
 
+harv.gdi:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: gdiharv
+		-FactionImages:
+
+harv.nod:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: nodharv
+		-FactionImages:
+
+harv.mut:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: mutharv
+		-FactionImages:
+
+harv.cab:
+	Inherits: HARV
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		Image: cabharv
+		-FactionImages:
+
 SCRHARV:
 	Inherits: HARV
 	Inherits@1: ^ScrinVehicle
@@ -335,7 +367,6 @@ GACNST:
 	GrantConditionOnPrerequisite@AImoney:
 		Condition: money
 		Prerequisites: AImoney
-		ReloadCount: 10
 	CashTrickler@AImoney:
 		Interval: 1000
 		Amount: 400
@@ -596,8 +627,8 @@ FLIPPEDPROC:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
 	ToggleConditionOnOrder:
-		DisabledSpeech: EnablePower
-		EnabledSpeech: DisablePower
+		DisabledSpeech: DisablePower
+		EnabledSpeech: EnablePower
 		Condition: powerdown
 		OrderName: PowerDown
 	ProvidesRadar:
@@ -791,7 +822,7 @@ SHAWALL:
 		ResetReloadWhenEnabled: false
 
 NAPOST:
-	Inherits: ^Building
+	Inherits: ^Defence
 	Inherits@IDISABLED: ^DisableOnLowPowerOrPowerDown
 	Buildable:
 		Queue: Defense
@@ -806,7 +837,6 @@ NAPOST:
 		HP: 30000
 	Armor:
 		Type: ConcreteArmor
-	-GivesBuildableArea:
 	-Targetable:
 	Targetable@Fence:
 		TargetTypes: Building, Ground, DetonateAttack
@@ -835,7 +865,11 @@ NAPOST:
 	LineBuildSegmentExternalCondition:
 		RequiresCondition: !disabled && !make-animation-playing
 		Condition: active-posts
-
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	-RenderRangeCircle:
+        
 NAFNCE:
 	Inherits: ^Wall
 	Inherits@1: ^Cloakable
@@ -979,6 +1013,154 @@ GASILO:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+
+TRNSPORT:
+	Inherits@1: ^Helicopter
+	Inherits@2: ^9CellVision
+	Inherits@3: ^SpriteActor
+	Inherits: ^AircraftShadow
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Carryall
+	Buildable:
+		Description: VTOL aircraft for transporting vehicles.\n\nSpecial:\n- Can transport one vehicle.\n- Works as an APC (vehicle moves into carryall)
+		Queue: Air
+		BuildPaletteOrder: 2
+		Prerequisites: ~humanstuff, gadept
+	Aircraft:
+		LandWhenIdle: True
+		RepulsionSpeed: 40
+		AltitudeVelocity: 350
+		MaximumPitch: 350
+		IdealSeparation: 3c0
+		TurnSpeed: 5
+		Speed: 130
+		CruiseAltitude: 2800
+		InitialFacing: 0
+		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium
+	Health:
+		HP: 17500
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+		RequiresCondition: !loaded
+	WithFacingSpriteBody@attack:
+		Sequence: idle2
+		RequiresCondition: loaded
+	BodyOrientation:
+		QuantizedFacings: 32
+	RenderSprites:
+		Image: trnsport
+		FactionImages:
+			gdi: trnsport
+			nod: nodcarryall
+			cab: cabcarryall
+			mut: forgcarryall
+	Selectable:
+		Bounds: 44,32,0,-8
+		Priority: 4
+	Cargo:
+		Types: Vehicle
+		MaxWeight: 3
+		PipCount: 1
+		UnloadVoice: Unload
+		PassengerFacing: 1
+		LoadedCondition: loaded
+		LoadingCondition: notmobile
+	WithCargo:
+		DisplayTypes: Infantry, Vehicle
+	SpawnActorOnDeath:
+		Actor: TRNSPORT.Husk
+	-ReloadAmmoPool@AIReload:
+	-AmmoPool:
+	-GainsExperience:
+	-ProducibleWithLevel:
+	WithIdleOverlay@1Air:
+		Offset: 500,0,650
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && !loaded
+	WithIdleOverlay@2Ground:
+		Offset: 500,0,650
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && !loaded
+	WithIdleOverlay@3Air:
+		Offset: -700,0,900
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && !loaded
+	WithIdleOverlay@4Ground:
+		Offset: -700,0,900
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && !loaded
+	GrantConditionOnFaction:
+		Factions: mut
+		Condition: MutRotor
+	WithIdleOverlay@5Air:
+		Offset: 500,0,2150
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && loaded
+	WithIdleOverlay@6Ground:
+		Offset: 500,0,2150
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && loaded
+	WithIdleOverlay@7Air:
+		Offset: -700,0,2400
+		Sequence: rotor
+		RequiresCondition: airborne && MutRotor && loaded
+	WithIdleOverlay@8Ground:
+		Offset: -700,0,2400
+		Sequence: slow-rotor
+		RequiresCondition: !airborne && MutRotor && loaded
+
+trnsport.gdi:
+	Inherits: TRNSPORT
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		-FactionImages:
+	-WithIdleOverlay@1Air:
+	-WithIdleOverlay@2Ground:
+	-WithIdleOverlay@3Air:
+	-WithIdleOverlay@4Ground:
+	-GrantConditionOnFaction:
+	-WithIdleOverlay@5Air:
+	-WithIdleOverlay@6Ground:
+	-WithIdleOverlay@7Air:
+	-WithIdleOverlay@8Ground:
+
+trnsport.nod:
+	Inherits: trnsport.gdi
+	RenderSprites:
+		Image: nodcarryall
+
+trnsport.mut:
+	Inherits: TRNSPORT
+	Buildable:
+		Prerequisites: ~disabled
+	RenderSprites:
+		-FactionImages:
+		Image: forgcarryall
+	WithIdleOverlay@1Air:
+		RequiresCondition: airborne && !loaded
+	WithIdleOverlay@2Ground:
+		RequiresCondition: !airborne && !loaded
+	WithIdleOverlay@3Air:
+		RequiresCondition: airborne && !loaded
+	WithIdleOverlay@4Ground:
+		RequiresCondition: !airborne && !loaded
+	WithIdleOverlay@5Air:
+		RequiresCondition: airborne && loaded
+	WithIdleOverlay@6Ground:
+		RequiresCondition: !airborne && loaded
+	WithIdleOverlay@7Air:
+		RequiresCondition: airborne && loaded
+	WithIdleOverlay@8Ground:
+		RequiresCondition: !airborne && loaded
+
+trnsport.cab:
+	Inherits: trnsport.gdi
+	RenderSprites:
+		Image: cabcarryall
 
 NAPULS:
 	Inherits: ^Defence

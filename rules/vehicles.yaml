@@ -275,7 +275,7 @@ G4TNK:
 		TurnSpeed: 5
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 60000
+		HP: 70000
 	Turreted:
 		TurnSpeed: 6
 		Offset: -200,0,0
@@ -380,8 +380,8 @@ BGGY:
 		BuildPaletteOrder: 10
 		Prerequisites: ~naweap
 	Mobile:
-		TurnSpeed: 8
-		Speed: 130
+		TurnSpeed: 16
+		Speed: 135
 		Crushes: crate
 	Health:
 		HP: 15000
@@ -686,7 +686,7 @@ TTNK:
 		RequiresCondition: !undeployed
 	-WithVoxelBody:
 	RenderVoxels:
-		Scale: 0.55
+		Scale: 0.6
 	AttackFrontal:
 		Voice: Attack
 		RequiresCondition: undeployed
@@ -1002,8 +1002,9 @@ STNK:
 	Health:
 		HP: 25000
 	WithFacingSpriteBody:
+	GrantCondition:
+		Condition: cloakgenerator
 	Cloak@cloakgenerator:
-		RequiresCondition: !lawea
 		InitialDelay: 80
 		CloakDelay: 80
 		CloakSound: cloak5.aud
@@ -1012,13 +1013,17 @@ STNK:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	Armament:
 		Weapon: StealthRocket
-		LocalOffset: 50,43,900, 50,-43,900
+		LocalOffset: 200,43,900, 50,-43,500
 	Armament@Secondary:
 		Weapon: StealthRocketAA
-		LocalOffset: 50,43,900, 50,-43,900
+		LocalOffset: 200,43,900, 50,-43,500
 	-RenderVoxels:
 	-WithVoxelBody:
-	AttackFrontal:
+	Turreted:
+		Offset: 0,0,600
+		TurnSpeed: 10
+	WithSpriteTurret:
+	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	-RejectsOrders@berserk:
