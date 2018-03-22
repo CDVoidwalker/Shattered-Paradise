@@ -433,7 +433,7 @@ MARAUDER:
 		Description: Wasteland soldiers armed with shotguns.\n\nGood vs: Infantry\n\nSpecial:\n- Heals on Tiberium\n- Can deploy to increase health and attackrange.\n- Crush class: crushable
 		Prerequisites: ~murax
 	Valued:
-		Cost: 100
+		Cost: 120
 	Tooltip:
 		Name: Marauder
 	Voiced:

@@ -258,6 +258,25 @@ CivilianFemale: #can be used for female mutant as well
 		Burned: dedgirl3
 		Zapped: electro1
 
+Desintegrator:
+	DefaultVariant: .wav
+	Voices:
+		Select: desintegrator0012,  desintegrator0013,  desintegrator0014,  desintegrator0015
+		Move: desintegrator0007,  desintegrator0008,  desintegrator0009,  desintegrator0010,  desintegrator0011
+		Attack: desintegrator0000,  desintegrator0001,  desintegrator0002,  desintegrator0003
+		Action: desintegrator0000,  desintegrator0001,  desintegrator0002,  desintegrator0003
+		Die: desintegrator0004,  desintegrator0005,  desintegrator0006
+		Burned: desintegrator0004,  desintegrator0005,  desintegrator0006
+		Zapped: desintegrator0004,  desintegrator0005,  desintegrator0006
+
+Seeker:
+	DefaultVariant: .wav
+	Voices:
+		Select: SeekerVoice0010, SeekerVoice0011, SeekerVoice0012, SeekerVoice0013, SeekerVoice0014
+		Move: SeekerVoice0005, SeekerVoice0006, SeekerVoice0007, SeekerVoice0008, SeekerVoice0009 
+		Attack: SeekerVoice0000, SeekerVoice0001, SeekerVoice0002, SeekerVoice0003, SeekerVoice0004 
+		Action: SeekerVoice0000, SeekerVoice0001, SeekerVoice0002, SeekerVoice0003, SeekerVoice0004 
+
 Scrin:
 	Voices:
 		Select: 32-i000

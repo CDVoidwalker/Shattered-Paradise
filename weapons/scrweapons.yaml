@@ -332,7 +332,7 @@ SCRMBTLASOR:
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 75
 	Range: 5c0
-	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
+	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
 	Projectile: LaserZap
 		Width: 50
 		BeamDuration: 5
@@ -595,7 +595,7 @@ TripodProton:
 		Image: TORPEDO
 		RangeLimit: 35
 	Warhead@1Dam: SpreadDamage
-		Spread: 100
+		Spread: 150
 		Damage: 700
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill

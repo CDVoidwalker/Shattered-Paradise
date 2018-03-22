@@ -392,3 +392,20 @@ scrproc2:
 	icon: scrprocicon2
 		Offset: 0, 0
 		UseTilesetCode: false
+
+hmec:
+	Inherits: ^EmpOverlay
+	idle: mammoth
+		Facings: -8
+		Stride: 21
+		UseTilesetCode: false
+		ShadowStart: 200
+	run: mammoth
+		Facings: -8
+		Length: 21
+		UseTilesetCode: false
+		ShadowStart: 200
+	turret: mammoth
+		Facings: -32
+		Start: 168
+	icon: hmecicon

@@ -394,10 +394,6 @@ smech:
 		Tick: 100
 	icon: smchicon
 
-hmec:
-	Inherits: ^EmpOverlay
-	icon: hmecicon
-
 g4tnk:
 	Inherits@1: ^SpriteVehicleWithShadowAndTurret
 	icon: g4tnkicon

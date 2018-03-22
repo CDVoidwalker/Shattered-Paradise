@@ -4,48 +4,60 @@ worker:
 		Tick: 80
 	stand:
 		Facings: 8
+		ShadowStart: 402
 	run:
 		Start: 8
 		Length: 12
 		Facings: 8
+		ShadowStart: 410
 	idle1:
 		Start: 104
 		Length: 42
+		ShadowStart: 506
 	idle2:
 		Start: 146
 		Length: 42
+		ShadowStart: 548
 	prone-run:
 		Start: 188
 		Length: 9
 		Facings: 8
+		ShadowStart: 590
 	prone-stand:
 		Start: 188
 		Facings: 8
 		Stride: 8
+		ShadowStart: 590
 	die1:
 		Start: 274
 		Length: 9
+		ShadowStart: 675
 	die2:
 		Start: 287
 		Length: 13
+		ShadowStart: 689
 		Tick: 80
 	die-crushed:
 		Start: 267
 		Length: 5
+		ShadowStart: 451
 		Tick: 800
 		ZOffset: -511
 	shoot:
 		Start: 314
 		Length: 5
 		Facings: 8
+		ShadowStart: 716
 	prone-shoot:
 		Start: 354
 		Length: 5
 		Facings: 8
+		ShadowStart: 756
 	standup-0:
 		Start: 260
 		Length: 2
 		Facings: 8
+		ShadowStart: 552
 	icon: workericon
 
 paladin2:
@@ -667,14 +679,17 @@ cabmcv:
 		Offset: 0,-18,0
 	idle:
 		Facings: -16
+		ShadowStart: 341
 		UseTilesetCode: false
 	stand:
 		Facings: -16
+		ShadowStart: 86
 	run:
 		Start: 16
 		Length: 15
 		Facings: -16
 		Tick: 100
+		ShadowStart: 357
 	icon: cabmcvicon
 		Offset: 0, 0
 
@@ -686,14 +701,18 @@ cabyard:
 	idle:
 		Start: 307
 		Length: 17
+		ShadowStart: 648
 	damaged-idle:
 		Start: 324
 		Length: 17
+		ShadowStart: 665
 	dead:
 		Start: 324
+		ShadowStart: 665
 		Tick: 400
 	make: cabmcvmake
 		Length: 50
+		ShadowStart: 51
 	icon: cabyardicon
 		Offset: 0, 0
 

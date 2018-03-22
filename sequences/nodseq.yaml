@@ -4,62 +4,50 @@ altnode1:
 		Tick: 80
 	stand:
 		Facings: 8
-		ShadowStart: 292
 	run:
 		Start: 8
 		Length: 6
 		Facings: 8
-		ShadowStart: 300
 	idle1:
 		Start: 56
 		Length: 15
-		ShadowStart: 348
 	idle2:
 		Start: 71
 		Length: 15
-		ShadowStart: 363
 	prone-run:
 		Start: 86
 		Length: 6
 		Facings: 8
-		ShadowStart: 378
 	prone-stand:
 		Start: 86
 		Facings: 8
 		Stride: 6
-		ShadowStart: 378
 	die1:
 		Start: 134
 		Length: 15
-		ShadowStart: 426
 	die2:
 		Start: 149
 		Length: 15
-		ShadowStart: 441
 		Tick: 80
 	die-crushed:
 		Start: 159
 		Length: 5
-		ShadowStart: 451
 		Tick: 800
 		ZOffset: -511
 	shoot:
 		Start: 164
 		Length: 6
 		Facings: 8
-		ShadowStart: 456
 		Tick: 60
 	prone-shoot:
 		Start: 212
 		Length: 6
 		Facings: 8
-		ShadowStart: 504
 		Tick: 60
 	standup-0:
 		Start: 260
 		Length: 2
 		Facings: 8
-		ShadowStart: 552
 	icon: sidebar-nod|e1icon
 
 crusader:
@@ -67,60 +55,48 @@ crusader:
 	Defaults:
 		Tick: 80
 	stand:
-		Facings: 8
-		ShadowStart: 338
+		Facings: -8
 	run:
 		Start: 8
-		Length: 8
-		Facings: 8
+		Length: 7
+		Facings: -8
+		Stride: 8
 		Tick: 60
-		ShadowStart: 346
 	idle1:
 		Start: 72
-		Length: 25
-		ShadowStart: 410
+		Length: 20
 	idle2:
-		Start: 128
+		Start: 92
 		Length: 15
-		ShadowStart: 466
 	prone-run:
-		Start: 266
-		Length: 8
-		Facings: 8
-		ShadowStart: 604
+		Start: 155
+		Length: 7
+		Facings: -8
 	prone-stand:
-		Start: 330
-		Facings: 8
-		ShadowStart: 596
+		Start: 219
+		Facings: -8
 	die1:
-		Start: 160
-		Length: 8
-		ShadowStart: 497
+		Start: 235
+		Length: 11
 	die2:
-		Start: 194
-		Length: 8
-		ShadowStart: 532
+		Start: 246
+		Length: 10
 		Tick: 80
 	die-crushed:
-		Start: 164
+		Start: 252
 		Length: 2
-		ShadowStart: 502
 		Tick: 800
 		ZOffset: -511
 	shoot:
-		Start: 202
-		Length: 7
-		Facings: 8
-		ShadowStart: 540
+		Start: 107
+		Length: 6
+		Facings: -8
 	prone-shoot:
-		Start: 202
-		Length: 5
-		Facings: 8
-		ShadowStart: 540
+		Start: 219
+		Facings: -8
 	standup-0:
-		Start: 142
-		Facings: 8
-		ShadowStart: 480
+		Start: 227
+		Facings: -8
 	icon: crusadericon
 
 templar:

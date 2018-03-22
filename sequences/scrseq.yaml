@@ -61,58 +61,58 @@ legio:
 	Defaults:
 		Tick: 80
 	stand:
-		Facings: 8
-		ShadowStart: 338
+		Facings: -8
+		# ShadowStart: 338
 	run:
 		Start: 8
-		Length: 9
-		Facings: 8
-		ShadowStart: 346
-	idle1:
-		Start: 112
-		Length: 13
-		ShadowStart: 450
-	idle2:
-		Start: 154
-		Length: 16
-		ShadowStart: 492
-	prone-run:
-		Start: 226
 		Length: 8
-		Facings: 8
-		ShadowStart: 564
+		Facings: -8
+		# ShadowStart: 346
+	idle1:
+		Start: 72
+		Length: 13
+		# ShadowStart: 450
+	idle2:
+		Start: 85
+		Length: 16
+		# ShadowStart: 492
+	prone-run:
+		Start: 157
+		Length: 8
+		Facings: -8
+		# ShadowStart: 564
 	prone-stand:
-		Start: 218
-		Facings: 8
-		ShadowStart: 556
+		Start: 149
+		Facings: -8
+		# ShadowStart: 556
 	die1:
-		Start: 89
+		Start: 277
 		Length: 7
-		ShadowStart: 426
+		# ShadowStart: 426
 	die2:
-		Start: 96
+		Start: 285
 		Length: 7
-		ShadowStart: 434
+		# ShadowStart: 434
 	die-crushed:
 		Start: 96
 		Length: 7
-		ShadowStart: 434
+		# ShadowStart: 434
 		ZOffset: -511
 	shoot:
-		Start: 170
+		Start: 221
 		Length: 6
-		Facings: 8
-		ShadowStart: 508
+		Facings: -8
+		# ShadowStart: 508
 	prone-shoot:
 		Tick: 80
-		Start: 290
+		Start: 221
 		Length: 6
-		Facings: 8
-		ShadowStart: 628
+		Facings: -8
+		# ShadowStart: 628
 	standup-0:
-		Start: 218
-		Facings: 8
-		ShadowStart: 556
+		Start: 149
+		Facings: -8
+		# ShadowStart: 556
 	icon: scrlegio
 
 shapeshifter:
@@ -190,39 +190,32 @@ bug:
 	Defaults:
 		Tick: 80
 	stand:
-		Facings: 8
-		ShadowStart: 212
+		Facings: -8
 	run:
 		Start: 8
-		Length: 9
-		Facings: 8
-		ShadowStart: 220
+		Length: 8
+		Facings: -8
 	idle1:
-		Start: 80
+		Start: 71
 		Length: 14
-		ShadowStart: 292
 	idle2:
-		Start: 120
-		Length: 15
-		ShadowStart: 327
+		Start: 86
+		Length: 13
 	die1:
-		Start: 182
-		Length: 9
-		ShadowStart: 394
+		Start: 138
+		Length: 11
 	die2:
-		Start: 206
-		Length: 6
-		ShadowStart: 418
+		Start: 149
+		Length: 10
 	die-crushed:
-		Start: 206
-		Length: 6
-		ShadowStart: 418
+		Start: 156
+		Length: 3
+		Tick: 400
 		ZOffset: -511
 	shoot:
-		Start: 134
-		Length: 6
-		Facings: 8
-		ShadowStart: 346
+		Start: 98
+		Length: 5
+		Facings: -8
 	icon: bugicon
 
 float:
@@ -396,11 +389,10 @@ scrharv:
 	Inherits: ^EmpOverlay
 	idle:
 		Facings: -32
-		ShadowStart: 33
+		ShadowStart: 31
 	move:
-		Length: 1
 		Facings: -32
-		ShadowStart: 33
+		ShadowStart: 31
 	dock:
 		Start: 12
 		ShadowStart: 45
@@ -444,14 +436,8 @@ scrmobmine:
 	Inherits: ^EmpOverlay
 	idle:
 		Facings: -32
-		ShadowStart: 51
+		ShadowStart: 32
 	icon: scrmobmineicon
-
-gavitymine:
-	idle: scrmobmine
-		Start: 32
-		Length: 17
-		ZOffset: 2048
 
 scrrecharger:
 	Inherits: ^EmpOverlay

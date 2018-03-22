@@ -95,9 +95,6 @@ APC:
 			Water: 60
 	Health:
 		HP: 35000
-	WithCargo:
-		DisplayTypes: Infantry, Vehicle
-		LocalOffset: 390,-256,0, 390,256,0, 0,0,0, -390,-256,0, -390,256,0
 	Turreted:
 		TurnSpeed: 10
 		Offset: -200,0,0
@@ -321,24 +318,31 @@ HMEC:
 		HP: 200000
 	AnnounceOnSeen:
 		Notification: MammothDetected
-	AttackFrontal:
+	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	AutoTarget:
 	Armament:
 		Weapon: MKIITusk
-		LocalOffset: -172,-260,854, -172,260,854
+		LocalOffset: -300,-500,3500, -300,500,3500
 	Armament@1:
 		Weapon: MechRailgun
-		LocalOffset: 260,-220,728, 260,220,728
+		LocalOffset: 1400,-250,3000, 1400,250,3000
 	Armament@2:
 		Weapon: MechDummy
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	-TemporaryOwnerManager:
 	-WithVoxelBody:
-	WithVoxelWalkerBody:
-		TickRate: 1
+	# -WithVoxelWalkerBody:
+		# TickRate: 1
+	Turreted:
+		Offset: -400,0,0
+		TurnSpeed: 7
+	WithSpriteTurret:
+	WithFacingSpriteBody:
+	WithMoveAnimation:
+		MoveSequence: run
 	Selectable:
 		Bounds: 40, 40, 0, -8
 
@@ -1414,7 +1418,7 @@ SCRMBT:
 		Description: Light Tank, good for scouting.\n\nGood vs Ground targets.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water).\nAbsorbs essence from killed units to heal.\n- Cannot crush infantry.
 		Prerequisites: ~scrweap
 	Valued:
-		Cost: 950
+		Cost: 900
 	Tooltip:
 		Name: Hover Tank
 	Health:
@@ -1524,7 +1528,7 @@ SCRMOBMINE:
 		Description: Mind Control unit\n\nSpecial:\n- Can mind control vehicles.\n- Can control up to three units.\n- Absorbs essence from killed units to heal.\n- Cannot mindcontrol MCVs or harvester.
 		Prerequisites: ~scrweap, scrtech
 	Valued:
-		Cost: 1600
+		Cost: 1400
 	Tooltip:
 		Name: Subjugator
 	Mindcontroller:
@@ -1695,7 +1699,7 @@ REAPERCAB:
 	Inherits: ^Walker
 	Inherits@1: ^8CellVision
 	Valued:
-		Cost: 1100
+		Cost: 1000
 	Tooltip:
 		Name: Cyborg Reaper
 	Buildable:

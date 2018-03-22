@@ -1276,7 +1276,7 @@
 	Inherits@1: ^ScrinReaper
 	Inherits@2: ^ScrinRender
 	Voiced:
-		VoiceSet: AlienLimpet
+		VoiceSet: Desintegrator
 	WithDeathAnimation@normal:
 		DeathSequencePalette: playerscrin
 		CrushedSequencePalette: playerscrin
@@ -1623,7 +1623,7 @@
 		Weapon: ScrinUnitExplode
 		EmptyWeapon: ScrinUnitExplode
 	Voiced:
-		VoiceSet: Limpet
+		VoiceSet: Seeker
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: apolbluealpha60
@@ -2136,7 +2136,7 @@
 		Cost: 100
 	RequiresBuildableArea:
 		AreaTypes: building
-		Adjacent: 7
+		Adjacent: 8
 
 ^Gate:
 	Inherits: ^Building
@@ -2157,7 +2157,7 @@
 	Tooltip:
 		Description: Automated barrier that opens for allied units.
 	Building:
-		Adjacent: 4
+		Adjacent: 8
 		BuildSounds: place2.aud
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
 	EditorTilesetFilter:
