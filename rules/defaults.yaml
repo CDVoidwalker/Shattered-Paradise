@@ -1661,7 +1661,7 @@
 	AppearsOnRadar:
 		UseLocation: yes
 	Targetable@GROUND:
-		TargetTypes: Vehicle, Ground
+		TargetTypes: Vehicle, Ground, LandedAircraft
 		RequiresCondition: !airborne
 	Targetable@AIRBORNE:
 		TargetTypes: Air

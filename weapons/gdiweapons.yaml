@@ -176,7 +176,7 @@ JuggCannon:
 	MinRange: 5c0
 	Report: jugger1.aud
 	Projectile: BulletAS
-		Speed: 150
+		Speed: 200
 		Image: 120mm
 		LaunchAngle: 165
 		Shadow: true
@@ -188,6 +188,8 @@ JuggCannon:
 	Warhead@1Dam: SpreadDamage
 		Spread: 400
 		Damage: 5500
+		Versus:
+			InfantryArmor: 150
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 
 SonicZap:

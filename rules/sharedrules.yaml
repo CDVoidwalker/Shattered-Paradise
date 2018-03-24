@@ -66,6 +66,7 @@ MCV:
 		Type: VehicleArmor
 	Mobile:
 		Speed: 45
+		TurnSpeed: 5
 		Crushes: wall, crate, infantry
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
@@ -110,6 +111,7 @@ HARV:
 		Resources: Tiberium, BlueTiberium
 		UnloadTicksPerBale: 3
 		LoadTicksPerBale: 6
+		FullyLoadedSpeed: 100
 		# SearchFromProcRadius: 36
 		SearchForDeliveryBuildingDelay: 200
 		SearchFromOrderRadius: 18

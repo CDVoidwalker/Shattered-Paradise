@@ -7,13 +7,13 @@ mutyard:
 		Start: 65
 		Length: 45
 		ShadowStart: 221
-		Ticks: 125
+		Tick: 80
 		UseTilesetCode: False
 	damaged-idle:
 		Start: 110
 		Length: 45
 		ShadowStart: 266
-		Ticks: 125
+		Tick: 80
 		UseTilesetCode: False
 	dead:
 		Start: 110

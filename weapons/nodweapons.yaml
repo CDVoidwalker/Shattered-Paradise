@@ -115,17 +115,18 @@ BHRifle:
 	ReloadDelay: 100
 	Range: 9c0
 	Report: ramjetfire.wav
-	ValidTargets: Infantry
+	ValidTargets: Infantry, LandedAircraft
 	Projectile: BulletAS
 		Speed: 100c0
 	Warhead@1Dam: SpreadDamage
 		Damage: 7500
-		ValidTargets: Infantry
+		ValidTargets: Infantry, LandedAircraft
 		Versus:
 			InfantryArmor: 400
 			BuildingArmor: 5
 			DefenseArmor: 5
 			VehicleArmor: 5
+			AircraftArmor: 50
 			ConcreteArmor: 5
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect

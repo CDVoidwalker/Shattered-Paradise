@@ -544,14 +544,14 @@ TripodLaser:
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
 		Weapon: TripodProton
-		Amount: 20
+		Amount: 30
 		AllowDirectHit: false
 
 TripodProton:
 	Inherits: ^RifleWarhead
 	Inherits@2: ^Small_Bang
 	ReloadDelay: 50
-	Range: 1c0
+	Range: 1c512
 	ValidTargets: Ground, Water
 	Projectile: BulletAS
 		Speed: 150
@@ -561,8 +561,8 @@ TripodProton:
 		Image: TORPEDO
 		RangeLimit: 35
 	Warhead@1Dam: SpreadDamage
-		Spread: 150
-		Damage: 700
+		Spread: 250
+		Damage: 1000
 		ValidTargets: Ground, Water
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
 
@@ -722,7 +722,7 @@ DestroyerCannonOP:
 
 FighterSpawn:
 	Inherits: ^ArtilleryWarhead
-	ReloadDelay: 50
+	ReloadDelay: 25
 	Range: 8c0
 	MinRange: 0c100
 	Projectile: InstantExplode

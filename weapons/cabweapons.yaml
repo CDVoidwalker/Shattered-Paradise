@@ -171,7 +171,7 @@ LurkerHit:
 	Range: 9c0
 	Report: lasershotgun.wav
 	Projectile: BulletAS
-		Speed: 200
+		Speed: 400
 		TrailImage: lurkertrail
 		TrailPalette: playercab
 		HorizontalRateOfTurn: 8
@@ -457,7 +457,7 @@ DroneHostShell:
 	MinRange: 4c0
 	ValidTargets: Ground, Water, Vehicle, Infantry, water
 	Projectile: BulletAS
-		Speed: 150
+		Speed: 200
 		Blockable: false
 		Shadow: true
 		Image: DRAGON
@@ -468,7 +468,7 @@ DroneHostShell:
 		RangeLimit: 25
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
-		Damage: 3000
+		Damage: 4500
 		Versus:
 			Worker: 25
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
@@ -477,6 +477,7 @@ DroneHostShell:
 		Actors: CABSENTRY
 		FallRate: 5000
 		Range: 3
+		ValidTargets: Ground, Vehicle, Infantry, Air, Airhit
 
 ecmwave:
 	ReloadDelay: 125

@@ -49,7 +49,7 @@ SkirmisherMortar:
 		ContrailUsePlayerColor: true
 		Palette: ra
 	Warhead@1Dam: SpreadDamage
-		Spread: 0c210
+		Spread: 300
 		Damage: 3500
 		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
 	-Warhead@4Smu: LeaveSmudge

@@ -12,6 +12,7 @@ SMECH:
 		BuildPaletteOrder: 2
 		Prerequisites: ~gaweap
 	Mobile:
+    	TurnSpeed: 10
 		Speed: 100
 		Crushes: crate
 	Health:
@@ -57,7 +58,7 @@ MMCH:
 		QuantizedFacings: 32
 	WithInfantryBody:
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 4
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -96,7 +97,7 @@ APC:
 	Health:
 		HP: 35000
 	Turreted:
-		TurnSpeed: 10
+		TurnSpeed: 5
 		Offset: -200,0,0
 	AttackTurreted:
 		PauseOnCondition: empdisable
@@ -160,7 +161,7 @@ HVR:
 		Weapon: HoverMissileAA
 		LocalOffset: 100,150,384, 100,-150,384
 	Turreted:
-		TurnSpeed: 8
+		TurnSpeed: 9
 		Offset: -300,0,100
 	AttackTurreted:
 		Voice: Attack
@@ -245,7 +246,7 @@ SONIC:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 4
+		TurnSpeed: 3
 		Offset: -400,0,0
 	AutoTarget:
 	-RenderVoxels:
@@ -269,12 +270,12 @@ G4TNK:
 		Prerequisites: ~gaweap, gatech
 	Mobile:
 		Speed: 60
-		TurnSpeed: 5
+		TurnSpeed: 4
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 70000
 	Turreted:
-		TurnSpeed: 6
+		TurnSpeed: 3
 		Offset: -200,0,0
 	Armament@PRIMARY:
 		Weapon: 4tnkgun
@@ -307,7 +308,7 @@ HMEC:
 		Queue: Vehicle
 		BuildPaletteOrder: 9
 		Prerequisites: ~gaweap, gtdrop
-		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1\n- Selfhealing up to 100%\n- Can attack air\n- Can crush infantry
+		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1.\n- Selfhealing up to 100%.\n- Can attack air.\n- Can crush infantry.\n- Immune to mind control.
 		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
@@ -338,7 +339,7 @@ HMEC:
 		# TickRate: 1
 	Turreted:
 		Offset: -400,0,0
-		TurnSpeed: 7
+		TurnSpeed: 2
 	WithSpriteTurret:
 	WithFacingSpriteBody:
 	WithMoveAnimation:
@@ -387,6 +388,9 @@ BGGY:
 		TurnSpeed: 16
 		Speed: 135
 		Crushes: crate
+	Turreted:
+		Offset: -125,0,300
+		TurnSpeed: 8
 	Health:
 		HP: 15000
 	Cargo:
@@ -526,9 +530,6 @@ BGGY:
 		Weapon: CyCannon
 		LocalOffset: 250,0,125
 		RequiresCondition: ifv.cyc2
-	Turreted:
-		Offset: -125,0,300
-		TurnSpeed: 8
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithSpriteTurret@asd:
@@ -648,7 +649,7 @@ TTNK:
 		Description: Nod´s main battle tank armed with an anti-tank cannon.\n\nGood vs: Vehicles\n\nSpecial:\n- Can deploy to gain extra protection\n- Can crush infantry
 		Prerequisites: ~naweap
 	Mobile:
-		TurnSpeed: 10
+		TurnSpeed: 5
 		Speed: 95
 		Crushes: wall, crate, infantry
 		RequiresCondition: undeployed && !empdisable
@@ -696,7 +697,7 @@ TTNK:
 		RequiresCondition: undeployed
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 6
+		TurnSpeed: 5
 		Turret: deployed
 		InitialFacing: 160
 		RealignDelay: -1
@@ -1025,7 +1026,7 @@ STNK:
 	-WithVoxelBody:
 	Turreted:
 		Offset: 0,0,600
-		TurnSpeed: 10
+		TurnSpeed: 9
 	WithSpriteTurret:
 	AttackTurreted:
 		Voice: Attack
@@ -1113,7 +1114,7 @@ MUTQUAD:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 7
+		TurnSpeed: 6
 		Offset: -300,0,0
 	AutoTarget:
 
@@ -1145,7 +1146,7 @@ LYNX:
 		Volume: 3
 	-WithVoxelBody:
 	Turreted:
-		TurnSpeed: 10
+		TurnSpeed: 6
 		Offset: 150,0,0
 	AutoTarget:
 	WithSpriteTurret:
@@ -1175,7 +1176,7 @@ STRUCK:
 		BuildPaletteOrder: 19
 		Prerequisites: ~muweap, murax
 	Mobile:
-		TurnSpeed: 9
+		TurnSpeed: 10
 		Speed: 100
 		Crushes: wall, crate, infantry
 	Health:
@@ -1203,6 +1204,7 @@ STRUCK:
 WOLF:
 	Inherits: ^Beast
 	Inherits@1: ^8CellVision
+	Inherits@2: ^MindControllable
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 20
@@ -1217,7 +1219,7 @@ WOLF:
 	Armor:
 		Type: VehicleArmor
 	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark, CloudInmune
+		TargetTypes: Ground, Vehicle
 	-Crushable:
 	AttackFrontal:
 	AutoTarget:
@@ -1275,7 +1277,7 @@ MRLS:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	Turreted:
-		TurnSpeed: 8
+		TurnSpeed: 9
 		Offset: -300,0,0
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -1286,7 +1288,8 @@ MRLS:
 DEATHCLAW:
 	Inherits: ^Beast
 	Inherits@1: ^MutRender
-	Inherits@1: ^8CellVision
+	Inherits@2: ^8CellVision
+	Inherits@3: ^MindControllable
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 22
@@ -1303,7 +1306,7 @@ DEATHCLAW:
 		Voice: Move
 		Weight: 3
 	Targetable:
-		TargetTypes: Ground, Infantry, Razorshark
+		TargetTypes: Ground, Vehicle
 	AutoTarget:
 		ScanRadius: 6
 		InitialStance: AttackAnything
@@ -1424,9 +1427,10 @@ SCRMBT:
 	Health:
 		HP: 28125
 	Mobile:
+    	TurnSpeed: 7
 		Speed: 90
 	Turreted:
-		TurnSpeed: 7
+		TurnSpeed: 6
 	Armament:
 		Weapon: scrmbtlasor
 		LocalOffset: 250,0,900
@@ -1477,7 +1481,7 @@ SCRRECHARGER:
 	Inherits@1: ^Walker
 	Inherits: ^ScrinVehicle
 	Valued:
-		Cost: 950
+		Cost: 900
 	Tooltip:
 		Name: Vanguard
 	Buildable:
@@ -1486,7 +1490,7 @@ SCRRECHARGER:
 		Description: Support hover drone.\n\nSpecial:- Generates shields around nearby friendly units.\n- Shields protect from all damage until the unit is hit 4 times.\n- Does not protect against super weapons.\n- Absorbs essence from killed enemies to heal.\n- Can Crush infantry.
 		Prerequisites: ~scrweap, scrdepot, scrradr
 	Mobile:
-		TurnSpeed: 6
+		TurnSpeed: 8
 		Speed: 80
 	Health:
 		HP: 25000
@@ -1544,6 +1548,7 @@ SCRMOBMINE:
 	Health:
 		HP: 16800
 	Mobile:
+    	TurnSpeed: 7
 		Speed: 95
 	AutoTarget:
 	AttackFrontal:
@@ -1575,7 +1580,7 @@ TRIPOD:
 		Description: Advanced walker.\n\n  Good vs Infantry, Buildings.\n\nSpecial:\n- Absorbs essence from killed units to heal.
 		IconPalette: chromescrin
 	Mobile:
-		TurnSpeed: 8
+		TurnSpeed: 6
 		Speed: 80
 		Crushes: crate, infantry
 	Health:
@@ -1602,10 +1607,10 @@ TRIPOD:
 			ExplosionDeath: 1, 2
 	Armament:
 		Weapon: TripodLaser
-		LocalOffset: 100,225,2400
+		LocalOffset: 100,225,3500
 	Armament@2:
 		Weapon: TripodLaser
-		LocalOffset: 100,-225,2400
+		LocalOffset: 100,-225,3500
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	QuantizeFacingsFromSequence:
@@ -1614,6 +1619,8 @@ TRIPOD:
 		TargetableOffsets: 0,0,3650
 		Type: Circle
 			VerticalTopOffset: 4000
+	ExternalCondition@spawnsparks:
+		LocalOffset: 0,0,4000
 	SmokeParticleEmitter:
 		Offset: 0,0,3000
 
@@ -1670,7 +1677,7 @@ CENTURION:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Turreted:
-		TurnSpeed: 5
+		TurnSpeed: 4
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -1710,6 +1717,7 @@ REAPERCAB:
 	Selectable:
 		Bounds: 40,40,0,-10
 	Mobile:
+    	TurnSpeed: 8
 		Speed: 95
 		SharesCell: False
 		Crushes: nada
@@ -1757,7 +1765,7 @@ REPAIRVEHICLE:
 		HP: 20000
 	Mobile:
 		Speed: 70
-		TurnSpeed: 5
+		TurnSpeed: 7
 	Armament:
 		Weapon: RepairVehicleRep
 		Cursor: repair
@@ -1870,7 +1878,7 @@ PALADIN:
 		Description: Advanced Walker armed with a twin laser cannon.\n\nGood vs: Ground Targets\n\nSpecial:\n- Selfrepair\n- Can crush infantry.
 		Prerequisites: ~cabweap, cabtech
 	Mobile:
-		TurnSpeed: 6
+		TurnSpeed: 5
 		Speed: 70
 		Crushes: wall, crate, infantry
 	-RejectsOrders@berserk:
