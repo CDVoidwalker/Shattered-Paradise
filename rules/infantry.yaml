@@ -843,7 +843,7 @@ BUG:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 21
-		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.\n- Poisoned units take damage over time\n- Poisoned units have reduced attack speed.\n- Plague Carriers attacks bounce up to 3 times.\n- Absorbs essence from killed enemies to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
+		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.n- Poisoned units have reduced attack and movement speed.\n- Plague Carriers attacks bounce up to 3 times.\n- Absorbs essence from killed enemies to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\nNote: damage over time has been removed due to a bug.#\n- Poisoned units take damage over time\
 		Prerequisites: ~scrrax, scrradr
 	Valued:
 		Cost: 650
@@ -1068,7 +1068,7 @@ SWARMLING:
 
 PDRONE:
 	Inherits: ^CabalDroneInfantry
-	Inherits@1: ^5CellVision
+	Inherits@1: ^7CellVision
 	Valued:
 		Cost: 150
 	DeliversCash:

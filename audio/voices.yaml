@@ -276,6 +276,7 @@ Seeker:
 		Move: SeekerVoice0005, SeekerVoice0006, SeekerVoice0007, SeekerVoice0008, SeekerVoice0009 
 		Attack: SeekerVoice0000, SeekerVoice0001, SeekerVoice0002, SeekerVoice0003, SeekerVoice0004 
 		Action: SeekerVoice0000, SeekerVoice0001, SeekerVoice0002, SeekerVoice0003, SeekerVoice0004 
+		Die: SeekerVoice0000
 
 Scrin:
 	Voices:

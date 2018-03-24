@@ -1001,8 +1001,8 @@ STNK:
 		Description: High tech tank armed with rocket launchers and equipped with a personal mobile stealth generator.\n\nGood vs: Vehicles, Aircraft\n\nSpecial:\n- Stealthed\n- Can attack air\n- Can crush infantry
 		Queue: Vehicle
 	Mobile:
-		TurnSpeed: 9
-		Speed: 110
+		TurnSpeed: 7
+		Speed: 100
 		Crushes: wall, crate, infantry
 	Health:
 		HP: 25000
@@ -1026,7 +1026,7 @@ STNK:
 	-WithVoxelBody:
 	Turreted:
 		Offset: 0,0,600
-		TurnSpeed: 9
+		TurnSpeed: 6
 	WithSpriteTurret:
 	AttackTurreted:
 		Voice: Attack

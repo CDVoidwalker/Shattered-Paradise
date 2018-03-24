@@ -745,7 +745,6 @@ STORMRIDER:
 		PipTypeEmpty: AmmoEmpty
 		AmmoCondition: ammo
 	AutoTarget:
-	DeathSounds:
 	SpawnActorOnDeath:
 		Actor: STORMRIDER.Husk
 	SmokeParticleEmitter:
@@ -1089,7 +1088,6 @@ STORMRIDERSPAWN:
 		Cost: 30
 	-AttackTurreted:
 	-Buildable:
-	-DeathSounds:
 	Selectable:
 		Bounds: 30,24
 		Class: Stormrider

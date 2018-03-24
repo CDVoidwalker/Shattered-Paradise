@@ -529,15 +529,18 @@
 		IsPlayerPalette: true
 		Palette: cloakscrin
 		RequiresCondition: BugPoison
-	SelfHealing@BugPoison:
-		PercentageStep: -3
-		Step: 0
-		Delay: 25
-		HealIfBelow: 101
-		RequiresCondition: BugPoison
+	# SelfHealing@BugPoison:
+		# PercentageStep: -3
+		# Step: 0
+		# Delay: 25
+		# HealIfBelow: 101
+		# RequiresCondition: BugPoison
 	ReloadDelayMultiplier@BugPoison:
 		RequiresCondition: BugPoison
-		Modifier: 120
+		Modifier: 125
+	SpeedMultiplier@BugPoison:
+		RequiresCondition: BugPoison
+		Modifier: 90
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
 

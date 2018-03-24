@@ -1,3 +1,15 @@
+EngineerCapture:
+	ReloadDelay: 200
+	Report: klax1.aud
+	ValidTargets: Building
+	Range: 1c0
+	Projectile: InstantExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		ValidTargets: Building
+	Warhead@2Dam: CaptureActor
+		ValidTargets: Building
+
 LightTowerClaxon:
 	ReloadDelay: 200
 	Report: klax1.aud
