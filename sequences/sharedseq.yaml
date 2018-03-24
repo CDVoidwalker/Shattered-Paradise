@@ -243,7 +243,7 @@ mcv.gdi:
 		Length: *
 		ZRamp: 1
 		Offset: 0, 0, 6
-		ZOffset: -50
+		ZOffset: -500
 	icon: sidebar-gdi|harvicon
 	dock:
 		Start: 25

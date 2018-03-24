@@ -940,6 +940,7 @@ SCRTRANS:
 		LoadingCondition: notmobile
 	Selectable:
 		Bounds: 90,50
+		Priority: 4
 	Aircraft:
 		TurnSpeed: 5
 		Speed: 100

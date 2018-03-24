@@ -308,7 +308,7 @@ BullAcid:
 	Range: 5c0
 	Report: flamtnk1.aud
 	Projectile: BulletAS
-		Speed: 200
+		Speed: 150
 		Image: acidall32mini
 		Inaccuracy: 384
 		Palette: apolgreenalpha

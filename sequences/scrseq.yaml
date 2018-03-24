@@ -389,10 +389,10 @@ scrharv:
 	Inherits: ^EmpOverlay
 	idle:
 		Facings: -32
-		ShadowStart: 31
+		ShadowStart: 32
 	move:
 		Facings: -32
-		ShadowStart: 31
+		ShadowStart: 32
 	dock:
 		Start: 12
 		ShadowStart: 45
@@ -424,10 +424,10 @@ scrscorpion:
 
 scrmbt:
 	Inherits: ^EmpOverlay
-	idle:
+	idle: scrmbt2
 		Facings: 32
 		ShadowStart: 64
-	turret:
+	turret: scrmbt2
 		Start: 32
 		Facings: 32
 	icon: scrmbticon
@@ -591,7 +591,7 @@ drached:
 		ShadowStart: 71
 	make: drachedmake
 		Length: 14
-		ShadowStart: 14
+		# ShadowStart: 15
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0

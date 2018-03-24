@@ -697,7 +697,7 @@
 ^SpawnSmoke:
 	GrantConditionOnDamageState@smoke:
 		Condition: smoketrail
-		ValidDamageStates: Critical, Heavy
+		ValidDamageStates: Critical
 	SmokeParticleEmitter:
 		RequiresCondition: smoketrail && !cloakgenerator
 		Sequence: idle
@@ -712,7 +712,7 @@
 ^SpawnSpark:
 	GrantConditionOnDamageState@spawnsparks:
 		Condition: spawnsparks
-		ValidDamageStates: Critical, Heavy, Medium
+		ValidDamageStates: Critical, Heavy
 	ExplodeWeapon@spawnsparks:
 		RequiresCondition: spawnsparks && !cloakgenerator
 		Weapon: DebrisSpawner
@@ -2136,7 +2136,7 @@
 		Cost: 100
 	RequiresBuildableArea:
 		AreaTypes: building
-		Adjacent: 8
+		Adjacent: 4
 
 ^Gate:
 	Inherits: ^Building
@@ -2157,7 +2157,7 @@
 	Tooltip:
 		Description: Automated barrier that opens for allied units.
 	Building:
-		Adjacent: 8
+		Adjacent: 4
 		BuildSounds: place2.aud
 		TerrainTypes: Clear, Rough, Road, DirtRoad, Green, Sand, Pavement
 	EditorTilesetFilter:
@@ -2173,6 +2173,9 @@
 		OpeningSound: gateup1.aud
 		ClosingSound: gatedwn1.aud
 		BlocksProjectilesHeight: 640
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 4
 
 ^Gate_A:
 	Inherits: ^Gate
@@ -2252,13 +2255,6 @@
 		LightAmbientColor: 0.5,0.5,0.5
 		LightDiffuseColor: 0.7,0.7,0.7
 		NormalsPalette: ra2normals
-
-# ^VisionWhenKilled:
-	# SpawnActorOnDeath@vision:
-		# Actor: VISIONACTOR
-		# Probability: 100
-		# OwnerType: victim
-		# RequiresLobbyCreeps: false
 
 ^ScrinReaper:
 	Targetable@Essence:

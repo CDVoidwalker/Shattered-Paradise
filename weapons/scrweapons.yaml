@@ -357,40 +357,6 @@ SCRMBTLASOR:
 	Warhead@2Eff: CreateEffect
 		-ImpactSounds: expnew12.aud, expnew13.aud, expnew14.aud, expnew15.aud
 
-ScrMbtCannon:
-	Inherits: ^APWarhead
-	ReloadDelay: 25
-	Range: 5c0
-	Report: sonic4.aud
-	Projectile: AreaBeam
-		Speed: 450
-		Duration: 30
-		DamageInterval: 5
-		Width: 60
-		Shape: Cylindrical
-		ZOffset: 2047
-		BeyondTargetRange: 0c256
-		Blockable: true
-		UsePlayerColor: true
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 32
-		Falloff: 100, 100
-		Damage: 500
-		AffectsParent: false
-		ValidStances: Enemy, Neutral
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, ScrinEssenceKill
-	-Warhead@BounceUpgrade:
-	-Warhead@ShieldUpgrade:
-
-ScrMbtCannonDummy:
-	Inherits: ScrMbtCannon
-	Inherits@1: ^APWarhead
-	Projectile: BulletAS
-		Speed: 100c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 1
-		Spread: 1
-
 BatteryBuff:
 	Inherits: ^NoDamage
 	ReloadDelay: 75
@@ -702,7 +668,7 @@ BattleshipCannon:
 	Inherits@2: ^Scrin_Explo
 	ReloadDelay: 45
 	Range: 5c768
-	Report: battleshipgun1.wav
+	Report: SeekerShot0000.wav,  SeekerShot0001.wav,  SeekerShot0002.wav,  SeekerShot0003.wav
 	Burst: 8
 	BurstDelays: 3
 	MinRange: 0c100

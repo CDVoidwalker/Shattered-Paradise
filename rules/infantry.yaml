@@ -848,7 +848,7 @@ BUG:
 	Valued:
 		Cost: 650
 	Tooltip:
-		Name: Plague Carrier
+		Name: Plague Trooper
 	Targetable@MindControlImmunity:
 		TargetTypes: MindControlInmune
 	Selectable:

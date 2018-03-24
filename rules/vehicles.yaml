@@ -264,7 +264,7 @@ G4TNK:
 		Name: Mammoth Tank
 	Buildable:
 		Queue: Vehicle
-		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry.\n- Cannot be mindcontrolled.
+		Description: Heavy assault tank.\n\nGood vs: Vehicles, Aircraft.\n\nSpecial:\n- Selfheal to 50%\n- Can attack air.\n- Can crush infantry.
 		BuildPaletteOrder: 8
 		Prerequisites: ~gaweap, gatech
 	Mobile:

@@ -110,7 +110,8 @@ HARV:
 		Resources: Tiberium, BlueTiberium
 		UnloadTicksPerBale: 3
 		LoadTicksPerBale: 6
-		SearchFromProcRadius: 36
+		# SearchFromProcRadius: 36
+		SearchForDeliveryBuildingDelay: 200
 		SearchFromOrderRadius: 18
 		HarvestVoice: Attack
 		DeliverVoice: Action
@@ -222,7 +223,7 @@ SCRHARV:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Voiced:
-		VoiceSet: Limpet
+		VoiceSet: Seeker
 		Volume: 1
 	Selectable:
 		DecorationBounds: 36,36
@@ -853,7 +854,7 @@ NAPOST:
 		Types: laserfencenode
 	RequiresBuildableArea:
 		AreaTypes: building
-		Adjacent: 7
+		Adjacent: 4
 	Power:
 		Amount: -5
 	WithIdleOverlay@LIGHTS:
@@ -1070,6 +1071,7 @@ TRNSPORT:
 		LoadingCondition: notmobile
 	WithCargo:
 		DisplayTypes: Infantry, Vehicle
+	# WithRoof:
 	SpawnActorOnDeath:
 		Actor: TRNSPORT.Husk
 	-ReloadAmmoPool@AIReload:

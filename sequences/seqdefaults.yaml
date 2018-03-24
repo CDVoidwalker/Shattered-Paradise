@@ -126,6 +126,7 @@
 		Start: 32
 		Facings: -32
 		UseTilesetCode: false
+		ZOffset: 1500
 
 ^BuggyMuzzle:
    	muzzle0: mgun-n
