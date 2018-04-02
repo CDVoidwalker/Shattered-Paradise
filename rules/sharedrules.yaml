@@ -445,7 +445,7 @@ PROC:
 	StoresResources:
 		PipColor: Green
 		PipCount: 15
-		Capacity: 700
+		Capacity: 1000
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 3,1
@@ -507,7 +507,7 @@ FLIPPEDPROC:
 	StoresResources:
 		PipColor: Green
 		PipCount: 15
-		Capacity: 700
+		Capacity: 1000
 	FreeActor:
 		Actor: HARV
 		SpawnOffset: 1,1
@@ -675,7 +675,7 @@ GADEPT:
 		BuildPaletteOrder: 5
 		Prerequisites: ~humanstuff, Vehicle or Aircraft production
 		Queue: Building
-		Description: Repairs vehicles.\n\nSpecial:\n-Repairs nearby vehicles for free.\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.
+		Description: Repairs vehicles.\n\nSpecial:\n- Can be ordererd to repair a single vehicle faster for a cost.\nApply a repair command to a vehicle to send it to a nearby service depo.#\n-Repairs nearby vehicles for free.
 	Building:
 		Footprint: =x= xxx =x=
 		Dimensions: 3,3
@@ -707,9 +707,9 @@ GADEPT:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-ground
 		UseDeathTypeSuffix: false
-	ExplodeWeapon:
-		Weapon: ServDepoShrapnelSpawn
-		RequiresCondition: !disabled
+	# ExplodeWeapon:
+		# Weapon: ServDepoShrapnelSpawn
+		# RequiresCondition: !disabled
 	Power:
 		Amount: -30
 	ProvidesPrerequisite@buildingname:
@@ -976,7 +976,7 @@ GASILO:
 		Queue: Defense
 		BuildPaletteOrder: 31
 		Prerequisites: ~humanstuff, proc
-		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 1000$.\n- Power loss does not affect storage capacity.
+		Description: Stores excess Tiberium.\n\nSpecial:\n- Stores 3000$.\n- Power loss does not affect storage capacity.
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -1010,7 +1010,7 @@ GASILO:
 		Sequence: idle-lights
 	StoresResources:
 		PipCount: 5
-		Capacity: 1000
+		Capacity: 3000
 	Power:
 		Amount: -10
 	SelectionDecorations:
@@ -1053,6 +1053,7 @@ TRNSPORT:
 		RequiresCondition: loaded
 	BodyOrientation:
 		QuantizedFacings: 32
+		CameraPitch: 250
 	RenderSprites:
 		Image: trnsport
 		FactionImages:

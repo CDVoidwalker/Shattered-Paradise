@@ -362,6 +362,10 @@ viscproj:
 		Length: *
 		ZOffset: 1023
 
+spectreball:
+	idle:
+		ZOffset: 1023
+
 eggproj:
 	idle:
 		Length: 10

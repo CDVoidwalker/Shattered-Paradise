@@ -461,7 +461,7 @@
 		IsPlayerPalette: true
 		CloakSound: cloak5.aud
 		UncloakSound: cloak5.aud
-		UncloakOn: Attack, Unload, Infiltrate, Demolish, Dock
+		UncloakOn: Attack, Infiltrate, Demolish
 	ExternalCondition@CLOAKGENERATOR:
 		Condition: cloakgenerator
 	ExternalCondition@crate-cloak:
@@ -529,15 +529,15 @@
 		IsPlayerPalette: true
 		Palette: cloakscrin
 		RequiresCondition: BugPoison
-	# SelfHealing@BugPoison:
-		# PercentageStep: -3
-		# Step: 0
-		# Delay: 25
-		# HealIfBelow: 101
-		# RequiresCondition: BugPoison
+	SelfHealing@BugPoison:
+		PercentageStep: -1
+		Step: 0
+		Delay: 25
+		HealIfBelow: 20
+		RequiresCondition: BugPoison
 	ReloadDelayMultiplier@BugPoison:
 		RequiresCondition: BugPoison
-		Modifier: 125
+		Modifier: 110
 	SpeedMultiplier@BugPoison:
 		RequiresCondition: BugPoison
 		Modifier: 90
@@ -632,9 +632,6 @@
 		Condition: WebDisable
 		Color: FFFFFF
 	SpeedMultiplier@WebDisable:
-		RequiresCondition: WebDisable
-		Modifier: 0
-	RangeMultiplier@WebDisable:
 		RequiresCondition: WebDisable
 		Modifier: 0
 	Mobile:
@@ -1298,7 +1295,8 @@
 	Inherits@2: ^AutoTargetGroundAssaultMove
 	Inherits@3: ^7CellVision
 	-SpawnActorOnDeath@conversion:
-	-Crushable:
+	Crushable:
+		CrushClasses: Cyborg
 	-DamagedByTerrain:
 	ExplosionOnDamageTransition:
 		Weapon: DroneExplode
@@ -1354,10 +1352,6 @@
 		VoiceSet: Civilian
 	Tooltip:
 		Name: Civilian
-	# Mobile:
-		# TerrainSpeeds:
-			# Tiberium: 0
-			# BlueTiberium: 0
 	ScaredyCat:
 	WithDeathAnimation:
 		CrushedSequence: die-crushed
@@ -1469,6 +1463,8 @@
 	RevealOnDeath:
 		Duration: 50
 		Radius: 3c0
+	Crushable:
+		CrushClasses: Vehicle
 	Valued:
 		Cost: 1
 	Mobile:
@@ -1643,6 +1639,7 @@
 	Inherits@2: ^AutoTargetGroundAssaultMove
 	BodyOrientation:
 		QuantizedFacings: 0
+		CameraPitch: 85
 	RenderVoxels:
 	WithVoxelBody:
 
@@ -2297,4 +2294,5 @@
 	DetectCloaked:
 		Range: 7c0
 		PauseOnCondition: empdisable || disabled
+		RequiresCondition: !empdisable || !disabled
 	RenderDetectionCircle:

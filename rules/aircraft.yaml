@@ -827,7 +827,7 @@ SCRGLYDER1:
 		MoveIntoShroud: true
 		LandableTerrainTypes: Clear, Rough, Road, DirtRoad, Ground, Green, Tiberium, BlueTiberium, Water
 	Health:
-		HP: 20000
+		HP: 30000
 	Armament:
 		Weapon: Glyder1Cannon
 		LocalOffset: 0,0,-100
@@ -1019,6 +1019,8 @@ SCRINCOUNCIL:
 	SmokeParticleEmitter:
 		Image: scrsmoke
 		Palette: apolbluealpha60
+	ProvidesPrerequisite:
+		Prerequisite: scrweap
 
 SCRCARRIER:
 	Inherits: ^Helicopter

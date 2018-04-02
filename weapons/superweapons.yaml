@@ -543,7 +543,7 @@ MeteorElevator:
 	Range: 2c0
 	MinRange: 1c0
 	Projectile: AthenaProjectile
-		Altitude: 8000
+		Altitude: 12000
 	Warhead@op: FireShrapnel
 		Weapon: MeteorRainSlow
 		AimChance: 25

@@ -970,7 +970,7 @@ SCREXTRACTOR:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 100000
+		HP: 60000
 	Power:
 		Amount: -50
 	SelectionDecorations:

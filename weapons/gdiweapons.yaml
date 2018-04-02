@@ -122,7 +122,16 @@ WolverineVulcan:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 		
 ApcVulcan:
-	Inherits: BuggyCannon
+	Inherits: ^RifleWarhead
+	Inherits@2: ^Piffs
+	ReloadDelay: 50
+	Range: 4c0
+	Report: tsgun4.aud
+	Projectile: BulletAS
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Damage: 4500
+		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 Titan120mm:
 	Inherits: ^APWarhead
@@ -170,7 +179,6 @@ HoverMissileAA:
 JuggCannon:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
-	Inherits@3: ^Small_Twlt
 	ReloadDelay: 66
 	Range: 15c0
 	MinRange: 5c0
@@ -241,10 +249,10 @@ MechRailgun:
 		Speed: 20c0
 		Duration: 3
 		DamageInterval: 2
-		Width: 60
+		Width: 80
 		BeyondTargetRange: 0c64
 		Blockable: true
-		Color: 0008ED
+		Color: 00CCCC
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 15000
@@ -257,15 +265,27 @@ MechRailgun:
 		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
 
 MechDummy:
-	Inherits: ^RifleWarhead
-	ReloadDelay: 20
+	ReloadDelay: 120
 	Range: 8c0
-	Projectile: BulletAS
-		Speed: 1c682
+	Burst: 2
+	InvalidTargets: Air
+	Report: laserchaingunfire.wav
+	ValidTargets: Ground, Water
+	Projectile: LaserZap
+		Width: 20
+		BeamDuration: 3
+		Color: FFFFFF
+		BeamDuration: 20
+		ZOffset: 2047
+		# SecondaryBeam: True
+		# SecondaryBeamWidth: 30
+		# SecondaryBeamZOffset: 2550
+		# SecondaryBeamColor: 
 	Warhead@1Dam: SpreadDamage
-		Spread: 1
+		Spread: 96
 		Damage: 1
-		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
+		ValidTargets: Ground, Water, water, Infantry, Vehicle, Building
+		InvalidTargets: Air
 
 MammothTusk:
 	Inherits: ^RocketWarhead
@@ -292,7 +312,7 @@ MammothTusk:
 
 MKIITusk:
 	Inherits: MammothTusk
-	Burst: 4
+	BurstDelays: 10
 
 FighterHellfire:
 	Inherits: ^RocketWarhead

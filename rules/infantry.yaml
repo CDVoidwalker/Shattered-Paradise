@@ -16,9 +16,9 @@ GDIE1:
 		VoiceSet: Marine
 	Armament@PRIMARY:
 		Weapon: MarineRifle
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	RenderSprites:
 
 GRENADIER:
@@ -43,14 +43,15 @@ GRENADIER:
 	Armament:
 		Weapon: GrenadierBazooka
 		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
 	Armament@AA:
 		Weapon: GrenadierBazookaAA
 		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
 	Voiced:
 		VoiceSet: Marine
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 
 MEDIC:
 	Inherits: ^Soldier
@@ -75,8 +76,8 @@ MEDIC:
 		TargetStances: Ally
 		Weapon: Heal
 		ForceTargetStances: None
-	AttackFrontal:
 		PauseOnCondition: WebDisable
+	AttackFrontal:
 	Passenger:
 		PipType: Red
 
@@ -96,11 +97,11 @@ JUMPJET:
 		IntoActor: jumpjetair
 	Armament@1:
 		Weapon: JJGrenade
+		PauseOnCondition: WebDisable
 	Passenger:
 		PipType: Blue
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 
 JUMPJETAIR:
 	Inherits: ^Aircraft
@@ -207,10 +208,10 @@ EAGLEGUARD:
 	Armament:
 		Weapon: TrooperRail
 		LocalOffset: 550,100,550
+		PauseOnCondition: WebDisable
 	-Crushable:
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 
 ALTNODE1:
 	Inherits: ^Soldier
@@ -226,17 +227,14 @@ ALTNODE1:
 		Name: Militant
 	Health:
 		HP: 10000
-	Targetable@FlameWarrior:
-		TargetTypes: FlameWarrior
 	Mobile:
 		Speed: 70
 	-TakeCover:
 	Armament:
 		Weapon: MilitantRifle
-		RequiresCondition: !deployed
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	RenderSprites:
 
 CRUSADER:
@@ -256,13 +254,14 @@ CRUSADER:
 	Armament:
 		Weapon: CrusaderBazooka
 		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
 	Armament@AA:
 		Weapon: CrusaderBazookaAA
 		LocalOffset: 0,0,600
+		PauseOnCondition: WebDisable
 	-TakeCover:
 	AttackTurreted:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	Turreted:
 	Passenger:
 		PipType: Blue
@@ -292,9 +291,9 @@ TEMPLAR:
 	Armament@1:
 		Weapon: TemplarFlame
 		LocalOffset: 200,50,320
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	RenderSprites:
 	-DamagedByTerrain:
 
@@ -312,12 +311,13 @@ NCONF:
 	Tooltip:
 		Name: Black Hand Trooper
 	Health:
-		HP: 14500
+		HP: 12000
 	Mobile:
 		Speed: 65
 	Armament@1:
 		Weapon: TemplarLasor
 		LocalOffset: 362,0,778
+		PauseOnCondition: WebDisable
 	Cloak@cloakgenerator:
 		RequiresCondition: !lawea
 		InitialDelay: 80
@@ -328,7 +328,6 @@ NCONF:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	RenderSprites:
 	Voiced:
 		VoiceSet: BlackHand
@@ -383,11 +382,11 @@ BHS:
 		VoiceSet: Oxanna
 	Armament@PRIMARY:
 		Weapon: BHRifle
+		PauseOnCondition: WebDisable
 	AnnounceOnSeen:
 		Notification: CommandoDetected
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	Demolition:
 		DetonationDelay: 45
 		Voice: Attack
@@ -450,6 +449,7 @@ MARAUDER:
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 		MuzzlePalette: playermut
+		PauseOnCondition: WebDisable
 	Armament@2:
 		Weapon: GMarauderShotgun
 		MuzzlePalette: playermut
@@ -521,14 +521,15 @@ MUTFIEND:
 	Armament:
 		Weapon: FiendShard2
 		Name: OnFoot
+		PauseOnCondition: WebDisable
 	Armament@AA:
 		Weapon: FiendShardAA
 		Name: OnFoot
+		PauseOnCondition: WebDisable
 	Armament@Garrison:
 		Weapon: GFiendShard2
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 		Armaments: OnFoot
 
 E2:
@@ -588,6 +589,7 @@ E3:
 		Weapon: SkirmisherMortar
 		LocalOffset: 128,0,640
 		Name: OnFoot
+		PauseOnCondition: WebDisable
 	Armament@GARRISON:
 		Weapon: GSkirmisherMortar
 		LocalOffset: 128,0,640
@@ -596,7 +598,6 @@ E3:
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		PauseOnCondition: WebDisable
 
 SEER:
 	Inherits: ^Mutant
@@ -623,18 +624,19 @@ SEER:
 		Name: OnFoot
 		FireDelay: 5
 		LocalOffset: 100,0,400
+		PauseOnCondition: WebDisable
 	Armament@SECONDARY:
 		Weapon: SeerTeslaAA
 		Name: OnFoot
 		FireDelay: 5
 		LocalOffset: 100,0,400
+		PauseOnCondition: WebDisable
 	Armament@GARRISON:
 		Weapon: SeerTesla
 		LocalOffset: 100,0,400
 	AttackFrontal:
 		Voice: Attack
 		Armaments: OnFoot
-		PauseOnCondition: WebDisable
 	Explodes:
 		Weapon: SparkExplo
 		EmptyWeapon: SparkExplo
@@ -686,13 +688,13 @@ PSYKER:
 		Weapon: PsykerRay
 		Name: OnFoot
 		LocalOffset: 128,0,640
+		PauseOnCondition: WebDisable
 	Armament@GARRISON:
 		Weapon: GPsykerRay
 		LocalOffset: 128,0,640
 	AttackFrontal:
 		Voice: Attack
 		Armament: OnFoot
-		PauseOnCondition: WebDisable
 
 SHARK:
 	Inherits: ^ScrinSoldier
@@ -723,9 +725,9 @@ SHARK:
 		RequiresLobbyCreeps: true
 	Armament:
 		Weapon: SharkJump
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	AutoTargetPriority:
 		Priority: 1
 		ValidTargets: Infantry
@@ -760,13 +762,14 @@ LEGIO:
 		Weapon: LegioNeedler
 		LocalOffset: 350,200,800
 		FireDelay: 5
+		PauseOnCondition: WebDisable
 	Armament@AA:
 		Weapon: LegioNeedlerAA
 		LocalOffset: 350,200,800
 		FireDelay: 5
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 
 SHAPESHIFTER:
 	Inherits: ENGINEER
@@ -807,8 +810,6 @@ FLOAT:
 		BuildPaletteOrder: 20
 		Description: Support unit that steals essence from enemy units.\n\nSpecial:\n- Hovers (it ignores terrain like Veins and Water)\n- Attack deals little to no damage but steals essence to heal friendly units.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax, scrradr
-	Selectable:
-		Class: FLoat
 	Valued:
 		Cost: 400
 	-Crushable:
@@ -831,10 +832,10 @@ FLOAT:
 		Weapon: FloatTesla
 		LocalOffset: 0,0,500
 		FireDelay: 10
+		PauseOnCondition: WebDisable
 		ForceTargetStances: Enemy
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	-TakeCover:
 
 BUG:
@@ -843,7 +844,7 @@ BUG:
 	Buildable:
 		Queue: Infantry
 		BuildPaletteOrder: 21
-		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.n- Poisoned units have reduced attack and movement speed.\n- Plague Carriers attacks bounce up to 3 times.\n- Absorbs essence from killed enemies to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.\nNote: damage over time has been removed due to a bug.#\n- Poisoned units take damage over time\
+		Description: Alien breed that poisons enemies.\n\nGood vs Ground targets.\n\nSpecial\n- Units hit will become poisoned.\n- Poisoned units take damage over time\n- Poisoned units have reduced attack and movement speed by 10%.\n- Plague Carriers attacks bounce up to 3 times.\n- Absorbs essence from killed enemies to heal.\n- Crush class: crushable.\n- Immune to Tiberium radiation.
 		Prerequisites: ~scrrax, scrradr
 	Valued:
 		Cost: 650
@@ -865,9 +866,9 @@ BUG:
 		RequiresLobbyCreeps: true
 	Armament:
 		Weapon: FloatGlaive
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	-TakeCover:
 
 COLOSSI:
@@ -900,6 +901,7 @@ COLOSSI:
 		Weapon: ColossiTesla
 		LocalOffset: 300,0,1000
 		RequiresCondition: undeployed
+		PauseOnCondition: WebDisable
 	-Crushable:
 	-TakeCover:
 	GrantConditionOnDeploy:
@@ -910,6 +912,7 @@ COLOSSI:
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough, Green, Tiberium, BlueTiberium, Veins
 		DeploySound:
 		UndeploySound:
+		CanDeployOnRamps: True
 	WithInfantryBody:
 		RequiresCondition: undeployed ||  WebDisable
 	WithSpriteBody@deployed:
@@ -919,10 +922,10 @@ COLOSSI:
 	AttackFrontal:
 		Voice: Attack
 		RequiresCondition: undeployed
-		PauseOnCondition: WebDisable
 	ExplodeWeapon:
 		Weapon: ColossiBlast
 		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
 
 CABSENTRY:
 	Inherits: ^CabalDroneInfantry
@@ -946,6 +949,7 @@ CABSENTRY:
 	Mobile:
 		Speed: 70
 		Crushes: nada
+		SharesCell: False
 	GrantPeriodicCondition:
 		Condition: KillMe
 		CooldownDuration: 500
@@ -957,14 +961,16 @@ CABSENTRY:
 		HP: 5000
 	Armament@primary:
 		Weapon: SentryGun
+		PauseOnCondition: WebDisable
 	AutoTarget:
 		ScanRadius: 8
 		InitialStance: AttackAnything
+	-Armor:
+	Armor@2:
+		Type: VehicleArmor
 	RenderSprites:
-		Scale: 0.7
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	SelectionDecorations:
 	Hovers:
 	WithInfantryBody:
@@ -997,9 +1003,9 @@ CYBORG:
 		HP: 28000
 	Armament:
 		Weapon: CyborgVulcan
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	SelectionDecorations:
 
 CBORG:
@@ -1025,12 +1031,13 @@ CBORG:
 	Armament:
 		Weapon: CyborgRocket
 		LocalOffset: 424,198,1086
+		PauseOnCondition: WebDisable
 	Armament@AA:
 		Weapon: CyborgRocketAA
 		LocalOffset: 424,198,1086
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	RenderSprites:
 
 SWARMLING:
@@ -1110,9 +1117,9 @@ PDRONE:
 		InitialStance: AttackAnything
 	Armament:
 		Weapon: ReclaimerHit
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	-WithColoredOverlay@WebDisable:
 	-TimedConditionBar@WebDisable:
 	WithDeathAnimation@normal:
@@ -1164,18 +1171,22 @@ GLAD:
 		Speed: 55
 		SharesCell: False
 	Health:
-		HP: 59000
+		HP: 50000
 	Armament@primary:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 170,250,500
+		PauseOnCondition: WebDisable
 	Armament@secondary:
 		Weapon: GLAD120mm
 		MuzzleSequence: muzzle
 		LocalOffset: 170,-250,500
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 
 MOTH:
 	Inherits: ^CabalDroneInfantry
@@ -1246,6 +1257,7 @@ MOTH:
 	Armament@primary:
 		Weapon: LurkerHit #LurkerProj
 		RequiresCondition: deployed
+		PauseOnCondition: WebDisable
 	AttackOmni:
 		RequiresCondition: deployed
 		PauseOnCondition: WebDisable
@@ -1286,9 +1298,9 @@ CYC2:
 	Armament:
 		Weapon: CyCannon
 		LocalOffset: 170,85,683
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 16,32,-1,-12
@@ -1310,9 +1322,9 @@ WORKER:
 		Type: Worker
 	Armament@PRIMARY:
 		Weapon: Minigun
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	RenderSprites:
 	-SpawnActorOnDeath@nanomachineburst:
 	-SpawnActorOnDeath@conversion:
@@ -1341,7 +1353,6 @@ PALADIN2:
 		TurnSpeed: 5
 	AttackTurreted:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	WithSpriteTurret:
 		Recoils: no
 	RenderSprites:
@@ -1350,6 +1361,7 @@ PALADIN2:
 		Weapon: SentinelGun
 		Recoil: 127
 		RecoilRecovery: 26
+		PauseOnCondition: WebDisable
 	AutoTarget:
 	Selectable:
 		Bounds: 30, 42, 0, -8
@@ -1378,12 +1390,13 @@ cybdog:
 	Armament:
 		Weapon: Dogzooka
 		LocalOffset: 0,-100,300
+		PauseOnCondition: WebDisable
 	Armament@2:
 		Weapon: Dogzooka
 		LocalOffset: 0,-100,300
+		PauseOnCondition: WebDisable
 	AttackFrontal:
 		Voice: Attack
-		PauseOnCondition: WebDisable
 	SelectionDecorations:
 	-SpawnActorOnDeath@nanomachineburst:
 

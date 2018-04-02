@@ -77,7 +77,7 @@ GDIREF:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.gdi, gapowr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
 	RenderSprites:
 		-Image: proc.gdi
 		-FactionImages:
@@ -95,7 +95,7 @@ GDIREF2:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.gdi, gapowr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
@@ -335,7 +335,7 @@ NODREF:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.nod, napowr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
 	RenderSprites:
 		-Image: proc.gdi
 		-FactionImages:
@@ -353,7 +353,7 @@ NODREF2:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.nod, napowr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
@@ -653,7 +653,7 @@ MUPROC:
 		BuildPaletteOrder: 3
 		Prerequisites: ~structures.mut, mupowr
 		IconPalette: UnittemIconMut
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
 	Tooltip:
 		Name: Forgotten Refinery
 	Building:
@@ -689,7 +689,7 @@ MUPROC2:
 		BuildPaletteOrder: 3
 		IconPalette: UnittemIconMut
 		Prerequisites: ~structures.mut, mupowr
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 	Building:
 		Footprint: ==xx ==xx ==xx
 		Dimensions: 4,3
@@ -1317,7 +1317,7 @@ CABPROC:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: cabpowr, ~structures.cab
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.
 		IconPalette: UnittemIconCab
 	Tooltip:
 		Name: C.A.B.A.L. Refinery
@@ -1351,7 +1351,7 @@ CABPROC2:
 		Queue: Building
 		BuildPaletteOrder: 3
 		Prerequisites: cabpowr, ~structures.cab
-		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 700$.\n- Turned 180 degrees.
+		Description: Processes raw Tiberium into useable resources.\n\nSpecial:\n- Stores 1000$.\n- Turned 180 degrees.
 		IconPalette: UnittemIconCab
 	Building:
 		Footprint: ==xx ==xx ==xx

@@ -174,7 +174,7 @@ FloatGlaive:
 		Palette: apollightbluealpha
 		Image: glaive
 	Warhead@1Dam: SpreadDamage
-		Damage: 1000
+		Damage: 2000
 		ValidTargets: Ground, Water
 		DamageTypes: SmallExplosionDeath, ScrinEssenceKill
 	Warhead@op: FireShrapnel
@@ -338,6 +338,10 @@ SCRMBTLASOR:
 		BeamDuration: 5
 		ZOffset: 2047
 		Color: f442f4
+		SecondaryBeam: True
+		SecondaryBeamWidth: 30
+		SecondaryBeamZOffset: 2550
+		SecondaryBeamColor: FFFFFF
 	Warhead@1Dam: SpreadDamage
 		Spread: 0c045
 		Damage: 7000
@@ -557,7 +561,6 @@ TripodProton:
 		Speed: 150
 		Blockable: false
 		Shadow: true
-		Inaccuracy: 128
 		Image: TORPEDO
 		RangeLimit: 35
 	Warhead@1Dam: SpreadDamage

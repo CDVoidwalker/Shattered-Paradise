@@ -112,7 +112,7 @@
 	Warhead@1Eff: CreateEffect
 		Explosions: jsbang34b, jsbang34b, jsbang48, jsbang48b
 		ExplosionPalette: gensmkexploj
-		ImpactSoundss: expnew09.aud, expnew10.aud, expnew11.aud
+		ImpactSounds: expnew09.aud, expnew10.aud, expnew11.aud
 		ValidTargets: Ground, Air
 	Warhead@3EffWater: CreateEffect
 		Explosions: small_watersplash

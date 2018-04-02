@@ -23,6 +23,7 @@ SMECH:
 	AutoTarget:
 	Armament:
 		Weapon: WolverineVulcan
+		PauseOnCondition: empdisable
 	Voiced:
 		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
@@ -56,6 +57,7 @@ MMCH:
 		HP: 40000
 	BodyOrientation:
 		QuantizedFacings: 32
+		CameraPitch: 250
 	WithInfantryBody:
 	Turreted:
 		TurnSpeed: 4
@@ -70,6 +72,7 @@ MMCH:
 		RecoilRecovery: 26
 		MuzzleSequence: muzzle
 		LocalOffset: 600, 300, 700
+		PauseOnCondition: empdisable
 	RenderVoxels:
 	WithSpriteBarrel:
 		LocalOffset: 300, 250, 300
@@ -131,7 +134,14 @@ APC:
 		MovingInterval: 6
 	Armament@primary:
 		Weapon: ApcVulcan
-		LocalOffset: 250,0,384
+		LocalOffset: 350,0,1000
+		MuzzleSequence: muzzle
+		MuzzleSplitFacings: 8
+		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
+	WithMuzzleOverlay:
 
 HVR:
 	Inherits: ^VoxelTank
@@ -157,9 +167,11 @@ HVR:
 	Armament:
 		Weapon: HoverMissile
 		LocalOffset: 100,150,384, 100,-150,384
+		PauseOnCondition: empdisable
 	Armament@AA:
 		Weapon: HoverMissileAA
 		LocalOffset: 100,150,384, 100,-150,384
+		PauseOnCondition: empdisable
 	Turreted:
 		TurnSpeed: 9
 		Offset: -300,0,100
@@ -176,6 +188,9 @@ HVR:
 	-ExternalCondition@veinholedrain:
 	-WithIdleOverlay@veinholedrain:
 	-GrantConditionOnTerrain@VEINS:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 
 JUG:
 	Inherits: ^Walker
@@ -201,10 +216,15 @@ JUG:
 	Armament:
 		Weapon: JuggCannon
 		LocalOffset: 600, 200, 2650
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
 	Armament@1:
 		Weapon: JuggCannon
 		LocalOffset: 600, -200, 2650
 		Name: secondary
+		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
+	WithMuzzleOverlay:
 	Voiced:
 		VoiceSet: Mech
 	QuantizeFacingsFromSequence:
@@ -217,6 +237,9 @@ JUG:
 		MoveSequence: run
 	Selectable:
 		Bounds: 40, 60, 0, -20
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
 
 SONIC:
 	Inherits: ^VoxelTank
@@ -239,9 +262,12 @@ SONIC:
 		HP: 55000
 	Armor@disruptor:
 		Type: Disruptor
+	BodyOrientation:
+		CameraPitch: 250
 	Armament:
 		Weapon: SonicZap
 		LocalOffset: 0,0,800
+		PauseOnCondition: empdisable
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -279,16 +305,21 @@ G4TNK:
 		Offset: -200,0,0
 	Armament@PRIMARY:
 		Weapon: 4tnkgun
-		LocalOffset: 1200,120,650, 1200,-120,650
+		LocalOffset: 1150,120,550, 1150,-120,550
 		MuzzleSequence: muzzle
 		Recoil: 127
 		RecoilRecovery: 26
+		PauseOnCondition: empdisable
 	Armament@SECONDARY:
 		Weapon: MammothTusk
-		LocalOffset: 100,200,650, 100,-200,650
+		LocalOffset: 100,400,650, 100,-400,650
+		PauseOnCondition: empdisable
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	AutoTarget:
 	-RenderVoxels:
 	-WithVoxelBody:
@@ -308,12 +339,12 @@ HMEC:
 		Queue: Vehicle
 		BuildPaletteOrder: 9
 		Prerequisites: ~gaweap, gtdrop
-		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1.\n- Selfhealing up to 100%.\n- Can attack air.\n- Can crush infantry.\n- Immune to mind control.
+		Description: GDI's super-heavy walker and the proud of their army.\n\nGood vs: Everything\n\nSpecial:\n- Maximum Supply of 1.\n- Selfhealing up to 100%.\n- Can attack air.\n- Can crush infantry.\n- Immune to mind control.\n- Can crush vehicles and cyborgs.
 		BuildLimit: 1
 	Mobile:
 		TurnSpeed: 3
-		Speed: 50
-		Crushes: wall, crate, infantry
+		Speed: 40
+		Crushes: wall, crate, infantry, Vehicle, Cyborg
 	-RejectsOrders@berserk:
 	Health:
 		HP: 200000
@@ -322,25 +353,55 @@ HMEC:
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
+		Turrets: primary, secondary, third
+		Armaments: primary, secondary, third
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
 	AutoTarget:
 	Armament:
 		Weapon: MKIITusk
-		LocalOffset: -300,-500,3500, -300,500,3500
+		LocalOffset: 0,0,2800
+		Turret: secondary
+		Name: secondary
+		PauseOnCondition: empdisable
 	Armament@1:
-		Weapon: MechRailgun
-		LocalOffset: 1400,-250,3000, 1400,250,3000
+		Weapon: MKIITusk
+		LocalOffset: 0,0,2800
+		Turret: third
+		Name: third
+		FireDelay: 5
+		PauseOnCondition: empdisable
 	Armament@2:
+		Weapon: MechRailgun
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable
+	Armament@3:
 		Weapon: MechDummy
+		LocalOffset: 1200,-250,2650, 1200,250,2650
+		PauseOnCondition: empdisable
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	-TemporaryOwnerManager:
 	-WithVoxelBody:
-	# -WithVoxelWalkerBody:
-		# TickRate: 1
 	Turreted:
-		Offset: -400,0,0
-		TurnSpeed: 2
+		Offset: -500,0,0
+		TurnSpeed: 3
+	Turreted@2:
+		Offset: 600,300,-400
+		TurnSpeed: 6
+		Turret: secondary
+	Turreted@3:
+		Offset: 600,-300,-400
+		TurnSpeed: 6
+		Turret: third
 	WithSpriteTurret:
+	WithSpriteTurret@2
+		Sequence: turret2
+		Turret: secondary
+	WithSpriteTurret@3
+		Sequence: turret2
+		Turret: third
 	WithFacingSpriteBody:
 	WithMoveAnimation:
 		MoveSequence: run
@@ -389,7 +450,7 @@ BGGY:
 		Speed: 135
 		Crushes: crate
 	Turreted:
-		Offset: -125,0,300
+		Offset: -250,0,400
 		TurnSpeed: 8
 	Health:
 		HP: 15000
@@ -433,7 +494,7 @@ BGGY:
 			float: ifv.float
 	Armament:
 		Weapon: MilitantRifle
-		LocalOffset: 0,-43,384, 0,43,384
+		LocalOffset: 200,-43,200
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 		RequiresCondition: !loaded
@@ -664,12 +725,15 @@ TTNK:
 		Weapon: Tick90mm
 		LocalOffset: 350,-0,400
 		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
 	Armament@DEPLOYED:
 		Name: deployed
 		Turret: deployed
+		Recoil: 0c128
 		Weapon: Tick90mm
 		LocalOffset: 256,-0,600
 		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
 	WithMuzzleOverlay:
 	RenderSprites:
 		Image: ttnk
@@ -680,6 +744,7 @@ TTNK:
 		Facing: 160
 		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySound: place2.aud
+		CanDeployOnRamps: True
 		UndeploySound: clicky1.aud
 	Carryable:
 		RequiresCondition: undeployed
@@ -848,7 +913,7 @@ SAPC:
 	WithIdleOverlay@veinholedrain:
 		RequiresCondition: veinholedrain && !submerged
 	Health:
-		HP: 17500
+		HP: 20000
 	RevealsShroud:
 		RequiresCondition: !inside-tunnel && !submerged
 		MaxHeightDelta: 3
@@ -928,10 +993,12 @@ SUBTANK:
 		HP: 25000
 	Armament:
 		Weapon: DevilsFlame
-		LocalOffset: 0,200,0
+		LocalOffset: 0,400,0
+		PauseOnCondition: empdisable
 	Armament@secondary:
 		Weapon: DevilsFlame
-		LocalOffset: 0,-200,0
+		LocalOffset: 0,-400,0
+		PauseOnCondition: empdisable
 	RejectsOrders@subterranean:
 		RequiresCondition: submerged
 		Except: Stop
@@ -961,7 +1028,7 @@ ARMH:
 		Queue: Vehicle
 		Description: High tech artillery armed with a laser cannon.\n\nGood vs: Ground Targets\n- Can crush infantry
 		BuildPaletteOrder: 15
-		Prerequisites: ~naweap, natech
+		Prerequisites: ~disabled
 	Health:
 		HP: 16000
 	Mobile:
@@ -973,6 +1040,7 @@ ARMH:
 	Armament:
 		Weapon: BCLazor
 		LocalOffset: 600,0,450
+		PauseOnCondition: empdisable
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -987,6 +1055,48 @@ ARMH:
 		Voice: Kill
 		Interval: 1000
 		OnlyToOwner: True
+
+HOWTLIZER:
+	Inherits: ^VoxelTank
+	Inherits@1: ^5CellVision
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Specter
+	Buildable:
+		Queue: Vehicle
+		Description: High tech artillery armed with a self-propelled howitzer.\nAnd cloak generators.\n\nGood vs: Ground Targets\n- Can crush infantry.\n- Cloaks when not firing.
+		BuildPaletteOrder: 15
+		Prerequisites: ~naweap, natech
+	Health:
+		HP: 12000
+	Mobile:
+		Speed: 50
+		TurnSpeed: 3
+	Cloak@cloakgenerator:
+		InitialDelay: 150
+		CloakDelay: 150
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithMuzzleOverlay:
+	WithFacingSpriteBody:
+	Armament:
+		Weapon: SpectreCannon
+		LocalOffset: 600,0,1500
+		MuzzleSequence: muzzle
+		MuzzlePalette: gensmkexploj
+		PauseOnCondition: empdisable
+	AttackFrontal:
+		Voice: Attack
+		PauseOnCondition: empdisable
+	AutoTarget:
+	-GrantConditionOnDamageState@smoke:
+	-SmokeParticleEmitter:
+	-ExternalCondition@smoketrail:
 
 STNK:
 	Inherits: ^VoxelTank
@@ -1005,7 +1115,7 @@ STNK:
 		Speed: 100
 		Crushes: wall, crate, infantry
 	Health:
-		HP: 25000
+		HP: 20000
 	WithFacingSpriteBody:
 	GrantCondition:
 		Condition: cloakgenerator
@@ -1018,10 +1128,12 @@ STNK:
 		UncloakOn: Attack, Unload, Infiltrate, Demolish, Damage
 	Armament:
 		Weapon: StealthRocket
-		LocalOffset: 200,43,900, 50,-43,500
+		LocalOffset: 400,100,300, 400,-100,300
+		PauseOnCondition: empdisable
 	Armament@Secondary:
 		Weapon: StealthRocketAA
-		LocalOffset: 200,43,900, 50,-43,500
+		LocalOffset: 400,100,300, 400,-100,300
+		PauseOnCondition: empdisable
 	-RenderVoxels:
 	-WithVoxelBody:
 	Turreted:
@@ -1032,6 +1144,9 @@ STNK:
 		Voice: Attack
 		PauseOnCondition: empdisable
 	-RejectsOrders@berserk:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: ReturnFire
@@ -1103,13 +1218,15 @@ MUTQUAD:
 	Armament@primary:
 		Weapon: QuadFire
 		MuzzleSequence: muzzle
-		LocalOffset: 700,0,650
+		LocalOffset: 800,0,700
 		MuzzlePalette: apgrey
+		PauseOnCondition: empdisable
 	Armament@Secondary:
 		Weapon: QuadFireAA
 		MuzzleSequence: muzzle
 		MuzzlePalette: apgrey
-		LocalOffset: 700,0,650
+		LocalOffset: 800,0,700
+		PauseOnCondition: empdisable
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -1117,6 +1234,9 @@ MUTQUAD:
 		TurnSpeed: 6
 		Offset: -300,0,0
 	AutoTarget:
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 
 LYNX:
 	Inherits: ^VoxelTank
@@ -1148,6 +1268,9 @@ LYNX:
 	Turreted:
 		TurnSpeed: 6
 		Offset: 150,0,0
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	AutoTarget:
 	WithSpriteTurret:
 	WithMuzzleOverlay:
@@ -1160,6 +1283,7 @@ LYNX:
 		MuzzleSequence: muzzle
 		MuzzleSplitFacings: 8
 		Recoil: 0c128
+		PauseOnCondition: empdisable
 
 STRUCK:
 	Inherits: ^VoxelTank
@@ -1184,6 +1308,9 @@ STRUCK:
 	Voiced:
 		VoiceSet: Trike
 		Volume: 3
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	-RenderVoxels:
 	-WithVoxelBody:
 	-GainsExperience:
@@ -1247,6 +1374,9 @@ WOLF:
 	-TimedConditionBar@WebDisable:
 	-WithIdleOverlay@web:
 	-ExternalCondition@WebDisable:
+	BodyOrientation:
+		QuantizedFacings: 8
+		CameraPitch: 250
 
 MRLS:
 	Inherits: ^VoxelTank
@@ -1265,6 +1395,9 @@ MRLS:
 		TurnSpeed: 10
 		Speed: 90
 		Crushes: wall, crate, infantry
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 250
 	Health:
 		HP: 15000
 	Voiced:
@@ -1273,6 +1406,7 @@ MRLS:
 	Armament:
 		Weapon: tiberianrocket
 		LocalOffset: 400,100,900, 400,-100,900
+		PauseOnCondition: empdisable
 	AttackTurreted:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -1395,7 +1529,7 @@ SCRSCORPION:
 		Speed: 100
 		Crushes: crate
 	Health:
-		HP: 28125
+		HP: 30000
 	AttackFrontal:
 		Voice: Attack
 		PauseOnCondition: empdisable
@@ -1403,6 +1537,7 @@ SCRSCORPION:
 	Armament@PRIMARY:
 		Weapon: ScorpAcid
 		LocalOffset: 100,0,200
+		PauseOnCondition: empdisable
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
@@ -1425,7 +1560,7 @@ SCRMBT:
 	Tooltip:
 		Name: Hover Tank
 	Health:
-		HP: 28125
+		HP: 30000
 	Mobile:
     	TurnSpeed: 7
 		Speed: 90
@@ -1434,6 +1569,7 @@ SCRMBT:
 	Armament:
 		Weapon: scrmbtlasor
 		LocalOffset: 250,0,900
+		PauseOnCondition: empdisable
 	AttackTurreted:
 		PauseOnCondition: empdisable
 	WithSpriteTurret:
@@ -1442,6 +1578,7 @@ SCRMBT:
 	WithFacingSpriteBody:
 	BodyOrientation:
 		QuantizedFacings: 32
+		CameraPitch: 250
 
 SCRGLYDER2:
 	Inherits@1: ^HoverVehicle
@@ -1459,7 +1596,7 @@ SCRGLYDER2:
 	Tooltip:
 		Name: Glider
 	Health:
-		HP: 20000
+		HP: 30000
 	Mobile:
 		Speed: 100
 	Transforms:
@@ -1469,6 +1606,7 @@ SCRGLYDER2:
 		Recoil: 85
 		RecoilRecovery: 25
 		LocalOffset: 100,0,1500
+		PauseOnCondition: empdisable
 	AutoTarget:
 	AttackFrontal:
 		PauseOnCondition: empdisable
@@ -1481,7 +1619,7 @@ SCRRECHARGER:
 	Inherits@1: ^Walker
 	Inherits: ^ScrinVehicle
 	Valued:
-		Cost: 900
+		Cost: 650
 	Tooltip:
 		Name: Vanguard
 	Buildable:
@@ -1493,7 +1631,7 @@ SCRRECHARGER:
 		TurnSpeed: 8
 		Speed: 80
 	Health:
-		HP: 25000
+		HP: 20000
 	-WithIdleOverlay@shield:
 	-Targetable@Shield:
 	-DamageMultiplier@Boarded6:
@@ -1545,8 +1683,9 @@ SCRMOBMINE:
 		TargetTypes: MindControlInmune
 	Armament@PRIMARY:
 		Weapon: MindController
+		PauseOnCondition: empdisable
 	Health:
-		HP: 16800
+		HP: 15000
 	Mobile:
     	TurnSpeed: 7
 		Speed: 95
@@ -1608,9 +1747,11 @@ TRIPOD:
 	Armament:
 		Weapon: TripodLaser
 		LocalOffset: 100,225,3500
+		PauseOnCondition: empdisable
 	Armament@2:
 		Weapon: TripodLaser
 		LocalOffset: 100,-225,3500
+		PauseOnCondition: empdisable
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	QuantizeFacingsFromSequence:
@@ -1676,6 +1817,7 @@ CENTURION:
 		VoiceSet: Cyborg
 	BodyOrientation:
 		QuantizedFacings: 32
+		CameraPitch: 250
 	Turreted:
 		TurnSpeed: 4
 	AttackTurreted:
@@ -1690,14 +1832,16 @@ CENTURION:
 		Weapon: CenturionVulcan
 		Recoil: 127
 		RecoilRecovery: 26
-		LocalOffset: 700,600,1000
+		LocalOffset: 900,550,1200
 		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
 	Armament@asd:
 		Weapon: CenturionVulcan
 		Recoil: 127
 		RecoilRecovery: 26
-		LocalOffset: 700,-600,1000
+		LocalOffset: 900,-550,1200
 		MuzzleSequence: muzzle
+		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:
 		Bounds: 45, 42, 0, -8
@@ -1725,7 +1869,7 @@ REAPERCAB:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	Health:
-		HP: 30000
+		HP: 25000
 	Voiced:
 		VoiceSet: CyborgReap
 	Armament@primary:
@@ -1734,9 +1878,11 @@ REAPERCAB:
 	Armament@secondary:
 		Weapon: ReaperScythe
 		LocalOffset: 0,-200,500, 0,200,500
+		PauseOnCondition: empdisable
 	Armament@AA:
 		Weapon: ReaperScytheAA
 		LocalOffset: 0,-200,500, 0,200,500
+		PauseOnCondition: empdisable
 	WithDeathAnimation@die:
 		DeathSequence: die1
 		DeathSequencePalette: player
@@ -1772,6 +1918,7 @@ REPAIRVEHICLE:
 		OutsideRangeCursor: repair
 		TargetStances: Ally
 		ForceTargetStances: None
+		PauseOnCondition: empdisable
 	AttackFrontal:
 		Voice: Attack
 	AutoTarget:
@@ -1829,7 +1976,7 @@ SPIDERARTY:
 	Inherits@1: ^6CellVision
 	Inherits@2: ^CabRender
 	Valued:
-		Cost: 1500
+		Cost: 1750
 	Tooltip:
 		Name: Drone Host
 	Buildable:
@@ -1848,6 +1995,7 @@ SPIDERARTY:
 		HP: 45000
 	BodyOrientation:
 		QuantizedFacings: 32
+		CameraPitch: 250
 	WithMuzzleOverlay:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -1857,8 +2005,7 @@ SPIDERARTY:
 		Weapon: DroneHostShell
 		LocalOffset: -500,-150,900, -300,150,1200, -500,150,900, -300,-150,1200
 		MuzzleSequence: muzzle
-	Targetable@Seeker:
-		TargetTypes: Seeker
+		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:
 		Bounds: 60, 65, 0, -14
@@ -1890,7 +2037,8 @@ PALADIN:
 	Voiced:
 		VoiceSet: Cyborg
 	BodyOrientation:
-		QuantizedFacings: 32
+		QuantizedFacings: 8
+		CameraPitch: 250
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 	AttackFrontal:
@@ -1900,15 +2048,19 @@ PALADIN:
 	Armament@1:
 		Weapon: PalaLazor
 		LocalOffset: 555,500,1200
+		PauseOnCondition: empdisable
 	Armament@2:
-		Weapon: PalaLazor
+		Weapon: PalaLazorMute
 		LocalOffset: 555,-500,1200
+		PauseOnCondition: empdisable
 	Armament@3:
-		Weapon: PalaLazor
+		Weapon: PalaLazorMute
 		LocalOffset: 555,500,1350
+		PauseOnCondition: empdisable
 	Armament@4:
-		Weapon: PalaLazor
+		Weapon: PalaLazorMute
 		LocalOffset: 555,-500,1350
+		PauseOnCondition: empdisable
 	AutoTarget:
 	Selectable:
 		Bounds: 40, 60, 0, -20
@@ -1944,6 +2096,7 @@ JUGGER:
 		LocalOffset: 600, -600, 6000
 	Voiced:
 		VoiceSet: Mech
+	WithMuzzleOverlay:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithFacingSpriteBody:

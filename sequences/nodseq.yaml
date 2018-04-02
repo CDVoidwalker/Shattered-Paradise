@@ -451,6 +451,12 @@ armh:
 	Inherits@1: ^SpriteVehicleWithShadow
 	icon: beamcannonicon
 
+howtlizer:
+	Inherits@1: ^SpriteVehicleWithShadow
+	icon: howtlizericon
+	muzzle: japmuzzle
+		Length: *
+
 limped:
 	Inherits: ^EmpOverlay
 	stand:

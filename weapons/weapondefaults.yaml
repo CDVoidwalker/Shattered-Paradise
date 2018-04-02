@@ -111,7 +111,7 @@
 ^BombWarhead:
 	Inherits: ^WeaponGenericUpgrades
 	Warhead@1Dam: SpreadDamage
-		Falloff: 300, 150, 100, 50, 0
+		# Falloff: 300, 150, 100, 50, 0
 		Versus:
 			InfantryArmor: 100
 			BuildingArmor: 100

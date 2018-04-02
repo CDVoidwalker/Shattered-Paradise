@@ -415,7 +415,7 @@ CenturionVulcan:
 	ReloadDelay: 35
 	Burst: 2
 	Range: 6c0
-	Report: cygun1.aud
+	Report: HammerGun0000.wav, HammerGun0001.wav, HammerGun0002.wav
 	Projectile: BulletAS
 		Speed: 1c682
 		Inaccuracy: 0c512
@@ -499,7 +499,7 @@ ecmwave:
 PalaLazor:
 	Inherits: ^FullDamage
 	ReloadDelay: 75
-	Range: 7c0
+	Range: 8c0
 	Report: lastur1.aud
 	Projectile: LaserZap
 		Width: 60
@@ -515,6 +515,10 @@ PalaLazor:
 		Spread: 0c045
 		Damage: 2550
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
+
+PalaLazorMute:
+	Inherits: PalaLazor
+	-Report: lastur1.aud
 
 WaspLasor:
 	ReloadDelay: 50
@@ -728,7 +732,7 @@ BlasterProton:
 	Burst: 6
 	Range: 11c0
 	MinRange: 3c0
-	Report: hovrmis1.aud
+	Report: scrin5b.aud
 	ValidTargets: Ground, Water, Vehicle, Infantry, water
 	Projectile: BulletAS
 		Speed: 341

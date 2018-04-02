@@ -100,7 +100,7 @@ TemplarLasor:
 	Inherits: ^FullDamage
 	Burst: 3
 	ReloadDelay: 50
-	Range: 4c512
+	Range: 6c0
 	Report: laserriflefire01.wav
 	Projectile: LaserZap
 		Width: 40
@@ -334,6 +334,31 @@ BCLazor:
 			BuildingArmor: 150
 		DamageTypes: Prone60Percent, TriggerProne, EnergyDeath
 
+SpectreCannon:
+	Inherits: ^ArtilleryWarhead
+	Inherits@2: ^Large_Explosion
+	ReloadDelay: 150
+	Range: 18c0
+	MinRange: 5c0
+	Report: jugfire0000.wav, jugfire0001.wav, jugfire0002.wav#specfire0000.wav, specfire0001.wav, specfire0002.wav
+	Projectile: BulletAS
+		Speed: 150
+		Image: spectreball
+		LaunchAngle: 165
+		Shadow: true
+		Inaccuracy: 0c256
+		Blockable: false
+		ContrailLength: 10
+		ContrailZOffset: 650
+		ContrailUsePlayerColor: true
+		Palette: ra
+	Warhead@1Dam: SpreadDamage
+		Spread: 450
+		Damage: 30000
+		Versus:
+			InfantryArmor: 150
+		DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+
 ToxinBerserk:
 	ReloadDelay: 150
 	Projectile: InstantExplode
@@ -375,7 +400,7 @@ HarpyClaw:
 	Range: 5c0
 	MinRange: 0c100
 	InvalidTargets: Air
-	Report: cygun1.aud
+	Report: VenomGun0000.wav, VenomGun0001.wav, VenomGun0002.wav 
 	ValidTargets: Ground, Water, Vehicle, Building, Infantry
 	Projectile: InstantHit
 	Warhead@1Dam: SpreadDamage
@@ -438,7 +463,7 @@ ProtonAA:
 CerberusLazorCharge:
 	ValidTargets: Ground, Water
 	ReloadDelay: 125
-	Range: 6c0
+	Range: 7c0
 	Burst: 7
 	MinRange: 3c0
 	BurstDelays: 10
@@ -452,7 +477,7 @@ CerberusLazor:
 	Inherits: BCLazor
 	Inherits@2: ^Large_Explosion
 	ReloadDelay: 75
-	Range: 6c0
+	Range: 7c0
 	Burst: 3
 	Report: laserchaingunfire.wav
 	ValidTargets: Ground, Water

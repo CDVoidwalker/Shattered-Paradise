@@ -299,7 +299,7 @@ bggy:
 		Start: 32
 		Facings: -32
 		UseTilesetCode: false
-	icon: bggyicon
+	icon: buggyicon
 
 scrproc:
 	Defaults:
@@ -395,17 +395,24 @@ scrproc2:
 
 hmec:
 	Inherits: ^EmpOverlay
-	idle: mammoth
-		Facings: -8
-		Stride: 21
+	idle: Mammothtest
+		Facings: 8
+		# Stride: 21
 		UseTilesetCode: false
 		ShadowStart: 200
-	run: mammoth
-		Facings: -8
-		Length: 21
+	run: Mammothtest
+		Start: 8
+		Facings: 8
+		Length: 16
+		Tick: 85
 		UseTilesetCode: false
-		ShadowStart: 200
-	turret: mammoth
-		Facings: -32
+		ShadowStart: 208
+	turret: Mammothtest
+		Facings: 32
+		Start: 136
+		ZOffset: 5
+   	turret2: Mammothtest
+		Facings: 32
 		Start: 168
-	icon: hmecicon
+		ZOffset: 2
+	icon: mammothicon
