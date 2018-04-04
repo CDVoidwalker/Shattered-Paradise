@@ -164,7 +164,7 @@ FloatGlaive:
 	Inherits: ^FullDamage
 	Inherits@2: ^Scrin_Pulse
 	ReloadDelay: 100
-	Range: 7c0
+	Range: 5c0
 	Report: ScrinPlague0000.wav,  ScrinPlague0001.wav,  ScrinPlague0002.wav,  ScrinPlague0003.wav
 	ValidTargets: Ground, Water
 	Projectile: BulletAS

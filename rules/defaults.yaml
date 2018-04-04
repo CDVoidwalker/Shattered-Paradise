@@ -533,8 +533,8 @@
 		PercentageStep: -1
 		Step: 0
 		Delay: 25
-		HealIfBelow: 20
-		RequiresCondition: BugPoison
+		HealIfBelow: 101
+		RequiresCondition: BugPoison && !stoppoison
 	ReloadDelayMultiplier@BugPoison:
 		RequiresCondition: BugPoison
 		Modifier: 110
@@ -543,6 +543,9 @@
 		Modifier: 90
 	ExternalCondition@BugPoison:
 		Condition: BugPoison
+	GrantConditionOnDamageState@stoppoison:
+		Condition: stoppoison
+		ValidDamageStates: Critical
 
 ^ToxinTrooperDebuff:
 	SpeedMultiplier:
@@ -880,6 +883,8 @@
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^1x1Shape
 	WithTextControlGroupDecoration:
+	# DelayedWeaponAttachable:
+		# Type: bomb
 	SelectionDecorations:
 		Palette: pips
 	Selectable:
@@ -1456,6 +1461,8 @@
 	DrawLineToTarget:
 	TemporaryOwnerManager:
 	WithTextControlGroupDecoration:
+	# DelayedWeaponAttachable:
+		# Type: bomb
 	GivesExperience:
 		PlayerExperienceModifier: 1
 	Chronoshiftable:

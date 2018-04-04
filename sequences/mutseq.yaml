@@ -1149,13 +1149,16 @@ mubunkr:
 	idle:
 		Start: 10
 	damaged-idle:
+		Start: 12
+	occupied:
 		Start: 11
+	damaged-occupied:
+		Start: 13
 	dead:
 		Start: 11
 		Tick: 400
 	make:
 		Length: 10
-		ShadowStart: 12
 	emp-overlay: emp_fx01
 		Length: *
 		Offset: 0, 0

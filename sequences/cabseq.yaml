@@ -549,8 +549,7 @@ cabapc:
 		Length: *
 
 ecm:
-	Inherits: ^EmpOverlay
-	idle:
+	Inherits@1: ^SpriteVehicleWithShadow
 	icon: ecmicon
 
 spiderarty:

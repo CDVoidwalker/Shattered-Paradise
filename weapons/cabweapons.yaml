@@ -258,15 +258,39 @@ Dogzooka:
 ArtisanTurretLasor:
 	ReloadDelay: 50
 	Report: lastur1.aud
-	Range: 5c0
+	Range: 7c0
 	ValidTargets: Infantry, Building, Vehicle, Defence, Airhit, Ground
 	Projectile: LaserZap
 		Width: 25
 		BeamDuration: 5
 		Color: 0dc7b8
 	Warhead@1Dam: SpreadDamage
-		Damage: 1400
+		Damage: 1000
 		DamageTypes: Prone50Percent, TriggerProne, EnergyDeath
+	# Warhead@2Dam: AttachDelayedWeapon
+		# Weapon: FireflyDelayedBombExplo
+		# TriggerTime: 250
+
+FireflyDelayedBombExplo:
+	Inherits@1: ^BombWarhead
+	Inherits@2: ^Large_Explosion
+	ValidTargets: Ground, Water
+	InvalidTargets: Air
+	Report: gexpbara, gexpbarb, gexpbarc
+	Warhead@1Dam_impact: SpreadDamage
+		Spread: 700
+		Damage: 9000
+		ValidTargets: Ground, Water
+		AffectsParent: true
+		InvalidTargets: Air
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		Versus:
+			BuildingArmor: 200
+	Warhead@5Sharpnel: FireShrapnel
+		Weapon: NukeFlame3
+		Amount: 15
+		AllowDirectHit: false
+		ValidTargets: Infantry, Vehicle, Building, Wall, Ground, Water
 
 CombatDroneAproach:
 	ReloadDelay: 25
@@ -447,37 +471,68 @@ RepairVehicleRep:
 		Damage: -5000
 		ValidTargets: Vehicle
 
+DroneHostMissile:
+	Inherits: ^RocketWarhead
+	ReloadDelay: 125
+	Range: 10c0
+	Burst: 2
+	Report: samshot1.aud
+	ValidTargets: Ground, Water
+	Projectile: Missile
+		Blockable: false
+		Speed: 200
+		Shadow: true
+		Image: dronemissile
+		AirburstAltitude: 5000
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
+		ValidTargets: Ground, Water
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+	Warhead@1: FireShrapnel
+		Amount: 6
+		Weapon: DroneHostShell
+		ValidTargets: Ground, Air, Water, Airhit
+	Warhead@2: FireShrapnel
+		Amount: 1
+		Weapon: DroneHostShellSpawner
+		ValidTargets: Ground, Air, Water, Airhit
+
 DroneHostShell:
 	Inherits: ^ArtilleryWarhead
 	Inherits@2: ^Small_Clsn
 	ReloadDelay: 150
-	Range: 14c0
-	Burst: 4
-	BurstDelays: 15
-	MinRange: 4c0
+	Range: 2c0
 	ValidTargets: Ground, Water, Vehicle, Infantry, water
 	Projectile: BulletAS
 		Speed: 200
 		Blockable: false
 		Shadow: true
-		Image: DRAGON
-		Inaccuracy: 2c0
-		ContrailLength: 10
-		ContrailUsePlayerColor: true
-		LaunchAngle: 150
+		Palette: ra
+		Image: dronemissilemini
+		TrailImage: small_smoke_trail
+		TrailPalette: effectalpha75
 		RangeLimit: 25
 	Warhead@1Dam: SpreadDamage
 		Spread: 350
-		Damage: 4500
+		Damage: 1500
 		Versus:
 			Worker: 25
 		ValidTargets: Ground, Water, Vehicle, Infantry, water
 		DamageTypes: Prone50Percent, TriggerProne, CabalDeath
+
+DroneHostShellSpawner:
+	Inherits: DroneHostShell
+	Range: 4c0
+	MinRange: 2c0
 	Warhead@5Actor: SpawnActor
 		Actors: CABSENTRY
 		FallRate: 5000
 		Range: 3
 		ValidTargets: Ground, Vehicle, Infantry, Air, Airhit
+	Warhead@1Dam: SpreadDamage
+		Spread: 1
+		Damage: 1
 
 ecmwave:
 	ReloadDelay: 125

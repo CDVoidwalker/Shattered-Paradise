@@ -158,7 +158,6 @@ BuggyCannon:
 		DamageTypes: Prone70Percent, TriggerProne, BulletDeath
 
 BikeExplo:
-	Inherits: ^DecentFalloff
 	Inherits@1: ^BombWarhead
 	Inherits@2: ^Large_Explosion
 	ValidTargets: Ground, Water, Water, Air

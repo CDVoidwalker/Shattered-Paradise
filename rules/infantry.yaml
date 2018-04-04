@@ -185,6 +185,9 @@ JUMPJETAIR:
 		Color: E0D048
 		ZOffset: 9999
 		RequiresCondition: !lawea
+	-GrantConditionOnDamageState@spawnsparks:
+	-ExplodeWeapon@spawnsparks:
+	-ExternalCondition@spawnsparks:
 
 EAGLEGUARD:
 	Inherits: ^Soldier
@@ -816,7 +819,7 @@ FLOAT:
 	Tooltip:
 		Name: Essence Collector
 	Health:
-		HP: 16875
+		HP: 17500
 	Mobile:
 		TerrainSpeeds:
 			Clear: 100
@@ -855,7 +858,7 @@ BUG:
 	Selectable:
 		Bounds: 26,30,0,-10
 	Health:
-		HP: 10100
+		HP: 20000
 	Mobile:
 		Speed: 70
 	SpawnActorOnDeath@conversion:

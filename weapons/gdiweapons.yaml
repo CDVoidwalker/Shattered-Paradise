@@ -269,7 +269,6 @@ MechDummy:
 	Range: 8c0
 	Burst: 2
 	InvalidTargets: Air
-	Report: laserchaingunfire.wav
 	ValidTargets: Ground, Water
 	Projectile: LaserZap
 		Width: 20

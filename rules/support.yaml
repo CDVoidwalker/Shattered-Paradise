@@ -284,6 +284,7 @@ MUBUNKR:
 		PipCount: 4
 		Types: Infantry
 		EjectOnDeath: true
+		LoadedCondition: loaded
 	AttackGarrisoned:
 		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
 		PortYaws: 0, 176, 341, 512, 682, 853
@@ -291,6 +292,12 @@ MUBUNKR:
 	SelectionDecorations:
 	RequiresBuildableArea:
 		AreaTypes: building
+	WithSpriteBody:
+		PauseOnCondition: loaded
+		# RequiresCondition: !loaded
+	WithIdleOverlay@1@asd:
+		RequiresCondition: loaded
+		Sequence: occupied
 	-WithColoredOverlay@IDISABLE:
 	-GrantConditionOnPowerState@LOWPOWER:
 	-GrantCondition@IDISABLE:
@@ -1179,15 +1186,15 @@ CABSENTRYTURRET:
 	Inherits: ^MiscTurret
 	Inherits@1: ^CabRender
 	Valued:
-		Cost: 50
+		Cost: 700
 	Tooltip:
-		Name: Firefly Turret
+		Name: Firefly
 	Building:
 	Selectable:
 		Bounds: 40, 30, -3, -8
 		DecorationBounds: 40, 36, -3, -8
 	Health:
-		HP: 7500
+		HP: 70000
 	-Sellable:
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -1197,6 +1204,8 @@ CABSENTRYTURRET:
 	AttackTurreted:
 	WithSpriteTurret:
 		Recoils: no
+	Transforms:
+		IntoActor: firefly
 	Armament@1:
 		Weapon: ArtisanTurretLasor
 		LocalOffset: 300,-150,300
@@ -1489,12 +1498,15 @@ MASTL:
 
 DLIMPET:
 	Inherits: ^DeployedVehicle
+	Inherits@1: ^12CellVision
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Deployed Toxin Mine
+		Name: Deployed Scout Drone
 	Health:
 		HP: 10000
+	Voiced:
+		VoiceSet: Limpet
 	-AttackTurreted:
 	-AutoTarget:
 	-RenderRangeCircle:
@@ -1506,21 +1518,8 @@ DLIMPET:
 		TransformSounds: place2.aud
 		NoTransformSounds:
 		Voice: Move
-	Cloak:
-		CloakSound:
-		UncloakSound:
-		IsPlayerPalette: true
-	WithRangeCircle:
-		Range: 3c0
-		Type: cloakgenerator
 	Selectable:
-		Bounds: 12, 30, 0, 0
-	ProximityExternalCondition@toxin:
-		Condition: AcidScaleDmg
-		ValidStances: Enemy
-		Range: 8c0
-	ExplodeWeapon:
-		Weapon: ToxinBerserk
+		Bounds: 30, 30, 0, 12
 
 GAARTY:
 	Inherits@1: ^DeployedVehicle
@@ -1636,7 +1635,6 @@ MUMINE:
 		Palette: cloakmut
 		IsPlayerPalette: true
 		CloakTypes: mine
-		UncloakOn: Dock
 	Mine:
 		CrushClasses: crate
 		DetonateClasses: crate

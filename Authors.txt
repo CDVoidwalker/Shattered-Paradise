@@ -46,7 +46,6 @@ ErastusMercy	: Mammoth Tank, disruptor, buggy, spectre and repair vehicle voxels
 GameMaster0000	: Tiberian Fiend Icon.
 Gangster	: His template.
 Hassan_2030	: Grinder vxl.
-Holy Master	: Mammoth Sprite
 Lin Kuei Ominae	: Tripod shp (Unit and Cameo).
 Marn		: Weapon light effects.
 Moder.U		: Falcon vxl, Battle Fortress vxl, Beam Cannon vxl.

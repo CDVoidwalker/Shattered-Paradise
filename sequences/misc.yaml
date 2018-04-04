@@ -803,6 +803,16 @@ projwyverm:
 		Facings: -32
 		ZOffset: 1023
 
+dronemissile:
+	idle:
+		Facings: -32
+		ZOffset: 1023
+
+dronemissilemini:
+	idle:
+		Facings: -32
+		ZOffset: 1023
+
 destroshell:
 	idle:
 		Facings: 1

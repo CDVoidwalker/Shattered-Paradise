@@ -8,6 +8,8 @@ Author: Marn
 
 Tileset: TEMPERATE
 
+SkyboxImage:
+
 MapSize: 60,120
 
 Bounds: 2,4,56,110
@@ -1075,6 +1077,27 @@ Actors:
 	Actor350: tree07
 		Owner: Neutral
 		Location: 77,10
+	Actor351: tree08
+		Owner: Neutral
+		Location: 72,13
+	Actor352: tree07
+		Owner: Neutral
+		Location: 68,9
+	Actor353: tree06
+		Owner: Neutral
+		Location: 69,9
+	Actor354: tree05
+		Owner: Neutral
+		Location: 67,8
+	Actor355: tree10
+		Owner: Neutral
+		Location: 70,11
+	Actor356: tree06
+		Owner: Neutral
+		Location: 72,14
+	Actor357: tree04
+		Owner: Neutral
+		Location: 73,15
 	Actor358: tree18
 		Owner: Neutral
 		Location: 93,1
@@ -1404,46 +1427,6 @@ Actors:
 	Actor451: gapowr
 		Owner: GDI
 		Location: 103,3
-	Actor452: sonic
-		Owner: Neutral
-		Location: 68,9
-		Facing: 255
-		TurretFacing: 255
-	Actor453: sonic
-		Owner: Neutral
-		Location: 68,11
-		Facing: 28
-		TurretFacing: 28
-	Actor454: sonic
-		Owner: Neutral
-		Location: 70,9
-		Facing: -32
-		TurretFacing: -32
-	Actor455: sonic
-		Owner: Neutral
-		Location: 69,13
-		Facing: 61
-		TurretFacing: 61
-	Actor456: sonic
-		Owner: Neutral
-		Location: 72,10
-		Facing: -62
-		TurretFacing: -62
-	Actor458: sonic
-		Owner: Neutral
-		Location: 73,12
-		Facing: 161
-		TurretFacing: 161
-	Actor459: sonic
-		Owner: Neutral
-		Location: 71,14
-		Facing: 92
-		TurretFacing: 92
-	Actor460: sonic
-		Owner: Neutral
-		Location: 73,14
-		Facing: 124
-		TurretFacing: 124
 
 Rules:
 	Player:

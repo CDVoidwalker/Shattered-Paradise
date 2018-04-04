@@ -380,6 +380,7 @@ HMEC:
 		Weapon: MechDummy
 		LocalOffset: 1200,-250,2650, 1200,250,2650
 		PauseOnCondition: empdisable
+		FireDelay: 8
 	Targetable@MindControl:
 		TargetTypes: MindControlInmune
 	-TemporaryOwnerManager:
@@ -770,6 +771,7 @@ TTNK:
 	WithVoxelTurret@deployed:
 		Turret: deployed
 		RequiresCondition: deployed
+		Armament: deployed
 	AttackTurreted@deployed:
 		Voice: Attack
 		Turrets: deployed
@@ -1929,6 +1931,43 @@ REPAIRVEHICLE:
 	-GainsExperience:
 	-ProducibleWithLevel:
 
+ECM:
+	Inherits: ^VoxelVehicle
+	Inherits@1: ^Ra2vxl
+	Inherits@3: ^CabRender
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Artisan
+	Buildable:
+		Queue: Vehicle
+		Description: Utility vehicle.\n\nSpecial:\n- Can place up to 8 mines in the battlefield\n- Reloads in service depot.\n- Mines are cloaked and harm all unit types.\n- Can crush Infantry.
+		BuildPaletteOrder: 33
+		Prerequisites: ~cabweap, cabradr
+	Mobile:
+		TurnSpeed: 3
+		Speed: 50
+	Voiced:
+		VoiceSet: Limpet
+	AmmoPool:
+		Ammo: 8
+		ReloadDelay: 25
+	Minelayer:
+		Mine: mumine
+		RearmBuildings: scrdepot, gadept
+	Health:
+		HP: 40000
+	SelectionDecorations:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	Selectable:
+		DecorationBounds: 50, 50, 0, 0
+	-SelfHealing@veinholedrain:
+	-ExternalCondition@veinholedrain:
+	-WithIdleOverlay@veinholedrain:
+	-GrantConditionOnTerrain@VEINS:
+
 CABAPC:
 	Inherits: ^VoxelVehicle
 	Inherits@1: ^Ra2vxl
@@ -2002,8 +2041,8 @@ SPIDERARTY:
 	AttackFrontal:
 		PauseOnCondition: empdisable
 	Armament:
-		Weapon: DroneHostShell
-		LocalOffset: -500,-150,900, -300,150,1200, -500,150,900, -300,-150,1200
+		Weapon: DroneHostMissile
+		LocalOffset: -500,-150,900, -500,150,900
 		MuzzleSequence: muzzle
 		PauseOnCondition: empdisable
 	AutoTarget:
@@ -2107,31 +2146,41 @@ JUGGER:
 		Bounds: 30, 35, 0, -8
 
 LIMPED:
-	Inherits@1: ^ScrinRender
-	Inherits@3: ^HoverVehicle
+	Inherits: ^VoxelTank
+	Inherits@2: ^HoverVehicle
+	Inherits@1: ^8CellVision
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Toxin Drone
+		Name: Scout Drone
 		Description: Hover Drone, cloaks when deployed. Spreads unsmellable\ngas around it confusing nearby units becoming uncontrollable.\n\nUnnarmed.
 	Health:
 		HP: 10000
 	Mobile:
 		Speed: 90
 		Crushes: crate
-	Transforms:
-		IntoActor: dlimpet
-		Facing: 96
-		TransformSounds: place2.aud
-		NoTransformSounds:
-		Voice: Move
+	# Transforms:
+		# IntoActor: dlimpet
+		# Facing: 96
+		# TransformSounds: place2.aud
+		# NoTransformSounds:
+		# Voice: Move
 	WithSpriteBody:
+	Voiced:
+		VoiceSet: Limpet
 	Selectable:
-		Bounds: 12, 30, 0, 0
+		Bounds: 20, 30, 0, -6
 	RenderSprites:
 	BodyOrientation:
 		QuantizedFacings: 32
 	Hovers:
+	-RenderVoxels:
+	-WithVoxelBody:
+	WithFacingSpriteBody:
+	-AutoTarget:
+	-AutoTargetPriority@DEFAULT:
+	-AutoTargetPriority@ATTACKANYTHING:
+	AttackMove:
 
 REPAIR:
 	Inherits: ^VoxelTank
