@@ -832,6 +832,7 @@ MUTSW2:
 		EmptyWeapon: ScrinBuildingExplode
 		Type: Footprint
 	SmokeParticleEmitter:
+		Duration: 100
 		RequiresCondition: smoketrail
 		Sequence: idle
 		SpawnFrequency: 3, 10

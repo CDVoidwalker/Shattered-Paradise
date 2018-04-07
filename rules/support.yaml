@@ -888,8 +888,9 @@ MUVENTI:
 		Dimensions: 2,2
 	Health:
 		HP: 100000
-	NydusPrimaryExit:
-	Nydus:
+	TeleportNetworkPrimaryExit:
+	TeleportNetwork:
+		Type: mutantteleportnetwork
 		PauseOnCondition: disabled
 	RallyPoint:
 	Exit:

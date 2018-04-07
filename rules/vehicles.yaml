@@ -1675,7 +1675,7 @@ SCRMOBMINE:
 		Cost: 1400
 	Tooltip:
 		Name: Subjugator
-	Mindcontroller:
+	MindController:
 		Capacity: 3
 		Sound: sonpulse.aud
 		GiveCondition: mindcontrolled
@@ -1706,8 +1706,8 @@ SCRMOBMINE:
 
 TRIPOD:
 	Inherits@1: ^Walker
-	Inherits: ^ScrinVehicle
-	Inherits@2: ^8CellVision
+	Inherits@2: ^ScrinVehicle
+	Inherits@3: ^8CellVision
 	Valued:
 		Cost: 1400
 	Tooltip:

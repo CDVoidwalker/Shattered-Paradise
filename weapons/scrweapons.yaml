@@ -716,13 +716,6 @@ DestroyerCannon:
 		SmudgeType: MediumCrater
 		InvalidTargets: Vehicle, Building, Wall
 
-DestroyerCannonOP:
-	Range: 10c0
-	Inherits: DestroyerCannon
-	Warhead@op: FireCluster
-		Weapon: DestroyerCannon
-		Range: 2
-
 FighterSpawn:
 	Inherits: ^ArtilleryWarhead
 	ReloadDelay: 25

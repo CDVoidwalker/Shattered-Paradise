@@ -47,7 +47,8 @@ Player:
 	PlayerExperience:
 	PowerManager:
 	AllyRepair:
-	NydusCounter:
+	TeleportNetworkManager:
+		Type: mutantteleportnetwork
 	PlayerResources:
 	DeveloperMode:
 		CheckboxEnabled: true

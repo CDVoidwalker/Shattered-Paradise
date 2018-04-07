@@ -409,8 +409,8 @@
 		RequiresCondition: FirestormWallCondition
 
 ^MindControllable:
-	WithMindcontrolArc:
-	Mindcontrollable:
+	WithMindControlArc:
+	MindControllable:
 		RequiresCondition: !invulnerability
 		UnmindcontrolSound: bleep5.aud
 
@@ -709,6 +709,7 @@
 		Offset: 0,0,0,0,0,0
 		Image: sgrysmk1
 		Palette: effectalpha50
+		Duration: 100
 	ExternalCondition@smoketrail:
 		Condition: smoketrail
 
@@ -1085,7 +1086,7 @@
 		Radius: 3c0
 	Valued:
 		Cost: 1
-	NydusTransportable:
+	TeleportNetworkTransportable:
 	Health:
 		HP: 5000
 		Shape: Circle
@@ -1491,7 +1492,7 @@
 		TunnelCondition: inside-tunnel
 		TurnSpeed: 7
 		Voice: Move
-	NydusTransportable:
+	TeleportNetworkTransportable:
 	Selectable:
 		Bounds: 40,30
 	SelectionDecorations:
@@ -1609,13 +1610,13 @@
 	Inherits: ^Vehicle
 	Inherits@1: ^Academy
 	Inherits@2: ^AutoTargetGroundAssaultMove
-
 	Mobile:
 		Crushes: wall, crate, infantry
 	Explodes:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	SmokeParticleEmitter:
+		Duration: 100
 		Offset: 0,0,400
 	HitShape:
 		TargetableOffsets: 0,0,400
@@ -1631,6 +1632,7 @@
 	Voiced:
 		VoiceSet: Seeker
 	SmokeParticleEmitter:
+		Duration: 100
 		Image: scrsmoke
 		Palette: apolbluealpha60
 
